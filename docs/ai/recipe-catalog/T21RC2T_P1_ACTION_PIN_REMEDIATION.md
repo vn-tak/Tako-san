@@ -2,6 +2,11 @@
 
 **STATUS:** `T21RC2T_P1_FIXED_READY_FOR_INDEPENDENT_REVIEW`.
 
+Published [PR #44](https://github.com/vn-tak/Tako-san/pull/44): confirmed
+**DRAFT / OPEN / UNMERGED**, no auto-merge. CI/review update subscription enabled.
+Initial hosted CI is in progress; no human reviews or unresolved review threads
+at publication. Hosted success is not claimed; all results below are local.
+
 Repository `vn-tak/Tako-san`, ID `1385308553`. Starting live main was exactly
 `b3fd7baf9c25ae195bdc6f52ed9ca27f34cef455`, fetched before editing and again before
 committing; no concurrent main was absorbed. Fresh isolated branch:
@@ -137,8 +142,9 @@ PR contract: dedicated **DRAFT / OPEN / UNMERGED**, with no self approval,
 ready conversion or auto-merge. The PR is the authority for its final
 docs-inclusive head and hosted checks; this report records the verified
 implementation checkpoint rather than its own documentation commit hash.
-Next: stop after draft publication and verification; hand off the exact final
-head for fresh independent review. Never rerun `37304008220` or dispatch a new
+Next: stop this remediation phase with the draft PR published; the update loop
+will resume for settled hosted checks or feedback. Hand off the exact final head
+for fresh independent human review. Never rerun `37304008220` or dispatch a new
 production workflow in this task.
 
 All P1 production operation counts are **0**: dispatch, Environment approval,

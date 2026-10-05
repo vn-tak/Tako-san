@@ -25,8 +25,11 @@ Checks: baseline 5/5 exposed the blind spot; intentional pre-fix red 1 failed /
 smoke/build/diff checks PASS. Real-Git comparison confirms only one workflow pin
 changed and all 73 C2 review-bound specifications unchanged. No post-fix failures.
 
-**Next:** dedicated draft/open/unmerged PR only, then STOP and obtain fresh
-independent review by `vn-taphoanhatung` on the final head. Old review `5412451575`
+**Publication/Next:** [PR #44](https://github.com/vn-tak/Tako-san/pull/44) is
+confirmed draft/open/unmerged, no auto-merge; update subscription enabled.
+Hosted CI in progress; no human reviews or unresolved threads at publication.
+STOP and obtain fresh independent review by `vn-taphoanhatung` on the final head.
+Old review `5412451575`
 does not authorize these changed review-bound bytes; no merge or readiness
 conversion. All P1 production operation counts 0; corruption NOT PROVEN; repair
 needs more evidence; 0039 relevance NONE; 0039/deploy NOT AUTHORIZED; T21G NOT READY.

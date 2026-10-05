@@ -25,7 +25,10 @@ failed as expected before fix (1 failed / 5 passed, exit 1). Post-fix 3 files /
 Real-Git workflow delta is one pin only; all 73 C2 bound specifications unchanged.
 No post-fix failing/skipped gate; commands and recovered inspection issue in report.
 
-**Next:** Publish/verify a dedicated draft/open/unmerged PR, then STOP. Required
+**Next:** [PR #44](https://github.com/vn-tak/Tako-san/pull/44) is published and
+confirmed draft/open/unmerged, no auto-merge; CI/review update subscription enabled.
+Initial hosted CI in progress; no human reviews or unresolved threads at publication.
+STOP; the update loop will resume when hosted checks or feedback settle. Required
 fresh independent reviewer is `vn-taphoanhatung`; later merge actor `vn-tak`.
 No self approval, ready conversion, merge, failed-run rerun or production dispatch.
 

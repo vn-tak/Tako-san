@@ -15,6 +15,9 @@
   workflow comparison and zero changes across all 73 C2 bound specifications.
 - [x] Record the verified implementation checkpoint and exact evidence/checks in
   the separate report and required three AI checkpoint documents.
+- [x] Publish [PR #44](https://github.com/vn-tak/Tako-san/pull/44), confirmed
+  draft/open/unmerged with no auto-merge; subscribe to updates and inspect
+  initial hosted CI/reviews (CI in progress; no human reviews/unresolved threads).
 - [ ] Fresh human independent review by `vn-taphoanhatung` of the final draft PR
   head; old review `5412451575` does not cover the new workflow/test bytes.
 
@@ -22,7 +25,8 @@
 PR must remain draft/open/unmerged; no self approval, ready conversion or merge.
 All P1 production operation counts 0; failed run never rerun. Corruption NOT
 PROVEN; repair needs more evidence; 0039 relevance NONE; 0039/deploy NOT AUTHORIZED;
-T21G NOT READY. Next: publish/verify the dedicated draft PR, then STOP for review.
+T21G NOT READY. Next: STOP for fresh independent review; the subscribed update
+loop will resume for settled hosted checks or feedback.
 Report: [`T21RC2T_P1_ACTION_PIN_REMEDIATION.md`](recipe-catalog/T21RC2T_P1_ACTION_PIN_REMEDIATION.md).
 
 ---

@@ -134,6 +134,14 @@ describe('production recovery workflow boundaries', () => {
     expect(workflow.indexOf('production-catalog-recovery-approval.mjs approve')).toBeLessThan(
       workflow.indexOf('production-catalog-recovery-runner.mjs'));
   });
+  it('registers on main push without credentials and keeps the production gate dispatch-only', () => {
+    const registration = workflow.slice(workflow.indexOf('  register:'), workflow.indexOf('  gate:'));
+    expect(registration).toContain("if: github.event_name == 'push'");
+    expect(registration).not.toMatch(/environment:|secrets\.|checkout|node scripts|wrangler/);
+    expect(workflow).toContain("if: github.event_name == 'workflow_dispatch' && github.ref == 'refs/heads/main' && inputs.confirm_catalog_recovery == true");
+    expect(workflow).toContain('    needs: gate');
+    expect(() => verifyRecoveryRun({ ...run, event: 'push' }, { ...env, GITHUB_EVENT_NAME: 'push' })).toThrow();
+  });
   it('publishes only named aggregate proofs and keeps generated SQL private', () => {
     const artifact = workflow.slice(workflow.indexOf('Save aggregate recovery'), workflow.indexOf('Clear private generated SQL'));
     expect(artifact).toContain('catalog-recovery-authorization.json');

@@ -1,6 +1,9 @@
 name: Production Catalog V1 Recovery
 
 on:
+  # Register the new workflow in Actions; production work remains dispatch-only.
+  push:
+    branches: [main]
   workflow_dispatch:
     inputs:
       ref:
@@ -31,8 +34,16 @@ concurrency:
   cancel-in-progress: false
 
 jobs:
+  register:
+    if: github.event_name == 'push'
+    runs-on: ubuntu-latest
+    timeout-minutes: 1
+    steps:
+      - name: Register manual recovery without production access
+        run: echo 'Production recovery requires an explicit reviewed dispatch and Environment approval.'
+
   gate:
-    if: github.ref == 'refs/heads/main' && inputs.confirm_catalog_recovery == true
+    if: github.event_name == 'workflow_dispatch' && github.ref == 'refs/heads/main' && inputs.confirm_catalog_recovery == true
     runs-on: ubuntu-latest
     timeout-minutes: 5
     outputs:

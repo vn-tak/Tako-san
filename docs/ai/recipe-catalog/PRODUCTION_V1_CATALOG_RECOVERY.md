@@ -21,6 +21,9 @@ replayed remotely or edited. V2 enrichment remains outside this release authorit
 
 ## Execution boundary
 
+Production operations remain manual-only. A main-push job containing only echo
+registers the workflow, without checkout, production Environment or secrets.
+The production gate explicitly rejects non-dispatch events.
 Manual workflow `Production Catalog V1 Recovery` exposes only `inspect`,
 `static-pin`, `restore-v1`. Dispatch current-main exact SHA and the final merged
 implementation PR head whose complete tree equals main. The gate verifies repo/run/
@@ -108,3 +111,12 @@ version at each stage rather than converting offline evidence into deployed stat
 - Two independent implementation reviews: no remaining blocking findings. Provider API metadata compatibility remains a production inspection prerequisite; local mocks are not proof of the deployed provider shape.
 
 No remote catalog repair, migration or new application deployment has occurred.
+
+## Registration checkpoint aea900d
+
+The initial new dispatch-only file remained absent from the Actions workflow index
+and web; GET and CLI/REST dispatch404 despite default-main blob and actionlint
+validation. No recovery run or production mutation was created. Registration-only
+main push is a bounded workaround, not a diagnosed provider root cause.
+Actionlint1.7.12, lint, diff check and13 approval tests PASS; independent review
+reports no blockers. Hosted PR/main CI and successful registration are still required.

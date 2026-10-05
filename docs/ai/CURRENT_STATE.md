@@ -1,3 +1,41 @@
+# Production V1 catalog recovery checkpoint - 2026-10-05 UTC
+
+Executable checkpoint `7f59afa` on `codex/production-v1-recovery` starts from
+merged guard PR #45 / main `603c4404bebd53fce711b47c9d5cef9b30ce2bfa`.
+Exact-main guard CI [37320114700](https://github.com/vn-tak/Tako-san/actions/runs/37320114700)
+succeeded. User confirms no real users; user-data retention certification is
+excluded. Source restoration uses certified V1, without assigning ambiguous
+positions to the live ingredient population or claiming proven corruption.
+
+Independent implementation reviews found no remaining blockers. The recovery
+workflow binds the final merged PR head to the complete exact-main tree and CI,
+normal independent production Environment approval and the shared production lock.
+It first clones the exact old Worker source/runtime/bindings/assets with only
+catalog static/0/cutover=false, then imports one atomic generated catalog batch.
+Unknown provider metadata stops before mutation. Lost import response records an
+unknown outcome requiring inspection; it never blindly retries or rolls back.
+Catalog-only archive rollback requires the unchanged generated target and the
+same pinned static Worker. Historical migrations and unrelated tables are intact.
+
+Validation: targeted four suites / 56 tests PASS; lint, typecheck, migration
+smoke, production build, syntax and diff checks PASS. Actual local workerd D1
+restore and rollback PASS with pinned Wrangler 3.114.17: restore hydrates 500
+recipes at fingerprint `f8cf8c7ff59df9fe29e246b9e3c9aad0fd155fa8df35bf671ac4d03fa2b5ab37`,
+ledger38/FK0, archive6720; rollback restores6720/order0/FK0. A local compound
+SELECT parser limit was reproduced and fixed by using VALUES. Full-suite result
+first run: 5638 PASS / one unchanged Wrangler timeout; narrow recheck32 PASS.
+Full recheck is running; hosted final-head CI is required before merge.
+
+Production still serves the old Worker `136cb6ff3d2921eac237c7b106b37ab5ee12a13f`
+on static fallback, ledger38/0038/order0/hydration0. Remote recovery, migration
+and new application deployment counts remain0. Next: merge green recovery PR,
+require exact-main CI, run protected recovery and retain aggregate evidence;
+then guarded0039, staging and production Deploy with immutable release inputs.
+Report: [PRODUCTION_V1_CATALOG_RECOVERY.md](recipe-catalog/PRODUCTION_V1_CATALOG_RECOVERY.md).
+Earlier sections are historical and their open-PR claims are superseded.
+
+---
+
 # Production release readiness - 2026-10-05 UTC
 
 Current implementation checkpoint `81255c1` on

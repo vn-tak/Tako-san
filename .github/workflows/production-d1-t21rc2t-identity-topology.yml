@@ -1,0 +1,104 @@
+name: Production D1 T21R-C2T Identity Topology
+
+on:
+  workflow_dispatch:
+    inputs:
+      ref:
+        description: Full immutable current-main SHA with successful exact-main push CI
+        type: string
+        required: true
+      reviewed_sha:
+        description: Full independently reviewed C2T implementation SHA contained in current main
+        type: string
+        required: true
+      confirm_t21rc2t_read_only_diagnostic:
+        description: Confirm the separately approved read-only C2T identity topology diagnostic
+        type: boolean
+        required: true
+        default: false
+
+permissions:
+  contents: read
+  actions: read
+
+concurrency:
+  group: frigo-deploy-production
+  cancel-in-progress: false
+
+jobs:
+  gate:
+    if: github.ref == 'refs/heads/main' && inputs.confirm_t21rc2t_read_only_diagnostic == true
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    outputs:
+      candidate_sha: ${{ steps.gate.outputs.candidate_sha }}
+    steps:
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
+        with:
+          ref: main
+          fetch-depth: 0
+          persist-credentials: false
+      - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020 # v4.4.0
+        with:
+          node-version: 24
+      - name: Require exact current main, independent reviewed closure and exact-main CI
+        id: gate
+        env:
+          GH_TOKEN: ${{ github.token }}
+          RELEASE_REF: ${{ inputs.ref }}
+          REVIEWED_SHA: ${{ inputs.reviewed_sha }}
+          CONFIRM_T21RC2T_READ_ONLY_DIAGNOSTIC: ${{ inputs.confirm_t21rc2t_read_only_diagnostic }}
+        run: node scripts/t21rc2t-production-approval.mjs gate
+
+  capture:
+    needs: gate
+    runs-on: ubuntu-latest
+    environment: production
+    timeout-minutes: 25
+    env:
+      RELEASE_REF: ${{ needs.gate.outputs.candidate_sha }}
+      REVIEWED_SHA: ${{ inputs.reviewed_sha }}
+      CONFIRM_T21RC2T_READ_ONLY_DIAGNOSTIC: ${{ inputs.confirm_t21rc2t_read_only_diagnostic }}
+    steps:
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
+        with:
+          ref: ${{ needs.gate.outputs.candidate_sha }}
+          fetch-depth: 0
+          persist-credentials: false
+      - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020 # v4.4.0
+        with:
+          node-version: 24
+      - uses: pnpm/action-setup@e9380648b2a849f35e2732bdc8e24f7880e5f5aa # v4.3.0
+        with:
+          version: 10
+      - name: Install the frozen production capture toolchain
+        run: pnpm install --frozen-lockfile
+      - name: Require normal independent production Environment approval
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: node scripts/t21rc2t-production-approval.mjs approve
+      - name: Reauthorize before Cloudflare identity and fixed read-only capture
+        env:
+          GH_TOKEN: ${{ github.token }}
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          WRANGLER_SEND_METRICS: 'false'
+        run: node scripts/t21rc2t-production-capture.mjs capture
+      - name: Aggregate privately captured evidence without production credentials
+        run: node scripts/t21rc2t-production-receipt.mjs aggregate
+      - name: Recheck exact main, CI, review closure and normal approval
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: node scripts/t21rc2t-production-approval.mjs recheck
+      - name: Recompute and validate the closed aggregate receipt without credentials
+        run: node scripts/t21rc2t-production-receipt.mjs validate
+      - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4.6.2
+        if: success()
+        with:
+          name: production-t21rc2t-topology-${{ github.run_id }}-${{ github.run_attempt }}
+          path: ${{ runner.temp }}/t21rc2t-public/t21rc2t-public-receipt.json
+          if-no-files-found: error
+          retention-days: 30
+      - name: Remove all private capture and public receipt files
+        if: always()
+        run: node scripts/t21rc2t-production-capture.mjs cleanup

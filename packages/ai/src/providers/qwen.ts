@@ -38,6 +38,7 @@ export interface QwenCallOptions {
   maxTokens?: number;
   temperature?: number;
   jsonMode?: boolean;
+  visionRepairInstructions?: string;
 }
 
 function recordValue(record: Record<string, unknown>, aliases: readonly string[]): unknown {
@@ -294,7 +295,7 @@ export class QwenProvider implements AIProvider {
   }
 
   async vision(params: VisionScanParams, options: QwenCallOptions = {}): Promise<VisionScanResult> {
-    const prompt = params.promptOverride || `Bạn là chuyên gia nhận diện nguyên liệu thực phẩm trong tủ lạnh cho ứng dụng Frigo tại Việt Nam.
+    const basePrompt = params.promptOverride || `Bạn là chuyên gia nhận diện nguyên liệu thực phẩm trong tủ lạnh cho ứng dụng Frigo tại Việt Nam.
 Hãy phân tích bức ảnh và trả về DUY NHẤT một JSON object hợp lệ theo định dạng:
 {
   "items": [
@@ -308,6 +309,9 @@ Hãy phân tích bức ảnh và trả về DUY NHẤT một JSON object hợp l
 }
 Chỉ trả về JSON thuần, không thêm markdown code block thừa.`;
 
+    const prompt = options.visionRepairInstructions
+      ? `${basePrompt}\nRepair only these validation failures: ${options.visionRepairInstructions}`
+      : basePrompt;
     const parsed = await this.completeVision(prompt, params, options.maxTokens ?? 1024, options.temperature);
     let validated: VisionScanResult;
     try {
@@ -334,7 +338,7 @@ Chỉ trả về JSON thuần, không thêm markdown code block thừa.`;
   }
 
   async receiptScan(params: VisionScanParams, options: QwenCallOptions = {}): Promise<ReceiptScanResult> {
-    const prompt = params.promptOverride || `Bạn là hệ thống OCR hóa đơn thực phẩm cho ứng dụng Frigo tại Việt Nam.
+    const basePrompt = params.promptOverride || `Bạn là hệ thống OCR hóa đơn thực phẩm cho ứng dụng Frigo tại Việt Nam.
 Đọc ảnh hóa đơn và trả về DUY NHẤT một JSON object hợp lệ theo định dạng:
 {
   "merchant_name": "Tên cửa hàng",
@@ -353,6 +357,9 @@ Chỉ trả về JSON thuần, không thêm markdown code block thừa.`;
   ]
 }
 Bỏ qua dòng không phải thực phẩm và không tự bịa sản phẩm không nhìn thấy.`;
+    const prompt = options.visionRepairInstructions
+      ? `${basePrompt}\nRepair only these validation failures: ${options.visionRepairInstructions}`
+      : basePrompt;
     const parsed = await this.completeVision(prompt, params, options.maxTokens ?? 1_500, options.temperature);
     let validated: ReceiptScanResult;
     try {

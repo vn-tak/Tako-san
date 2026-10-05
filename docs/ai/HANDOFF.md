@@ -1,3 +1,59 @@
+# T21R-C2T identity topology implementation handoff — 2026-10-05 UTC
+
+**State:** `T21RC2T_IMPLEMENTED_READY_FOR_INDEPENDENT_REVIEW`; code checkpoint
+`f191b48`, fresh `feat/t21rc2t-identity-topology-diagnostic` from certified
+PR #42 main `5218b0b`. Draft
+[PR #43](https://github.com/vn-tak/Tako-san/pull/43) is open, unmerged, with
+auto-fix subscription enabled and no auto-merge. Final docs-inclusive head and
+fresh hosted CI evidence belong in the PR; this checkpoint does not contain its
+own hash. Independent required human review: NOT YET PERFORMED.
+
+**Evidence:** Live baseline/repository/clean-checkout gate passed before editing;
+main still matched before publication. Exact-main push CI 37261145409,
+job 111608452594, attempt 1, SUCCESS, all five steps verified via GitHub GET.
+Actual offline source/engine acceptance: V1 500/2,702, V2 500/6,766,
+4,233/4,233 ING_ENR formula matches and 1,395 distinct matches, zero mismatches.
+Synthetic full-scale, residual 65/6/59, candidate, multiplicity, shape, schema,
+private/public accounting, determinism and privacy tests pass. These cannot
+establish live production topology or authorize a repair.
+
+**Changes:** New dedicated C2T workflow and approval/capture/files/source/topology/
+receipt modules, closed receipt schema, design and six test suites/helper.
+Review closure 119 unique specs (78 required files / 6 directories / 35 optional),
+including all 73 C2 specs and full dynamic data/import/artifact trees. Existing
+C2, V1, generator data, application/auth/payment, inventory/Week, Wrangler config
+and migrations unchanged. Fixed production SELECTs unchanged; new production SQL 0.
+
+**Checks/failures:**
+- `TZ=UTC pnpm exec vitest run tests/unit/t21rc2t-*.test.mjs
+  tests/unit/t21rc2-*.test.mjs tests/unit/t21rc-row-reconciliation.test.mjs
+  --maxWorkers=1` — 14 files / 538 PASS; C2T 6/118, C2 8/420.
+- `TZ=UTC pnpm exec vitest run --maxWorkers=1` — 243 files / 5,547 PASS,
+  exit 0, 626.96 seconds on `f191b48`, Node 24.21.0.
+- `pnpm lint`, `pnpm typecheck`, `pnpm check:migrations`, `pnpm build`,
+  syntax checks and staged/baseline `git diff --check` PASS. Cloudflare credentials
+  removed, telemetry disabled; migration smoke is sandbox-local SQLite only.
+- Initial source-member omission, multiset-only fixture count and inconsistent
+  final authorization fixture corrected and rerun. Internal audit's concept-
+  alias labeling and exact-witness accounting gaps fixed with regressions;
+  context-only/mixed coverage retained. No coverage/timeouts weakened.
+- Environment availability flags are bound metadata, not actual approval use;
+  compatible normal C2 approval remains allowed, actual self/skipped/bypass use
+  remains rejected. No Environment access or policy change performed.
+
+**Next:** Confirm final PR head/current-head CI, then separate T21R-C2T-R review
+by `vn-taphoanhatung`. Keep draft; no mark-ready, self-approval, merge, production
+dispatch/read, Environment approval, C2/C4I rerun, repair, 0039, canary or deploy.
+Any automated branch advance requires renewed review of a new immutable head.
+
+**Boundary:** Corruption NOT PROVEN; C2F ADDITIONAL_DIAGNOSTIC_REQUIRED;
+repair REPAIR_NEEDS_MORE_EVIDENCE; 0039 relevance NONE/application NOT AUTHORIZED;
+deploy NOT AUTHORIZED; T21G NOT READY. All production operations 0.
+
+**Report:** `recipe-catalog/T21RC2T_IDENTITY_TOPOLOGY_DIAGNOSTIC.md`.
+
+---
+
 # T21R-C2F semantic drift / identity forensic handoff — 2026-10-05 UTC
 
 **State:** Read-only forensic complete on branch `hoplite/dreros-8066d555` from main

@@ -1,3 +1,39 @@
+# T21R-C2T privacy-safe identity topology implementation — 2026-10-05 UTC
+
+- [x] Exact live-main/checkout/repository hard gate from certified PR #42; verify
+  exact-main CI 37261145409 / job 111608452594 / attempt 1 / push / SUCCESS.
+- [x] Fresh isolated branch and separate C2T approval/capture/workflow; preserve
+  all C2 bytes, exact SELECTs and certified two-capture envelope; new SQL 0.
+- [x] Independent 119-spec review closure, including all 73 C2 paths, complete
+  source/artifact/import graphs and absent optional configuration introductions.
+- [x] Real V1/V2 source verification and derived V2 formula lineage 4,233/4,233
+  occurrences and 1,395 distinct IDs; no production lineage claim.
+- [x] Candidate/competition, semantic/multiplicity, 65-residual, conservative
+  two-sided shape and anonymous per-recipe distributions; no invented conversion.
+- [x] Closed aggregate receipt, complementary K5 suppression, private exact
+  accounting/recomputation, fixed errors, restrictive raw storage, success-only
+  literal artifact and always cleanup; no individual/hash/vector disclosure.
+- [x] Required synthetic 500/2,702/6,720/6,766, 65/6/59 and adversarial corpus;
+  alias/context separation and exact-witness accounting audit regressions.
+- [x] Focused 14 files / 538 PASS (new C2T 6/118, unchanged C2 8/420).
+- [x] Full UTC single-worker Vitest 243 files / 5,547 PASS, exit 0, 626.96 seconds;
+  lint/typecheck/local SQLite migration smoke/build/syntax/diff PASS.
+- [x] Code checkpoint `f191b48`; draft
+  [PR #43](https://github.com/vn-tak/Tako-san/pull/43) opened and auto-fix
+  subscription enabled. Final documentation-inclusive SHA and exact-head hosted
+  CI result are anchored in that PR, not in a self-referential document hash.
+- [ ] Independent T21R-C2T-R review by `vn-taphoanhatung` of the final frozen
+  PR head after current-head CI success. No implementation self-approval.
+
+Status `T21RC2T_IMPLEMENTED_READY_FOR_INDEPENDENT_REVIEW` is implementation only.
+Keep PR DRAFT/unmerged. Production operations 0; corruption NOT PROVEN;
+repair REPAIR_NEEDS_MORE_EVIDENCE; 0039 relevance NONE/application NOT AUTHORIZED;
+deploy NOT AUTHORIZED; T21G NOT READY. No C2/C4I rerun or Environment approval.
+Design/check/failure evidence:
+`recipe-catalog/T21RC2T_IDENTITY_TOPOLOGY_DIAGNOSTIC.md`.
+
+---
+
 # T21R-C2F semantic drift / ingredient identity forensic — 2026-10-05 UTC
 
 - [x] Verify run 37202777157 attempt 1, artifact 11304380358 digest, execution and

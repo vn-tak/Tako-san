@@ -170,7 +170,9 @@ must exist in the reviewed implementation tree.
 
 Actor is `vn-tak`; normal production Environment reviewer is
 `vn-taphoanhatung`, distinct from actor and triggering actor. Self/skipped/bypass
-approval is rejected without altering Environment policy. Ordering is offline
+approval is rejected without altering Environment policy. As in C2, configured
+admin-bypass/self-review availability is bound policy metadata, not proof of
+actual bypass/self use; a policy change invalidates the fresh recheck. Ordering is offline
 gate → production Environment approval → fresh pre-credential authorization →
 identity proof/fixed capture → credential-free aggregation → fresh main/CI/
 approval/closure recheck → private recomputation/schema/byte validation → success-
@@ -178,7 +180,9 @@ only artifact → always cleanup. Token read-only scope remains unproven; only t
 reachable query path is SELECT-only.
 
 `T21RC2T_REVIEW_BOUND_PATHS` and its reviewed directory-union comparison in the
-approval module are the executable closure authority. They include all new C2T
+approval module are the executable closure authority: 119 unique path
+specifications (78 required files, 6 full directory roots, 35 optional paths),
+including all 73 existing C2 specifications. They include all new C2T
 files/schema/design/tests, shared C2 capture/gate/file/classifier/receipt and V1
 authority dependencies, generator, refresh/import/domain graphs, V1 batch and
 manifest data, complete V2 data/artifacts, migrations, package/lock/toolchain and
@@ -202,17 +206,47 @@ directories; failures have zero artifacts and no automatic retry.
 
 ## Verification checkpoint and next action
 
-Initial privacy suite: `TZ=UTC pnpm exec vitest run
-tests/unit/t21rc2t-privacy.test.mjs --maxWorkers=1` — 1 file / 34 tests PASS.
-Actual offline V2 acceptance through `loadTopologyAuthorities`, aggregator,
-receipt creation and private validation PASS: 500 / 2,702 / 6,766;
-formula 4,233 occurrences and 1,395 distinct IDs, zero mismatches.
-The first source-loader check rejected the omitted hashed
-`nutrition-evidence.json` member; the authority envelope was corrected and the
-unchanged source acceptance rerun passed. No production evidence was queried.
+Executable checkpoint `f191b48`; draft
+[PR #43](https://github.com/vn-tak/Tako-san/pull/43). The final docs-inclusive head
+and current-head hosted CI receipt are maintained in the PR, not in a document
+that would need to contain its own hash. Auto-fix subscription is enabled;
+no auto-merge. Any branch advance invalidates review of an earlier exact head.
 
-Remaining at this checkpoint: focused topology/authority/workflow and existing C2
-regressions, full prescribed gates, draft PR and known final-head CI. Independent
-human security/privacy/authority review is **NOT YET PERFORMED** and remains the
-separate T21R-C2T-R phase. Do not mark ready, approve, merge, dispatch, approve an
-Environment, query production, repair, apply 0039 or deploy in this task.
+With Cloudflare credentials removed and `WRANGLER_SEND_METRICS=false`:
+
+| Executed check | Result |
+| --- | --- |
+| `TZ=UTC pnpm exec vitest run tests/unit/t21rc2t-*.test.mjs tests/unit/t21rc2-*.test.mjs tests/unit/t21rc-row-reconciliation.test.mjs --maxWorkers=1` | 14 files / 538 tests PASS; C2T 6/118, unchanged C2 8/420 |
+| `TZ=UTC pnpm exec vitest run --maxWorkers=1` | 243 files / 5,547 tests PASS, exit 0, 626.96 seconds, Node 24.21.0, on `f191b48` |
+| `pnpm lint`, `pnpm typecheck` | PASS |
+| `pnpm check:migrations` | PASS, `migration-smoke=ok`, local SQLite only |
+| `pnpm build` | PASS, web and Worker compilation only |
+| Syntax and staged/baseline `git diff --check` | PASS |
+| Actual committed V2 through source loader, engine and receipt validation | 500/6,766; 4,233 formula-matching occurrences / 1,395 distinct IDs; zero mismatches |
+| Required synthetic 500/2,702/6,720/6,766, 65/6/59 residual, candidate/multiplicity/shape, privacy/hash, schema/accounting/determinism, failure artifact policy | PASS |
+
+Recovered failures and audit fixes:
+
+- The initial V2 loader omitted hashed `nutrition-evidence.json`; the full
+  503-member envelope was corrected and acceptance rerun passed.
+- A synthetic remaining-only multiset fixture expected 1 rather than 2 rows;
+  corrected the expected unmatched multiset count, not the pairing algorithm.
+- A changed-main final authorization fixture left its CI SHA at the old main;
+  made the changed authorization internally valid so it tests recheck drift.
+- Internal implementation audit found repository concept aliases mislabeled as
+  context-only and exact-witness competition not reconciled with exact-match
+  counts. Both were fixed; direct alias, explicit unequal context/mixed-key and
+  omitted-competition regressions pass. Updated old preparation-name fixture
+  expectations to the required equal-concept semantics; did not weaken coverage.
+- Approval preserves C2's availability-versus-use distinction without any live
+  Environment access or configuration change. Actual bypass/self/skipped use and
+  post-approval policy drift remain fail-closed.
+
+No test assertions, timeouts, existing C2 bytes or source authority were weakened.
+No production evidence was queried. Status
+`T21RC2T_IMPLEMENTED_READY_FOR_INDEPENDENT_REVIEW` means implementation/tests/draft
+PR exist, not production readiness. Required human security/privacy/authority
+review is **NOT YET PERFORMED** and remains the separate T21R-C2T-R phase.
+After confirming final-head hosted CI, STOP and hand off to `vn-taphoanhatung`.
+Do not mark ready, approve, merge, dispatch, approve an Environment, query
+production, repair, apply 0039 or deploy in this task.

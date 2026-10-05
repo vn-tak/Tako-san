@@ -1,3 +1,66 @@
+# T21R-C2T privacy-safe identity topology implementation — 2026-10-05 UTC
+
+Implementation checkpoint `f191b48`, branch
+`feat/t21rc2t-identity-topology-diagnostic`, from exact certified PR #42 main
+`5218b0b`. Live main and checkout matched the packet before editing; fresh main
+still matched before publication. Repository `vn-tak/Tako-san`, ID `1385308553`.
+Exact-main authority CI `37261145409` / job `111608452594`, attempt 1, push,
+SUCCESS was verified via GitHub metadata, including all five required steps.
+
+Status `T21RC2T_IMPLEMENTED_READY_FOR_INDEPENDENT_REVIEW` means implemented,
+locally tested and published as draft PR
+[#43](https://github.com/vn-tak/Tako-san/pull/43), **not execution authority**.
+The final docs-inclusive SHA and its fresh hosted CI receipt are maintained in
+the PR rather than self-referenced here. Auto-fix subscription is enabled; no
+auto-merge. Required independent human review is NOT YET PERFORMED.
+
+**Implemented:** Separate C2T approval/capture/workflow, offline source authority
+and topology, closed deterministic aggregate-only receipt, whole-partition K5
+suppression and post-recheck private recomputation. All 119 unique review-bound
+path specifications are covered (78 required files, 6 full directory roots,
+35 optional paths), including all 73 C2 paths. Existing C2 and application,
+authentication, payment, inventory, Week, catalog, config and migration bytes
+remain unchanged. Exact C2 SELECTs/envelope reused; new production SQL 0.
+
+**Actual offline evidence:** V1 500/2,702; committed V2 500/6,766; generator lineage
+4,233/4,233 ING_ENR occurrences and 1,395/1,395 distinct IDs, zero mismatches.
+The required 500/2,702/6,720/6,766 synthetic fixture, candidate competition,
+multiplicity, 65-row residual with 6/59 drift split, two-sided shape accounting,
+privacy/error/hash prohibitions, suppression, schema and determinism pass.
+No production topology result is claimed.
+
+**Executed checks:** Cloudflare credentials removed; Wrangler telemetry disabled.
+`TZ=UTC pnpm exec vitest run tests/unit/t21rc2t-*.test.mjs
+tests/unit/t21rc2-*.test.mjs tests/unit/t21rc-row-reconciliation.test.mjs
+--maxWorkers=1` — 14 files / 538 tests PASS (C2T 6/118; unchanged C2 8/420).
+`TZ=UTC pnpm exec vitest run --maxWorkers=1` on checkpoint `f191b48` —
+243 files / 5,547 tests PASS, exit 0, 626.96 seconds, Node 24.21.0.
+`pnpm lint`, `pnpm typecheck`, `pnpm check:migrations` (local in-memory SQLite),
+`pnpm build`, syntax and staged/baseline `git diff --check` PASS.
+
+**Failures/recovery:** Initial V2 loader omitted the hashed nutrition-evidence
+member; corrected to all 503 members and rerun successfully. Corrected a
+multiset fixture's remaining-only count and an internally inconsistent final-
+authorization fixture. Internal implementation audit found equal concept aliases
+mislabeled as context-only and missing exact-witness competition accounting;
+both were fixed with regressions, preserving explicit context/mixed-key coverage.
+Approval compatibility preserves C2's distinction between policy availability and
+actual self/bypass use. No assertion, timeout or existing coverage was weakened.
+
+**Frozen boundary:** C2F remains `T21RC2F_ADDITIONAL_DIAGNOSTIC_REQUIRED`;
+corruption NOT PROVEN; repair REPAIR_NEEDS_MORE_EVIDENCE; 0039 relevance NONE,
+application NOT AUTHORIZED; deploy NOT AUTHORIZED; T21G NOT READY.
+Production dispatch/D1/Cloudflare calls, Environment approvals, C2/C4I reruns,
+repair, remote migration, canary and deployment operations: 0.
+
+**Next:** After confirming the PR's final immutable head and current-head CI,
+hand off separate T21R-C2T-R security/privacy/authority review to
+`vn-taphoanhatung`. Keep PR draft and unmerged; do not approve, mark ready,
+dispatch, query production, repair, apply 0039 or deploy.
+Design: `recipe-catalog/T21RC2T_IDENTITY_TOPOLOGY_DIAGNOSTIC.md`.
+
+---
+
 # T21R-C2F semantic drift and ingredient identity forensic — 2026-10-05 UTC
 
 Read-only forensic of production run 37202777157, attempt 1. Execution SHA

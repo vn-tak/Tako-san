@@ -123,6 +123,22 @@ describe('production catalog Worker static pin', () => {
     expect(h.beforeMutation.mock.calls.map(([phase]) => phase)).toEqual(['upload', 'deploy']);
     expect(h.fetchImpl.mock.calls.some(([url]) => url.includes('deployable=true'))).toBe(false);
   });
+  it.each([
+    ['legacy preview spelling', { has_preview: true }],
+    ['documented preview spelling', { hasPreview: true }],
+    ['documented modification timestamp', { modified_on: '2026-10-05T15:00:00.000Z' }],
+    ['documented combined metadata', { hasPreview: false, modified_on: '2026-10-05T15:00:00.000Z' }],
+    ['coexisting preview spellings', { has_preview: true, hasPreview: true, modified_on: '2026-10-05T15:00:00.000Z' }],
+  ])('accepts %s while preserving exact deployed source', async (_, metadata) => {
+    const h = harness({ mutateOriginal: (w) => { Object.assign(w.metadata, metadata); } });
+    const inspection = await inspectProductionCatalogWorker(h.options);
+    expect(inspection.compatibilityCode).toBe('SUPPORTED');
+    expect(posts(h)).toEqual([]);
+    const proof = await pinProductionCatalogStatic(h.options);
+    expect(proof).toMatchObject({ status: 'static-verified', method: 'clone-deployed-version' });
+    expect(proof.modules).toEqual(inspection.modules);
+    expect(posts(h)).toHaveLength(2);
+  });
   it('verifies an already static Worker without uploading or deploying', async () => {
     const h = harness({ staticAtStart: true });
     expect(await pinProductionCatalogStatic(h.options)).toMatchObject({ status: 'static-verified', method: 'already-static', versionId: 'original' });
@@ -132,6 +148,7 @@ describe('production catalog Worker static pin', () => {
     ['wrong source', (w) => { w.resources.bindings[0].text = 'b'.repeat(40); }, 'WORKER_SOURCE_MISMATCH'],
     ['wrong D1', (w) => { w.resources.bindings[2].id = 'another-database'; }, 'D1_BINDING_MISMATCH'],
     ['unknown runtime', (w) => { w.resources.script_runtime.unreviewed = true; }, 'UNSUPPORTED_METADATA'],
+    ['unknown version metadata', (w) => { Object.assign(w.metadata, { hasPreview: true, modified_on: '2026-10-05T15:00:00.000Z', unreviewed: true }); }, 'UNSUPPORTED_METADATA'],
     ['unknown secret value', (w) => { w.resources.bindings.find((b) => b.type === 'secret_text').text = 'secret-value'; }, 'UNSUPPORTED_BINDINGS'],
   ])('fails closed before mutation for %s', async (_, mutateOriginal, code) => {
     const h = harness({ mutateOriginal });

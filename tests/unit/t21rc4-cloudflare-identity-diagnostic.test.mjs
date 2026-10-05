@@ -19,6 +19,8 @@ const WHOAMI = `Private user private-email@example.invalid\nAccount ${ACCOUNT.to
 const LIST = [{ name: 'frigo-db', uuid: UUID }, { name: 'other-private-name', uuid: OTHER_UUID }];
 const configText = readFileSync('wrangler.jsonc', 'utf8');
 const root = process.cwd();
+const rootObjects = execFileSync('git', ['rev-parse', '--path-format=absolute', '--git-path', 'objects'],
+  { cwd: root, encoding: 'utf8', stdio: 'pipe' }).trim();
 let cwd;
 beforeEach(() => {
   cwd = mkdtempSync(path.join(tmpdir(), 't21rc4i-test-'));
@@ -207,7 +209,7 @@ describe('C4I additions preserve independently reviewed C2 execution bytes', () 
     execFileSync('git', ['init', '--quiet', repo], { stdio: 'pipe' });
     mkdirSync(path.join(repo, '.git', 'objects', 'info'), { recursive: true });
     writeFileSync(path.join(repo, '.git', 'objects', 'info', 'alternates'),
-      `${path.join(root, '.git', 'objects')}\n`);
+      `${rootObjects}\n`);
     const git = (...args) => execFileSync('git', args, { cwd: repo, encoding: 'utf8', stdio: 'pipe' }).trim();
     git('config', 'user.name', 'C4I Test'); git('config', 'user.email', 'c4i@example.invalid');
     const reviewed = '93c4055a42cd2d94f4db296d8ca10d555c2c52c2';
@@ -327,7 +329,7 @@ describe('T21R-C4L intentionally invalidates both prior reviewed execution SHAs'
   function remediationRepo() {
     const repo = path.join(cwd, 'c4l-binding-repo');
     execFileSync('git', ['init', '--quiet', repo], { stdio: 'pipe' });
-    writeFileSync(path.join(repo, '.git', 'objects', 'info', 'alternates'), `${path.join(root, '.git', 'objects')}\n`);
+    writeFileSync(path.join(repo, '.git', 'objects', 'info', 'alternates'), `${rootObjects}\n`);
     const git = (...args) => execFileSync('git', args, { cwd: repo, encoding: 'utf8', stdio: 'pipe' }).trim();
     git('config', 'user.name', 'C4L Test'); git('config', 'user.email', 'c4l@example.invalid');
     // Last certified main before T21R-C4L; both old reviewed SHAs bind to it unchanged.

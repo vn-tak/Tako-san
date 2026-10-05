@@ -189,6 +189,12 @@ jobs:
           RELEASE_VERIFY_TOKEN: ${{ secrets.STAGING_RELEASE_VERIFY_TOKEN }}
         run: node scripts/release-check.mjs previous-authority release-manifest.json
 
+      - name: Recheck live main and exact-SHA CI immediately before staging upload
+        if: env.STAGING_UNCONFIGURED != 'true'
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: node scripts/release-check.mjs recheck
+
       - name: Deploy to Cloudflare staging
         if: env.STAGING_UNCONFIGURED != 'true'
         uses: cloudflare/wrangler-action@v3
@@ -355,6 +361,11 @@ jobs:
           fi
           node scripts/release-check.mjs transition release-manifest.json previous-authority.json
 
+      - name: Recheck live main and exact-SHA CI immediately before production upload
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: node scripts/release-check.mjs recheck
+
       - name: Deploy to Cloudflare production
         id: deploy
         uses: cloudflare/wrangler-action@v3
@@ -388,7 +399,7 @@ jobs:
           node scripts/release-check.mjs authority release-manifest.json
 
       - name: Restore exact previous Worker after any failed deployment or proof
-        if: (failure() || cancelled()) && steps.preflight.outcome == 'success'
+        if: (failure() || cancelled()) && steps.preflight.outcome == 'success' && contains(fromJSON('["success","failure","cancelled"]'), steps.deploy.outcome)
         env:
           APP_SMOKE_URL: ${{ vars.PRODUCTION_URL }}
           RELEASE_VERIFY_TOKEN: ${{ secrets.RELEASE_VERIFY_TOKEN }}

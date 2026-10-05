@@ -1,3 +1,26 @@
+# Production release readiness - 2026-10-05 UTC
+
+- [x] Verify GitHub CLI `vn-tak`, merged/reviewed PR #44 and exact-main CI.
+- [x] Dispatch and complete protected SELECT-only topology run37316530751; verify
+  independent Environment approval and aggregate artifact digest.
+- [x] Fence uploads with fresh hosted main/CI and prevent rollback before upload.
+- [x] Fence0039 with shared production lock, unchanged ledger, complete V1
+  hydration/fingerprint proof before bookmark/apply and fresh main/CI before apply.
+- [x] Full local suite244 files/5,583 PASS; targeted5/418 PASS; lint/typecheck/
+  migration smoke/build/diff PASS; executable checkpoint81255c1.
+- [ ] Complete independently reviewed archived V1 restore and rollback rehearsal.
+- [ ] Pin existing Worker to static before any restore; verify exact code/assets.
+- [ ] Certify recovered catalog, apply0039, stage/deploy immutable current main
+  and verify exact active SHA, traffic and actual served authority.
+
+Production repair/migration/deploy counts remain0. Existing static fallback
+serves; failed setup run37304008220 was not rerun. Future C2T reruns require a
+fresh review for modified release-check bytes.
+Report: [PRODUCTION_RELEASE_GUARDS_20261005.md](recipe-catalog/PRODUCTION_RELEASE_GUARDS_20261005.md).
+Historical task status follows.
+
+---
+
 # T21R-C2T-P1 invalid Action pin remediation — 2026-10-05 UTC
 
 - [x] Fetch exact live main `b3fd7baf9c25ae195bdc6f52ed9ca27f34cef455` and create a

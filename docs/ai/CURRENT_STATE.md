@@ -1,3 +1,36 @@
+# Production release readiness - 2026-10-05 UTC
+
+Current implementation checkpoint `81255c1` on
+`codex/production-release-guards`, from verified GitHub main
+`b00eb1356b641602244dae09dcf2c0061b9544a0`. Local main and user files in the
+original checkout are preserved; task work uses an isolated worktree.
+
+PR #44 is merged with independent review `5414445860` on
+`089ae329ebba2ba38659c030266068aeace9b8a8`. Fresh protected topology run
+[37316530751](https://github.com/vn-tak/Tako-san/actions/runs/37316530751)
+completed successfully after normal production approval by `vn-taphoanhatung`.
+The downloaded aggregate artifact digest was verified. Production has 500 recipes,
+6,720 lines, zero duplicate occurrences and 4,252 ING_ENR occurrences with zero
+current-generator ID matches and no IDs shared with committed V2. V1 targets
+remain ambiguous; corruption and writer identity remain unproven.
+
+Implemented fresh live-main/exact-SHA CI gates before upload; rollback now runs
+only after upload was attempted. The 0039 migration shares the production lock,
+refreshes CI/main and certifies complete V1 hydration/fingerprint and unchanged
+ledger before mutation. Historical migrations and application behavior unchanged.
+Local full suite 244 files / 5,583 PASS; targeted 5 / 418 PASS; lint/typecheck/
+migration smoke/build/diff PASS. One earlier contention timeout is recorded.
+
+Production is still old Worker `136cb6ff3d2921eac237c7b106b37ab5ee12a13f`,
+D1 configured but serving static fallback. Ledger38/0038, order0, hydration0.
+No remote repair, migration or application deployment was performed. Next: review
+and rehearse archived canonical V1 restoration while explicitly pinning static
+routing, then certify catalog, apply0039 and deploy through the established gates.
+Report: [PRODUCTION_RELEASE_GUARDS_20261005.md](recipe-catalog/PRODUCTION_RELEASE_GUARDS_20261005.md).
+Older PR/approval/diagnostic status sections below are historical.
+
+---
+
 # T21R-C2T-P1 invalid Action pin remediation — 2026-10-05 UTC
 
 **Status:** `T21RC2T_P1_FIXED_READY_FOR_INDEPENDENT_REVIEW`, not production

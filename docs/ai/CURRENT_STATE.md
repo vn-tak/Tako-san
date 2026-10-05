@@ -1,3 +1,44 @@
+# T21R-C2T-P1 invalid Action pin remediation — 2026-10-05 UTC
+
+**Status:** `T21RC2T_P1_FIXED_READY_FOR_INDEPENDENT_REVIEW`, not production
+execution readiness. Fresh branch
+`hoplite/mesambria-d133eda3--t21rc2t-pnpm-action-pin` starts from exact live
+main `b3fd7baf9c25ae195bdc6f52ed9ca27f34cef455`; implementation checkpoint
+`b78283c746b8150ebfc65c0f814f721eccd26a48`.
+
+Run `37304008220` / attempt 1 is
+`T21RC2T_CAPTURE_BLOCKED_ACTION_PIN_INVALID`: capture job `111743275723` failed
+in **Set up job** resolving a nonexistent pnpm action commit. Gate passed and
+historical normal Environment approval was completed, but Cloudflare/capture/
+topology never started, D1 SQL 0, no receipt, no artifacts. This is not a
+production diagnostic or corruption finding; the run was not rerun.
+
+Independently dereferenced annotated `pnpm/action-setup` tag `v4.3.0` and verified
+its commit `b906affcce14559ad1aafd4ab0e942779e9f58b1`. Only that workflow pin changed;
+other three action commits exist upstream and are unchanged. The safety test
+now checks the exact expected refs, not merely SHA shape, and rejects the prior
+invalid pin offline. Node/pnpm/install and all C2/C2T runtime semantics unchanged.
+
+Checks: baseline 5/5 exposed the blind spot; intentional pre-fix red 1 failed /
+5 passed; post-fix narrow 3 files / 62 PASS, established 14 / 539 PASS
+(C2T 6/119; C2 8/420), full 243 / 5,548 PASS. Lint/typecheck/local migration
+smoke/build/diff checks PASS. Real-Git comparison confirms only one workflow pin
+changed and all 73 C2 review-bound specifications unchanged. No post-fix failures.
+
+**Publication/Next:** [PR #44](https://github.com/vn-tak/Tako-san/pull/44) is
+confirmed draft/open/unmerged, no auto-merge; update subscription enabled.
+Hosted CI in progress; no human reviews or unresolved threads at publication.
+STOP and obtain fresh independent review by `vn-taphoanhatung` on the final head.
+Old review `5412451575`
+does not authorize these changed review-bound bytes; no merge or readiness
+conversion. All P1 production operation counts 0; corruption NOT PROVEN; repair
+needs more evidence; 0039 relevance NONE; 0039/deploy NOT AUTHORIZED; T21G NOT READY.
+Exact evidence/commands:
+[`T21RC2T_P1_ACTION_PIN_REMEDIATION.md`](recipe-catalog/T21RC2T_P1_ACTION_PIN_REMEDIATION.md).
+Historical pending-review/open-PR claims below are earlier implementation state.
+
+---
+
 # T21R-C2T privacy-safe identity topology implementation — 2026-10-05 UTC
 
 Implementation checkpoint `f191b48`, branch

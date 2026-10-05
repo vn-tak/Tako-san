@@ -1,3 +1,46 @@
+# T21R-C2T-P1 invalid Action pin remediation handoff — 2026-10-05 UTC
+
+**State:** `T21RC2T_P1_FIXED_READY_FOR_INDEPENDENT_REVIEW`. Branch
+`hoplite/mesambria-d133eda3--t21rc2t-pnpm-action-pin` from exact live main
+`b3fd7baf9c25ae195bdc6f52ed9ca27f34cef455`; executable checkpoint
+`b78283c746b8150ebfc65c0f814f721eccd26a48`. Final docs-inclusive head/CI
+belong in the dedicated draft PR, not in a handoff containing its own hash.
+
+**Evidence:** Run `37304008220` / attempt 1, capture job `111743275723`, failed
+during **Set up job** resolving the old pnpm pin. Classification
+`T21RC2T_CAPTURE_BLOCKED_ACTION_PIN_INVALID`; Cloudflare/capture/topology not
+started, D1 SQL 0, no receipt, artifacts 0. Historical Environment approval was
+verified, not performed by P1. Annotated upstream `v4.3.0` target
+`b906affcce14559ad1aafd4ab0e942779e9f58b1` exists; old pin returns HTTP 404; other three pins exist.
+
+**Changes:** Single pnpm `uses:` replacement, exact expected-pin allowlist and
+offline negative regression, plus mandatory checkpoint/report docs. No C2/C2T
+runtime logic, Node/pnpm/install, SQL, Environment, privacy, artifact or cleanup
+change. Changed review-bound bytes invalidate prior review `5412451575`.
+
+**Checks/failures:** Old tests passed 5/5 despite invalid pin; hardened assertion
+failed as expected before fix (1 failed / 5 passed, exit 1). Post-fix 3 files /
+62 PASS; established 14 / 539 PASS (C2T 6/119, C2 8/420); full 243 / 5,548 PASS,
+575.88 seconds. Lint/typecheck/local migration smoke/build/diff checks PASS.
+Real-Git workflow delta is one pin only; all 73 C2 bound specifications unchanged.
+No post-fix failing/skipped gate; commands and recovered inspection issue in report.
+
+**Next:** [PR #44](https://github.com/vn-tak/Tako-san/pull/44) is published and
+confirmed draft/open/unmerged, no auto-merge; CI/review update subscription enabled.
+Initial hosted CI in progress; no human reviews or unresolved threads at publication.
+STOP; the update loop will resume when hosted checks or feedback settle. Required
+fresh independent reviewer is `vn-taphoanhatung`; later merge actor `vn-tak`.
+No self approval, ready conversion, merge, failed-run rerun or production dispatch.
+
+**Boundary:** All P1 production operation counts 0. Corruption NOT PROVEN;
+repair needs more evidence; 0039 relevance NONE; 0039/deploy NOT AUTHORIZED;
+T21G NOT READY. The historical setup failure adds no production diagnostic facts.
+
+**Report:** [`T21RC2T_P1_ACTION_PIN_REMEDIATION.md`](recipe-catalog/T21RC2T_P1_ACTION_PIN_REMEDIATION.md).
+Historical implementation handoff below is preserved, not current PR/review state.
+
+---
+
 # T21R-C2T identity topology implementation handoff — 2026-10-05 UTC
 
 **State:** `T21RC2T_IMPLEMENTED_READY_FOR_INDEPENDENT_REVIEW`; code checkpoint

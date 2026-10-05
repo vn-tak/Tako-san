@@ -1,3 +1,20 @@
+# Current release checkpoint - 2026-10-06 JST
+
+The AI correction now shares PR49 with Worker metadata compatibility fix
+`1ed5733`. Full combined validation: 249 files / 5653 PASS, 514.45s, unchanged
+timeouts; lint/typecheck/migration smoke/build also PASS. Recovery37334212154
+was intentionally cancelled before recover steps to replace its known metadata
+incompatibility. It no longer awaits review. Staging canary and prior-head PR CI
+failed before steps because GitHub could not assign hosted runners.
+
+Require final-head hosted CI and exact merge-commit main CI, then a fresh recovery
+run and normal Environment review. Final live smoke is prepared with an explicit
+SHA fence but has not been executed. Actual corrected provider readiness remains
+unproven. [Replacement sequence](../recipe-catalog/PRODUCTION_RELEASE_BLOCKERS_20261006.md).
+The earlier publication/pending-run narrative is historical.
+
+---
+
 # Production live scan failure and repair prompt correction
 
 Status: source defect corrected; actual live provider/scan readiness remains

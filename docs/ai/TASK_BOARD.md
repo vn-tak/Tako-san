@@ -1,3 +1,59 @@
+# Production replacement candidate checkpoint - 2026-10-06 JST
+
+State: production release incomplete. Current main remains
+`cd66bb86ca7c440b606fb8672e89428800df33c2`. PR49 carries AI correction `e7d7db1`
+and Worker metadata compatibility correction `1ed5733`. The operator authorizes
+production release and confirms no real users; user-data preservation certification
+is excluded.
+
+Changes: static-pin now accepts Cloudflare's documented informational metadata
+`hasPreview` and `modified_on` alongside legacy `has_preview`. Unknown fields
+still fail before mutation. Exact deployed source/runtime/bindings/assets,
+module equivalence and approval/freshness fences remain enforced. AI repair
+preserves the complete default/custom extraction task/schema; its role in the
+observed live INVALID_RESPONSE remains unproven.
+
+Checks: metadata regression red 3 failures / 20 passes; final focused suite
+24 PASS, independently rerun. Combined recovery/AI targeted validation five files /
+70 PASS. Lint, typecheck, migration smoke, production build, syntax and diff PASS.
+Full combined candidate suite: 249 files / 5653 PASS, exit 0, 514.45s,
+unchanged timeouts, one worker, UTC and canonical macOS temp path.
+
+Remote: recovery37334212154 intentionally CANCELLED at 2026-10-05T20:49:15Z,
+recover job steps empty, approvals/pending deployments empty. It executed no
+Worker/catalog/migration mutation and no longer requires review. Staging canary1
+37370418398 FAILURE before steps; annotation: "The job was not acquired by Runner
+of type hosted even after multiple attempts". Staging remains healthy shadow
+on cd66/T20true; production remains old 136cb6ff/static fallback/ledger38. Actual
+catalog recovery,0039 and new production application deployment remain pending.
+The earlier normal disposable guest/synthetic scan failed INVALID_RESPONSE;
+logout revoked its session. Corrected live provider readiness is still unproven.
+
+External gate: GitHub Actions incident remains active; latest 20:47:22Z update
+reports degraded availability. PR49 prior-head CI37371504325 failed before steps at 20:58:30Z with the
+same hosted-runner assignment annotation. Final-head hosted CI and exact merged-main
+push CI remain required after publication; resolve their current IDs from PR49.
+
+Next: require green hosted CI on the final PR49 head, merge with a merge commit,
+require exact-main push CI and freeze the new main. New recovery attempt1 must bind ref to
+that main and reviewed_sha to the final merged PR49 head, preserving ancestry
+and complete tree equality. Fresh normal production Environment review is needed
+only when that new run exists. Require V1_CATALOG_CERTIFIED_STATIC before guarded
+0039; full production certification follows 0039. Restage the final SHA through
+shadow/1/5/25/D1, paired T20true. Production uses T20false, same immutable SHA,
+shadow/live non-PII AI proof before 1/5/25/D1 promotion. Do not reuse the cancelled
+run or old reviewed implementation head.
+
+Runner-local final-candidate smoke is prepared at
+`/private/tmp/takosan-provider-smoke-final-candidate/live-provider-smoke.py`.
+Static syntax and fixture hash PASS; it has not been executed. Require explicit
+production SHA and the deployed corrected shadow before its one synthetic scan.
+
+Report: [PRODUCTION_RELEASE_BLOCKERS_20261006.md](recipe-catalog/PRODUCTION_RELEASE_BLOCKERS_20261006.md).
+Older checkpoints follow and their pending-run claims are historical.
+
+---
+
 # Production release and AI retry checkpoint - 2026-10-06 JST
 
 Current GitHub main `cd66bb86ca7c440b606fb8672e89428800df33c2` has green exact-main

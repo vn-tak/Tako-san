@@ -1,3 +1,19 @@
+# Current — T21R-C2F semantic drift / identity forensic (2026-10-05 UTC)
+
+Read-only forensic of production run 37202777157; receipt integrity PASS.
+
+- Count model proven: structural V1_ID / UNREVIEWED_ING_ENR partitions, 65 =
+  same-ID multi-row drift, recipe-scoped target ambiguity, C2S changed 26 targets.
+- Production is an out-of-repository, enrichment-derived replacement population:
+  neither V1 nor committed V2. Runtime fails closed to static.
+- Status `T21RC2F_ADDITIONAL_DIAGNOSTIC_REQUIRED`; repair REPAIR_NEEDS_MORE_EVIDENCE;
+  0039 relevance NONE; deploy NOT AUTHORIZED; T21G_NOT_READY.
+- Next: independent review, then a separately authorized C2T hashed diagnostic.
+
+Report: `docs/ai/recipe-catalog/T21RC2F_SEMANTIC_DRIFT_IDENTITY_FORENSIC.md`.
+
+---
+
 # Current — T21R-C2S schema boundary (2026-10-04 UTC)
 
 Offline-only schema defect reproduced on certified main

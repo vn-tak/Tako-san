@@ -1,3 +1,49 @@
+# T21R-C2F semantic drift and ingredient identity forensic — 2026-10-05 UTC
+
+Read-only forensic of production run 37202777157, attempt 1. Execution SHA
+`075be110a868a9a9c4d6c24f20342c5ccb7017c4`, reviewed `ae19f0571d7e9236e8cf014f65b22d2d3d381df3`. Verified: artifact 11304380358
+digest, run head and all five source digests (receipt integrity PASS). No
+production read, C2/C4I rerun, repair, 0039, deploy, or secret/Environment change.
+
+Status `T21RC2F_ADDITIONAL_DIAGNOSTIC_REQUIRED`.
+
+**Proven from code and aggregate:**
+
+- The two identity totals are structural partitions:
+  - V1_ID 2,468 = 26 exact + 1,793 same-ID drift + 649 production-only known IDs;
+  - UNREVIEWED_ING_ENR 4,252 = 4,232 AMBIGUOUS + 20 ID conflicts.
+  They hold because there are zero bridges, the registry is exactly the 45 V1 IDs,
+  and V1 contains no ING_ENR.
+- The 65 non-deterministic V1_ID rows are same-ID multi-row drift:
+  6 membership_plus_content + 59 name_plus_semantics.
+- All 2,702 targets are AMBIGUOUS because unresolved ING_ENR rows are candidates of
+  every target in their recipe; ≥896 targets have no other candidate.
+- The pre-C2S classifier would reject this snapshot at schema. C2S changed exactly
+  26 target classifications.
+
+**What production holds:** one replacement population.
+
+- Not V1: 26/6,720 exact, zero V1 physical IDs.
+- Not a subset of committed V2: 4,252 > 4,233 ING_ENR rows.
+- No repository pipeline writes ING_ENR rows, so the writer is outside the
+  repository (UNKNOWN).
+- ING_ENR IDs are unreviewed provisional enrichment identities; zero bridges is the
+  expected state.
+
+**Runtime:** D1 content cannot pass hydration or the V1 fingerprint gate, so every
+surface uses static content. Recipe 404 for imported IDs is possible in D1 modes.
+
+**Decisions:** 0039 relevance NONE. Repair REPAIR_NEEDS_MORE_EVIDENCE: duplicates and
+semantic equivalence need the proposed hashed C2T diagnostic.
+
+**Checks:** focused Vitest 6 files / 178 PASS; recipe import/refresh/ingredient-v2
+checks PASS; release-check BLOCKED as expected. Documentation only; hosted PR CI is
+the confirming gate. DEPLOY NOT AUTHORIZED; T21G_NOT_READY.
+
+Report: `recipe-catalog/T21RC2F_SEMANTIC_DRIFT_IDENTITY_FORENSIC.md`.
+
+---
+
 # T21R-C2S schema boundary — 2026-10-04 UTC
 
 Offline implementation checkpoint `946a7be` on

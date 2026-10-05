@@ -1,3 +1,35 @@
+# T21R-C2F semantic drift / identity forensic handoff — 2026-10-05 UTC
+
+**State:** Read-only forensic complete on branch `hoplite/dreros-8066d555` from main
+`075be11`. Status `T21RC2F_ADDITIONAL_DIAGNOSTIC_REQUIRED`. Documentation only.
+
+**Evidence:**
+- Run 37202777157 attempt 1: success; head = execution SHA `075be110a868a9a9c4d6c24f20342c5ccb7017c4`.
+- Artifact 11304380358 digest verified; five source digests and the authority proof
+  reproduced offline.
+- Prior failed run 37158525748: head is pre-C2S `b9bc66a`.
+- Access was GitHub GET reads only: no production SQL, logs, private runner files,
+  reruns or Cloudflare credentials.
+
+**Changes:** New forensic report. No code, workflow, schema, migration, authority or
+data change.
+
+**Checks/failures:**
+- Focused Vitest 6 files / 178 PASS.
+- `pnpm recipe:import:check`, `recipe:refresh:check`, `recipe:ingredient-v2:audit`
+  PASS; `recipe:refresh:release-check` BLOCKED (expected, four blockers).
+- A delegated runtime-impact exploration stopped (platform inference credits
+  exhausted); the runtime trace was redone directly.
+- Full lint/typecheck/test/build not rerun locally (documentation only).
+
+**Next:** Independent review. Then a separately authorized C2T hashed identity
+topology diagnostic (report §17) before any remediation or release-authority
+decision. Do not repair, deduplicate, rewrite IDs, apply 0039, rerun C2 or deploy.
+
+**Report:** `recipe-catalog/T21RC2F_SEMANTIC_DRIFT_IDENTITY_FORENSIC.md`.
+
+---
+
 # T21R-C2S schema-boundary handoff — 2026-10-04 UTC
 
 **State:** Offline implementation verified at code checkpoint `946a7be`, branch

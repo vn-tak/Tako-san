@@ -16,6 +16,12 @@ const dispatchInputs = events.workflow_dispatch.inputs;
 const steps = workflow.jobs.capture.steps;
 const stepIndex = (command) => steps.findIndex((step) => step.run === command);
 const step = (command) => steps.find((entry) => entry.run === command);
+const expectedActionRefs = Object.freeze([
+  'actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683',
+  'actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020',
+  'pnpm/action-setup@b906affcce14559ad1aafd4ab0e942779e9f58b1',
+  'actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02',
+]);
 
 function immutableActionRefs(document) {
   const refs = [];
@@ -27,6 +33,9 @@ function immutableActionRefs(document) {
       if (!node.uses.startsWith('./')) {
         if (!/^[A-Za-z0-9_.-]+\/[A-Za-z0-9_.-]+@[a-f0-9]{40}$/.test(node.uses)) {
           throw new Error('T21RC2T_MUTABLE_ACTION');
+        }
+        if (!expectedActionRefs.includes(node.uses)) {
+          throw new Error('T21RC2T_UNREVIEWED_ACTION');
         }
         refs.push(node.uses);
       }
@@ -105,15 +114,23 @@ describe('T21R-C2T production workflow authority boundary', () => {
     expect(steps[cleanupIndex].if).toBe('always()');
   });
 
-  it('pins every external Action to a full lowercase commit and contains no mutating production command', () => {
+  it('pins every external Action to its expected immutable commit and contains no mutating production command', () => {
     const refs = immutableActionRefs(workflow);
     expect(refs).toHaveLength(6);
-    expect(new Set(refs).size).toBe(4);
+    expect(new Set(refs)).toEqual(new Set(expectedActionRefs));
     expect(() => immutableActionRefs(load(workflowText.replace(
       /actions\/checkout@[a-f0-9]{40}/,
       'actions/checkout@main',
     )))).toThrow('T21RC2T_MUTABLE_ACTION');
     expect(workflowText).not.toMatch(/wrangler\s+d1\s+migrations\s+apply|wrangler\s+deploy|\b(?:INSERT|UPDATE|DELETE|REPLACE|CREATE|DROP|ALTER|ATTACH|DETACH|PRAGMA|VACUUM|REINDEX)\b/i);
     expect(workflowText).toContain('node scripts/t21rc2t-production-capture.mjs cleanup');
+  });
+
+  it('rejects the previous SHA-shaped but nonexistent pnpm Action pin offline', () => {
+    const invalidWorkflow = load(workflowText.replace(
+      /pnpm\/action-setup@[a-f0-9]{40}/,
+      'pnpm/action-setup@e9380648b2a849f35e2732bdc8e24f7880e5f5aa',
+    ));
+    expect(() => immutableActionRefs(invalidWorkflow)).toThrow('T21RC2T_UNREVIEWED_ACTION');
   });
 });

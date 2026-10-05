@@ -1,3 +1,53 @@
+# Production release and AI retry checkpoint - 2026-10-06 JST
+
+Current GitHub main `cd66bb86ca7c440b606fb8672e89428800df33c2` has green exact-main
+push CI37333194384:248 files /5640 tests plus lint/typecheck/migration smoke/build.
+PR48 is merged. Actions registration375554736 is active; push registration run
+37333194265 succeeded with only register running and gate/recover skipped.
+
+Reviewed recovery dispatch37334212154 passed its complete-tree/main/CI gate and
+is waiting for normal production Environment review by `vn-taphoanhatung`.
+CLI actor `vn-tak` cannot approve it. No production catalog recovery,0039
+migration or application deployment has occurred. Do not advance main while
+this run is pending: its mutation fences require exact current main.
+
+Staging0039 certification37331557226 and runtime readiness37331892983 succeeded
+(certify-only39 ledger/FK0/500 hydrated/exact V1 fingerprint). Staging Deploy
+shadow37334571659 succeeded atcd66 with paired T20=true, D1 ready500/no fallback,
+exact SHA smoke and version223b8b47-5439-49b9-b089-e444e7a97174. Same-SHA canary
+progression is in progress; production T20 remains deliberately off.
+
+Actual live non-PII production receipt smoke on old136cb6ff accepted one synthetic
+image202, then terminal INVALID_RESPONSE/attempt1/items0. Request IDs
+24145b6c-8390-4e73-8337-a0beb6e52771 (acceptance) and
+ba031f71-6c8c-4070-ac7d-ad0347c1c574 (terminal), support hash096080ad9e97.
+One disposable guest/session/scan was created through normal APIs; logout200
+revoked the session. No email/OTP, security bypass or secret extraction.
+Provider availability/receipt accuracy remain uncertified. Staging mock does
+not prove live provider behavior. Production AI/config and image preprocessing
+are unchanged from the deployed Worker in the prior candidate.
+
+Executable AI correction `e7d7db1` preserves the full default/custom extraction
+prompt while adding repair feedback on same-model retry and multimodal escalation.
+The source bug is independently reproduced: default retry lost task/schema.
+It can undermine recovery; its causation of the live failure is unproven.
+Regression red4 failed/3 passed; correction and adjacent AI/provider/router
+checks5 files/81 PASS. Lint/typecheck/migration smoke/build/diff PASS; full local
+suite is running. Independent review finds no blockers; input governance includes
+repair feedback and bounds calls. No AI model/provider/quality/security policy
+change. Publish as a separate reviewed fix, hold merge while recovery is pending,
+then verify real provider behavior before declaring production release complete.
+
+Next: complete normal review of recovery37334212154, inspect aggregate receipt
+and any unsupported provider metadata before further operation. Require V1 catalog
+certification, then guarded0039. Merge green AI correction only after the pending
+recovery completes or is intentionally replaced; stage the final immutable SHA
+through shadow/canary/D1 and deploy production through the normal Environment gates.
+Report: [PRODUCTION_AI_REPAIR_20261006.md](scan/PRODUCTION_AI_REPAIR_20261006.md).
+Older sections are historical.
+
+---
+
 # Recovery workflow registration checkpoint - 2026-10-05 UTC
 
 Executable recovery `7f59afa`, registration remediation `aea900d`.

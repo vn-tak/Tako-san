@@ -24,7 +24,9 @@ recipes at fingerprint `f8cf8c7ff59df9fe29e246b9e3c9aad0fd155fa8df35bf671ac4d03f
 ledger38/FK0, archive6720; rollback restores6720/order0/FK0. A local compound
 SELECT parser limit was reproduced and fixed by using VALUES. Full-suite result
 first run: 5638 PASS / one unchanged Wrangler timeout; narrow recheck32 PASS.
-Full recheck is running; hosted final-head CI is required before merge.
+Full recheck248 files /5639 PASS (522.82s). Hosted final-head CI
+37327411648 also248 /5639 PASS, lint/typecheck/migration smoke/build PASS.
+PR46 merged at9fbaffa; exact-main push CI is pending before remote execution.
 
 Production still serves the old Worker `136cb6ff3d2921eac237c7b106b37ab5ee12a13f`
 on static fallback, ledger38/0038/order0/hydration0. Remote recovery, migration

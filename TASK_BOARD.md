@@ -1,3 +1,69 @@
+# Production D1 recovery compatibility checkpoint - 2026-10-06 JST
+
+**State:** Release incomplete. PR49 merged normally at
+`b33bd5a772d3ba165a6134751137c78482678186`; its final implementation head is
+`6f5cd543e5b13dc2da32344975b8b48c55043baf`. Hosted PR CI37373658595 attempt2
+and exact-main push CI37378906656 succeeded, each249 files/5653 tests plus
+lint/typecheck/migration smoke/build. Registration-only37378906661 succeeded.
+The operator authorizes recovery/migration/production deployment and confirms
+no real users; user-data preservation certification is excluded.
+
+**Remote evidence:** Recovery37379695824 was approved normally by
+`vn-taphoanhatung` but failed at OFFLINE_PLAN_AND_PRE_LEDGER after verifying
+identity and canonical38/0038 ledger. No Worker pin, catalog import or migration
+ran. Artifact11373786998 has digest
+`sha256:d0566283ce8969f7c741fd96fb994558892ff06a3188c10a7283bfe6003015a4`.
+Read-only inspect37381283540 completed successfully after normal independent
+approval. Status INSPECTED_READ_ONLY, mutations0, authorityVerifiedtrue,
+latestEqualsActivetrue, active100%version1fe3fdae-0ffc-4f83-acb7-4aaecb3ea9c0,
+compatibilityCode UNSUPPORTED_METADATA. Artifact11375730428 has digest
+`sha256:8dd5b0de738265cd83fd11e49470898fdd302fb62185de7441c14f4eae71f810`.
+Its safe schema reveals top-level annotations, AI binding project:string and
+script_runtime.assets. Actual asset configuration values remain private.
+Production still serves136cb6ff/d1-configured/static fallback with ledger38;
+database and queue healthy. Catalog recovery/0039/new application remain pending.
+
+**Changes:** Executable capacity checkpoint414f449 replaces unsupported page
+PRAGMAs with meta.size_after from the already verified ledger query. Missing,
+invalid or >=100MiB metadata stops before Worker inspection/pin/bookmark/import.
+Cloudflare query metadata documents database bytes; pinned Wrangler3.114.17
+retains this metadata. Actual production metadata availability is still unproven.
+Worker executable ca91a1f accepts observed bounded annotations/AI project/runtime
+assets. Full asset runtime equivalence is checked before traffic and after deploy;
+unknown fields and changed behavior remain rejected.
+
+**Staging:** Exactb33/T20true completed shadow37379785022, canary1 37380051888,
+canary5 37380383487, canary25 37380656192, D1 37381006320. All succeeded with
+500 recipes/exact V1 fingerprint/no fallback, paired flags and smoke. Final
+Worker e3fceba8-ce27-4ef9-8e04-f76ce463b4c4; artifact11375060434 digest
+`sha256:4d114b0700564a3d4325cfc3cad30880baa1ce301bb2c8ef9c4cf9bdc5df9c7d`.
+A changed release must restart shadow with intentional catalog rollback=true.
+
+**Checks/failures:** Capacity regression red16failed/4passed; green20/20PASS,
+independently rerun. Four recovery suites75PASS, lint/typecheck/migration smoke
+and diff PASS. Initial concurrent build failed with missing Service Worker build
+token; standalone pnpm build passed (no source change). Cause is unproven; serialize
+build with tests. Observed metadata regression red11fail/40pass; green51/51PASS and independent
+rerun. Final lint/typecheck/migration smoke/syntax/diff PASS; independent reviews
+find no blockers. Initial capacity-only fullsuite intentionally cancelled exit130
+after26 files/1593 tests because the real inspect required another source fix;
+that is not a full PASS. Frozen final candidate fullsuite is running; build follows
+serially. Hosted final-head and exact merged-main CI remain required.
+
+**Next:** Complete full local validation and the serial build, require green
+final-head hosted PR CI, merge with a merge commit, then
+require green exact-main CI and freeze main. Bind new restore-v1 attempt1 to that
+main and its final PR head (ancestor/different SHA/identical complete tree), obtain
+fresh normal production approval. Require V1_CATALOG_CERTIFIED_STATIC/ledger38/
+500/exactfingerprint before guarded0039 and read-only certification. Restage the
+same new SHA shadow/1/5/25/D1 T20true. Production shadow T20false, then live synthetic
+AI proof before same-SHA1/5/25/D1. Existing unexecuted live smoke is
+/private/tmp/takosan-provider-smoke-final-candidate/live-provider-smoke.py.
+**Report:** [PRODUCTION_D1_API_COMPATIBILITY_20261006.md](docs/ai/recipe-catalog/PRODUCTION_D1_API_COMPATIBILITY_20261006.md).
+Earlier checkpoint sections are historical.
+
+---
+
 # Current — T21R-C2F semantic drift / identity forensic (2026-10-05 UTC)
 
 Read-only forensic of production run 37202777157; receipt integrity PASS.

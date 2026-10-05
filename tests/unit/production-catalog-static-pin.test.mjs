@@ -139,6 +139,88 @@ describe('production catalog Worker static pin', () => {
     expect(proof.modules).toEqual(inspection.modules);
     expect(posts(h)).toHaveLength(2);
   });
+  function observedAssets() {
+    return {
+      base_path: '/fixture-asset-namespace',
+      headers: {
+        version: 2,
+        rules: { '/fixture.js': { set: { 'cache-control': 'public, max-age=600' }, unset: ['x-fixture'] } },
+      },
+      html_handling: 'auto-trailing-slash',
+      not_found_handling: 'single-page-application',
+      raw_headers: '/fixture.js\n  Cache-Control: public, max-age=600\n  ! X-Fixture\n',
+      raw_run_worker_first: false,
+      serve_directly: true,
+    };
+  }
+  function observedProviderShape(version) {
+    version.annotations = { 'workers/triggered_by': 'fixture', 'workers/message': 'fixture clone' };
+    version.resources.bindings.push({ name: 'AI', type: 'ai', project: 'fixture-project' });
+    version.resources.script_runtime.assets = observedAssets();
+  }
+  it.each([true, false])('accepts the observed provider shape and retains assets with Worker first=%s', async (workerFirst) => {
+    const h = harness({ mutateOriginal: (version) => {
+      observedProviderShape(version);
+      version.resources.script_runtime.assets.raw_run_worker_first = workerFirst;
+      version.resources.script_runtime.assets.serve_directly = !workerFirst;
+    } });
+    const inspection = await inspectProductionCatalogWorker(h.options);
+    expect(inspection.compatibilityCode).toBe('SUPPORTED');
+    expect(posts(h)).toEqual([]);
+    const proof = await pinProductionCatalogStatic(h.options);
+    expect(proof).toMatchObject({ status: 'static-verified', method: 'clone-deployed-version' });
+    const [upload] = posts(h);
+    const metadata = JSON.parse(upload[1].body.get('metadata'));
+    expect(metadata.keep_assets).toBe(true);
+    expect(metadata.assets).toBeUndefined();
+    expect(metadata.bindings.find((binding) => binding.name === 'AI')).toEqual({ name: 'AI', type: 'inherit' });
+    expect(h.versions.get('pinned').resources.script_runtime.assets)
+      .toEqual(h.versions.get('original').resources.script_runtime.assets);
+    expect(proof.immutableResourcesSha256).toMatch(/^[a-f0-9]{64}$/);
+    const serialized = JSON.stringify(proof);
+    for (const hidden of ['/fixture-asset-namespace', 'public, max-age=600', 'fixture-project']) {
+      expect(serialized).not.toContain(hidden);
+      expect(JSON.stringify(inspection)).not.toContain(hidden);
+    }
+  });
+  it.each([
+    ['asset base path', (version) => { version.resources.script_runtime.assets.base_path = '/changed'; }],
+    ['raw asset headers', (version) => { version.resources.script_runtime.assets.raw_headers = ''; }],
+    ['parsed asset headers', (version) => { version.resources.script_runtime.assets.headers.rules['/fixture.js'].set['cache-control'] = 'no-store'; }],
+    ['asset Worker routing', (version) => { version.resources.script_runtime.assets.raw_run_worker_first = true; }],
+    ['asset direct routing', (version) => { version.resources.script_runtime.assets.serve_directly = false; }],
+    ['asset configuration loss', (version) => { delete version.resources.script_runtime.assets; }],
+    ['inherited AI project', (version) => { version.resources.bindings.find((binding) => binding.type === 'ai').project = 'different-project'; }],
+  ])('rejects changed %s after upload before traffic changes', async (_label, mutateClone) => {
+    const h = harness({ mutateOriginal: observedProviderShape, mutateClone });
+    await expect(pinProductionCatalogStatic(h.options)).rejects.toMatchObject({ code: 'CLONE_EQUIVALENCE_FAILED' });
+    expect(posts(h)).toHaveLength(1);
+    expect(h.beforeMutation.mock.calls.map(([phase]) => phase)).toEqual(['upload']);
+  });
+  it.each([
+    ['unknown asset field', (version) => { version.resources.script_runtime.assets.unreviewed = true; }],
+    ['unknown header schema field', (version) => { version.resources.script_runtime.assets.headers.unreviewed = true; }],
+    ['unknown header rule field', (version) => { version.resources.script_runtime.assets.headers.rules['/fixture.js'].unreviewed = true; }],
+    ['unsupported header version', (version) => { version.resources.script_runtime.assets.headers.version = 3; }],
+    ['invalid header set value', (version) => { version.resources.script_runtime.assets.headers.rules['/fixture.js'].set['cache-control'] = {}; }],
+    ['invalid unset header', (version) => { version.resources.script_runtime.assets.headers.rules['/fixture.js'].unset = [7]; }],
+    ['invalid asset base path', (version) => { version.resources.script_runtime.assets.base_path = {}; }],
+    ['invalid raw headers', (version) => { version.resources.script_runtime.assets.raw_headers = {}; }],
+    ['oversize raw headers', (version) => { version.resources.script_runtime.assets.raw_headers = 'h'.repeat(512 * 1024 + 1); }],
+    ['invalid Worker routing', (version) => { version.resources.script_runtime.assets.raw_run_worker_first = 'true'; }],
+    ['invalid direct routing', (version) => { version.resources.script_runtime.assets.serve_directly = 'true'; }],
+    ['unknown HTML handling', (version) => { version.resources.script_runtime.assets.html_handling = 'unreviewed'; }],
+    ['unknown not-found handling', (version) => { version.resources.script_runtime.assets.not_found_handling = 'unreviewed'; }],
+    ['unknown annotation', (version) => { version.annotations.unreviewed = 'value'; }],
+    ['invalid annotation', (version) => { version.annotations['workers/message'] = {}; }],
+    ['oversize annotation', (version) => { version.annotations['workers/message'] = 'a'.repeat(1001); }],
+    ['invalid AI project', (version) => { version.resources.bindings.find((binding) => binding.type === 'ai').project = {}; }, 'UNSUPPORTED_BINDINGS'],
+    ['unknown AI field', (version) => { version.resources.bindings.find((binding) => binding.type === 'ai').unreviewed = true; }, 'UNSUPPORTED_BINDINGS'],
+  ])('rejects %s in the observed provider shape before mutation', async (_label, mutate, code = 'UNSUPPORTED_METADATA') => {
+    const h = harness({ mutateOriginal: (version) => { observedProviderShape(version); mutate(version); } });
+    await expect(pinProductionCatalogStatic(h.options)).rejects.toMatchObject({ code });
+    expect(posts(h)).toEqual([]);
+  });
   it('verifies an already static Worker without uploading or deploying', async () => {
     const h = harness({ staticAtStart: true });
     expect(await pinProductionCatalogStatic(h.options)).toMatchObject({ status: 'static-verified', method: 'already-static', versionId: 'original' });

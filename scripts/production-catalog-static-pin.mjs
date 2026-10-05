@@ -24,6 +24,12 @@ const VERSION_ID = /^[A-Za-z0-9][A-Za-z0-9._-]{0,127}$/;
 const BINDING_NAME = /^[A-Za-z_][A-Za-z0-9_]{0,127}$/;
 const MAX_CONTENT_BYTES = 16 * 1024 * 1024;
 const MAX_JSON_BYTES = 2 * 1024 * 1024;
+const ANNOTATION_LIMITS = {
+  'workers/alias': 63, 'workers/commit_sha': 64, 'workers/message': 1000,
+  'workers/pull_request_number': 20, 'workers/pull_request_title': 512,
+  'workers/pull_request_url': 512, 'workers/repository_url': 512,
+  'workers/tag': 100, 'workers/triggered_by': 128,
+};
 const BINDING_FIELDS = {
   plain_text: ['name', 'type', 'text'],
   json: ['name', 'type', 'json'],
@@ -33,7 +39,7 @@ const BINDING_FIELDS = {
   r2_bucket: ['name', 'type', 'bucket_name', 'jurisdiction'],
   kv_namespace: ['name', 'type', 'namespace_id'],
   queue: ['name', 'type', 'queue_name', 'queue_id', 'delivery_delay'],
-  ai: ['name', 'type'],
+  ai: ['name', 'type', 'project'],
   assets: ['name', 'type'],
   send_email: ['name', 'type', 'destination_address', 'allowed_destination_addresses', 'allowed_sender_addresses'],
   version_metadata: ['name', 'type'],
@@ -154,14 +160,56 @@ function bindingValue(bindings, name) {
   if (binding?.type !== 'plain_text') fail('WORKER_BINDING_MISMATCH');
   return binding.text;
 }
+function boundedText(value, maxBytes) {
+  return typeof value === 'string' && Buffer.byteLength(value) <= maxBytes;
+}
+function checkedAnnotations(annotations) {
+  onlyKeys(annotations, Object.keys(ANNOTATION_LIMITS));
+  if (Object.entries(annotations).some(([key, value]) => !boundedText(value, ANNOTATION_LIMITS[key]))) {
+    fail('UNSUPPORTED_METADATA');
+  }
+}
+function checkedRuntimeAssets(assets) {
+  onlyKeys(assets, ['base_path', 'headers', 'html_handling', 'not_found_handling',
+    'raw_headers', 'raw_run_worker_first', 'serve_directly']);
+  for (const [key, limit] of [['base_path', 4096], ['raw_headers', 512 * 1024]]) {
+    if (Object.hasOwn(assets, key) && !boundedText(assets[key], limit)) fail('UNSUPPORTED_METADATA');
+  }
+  for (const key of ['raw_run_worker_first', 'serve_directly']) {
+    if (Object.hasOwn(assets, key) && typeof assets[key] !== 'boolean') fail('UNSUPPORTED_METADATA');
+  }
+  if ((assets.html_handling !== undefined
+      && !['auto-trailing-slash', 'force-trailing-slash', 'drop-trailing-slash', 'none'].includes(assets.html_handling))
+      || (assets.not_found_handling !== undefined
+      && !['single-page-application', '404-page', 'none'].includes(assets.not_found_handling))) fail('UNSUPPORTED_METADATA');
+  if (assets.headers !== undefined) {
+    onlyKeys(assets.headers, ['version', 'rules']);
+    if (assets.headers.version !== 2 || !isObject(assets.headers.rules)
+        || Object.keys(assets.headers.rules).length > 100) fail('UNSUPPORTED_METADATA');
+    for (const [path, rule] of Object.entries(assets.headers.rules)) {
+      if (!boundedText(path, 2000)) fail('UNSUPPORTED_METADATA');
+      onlyKeys(rule, ['set', 'unset']);
+      if (rule.set !== undefined) {
+        if (!isObject(rule.set) || Object.keys(rule.set).length > 100
+            || Object.entries(rule.set).some(([name, value]) =>
+              !boundedText(name, 256) || !boundedText(value, 8192))) fail('UNSUPPORTED_METADATA');
+      }
+      if (rule.unset !== undefined && (!Array.isArray(rule.unset) || rule.unset.length > 100
+          || rule.unset.some((name) => !boundedText(name, 256)))) fail('UNSUPPORTED_METADATA');
+    }
+  }
+}
 function checkedVersion(version, expectedId) {
-  onlyKeys(version, ['id', 'number', 'metadata', 'resources']);
+  onlyKeys(version, ['id', 'number', 'metadata', 'resources', 'annotations']);
+  if (version.annotations !== undefined) checkedAnnotations(version.annotations);
   if (version.id !== expectedId) fail('VERSION_ID_MISMATCH');
   onlyKeys(version.resources, ['bindings', 'script', 'script_runtime', 'assets']);
   onlyKeys(version.metadata ?? {}, ['created_on', 'modified_on', 'source', 'author_email', 'author_id', 'annotations', 'has_preview', 'hasPreview']);
+  if (version.metadata?.annotations !== undefined) checkedAnnotations(version.metadata.annotations);
   const resources = version.resources;
   onlyKeys(resources.script, ['etag', 'handlers', 'named_handlers', 'last_deployed_from', 'placement_mode', 'placement_status']);
-  onlyKeys(resources.script_runtime, ['compatibility_date', 'compatibility_flags', 'limits', 'usage_model', 'migration_tag', 'exports']);
+  onlyKeys(resources.script_runtime, ['compatibility_date', 'compatibility_flags', 'limits', 'usage_model', 'migration_tag', 'exports', 'assets']);
+  if (resources.script_runtime.assets !== undefined) checkedRuntimeAssets(resources.script_runtime.assets);
   if (!/^\d{4}-\d{2}-\d{2}$/.test(resources.script_runtime.compatibility_date ?? '')
       || !Array.isArray(resources.script_runtime.compatibility_flags)
       || resources.script_runtime.compatibility_flags.some((v) => typeof v !== 'string')
@@ -174,6 +222,8 @@ function checkedVersion(version, expectedId) {
     if (!BINDING_NAME.test(binding?.name ?? '') || names.has(binding.name)
         || !Object.hasOwn(BINDING_FIELDS, binding.type)) fail('UNSUPPORTED_BINDINGS');
     onlyKeys(binding, BINDING_FIELDS[binding.type], 'UNSUPPORTED_BINDINGS');
+    if (binding.type === 'ai' && binding.project !== undefined
+        && !boundedText(binding.project, 1024)) fail('UNSUPPORTED_BINDINGS');
     names.add(binding.name);
     if (Object.hasOwn(FLAGS, binding.name) && binding.type !== 'plain_text') fail('UNSUPPORTED_BINDINGS');
   }
@@ -246,6 +296,8 @@ function uploadForm(version, content) {
     ...(runtime.limits !== undefined ? { limits: runtime.limits } : {}),
     ...(runtime.usage_model !== undefined ? { usage_model: runtime.usage_model } : {}),
     ...(version.resources.script.placement_mode === 'smart' ? { placement: { mode: 'smart' } } : {}),
+    // Pinned Wrangler's version clone retains the latest assets and configuration this way.
+    // stableResources compares the full runtime assets before traffic can change.
     keep_assets: true,
     annotations: { 'workers/message': 'Preserve deployed source and assets; pin catalog static before V1 recovery', 'workers/commit_sha': PRODUCTION_CATALOG_WORKER_SHA },
   };

@@ -13,10 +13,13 @@ import { requirePinnedStaticWorker, runCatalogRecovery, verifyRecoveryLedger } f
 const cwd = process.cwd();
 const sha = execFileSync('git', ['rev-parse', 'HEAD'], { encoding: 'utf8' }).trim();
 const fingerprint = 'f8cf8c7ff59df9fe29e246b9e3c9aad0fd155fa8df35bf671ac4d03fa2b5ab37';
+const capacityBytes = 8 * 1024 * 1024;
 let source;
 let db;
 let files;
 let events;
+let sqlCommands;
+let preLedgerMeta;
 let failPost;
 let mutateStatic;
 let inspections;
@@ -35,7 +38,8 @@ beforeEach(() => {
   const ingredientId = db.query('SELECT id FROM ingredients ORDER BY id LIMIT 1')[0].id;
   for (let i = 0; i < 4018; i++) db.execute("INSERT INTO recipe_ingredients VALUES (?, ?, ?, 'unreviewed', 1, 'g', 0)", [`extra_${i}`, recipeId, ingredientId]);
   files = mkdtempSync(path.join(os.tmpdir(), 'catalog-recovery-runner-'));
-  events = []; failPost = false; mutateStatic = false; inspections = 0; loseImportResponse = false;
+  events = []; sqlCommands = []; preLedgerMeta = { size_after: capacityBytes };
+  failPost = false; mutateStatic = false; inspections = 0; loseImportResponse = false;
 });
 afterEach(() => db.close());
 
@@ -72,9 +76,13 @@ function options(extra = {}) {
         return 'atomic import completed';
       }
       const sql = args[args.indexOf('--command') + 1];
+      sqlCommands.push(sql);
+      if (/pragma_page_(?:count|size)/i.test(sql)) throw new Error('Remote D1 pragma not supported');
       if (sql.startsWith('SELECT name FROM d1_migrations')) events.push('ledger');
       if (failPost && events.includes('import') && sql === 'PRAGMA quick_check') throw new Error('provider/private row text');
-      return JSON.stringify(sql.split(';').filter((s) => s.trim()).map((s) => db.execute(s)));
+      const statements = sql.split(';').filter((s) => s.trim()).map((s) => db.execute(s));
+      if (sql.startsWith('SELECT name FROM d1_migrations') && !events.includes('import')) statements[0].meta = preLedgerMeta;
+      return JSON.stringify(statements);
     },
     ...extra,
   };
@@ -93,18 +101,60 @@ describe('bounded production recovery orchestration', () => {
   it('pins static and captures a bookmark before one import, then certifies real V1 hydration', async () => {
     const receipt = await run();
     expect(receipt.status).toBe('V1_CATALOG_CERTIFIED_STATIC');
+    expect(receipt.capacity.beforeBytes).toBe(capacityBytes);
     expect(receipt.runtime).toMatchObject({ actualRecipes: 500, hydrationFailureCount: 0, runtimeFingerprint: fingerprint });
     expect(events.indexOf('pin')).toBeLessThan(events.indexOf('bookmark'));
     expect(events.indexOf('bookmark')).toBeLessThan(events.indexOf('import'));
     expect(events.filter((e) => e === 'import')).toHaveLength(1);
+    expect(events.slice(0, events.indexOf('pin')).filter((e) => e === 'ledger')).toHaveLength(1);
+    expect(sqlCommands.some((sql) => /pragma_page_(?:count|size)/i.test(sql))).toBe(false);
     expect(events).not.toContain('rollback');
     expect(db.query('SELECT count(1) AS n FROM recipe_ingredients')[0].n).toBe(2702);
     expect(db.query('SELECT count(1) AS n FROM d1_migrations')[0].n).toBe(38);
   });
-  it('rejects a changed ledger before pinning or importing', async () => {
+  it.each([
+    ['missing metadata', undefined],
+    ['missing size', {}],
+    ['string size', { size_after: String(capacityBytes) }],
+    ['null size', { size_after: null }],
+    ['boolean size', { size_after: true }],
+    ['zero size', { size_after: 0 }],
+    ['negative size', { size_after: -1 }],
+    ['fractional size', { size_after: 1.5 }],
+    ['exactly 100 MiB', { size_after: 100 * 1024 * 1024 }],
+    ['above 100 MiB', { size_after: 100 * 1024 * 1024 + 1 }],
+    ['unsafe integer size', { size_after: Number.MAX_SAFE_INTEGER + 1 }],
+  ])('rejects %s before Worker inspection, pinning or import without a fallback', async (_label, meta) => {
+    preLedgerMeta = meta;
+    await expect(run()).rejects.toThrow('RECOVERY_STOPPED');
+    expect(events.filter((e) => e === 'ledger')).toHaveLength(1);
+    expect(events).not.toContain('inspect'); expect(events).not.toContain('pin');
+    expect(events).not.toContain('bookmark'); expect(events).not.toContain('import');
+    expect(sqlCommands.some((sql) => /pragma_page_(?:count|size)/i.test(sql))).toBe(false);
+    const receipt = JSON.parse(readFileSync(path.join(files, 'catalog-recovery-receipt.json'), 'utf8'));
+    expect(receipt).toMatchObject({ status: 'STOPPED', phase: 'PRE_IMPORT_CAPACITY',
+      failureCode: 'CAPACITY_METADATA_INVALID', preLedger: { count: 38, tip: '0038_auth_onboarding_completion.sql' } });
+    expect(receipt.capacity).toBeUndefined();
+    expect(receipt.worker).toBeUndefined();
+    expect(receipt.importOutcome).toBeUndefined();
+    expect(JSON.stringify(receipt)).not.toContain('size_after');
+    expect(db.query('SELECT count(1) AS n FROM recipe_ingredients')[0].n).toBe(6720);
+  });
+  it('accepts the last integer below the 100 MiB bound', async () => {
+    preLedgerMeta = { size_after: 100 * 1024 * 1024 - 1 };
+    const receipt = await run();
+    expect(receipt.status).toBe('V1_CATALOG_CERTIFIED_STATIC');
+    expect(receipt.capacity.beforeBytes).toBe(100 * 1024 * 1024 - 1);
+    expect(receipt.runtime).toMatchObject({ actualRecipes: 500, hydrationFailureCount: 0, runtimeFingerprint: fingerprint });
+    expect(sqlCommands.some((sql) => /pragma_page_(?:count|size)/i.test(sql))).toBe(false);
+  });
+  it('rejects a changed ledger before evaluating its capacity, pinning or importing', async () => {
     db.execute("UPDATE d1_migrations SET name = '0000_wrong.sql' WHERE name = ?", [source.ledger[0]]);
     await expect(run()).rejects.toThrow('RECOVERY_STOPPED');
     expect(events).not.toContain('pin'); expect(events).not.toContain('import');
+    const receipt = JSON.parse(readFileSync(path.join(files, 'catalog-recovery-receipt.json'), 'utf8'));
+    expect(receipt.phase).toBe('OFFLINE_PLAN_AND_PRE_LEDGER');
+    expect(receipt.capacity).toBeUndefined();
   });
   it('rejects D1 routing becoming active after the bookmark, before import', async () => {
     mutateStatic = true;

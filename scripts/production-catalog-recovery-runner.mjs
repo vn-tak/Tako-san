@@ -78,10 +78,15 @@ export async function runCatalogRecovery({
       const source = await loadSource({ sha: authorization.mainSha, cwd });
       plan = compile({ source, repairId: `t21_v1_${env.GITHUB_RUN_ID}` });
       receipt.plan = plan.receipt;
-      receipt.preLedger = verifyRecoveryLedger(query('SELECT name FROM d1_migrations ORDER BY name'), source.ledger);
-      const capacity = query('SELECT page_count * page_size AS bytes FROM pragma_page_count, pragma_page_size');
-      const bytes = capacity?.[0]?.results?.[0]?.bytes;
-      requireProof(Number.isSafeInteger(bytes) && bytes > 0 && bytes < 100 * 1024 * 1024);
+      const preLedger = query('SELECT name FROM d1_migrations ORDER BY name');
+      receipt.preLedger = verifyRecoveryLedger(preLedger, source.ledger);
+      receipt.phase = 'PRE_IMPORT_CAPACITY';
+      // D1 reports database bytes in query metadata; page_count is outside its supported PRAGMAs.
+      const bytes = preLedger[0].meta?.size_after;
+      if (!Number.isSafeInteger(bytes) || bytes <= 0 || bytes >= 100 * 1024 * 1024) {
+        receipt.failureCode = 'CAPACITY_METADATA_INVALID';
+        reject();
+      }
       receipt.capacity = { beforeBytes: bytes, capacityPolicy: 'database below 100 MiB; bounded catalog copies fit within the 500 MiB minimum D1 database limit' };
     }
     receipt.phase = 'STATIC_PIN';

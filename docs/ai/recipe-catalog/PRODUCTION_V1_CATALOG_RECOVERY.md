@@ -1,3 +1,16 @@
+## API compatibility continuation - 2026-10-06 JST
+
+Capacity executable414f449 and observed Worker response executableca91a1f
+correct the D1 capacity query and bounded annotations/AI project/runtime assets
+compatibility. Actual approved inspect37381283540 exposed those shapes read-only.
+Recovery37379695824 stopped before any Worker/catalog mutation. Complete asset
+runtime equivalence remains required before traffic and after deployment. See
+[PRODUCTION_D1_API_COMPATIBILITY_20261006.md](PRODUCTION_D1_API_COMPATIBILITY_20261006.md)
+for exact runs/artifacts/checks and the fresh final-main release sequence.
+Earlier pending/no-remote statements below are historical.
+
+---
+
 # Bounded production V1 catalog recovery
 
 Status: preparation and rehearsal; no remote catalog mutation performed.

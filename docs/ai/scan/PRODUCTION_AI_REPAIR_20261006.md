@@ -1,3 +1,17 @@
+# AI release checkpoint - 2026-10-06 JST
+
+AI repair e7d7db1 merged in PR49/mainb33bd5a; its final-head hosted CI and
+exact-main CI both PASS249/5653. Stagingb33/T20true completed shadow/1/5/25/D1
+but mock AI cannot certify production Qwen. Actual approved recovery failed
+before mutation and read-only inspect exposed further Worker API compatibility
+requirements. Capacity414f449 and metadata/assetsca91a1f are separate narrow
+release corrections. [Current release evidence](../recipe-catalog/PRODUCTION_D1_API_COMPATIBILITY_20261006.md).
+Corrected application has not been deployed to production or live AI tested.
+Existing synthetic smoke remains unexecuted until exact final merged-main
+production shadow is deployed. Earlier checkpoint statuses are historical.
+
+---
+
 # Current release checkpoint - 2026-10-06 JST
 
 The AI correction now shares PR49 with Worker metadata compatibility fix

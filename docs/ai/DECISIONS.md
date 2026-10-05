@@ -2,7 +2,8 @@
 
 ## ADR-041 - Bounded V1 catalog source replacement before production release
 
-**Status:** Proposed 2026-10-05 for independent implementation review. Remote execution
+**Status:** Proposed 2026-10-05 for independent implementation review. A credential-free main-push echo job registers the workflow; the production
+gate explicitly requires manual dispatch. Remote execution
 requires the normal independent production Environment approval. The operator
 has requested production recovery and states there are no real users; user-data
 retention certification is excluded from this operation.

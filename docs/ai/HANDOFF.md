@@ -1,3 +1,34 @@
+# Recovery workflow registration checkpoint - 2026-10-05 UTC
+
+Executable recovery `7f59afa`, registration remediation `aea900d`.
+PR46 and47 are merged; current main080b78b has green exact-main push CI37330231950.
+Full local recheck and hosted recovery CI each pass248 files /5639 tests.
+
+Actual recovery dispatch is blocked before run creation: GitHub Actions workflow
+index/web/GET and CLI/REST dispatch return404 for the new dispatch-only recovery
+file, despite its presence on default main and valid actionlint schema. No run,
+production approval, Worker change or D1 mutation was performed. The provider
+registration cause is unresolved; invalid source syntax is not evidenced.
+
+Minimal remediation adds a main-push registration job containing only echo, with
+no checkout, production Environment, secret reference or production tool. The
+production gate now explicitly requires workflow_dispatch/main/confirmtrue;
+recover still depends on that gate and all authorization checks reject push.
+Actionlint1.7.12, lint, diff check and13 approval tests PASS; independent review
+finds no blockers. Full hosted PR/main CI remains required before dispatch.
+
+Staging0039 certification37331557226 SUCCESS at080b78b: already-present39 ledger,
+no migration applied, FK0/quick_checkok/schema gate/T20 constraints/aggregate
+checks pass. Runtime readiness is pending. Staging application Deploy is held
+until the final main SHA and green CI; production remains old136cb6ff static
+fallback, ledger38. Next: merge green registration checkpoint, require green
+exact-main CI, verify Actions registration, then reviewed restore-v1 plus normal
+independent production Environment approval. Catalog/migration/deploy mutations0.
+
+Earlier checkpoint status is historical.
+
+---
+
 # Production V1 catalog recovery checkpoint - 2026-10-05 UTC
 
 Executable checkpoint `7f59afa` on `codex/production-v1-recovery` starts from

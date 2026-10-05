@@ -443,19 +443,14 @@ export class QwenTaskRuntime {
     attempt: number,
     options: QwenCallOptions,
   ): Promise<QwenOperationResult> {
-    if (request.task === 'receipt_ocr' || request.task === 'label_ocr') {
+    if (isVisionTask(request.task)) {
       const image = asVisionInput(request.input);
-      const repair = attempt > 0 && request.repairInput !== undefined
-        ? `${image.promptOverride || ''}\nRepair only these validation failures: ${serializeForPrompt(request.repairInput)}`
-        : image.promptOverride;
-      return provider.receiptScan({ ...image, ...(repair ? { promptOverride: repair } : {}) }, options);
-    }
-    if (request.task === 'fridge_image_analysis') {
-      const image = asVisionInput(request.input);
-      const repair = attempt > 0 && request.repairInput !== undefined
-        ? `${image.promptOverride || ''}\nRepair only these validation failures: ${serializeForPrompt(request.repairInput)}`
-        : image.promptOverride;
-      return provider.vision({ ...image, ...(repair ? { promptOverride: repair } : {}) }, options);
+      const visionOptions = attempt > 0 && request.repairInput !== undefined
+        ? { ...options, visionRepairInstructions: serializeForPrompt(request.repairInput) }
+        : options;
+      return request.task === 'fridge_image_analysis'
+        ? provider.vision(image, visionOptions)
+        : provider.receiptScan(image, visionOptions);
     }
     const prompt = textInput(
       request.input,

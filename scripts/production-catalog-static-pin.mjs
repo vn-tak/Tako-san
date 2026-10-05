@@ -158,7 +158,7 @@ function checkedVersion(version, expectedId) {
   onlyKeys(version, ['id', 'number', 'metadata', 'resources']);
   if (version.id !== expectedId) fail('VERSION_ID_MISMATCH');
   onlyKeys(version.resources, ['bindings', 'script', 'script_runtime', 'assets']);
-  onlyKeys(version.metadata ?? {}, ['created_on', 'source', 'author_email', 'author_id', 'annotations', 'has_preview']);
+  onlyKeys(version.metadata ?? {}, ['created_on', 'modified_on', 'source', 'author_email', 'author_id', 'annotations', 'has_preview', 'hasPreview']);
   const resources = version.resources;
   onlyKeys(resources.script, ['etag', 'handlers', 'named_handlers', 'last_deployed_from', 'placement_mode', 'placement_status']);
   onlyKeys(resources.script_runtime, ['compatibility_date', 'compatibility_flags', 'limits', 'usage_model', 'migration_tag', 'exports']);

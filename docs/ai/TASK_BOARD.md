@@ -1,3 +1,116 @@
+# Production replacement candidate checkpoint - 2026-10-06 JST
+
+State: production release incomplete. Current main remains
+`cd66bb86ca7c440b606fb8672e89428800df33c2`. PR49 carries AI correction `e7d7db1`
+and Worker metadata compatibility correction `1ed5733`. The operator authorizes
+production release and confirms no real users; user-data preservation certification
+is excluded.
+
+Changes: static-pin now accepts Cloudflare's documented informational metadata
+`hasPreview` and `modified_on` alongside legacy `has_preview`. Unknown fields
+still fail before mutation. Exact deployed source/runtime/bindings/assets,
+module equivalence and approval/freshness fences remain enforced. AI repair
+preserves the complete default/custom extraction task/schema; its role in the
+observed live INVALID_RESPONSE remains unproven.
+
+Checks: metadata regression red 3 failures / 20 passes; final focused suite
+24 PASS, independently rerun. Combined recovery/AI targeted validation five files /
+70 PASS. Lint, typecheck, migration smoke, production build, syntax and diff PASS.
+Full combined candidate suite: 249 files / 5653 PASS, exit 0, 514.45s,
+unchanged timeouts, one worker, UTC and canonical macOS temp path.
+
+Remote: recovery37334212154 intentionally CANCELLED at 2026-10-05T20:49:15Z,
+recover job steps empty, approvals/pending deployments empty. It executed no
+Worker/catalog/migration mutation and no longer requires review. Staging canary1
+37370418398 FAILURE before steps; annotation: "The job was not acquired by Runner
+of type hosted even after multiple attempts". Staging remains healthy shadow
+on cd66/T20true; production remains old 136cb6ff/static fallback/ledger38. Actual
+catalog recovery,0039 and new production application deployment remain pending.
+The earlier normal disposable guest/synthetic scan failed INVALID_RESPONSE;
+logout revoked its session. Corrected live provider readiness is still unproven.
+
+External gate: GitHub Actions incident remains active; latest 20:47:22Z update
+reports degraded availability. PR49 prior-head CI37371504325 failed before steps at 20:58:30Z with the
+same hosted-runner assignment annotation. Final-head hosted CI and exact merged-main
+push CI remain required after publication; resolve their current IDs from PR49.
+
+Next: require green hosted CI on the final PR49 head, merge with a merge commit,
+require exact-main push CI and freeze the new main. New recovery attempt1 must bind ref to
+that main and reviewed_sha to the final merged PR49 head, preserving ancestry
+and complete tree equality. Fresh normal production Environment review is needed
+only when that new run exists. Require V1_CATALOG_CERTIFIED_STATIC before guarded
+0039; full production certification follows 0039. Restage the final SHA through
+shadow/1/5/25/D1, paired T20true. Production uses T20false, same immutable SHA,
+shadow/live non-PII AI proof before 1/5/25/D1 promotion. Do not reuse the cancelled
+run or old reviewed implementation head.
+
+Runner-local final-candidate smoke is prepared at
+`/private/tmp/takosan-provider-smoke-final-candidate/live-provider-smoke.py`.
+Static syntax and fixture hash PASS; it has not been executed. Require explicit
+production SHA and the deployed corrected shadow before its one synthetic scan.
+
+Report: [PRODUCTION_RELEASE_BLOCKERS_20261006.md](recipe-catalog/PRODUCTION_RELEASE_BLOCKERS_20261006.md).
+Older checkpoints follow and their pending-run claims are historical.
+
+---
+
+# Production release and AI retry checkpoint - 2026-10-06 JST
+
+Current GitHub main `cd66bb86ca7c440b606fb8672e89428800df33c2` has green exact-main
+push CI37333194384:248 files /5640 tests plus lint/typecheck/migration smoke/build.
+PR48 is merged. Actions registration375554736 is active; push registration run
+37333194265 succeeded with only register running and gate/recover skipped.
+
+Reviewed recovery dispatch37334212154 passed its complete-tree/main/CI gate and
+is waiting for normal production Environment review by `vn-taphoanhatung`.
+CLI actor `vn-tak` cannot approve it. No production catalog recovery,0039
+migration or application deployment has occurred. Do not advance main while
+this run is pending: its mutation fences require exact current main.
+
+Staging0039 certification37331557226 and runtime readiness37331892983 succeeded
+(certify-only39 ledger/FK0/500 hydrated/exact V1 fingerprint). Staging Deploy
+shadow37334571659 succeeded atcd66 with paired T20=true, D1 ready500/no fallback,
+exact SHA smoke and version223b8b47-5439-49b9-b089-e444e7a97174. Same-SHA canary
+progression is in progress; production T20 remains deliberately off.
+
+Actual live non-PII production receipt smoke on old136cb6ff accepted one synthetic
+image202, then terminal INVALID_RESPONSE/attempt1/items0. Request IDs
+24145b6c-8390-4e73-8337-a0beb6e52771 (acceptance) and
+ba031f71-6c8c-4070-ac7d-ad0347c1c574 (terminal), support hash096080ad9e97.
+One disposable guest/session/scan was created through normal APIs; logout200
+revoked the session. No email/OTP, security bypass or secret extraction.
+Provider availability/receipt accuracy remain uncertified. Staging mock does
+not prove live provider behavior. Production AI/config and image preprocessing
+are unchanged from the deployed Worker in the prior candidate.
+
+Executable AI correction `e7d7db1` preserves the full default/custom extraction
+prompt while adding repair feedback on same-model retry and multimodal escalation.
+The source bug is independently reproduced: default retry lost task/schema.
+It can undermine recovery; its causation of the live failure is unproven.
+Regression red4 failed/3 passed; correction and adjacent AI/provider/router
+checks5 files/81 PASS. Lint/typecheck/migration smoke/build/diff PASS; full local
+suite249 files/5647 PASS (513.76s), unchanged timeouts. Independent review finds no blockers; input governance includes
+repair feedback and bounds calls. No AI model/provider/quality/security policy
+change. Publish as a separate reviewed fix, hold merge while recovery is pending,
+then verify real provider behavior before declaring production release complete.
+
+Next: complete normal review of recovery37334212154, inspect aggregate receipt
+and any unsupported provider metadata before further operation. Require V1 catalog
+certification, then guarded0039. Merge green AI correction only after the pending
+recovery completes or is intentionally replaced; stage the final immutable SHA
+through shadow/canary/D1 and deploy production through the normal Environment gates.
+Report: [PRODUCTION_AI_REPAIR_20261006.md](scan/PRODUCTION_AI_REPAIR_20261006.md).
+PR49 is open for the AI correction; no auto-merge and main remainscd66.
+Staging canary1 run37370418398 and hosted AI CI37370993436 are queued with no
+runner/deploy attempt. GitHub Status confirms an Actions incident affecting
+hosted runner assignment/start times (19:11:58UTC start;20:39:27UTC update).
+External wait has no ETA; do not redispatch duplicate runs or weaken gates.
+Recovery37334212154 still waits for required reviewer; deployment is incomplete.
+
+Older sections are historical.
+
+---
+
 # Recovery workflow registration checkpoint - 2026-10-05 UTC
 
 Executable recovery `7f59afa`, registration remediation `aea900d`.

@@ -1,3 +1,23 @@
+# T21R-C2F semantic drift / ingredient identity forensic — 2026-10-05 UTC
+
+- [x] Verify run 37202777157 attempt 1, artifact 11304380358 digest, execution and
+  reviewed SHAs, five source digests and offline authority-proof reproduction.
+- [x] Trace capture → classifier → aggregate → receipt. Prove every count relation,
+  the 65 residual and the drift mapping with no unexplained residual.
+- [x] Explain the 2,702 target ambiguity (recipe-scoped unresolved identity) with
+  bounds and offline controls; pre/post-C2S comparison (26 targets changed).
+- [x] ING_ENR origin, authority and bridge audit; production vs V1 and committed V2;
+  runtime gate and impact; 0039 relevance NONE.
+- [x] Report, evidence matrix and C2T privacy-safe diagnostic design (not dispatched).
+- [ ] Independent review of the report. Separately authorize and review C2T before
+  any remediation or release-authority decision.
+
+Production operations 0. Repair NOT_AUTHORIZED (REPAIR_NEEDS_MORE_EVIDENCE); 0039 and
+deploy NOT AUTHORIZED; T21G_NOT_READY.
+Report: `recipe-catalog/T21RC2F_SEMANTIC_DRIFT_IDENTITY_FORENSIC.md`.
+
+---
+
 # T21R-C2S schema boundary — 2026-10-04 UTC
 
 - [x] Verify repository 1385308553 and fetched exact main

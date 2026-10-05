@@ -1,3 +1,32 @@
+# T21R-C2T-P1 invalid Action pin remediation — 2026-10-05 UTC
+
+- [x] Fetch exact live main `b3fd7baf9c25ae195bdc6f52ed9ca27f34cef455` and create a
+  fresh isolated thread-derived branch; no concurrent work absorbed.
+- [x] Verify failed run `37304008220` / attempt 1 stopped at capture **Set up job**;
+  classify `T21RC2T_CAPTURE_BLOCKED_ACTION_PIN_INVALID`, not diagnostic evidence.
+- [x] Prove old pnpm pin HTTP 404; dereference upstream annotated `v4.3.0` tag to
+  `b906affcce14559ad1aafd4ab0e942779e9f58b1`; verify other three pins exist and leave them unchanged.
+- [x] Replace only the pnpm action ref, preserving version/comment/install semantics.
+- [x] Reproduce old 5/5 green blind spot; harden exact-ref assertions, obtain the
+  expected red result, add offline old-pin rejection regression, then verify green.
+- [x] Narrow suite 3 files / 62 PASS; established C2T+C2 14 / 539 PASS
+  (C2T 6/119, unchanged C2 8/420); full Vitest 243 / 5,548 PASS.
+- [x] Lint/typecheck/local migration smoke/build/diff checks PASS; one-pin-only
+  workflow comparison and zero changes across all 73 C2 bound specifications.
+- [x] Record the verified implementation checkpoint and exact evidence/checks in
+  the separate report and required three AI checkpoint documents.
+- [ ] Fresh human independent review by `vn-taphoanhatung` of the final draft PR
+  head; old review `5412451575` does not cover the new workflow/test bytes.
+
+**Status:** `T21RC2T_P1_FIXED_READY_FOR_INDEPENDENT_REVIEW`.
+PR must remain draft/open/unmerged; no self approval, ready conversion or merge.
+All P1 production operation counts 0; failed run never rerun. Corruption NOT
+PROVEN; repair needs more evidence; 0039 relevance NONE; 0039/deploy NOT AUTHORIZED;
+T21G NOT READY. Next: publish/verify the dedicated draft PR, then STOP for review.
+Report: [`T21RC2T_P1_ACTION_PIN_REMEDIATION.md`](recipe-catalog/T21RC2T_P1_ACTION_PIN_REMEDIATION.md).
+
+---
+
 # T21R-C2T privacy-safe identity topology implementation — 2026-10-05 UTC
 
 - [x] Exact live-main/checkout/repository hard gate from certified PR #42; verify

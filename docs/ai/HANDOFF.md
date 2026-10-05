@@ -33,7 +33,7 @@ The source bug is independently reproduced: default retry lost task/schema.
 It can undermine recovery; its causation of the live failure is unproven.
 Regression red4 failed/3 passed; correction and adjacent AI/provider/router
 checks5 files/81 PASS. Lint/typecheck/migration smoke/build/diff PASS; full local
-suite is running. Independent review finds no blockers; input governance includes
+suite249 files/5647 PASS (513.76s), unchanged timeouts. Independent review finds no blockers; input governance includes
 repair feedback and bounds calls. No AI model/provider/quality/security policy
 change. Publish as a separate reviewed fix, hold merge while recovery is pending,
 then verify real provider behavior before declaring production release complete.
@@ -44,6 +44,13 @@ certification, then guarded0039. Merge green AI correction only after the pendin
 recovery completes or is intentionally replaced; stage the final immutable SHA
 through shadow/canary/D1 and deploy production through the normal Environment gates.
 Report: [PRODUCTION_AI_REPAIR_20261006.md](scan/PRODUCTION_AI_REPAIR_20261006.md).
+PR49 is open for the AI correction; no auto-merge and main remainscd66.
+Staging canary1 run37370418398 and hosted AI CI37370993436 are queued with no
+runner/deploy attempt. GitHub Status confirms an Actions incident affecting
+hosted runner assignment/start times (19:11:58UTC start;20:39:27UTC update).
+External wait has no ETA; do not redispatch duplicate runs or weaken gates.
+Recovery37334212154 still waits for required reviewer; deployment is incomplete.
+
 Older sections are historical.
 
 ---

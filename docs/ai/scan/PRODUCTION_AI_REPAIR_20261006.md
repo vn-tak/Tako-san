@@ -42,10 +42,21 @@ each call; generated error detail and maxCalls/maxAttempts are bounded.
 
 - Red reproduction: `TMPDIR=/private/tmp TZ=UTC pnpm exec vitest run tests/unit/ai-vision-repair-prompt.test.ts --maxWorkers=1`:4 failures/3 passes, exposing default receipt/label/fridge and escalation instruction loss.
 - Green: same regression plus ai-runtime-governance, qwen-provider, ai-provider-recovery and ai-router suites:5 files/81 PASS.
-- Lint/typecheck/migration smoke/build/diff PASS. Full local suite is running at publication; record final result before release.
+- Lint/typecheck/migration smoke/build/diff PASS. Full local suite249 files/5647 PASS (513.76s), unchanged timeouts.
 - Independent source/contract review: no blockers. No live call of the corrected bundle has occurred.
 
 This corrects a proved source bug; it does not claim the live scan failure is
 resolved. Hold main stable for pending recovery37334212154, require green hosted
 PR/main CI for the correction, then repeat an approved non-PII live smoke on the
 exact corrected release before promoting production authority.
+
+## Publication and operational gates
+
+PR49 is open; main stayscd66 for pending recovery37334212154. The independent
+production Environment reviewer `vn-taphoanhatung` must approve that actual run.
+Staging shadow37334571659 is healthy, exactcd66/T20true/500 D1-ready/no fallback.
+Canary1 run37370418398 and AI PR CI37370993436 are queued before runner assignment.
+[GitHub Actions incident](https://stspg.io/c11dc9nb1zdq) started19:11:58UTC;
+20:39:27UTC update confirms job failures and hosted-runner/start delays, no ETA.
+No duplicate dispatch, main advancement or production application deploy occurred.
+Production remains old136cb6ff; actual live provider readiness remains unresolved.

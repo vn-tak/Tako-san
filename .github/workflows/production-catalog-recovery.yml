@@ -1,0 +1,108 @@
+name: Production Catalog V1 Recovery
+
+on:
+  workflow_dispatch:
+    inputs:
+      ref:
+        description: Full immutable current-main SHA with successful exact-main push CI
+        type: string
+        required: true
+      reviewed_sha:
+        description: Exact reviewed final implementation PR head whose complete tree equals current main
+        type: string
+        required: true
+      operation:
+        description: Bounded operation; restore-v1 first pins existing Worker static then imports certified V1
+        type: choice
+        options: [inspect, static-pin, restore-v1]
+        default: inspect
+      confirm_catalog_recovery:
+        description: Confirm this intentional catalog operation; no migration or new application bundle is deployed
+        type: boolean
+        default: false
+
+permissions:
+  contents: read
+  actions: read
+  pull-requests: read
+
+concurrency:
+  group: frigo-deploy-production
+  cancel-in-progress: false
+
+jobs:
+  gate:
+    if: github.ref == 'refs/heads/main' && inputs.confirm_catalog_recovery == true
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    outputs:
+      candidate_sha: ${{ steps.gate.outputs.candidate_sha }}
+    steps:
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683
+        with:
+          ref: main
+          fetch-depth: 0
+          persist-credentials: false
+      - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020
+        with:
+          node-version: 24
+      - name: Require exact main, full reviewed implementation tree and successful exact-main CI
+        id: gate
+        env:
+          GH_TOKEN: ${{ github.token }}
+          RELEASE_REF: ${{ inputs.ref }}
+          REVIEWED_SHA: ${{ inputs.reviewed_sha }}
+          RECOVERY_OPERATION: ${{ inputs.operation }}
+          CONFIRM_CATALOG_RECOVERY: ${{ inputs.confirm_catalog_recovery }}
+        run: node scripts/production-catalog-recovery-approval.mjs gate
+
+  recover:
+    needs: gate
+    runs-on: ubuntu-latest
+    environment: production
+    timeout-minutes: 30
+    env:
+      RELEASE_REF: ${{ needs.gate.outputs.candidate_sha }}
+      REVIEWED_SHA: ${{ inputs.reviewed_sha }}
+      RECOVERY_OPERATION: ${{ inputs.operation }}
+      CONFIRM_CATALOG_RECOVERY: ${{ inputs.confirm_catalog_recovery }}
+      WRANGLER_SEND_METRICS: 'false'
+    steps:
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683
+        with:
+          ref: ${{ needs.gate.outputs.candidate_sha }}
+          fetch-depth: 0
+          persist-credentials: false
+      - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020
+        with:
+          node-version: 24
+      - uses: pnpm/action-setup@b906affcce14559ad1aafd4ab0e942779e9f58b1
+        with:
+          version: 10
+      - name: Install the frozen recovery toolchain
+        run: pnpm install --frozen-lockfile
+      - name: Verify normal independent production Environment approval
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: node scripts/production-catalog-recovery-approval.mjs approve
+      - name: Execute the reviewed bounded catalog operation
+        env:
+          GH_TOKEN: ${{ github.token }}
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          RELEASE_VERIFY_TOKEN: ${{ secrets.RELEASE_VERIFY_TOKEN }}
+        run: node scripts/production-catalog-recovery-runner.mjs "$RECOVERY_OPERATION"
+      - name: Save aggregate recovery and rollback evidence
+        if: always()
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        with:
+          name: production-catalog-recovery-${{ github.run_id }}-${{ github.run_attempt }}
+          path: |
+            catalog-recovery-authorization.json
+            catalog-recovery-receipt.json
+          if-no-files-found: error
+          retention-days: 90
+      - name: Clear private generated SQL
+        if: always()
+        run: |
+          node --input-type=module -e 'import { existsSync, writeFileSync } from "node:fs"; for (const file of ["catalog-recovery-generated.sql", "catalog-recovery-rollback.sql"]) if (existsSync(file)) writeFileSync(file, "");'

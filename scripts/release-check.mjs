@@ -529,7 +529,39 @@ export function requireSuccessfulCi(runs, { sha, repository }) {
   };
 }
 
-async function hostedCi(sha, repository) {
+export async function requireCurrentHostedMain({
+  sha,
+  repository,
+  token = process.env.GH_TOKEN,
+  fetchImpl = fetch,
+}) {
+  if (!SHA.test(sha || '') || !/^[A-Za-z0-9][A-Za-z0-9-]*\/[A-Za-z0-9_.-]+$/.test(repository || '') || typeof token !== 'string' || !token.trim()) {
+    throw new Error('An exact SHA and repository-scoped current-main read access are required');
+  }
+  const response = await fetchImpl(
+    `https://api.github.com/repos/${repository}/git/ref/heads/main`,
+    {
+      headers: {
+        Authorization: `Bearer ${token}`,
+        Accept: 'application/vnd.github+json',
+        'X-GitHub-Api-Version': '2022-11-28',
+      },
+      signal: AbortSignal.timeout(30_000),
+      redirect: 'error',
+    },
+  );
+  if (!response.ok) throw new Error(`Current main lookup failed (HTTP ${response.status})`);
+  const ref = await response.json();
+  if (ref?.ref !== 'refs/heads/main' || ref?.object?.type !== 'commit' || !SHA.test(ref?.object?.sha || '')) {
+    throw new Error('Current main lookup returned an invalid branch identity');
+  }
+  if (ref.object.sha !== sha) {
+    throw new Error('Release SHA is stale; it must equal current GitHub main');
+  }
+  return { headSha: ref.object.sha, checkedAt: new Date().toISOString() };
+}
+
+export async function hostedCi(sha, repository) {
   if (!/^[A-Za-z0-9_.-]+\/[A-Za-z0-9_.-]+$/.test(repository || '') || !process.env.GH_TOKEN) {
     throw new Error('Repository-scoped hosted CI read access is required');
   }
@@ -993,9 +1025,11 @@ async function main() {
         : undefined);
     const source = validateReleaseSource({ ref: process.env.RELEASE_REF, hardenedSha });
     const repository = process.env.GITHUB_REPOSITORY;
+    const liveMain = await requireCurrentHostedMain({ sha: source.sha, repository });
     const manifest = {
       ...source,
       repository,
+      liveMain,
       environment,
       recipeCatalogMode: rollout.mode,
       recipeCatalogCanaryPercent: rollout.canaryPercent,
@@ -1031,8 +1065,12 @@ async function main() {
       });
       if (migrationManifest(process.cwd(), source.sha).sha256 !== manifest.schema.sha256)
         throw new Error('Migration manifest changed');
-      manifest.mainShaAtDeploymentGate = source.mainSha;
       manifest.ci = await hostedCi(source.sha, manifest.repository);
+      manifest.liveMain = await requireCurrentHostedMain({
+        sha: source.sha,
+        repository: manifest.repository,
+      });
+      manifest.mainShaAtDeploymentGate = manifest.liveMain.headSha;
     } else if (command === 'schema') {
       manifest.observedMigrationLedger = verifyMigrationLedger(
         manifest.schema,

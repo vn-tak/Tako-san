@@ -1,3 +1,38 @@
+# Production release readiness handoff - 2026-10-05 UTC
+
+**State:** Local executable checkpoint81255c1 on
+`codex/production-release-guards`, clean GitHub-main baselineb00eb135.
+Guard changes are locally validated; recovery and deployment remain pending.
+
+**Evidence:** PR44 merged/approved (`vn-taphoanhatung`, review5414445860).
+Exact-main CI37311349308 SUCCESS. Protected SELECT-only diagnostic37316530751
+SUCCESS; normal production approval verified; artifact11347714770 digest
+`sha256:8f51ed149a148d6c03199f4fd067d2df1551efd221f14b8c05865501e03deca8`
+verified. Production ingredient population is not an exact V1 or committed V2
+identity projection; assigning historical order to live rows is unsafe.
+
+**Changes:** Fresh live-main/exact-SHA CI before uploads, rollback only after
+upload attempt;0039 pre-mutation V1 runtime/ledger proof and shared production
+lock. Worktree-safe historical Git object fixture. No applied SQL changed.
+
+**Checks/failures:** Full244 files/5,583 PASS (one worker, canonical macOS temp,
+UTC); targeted5/418 PASS; lint/typecheck/local migration smoke/build/diff PASS.
+Earlier two-worker full run had one existing Wrangler subprocess timeout; no
+assertion or timeout weakened. Production audit high/critical0; existing dev
+toolchain audit has14 high findings, documented without speculative upgrades.
+
+**Next:** Finish archived V1 restore/revert rehearsal and review; pin old Worker
+static first to avoid automatic D1 activation. Certify500/fingerprint before0039.
+Then stage/deploy current main and verify exact active SHA and served authority.
+Production Worker136cb6ff remains on static fallback; remote repair/migration/
+application deployment0. Guard merge changes review-bound bytes for future C2T
+runs but does not invalidate the completed clean-main diagnostic evidence.
+
+**Report:** [PRODUCTION_RELEASE_GUARDS_20261005.md](recipe-catalog/PRODUCTION_RELEASE_GUARDS_20261005.md).
+Historical handoffs follow; their open PR/approval claims are superseded here.
+
+---
+
 # T21R-C2T-P1 invalid Action pin remediation handoff — 2026-10-05 UTC
 
 **State:** `T21RC2T_P1_FIXED_READY_FOR_INDEPENDENT_REVIEW`. Branch

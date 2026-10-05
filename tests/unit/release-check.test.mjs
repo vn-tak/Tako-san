@@ -1,6 +1,7 @@
 import { execFileSync } from 'node:child_process';
 import { mkdtempSync, mkdirSync, readFileSync, rmSync, writeFileSync } from 'node:fs';
 import { tmpdir } from 'node:os';
+import { runInNewContext } from 'node:vm';
 import path from 'node:path';
 import { afterAll, beforeAll, describe, expect, it } from 'vitest';
 import {
@@ -10,6 +11,7 @@ import {
   fetchRecipeAuthorityEvidence,
   migrationManifest,
   requireSuccessfulCi,
+  requireCurrentHostedMain,
   validateRecipeCatalogManifestPolicy,
   validateRecipeCatalogMode,
   validateRecipeCatalogRollout,
@@ -1326,6 +1328,19 @@ describe('release source of truth (local Git only)', () => {
     }
   });
 
+  it('rejects advancing hosted main while the approved checkout still pins origin/main', async () => {
+    expect(check()).toMatchObject({ sha: releaseSha, mainSha: releaseSha });
+    await expect(requireCurrentHostedMain({
+      sha: releaseSha,
+      repository,
+      token: 'fixture-token',
+      fetchImpl: async () => new Response(JSON.stringify({
+        ref: 'refs/heads/main', object: { type: 'commit', sha: outsideSha },
+      })),
+    })).rejects.toThrow('must equal current GitHub main');
+    expect(git('rev-parse', 'refs/remotes/origin/main')).toBe(releaseSha);
+  });
+
   it('rejects a release missing the approved hardening commit', () => {
     expect(() => check({ ref: baselineSha })).toThrow('exact approved hardening');
   });
@@ -1530,6 +1545,71 @@ describe('schema and deployment receipts', () => {
   });
 });
 
+describe('live hosted main release fence', () => {
+  const check = (overrides = {}) => requireCurrentHostedMain({
+    sha: goodSha,
+    repository,
+    token: 'fixture-token',
+    fetchImpl: async () => new Response(JSON.stringify({
+      ref: 'refs/heads/main', object: { type: 'commit', sha: goodSha },
+    })),
+    ...overrides,
+  });
+
+  it('requires the repository branch API, bounded timeout and no redirects', async () => {
+    const proof = await check({ fetchImpl: async (url, options) => {
+      expect(url).toBe(`https://api.github.com/repos/${repository}/git/ref/heads/main`);
+      expect(options.redirect).toBe('error');
+      expect(options.signal).toBeInstanceOf(AbortSignal);
+      expect(options.headers.Authorization).toBe('Bearer fixture-token');
+      return new Response(JSON.stringify({
+        ref: 'refs/heads/main', object: { type: 'commit', sha: goodSha },
+      }));
+    } });
+    expect(proof.headSha).toBe(goodSha);
+    expect(Number.isFinite(Date.parse(proof.checkedAt))).toBe(true);
+  });
+
+  it.each([401, 403, 404, 500])('fails closed on HTTP %s', async (status) => {
+    await expect(check({ fetchImpl: async () => new Response('{}', { status }) }))
+      .rejects.toThrow(`Current main lookup failed (HTTP ${status})`);
+  });
+
+  it.each([
+    null,
+    { ref: 'refs/heads/other', object: { type: 'commit', sha: goodSha } },
+    { ref: 'refs/heads/main', object: { type: 'tag', sha: goodSha } },
+    { ref: 'refs/heads/main', object: { type: 'commit', sha: 'invalid' } },
+  ])('rejects malformed branch identity', async (body) => {
+    await expect(check({ fetchImpl: async () => new Response(JSON.stringify(body)) }))
+      .rejects.toThrow('invalid branch identity');
+  });
+
+  it.each([
+    { sha: 'main' }, { repository: '../untrusted' }, { token: '' },
+  ])('requires exact SHA, repository and authenticated access before fetching', async (input) => {
+    await expect(check({ ...input, fetchImpl: () => { throw new Error('unexpected fetch'); } }))
+      .rejects.toThrow('current-main read access are required');
+  });
+
+  it('propagates network and JSON failures without accepting a candidate', async () => {
+    await expect(check({ fetchImpl: async () => { throw new Error('network unavailable'); } }))
+      .rejects.toThrow('network unavailable');
+    await expect(check({ fetchImpl: async () => new Response('invalid JSON') }))
+      .rejects.toThrow();
+  });
+
+  it('uses the live fence in both candidate authorization and manifest recheck', () => {
+    const cli = readFileSync(new URL('../../scripts/release-check.mjs', import.meta.url), 'utf8');
+    const gate = cli.slice(cli.indexOf("if (command === 'gate')"), cli.indexOf("if (command === 'recheck')"));
+    const recheck = cli.slice(cli.indexOf("if (command === 'recheck')"), cli.indexOf("} else if (command === 'schema')"));
+    expect(gate.indexOf('await requireCurrentHostedMain(')).toBeGreaterThan(-1);
+    expect(gate.indexOf('await requireCurrentHostedMain(')).toBeLessThan(gate.indexOf('await hostedCi('));
+    expect(recheck.indexOf('await requireCurrentHostedMain(')).toBeGreaterThan(-1);
+    expect(recheck.indexOf('await requireCurrentHostedMain(')).toBeGreaterThan(recheck.indexOf('await hostedCi('));
+  });
+});
+
 describe('release workflow guardrails', () => {
   const ci = readFileSync(new URL('../../.github/workflows/ci.yml', import.meta.url), 'utf8');
   const deploy = readFileSync(
@@ -1588,6 +1668,32 @@ describe('release workflow guardrails', () => {
       expect(deploy).toContain(command);
     }
   });
+  it.each(['staging', 'production'])('rechecks live main after all preflights immediately before %s upload', (environment) => {
+    const start = deploy.indexOf(`      - name: Recheck live main and exact-SHA CI immediately before ${environment} upload`);
+    const upload = deploy.indexOf(`      - name: Deploy to Cloudflare ${environment}`);
+    expect(start).toBeGreaterThan(-1);
+    expect(upload).toBeGreaterThan(start);
+    const step = deploy.slice(start, upload);
+    expect(step).toContain('GH_TOKEN: ${{ github.token }}');
+    expect(step).toContain('run: node scripts/release-check.mjs recheck');
+    expect(step.match(/      - name:/g)).toHaveLength(1);
+  });
+
+  it.each([
+    ['', false], ['skipped', false], ['success', true], ['failure', true], ['cancelled', true],
+  ])('rollback after a failed final fence requires an attempted upload (%s)', (outcome, expected) => {
+    const rollback = deploy.slice(deploy.indexOf('      - name: Restore exact previous Worker'));
+    const condition = rollback.match(/^        if: (.+)$/m)[1];
+    const result = runInNewContext(condition, {
+      failure: () => true,
+      cancelled: () => false,
+      steps: { preflight: { outcome: 'success' }, deploy: { outcome } },
+      contains: (values, value) => values.includes(value),
+      fromJSON: JSON.parse,
+    });
+    expect(result).toBe(expected);
+  });
+
   it('keeps manual confirmation, protected environment, immutable checkout, and schema-before-deploy gates', () => {
     expect(deploy).toContain("github.ref == 'refs/heads/main'");
     expect(deploy).toContain('inputs.confirm_production == true');
@@ -1829,6 +1935,7 @@ describe('release workflow guardrails', () => {
       'd1-migration-check.mjs config',
       'd1-migration-check.mjs identity',
       'd1-migration-check.mjs pre-ledger',
+      'production-migration-preflight.mjs',
       'time-travel info',
       'd1-migration-check.mjs bookmark',
       'd1-migration-check.mjs baseline',
@@ -1841,7 +1948,12 @@ describe('release workflow guardrails', () => {
       'd1-migration-check.mjs runtime-catalog migration-manifest.json',
       'd1-schema-gate.sh remote',
     ];
-    const positions = order.map((needle) => migrate.indexOf(needle));
+    let cursor = 0;
+    const positions = order.map((needle) => {
+      const position = migrate.indexOf(needle, cursor);
+      cursor = position + needle.length;
+      return position;
+    });
     expect(positions.every((position) => position >= 0)).toBe(true);
     expect([...positions].sort((a, b) => a - b)).toEqual(positions);
     // Exactly one identity/catalog certification, plus complete-release runtime hydration and fingerprinting.

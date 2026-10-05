@@ -1,5 +1,59 @@
 # Architecture Decisions
 
+## ADR-041 - Bounded V1 catalog source replacement before production release
+
+**Status:** Proposed 2026-10-05 for independent implementation review. Remote execution
+requires the normal independent production Environment approval. The operator
+has requested production recovery and states there are no real users; user-data
+retention certification is excluded from this operation.
+
+**Context:** Protected topology run37316530751 completed on certified main and
+proves the current 6720-line catalog cannot be safely paired with V1 lines to
+invent positions. It does not prove corruption. The production Worker still has
+D1/cutover enabled and falls back static only because catalog diagnostics fail.
+Recovering D1 would activate it automatically. Migration0039 does not repair this.
+
+**Decision:** Replace the active recipe catalog with the existing certified V1
+release `rel-bd00a4f53fcaeee4`, fingerprint
+`f8cf8c7ff59df9fe29e246b9e3c9aad0fd155fa8df35bf671ac4d03fa2b5ab37`.
+No live-line semantic pairing is used. Independently review the complete final
+PR tree; bind its merged implementation head to an identical main tree and
+exact-main successful push CI,
+and normal independent Environment approval. Recheck those proofs at mutations.
+
+First clone the exact existing Worker module bytes and runtime, inherit all
+bindings/secrets/assets and change only catalog routing to static/0/cutover=false.
+Keep its old Git SHA. This config operation deploys no T20/main application
+bundle and does not waive ADR-031's0039-before-T20 prerequisite. Provider versions
+are immutable; unknown API metadata fails closed. Assets retained via Cloudflare's
+`keep_assets:true` contract are distinguished from a content digest the API does
+not expose. Verify the active100% version, bindings and served static authority.
+
+Replay immutable migrations only in local preparation, verify V1 independently
+through the real runtime hydrator, then generate one D1 atomic import. Require
+exact38 ledger/0038, known schema/triggers/FKs,500 canonical recipe IDs,6720 lines,
+zero order rows, valid rollback source units/quantities and clean foreign keys.
+Capture Time Travel bookmark and an immutable lossless in-database catalog archive.
+Update parent IDs in place, replace six child/runtime/classification/nutrition
+relations from certified V1, and unlink enrichment nutrition before restoring
+version1. Shared ingredient/nutrition registries remain outside the operation.
+The archive retains the prior catalog without promoting its contents as authority.
+
+Certify500 hydrated recipes,2702 explicit positions, exact release fingerprint,
+unchanged ledger and integrity after import. If certification fails, rollback only
+from that archive while the catalog still equals the generated target. Static
+routing must remain active throughout; do not restore the former D1-enabled Worker
+after catalog mutation. Import failure uses D1's atomic original-state recovery;
+ambiguous provider failure requires operator inspection. Catalog archives remain
+for later intentional cleanup; no historical migration or ledger row is rewritten.
+
+**Consequences:** This separately authorized source replacement supersedes the
+historical order-repair STOP requirement to find a position for every current live
+line. C2/C2T diagnostic permissions stay read-only and unmodified. This operation
+applies no0039 and does not authorize a new application deployment on its own.
+After catalog certification, use existing guarded0039 migration and immutable
+staging/production release workflows. Existing rollout progression is retained.
+
 ## ADR-040 — T21R-C2 captures protected occurrence evidence and publishes aggregate-only receipts
 
 **Status:** Proposed 2026-10-02 for independent implementation review. Local

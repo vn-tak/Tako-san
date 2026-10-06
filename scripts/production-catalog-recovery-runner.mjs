@@ -4,7 +4,8 @@ import path from 'node:path';
 import { pathToFileURL } from 'node:url';
 import { authorizeRecovery } from './production-catalog-recovery-approval.mjs';
 import { compileOriginalCatalogImportInspection, compileRecipeCatalogRecovery, loadCertifiedRecoverySource } from './recipe-catalog-recovery.mjs';
-import { inspectCatalogImport, inspectRecoveryPreflight } from './production-catalog-import-inspection.mjs';
+import { inspectCatalogImport, inspectLatestCatalogImport, inspectRecoveryPreflight, LATEST_V2_IMPORT_INCIDENT } from './production-catalog-import-inspection.mjs';
+import { collectCloudflareCredentialDiagnostics } from './production-cloudflare-credential-diagnostics.mjs';
 import {
   APPROVED_BATCHES_REGISTRY, CATALOG_RELEASE_MANIFEST, PRODUCTION_D1,
   catalogQuery, loadRuntimeCatalogPipeline, verifyCatalogAtTip,
@@ -39,7 +40,8 @@ export async function runCatalogRecovery({
   authorize = authorizeRecovery, worker,
   loadSource = loadCertifiedRecoverySource, compile = compileRecipeCatalogRecovery,
   loadPipeline = loadRuntimeCatalogPipeline, inspectImport = inspectCatalogImport,
-  inspectPreflight = inspectRecoveryPreflight,
+  inspectPreflight = inspectRecoveryPreflight, inspectLatestImport = inspectLatestCatalogImport,
+  diagnoseCredentials = collectCloudflareCredentialDiagnostics,
 } = {}) {
   requireProof(['inspect', 'inspect-import', 'static-pin', 'restore-v1'].includes(operation) && operation === env.RECOVERY_OPERATION);
   const authorizeNow = () => authorize({ env, cwd });
@@ -83,6 +85,10 @@ export async function runCatalogRecovery({
   try {
     receipt.phase = 'CONFIG_AND_D1_IDENTITY';
     verifyProductionWranglerConfigFile(path.join(cwd, 'wrangler.jsonc'));
+    if (operation === 'inspect-import') {
+      receipt.credentialDiagnostics = await diagnoseCredentials({ env, databaseId: PRODUCTION_D1.id });
+      save();
+    }
     const identity = verifyCloudflareIdentity({ list: json('d1', 'list', '--json'), info: null });
     receipt.identity = identity;
     worker ??= await import('./production-catalog-static-pin.mjs');
@@ -92,7 +98,7 @@ export async function runCatalogRecovery({
       receipt.status = 'INSPECTED_READ_ONLY'; save(); return receipt;
     }
     if (operation === 'inspect-import') {
-      receipt.phase = 'ORIGINAL_IMPORT_READ_ONLY_INSPECTION';
+      receipt.phase = 'INTERRUPTED_IMPORT_READ_ONLY_INSPECTION';
       receipt.mutations = 0;
       receipt.releaseCertification = 'NOT_A_RELEASE_CERTIFICATION';
       const source = await loadSource({ sha: authorization.mainSha, cwd });
@@ -117,6 +123,27 @@ export async function runCatalogRecovery({
       const second = await inspectImport({ source, plan: originalPlan, query: readOnly });
       requireProof(JSON.stringify(first) === JSON.stringify(second));
       receipt.snapshotConsistency = 'OBSERVED_STABLE_NON_ATOMIC';
+      receipt.phase = 'LATEST_V2_IMPORT_READ_ONLY_INSPECTION';
+      // Reconstruct the failed batch from its immutable source, independently of this inspector's release.
+      const incidentSource = await loadSource({ sha: LATEST_V2_IMPORT_INCIDENT.sourceSha, cwd });
+      const incidentPlan = compileRecipeCatalogRecovery({ source: incidentSource,
+        repairId: LATEST_V2_IMPORT_INCIDENT.repairId });
+      receipt.latestImportInspection = await inspectLatestImport({ source: incidentSource, plan: incidentPlan, query: readOnly });
+      save();
+      const finalIncident = await inspectLatestImport({ source: incidentSource, plan: incidentPlan, query: readOnly });
+      requireProof(JSON.stringify(receipt.latestImportInspection) === JSON.stringify(finalIncident));
+      receipt.latestSnapshotConsistency = 'OBSERVED_STABLE_NON_ATOMIC';
+      receipt.phase = 'READ_ONLY_CREDENTIAL_DIAGNOSIS';
+      try {
+        const proof = readOnly('SELECT 1 AS ok');
+        receipt.credentialReadProbe = { result: Array.isArray(proof) && proof.length === 1
+          && proof[0]?.success === true && Array.isArray(proof[0].results) && proof[0].results.length === 1
+          && proof[0].results[0]?.ok === 1 ? 'READ_SUCCEEDED' : 'READ_UNPROVEN',
+        servedByPrimary: typeof proof?.[0]?.meta?.served_by_primary === 'boolean'
+          ? proof[0].meta.served_by_primary : null };
+      } catch { receipt.credentialReadProbe = { result: 'QUERY_FAILED', servedByPrimary: null }; }
+      save();
+      receipt.phase = 'CORRECTED_GUARDS_READ_ONLY_INSPECTION';
       const correctedPlan = compile({ source, repairId: `t21_preflight_${env.GITHUB_RUN_ID}` });
       receipt.recoveryPreflight = await inspectPreflight({ source, plan: correctedPlan, query: readOnly });
       const finalPreflight = await inspectPreflight({ source, plan: correctedPlan, query: readOnly });
@@ -157,6 +184,19 @@ export async function runCatalogRecovery({
         original.status === 'NO_RECOVERY_COMMIT_OBSERVED' && original.inventory?.objectCount === 0 &&
         original.providerBlockingEvidence === 'IMPORT_NOT_BLOCKING_AT_PRIMARY_OBSERVATIONS' &&
         original.preMutationGuards?.find((guard) => guard.label === 'bounded_observed_catalog')?.result === 'MATCH');
+      receipt.phase = 'LATEST_INTERRUPTED_IMPORT_PREFLIGHT';
+      const incidentSource = await loadSource({ sha: LATEST_V2_IMPORT_INCIDENT.sourceSha, cwd });
+      const incidentPlan = compileRecipeCatalogRecovery({ source: incidentSource,
+        repairId: LATEST_V2_IMPORT_INCIDENT.repairId });
+      const latest = await inspectLatestImport({ source: incidentSource, plan: incidentPlan, query });
+      receipt.latestImportInspection = latest; save();
+      const repeatLatest = await inspectLatestImport({ source: incidentSource, plan: incidentPlan, query });
+      requireProof(JSON.stringify(latest) === JSON.stringify(repeatLatest)
+        && latest.status === 'NO_RECOVERY_COMMIT_OBSERVED' && latest.inventory?.objectCount === 0
+        && latest.providerBlockingEvidence === 'IMPORT_NOT_BLOCKING_AT_PRIMARY_OBSERVATIONS'
+        && latest.preMutationGuards?.find((guard) => guard.label === 'bounded_observed_catalog')?.result === 'MATCH');
+      receipt.latestImportTerminalState = 'UNKNOWN_NO_CURSOR';
+      receipt.phase = 'CORRECTED_RECOVERY_PREFLIGHT';
       receipt.recoveryPreflight = await inspectPreflight({ source, plan, query }); save();
       const repeatPreflight = await inspectPreflight({ source, plan, query });
       requireProof(JSON.stringify(receipt.recoveryPreflight) === JSON.stringify(repeatPreflight) &&

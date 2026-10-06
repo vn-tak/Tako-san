@@ -1,3 +1,194 @@
+# Latest V2 import failure and read-only forensics - 2026-10-07 JST
+
+Production deployment remains incomplete. User authorizes production recovery,
+migration and deployment and confirms no real users; user-data retention
+certification is excluded. Required normal production Environment approval remains.
+
+Restore run37491535308 was approved normally by vn-taphoanhatung and completed
+with FAILURE at2026-10-06T20:12:42Z. GitHub API independently confirms approval;
+this run is no longer waiting. Source/main/full-tree/CI gates and fresh eight
+strict-primary V2 guards passed. Receipt status is
+IMPORT_OUTCOME_UNKNOWN_STATIC_OPERATOR_INSPECTION_REQUIRED atBOOKMARK_AND_IMPORT,
+importOutcomeATTEMPTED_COMPLETION_UNCONFIRMED, COMMAND_FAILED/exit1/provider10000.
+No post-import ledger/catalog/runtime/finalWorker/rollback certification exists.
+
+Failed batch source4092d4ca2dacee8bb01da484aae93592e9bd94da,
+repairIdt21_v1_37491535308, SQL SHA256
+75c8207ec177972c6cac92007a2c8f165a94ce39d7f03ea7973446aedcd4f441,
+rollback SHA25626b9a034f3bab9697d6ccb8fd3253e2701a34ba3b6b6cb1b9d3c4f5fb2393825.
+SourceDigest4c6c4ce836202c4b7a00954414bc1d37c02a5c2155068239c1efc624fb0a8ca5,
+guardVersion2/26rows, expectedobjects58/16tables/42triggers. PreLedger38/0038,
+capacity7409664bytes. Bookmark
+00000189-00000000-000050fc-8b4f0b48127dff432a85bd253c342de2,
+captured2026-10-06T20:12:34.364Z. Artifact11442016163 digest
+132ed6a0431356953cf696dbad594deba81e684ce260f4ee99c7dd3e189fe849.
+Sanitized receipt remains privately available at
+/private/tmp/takosan-production-v2-restore-37491535308/catalog-recovery-receipt.json.
+
+Pinned Wrangler3.114.17 file import uses init/upload/ingest/poll. Code10000 alone
+cannot identify which stage failed or prove that no write occurred. A successful
+SELECT proves read access only; Cloudflare D1 requires D1:Edit for HTTP writes.
+Token verification proves token state, not effective D1 write authorization.
+References: https://developers.cloudflare.com/d1/platform/release-notes/ and
+https://developers.cloudflare.com/api/resources/d1/subresources/database/methods/query/.
+
+The original37384670328 inspection cannot inspect this new prefix or26guardrows.
+Branchcodex/production-v2-import-forensics extends read-only inspect-import with
+sealed latest-incident source/SQL/rollback identity, repeated aggregate captures,
+and bounded credential/HTTP evidence. Provider terminal state staysUNKNOWN_NO_CURSOR;
+retryAuthorizedfalse. No write/import permission test, automatic recovery,0039 or
+production application deployment is performed by this inspection.
+
+Prior4092 staging shadow/1/5/25/D1 sequence is complete; the first25 run remains
+failed and the fresh25 succeeds. Final staging D1run37493357178 proves500/exact
+fingerprint/schema39/globald1/T20server+UItrue. A newly merged inspector mainSHA
+requires fresh exact-main CI/tree binding and final-SHA staging proof for release.
+Fresh public production readiness after the failed import ishealthy/static0/
+cutoverfalse/globalstatic/fallbacknull/old136cb6ff; this does not settle D1 state.
+
+Validation checkpoint (local, new implementation): independent peer review finds
+no concrete blocker. Helper117/117PASS26.77s, credential70/70PASS508ms;
+runner+approval initial69/69PASS17.83s. After adding the latest-incident restore
+fence, runner+approval72PASS/1FAIL18.24s because an existing test expected the
+later recoveryPreflight receipt after the new fence stopped earlier. The corrected
+test requires the exact earlier phase, latest INSPECTION_BLOCKED, internal-inventory
+MISMATCH and absence of later preflight; targetedrecheck1PASS/59skipped3.71s.
+Helper's first117suite111PASS/6FAIL was a Python test harness authorizer teardown
+issue, fixed without changing queries or safety policy; final117PASS. All skipped
+counts here belong only to the targeted recheck, not a final verification waiver.
+Final source lint/typecheck/migration smoke/build/actionlint1.7.12/diffPASS.
+Executable checkpoint 86bfec959584f6a194543ec12470b956e5c951ff.
+First full credential-free Node24 single-worker suite:252files/5992PASS/1FAIL
+(492.44s); only existing staging-d1-catchup-check Wrangler test exceeded unchanged
+5000ms limit at5273ms. Isolated unchanged file32/32PASS2.85s, Wrangler885ms.
+Full unchanged recheck252files/5993testsPASS489.06s/exit0/no skipped.
+Wrangler case passes787ms in the full recheck. Independent final-tree review at
+e768acfe7c3f953fba4121818707589a3d7841d2 found no concrete blocker across12paths.
+PR54 hosted CI is still running; exact-final-head and exact-main CI and new remote
+inspection success are not claimed. Documentation now records the actual final
+local result; the next documentation checkpoint remains subject to hosted CI.
+
+New recovery orchestration also requires two stable inspections for the latest
+fixed incident and zero repair objects/no observed commit/primary old-catalog bound
+before any future pin/import. Applied or partial latest markers block replacement.
+The diagnostic remains non-atomic and never infers terminal import or write grants.
+
+Only published normal-reviewed code may access protected production secrets.
+Next: finish focused and full mandatory validation, independent review, normal PR
+merge, exact-mainCI; dispatch one consolidated protected read-only inspection.
+Inspect latest marker/archive/target/live data and credential evidence before a
+separately reviewed recovery decision. Do not blind retry, rollback or apply0039.
+
+Previous sections are historical; their restore-WAITING statements are superseded.
+
+---
+
+# Published V2 recovery checkpoint - 2026-10-07 JST
+
+PR53 final6e45d824363c24c8b63b629eefce8252e8f16a6f passed hosted
+CI37488555229:251files/5873tests/283.24s,lint/typecheck/migration smoke/build.
+Independent review covered all14changedfiles and exactfinal tree; no concrete
+remaining blocker. PR53 merged normally at4092d4ca2dacee8bb01da484aae93592e9bd94da
+on2026-10-06T15:40:10Z. Git independently verified ancestry and identical complete
+treef97f89682665fcd9a3e5dd2888f8443ea76a1b2d. Registration37489453876 SUCCESS,
+no production access. Exact-main CI37489453830 SUCCESS: 251 files / 5873 tests
+PASS (380.38s), lint/typecheck/migration smoke/build PASS. Main stays frozen.
+
+Corrected inspect37490593680 SUCCESS, normal vn-taphoanhatung review confirmed
+both by API and authorization receipt. Source4092/reviewed6e45/PR53/CI37489453830.
+Repeated original and corrected captures are OBSERVED_STABLE_NON_ATOMIC. Original
+repair objects0, NO_RECOVERY_COMMIT_OBSERVED, primary availability at observations,
+old catalog guards MATCH except the original incoming-FK SELECT failure.
+Corrected preflight GUARDED_PREFLIGHT_MATCH: all eight guards MATCH/primarytrue,
+failed0, blockers0. Canonical ledger38/0038 before/after; exact original100% static
+version1a47f7f7-3d74-4801-b26a-b91f39c7942e/deployment41054fb9.../module5079c954...
+unchanged. Original provider terminal UNKNOWN_NO_CURSOR/retryAuthorized=false.
+Artifact11425077939 digest65f8b690d5b9aa1023782a009cdb306e80ded8b3a553a019d8d6f713671be3b7.
+Receipt sha256fdf53e7d87a3b49e3d9720d776417ff36a9dfb5eaef5aeebddc3156eb13f80fe,
+at /private/tmp/takosan-production-v2-inspect-37490593680/.
+
+New intentional guarded restore37491535308 dispatched once at4092/reviewed6e45.
+Source/main/full-tree/CI gate SUCCESS; recover waits for fresh required normal
+review. API confirms vn-taphoanhatung/current_user_can_approve=false/approvals empty.
+No recovery/import completion, 0039 or new production application is claimed.
+
+Staging shadow37490615290 SUCCESS at4092/hardening089ae/shadow0/T20serverUItrue,
+intentional rollbackconfirmationtrue. Protected500/exact V1 fingerprint, schema39,
+three paired readiness/SW observations and hosted+independent smoke PASS.
+Worker487b9511-ffbd-4dcf-bf61-476accef63be, SWfdd49e0895ac9b4093ec90ee029bb0108c3ae1d48342d71b9c09c7281fcce1b1.
+Artifact11425960366 digest19d17d0586f63eb7ade42c82370c808bb8d2b2bbc408741d72ff7217b0531216.
+Canary1 run37491302867 SUCCESS/VERIFIED: same4092/T20true/canary1/cutovertrue/
+globalmixed/protected500/exactfingerprint/nofallback; paired readiness/SW three
+consecutive observations and hosted+independent smoke PASS.
+Worker01d47a91-5446-40e4-8dba-cad4b0c5df07. Artifact11425787328 digest
+f7935341b57ab4027053d3607b737c770d458e15f40b4b99e2bd139639562692.
+Root independently verified shadow/canary1/canary5 receipt fields.
+Canary5 run37491745113 SUCCESS: exact4092/T20true/canary5/cutovertrue/globalmixed,
+protected500/exactfingerprint/nofallback, paired assets and smoke PASS.
+Worker7b63766d-43e9-42e4-bb98-ab2a4ae0efc2; artifact11426450116 digest
+4b68c4855828d104c7ba231a1bf60827ca42ca807b018edf1aef87bbc6dbe148.
+
+Initial canary25 run37492174560 FAILED after successful Worker publication
+(d802a1ba-303b-4260-881d-5a3e1d01e883). Attempt1 saw previous same4092/canary5;
+attempt2 readiness matched approved4092/canary25, then service-worker fetch threw
+sanitized 'Service worker request failed'. Raw cause is unavailable; no specific
+network/TLS/redirect/timeout or HTTP/body/identity error is proved. Artifact
+11425273993 digest970184adfaea725aa45275458a9e1973a8f8764f807008db6bcaee12ee5c1d1f.
+Failed receipt has previous authority only; deployed/assets/protectedauthority absent.
+This run remains failed; D1 promotion was held at this failure checkpoint.
+
+Independent live default-bounds paired readiness/SW proof PASS3/3 (7770ms),
+SW HTTP200/JavaScript/no-store/exact4092/fdd49e...; public smoke PASS at livecanary25.
+Read-only independent review confirms the failure is the intentionally fail-closed
+SW fetch path; same-SHA/same25 redispatch is valid idempotent certification. No
+source, test, policy, timeout or bound changes. One fresh canary25 run37493006431
+was dispatched at4092/T20true/hardening089ae/rollbackfalse and completed SUCCESS.
+It captured protected same4092/canary25 before upload and passed all original
+post-deploy checks, independent three-pair readiness/SW and smoke. Root verified
+receipt fields independently. Worker177c306e-8704-4d59-a88e-ee40c7c36ac1.
+Artifact11427120019 digestf6e59680b66caced202a525c1985a44a4406d923591187846ad09a868d9442cd.
+Keep original failed run and fresh run separate.
+
+Final staging D1 run37493357178 SUCCESS and independently verified: exact4092/
+hardening089ae/T20serverUItrue/39migrationmanifest/previous25->d1, protected actual
+and globalSource=d1/ready500/exactfingerprint/nofallback. Hosted verifier observed
+eight healthy known previous25 polls, then three paired readiness/SW observations
+(11 attempts /36715ms) under unchanged bounds. Independent verifier3/3 PASS8305ms,
+SWfdd49e.../HTTP200/JS/no-store/exact4092; public smoke PASS. Worker
+dc22aad4-fe86-4a6d-84de-50abc545731e. Public GET recipe list HTTP200/count500,
+ordered IDs and full runtime fingerprint MATCH; D1-only detail imp-199ff78d3d8c8ab3
+HTTP200/full runtime fields MATCH. Root independently verified final hosted receipt.
+Artifact11425934412 digestf52c5662c8ecf84d45fb07ece9f93b5083d25a0989f23f89d94aafdf5372acce.
+Receipt /private/tmp/takosan-staging-d1-37493357178/release-manifest.json,
+sha25686db04ff1ca4a81272bf4813b851766ada0f016fe3b69995ba24b133b760a2ba.
+All final-SHA staging stages complete; no further staging dispatch is needed.
+
+Required normal review of production restore37491535308 remains the external
+blocker. Final API check: source gate SUCCESS/recoverWAITING/approvals[]/
+current_user_can_approve=false/reviewervn-taphoanhatung. No restore/import completion,
+0039, new production application, live synthetic AI success or production canary
+is claimed. Keep remote main4092 frozen; local documentation checkpoint is unpublished.
+
+Fresh public health GET /api/v1/health/ready confirms statusok, DB/queuehealthy,
+old-source136cb6ff/static0/cutoverfalse/fallbacknull. Mistaken /api/v1/ready GET
+returned401 and an empty-body JSON parse failed; corrected endpoint GET succeeded.
+This is public health, not protected D1 certification.
+
+Next: obtain required normal review of restore37491535308; require live certifiedV1/static/
+500/exact fingerprint/ledger38/integrity before guarded0039, read-only certification,
+then productionshadow/T20false/one synthetic AI smoke and1/5/25/D1.
+
+Local logs: /tmp/takosan-guard-v2-hosted-main-ci.log,
+/tmp/takosan-guard-v2-main-ci-watch.log, /tmp/takosan-4092-inspect-complete.log.
+Independent continuation review verifies all inspect receipt fields and reports
+no concrete blocker for the separately approved new restore. Synthetic smoke script
+54933151... and fixture06707251... independently reviewed; invocation remains pending
+until exact4092 productionshadow/T20false Deploy receipt. Script checks readiness,
+not T20 flags; retain Deploy flag proof first. No physical model/accuracy claim.
+This checkpoint is unpublished during freeze.
+
+---
+
 # Executed inspection and corrected guard V2 - 2026-10-06 JST
 
 ## Actual hosted results

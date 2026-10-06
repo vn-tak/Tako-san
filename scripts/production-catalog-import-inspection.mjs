@@ -3,6 +3,14 @@ import { DatabaseSync } from 'node:sqlite';
 import { compileOriginalCatalogImportInspection, compileRecipeCatalogRecovery, RECOVERY_TABLES } from './recipe-catalog-recovery.mjs';
 
 export const ORIGINAL_IMPORT_REPAIR_ID = 't21_v1_37384670328';
+export const LATEST_V2_IMPORT_INCIDENT = Object.freeze({
+  runId: '37491535308', sourceSha: '4092d4ca2dacee8bb01da484aae93592e9bd94da',
+  repairId: 't21_v1_37491535308', guardVersion: 2,
+  sqlSha256: '75c8207ec177972c6cac92007a2c8f165a94ce39d7f03ea7973446aedcd4f441',
+  rollbackSqlSha256: '26b9a034f3bab9697d6ccb8fd3253e2701a34ba3b6b6cb1b9d3c4f5fb2393825',
+  sourceDigest: '4c6c4ce836202c4b7a00954414bc1d37c02a5c2155068239c1efc624fb0a8ca5',
+  runtimeFingerprint: 'f8cf8c7ff59df9fe29e246b9e3c9aad0fd155fa8df35bf671ac4d03fa2b5ab37',
+});
 const RUN_ID = '37384670328';
 const PREFIX = `catalog_recovery_${ORIGINAL_IMPORT_REPAIR_ID}`;
 const SQL_HASH = 'f4b6a4d05abfaff9f50a73063edc577e4b4e3ece9ff0f3a84b911e2ae2b42797';
@@ -18,6 +26,7 @@ const literal = (value) => value === null ? 'NULL' : typeof value === 'number' ?
   : `'${value.replaceAll("'", "''")}'`;
 const stopped = () => new Error('IMPORT_INSPECTION_SOURCE_REJECTED');
 const preflightStopped = () => new Error('RECOVERY_PREFLIGHT_SOURCE_REJECTED');
+const latestStopped = () => new Error('LATEST_IMPORT_INSPECTION_SOURCE_REJECTED');
 const queryObservations = () => ({ successful: 0, failed: 0, primaryTrue: 0, primaryFalse: 0, primaryUnknown: 0 });
 const incidentIdentity = () => ({ runId: RUN_ID, repairId: ORIGINAL_IMPORT_REPAIR_ID, sqlSha256: SQL_HASH,
   sourceDigest: SOURCE_DIGEST, runtimeFingerprint: FINGERPRINT });
@@ -70,6 +79,26 @@ function approvedPlan(source, plan) {
         || `${plan.statements.map((sql) => `${sql};`).join('\n\n')}\n` !== plan.sql) throw stopped();
     return canonical;
   } catch { throw stopped(); }
+}
+
+function approvedLatestPlan(source, plan) {
+  try {
+    const incident = LATEST_V2_IMPORT_INCIDENT;
+    const canonical = compileRecipeCatalogRecovery({ source, repairId: incident.repairId });
+    if (source.sha !== incident.sourceSha || source.sourceDigest !== incident.sourceDigest
+        || source.fingerprint !== incident.runtimeFingerprint
+        || canonical.receipt.guardVersion !== incident.guardVersion || canonical.receipt.purpose !== 'RESTORE_V1'
+        || canonical.receipt.sqlSha256 !== incident.sqlSha256
+        || canonical.receipt.rollbackSqlSha256 !== incident.rollbackSqlSha256
+        || hash(canonical.sql) !== incident.sqlSha256 || hash(canonical.rollbackSql) !== incident.rollbackSqlSha256
+        || plan?.sql !== canonical.sql || plan?.rollbackSql !== canonical.rollbackSql
+        || JSON.stringify(plan?.statements) !== JSON.stringify(canonical.statements)
+        || JSON.stringify(plan?.rollbackStatements) !== JSON.stringify(canonical.rollbackStatements)
+        || JSON.stringify(plan?.archiveTables) !== JSON.stringify(canonical.archiveTables)
+        || JSON.stringify(plan?.targetTables) !== JSON.stringify(canonical.targetTables)
+        || JSON.stringify(plan?.receipt) !== JSON.stringify(canonical.receipt)) throw latestStopped();
+    return canonical;
+  } catch { throw latestStopped(); }
 }
 
 function approvedRecoveryPlan(source, plan) {
@@ -180,7 +209,7 @@ function shapePredicate(table, info) {
   return `NOT EXISTS (${actual} EXCEPT ${expected}) AND NOT EXISTS (${expected} EXCEPT ${actual})`;
 }
 
-function inventorySql(objects) {
+function inventorySql(objects, prefix = PREFIX) {
   const matches = objects.map((object) => `(name = ${literal(object.name)} AND type = ${literal(object.type)} AND tbl_name = ${literal(object.table)})`);
   const present = objects.map((object, index) => `CASE WHEN EXISTS (SELECT 1 FROM sqlite_schema
     WHERE ${matches[index]}) THEN 1 ELSE 0 END AS object_${index}`);
@@ -189,25 +218,45 @@ function inventorySql(objects) {
     coalesce(sum(CASE WHEN type = 'trigger' THEN 1 ELSE 0 END), 0) AS triggerCount,
     coalesce(sum(CASE WHEN ${matches.join(' OR ')} THEN 1 ELSE 0 END), 0) AS matchedObjectCount,
     ${present.join(',\n    ')}
-    FROM sqlite_schema WHERE lower(substr(name, 1, ${PREFIX.length})) = ${literal(PREFIX)}`;
+    FROM sqlite_schema WHERE lower(substr(name, 1, ${prefix.length})) = ${literal(prefix)}`;
 }
 
-/** Reads only aggregate SELECTs for one fixed incident; never settles the provider import job. */
+/** Reads only aggregate SELECTs for the sealed original incident. */
 export async function inspectCatalogImport({ source, plan, query }) {
-  const approved = approvedPlan(source, plan);
+  return inspectApprovedCatalogImport({ source, approved: approvedPlan(source, plan), query });
+}
+
+/** Reconstructs the exact failed V2 bytes; marker observations never certify a release or retry. */
+export async function inspectLatestCatalogImport({ source, plan, query }) {
+  if (typeof query !== 'function') throw latestStopped();
+  return inspectApprovedCatalogImport({ source, approved: approvedLatestPlan(source, plan), query,
+    incident: LATEST_V2_IMPORT_INCIDENT, latest: true });
+}
+
+async function inspectApprovedCatalogImport({ source, approved, query, incident = incidentIdentity(), latest = false }) {
   if (typeof query !== 'function') throw stopped();
-  const objects = expectedObjects(approved);
+  const prefix = `catalog_recovery_${incident.repairId}`;
+  const guardCount = latest ? 26 : 25;
+  const restoreObjects = expectedObjects(approved);
+  const rollbackCreate = latest ? approved.rollbackStatements.filter((sql) =>
+    sql.startsWith(`CREATE TABLE ${prefix}_rollback_guard `)) : [];
+  if (latest && rollbackCreate.length !== 1) throw latestStopped();
+  const objects = latest ? [...restoreObjects, { name: `${prefix}_rollback_guard`, type: 'table',
+    table: `${prefix}_rollback_guard`, sql: rollbackCreate[0] }] : restoreObjects;
   const shapes = expectedTableInfo(source, objects);
-  const guards = guardStatements(approved);
-  const selectedGuards = GUARD_LABELS.map((label) => guards.find((guard) => guard.label === label));
-  if (selectedGuards.some((guard) => !guard) || guards.length !== 25) throw stopped();
+  const guards = guardStatements(approved, prefix);
+  const rollbackGuards = latest ? guardStatements({ statements: approved.rollbackStatements }, `${prefix}_rollback`) : [];
+  const selectedGuards = (latest ? PREFLIGHT_GUARD_LABELS : GUARD_LABELS)
+    .map((label) => guards.find((guard) => guard.label === label));
+  if (selectedGuards.some((guard) => !guard) || guards.length !== guardCount) throw stopped();
   const receipt = {
     schemaVersion: 1, operation: 'inspect-import', status: 'INSPECTION_BLOCKED',
     certification: 'NOT_A_RELEASE_CERTIFICATION', readOnly: true, mutations: 0, productionMutations: [],
     providerImportState: 'UNKNOWN_NO_CURSOR', providerBlockingEvidence: 'UNPROVEN', retryAuthorized: false,
-    incident: incidentIdentity(),
+    incident: { ...incident },
     inventory: null, preMutationGuards: [], schemaChecks: [], objectSchemaChecks: [],
     aggregates: { live: {}, archive: {}, target: {} }, guard: null, repairStatus: null,
+    ...(latest ? { rollbackGuard: null } : {}),
     blockers: [], queryObservations: queryObservations(),
   };
   const observations = receipt.queryObservations;
@@ -240,28 +289,49 @@ export async function inspectCatalogImport({ source, plan, query }) {
       receipt.providerBlockingEvidence = 'IMPORT_NOT_BLOCKING_AT_PRIMARY_OBSERVATIONS';
     }
     if (observations.primaryFalse || observations.primaryUnknown) receipt.blockers.push('PRIMARY_OBSERVATION_UNPROVEN');
+    if (latest && (observations.primaryFalse || observations.primaryUnknown || observations.failed)) {
+      receipt.status = 'INSPECTION_BLOCKED';
+      if (observations.failed) receipt.blockers.push('QUERY_OBSERVATIONS_INCOMPLETE');
+    }
+    receipt.blockers = [...new Set(receipt.blockers)];
     return receipt;
   };
   const inventoryKeys = ['objectCount', 'tableCount', 'triggerCount', 'matchedObjectCount', ...objects.map((_, index) => `object_${index}`)];
-  const inventory = await select(inventorySql(objects), inventoryKeys, objects.map((_, index) => `object_${index}`));
+  const inventory = await select(inventorySql(objects, prefix), inventoryKeys, objects.map((_, index) => `object_${index}`));
   if (!inventory) { receipt.blockers.push('OBJECT_INVENTORY_QUERY_FAILED'); return finish(); }
   const matched = objects.filter((_, index) => inventory[`object_${index}`] === 1);
   if (inventory.matchedObjectCount !== matched.length || inventory.objectCount < matched.length
       || inventory.tableCount + inventory.triggerCount > inventory.objectCount) {
     receipt.blockers.push('OBJECT_INVENTORY_INCONSISTENT'); return finish();
   }
+  const rollbackPresent = latest && matched.some((object) => object.name === `${prefix}_rollback_guard`);
+  const restoreMatched = matched.filter((object) => object.name !== `${prefix}_rollback_guard`).length;
   receipt.inventory = { objectCount: inventory.objectCount, tableCount: inventory.tableCount,
     triggerCount: inventory.triggerCount, expectedObjectCount: 58, matchedObjectCount: matched.length,
-    missingObjectCount: 58 - matched.length, unexpectedObjectCount: inventory.objectCount - matched.length,
-    exact: inventory.objectCount === 58 && matched.length === 58 };
+    missingObjectCount: 58 - restoreMatched, unexpectedObjectCount: inventory.objectCount - matched.length,
+    exact: restoreMatched === 58 && inventory.objectCount === matched.length,
+    ...(latest ? { expectedRestoreObjects: 58, canonicalRollbackGuardObserved: rollbackPresent } : {}) };
   if (receipt.inventory.unexpectedObjectCount) receipt.blockers.push('UNEXPECTED_RECOVERY_OBJECTS');
   if (inventory.objectCount && !receipt.inventory.exact) receipt.blockers.push('PARTIAL_RECOVERY_OBJECTS');
 
   for (const guard of selectedGuards) {
-    receipt.preMutationGuards.push(await check(guard.label, guard.predicate));
+    const result = latest ? await observePreflightGuard(query, observations, guard)
+      : await check(guard.label, guard.predicate);
+    receipt.preMutationGuards.push(result);
+    if (latest && guard.label === 'approved_internal_inventory'
+        && (result.result !== 'MATCH' || result.servedByPrimary !== true)) {
+      // Reserved inventory is established before any schema PRAGMA, including FK checks.
+      for (const skipped of selectedGuards.slice(1)) receipt.preMutationGuards.push({
+        label: skipped.label, result: 'NOT_EVALUATED', servedByPrimary: null,
+      });
+      if (result.result !== 'MATCH') receipt.blockers.push(`GUARD_${guard.label.toUpperCase()}_${result.result}`);
+      if (result.servedByPrimary !== true) receipt.blockers.push('PRIMARY_OBSERVATION_UNPROVEN');
+      return finish();
+    }
   }
-  if (receipt.preMutationGuards[0].result !== 'MATCH') {
-    const terms = topLevelTerms(selectedGuards[0].predicate);
+  const schemaGuard = selectedGuards.find((guard) => guard.label === 'known_schema_and_references');
+  if (receipt.preMutationGuards.find((guard) => guard.label === schemaGuard.label).result !== 'MATCH') {
+    const terms = topLevelTerms(schemaGuard.predicate);
     if (terms.length !== 18) throw stopped();
     const labels = [...Object.keys(RECOVERY_TABLES).map((table) => `table_shape_${table}`), 'active_triggers', 'incoming_foreign_keys'];
     for (let i = 0; i < labels.length; i++) {
@@ -290,6 +360,14 @@ export async function inspectCatalogImport({ source, plan, query }) {
     receipt.objectSchemaChecks.push(result);
     if (result.result === 'MATCH') valid.add(object.name);
   }
+  if (rollbackPresent) {
+    const object = objects.at(-1);
+    const result = await check('rollback_guard_definition', `EXISTS (SELECT 1 FROM sqlite_schema
+      WHERE name = ${literal(object.name)} AND type = 'table' AND tbl_name = ${literal(object.table)}
+      AND sql = ${literal(object.sql)})`);
+    receipt.objectSchemaChecks.push(result);
+    if (result.result !== 'MATCH') valid.delete(object.name);
+  }
   const definitions = matched.filter((item) => item.type === 'trigger');
   if (definitions.length) {
     const predicate = definitions.map((item) => `EXISTS (SELECT 1 FROM sqlite_schema WHERE name = ${literal(item.name)}
@@ -314,31 +392,72 @@ export async function inspectCatalogImport({ source, plan, query }) {
       else receipt.blockers.push('CATALOG_AGGREGATE_QUERY_FAILED');
     }
   }
-  if (valid.has(`${PREFIX}_guard`)) {
+  if (valid.has(`${prefix}_guard`)) {
     const labels = guards.map((guard) => literal(guard.label)).join(', ');
     receipt.guard = await select(`SELECT count(1) AS rows, count(DISTINCT label) AS distinctLabels,
       coalesce(sum(CASE WHEN label IN (${labels}) AND ok = 1 THEN 1 ELSE 0 END), 0) AS approvedPassingRows,
       coalesce(sum(CASE WHEN label NOT IN (${labels}) OR label IS NULL OR ok IS NULL OR ok <> 1 THEN 1 ELSE 0 END), 0) AS invalidRows
-      FROM ${PREFIX}_guard`, ['rows', 'distinctLabels', 'approvedPassingRows', 'invalidRows']);
-    if (!receipt.guard || receipt.guard.rows !== 25 || receipt.guard.distinctLabels !== 25
-        || receipt.guard.approvedPassingRows !== 25 || receipt.guard.invalidRows !== 0) receipt.blockers.push('RECOVERY_GUARD_INCOMPLETE');
+      FROM ${prefix}_guard`, ['rows', 'distinctLabels', 'approvedPassingRows', 'invalidRows']);
+    if (!receipt.guard || receipt.guard.rows !== guardCount || receipt.guard.distinctLabels !== guardCount
+        || receipt.guard.approvedPassingRows !== guardCount || receipt.guard.invalidRows !== 0) receipt.blockers.push('RECOVERY_GUARD_INCOMPLETE');
   }
-  if (valid.has(`${PREFIX}_status`)) {
-    const identity = `repair_id = ${literal(ORIGINAL_IMPORT_REPAIR_ID)} AND source_digest = ${literal(SOURCE_DIGEST)} AND runtime_fingerprint = ${literal(FINGERPRINT)}`;
+  if (latest && valid.has(`${prefix}_rollback_guard`)) {
+    const labels = rollbackGuards.map((guard) => literal(guard.label)).join(', ');
+    receipt.rollbackGuard = await select(`SELECT count(1) AS rows, count(DISTINCT label) AS distinctLabels,
+      coalesce(sum(CASE WHEN label IN (${labels}) AND ok = 1 THEN 1 ELSE 0 END), 0) AS approvedPassingRows,
+      coalesce(sum(CASE WHEN label NOT IN (${labels}) OR label IS NULL OR ok IS NULL OR ok <> 1 THEN 1 ELSE 0 END), 0) AS invalidRows
+      FROM ${prefix}_rollback_guard`, ['rows', 'distinctLabels', 'approvedPassingRows', 'invalidRows']);
+    if (!receipt.rollbackGuard || receipt.rollbackGuard.rows !== rollbackGuards.length
+        || receipt.rollbackGuard.distinctLabels !== rollbackGuards.length
+        || receipt.rollbackGuard.approvedPassingRows !== rollbackGuards.length
+        || receipt.rollbackGuard.invalidRows !== 0) receipt.blockers.push('ROLLBACK_GUARD_INCOMPLETE');
+  }
+  if (valid.has(`${prefix}_status`)) {
+    const identity = `repair_id = ${literal(incident.repairId)} AND source_digest = ${literal(incident.sourceDigest)} AND runtime_fingerprint = ${literal(incident.runtimeFingerprint)}`;
     receipt.repairStatus = await select(`SELECT count(1) AS rows,
       coalesce(sum(CASE WHEN ${identity} THEN 1 ELSE 0 END), 0) AS exactIdentityRows,
       coalesce(sum(CASE WHEN ${identity} AND state = 'APPLIED' THEN 1 ELSE 0 END), 0) AS appliedRows,
       coalesce(sum(CASE WHEN ${identity} AND state = 'ROLLED_BACK' THEN 1 ELSE 0 END), 0) AS rolledBackRows
-      FROM ${PREFIX}_status`, ['rows', 'exactIdentityRows', 'appliedRows', 'rolledBackRows']);
+      FROM ${prefix}_status`, ['rows', 'exactIdentityRows', 'appliedRows', 'rolledBackRows']);
     if (!receipt.repairStatus || receipt.repairStatus.rows !== 1 || receipt.repairStatus.exactIdentityRows !== 1
         || receipt.repairStatus.appliedRows + receipt.repairStatus.rolledBackRows !== 1) receipt.blockers.push('RECOVERY_STATUS_IDENTITY_UNPROVEN');
   }
   if (receipt.inventory.exact && receipt.objectSchemaChecks.every((check) => check.result === 'MATCH')
-      && receipt.guard?.rows === 25 && receipt.guard.distinctLabels === 25
-      && receipt.guard.approvedPassingRows === 25 && receipt.guard.invalidRows === 0
+      && receipt.guard?.rows === guardCount && receipt.guard.distinctLabels === guardCount
+      && receipt.guard.approvedPassingRows === guardCount && receipt.guard.invalidRows === 0
       && receipt.repairStatus?.rows === 1 && receipt.repairStatus.exactIdentityRows === 1) {
-    if (receipt.repairStatus.appliedRows === 1) receipt.status = 'ORIGINAL_RECOVERY_APPLIED_MARKER_OBSERVED';
-    if (receipt.repairStatus.rolledBackRows === 1) receipt.status = 'ORIGINAL_RECOVERY_ROLLED_BACK_MARKER_OBSERVED';
+    if (receipt.repairStatus.appliedRows === 1) {
+      if (!latest) receipt.status = 'ORIGINAL_RECOVERY_APPLIED_MARKER_OBSERVED';
+      else {
+        const targetCountsMatch = Object.keys(RECOVERY_TABLES).every((table) =>
+          receipt.aggregates.live[table]?.rows === source.tables[table].length
+          && receipt.aggregates.target[table]?.rows === source.tables[table].length);
+        const archiveCountsMatch = receipt.aggregates.archive.recipes?.rows === approved.receipt.expectedBefore.recipes
+          && receipt.aggregates.archive.recipe_ingredients?.rows === approved.receipt.expectedBefore.ingredientRows
+          && receipt.aggregates.archive.recipe_runtime_ingredient_order?.rows === approved.receipt.expectedBefore.orderRows;
+        const currentGuardsMatch = receipt.preMutationGuards.every((guard) => guard.result === 'MATCH'
+          || (guard.label === 'bounded_observed_catalog' && guard.result === 'MISMATCH'));
+        if (targetCountsMatch && archiveCountsMatch && currentGuardsMatch && !rollbackPresent) {
+          receipt.status = 'LATEST_V2_RECOVERY_APPLIED_MARKER_OBSERVED';
+          receipt.blockers = receipt.blockers.filter((blocker) => blocker !== 'GUARD_BOUNDED_OBSERVED_CATALOG_MISMATCH');
+        } else receipt.blockers.push('APPLIED_MARKER_CATALOG_COUNTS_UNPROVEN');
+      }
+    }
+    if (receipt.repairStatus.rolledBackRows === 1) {
+      if (!latest) receipt.status = 'ORIGINAL_RECOVERY_ROLLED_BACK_MARKER_OBSERVED';
+      else {
+        const restoredCountsMatch = Object.keys(RECOVERY_TABLES).every((table) =>
+          receipt.aggregates.live[table]?.rows === receipt.aggregates.archive[table]?.rows
+          && receipt.aggregates.target[table]?.rows === source.tables[table].length);
+        if (rollbackPresent && receipt.rollbackGuard?.rows === rollbackGuards.length
+            && receipt.rollbackGuard.distinctLabels === rollbackGuards.length
+            && receipt.rollbackGuard.approvedPassingRows === rollbackGuards.length
+            && receipt.rollbackGuard.invalidRows === 0 && restoredCountsMatch
+            && receipt.preMutationGuards.every((guard) => guard.result === 'MATCH')) {
+          receipt.status = 'LATEST_V2_RECOVERY_ROLLED_BACK_MARKER_OBSERVED';
+        } else receipt.blockers.push('ROLLED_BACK_MARKER_CATALOG_COUNTS_UNPROVEN');
+      }
+    }
   }
   receipt.blockers = [...new Set(receipt.blockers)];
   return finish();

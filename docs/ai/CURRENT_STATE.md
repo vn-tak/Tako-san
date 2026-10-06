@@ -1,3 +1,131 @@
+# Production asset convergence checkpoint - 2026-10-06 JST
+
+**State:** Release incomplete. Remote main stays
+f2b00023ccb9a706d17ebe71321c0364a948ca75 while read-only diagnostics 37450399162
+waits for the required production reviewer vn-taphoanhatung. Recovery 37384670328
+was normally approved and FAILED with import completion unconfirmed after a
+successful static pin. CLI vn-tak cannot approve. No blind retry, rollback or
+migration is authorized by this ambiguous result. The operator authorizes release
+and confirms no real users; user-data preservation certification is excluded.
+
+**Changes:** Executable a9f1c81582677d4b40806c388d27892edeec1f44 pairs exact
+readiness/approved authority with same-origin /sw.js before counting each of three
+consecutive observations. Only an otherwise-valid SW with a different canonical
+full SHA retries. The existing 90-second shared budget includes request/body time;
+no request starts at zero budget. The 256 KiB body limit, HTTP/MIME/no-store/syntax/
+strict BUILD_ID/SW marker checks and sanitized errors fail closed. CLI writes a
+separate deployedAssets proof; original deployed shape/workflow/smoke are unchanged.
+
+**Checks:** New assets RED 43 fail; final focused 331 PASS, independently rerun by
+root. First full suite FAILED: 249 files / 5735 tests PASS, one unrelated catch-up
+Wrangler test exceeded unchanged 5000 ms timeout; exit 1 / 512.97 seconds. Isolated
+unchanged suite 32 PASS in 3.04 seconds (Wrangler case 919 ms). Cause unproven; no
+test/timeout edits. Final full rerun without parallel Wrangler/build: 250 files /
+5736 tests PASS, exit 0 / 490.18 seconds. Serial build, lint, typecheck, migration
+smoke, syntax and diff PASS. Root reviewed frozen source/tests with no concrete
+blocker. A first additional review attempt was unavailable; the later independent
+frozen review completed with no blockers,331/331PASS (2.06s), ESLint/diff PASS and
+all three file hashes matching the freeze. Shape/BUILD_ID and observed bytes are
+proved, not semantic SW execution or complete HTML/JS bundle content.
+PR51 head 93e3db2004c518af7694edd4db89e918510c5d72 passed hosted CI37452057402:
+250files/5736tests (198.73s), lint/typecheck/migration smoke/build. PR remains OPEN
+and held while diagnostics waits. This new documentation-only checkpoint still
+needs final-head hosted CI; exact merged-main CI remains required after merge.
+Local isolated recovery SQL probes did not complete (exit143/137); they provide no
+import outcome or remote-cause proof. No credentials/remote mutation were used.
+
+**Remote:** Staging 37384738093 FAILED after Worker publication and three exact
+readiness observations: /sw.js had not embedded expected f2b. Failed body not
+retained, actual prior SHA unknown. Protected authority step did not run; no new
+recipeAuthority proof/canary exists. Later public SW/smoke converged. New native
+CLI public GET-only rehearsal PASS at 2026-10-06T10:25:27.065Z: three exact pairs /
+7907 ms. Separate /tmp manifest preserves the original artifact. This does not
+certify protected 500/fingerprint or turn the failed workflow into a success.
+
+**Production:** Recovery proved ledger 38/0038 and 7409664 database bytes, cloned
+modules/runtime/bindings/assets, changed only three catalog variables to static/
+0/false and confirmed 100% version 1a47f7f7-3d74-4801-b26a-b91f39c7942e.
+Bookmark captured. Import then failed at BOOKMARK_AND_IMPORT with
+IMPORT_OUTCOME_UNKNOWN_STATIC_OPERATOR_INSPECTION_REQUIRED /
+ATTEMPTED_COMPLETION_UNCONFIRMED; no post-import certification or automatic rollback
+ran. D1 commit state is unknown. Public readiness remains old 136cb6ff, healthy DB/
+queue, static/0/false with fallback null. No 0039/new production application yet.
+Artifact 11405412106 digest:
+0963a326ff12c085ce62737096928dbb6d669485a432865cf5a31deaca9bea45.
+
+**Next:** Obtain normal review for read-only 37450399162, inspect stable catalog/
+ledger and resolve the unknown import state from evidence. Keep main fixed during
+pending operations. Require independently certified V1/static/ledger 38/500/exact
+fingerprint/integrity before 0039. Publish the validated asset PR; require final-head
+hosted CI, merge after pending operations finish, then exact merged-main CI. Freeze
+final SHA and restage shadow/1/5/25/D1 with T20=true. Production same SHA, T20=false:
+guarded 0039, read-only certification, shadow, live synthetic AI, then 1/5/25/D1.
+Normal production Environment approvals remain. No corrected live AI success claimed.
+
+**Report:** [PRODUCTION_ASSET_CONVERGENCE_20261006.md](recipe-catalog/PRODUCTION_ASSET_CONVERGENCE_20261006.md).
+Earlier checkpoint sections are historical, including previous waiting/in-progress claims.
+
+---
+
+# Production f2b rollout checkpoint - 2026-10-06 JST
+
+**State:** Release incomplete; recovery37384670328 waits for normal independent
+production Environment review by vn-taphoanhatung. Its exact-main/full-tree/CI
+gate succeeded. CLIvn-tak cannot approve it. Main is frozen at
+f2b00023ccb9a706d17ebe71321c0364a948ca75; merged PR50 final head
+3f38acaca216bf8a6e6f0345b42129ae0a707623 is an ancestor with identical complete
+tree0e5586fc77149c68633e7886b96c4579245a3801. Do not advance remote main while
+recovery is pending/running. Operator authorizes production release/no real users;
+user-data preservation certification is excluded.
+
+**Changes:** Capacity414f449 uses verified query meta.size_after with the original
+strict100MiB bound and fails before any pin/import if invalid. Worker API
+compatibilityca91a1f validates observed annotations/AI project/runtime assets;
+strict inheritance/module equivalence/full asset configuration equivalence before
+traffic and after deployment remain enforced. Documentation checkpoint3f38aca.
+PR50 merged normally at2026-10-05T22:39:23Z; no bypass or squash/rebase merge.
+
+**Checks:** Final full local command (credentials removed)
+TMPDIR=/private/tmp TZ=UTC WRANGLER_SEND_METRICS=false pnpm exec vitest run
+--maxWorkers=1:249 files/5692 tests PASS, exit0,495.85s. Serial pnpm build PASS.
+Final lint/typecheck/migration smoke/syntax/diff PASS. Capacity20/20 and observed
+metadata51/51 PASS, independently rerun; no concrete release review blockers.
+Hosted final-head CI37383072785 and exact-main CI37383852019 PASS, each249/5692
+plus lint/typecheck/migration smoke/build. Main-push registration37383852122
+succeeded with only the registration echo. Earlier capacity-only suite was
+intentionally cancelled, exit130; initial concurrent build failure was followed
+by standalone PASS without source changes, cause unproven.
+
+**Remote:** Recovery37379695824 stopped before Worker pin/catalog mutation;
+approved inspect37381283540 completed read-only and revealed the actual metadata
+compatibility differences. Production still old136cb6ff, ledger38, D1 configured
+but static fallback CATALOG_DIAGNOSTICS; DB/queue healthy. No V1 import/0039/new
+production application yet. New f2b staging shadow37384738093 is in progress,
+pairedT20true, intentional rollback=true from healthy prior b33 D1. Dedicated
+staging agent owns shadow/1/5/25/D1; root owns all production operations.
+
+**Live AI:** Corrected code remains unproved on production. Prepared script
+/private/tmp/takosan-provider-smoke-final-candidate/live-provider-smoke.py now
+requires exact merged-main SHA, production shadow/0/cutoverfalse/globalstatic/
+fallbacknull before guest/scan and after terminal ready. Offline syntax/17 guard
+cases/DTO/unit fixture checks PASS. Scriptsha256
+54933151ea09afaece4cc2cf4e7ed922e2ac7a313c8a27bd8e8a1d89b7c1d546.
+No live invocation of corrected code yet. Exactly one synthetic upload, bounded
+polls, no ambiguous-submit retry, sanitized evidence and logout remain required.
+
+**Next:** Obtain actual approval for37384670328, verify its receipt rather than
+assuming chat confirmation. Require V1_CATALOG_CERTIFIED_STATIC, old-source
+static100%, ledger38,500/exact V1 fingerprint/integrity before guarded0039.
+Then production read-only certification; finish f2b staging shadow/1/5/25/D1;
+production samef2b shadow/T20false, live synthetic AI proof, then1/5/25/D1. Every
+normal production Environment gate remains. Local rollout documentation is on a
+separate branch; remote main must remain f2b until all pending operations finish.
+
+**Report:** [PRODUCTION_D1_API_COMPATIBILITY_20261006.md](recipe-catalog/PRODUCTION_D1_API_COMPATIBILITY_20261006.md).
+Earlier checkpoints are historical.
+
+---
+
 # Production D1 recovery compatibility checkpoint - 2026-10-06 JST
 
 **State:** Release incomplete. PR49 merged normally at

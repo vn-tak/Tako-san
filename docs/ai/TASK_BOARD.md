@@ -1,3 +1,99 @@
+# PR54 merged forensics checkpoint - 2026-10-07 JST
+
+**State:** Production deployment is incomplete. Latest restore37491535308 was
+normally approved byvn-taphoanhatung and failed with unconfirmed import completion.
+It is not waiting for review. Provider terminal remainsUNKNOWN_NO_CURSOR. User
+requests production recovery/migration/deploy and excludes user-data retention;
+normal independent production Environment approval remains mandatory.
+
+**Published:** PR54 https://github.com/vn-tak/Tako-san/pull/54 merged normally at
+2026-10-06T20:57:58Z to a8fa0324bb609274cc07a5c4b079e7ee4633fd83.
+Executable86bfec959584f6a194543ec12470b956e5c951ff; reviewed finalhead
+796097d9c1e2db4972151376449873c1ef60419f. Local Git proves reviewedhead ancestry
+and identical complete tree0bdbdec8542b3304c7f6d11447b844bbf5945043 at main.
+All12paths independently reviewed, no concrete blocker. Historical migrations,
+PayOS/payment/billing, application runtime and unrelated auth remain unmodified.
+
+**Checks:** Full credential-free Node24 suite252files/5993testsPASS489.06s/exit0,
+no skipped. Earlier full5992PASS/1FAIL492.44s remains recorded: existing Wrangler
+catch-up test5273ms exceeded unchanged5000ms limit; isolated32/32PASS2.85s and
+full-recheck Wrangler787ms. No toolversion/timeout/test/protection was weakened.
+Lint/typecheck/migration smoke/build/actionlint/syntax/diffPASS. Final PR hosted
+CI37529365966 SUCCESS252files/5993tests390.11s/all gates; initial headCI37528405327
+SUCCESS252/5993/373.17s. Exact-main CI37530420360 SUCCESS252files/5993tests368.10s/all gates.
+Root reverified live maina8fa and dispatched consolidated inspect-import37531433145
+exactmain/reviewed796097d once. Source gate SUCCESS; approval reported; API
+verification pending. No remote inspection completion or production recovery is
+claimed. Finala8fa staging shadow/1/5/25/D1 at hardening089ae/T20server+UItrue is
+complete with hosted and independent receipt/readiness/SW/smoke/content proof.
+Staging operations made no production access or tracked source edits. Credential-free
+workflow registration37530420366 SUCCESS (echo only, no production access).
+
+**Next:** Freeze remote maina8fa. Await API-verified normal approval and completion
+of consolidated protected inspect-import37531433145 onmain/reviewed796097d.
+It reads both fixed incidents, corrected guards and bounded credential evidence,
+requires unchanged ledger38 and old static100% Worker before/after; no retry/release
+authority. Actual D1 import state and effective Cloudflare write grant remain
+unconfirmed. Final-SHA staging shadow/1/5/25/D1,T20server+UItrue is now certified.
+Current Deploy workflow is manual workflow_dispatch only; the DEPLOYMENT.md
+automatic-staging description is historical and must not drive operations. New
+production0039/application/AI smoke/canary/D1 success is not claimed.
+
+**Staging final a8fa:** COMPLETE and independently verified at frozen main
+`a8fa0324bb609274cc07a5c4b079e7ee4633fd83`, approved hardening
+`089ae329ebba2ba38659c030266068aeace9b8a8`, exact-main CI `37530420360`.
+Every stage is first-attempt SUCCESS, release/staging SUCCESS and production
+SKIPPED; schema 39/0039, T20 server+UI=true. Manifest, build-flag gate and upload
+command agree. Protected D1 probe is ready/500, fingerprint
+`f8cf8c7ff59df9fe29e246b9e3c9aad0fd155fa8df35bf671ac4d03fa2b5ab37`, release
+`rel-bd00a4f53fcaeee4`, fallback=null. Hosted and independent public smoke PASS
+at every stage; readiness and SW have three consecutive exact-SHA pairs.
+
+| Stage | Run | Previous Protected State | Hosted Wait / Independent Wait |
+| --- | --- | --- | --- |
+| shadow/0/cutover=false/global=static | [37531528831](https://github.com/vn-tak/Tako-san/actions/runs/37531528831) | 4092/d1/0, ancestor; rollback=true | 15153 ms / 7733 ms |
+| canary/1/cutover=true/global=mixed | [37531812833](https://github.com/vn-tak/Tako-san/actions/runs/37531812833) | a8fa/shadow/0; rollback=false | 14949 ms / 7608 ms |
+| canary/5/cutover=true/global=mixed | [37532189153](https://github.com/vn-tak/Tako-san/actions/runs/37532189153) | a8fa/canary/1; rollback=false | 7680 ms / 7703 ms |
+| canary/25/cutover=true/global=mixed | [37532527218](https://github.com/vn-tak/Tako-san/actions/runs/37532527218) | a8fa/canary/5; rollback=false | 29871 ms / 7671 ms |
+| d1/0/cutover=true/global=d1 | [37532897461](https://github.com/vn-tak/Tako-san/actions/runs/37532897461) | a8fa/canary/25; rollback=false | 14734 ms / 7791 ms |
+
+SW at every final-SHA stage is HTTP200/JavaScript/no-store/exact a8fa, SHA256
+`5056dccadfb9c387399c972531bb36419a2fdf2b6b810b7f190f85f3857e7f0f`.
+Checks use unchanged defaults: 90000 ms deadline, 3000 ms interval, 15000 ms
+request timeout and three consecutive pairs. No retry or check/bound/source change.
+
+Final D1 Worker `805d6281-bd61-44ba-9501-ff8d53ed17d3`.
+Artifact `11444883305`, `release-staging-37532897461-1`, digest
+`c5023768cd1a97243348141de9f98f20bf8d4b36b807aec140c4c09786d425bb`.
+Receipt `/private/tmp/takosan-final-staging-d1-37532897461/release-manifest.json`,
+SHA256 `3e4261cf14a5267fc167ba7c92b923561067a36d79229f45d0dc23531bd98974`.
+Full progression packet (all five artifacts/Workers/receipt hashes/logs/proofs):
+`/private/tmp/takosan-final-staging-prep/staging-progression-receipt.json`, SHA256
+`a4a852df3464c243bc6d07cdb96d47cbea713288a7a81e4199fd1f7f5a5156f4`.
+
+Independent final public catalog proof PASS at `2026-10-06T21:20:59.787Z`:
+767 local source blobs match final SHA; canonical sourceDigest
+`4c6c4ce836202c4b7a00954414bc1d37c02a5c2155068239c1efc624fb0a8ca5`.
+Five credential-free GETs with three exact-SHA/D1 readiness guards prove public
+list HTTP200/count500, ordered IDs MATCH and all 15 runtime-field fingerprint
+MATCH. Imported detail `imp-199ff78d3d8c8ab3` is HTTP200, full runtime canonical
+and list parity MATCH (six ingredients/five steps). Additive media fields are
+outside this runtime fingerprint. Root independently read the content proof PASS.
+Evidence `/private/tmp/takosan-final-staging-d1-37532897461/public-catalog-content-proof.json`.
+Live main remains a8fa; all five runs are completed SUCCESS. No further staging
+dispatch is required. This proves staging; no production completion is claimed.
+
+Protected production inspect `37531433145`: **approval reported; API verification pending**. User reports approval; root's latest API still shows source gate SUCCESS,
+recover WAITING/approvals[]/current_user_can_approve=false, required reviewer
+`vn-taphoanhatung`. Remote inspection outcome remains unverified. No D1 mutation,
+0039 or production application deployment follows from staging proof or approval
+report alone; wait for the authorized protected inspection result and its evidence.
+
+This local evidence update is unpublished to preserve the frozen release SHA.
+Prior pending-main/restore-WAITING sections are historical and superseded here.
+
+---
+
 # Latest V2 import failure and read-only forensics - 2026-10-07 JST
 
 Production deployment remains incomplete. User authorizes production recovery,

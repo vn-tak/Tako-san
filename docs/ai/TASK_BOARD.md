@@ -24,7 +24,8 @@ inspector163/163 PASS44.27s. Lint, typecheck, migration smoke, build, actionlint
 script syntax and diff checks PASS. Both independent reviews report no remaining
 blocker after tightening contradictory optional metadata. The first exploratory
 full suite was deliberately stopped(exit143) for that final code/test change;
-it is not claimed PASS or a regression failure. Full final-source suite is running.
+it is not claimed PASS or a regression failure. Full final-source suite PASS:
+253files/6160tests,341.60s,Node24.16,maxWorkers2. Hosted final-head/main CI remains pending.
 Inspector's first focused attempt had one fixture-only rollback guard failure; it
 was corrected by separating drift and real rollback cases, then163/163 PASS.
 No live database completion follows from these local tests.

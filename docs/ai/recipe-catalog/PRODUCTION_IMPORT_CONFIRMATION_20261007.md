@@ -76,7 +76,8 @@ build, actionlint1.7.12, syntax and diff checks PASS. One initial inspector fixt
 failed because drift was combined with guarded rollback; separate drift and real
 rollback cases passed. The first exploratory full suite was deliberately terminated
 (exit143) for final review-driven changes and is not certification. Full suite on
-final implementation is running; hosted PR/main validation remains pending.
+final implementation PASS253files/6160tests,341.60s,Node24.16,maxWorkers2.
+Hosted final-head/main validation remains pending.
 No new protected production inspection has been dispatched from this branch.
 After a normal reviewed PR merge, require exact-main hosted CI and dispatch one
 protected inspect-import with its exact final reviewed head. Obtain the mandatory

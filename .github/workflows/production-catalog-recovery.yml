@@ -15,7 +15,7 @@ on:
         type: string
         required: true
       operation:
-        description: inspect-import reads failed recovery 37384670328; restore-v1 pins static then imports V1
+        description: inspect-import reads original incident and corrected guards; restore-v1 requires guarded V2 preflight
         type: choice
         options: [inspect, inspect-import, static-pin, restore-v1]
         default: inspect

@@ -12,6 +12,11 @@ const FINGERPRINT = 'f8cf8c7ff59df9fe29e246b9e3c9aad0fd155fa8df35bf671ac4d03fa2b
 const RELEASE = 'rel-bd00a4f53fcaeee4';
 const SHA = /^[a-f0-9]{40}$/;
 const HASH = /^[a-f0-9]{64}$/;
+const ORIGINAL_REPAIR_ID = 't21_v1_37384670328';
+const ORIGINAL_SQL_HASH = 'f4b6a4d05abfaff9f50a73063edc577e4b4e3ece9ff0f3a84b911e2ae2b42797';
+export const RECOVERY_INTERNAL_TABLE_DDL = 'CREATE TABLE _cf_KV (key TEXT PRIMARY KEY, value BLOB) WITHOUT ROWID';
+const normalizedInternalDdl = RECOVERY_INTERNAL_TABLE_DDL.replace(/[ \t\r\n]+/g, ' ')
+  .trim().replace(/ ?([(),]) ?/g, '$1').toLowerCase();
 const certifiedSources = new WeakSet();
 export const RECOVERY_TABLES = freeze({
   recipes: ['id', 'slug', 'title', 'description', 'cuisine', 'cook_time_minutes', 'servings',
@@ -91,6 +96,20 @@ function immutable(table) {
     `CREATE TRIGGER ${table}_${operation.toLowerCase()} BEFORE ${operation} ON ${table}
       BEGIN SELECT RAISE(ABORT, 'Immutable catalog recovery evidence'); END`);
 }
+function internalInventoryPredicate() {
+  // Preserve token boundaries: deleting whitespace would also accept SQLite types like "BL OB".
+  let normalizedSql = 'ddl';
+  for (const [from, to] of [[' (', '('], ['( ', '('], [' )', ')'], [') ', ')'], [' ,', ','], [', ', ',']]) {
+    normalizedSql = `replace(${normalizedSql}, ${literal(from)}, ${literal(to)})`;
+  }
+  return `NOT EXISTS (SELECT 1 FROM sqlite_schema internal_object
+    WHERE (lower(substr(name, 1, 4)) = '_cf_' OR lower(substr(tbl_name, 1, 4)) = '_cf_')
+    AND NOT (name = '_cf_KV' AND type = 'table' AND tbl_name = '_cf_KV' AND sql IS NOT NULL
+      AND (WITH RECURSIVE normalized(ddl) AS (
+        SELECT trim(lower(replace(replace(replace(internal_object.sql, char(9), ' '), char(10), ' '), char(13), ' ')))
+        UNION SELECT replace(ddl, '  ', ' ') FROM normalized WHERE instr(ddl, '  ') > 0
+      ) SELECT ${normalizedSql} FROM normalized WHERE instr(ddl, '  ') = 0) = ${literal(normalizedInternalDdl)}))`;
+}
 
 /** Replays immutable SQL locally and independently checks it against the certified runtime release. */
 export async function loadCertifiedRecoverySource({ sha, cwd = process.cwd() }) {
@@ -162,8 +181,20 @@ export async function loadCertifiedRecoverySource({ sha, cwd = process.cwd() }) 
   }
 }
 
-/** Compiles SQL only. No connector, subprocess, remote executor or production write path exists here. */
-export function compileRecipeCatalogRecovery({ source, repairId, expectedIngredientRows = 6720 }) {
+/** Compiles the current restore policy; callers cannot select the historical inspection recipe. */
+export function compileRecipeCatalogRecovery(options) {
+  if (options?.repairId === ORIGINAL_REPAIR_ID) throw new Error('Original import recovery ID is reserved for inspection');
+  return compileRecovery(options, false);
+}
+
+/** Reconstructs only the fixed failed incident bytes; no CLI or restore operation selects this recipe. */
+export function compileOriginalCatalogImportInspection({ source }) {
+  const plan = compileRecovery({ source, repairId: ORIGINAL_REPAIR_ID }, true);
+  if (plan.receipt.sqlSha256 !== ORIGINAL_SQL_HASH) throw new Error('Original import inspection SQL hash drift');
+  return plan;
+}
+
+function compileRecovery({ source, repairId, expectedIngredientRows = 6720 }, inspectionOnly) {
   if (!certifiedSources.has(source)) throw new Error('Recovery compiler requires its certified immutable local source');
   if (!/^[a-z][a-z0-9_]{7,48}$/.test(repairId ?? '')) throw new Error('Recovery ID must be a bounded SQL identifier');
   if (expectedIngredientRows !== 6720) throw new Error('Recovery compiler is bounded to the observed 6720-line state');
@@ -177,6 +208,8 @@ export function compileRecipeCatalogRecovery({ source, repairId, expectedIngredi
   const check = (output, label, condition, guardTable = guard) => output.push(
     `INSERT INTO ${guardTable} (label, ok) SELECT ${literal(label)}, CASE WHEN ${condition} THEN 1 ELSE 0 END`);
   const rcheck = (label, condition) => check(rollback, label, condition, `${prefix}_rollback_guard`);
+  const internalCondition = internalInventoryPredicate();
+  if (!inspectionOnly) check(restore, 'approved_internal_inventory', internalCondition);
   const schemaConditions = [];
   for (const table of tableNames) {
     const fields = ['cid', 'name', 'type', 'notnull', 'dflt_value', 'pk', 'hidden'];
@@ -184,11 +217,17 @@ export function compileRecipeCatalogRecovery({ source, repairId, expectedIngredi
       FROM pragma_table_xinfo(${literal(table)})`, valuesQuery(fields, source.tableInfo[table])));
   }
   schemaConditions.push(identicalQuery(`SELECT name, tbl_name, sql FROM sqlite_schema WHERE type = 'trigger'
-    AND tbl_name IN (${tableNames.map(literal).join(', ')})`, valuesQuery(['name', 'tbl_name', 'sql'], source.triggers)));
+    AND ${inspectionOnly ? 'tbl_name' : 'lower(tbl_name)'} IN (${tableNames.map(literal).join(', ')})`, valuesQuery(['name', 'tbl_name', 'sql'], source.triggers)));
   const fkFields = ['name', 'id', 'seq', 'table', 'from', 'to', 'on_update', 'on_delete', 'match'];
-  schemaConditions.push(identicalQuery(`SELECT s.name, f.id, f.seq, f."table", f."from", f."to",
+  const incomingQuery = inspectionOnly ? `SELECT s.name, f.id, f.seq, f."table", f."from", f."to",
     f.on_update, f.on_delete, f.match FROM sqlite_schema s JOIN pragma_foreign_key_list(s.name) f
-    WHERE s.type = 'table' AND f."table" IN (${tableNames.map(literal).join(', ')})`, valuesQuery(fkFields, source.incomingFks)));
+    WHERE s.type = 'table' AND f."table" IN (${tableNames.map(literal).join(', ')})`
+    : `SELECT s.name, f.id, f.seq, f."table", f."from", f."to", f.on_update, f.on_delete, f.match
+      FROM (WITH application_tables AS MATERIALIZED (
+        SELECT name FROM sqlite_schema WHERE type = 'table' AND name <> '_cf_KV'
+      ) SELECT name FROM application_tables) s JOIN pragma_foreign_key_list(s.name) f
+      WHERE lower(f."table") IN (${tableNames.map(literal).join(', ')})`;
+  schemaConditions.push(identicalQuery(incomingQuery, valuesQuery(fkFields, source.incomingFks)));
   const ledgerQuery = `SELECT name FROM d1_migrations`;
   const ledgerExpected = valuesQuery(['name'], source.ledger.map((name) => ({ name })));
   const ledgerCondition = `(SELECT count(1) FROM d1_migrations) = 38 AND ${identicalQuery(ledgerQuery, ledgerExpected)}`;
@@ -250,6 +289,7 @@ export function compileRecipeCatalogRecovery({ source, repairId, expectedIngredi
   rcheck('exact_recovery_identity', `(SELECT count(1) FROM ${status}) = 1 AND EXISTS (SELECT 1 FROM ${status}
     WHERE repair_id = ${literal(repairId)} AND source_digest = ${literal(source.sourceDigest)}
     AND runtime_fingerprint = ${literal(FINGERPRINT)} AND state = 'APPLIED')`);
+  if (!inspectionOnly) rcheck('approved_internal_inventory', internalCondition);
   rcheck('unchanged_0038_schema_and_ledger', `${schemaCondition} AND ${ledgerCondition}
     AND (SELECT foreign_keys FROM pragma_foreign_keys) = 1 AND NOT EXISTS (SELECT 1 FROM pragma_foreign_key_check)`);
   for (const table of tableNames) rcheck(`unchanged_target_${table}`, equalRows(table, table, targetTables[table], false));
@@ -268,6 +308,9 @@ export function compileRecipeCatalogRecovery({ source, repairId, expectedIngredi
   return { statements: restore, rollbackStatements: rollback, sql, rollbackSql, archiveTables, targetTables,
     receipt: {
       schemaVersion: 1, status: 'OFFLINE_PLAN_ONLY', remoteExecutionAuthorized: false, repairId,
+      guardVersion: inspectionOnly ? 1 : 2, purpose: inspectionOnly ? 'INSPECTION_ONLY' : 'RESTORE_V1',
+      ...(!inspectionOnly ? { internalObjectPolicy: 'EXACT_CF_KV_DOCUMENTED_WITHOUT_ROWID_OR_NONE',
+        approvedInternalDdlSha256: sha256(normalizedInternalDdl) } : {}),
       sourceSha: source.sha, historicalTip: TIP, releaseId: RELEASE, runtimeFingerprint: FINGERPRINT,
       sourceDigest: source.sourceDigest, sqlSha256: sha256(sql), rollbackSqlSha256: sha256(rollbackSql),
       expectedBefore: { recipes: 500, ingredientRows: 6720, orderRows: 0, ledgerRows: 38 },

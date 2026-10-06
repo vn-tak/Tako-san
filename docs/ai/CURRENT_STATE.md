@@ -1,3 +1,68 @@
+# Production corrected recovery guard checkpoint - 2026-10-06 JST
+
+**State:** Production release remains incomplete. User authorizes recovery,
+migration and deployment and confirms no real users; user-data retention
+certification is excluded. Normal independent production Environment review
+remains required. Current main is 660521b41cd0a71e1d2ce88806e2b7d041b30155.
+PR52 reviewed head 9a659fade16fee293fff1a634938fb23be6b7903 merged normally;
+complete tree equality/ancestry and exact-main CI37459993796 SUCCESS were verified.
+
+**Remote proof:** Normally approved inspect37460946708 SUCCESS, mutations0,
+two identical OBSERVED_STABLE_NON_ATOMIC captures, exact original recovery prefix
+objects0, no recovery commit observed, primary reads not blocked at observations.
+Canonical ledger38/0038 and original static100% Worker/version/module are unchanged.
+Seven table shapes and active triggers MATCH; incoming_foreign_keys QUERY_FAILED
+is the only failing original schema predicate. Other six pre-mutation guards MATCH.
+Original provider terminal state remains UNKNOWN_NO_CURSOR; this proof does not
+certify a retry or release. Artifact11411598439 digest
+7d5915c219622e800fcf8d56f143c271f8a4e2e267c34f41f74d37093bf9b2a0.
+
+**Staging:** Exact660 shadow37461272700 SUCCESS, T20 server/UI=true, protected
+D1ready500/exact fingerprint, three paired readiness/SW observations and smoke.
+Worker7dc92d32-e796-4f6e-a298-70a62ad97e85; artifact11412347814 digest
+f41ef63adbc728d0972348483f920feb4bd20172df463a839cabed4019c49478.
+No staging canaries dispatched; a new final main requires a fresh shadow sequence.
+
+**Changes:** Branch codex/production-recovery-fk-guard adds guardVersion2
+RESTORE_V1. Exact D1 internal inventory is checked before a materialized
+application-table incoming-FK scan; unknown internal objects/schema and unknown
+application references remain fail-closed. Original f4b6a4d SQL remains sealed
+INSPECTION_ONLY and cannot be selected by the restore compiler. Read-only
+inspect-import also evaluates two corrected eight-guard preflights. Restore
+requires repeated identical original no-commit/primary/old-catalog proof,
+strict-primary corrected preflights, exact original static100% Worker and fresh
+main/normal approval before pin/bookmark/import. Import/rollback use --json;
+file-command errors publish only bounded status/numeric provider codes.
+
+**Checks:** Final credential-free Node24 focused compiler48/helper74/runner53/
+approval13 PASS; compiler+helper independently122/122PASS29.39s and runner+auth
+66/66PASS15.35s. Independent review found and fixed uppercase FK/trigger target
+coverage and original recovery-prefix visibility; fresh review found no further
+concrete blocker. Lint/typecheck/migration smoke/syntax/diff and serial build PASS.
+Final credential-free Node24 full suite251files/5873tests PASS,487.54s/exit0.
+Executable checkpoint4aeb7988c0ec2d44e1f8fbaa7e74eb9224e4cb11. Actual Miniflare/workerd D1 atomic restore
+296statements PASS,500hydrated/failures0/exact V1 fingerprint; rollback36 PASS,
+6720lines/order0/ledger38/FK0. Fixture includes documented _cf_KV seeded privately
+via immutable local SQLite prefix. Initial combined Wrangler seed failed
+SQLITE_TOOBIG; first direct fixture replay failed FK, two harness setups failed
+module/persistence discovery. None reached production or proves the remote error.
+Wrangler optional update cache was refreshed from an actual npm registry response;
+no source/test/timeout/tool version edits. No new remote mutation.
+
+**Next:** Publish the validated, independently reviewed PR,
+require green final-head CI, merge normally and require exact-main CI/tree equality.
+Dispatch corrected inspect-import first and obtain normal vn-taphoanhatung review.
+Only all eight hosted guards MATCH with strict-primary observations permits a
+separately approved intentional new V2 recovery. Require live V1/static/500/exact
+fingerprint/ledger38/integrity before guarded0039, read-only certification, final-SHA
+staging shadow/1/5/25/D1 T20=true, production same-SHA T20=false shadow, one live
+synthetic AI smoke and production1/5/25/D1. No final production success is claimed.
+
+**Report:** [PRODUCTION_IMPORT_INSPECTION_20261006.md](recipe-catalog/PRODUCTION_IMPORT_INSPECTION_20261006.md).
+Earlier checkpoint sections are historical.
+
+---
+
 # Production interrupted-import inspection checkpoint - 2026-10-06 JST
 
 **State:** Release incomplete. Normally approved diagnostics 37450399162 SUCCESS

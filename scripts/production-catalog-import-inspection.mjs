@@ -1,6 +1,6 @@
 import { createHash } from 'node:crypto';
 import { DatabaseSync } from 'node:sqlite';
-import { compileRecipeCatalogRecovery, RECOVERY_TABLES } from './recipe-catalog-recovery.mjs';
+import { compileOriginalCatalogImportInspection, compileRecipeCatalogRecovery, RECOVERY_TABLES } from './recipe-catalog-recovery.mjs';
 
 export const ORIGINAL_IMPORT_REPAIR_ID = 't21_v1_37384670328';
 const RUN_ID = '37384670328';
@@ -11,11 +11,16 @@ const FINGERPRINT = 'f8cf8c7ff59df9fe29e246b9e3c9aad0fd155fa8df35bf671ac4d03fa2b
 const GUARD_LABELS = ['known_schema_and_references', 'exact_0038_ledger',
   'foreign_keys_enabled_and_clean', 'bounded_observed_catalog', 'nutrition_versions_consistent',
   'original_ingredients_reinsertable', 'temporary_slug_namespace_unused'];
+const PREFLIGHT_GUARD_LABELS = ['approved_internal_inventory', ...GUARD_LABELS];
 const META_FIELDS = ['cid', 'name', 'type', 'notnull', 'dflt_value', 'pk', 'hidden'];
 const hash = (value) => createHash('sha256').update(value).digest('hex');
 const literal = (value) => value === null ? 'NULL' : typeof value === 'number' ? String(value)
   : `'${value.replaceAll("'", "''")}'`;
 const stopped = () => new Error('IMPORT_INSPECTION_SOURCE_REJECTED');
+const preflightStopped = () => new Error('RECOVERY_PREFLIGHT_SOURCE_REJECTED');
+const queryObservations = () => ({ successful: 0, failed: 0, primaryTrue: 0, primaryFalse: 0, primaryUnknown: 0 });
+const incidentIdentity = () => ({ runId: RUN_ID, repairId: ORIGINAL_IMPORT_REPAIR_ID, sqlSha256: SQL_HASH,
+  sourceDigest: SOURCE_DIGEST, runtimeFingerprint: FINGERPRINT });
 
 // Split generated predicates without interpreting quoted trigger SQL or nested subqueries.
 function topLevelTerms(sql) {
@@ -42,8 +47,8 @@ function topLevelTerms(sql) {
   return terms;
 }
 
-function guardStatements(plan) {
-  const start = `INSERT INTO ${PREFIX}_guard (label, ok) SELECT '`;
+function guardStatements(plan, prefix = PREFIX) {
+  const start = `INSERT INTO ${prefix}_guard (label, ok) SELECT '`;
   return plan.statements.filter((sql) => sql.startsWith(start)).map((sql) => {
     const tail = sql.slice(start.length);
     const match = /^([a-z0-9_]+)', CASE WHEN ([\s\S]+) THEN 1 ELSE 0 END$/.exec(tail);
@@ -54,16 +59,89 @@ function guardStatements(plan) {
 
 function approvedPlan(source, plan) {
   try {
-    const canonical = compileRecipeCatalogRecovery({ source, repairId: ORIGINAL_IMPORT_REPAIR_ID });
+    const canonical = compileOriginalCatalogImportInspection({ source });
     if (source.sourceDigest !== SOURCE_DIGEST || source.fingerprint !== FINGERPRINT
         || canonical.receipt.sqlSha256 !== SQL_HASH || hash(canonical.sql) !== SQL_HASH
         || plan?.sql !== canonical.sql || JSON.stringify(plan.statements) !== JSON.stringify(canonical.statements)
         || plan.receipt?.repairId !== ORIGINAL_IMPORT_REPAIR_ID
+        || plan.receipt?.purpose !== 'INSPECTION_ONLY' || plan.receipt?.guardVersion !== 1
         || plan.receipt?.sourceDigest !== SOURCE_DIGEST || plan.receipt?.runtimeFingerprint !== FINGERPRINT
         || plan.receipt?.sqlSha256 !== SQL_HASH
         || `${plan.statements.map((sql) => `${sql};`).join('\n\n')}\n` !== plan.sql) throw stopped();
     return canonical;
   } catch { throw stopped(); }
+}
+
+function approvedRecoveryPlan(source, plan) {
+  try {
+    const canonical = compileRecipeCatalogRecovery({ source, repairId: plan?.receipt?.repairId });
+    if (source.sourceDigest !== SOURCE_DIGEST || source.fingerprint !== FINGERPRINT
+        || canonical.receipt.purpose !== 'RESTORE_V1' || canonical.receipt.guardVersion !== 2
+        || canonical.receipt.sourceSha !== source.sha || canonical.receipt.sourceDigest !== SOURCE_DIGEST
+        || canonical.receipt.runtimeFingerprint !== FINGERPRINT
+        || hash(canonical.sql) !== canonical.receipt.sqlSha256
+        || plan?.sql !== canonical.sql || JSON.stringify(plan.statements) !== JSON.stringify(canonical.statements)
+        || JSON.stringify(plan.receipt) !== JSON.stringify(canonical.receipt)
+        || `${plan.statements.map((sql) => `${sql};`).join('\n\n')}\n` !== plan.sql) throw preflightStopped();
+    const guards = guardStatements(canonical, `catalog_recovery_${canonical.receipt.repairId}`);
+    const selected = PREFLIGHT_GUARD_LABELS.map((label) => guards.filter((guard) => guard.label === label));
+    if (guards.length !== 26 || selected.some((matches) => matches.length !== 1)) throw preflightStopped();
+    return { canonical, guards: selected.map(([guard]) => guard) };
+  } catch { throw preflightStopped(); }
+}
+
+async function observePreflightGuard(query, observations, guard) {
+  try {
+    const sql = `SELECT CASE WHEN ${guard.predicate} THEN 1 ELSE 0 END AS ok`;
+    if (Buffer.byteLength(sql) > 100000) throw new Error();
+    const value = await query(sql);
+    if (!Array.isArray(value) || value.length !== 1 || value[0]?.success !== true
+        || !Array.isArray(value[0].results) || value[0].results.length !== 1) throw new Error();
+    const row = value[0].results[0];
+    if (!row || typeof row !== 'object' || Array.isArray(row) || Object.keys(row).length !== 1
+        || !Object.hasOwn(row, 'ok') || ![0, 1].includes(row.ok)) throw new Error();
+    observations.successful++;
+    const primary = value[0].meta?.served_by_primary;
+    if (primary === true) observations.primaryTrue++;
+    else if (primary === false) observations.primaryFalse++;
+    else observations.primaryUnknown++;
+    return { label: guard.label, result: row.ok === 1 ? 'MATCH' : 'MISMATCH',
+      servedByPrimary: typeof primary === 'boolean' ? primary : null };
+  } catch {
+    observations.failed++;
+    return { label: guard.label, result: 'QUERY_FAILED', servedByPrimary: null };
+  }
+}
+
+/** Checks current compiler guards using SELECTs; the result never authorizes an import retry. */
+export async function inspectRecoveryPreflight({ source, plan, query }) {
+  const { canonical, guards } = approvedRecoveryPlan(source, plan);
+  if (typeof query !== 'function') throw preflightStopped();
+  const { repairId, sourceSha, sqlSha256, sourceDigest, runtimeFingerprint, purpose, guardVersion } = canonical.receipt;
+  const receipt = {
+    schemaVersion: 1, operation: 'inspect-recovery-preflight', status: 'BLOCKED',
+    certification: 'NOT_A_RELEASE_CERTIFICATION', readOnly: true, mutations: 0, productionMutations: [],
+    providerImportState: 'UNKNOWN_NO_CURSOR', retryAuthorized: false,
+    incident: incidentIdentity(), repairId, sourceSha, sqlSha256, sourceDigest, runtimeFingerprint, purpose, guardVersion,
+    preMutationGuards: [], blockers: [], queryObservations: queryObservations(),
+  };
+  for (const guard of guards) {
+    const inventory = receipt.preMutationGuards[0];
+    const result = guard.label === 'known_schema_and_references'
+      && (inventory.result !== 'MATCH' || inventory.servedByPrimary !== true)
+      ? { label: guard.label, result: 'NOT_EVALUATED', servedByPrimary: null }
+      : await observePreflightGuard(query, receipt.queryObservations, guard);
+    receipt.preMutationGuards.push(result);
+    if (result.result !== 'MATCH') receipt.blockers.push(`GUARD_${guard.label.toUpperCase()}_${result.result}`);
+    if (result.result !== 'NOT_EVALUATED' && result.servedByPrimary !== true) {
+      receipt.blockers.push('PRIMARY_OBSERVATION_UNPROVEN');
+    }
+  }
+  receipt.blockers = [...new Set(receipt.blockers)];
+  if (receipt.preMutationGuards.every((guard) => guard.result === 'MATCH' && guard.servedByPrimary === true)) {
+    receipt.status = 'GUARDED_PREFLIGHT_MATCH';
+  }
+  return receipt;
 }
 
 function expectedObjects(plan) {
@@ -111,7 +189,7 @@ function inventorySql(objects) {
     coalesce(sum(CASE WHEN type = 'trigger' THEN 1 ELSE 0 END), 0) AS triggerCount,
     coalesce(sum(CASE WHEN ${matches.join(' OR ')} THEN 1 ELSE 0 END), 0) AS matchedObjectCount,
     ${present.join(',\n    ')}
-    FROM sqlite_schema WHERE substr(name, 1, ${PREFIX.length}) = ${literal(PREFIX)}`;
+    FROM sqlite_schema WHERE lower(substr(name, 1, ${PREFIX.length})) = ${literal(PREFIX)}`;
 }
 
 /** Reads only aggregate SELECTs for one fixed incident; never settles the provider import job. */
@@ -127,11 +205,10 @@ export async function inspectCatalogImport({ source, plan, query }) {
     schemaVersion: 1, operation: 'inspect-import', status: 'INSPECTION_BLOCKED',
     certification: 'NOT_A_RELEASE_CERTIFICATION', readOnly: true, mutations: 0, productionMutations: [],
     providerImportState: 'UNKNOWN_NO_CURSOR', providerBlockingEvidence: 'UNPROVEN', retryAuthorized: false,
-    incident: { runId: RUN_ID, repairId: ORIGINAL_IMPORT_REPAIR_ID, sqlSha256: SQL_HASH,
-      sourceDigest: SOURCE_DIGEST, runtimeFingerprint: FINGERPRINT },
+    incident: incidentIdentity(),
     inventory: null, preMutationGuards: [], schemaChecks: [], objectSchemaChecks: [],
     aggregates: { live: {}, archive: {}, target: {} }, guard: null, repairStatus: null,
-    blockers: [], queryObservations: { successful: 0, failed: 0, primaryTrue: 0, primaryFalse: 0, primaryUnknown: 0 },
+    blockers: [], queryObservations: queryObservations(),
   };
   const observations = receipt.queryObservations;
   const select = async (sql, keys, booleanKeys = []) => {

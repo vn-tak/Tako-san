@@ -1,3 +1,80 @@
+# Production guard V2 published checkpoint - 2026-10-07 JST
+
+**State:** Production release is incomplete. PR53 merged normally at
+4092d4ca2dacee8bb01da484aae93592e9bd94da on 2026-10-06T15:40:10Z.
+Reviewed final head6e45d824363c24c8b63b629eefce8252e8f16a6f and merged main share
+complete treef97f89682665fcd9a3e5dd2888f8443ea76a1b2d; ancestry and equality were
+verified. Exact-main CI37489453830 SUCCESS: 251 files / 5873 tests PASS
+(380.38s), lint, typecheck, migration smoke and build PASS. Credential-free
+registration37489453876 SUCCESS. Main is held fixed for release evidence.
+Operator authorizes recovery/migration/deploy and confirms no real users;
+user-data retention certification is excluded. Normal required production review
+by vn-taphoanhatung remains; CLIvn-tak cannot supply that review.
+
+**Implementation:** Executable4aeb7988c0ec2d44e1f8fbaa7e74eb9224e4cb11 implements
+strict internal inventory, materialized application-FK scanning, case-folded
+FK/trigger and original-prefix coverage, sealed original inspection compiler,
+eight strict-primary preflight guards, repeated original/new observations and
+original static100% Worker checks before any new guarded recovery. File import
+and rollback require nonempty all-success JSON; ambiguous completion stays unknown.
+Independent exact-final-tree review found no concrete remaining blocker.
+
+**Checks:** Local compiler48/helper74/runner53/approval13 PASS; independent
+compiler+helper122PASS29.39s and runner+auth66PASS15.35s. Full Node24 suite
+251files/5873tests PASS487.54s/exit0; lint/typecheck/migration smoke/serial build/
+syntax/diff PASS. Real local workerd D1 restore296/rollback36 PASS,500hydrated/
+failures0/exact V1 fingerprint, rollback6720lines/order0/ledger38/FK0. PR53 hosted
+CI37488555229 SUCCESS,251files/5873tests/283.24s and all gates. Earlier failed
+fixture/harness attempts are documented in the report and are not production proof.
+
+**Production proof:** Previously approved inspect37460946708 SUCCESS proves
+stable observed old catalog, original repair objects0, no observed commit,
+primary availability at observation times, ledger38/0038 and unchanged original
+static100% Worker. Only incoming-FK original schema predicate fails; no retained
+remote error/terminal cursor. Original provider terminal state UNKNOWN_NO_CURSOR.
+A fresh public curl GET reports readinessok, commit136cb6ff..., healthy DB/queue,
+static0/cutoverfalse/globalSourcestatic/fallbacknull. Python urllib GET was403;
+public curl success is health evidence, not protected catalog certification.
+A mistaken GET to /api/v1/ready returned 401; corrected public
+/api/v1/health/ready GET confirmed the same healthy static old-source state.
+Corrected inspect37490593680 SUCCESS with normal vn-taphoanhatung review:
+mutations0, repeated OBSERVED_STABLE_NON_ATOMIC captures, original repair objects0,
+NO_RECOVERY_COMMIT_OBSERVED, primary availability at observations, ledger38 before/
+after and exact original static100% Worker/module unchanged. Corrected V2 preflight
+GUARDED_PREFLIGHT_MATCH: eight guards MATCH, strict-primary8, failed0, blockers0.
+Original provider terminal remains UNKNOWN_NO_CURSOR, retryAuthorized=false.
+New intentional guarded restore37491535308 dispatched once at frozen4092 /
+reviewed6e45. Source/main/full-tree/CI gate SUCCESS; recover waits for required
+production review; API current_user_can_approve=false and approvals empty.
+No recovery success, 0039 or new production application is claimed.
+
+**Staging:** Same frozen4092 / hardening089ae / T20 server+UItrue sequence
+completed: shadow37490615290 -> canary1 37491302867 -> canary5 37491745113 ->
+fresh canary25 37493006431 -> D1 37493357178, all SUCCESS with protected500/exact
+V1 fingerprint/no fallback, three paired readiness/SW observations and hosted+
+independent public smoke PASS. Final Worker dc22aad4-fe86-4a6d-84de-50abc545731e,
+schema39/0039, globalSource=d1. Independent public list has exact500 IDs/order/
+runtime fingerprint; D1-only detail HTTP200/full runtime content MATCH.
+Initial25 run37492174560 remains FAILED after upload and SW fetch rejection;
+unknown cause, no post-deploy certification. Default-bounds live proof and fresh
+same25 dispatch resolved the verification gap without changing code/checks/bounds.
+
+**Next:** Required normal vn-taphoanhatung review of restore37491535308
+([run](https://github.com/vn-tak/Tako-san/actions/runs/37491535308)) is the external
+blocker: source gate SUCCESS, recover WAITING, approvals empty and CLI vn-tak cannot
+approve. Await review; the runner then freshly repeats original/corrected proofs
+before any mutation. Require V1_CATALOG_CERTIFIED_STATIC,500 hydrated/exact
+fingerprint, ledger38/integrity before guarded0039, then production read-only
+certification, same4092 production T20false shadow, one synthetic live AI smoke and
+production1/5/25/D1. Staging is complete. Keep remote main frozen4092; this local
+unpublished documentation checkpoint must not become the release ref.
+
+**Report:** [PRODUCTION_IMPORT_INSPECTION_20261006.md](recipe-catalog/PRODUCTION_IMPORT_INSPECTION_20261006.md).
+Prior sections remain historical. This local evidence checkpoint is not pushed
+while the release source is frozen.
+
+---
+
 # Production corrected recovery guard checkpoint - 2026-10-06 JST
 
 **State:** Production release remains incomplete. User authorizes recovery,

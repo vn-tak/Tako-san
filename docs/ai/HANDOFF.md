@@ -24,7 +24,12 @@ test/timeout edits. Final full rerun without parallel Wrangler/build: 250 files 
 5736 tests PASS, exit 0 / 490.18 seconds. Serial build, lint, typecheck, migration
 smoke, syntax and diff PASS. Root reviewed frozen source/tests with no concrete
 blocker. Another review agent was unavailable and supplied no final frozen review.
-Hosted final-head CI and exact merged-main CI remain required.
+PR51 head 93e3db2004c518af7694edd4db89e918510c5d72 passed hosted CI37452057402:
+250files/5736tests (198.73s), lint/typecheck/migration smoke/build. PR remains OPEN
+and held while diagnostics waits. This new documentation-only checkpoint still
+needs final-head hosted CI; exact merged-main CI remains required after merge.
+Local isolated recovery SQL probes did not complete (exit143/137); they provide no
+import outcome or remote-cause proof. No credentials/remote mutation were used.
 
 **Remote:** Staging 37384738093 FAILED after Worker publication and three exact
 readiness observations: /sw.js had not embedded expected f2b. Failed body not

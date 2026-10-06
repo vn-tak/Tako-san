@@ -115,6 +115,28 @@ the former zero-budget request at t=90 is prohibited, not allowed a longer wait.
   the original artifact unchanged. This is not a deploy or protected catalog
   certification and does not convert failed run 37384738093 into a success.
 
+## Published candidate and additional evidence
+
+[PR51](https://github.com/vn-tak/Tako-san/pull/51) head
+`93e3db2004c518af7694edd4db89e918510c5d72` passed hosted CI
+[37452057402](https://github.com/vn-tak/Tako-san/actions/runs/37452057402):
+250 files / 5736 tests, 198.73 seconds, lint, typecheck, migration smoke and build.
+It remains OPEN; no merge while diagnostics 37450399162 is pending/running.
+The following documentation-only update still needs final-head hosted CI;
+implementation a9f1c81 is unchanged.
+
+Additional credential-free local probe compiled exact f2b/recovery37384670328 SQL:
+`f4b6a4d05abfaff9f50a73063edc577e4b4e3ece9ff0f3a84b911e2ae2b42797`, 295 statements,
+matching the actual receipt. A small local Wrangler SELECT of pragma_foreign_keys
+returned 1. A full isolated local Wrangler seed operation did not complete and was
+terminated, exit143. A second native Miniflare probe seeded synthetic500/6720/0
+using SQLite, then did not obtain the local D1 binding; terminated, exit137 before
+batch. No recovery import result was obtained. These incomplete local probes do
+not explain the remote error and do not justify retry or certify production.
+No production credential, remote mutation or repository code change was used.
+Logs remain `/tmp/takosan-recovery-probe-seed.log` and
+`/tmp/takosan-recovery-probe-native-batch.log`.
+
 ## Continuation
 
 Finish current f2b read-only diagnosis and resolve the unknown import state from

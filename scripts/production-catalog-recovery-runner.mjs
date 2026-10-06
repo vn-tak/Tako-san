@@ -4,6 +4,7 @@ import path from 'node:path';
 import { pathToFileURL } from 'node:url';
 import { authorizeRecovery } from './production-catalog-recovery-approval.mjs';
 import { compileRecipeCatalogRecovery, loadCertifiedRecoverySource } from './recipe-catalog-recovery.mjs';
+import { inspectCatalogImport, ORIGINAL_IMPORT_REPAIR_ID } from './production-catalog-import-inspection.mjs';
 import {
   APPROVED_BATCHES_REGISTRY, CATALOG_RELEASE_MANIFEST, PRODUCTION_D1,
   catalogQuery, loadRuntimeCatalogPipeline, verifyCatalogAtTip,
@@ -14,6 +15,8 @@ import {
 const reject = () => { throw new Error('PRODUCTION_CATALOG_RECOVERY_STOPPED'); };
 const requireProof = (condition) => { if (!condition) reject(); };
 const TIP = '0038_auth_onboarding_completion.sql';
+const ORIGINAL_PIN = { versionId: '1a47f7f7-3d74-4801-b26a-b91f39c7942e',
+  modules: { sha256: '5079c954a1905d6a72beb38828f3621833fdb0c57d57a4d93f371ed49cd4eca1' } };
 
 export function verifyRecoveryLedger(statements, expected) {
   requireProof(Array.isArray(statements) && statements.length === 1 && statements[0].success === true &&
@@ -35,9 +38,9 @@ export async function runCatalogRecovery({
   operation, env = process.env, cwd = process.cwd(), execute = execFileSync,
   authorize = authorizeRecovery, worker,
   loadSource = loadCertifiedRecoverySource, compile = compileRecipeCatalogRecovery,
-  loadPipeline = loadRuntimeCatalogPipeline,
+  loadPipeline = loadRuntimeCatalogPipeline, inspectImport = inspectCatalogImport,
 } = {}) {
-  requireProof(['inspect', 'static-pin', 'restore-v1'].includes(operation) && operation === env.RECOVERY_OPERATION);
+  requireProof(['inspect', 'inspect-import', 'static-pin', 'restore-v1'].includes(operation) && operation === env.RECOVERY_OPERATION);
   const authorizeNow = () => authorize({ env, cwd });
   const authorization = await authorizeNow();
   const receipt = { schemaVersion: 1, operation, sourceSha: authorization.mainSha,
@@ -72,6 +75,40 @@ export async function runCatalogRecovery({
       receipt.phase = 'WORKER_INSPECTION';
       receipt.worker = await worker.inspectProductionCatalogWorker({ env, cwd });
       receipt.status = 'INSPECTED_READ_ONLY'; save(); return receipt;
+    }
+    if (operation === 'inspect-import') {
+      receipt.phase = 'ORIGINAL_IMPORT_READ_ONLY_INSPECTION';
+      receipt.mutations = 0;
+      receipt.releaseCertification = 'NOT_A_RELEASE_CERTIFICATION';
+      const source = await loadSource({ sha: authorization.mainSha, cwd });
+      const originalPlan = compile({ source, repairId: ORIGINAL_IMPORT_REPAIR_ID });
+      receipt.preWorker = await worker.inspectProductionCatalogWorker({ env, cwd });
+      requirePinnedStaticWorker(receipt.preWorker, ORIGINAL_PIN);
+      requireProof(receipt.preWorker.deployment.percentage === 100);
+      receipt.preLedger = verifyRecoveryLedger(query('SELECT name FROM d1_migrations ORDER BY name'), source.ledger);
+      const readOnly = (sql) => {
+        requireProof(typeof sql === 'string' && Buffer.byteLength(sql) <= 100000);
+        const guarded = sql.replace(/'(?:''|[^'])*'/g, ' ');
+        requireProof(/^SELECT\s/i.test(guarded) && !/[;]|--|\/\*/.test(guarded) &&
+          !/\b(INSERT|UPDATE|DELETE|REPLACE|CREATE|DROP|ALTER|VACUUM|REINDEX|ATTACH|DETACH|PRAGMA|BEGIN|COMMIT|ROLLBACK|SAVEPOINT|RELEASE|load_extension|writefile|readfile)\b/i.test(guarded));
+        for (const pragma of guarded.match(/\bpragma_\w+/gi) || []) {
+          requireProof(['pragma_table_xinfo', 'pragma_foreign_key_list', 'pragma_foreign_keys',
+            'pragma_foreign_key_check'].includes(pragma.toLowerCase()));
+        }
+        return query(sql);
+      };
+      const first = await inspectImport({ source, plan: originalPlan, query: readOnly });
+      receipt.importInspection = first; save();
+      const second = await inspectImport({ source, plan: originalPlan, query: readOnly });
+      requireProof(JSON.stringify(first) === JSON.stringify(second));
+      receipt.snapshotConsistency = 'OBSERVED_STABLE_NON_ATOMIC';
+      receipt.postLedger = verifyRecoveryLedger(query('SELECT name FROM d1_migrations ORDER BY name'), source.ledger);
+      receipt.finalWorker = await worker.inspectProductionCatalogWorker({ env, cwd });
+      requirePinnedStaticWorker(receipt.finalWorker, ORIGINAL_PIN);
+      requireProof(receipt.finalWorker.deployment.percentage === 100);
+      await authorizeNow();
+      receipt.status = 'INSPECTED_IMPORT_READ_ONLY';
+      receipt.phase = 'COMPLETE'; save(); return receipt;
     }
     if (operation === 'restore-v1') {
       receipt.phase = 'OFFLINE_PLAN_AND_PRE_LEDGER';

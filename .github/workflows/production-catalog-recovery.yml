@@ -15,9 +15,9 @@ on:
         type: string
         required: true
       operation:
-        description: Bounded operation; restore-v1 first pins existing Worker static then imports certified V1
+        description: inspect-import reads failed recovery 37384670328; restore-v1 pins static then imports V1
         type: choice
-        options: [inspect, static-pin, restore-v1]
+        options: [inspect, inspect-import, static-pin, restore-v1]
         default: inspect
       confirm_catalog_recovery:
         description: Confirm this intentional catalog operation; no migration or new application bundle is deployed

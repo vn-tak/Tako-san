@@ -1,3 +1,57 @@
+# Production interrupted-import inspection checkpoint - 2026-10-06 JST
+
+**State:** Release incomplete. Normally approved diagnostics 37450399162 SUCCESS
+at f2b00023ccb9a706d17ebe71321c0364a948ca75. Repeated reads show ledger38/0038,
+500 version2 recipes,6720 ingredient lines,0 order rows,0 hydrated recipes and
+500 missing_ingredient_position failures. This diagnostic success does not certify
+release or settle recovery37384670328 provider completion. No blind retry,
+rollback,0039 or promotion. User authorizes production release and confirms no
+real users; user-data preservation certification is excluded.
+
+**Changes:** PR51 final d70d644e5d4e953ebe02894a28cf8fe4c110006e passed hosted
+CI37453365335 and merged normally at2026-10-06T11:25:37Z. Current main
+ d2108588e4dfbccba6dbe75ab5fd0005330ae38d has identical complete reviewed tree;
+exact-main CI37456321861 SUCCESS (250files/5736tests/288.01s plus all gates),
+registration37456321763 SUCCESS with no
+production access. New inspect-import operation under implementation on
+codex/production-import-inspection is fixed to failed recovery37384670328.
+It reads exact repair objects and compiler-derived pre-mutation guard booleans,
+re-proves original static100% Worker/ledger before and after and compares two
+aggregate captures. No SQL file import, pin, rollback or migration path runs.
+Existing normal independent Environment approval/full-reviewed-tree/CI gates
+remain. Hypotheses about protected internal-table PRAGMA or completion parsing
+are unproved; recovery compiler and mutation behavior are unchanged.
+
+**Checks:** Initial focused runner/auth43 had42PASS/1FAIL: real-helper guard
+parser rejected exact_0038_ledger digit label; fixed parser and added regression.
+Root focused3files71PASS (runner31/helper27/auth13),18.05s; helper final tests
+still finishing. pnpm lint,typecheck,check:migrations,build,changed-file ESLint,
+helper/test syntax and diff PASS. Full suite/independent final review pending.
+No new remote inspection dispatch or production mutation has run.
+
+**Production:** Last verified pin is old-source136cb6ff/static0/false,100%
+version1a47f7f7-3d74-4801-b26a-b91f39c7942e with module sha256
+5079c954a1905d6a72beb38828f3621833fdb0c57d57a4d93f371ed49cd4eca1.
+Recovery37384670328 lost import completion after this pin/bookmark; no automatic
+rollback or post-import certification ran. Exact repair objects and provider
+blocking status still need inspection. Cloudflare import poll requires the lost
+at_bookmark; Time Travel bookmark is not an equivalent cursor. Successful primary
+SELECTs can prove no blocking import at observation times, not a terminal reason.
+
+**Next:** Finish bounded helper/tests/full repository gates and independent
+review; publish PR, final-head CI, normal merge and exact-main CI. Dispatch one
+inspect-import, freeze main and obtain normal reviewer vn-taphoanhatung approval.
+Use actual proof to resolve recovery safely. Require independently certified
+V1/static/ledger38/500/exact fingerprint/integrity before0039, then final-SHA
+staging shadow/1/5/25/D1 T20true and production sameSHA T20false, shadow, one
+corrected live synthetic AI proof and production canaries. Production is not
+complete; no corrected live AI success is claimed.
+
+**Report:** [PRODUCTION_IMPORT_INSPECTION_20261006.md](docs/ai/recipe-catalog/PRODUCTION_IMPORT_INSPECTION_20261006.md).
+Earlier checkpoint sections are historical.
+
+---
+
 # Production asset convergence checkpoint - 2026-10-06 JST
 
 **State:** Release incomplete. Remote main stays

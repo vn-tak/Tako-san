@@ -55,6 +55,34 @@ applies no0039 and does not authorize a new application deployment on its own.
 After catalog certification, use existing guarded0039 migration and immutable
 staging/production release workflows. Existing rollout progression is retained.
 
+### ADR-041 continuation - intentional corrected recovery guard V2
+
+Approved inspect37460946708 proves no observed original recovery commit and
+stable old catalog/static routing. It isolates the incoming-FK predicate failure;
+it does not recover the lost provider cursor or prove terminal failure.
+
+Use a new recovery ID and guardVersion2, not a replay of original SQL. Check exact
+reserved-object inventory first, accepting only the documented unquoted _cf_KV
+WITHOUT ROWID definition with ASCII formatting/case normalization that preserves
+token boundaries. Materialize all other table names before invoking FK PRAGMA;
+retain the full incoming-FK projection and bidirectional set comparison. FK target
+and trigger parent coverage folds SQLite identifier case; projected metadata
+remains exact so unknown uppercase references/triggers still reject. Unknown
+application tables remain included; unknown reserved objects/schema reject before
+FK inspection. The same guards protect archive rollback.
+
+Original recovery-prefix coverage also folds identifier case while keeping strict
+expected object identity; uppercase aliases remain unexpected evidence.
+Keep original 37384670328 SQL/hash sealed as INSPECTION_ONLY. New read-only
+preflight recompiles the exact new plan and requires all eight guards MATCH with
+strict primary metadata. Before any new restore mutation require two stable
+original no-commit/old-catalog/primary observations, two stable corrected
+preflights, the exact original static100% Worker and fresh main/normal approval.
+Record INTENTIONAL_NEW_GUARDED_RECOVERY_V2 and UNKNOWN_NO_CURSOR explicitly.
+Successful observation is not provider terminal-state or future-queue exclusion
+proof. Preserve independent post-import V1 certification and existing0039/release
+order. No historical migration, protected subsystem or approval policy changes.
+
 ## ADR-040 — T21R-C2 captures protected occurrence evidence and publishes aggregate-only receipts
 
 **Status:** Proposed 2026-10-02 for independent implementation review. Local

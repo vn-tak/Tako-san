@@ -1,3 +1,18 @@
+## Corrected guarded recovery continuation - 2026-10-06 JST
+
+Normally approved inspect37460946708 SUCCESS isolates the original incoming-FK
+SELECT failure and observes no original recovery objects/commit. Terminal provider
+state remains UNKNOWN_NO_CURSOR. Current implementation uses a new recovery ID,
+exact reserved-table inventory, materialized application-table FK scan and eight
+strict-primary guards, with repeated old-incident and corrected preflight observations
+before any new mutation. Original SQL is sealed INSPECTION_ONLY. Do not replay the
+old import or infer retry authority from the diagnostic. See
+[PRODUCTION_IMPORT_INSPECTION_20261006.md](PRODUCTION_IMPORT_INSPECTION_20261006.md)
+and ADR-041 continuation for proof, decision, tests and remaining release sequence.
+All prior pending/no-remote statements below are historical.
+
+---
+
 ## API compatibility continuation - 2026-10-06 JST
 
 Capacity executable414f449 and observed Worker response executableca91a1f

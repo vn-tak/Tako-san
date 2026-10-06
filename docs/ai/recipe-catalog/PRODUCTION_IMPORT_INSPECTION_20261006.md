@@ -1,3 +1,117 @@
+# Executed inspection and corrected guard V2 - 2026-10-06 JST
+
+## Actual hosted results
+
+PR52 final9a659fade16fee293fff1a634938fb23be6b7903 merged normally at main
+660521b41cd0a71e1d2ce88806e2b7d041b30155. PR CI37458261832 and exact-main
+CI37459993796 SUCCESS with251files/5774tests and all gates. Full tree equality
+and ancestry independently verified. Registration37459993811 was credential-free.
+
+[Inspect37460946708](https://github.com/vn-tak/Tako-san/actions/runs/37460946708)
+completed SUCCESS after normal independent vn-taphoanhatung approval. This remains
+read-only diagnostic success: mutations0, repeated OBSERVED_STABLE_NON_ATOMIC
+captures, original repair prefix objects0, NO_RECOVERY_COMMIT_OBSERVED,
+IMPORT_NOT_BLOCKING_AT_PRIMARY_OBSERVATIONS, canonical38/0038ledger before/after.
+The exact original static100% version1a47f7f7-3d74-4801-b26a-b91f39c7942e and
+module SHA2565079c954a1905d6a72beb38828f3621833fdb0c57d57a4d93f371ed49cd4eca1
+remain unchanged. Fifteen successful primary queries, two failed, zero nonprimary
+or unknown-primary results. Seven table shapes and active triggers MATCH;
+only incoming_foreign_keys QUERY_FAILED. Other six pre-mutation guards MATCH.
+Provider terminal state is still UNKNOWN_NO_CURSOR; retryAuthorized=false.
+Artifact11411598439 digest
+7d5915c219622e800fcf8d56f143c271f8a4e2e267c34f41f74d37093bf9b2a0.
+
+[Staging37461272700](https://github.com/vn-tak/Tako-san/actions/runs/37461272700)
+completed SUCCESS for exact660 shadow0/cutoverfalse/T20server+UItrue. Protected
+500/exact fingerprint, three paired readiness/SW observations (four attempts,
+11364ms) and smoke PASS. Worker7dc92d32-e796-4f6e-a298-70a62ad97e85.
+SW SHA256b70b77490e85d9ef1a1534ba3c6d4003d3768005cbf65c0bfa8d0fa42b246e85.
+Artifact11412347814 digest
+f41ef63adbc728d0972348483f920feb4bd20172df463a839cabed4019c49478.
+No staging canaries or production promotion ran. A new final main must restart
+staging shadow progression on that same immutable SHA.
+
+## Corrected recovery decision
+
+The original incoming-FK query visits protected D1 names before filtering rows.
+A credential-free SQLite authorizer reproduction rejects that query against the
+documented _cf_KV table. Materializing application table names first avoids that
+protected PRAGMA call while preserving full detection of application references.
+This local reproduction matches the observed SELECT failure; the remote error
+was not retained. It is not a recovered provider terminal error for the original
+atomic import.
+
+GuardVersion2 first checks every case-insensitive _cf_ name or tbl_name against
+an exact approved tuple/DDL. Only the documented unquoted _cf_KV table WITHOUT
+ROWID is accepted, or none in a local fixture. ASCII formatting/case normalization
+preserves token boundaries. Unknown names/types/attachments/schema variants fail
+before FK PRAGMA. All other tables are materialized then scanned; full projected
+FK rows are compared in both directions, so unknown application FKs still block.
+The same guards protect rollback. Historical migrations are untouched.
+
+The original compiler is sealed to source-only INSPECTION_ONLY, retaining exact
+f4b6a4d05abfaff9f50a73063edc577e4b4e3ece9ff0f3a84b911e2ae2b42797 SQL and
+e2ab4ab3e5f010ceb3ae29d952f6bab3a77441efea502e9c1706bc3e0efce43c rollback
+hashes. The restore compiler rejects that reserved ID and emits only guardVersion2
+RESTORE_V1. New inspect-import also captures two corrected eight-guard preflights.
+Canonical plan/source/hash binding and strict-primary metadata are required;
+unknown inventory skips schema/FK inspection and remains BLOCKED.
+
+A separately approved new restore requires repeated stable original no-commit,
+primary availability and bounded old-catalog observations, repeated corrected
+GUARDED_PREFLIGHT_MATCH, the exact original static100% Worker and fresh main/normal
+approval before pin/bookmark/import. The receipt records intentional new V2 recovery
+and original UNKNOWN_NO_CURSOR. These observations do not exclude future queued
+provider work. Atomic guards and independent post-import V1 certification remain.
+No blind original SQL retry, Time Travel restore or approval bypass is introduced.
+
+File import/rollback now request --json and require a nonempty all-success array
+before marking provider completion. Pinned Wrangler returns that array only after
+its import poll reports complete.
+Failure evidence retains only category, bounded exit status and up to four numeric
+provider codes; raw errors/SQL/private rows remain excluded. Ambiguous completion
+still stops without an automatic rollback or release claim.
+
+## Current validation
+
+Final compiler48/helper74/runner53/approval13 PASS on credential-free Node24.19.0.
+Independent compiler+helper122/122PASS29.39s; runner+approval66/66PASS15.35s.
+Lint/typecheck/migration smoke/syntax/diff and serial build PASS. Final full suite
+251files/5873tests PASS,487.54s/exit0 on credential-free Node24. Executable
+checkpoint4aeb7988c0ec2d44e1f8fbaa7e74eb9224e4cb11. Independent review fixed three concrete case-insensitive
+SQLite identifier gaps: upper FK targets, upper trigger parents, and upper/mixed
+original recovery prefix coverage. Prefix coverage folds case while expected
+object identity/schema remains strict. No further concrete blocker in fresh review.
+Original sealed SQL/source hashes remain exact. Compiler/helper early fixture
+failures involved AUTOINCREMENT/sqlite_sequence, Node24 defensive SQLite, and an
+index targeting a nonexistent fixture column; corrected fixtures preserve guards.
+Initial runner integration45PASS/2FAIL was the fixture SQL splitter omitting later
+catalogQuery SELECTs; corrected without weakening runtime guards.
+
+Actual workerd/Miniflare local D1 atomic batch PASS:296restorestatements,
+500hydrated/failures0/exact V1 fingerprint,36rollbackstatements restoring
+6720ingredientrows/order0/ledger38/FK0. The isolated synthetic fixture was seeded
+via the same immutable local SQLite prefix plus documented _cf_KV. Proof stays at
+/private/tmp/takosan-guard-v2-workerd/proof.json. This tests generated batch and
+real workerd D1 naming/constraints; it is not hosted import/production proof.
+Initial combined Wrangler seed exceeded statement limit SQLITE_TOOBIG; first
+direct combined fixture replay failed FK; two harness setup attempts failed module
+and persistence discovery. These local failures reached no recovery/production
+mutation. Optional Wrangler update cache was refreshed with a verified live npm
+registry version response; no test timeout/source/tool version change.
+No corrected hosted inspect or new production mutation has been dispatched yet.
+
+Local gates and independent review are complete. Publish the PR, require green
+final-head hosted CI, merge normally with exact-main CI, then
+inspect corrected guards on hosted D1 under the normal reviewer gate. All eight
+MATCH is required before intentional new V2 recovery. V1 live certification precedes
+0039, final-SHA staging T20true shadow/1/5/25/D1, production same-SHA T20false shadow,
+one synthetic live AI smoke and production1/5/25/D1. Release remains incomplete.
+
+Earlier sections below are historical checkpoints.
+
+---
+
 # Production interrupted-import inspection - 2026-10-06 JST
 
 ## Observed production state

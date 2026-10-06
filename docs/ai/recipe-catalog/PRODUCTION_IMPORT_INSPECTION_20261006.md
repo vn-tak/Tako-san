@@ -61,8 +61,12 @@ Executable checkpoint 86bfec959584f6a194543ec12470b956e5c951ff.
 First full credential-free Node24 single-worker suite:252files/5992PASS/1FAIL
 (492.44s); only existing staging-d1-catchup-check Wrangler test exceeded unchanged
 5000ms limit at5273ms. Isolated unchanged file32/32PASS2.85s, Wrangler885ms.
-Full recheck is running. No final full-suite/head/main CI or new remote inspection
-success is claimed yet. Draft PR CI may run in parallel; merge remains gated.
+Full unchanged recheck252files/5993testsPASS489.06s/exit0/no skipped.
+Wrangler case passes787ms in the full recheck. Independent final-tree review at
+e768acfe7c3f953fba4121818707589a3d7841d2 found no concrete blocker across12paths.
+PR54 hosted CI is still running; exact-final-head and exact-main CI and new remote
+inspection success are not claimed. Documentation now records the actual final
+local result; the next documentation checkpoint remains subject to hosted CI.
 
 New recovery orchestration also requires two stable inspections for the latest
 fixed incident and zero repair objects/no observed commit/primary old-catalog bound

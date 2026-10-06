@@ -46,6 +46,7 @@ describe('independent bounded recovery authorization', () => {
   });
   it('requires main dispatch attempt one by the independent operator', () => {
     expect(() => verifyRecoveryRun(run, env)).not.toThrow();
+    expect(() => verifyRecoveryRun(run, { ...env, RECOVERY_OPERATION: 'inspect-import' })).not.toThrow();
     for (const change of [
       { GITHUB_RUN_ATTEMPT: '2' }, { GITHUB_REF: 'refs/heads/other' }, { GITHUB_SHA: reviewedSha },
       { GITHUB_ACTOR: 'vn-taphoanhatung' }, { GITHUB_TRIGGERING_ACTOR: 'vn-taphoanhatung' },
@@ -126,6 +127,7 @@ describe('production recovery workflow boundaries', () => {
   const workflow = readFileSync('.github/workflows/production-catalog-recovery.yml', 'utf8');
   it('uses normal production approval and the shared deployment lock with least privileges', () => {
     expect(workflow).toContain('environment: production');
+    expect(workflow).toContain('options: [inspect, inspect-import, static-pin, restore-v1]');
     expect(workflow).toContain('group: frigo-deploy-production');
     expect(workflow).toContain('cancel-in-progress: false');
     expect(workflow).toContain('contents: read');

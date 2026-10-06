@@ -7,6 +7,7 @@ import { SqliteD1 } from '../helpers/sqlite-d1';
 import { mapRecipeContentRead, prepareRecipeContentRead } from '../../packages/db/src/recipe-content';
 import { hydrateRuntimeRecipes } from '../../packages/recipes/src/runtime-hydration';
 import { fingerprintRecipes } from '../../packages/recipes/src/catalog-fingerprint';
+import { inspectCatalogImport } from '../../scripts/production-catalog-import-inspection.mjs';
 import { loadCertifiedRecoverySource } from '../../scripts/recipe-catalog-recovery.mjs';
 import { requirePinnedStaticWorker, runCatalogRecovery, verifyRecoveryLedger } from '../../scripts/production-catalog-recovery-runner.mjs';
 
@@ -80,7 +81,8 @@ function options(extra = {}) {
       if (/pragma_page_(?:count|size)/i.test(sql)) throw new Error('Remote D1 pragma not supported');
       if (sql.startsWith('SELECT name FROM d1_migrations')) events.push('ledger');
       if (failPost && events.includes('import') && sql === 'PRAGMA quick_check') throw new Error('provider/private row text');
-      const statements = sql.split(';').filter((s) => s.trim()).map((s) => db.execute(s));
+      const parts = extra.operation === 'inspect-import' ? [sql] : sql.split(';').filter((s) => s.trim());
+      const statements = parts.map((s) => db.execute(s));
       if (sql.startsWith('SELECT name FROM d1_migrations') && !events.includes('import')) statements[0].meta = preLedgerMeta;
       return JSON.stringify(statements);
     },
@@ -193,6 +195,87 @@ describe('bounded production recovery orchestration', () => {
     const receipt = await run({ operation: 'inspect', env: { ...env, RECOVERY_OPERATION: 'inspect' } });
     expect(receipt.status).toBe('INSPECTED_READ_ONLY');
     expect(events).not.toContain('pin'); expect(events).not.toContain('import'); expect(events).not.toContain('bookmark');
+  });
+  const importEnv = { ...env, RECOVERY_OPERATION: 'inspect-import' };
+  const originalProof = { ...staticProof,
+    deployment: { versionId: '1a47f7f7-3d74-4801-b26a-b91f39c7942e', percentage: 100 },
+    modules: { sha256: '5079c954a1905d6a72beb38828f3621833fdb0c57d57a4d93f371ed49cd4eca1' } };
+  function inspectionOptions(extra = {}) {
+    return { operation: 'inspect-import', env: importEnv,
+      worker: { inspectProductionCatalogWorker: async () => { events.push('inspect'); return originalProof; } },
+      inspectImport: async ({ source: actualSource, plan, query }) => {
+        expect(actualSource).toBe(source);
+        expect(plan.receipt.repairId).toBe('t21_v1_37384670328');
+        expect(plan.receipt.sqlSha256).toBe('f4b6a4d05abfaff9f50a73063edc577e4b4e3ece9ff0f3a84b911e2ae2b42797');
+        query('SELECT count(1) AS n FROM recipe_ingredients');
+        events.push('inspection');
+        return { mutations: 0, providerImportState: 'UNKNOWN_NO_CURSOR', ingredientRows: 6720 };
+      }, ...extra };
+  }
+  it('inspects the exact failed import twice between identical static pin and ledger proofs', async () => {
+    const receipt = await run(inspectionOptions());
+    expect(receipt).toMatchObject({ status: 'INSPECTED_IMPORT_READ_ONLY', mutations: 0,
+      releaseCertification: 'NOT_A_RELEASE_CERTIFICATION', snapshotConsistency: 'OBSERVED_STABLE_NON_ATOMIC' });
+    expect(events.filter((e) => e === 'inspection')).toHaveLength(2);
+    expect(events.filter((e) => e === 'authorize')).toHaveLength(2);
+    expect(events).not.toContain('pin'); expect(events).not.toContain('import');
+    expect(events).not.toContain('bookmark'); expect(events).not.toContain('rollback');
+    expect(sqlCommands.every((sql) => sql.startsWith('SELECT '))).toBe(true);
+    expect(existsSync(path.join(files, 'catalog-recovery-generated.sql'))).toBe(false);
+    expect(db.query('SELECT count(1) AS n FROM recipe_ingredients')[0].n).toBe(6720);
+  });
+  it('executes the real compiler-derived helper through the readonly runner without changing catalog rows', async () => {
+    const receipt = await run(inspectionOptions({ inspectImport: inspectCatalogImport }));
+    expect(receipt.status).toBe('INSPECTED_IMPORT_READ_ONLY');
+    expect(receipt.importInspection.mutations).toBe(0);
+    expect(events).not.toContain('pin'); expect(events).not.toContain('import');
+    expect(events).not.toContain('bookmark'); expect(events).not.toContain('rollback');
+    expect(sqlCommands.every((sql) => sql.startsWith('SELECT '))).toBe(true);
+    expect(db.query('SELECT count(1) AS n FROM recipe_ingredients')[0].n).toBe(6720);
+    expect(db.query('SELECT count(1) AS n FROM recipe_runtime_ingredient_order')[0].n).toBe(0);
+  });
+  it('stops inspection before querying D1 if the original pinned Worker has changed', async () => {
+    await expect(run(inspectionOptions({ worker: {
+      inspectProductionCatalogWorker: async () => staticProof,
+    } }))).rejects.toThrow('RECOVERY_STOPPED');
+    expect(sqlCommands).toEqual([]);
+    expect(events).not.toContain('inspection'); expect(events).not.toContain('import');
+  });
+  it.each(['DELETE FROM recipes', 'SELECT 1; DELETE FROM recipes', 'SELECT 1 -- hidden',
+    'SELECT load_extension(1)', 'SELECT count(1) FROM pragma_database_list'])
+  ('rejects unsafe SQL submitted through the readonly inspection adapter: %s', async (sql) => {
+    await expect(run(inspectionOptions({ inspectImport: async ({ query }) => query(sql) })))
+      .rejects.toThrow('RECOVERY_STOPPED');
+    expect(sqlCommands).not.toContain('DELETE FROM recipes');
+    expect(db.query('SELECT count(1) AS n FROM recipes')[0].n).toBe(500);
+  });
+  it('rejects unstable import inspection observations without a mutation or certification', async () => {
+    let n = 0;
+    await expect(run(inspectionOptions({ inspectImport: async () => ({ n: n++ }) })))
+      .rejects.toThrow('RECOVERY_STOPPED');
+    const receipt = JSON.parse(readFileSync(path.join(files, 'catalog-recovery-receipt.json'), 'utf8'));
+    expect(receipt.status).toBe('STOPPED'); expect(receipt.snapshotConsistency).toBeUndefined();
+    expect(receipt.releaseCertification).toBe('NOT_A_RELEASE_CERTIFICATION');
+    expect(events).not.toContain('import'); expect(events).not.toContain('rollback');
+  });
+  it('rejects stale main or approval at the final authorization check', async () => {
+    let n = 0;
+    await expect(run(inspectionOptions({ authorize: async () => {
+      if (n++) throw new Error('main changed');
+      return { mainSha: sha };
+    } }))).rejects.toThrow('RECOVERY_STOPPED');
+    const receipt = JSON.parse(readFileSync(path.join(files, 'catalog-recovery-receipt.json'), 'utf8'));
+    expect(receipt.status).toBe('STOPPED');
+    expect(receipt.releaseCertification).toBe('NOT_A_RELEASE_CERTIFICATION');
+    expect(events).not.toContain('import'); expect(events).not.toContain('pin');
+  });
+  it('rejects a changed final Worker pin after readonly inspection', async () => {
+    let n = 0;
+    await expect(run(inspectionOptions({ worker: {
+      inspectProductionCatalogWorker: async () => n++ ? staticProof : originalProof,
+    } }))).rejects.toThrow('RECOVERY_STOPPED');
+    expect(events.filter((e) => e === 'inspection')).toHaveLength(2);
+    expect(events).not.toContain('import'); expect(events).not.toContain('pin');
   });
   it('requires exactly the full canonical38 ledger, rejecting gaps and duplicates', () => {
     expect(verifyRecoveryLedger([{ success: true, results: source.ledger.map((name) => ({ name })) }], source.ledger).count).toBe(38);

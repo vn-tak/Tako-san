@@ -8,7 +8,7 @@ export const RECOVERY_REPOSITORY = 'vn-tak/Tako-san';
 export const RECOVERY_REPOSITORY_ID = 1385308553;
 export const RECOVERY_WORKFLOW = '.github/workflows/production-catalog-recovery.yml';
 const SHA = /^[a-f0-9]{40}$/;
-const OPERATIONS = ['inspect', 'static-pin', 'restore-v1'];
+const OPERATIONS = ['inspect', 'inspect-import', 'static-pin', 'restore-v1'];
 const reject = () => { throw new Error('PRODUCTION_CATALOG_RECOVERY_AUTHORIZATION_REJECTED'); };
 const requireProof = (condition) => { if (!condition) reject(); };
 

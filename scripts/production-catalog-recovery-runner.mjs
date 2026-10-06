@@ -4,7 +4,9 @@ import path from 'node:path';
 import { pathToFileURL } from 'node:url';
 import { authorizeRecovery } from './production-catalog-recovery-approval.mjs';
 import { compileOriginalCatalogImportInspection, compileRecipeCatalogRecovery, loadCertifiedRecoverySource } from './recipe-catalog-recovery.mjs';
-import { inspectCatalogImport, inspectLatestCatalogImport, inspectRecoveryPreflight, LATEST_V2_IMPORT_INCIDENT } from './production-catalog-import-inspection.mjs';
+import { inspectCatalogImport, inspectLatestCatalogImport, inspectFixedV2Import37536969564, inspectRecoveryPreflight,
+  LATEST_V2_IMPORT_INCIDENT, FIXED_V2_IMPORT_INCIDENT_37536969564 } from './production-catalog-import-inspection.mjs';
+import { parseCatalogImportOutput } from './production-catalog-import-output.mjs';
 import { collectCloudflareCredentialDiagnostics } from './production-cloudflare-credential-diagnostics.mjs';
 import {
   APPROVED_BATCHES_REGISTRY, CATALOG_RELEASE_MANIFEST, PRODUCTION_D1,
@@ -41,6 +43,7 @@ export async function runCatalogRecovery({
   loadSource = loadCertifiedRecoverySource, compile = compileRecipeCatalogRecovery,
   loadPipeline = loadRuntimeCatalogPipeline, inspectImport = inspectCatalogImport,
   inspectPreflight = inspectRecoveryPreflight, inspectLatestImport = inspectLatestCatalogImport,
+  inspectFixedImport37536969564 = inspectFixedV2Import37536969564,
   diagnoseCredentials = collectCloudflareCredentialDiagnostics,
 } = {}) {
   requireProof(['inspect', 'inspect-import', 'static-pin', 'restore-v1'].includes(operation) && operation === env.RECOVERY_OPERATION);
@@ -75,8 +78,11 @@ export async function runCatalogRecovery({
   };
   const query = (sql) => json('d1', 'execute', PRODUCTION_D1.name, '--remote', '--yes', '--json', '--command', sql);
   const importFile = (file) => {
-    const result = json('d1', 'execute', PRODUCTION_D1.name, '--remote', '--yes', '--file', file, '--json');
-    requireProof(Array.isArray(result) && result.length > 0 && result.every((item) => item?.success === true));
+    const output = wrangler('d1', 'execute', PRODUCTION_D1.name, '--remote', '--yes', '--file', file, '--json');
+    try { parseCatalogImportOutput(output); } catch {
+      receipt.importFailure = { category: 'OUTPUT_UNCONFIRMED', providerCodes: [] };
+      reject();
+    }
   };
   let pipeline;
   let plan;
@@ -133,6 +139,15 @@ export async function runCatalogRecovery({
       const finalIncident = await inspectLatestImport({ source: incidentSource, plan: incidentPlan, query: readOnly });
       requireProof(JSON.stringify(receipt.latestImportInspection) === JSON.stringify(finalIncident));
       receipt.latestSnapshotConsistency = 'OBSERVED_STABLE_NON_ATOMIC';
+      receipt.phase = 'FIXED_IMPORT_37536969564_READ_ONLY_INSPECTION';
+      const fixedSource = await loadSource({ sha: FIXED_V2_IMPORT_INCIDENT_37536969564.sourceSha, cwd });
+      const fixedPlan = compileRecipeCatalogRecovery({ source: fixedSource,
+        repairId: FIXED_V2_IMPORT_INCIDENT_37536969564.repairId });
+      receipt.fixedImport37536969564Inspection = await inspectFixedImport37536969564({ source: fixedSource, plan: fixedPlan, query: readOnly });
+      save();
+      const repeatFixed = await inspectFixedImport37536969564({ source: fixedSource, plan: fixedPlan, query: readOnly });
+      requireProof(JSON.stringify(receipt.fixedImport37536969564Inspection) === JSON.stringify(repeatFixed));
+      receipt.fixedImport37536969564SnapshotConsistency = 'OBSERVED_STABLE_NON_ATOMIC';
       receipt.phase = 'READ_ONLY_CREDENTIAL_DIAGNOSIS';
       try {
         const proof = readOnly('SELECT 1 AS ok');
@@ -196,6 +211,23 @@ export async function runCatalogRecovery({
         && latest.providerBlockingEvidence === 'IMPORT_NOT_BLOCKING_AT_PRIMARY_OBSERVATIONS'
         && latest.preMutationGuards?.find((guard) => guard.label === 'bounded_observed_catalog')?.result === 'MATCH');
       receipt.latestImportTerminalState = 'UNKNOWN_NO_CURSOR';
+      receipt.phase = 'FIXED_IMPORT_37536969564_PREFLIGHT';
+      const fixedSource = await loadSource({ sha: FIXED_V2_IMPORT_INCIDENT_37536969564.sourceSha, cwd });
+      const fixedPlan = compileRecipeCatalogRecovery({ source: fixedSource,
+        repairId: FIXED_V2_IMPORT_INCIDENT_37536969564.repairId });
+      const fixed = await inspectFixedImport37536969564({ source: fixedSource, plan: fixedPlan, query });
+      receipt.fixedImport37536969564Inspection = fixed; save();
+      const repeatFixed = await inspectFixedImport37536969564({ source: fixedSource, plan: fixedPlan, query });
+      requireProof(JSON.stringify(fixed) === JSON.stringify(repeatFixed)
+        && fixed.status === 'NO_RECOVERY_COMMIT_OBSERVED' && fixed.inventory?.objectCount === 0
+        && fixed.providerBlockingEvidence === 'IMPORT_NOT_BLOCKING_AT_PRIMARY_OBSERVATIONS'
+        && fixed.queryObservations?.successful > 0 && fixed.queryObservations?.failed === 0
+        && fixed.queryObservations?.primaryTrue === fixed.queryObservations?.successful
+        && fixed.queryObservations?.primaryFalse === 0 && fixed.queryObservations?.primaryUnknown === 0
+        && fixed.blockers?.length === 0 && fixed.preMutationGuards?.length === 8
+        && fixed.preMutationGuards.every((guard) => guard.result === 'MATCH' && guard.servedByPrimary === true)
+        && fixed.preMutationGuards.find((guard) => guard.label === 'bounded_observed_catalog')?.result === 'MATCH');
+      receipt.fixedImport37536969564TerminalState = 'UNKNOWN_NO_CURSOR';
       receipt.phase = 'CORRECTED_RECOVERY_PREFLIGHT';
       receipt.recoveryPreflight = await inspectPreflight({ source, plan, query }); save();
       const repeatPreflight = await inspectPreflight({ source, plan, query });

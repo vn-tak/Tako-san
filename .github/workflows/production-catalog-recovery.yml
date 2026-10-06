@@ -15,7 +15,7 @@ on:
         type: string
         required: true
       operation:
-        description: inspect-import reads both fixed incidents, corrected guards and credential evidence; restore-v1 requires guarded V2 preflight
+        description: inspect-import reads three sealed incidents, corrected guards and credential evidence; restore-v1 requires all incidents absent and guarded V2 preflight
         type: choice
         options: [inspect, inspect-import, static-pin, restore-v1]
         default: inspect

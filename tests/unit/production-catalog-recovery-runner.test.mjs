@@ -16,6 +16,7 @@ const sha = execFileSync('git', ['rev-parse', 'HEAD'], { encoding: 'utf8' }).tri
 const fingerprint = 'f8cf8c7ff59df9fe29e246b9e3c9aad0fd155fa8df35bf671ac4d03fa2b5ab37';
 const capacityBytes = 8 * 1024 * 1024;
 let source;
+let incidentSource;
 let db;
 let files;
 let events;
@@ -30,7 +31,10 @@ const staticProof = { deployment: { versionId: '1a47f7f7-3d74-4801-b26a-b91f39c7
   cutoverEnabled: false, canaryPercent: 0, authorityVerified: true, compatibilityCode: 'SUPPORTED',
   modules: { sha256: '5079c954a1905d6a72beb38828f3621833fdb0c57d57a4d93f371ed49cd4eca1' } };
 
-beforeAll(async () => { source = await loadCertifiedRecoverySource({ sha }); }, 30000);
+beforeAll(async () => {
+  source = await loadCertifiedRecoverySource({ sha });
+  incidentSource = await loadCertifiedRecoverySource({ sha: '4092d4ca2dacee8bb01da484aae93592e9bd94da' });
+}, 30000);
 beforeEach(() => {
   db = new SqliteD1({ through: '0038_auth_onboarding_completion.sql' });
   db.seed('CREATE TABLE d1_migrations (name TEXT PRIMARY KEY)');
@@ -49,7 +53,12 @@ function options(extra = {}) {
   return {
     operation: 'restore-v1', env, cwd,
     authorize: async () => { events.push('authorize'); return { mainSha: sha }; },
-    loadSource: async () => source,
+    loadSource: async ({ sha: requested }) => requested === incidentSource.sha ? incidentSource : source,
+    diagnoseCredentials: async ({ databaseId }) => {
+      expect(databaseId).toBe('f975ec39-b2c8-4a2a-80e1-0366054599d3');
+      events.push('credential-diagnosis');
+      return { readOnly: true, mutations: 0, writeAuthorization: 'UNKNOWN', retryAuthorized: false };
+    },
     loadPipeline: async () => ({
       queries: prepareRecipeContentRead({ prepare: (sql) => sql }), mapRecipeContentRead,
       hydrateRuntimeRecipes, fingerprintRecipes, close: async () => {},
@@ -241,6 +250,46 @@ describe('bounded production recovery orchestration', () => {
     expect(db.query('SELECT count(1) AS n FROM recipe_ingredients')[0].n).toBe(6720);
     expect(db.query('SELECT count(1) AS n FROM recipe_runtime_ingredient_order')[0].n).toBe(0);
   });
+  it('loads the latest failed batch from its fixed historical source and repeats its inspection', async () => {
+    const seen = [];
+    const receipt = await run(inspectionOptions({
+      inspectLatestImport: async ({ source: actual, plan, query }) => {
+        expect(actual).toBe(incidentSource);
+        expect(plan.receipt).toMatchObject({ sourceSha: incidentSource.sha,
+          repairId: 't21_v1_37491535308', guardVersion: 2,
+          sqlSha256: '75c8207ec177972c6cac92007a2c8f165a94ce39d7f03ea7973446aedcd4f441' });
+        seen.push(actual.sha); query('SELECT 1 AS ok');
+        return { readOnly: true, mutations: 0, retryAuthorized: false,
+          providerImportState: 'UNKNOWN_NO_CURSOR' };
+      },
+    }));
+    expect(seen).toEqual([incidentSource.sha, incidentSource.sha]);
+    expect(receipt.latestSnapshotConsistency).toBe('OBSERVED_STABLE_NON_ATOMIC');
+    expect(receipt.credentialDiagnostics.writeAuthorization).toBe('UNKNOWN');
+    expect(receipt.credentialReadProbe).toEqual({ result: 'READ_SUCCEEDED', servedByPrimary: true });
+    expect(events.filter((e) => e === 'credential-diagnosis')).toHaveLength(1);
+    expect(receipt.latestImportInspection.retryAuthorized).toBe(false);
+    assertStoppedBeforeMutation();
+  });
+  it('preserves unknown state and stops on changing latest incident observations', async () => {
+    let observed = 0;
+    await expect(run(inspectionOptions({ inspectLatestImport: async () => ({ observed: observed++ }) })))
+      .rejects.toThrow('RECOVERY_STOPPED');
+    const receipt = JSON.parse(readFileSync(path.join(files, 'catalog-recovery-receipt.json'), 'utf8'));
+    expect(receipt.status).toBe('STOPPED');
+    expect(receipt.latestSnapshotConsistency).toBeUndefined();
+    expect(receipt.releaseCertification).toBe('NOT_A_RELEASE_CERTIFICATION');
+    assertStoppedBeforeMutation();
+  });
+  it('saves bounded credential diagnosis even when D1 identity fails', async () => {
+    await expect(run(inspectionOptions({ execute: () => { throw new Error('private credential failure'); } })))
+      .rejects.toThrow('RECOVERY_STOPPED');
+    const receipt = JSON.parse(readFileSync(path.join(files, 'catalog-recovery-receipt.json'), 'utf8'));
+    expect(receipt.credentialDiagnostics.writeAuthorization).toBe('UNKNOWN');
+    expect(JSON.stringify(receipt)).not.toContain('private credential failure');
+    expect(receipt.latestImportInspection).toBeUndefined();
+    assertStoppedBeforeMutation();
+  });
   it('stops inspection before querying D1 if the original pinned Worker has changed', async () => {
     await expect(run(inspectionOptions({ worker: {
       inspectProductionCatalogWorker: async () => ({ ...staticProof, modules: { sha256: 'b'.repeat(64) } }),
@@ -306,6 +355,25 @@ describe('bounded production recovery orchestration', () => {
       .rejects.toThrow('RECOVERY_STOPPED');
     assertStoppedBeforeMutation();
   });
+  it.each([
+    ['latest recovery objects', { inventory: { objectCount: 1 } }],
+    ['latest applied marker', { status: 'LATEST_V2_RECOVERY_APPLIED_MARKER_OBSERVED' }],
+    ['latest unproved primary availability', { providerBlockingEvidence: 'BLOCKING_STATE_UNKNOWN' }],
+  ])('stops a new recovery when inspection observes %s', async (_label, change) => {
+    await expect(run({ inspectLatestImport: async () => ({ status: 'NO_RECOVERY_COMMIT_OBSERVED',
+      inventory: { objectCount: 0 }, providerBlockingEvidence: 'IMPORT_NOT_BLOCKING_AT_PRIMARY_OBSERVATIONS',
+      preMutationGuards: [{ label: 'bounded_observed_catalog', result: 'MATCH' }], ...change }) }))
+      .rejects.toThrow('RECOVERY_STOPPED');
+    assertStoppedBeforeMutation();
+  });
+  it('stops a new recovery when latest incident observations change', async () => {
+    let observed = 0;
+    await expect(run({ inspectLatestImport: async () => ({ status: 'NO_RECOVERY_COMMIT_OBSERVED',
+      inventory: { objectCount: 0 }, providerBlockingEvidence: 'IMPORT_NOT_BLOCKING_AT_PRIMARY_OBSERVATIONS',
+      preMutationGuards: [{ label: 'bounded_observed_catalog', result: 'MATCH' }], observed: observed++ }) }))
+      .rejects.toThrow('RECOVERY_STOPPED');
+    assertStoppedBeforeMutation();
+  });
   it('stops new recovery on changing original observations', async () => {
     let observation = 0;
     await expect(run({ inspectImport: async (args) => ({ ...await inspectCatalogImport(args), observation: observation++ }) }))
@@ -338,7 +406,10 @@ describe('bounded production recovery orchestration', () => {
     await expect(run()).rejects.toThrow('RECOVERY_STOPPED');
     assertStoppedBeforeMutation();
     const receipt = JSON.parse(readFileSync(path.join(files, 'catalog-recovery-receipt.json'), 'utf8'));
-    expect(receipt.recoveryPreflight.status).not.toBe('GUARDED_PREFLIGHT_MATCH');
+    expect(receipt.phase).toBe('LATEST_INTERRUPTED_IMPORT_PREFLIGHT');
+    expect(receipt.latestImportInspection.status).toBe('INSPECTION_BLOCKED');
+    expect(receipt.latestImportInspection.blockers).toContain('GUARD_APPROVED_INTERNAL_INVENTORY_MISMATCH');
+    expect(receipt.recoveryPreflight).toBeUndefined();
     expect(receipt.recoveryDecision).toBeUndefined();
   });
   it('retains detection of incoming recipe references from an unknown application table', async () => {

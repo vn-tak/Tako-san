@@ -94,8 +94,12 @@ the former zero-budget request at t=90 is prohibited, not allowed a longer wait.
   run had 70 PASS / 2 FAIL; corrected deadline and invalid-authority fixtures.
 - Root independently reviewed the frozen source/tests and reran the same focused
   suites: 331 PASS, exit 0, 2.43 seconds. No concrete release blocker found.
-  An additional review agent was unavailable due to its service usage limit;
-  it supplied no final frozen review. Do not count that failed attempt as approval.
+  The initial additional review attempt was unavailable due to a service limit
+  and supplied no final review. A later independent frozen review completed:
+  no blockers, 331/331 PASS in 2.06 seconds, ESLint/diff PASS, all three file hashes
+  equal the runtime freeze. Its proof is shape/BUILD_ID and observed bytes, not
+  semantic SW execution or complete HTML/JS bundle content. No live corrected
+  release certification exists; failed f2b staging proof still cannot promote.
 - `pnpm lint`, `pnpm typecheck`, `pnpm check:migrations`, helper/test syntax and
   `git diff --check` PASS.
 - First full credential-free local suite FAILED: 249 files / 5735 tests PASS,

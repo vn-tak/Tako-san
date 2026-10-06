@@ -45,9 +45,9 @@ describe('wait-for-deployed-release — bounded exact-SHA convergence', () => {
   it('fails after the bounded deadline when a different valid SHA never converges — and never redeploys', async () => {
     const h = harness(Array.from({ length: 40 }, () => body({ commit: oldSha })));
     await expect(waitForDeployedRelease(manifest, h.options)).rejects.toThrow('did not identify release aaaaaaaa within 90000 ms');
-    // Attempts at t=0,3s,…,90s inclusive; the wait never runs past the deadline.
+    // Attempts start at t=0,3s,…,87s; no request starts once the shared budget is exhausted.
     expect(h.clock()).toBe(90_000);
-    expect(h.calls.length).toBe(31);
+    expect(h.calls.length).toBe(30);
   });
 
   it.each([

@@ -1,7 +1,6 @@
 # Architecture Decisions
 
 ## ADR-041 - Bounded V1 catalog source replacement before production release
-
 **Status:** Proposed 2026-10-05 for independent implementation review. A credential-free main-push echo job registers the workflow; the production
 gate explicitly requires manual dispatch. Remote execution
 requires the normal independent production Environment approval. The operator
@@ -82,6 +81,27 @@ Record INTENTIONAL_NEW_GUARDED_RECOVERY_V2 and UNKNOWN_NO_CURSOR explicitly.
 Successful observation is not provider terminal-state or future-queue exclusion
 proof. Preserve independent post-import V1 certification and existing0039/release
 order. No historical migration, protected subsystem or approval policy changes.
+
+### ADR-041 continuation - file-import confirmation and third incident
+
+Normally approved recovery37536969564 has an unknown import outcome without a
+retained provider failure. Offline pinned Wrangler3.114.17 reproduction confirms
+its successful file import stdout can include vendor spinner progress before JSON.
+Use a narrow file-import completion parser; retain strict JSON for queries and
+sanitized unknown-output failure evidence. Never infer the actual database commit
+from the parser reproduction.
+
+Seal a third read-only descriptor to exact a8fa/run37536969564 source/restore/rollback
+bytes. Save and repeat SELECT-only primary observations without accepting run IDs
+or receipt-selected SQL. Preserve both historical incidents and their semantics.
+A future restore must prove all three namespaces absent, old bounded catalog and
+corrected strict-primary guards stable before pin/bookmark/import. Applied/partial/
+rolled-back/changing evidence blocks a new restore; an observed applied marker
+still requires independent runtime/integrity/provenance certification. All observers
+retain UNKNOWN_NO_CURSOR, retryAuthorized=false and non-release-certification.
+Normal PR/current-main CI/independent production Environment review remain required.
+See recipe-catalog/PRODUCTION_IMPORT_CONFIRMATION_20261007.md for exact evidence.
+
 
 ## ADR-040 — T21R-C2 captures protected occurrence evidence and publishes aggregate-only receipts
 

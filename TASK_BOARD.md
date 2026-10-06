@@ -1,3 +1,50 @@
+# Import confirmation implementation - 2026-10-07 JST
+
+**State:** Production release remains incomplete. Recovery37536969564 was normally
+approved and has ATTEMPTED_COMPLETION_UNCONFIRMED at BOOKMARK_AND_IMPORT, without
+importFailure or provider code. This supersedes any earlier claim that all incidents
+are absent; its exact namespace has not yet been inspected remotely. No subsequent
+retry/rollback/0039/application deployment has occurred.
+
+**Changes:** Branch codex/production-import-json-confirmation adds a strict pinned
+Wrangler file-import stdout parser and a third sealed SELECT-only inspector for
+37536969564/a8fa. Historical incident definitions and compiler bytes are preserved.
+The runner saves and repeats the third capture, and requires absent/stable/all-eight
+primary guards/no failed reads before any future restore pin/bookmark/import. Query
+JSON remains strict. Unknown completion retains sanitized OUTPUT_UNCONFIRMED and
+never starts an automatic rollback. Marker observations are not full catalog
+certification or provider-terminal evidence; UNKNOWN_NO_CURSOR/retryAuthorized=false
+remain explicit. No runtime, migration, payment/auth or Environment policy change.
+
+**Evidence:** Root independently reproduced the third plan receipt exactly against
+the retained production artifact:296/36 statements and both SQL hashes PASS.
+Implementation checkpoint244a43b includes the final reviewed source. Root final
+runner/auth/parser focused3files/194tests PASS36.51s (runner75/auth13/parser106);
+inspector163/163 PASS44.27s. Lint, typecheck, migration smoke, build, actionlint1.7.12,
+script syntax and diff checks PASS. Both independent reviews report no remaining
+blocker after tightening contradictory optional metadata. The first exploratory
+full suite was deliberately stopped(exit143) for that final code/test change;
+it is not claimed PASS or a regression failure. Full final-source suite is running.
+Inspector's first focused attempt had one fixture-only rollback guard failure; it
+was corrected by separating drift and real rollback cases, then163/163 PASS.
+No live database completion follows from these local tests.
+
+**Next:** Finish parser tightening, full gates and independent final review; publish
+and merge a normal PR, require exact-main CI and dispatch one protected inspect-import
+with its final reviewed implementation head. Obtain normal vn-taphoanhatung review,
+retain sanitized evidence and choose action from the actual third incident. Applied
+requires independent complete V1/provenance/runtime proof before0039; absent requires
+all stable guards plus separately reviewed intentional recovery; partial/blocked
+requires an incident decision. Re-certify the newly merged source through staging
+shadow/1/5/25/D1 T20=true, then guarded0039/full production certification and same-source
+production T20=false shadow, one synthetic provider smoke,1/5/25/D1. a8fa staging proof
+cannot certify a new source. User-data retention checks remain excluded by operator.
+
+Report: recipe-catalog/PRODUCTION_IMPORT_CONFIRMATION_20261007.md.
+All preceding checkpoints below are historical.
+
+---
+
 # Protected import inspection verified - 2026-10-07 JST
 
 **State:** Production remains incomplete. Protected read-only inspect37531433145

@@ -3,8 +3,8 @@ import { readFileSync, writeFileSync } from 'node:fs';
 import path from 'node:path';
 import { pathToFileURL } from 'node:url';
 import { authorizeRecovery } from './production-catalog-recovery-approval.mjs';
-import { compileRecipeCatalogRecovery, loadCertifiedRecoverySource } from './recipe-catalog-recovery.mjs';
-import { inspectCatalogImport, ORIGINAL_IMPORT_REPAIR_ID } from './production-catalog-import-inspection.mjs';
+import { compileOriginalCatalogImportInspection, compileRecipeCatalogRecovery, loadCertifiedRecoverySource } from './recipe-catalog-recovery.mjs';
+import { inspectCatalogImport, inspectRecoveryPreflight } from './production-catalog-import-inspection.mjs';
 import {
   APPROVED_BATCHES_REGISTRY, CATALOG_RELEASE_MANIFEST, PRODUCTION_D1,
   catalogQuery, loadRuntimeCatalogPipeline, verifyCatalogAtTip,
@@ -28,7 +28,7 @@ export function verifyRecoveryLedger(statements, expected) {
 
 export function requirePinnedStaticWorker(proof, pinned) {
   requireProof(proof?.authorityVerified === true && proof.compatibilityCode === 'SUPPORTED' &&
-    proof.configuredMode === 'static' && proof.cutoverEnabled === false && proof.canaryPercent === 0 &&
+    proof.configuredMode === 'static' && proof.cutoverEnabled === false && proof.canaryPercent === 0 && proof.deployment?.percentage === 100 &&
     typeof pinned?.versionId === 'string' && proof.deployment?.versionId === pinned.versionId &&
     /^[a-f0-9]{64}$/.test(pinned.modules?.sha256 || '') && proof.modules?.sha256 === pinned.modules.sha256);
 }
@@ -39,6 +39,7 @@ export async function runCatalogRecovery({
   authorize = authorizeRecovery, worker,
   loadSource = loadCertifiedRecoverySource, compile = compileRecipeCatalogRecovery,
   loadPipeline = loadRuntimeCatalogPipeline, inspectImport = inspectCatalogImport,
+  inspectPreflight = inspectRecoveryPreflight,
 } = {}) {
   requireProof(['inspect', 'inspect-import', 'static-pin', 'restore-v1'].includes(operation) && operation === env.RECOVERY_OPERATION);
   const authorizeNow = () => authorize({ env, cwd });
@@ -55,12 +56,26 @@ export async function runCatalogRecovery({
         cwd, env: { ...env, WRANGLER_SEND_METRICS: 'false' }, encoding: 'utf8',
         maxBuffer: 64 * 1024 * 1024, timeout: 15 * 60_000, stdio: ['ignore', 'pipe', 'pipe'],
       });
-    } catch { reject(); }
+    } catch (error) {
+      if (args.includes('--file')) {
+        const codes = [...`${String(error?.stderr ?? '')}\n${String(error?.stdout ?? '')}`
+          .matchAll(/(?:\[code:\s*|"code"\s*:\s*)([0-9]{1,8})(?=\]|[,}\s])/g)]
+          .map((match) => Number(match[1])).slice(0, 4);
+        receipt.importFailure = { category: error?.code === 'ETIMEDOUT' ? 'TIMED_OUT' : 'COMMAND_FAILED',
+          ...(Number.isInteger(error?.status) && error.status >= 0 && error.status <= 255 ? { exitStatus: error.status } : {}),
+          providerCodes: [...new Set(codes)] };
+      }
+      reject();
+    }
   };
   const json = (...args) => {
     try { return JSON.parse(wrangler(...args)); } catch { reject(); }
   };
   const query = (sql) => json('d1', 'execute', PRODUCTION_D1.name, '--remote', '--yes', '--json', '--command', sql);
+  const importFile = (file) => {
+    const result = json('d1', 'execute', PRODUCTION_D1.name, '--remote', '--yes', '--file', file, '--json');
+    requireProof(Array.isArray(result) && result.length > 0 && result.every((item) => item?.success === true));
+  };
   let pipeline;
   let plan;
   let applied = false;
@@ -81,14 +96,14 @@ export async function runCatalogRecovery({
       receipt.mutations = 0;
       receipt.releaseCertification = 'NOT_A_RELEASE_CERTIFICATION';
       const source = await loadSource({ sha: authorization.mainSha, cwd });
-      const originalPlan = compile({ source, repairId: ORIGINAL_IMPORT_REPAIR_ID });
+      const originalPlan = compileOriginalCatalogImportInspection({ source });
       receipt.preWorker = await worker.inspectProductionCatalogWorker({ env, cwd });
       requirePinnedStaticWorker(receipt.preWorker, ORIGINAL_PIN);
       requireProof(receipt.preWorker.deployment.percentage === 100);
       receipt.preLedger = verifyRecoveryLedger(query('SELECT name FROM d1_migrations ORDER BY name'), source.ledger);
       const readOnly = (sql) => {
         requireProof(typeof sql === 'string' && Buffer.byteLength(sql) <= 100000);
-        const guarded = sql.replace(/'(?:''|[^'])*'/g, ' ');
+        const guarded = sql.replace(/'(?:''|[^'])*'/g, ' ').replace(/\breplace(?=\s*\()/gi, 'scalar_function');
         requireProof(/^SELECT\s/i.test(guarded) && !/[;]|--|\/\*/.test(guarded) &&
           !/\b(INSERT|UPDATE|DELETE|REPLACE|CREATE|DROP|ALTER|VACUUM|REINDEX|ATTACH|DETACH|PRAGMA|BEGIN|COMMIT|ROLLBACK|SAVEPOINT|RELEASE|load_extension|writefile|readfile)\b/i.test(guarded));
         for (const pragma of guarded.match(/\bpragma_\w+/gi) || []) {
@@ -102,6 +117,10 @@ export async function runCatalogRecovery({
       const second = await inspectImport({ source, plan: originalPlan, query: readOnly });
       requireProof(JSON.stringify(first) === JSON.stringify(second));
       receipt.snapshotConsistency = 'OBSERVED_STABLE_NON_ATOMIC';
+      const correctedPlan = compile({ source, repairId: `t21_preflight_${env.GITHUB_RUN_ID}` });
+      receipt.recoveryPreflight = await inspectPreflight({ source, plan: correctedPlan, query: readOnly });
+      const finalPreflight = await inspectPreflight({ source, plan: correctedPlan, query: readOnly });
+      requireProof(JSON.stringify(receipt.recoveryPreflight) === JSON.stringify(finalPreflight));
       receipt.postLedger = verifyRecoveryLedger(query('SELECT name FROM d1_migrations ORDER BY name'), source.ledger);
       receipt.finalWorker = await worker.inspectProductionCatalogWorker({ env, cwd });
       requirePinnedStaticWorker(receipt.finalWorker, ORIGINAL_PIN);
@@ -115,6 +134,7 @@ export async function runCatalogRecovery({
       const source = await loadSource({ sha: authorization.mainSha, cwd });
       plan = compile({ source, repairId: `t21_v1_${env.GITHUB_RUN_ID}` });
       receipt.plan = plan.receipt;
+      requireProof(plan.receipt?.guardVersion === 2 && plan.receipt?.purpose === 'RESTORE_V1');
       const preLedger = query('SELECT name FROM d1_migrations ORDER BY name');
       receipt.preLedger = verifyRecoveryLedger(preLedger, source.ledger);
       receipt.phase = 'PRE_IMPORT_CAPACITY';
@@ -125,11 +145,36 @@ export async function runCatalogRecovery({
         reject();
       }
       receipt.capacity = { beforeBytes: bytes, capacityPolicy: 'database below 100 MiB; bounded catalog copies fit within the 500 MiB minimum D1 database limit' };
+      receipt.phase = 'CORRECTED_RECOVERY_PREFLIGHT';
+      receipt.originalWorker = await worker.inspectProductionCatalogWorker({ env, cwd });
+      requirePinnedStaticWorker(receipt.originalWorker, ORIGINAL_PIN);
+      requireProof(receipt.originalWorker.deployment.percentage === 100);
+      const originalPlan = compileOriginalCatalogImportInspection({ source });
+      const original = await inspectImport({ source, plan: originalPlan, query });
+      receipt.originalImportInspection = original; save();
+      const repeatOriginal = await inspectImport({ source, plan: originalPlan, query });
+      requireProof(JSON.stringify(original) === JSON.stringify(repeatOriginal) &&
+        original.status === 'NO_RECOVERY_COMMIT_OBSERVED' && original.inventory?.objectCount === 0 &&
+        original.providerBlockingEvidence === 'IMPORT_NOT_BLOCKING_AT_PRIMARY_OBSERVATIONS' &&
+        original.preMutationGuards?.find((guard) => guard.label === 'bounded_observed_catalog')?.result === 'MATCH');
+      receipt.recoveryPreflight = await inspectPreflight({ source, plan, query }); save();
+      const repeatPreflight = await inspectPreflight({ source, plan, query });
+      requireProof(JSON.stringify(receipt.recoveryPreflight) === JSON.stringify(repeatPreflight) &&
+        receipt.recoveryPreflight.status === 'GUARDED_PREFLIGHT_MATCH');
+      const finalOriginalWorker = await worker.inspectProductionCatalogWorker({ env, cwd });
+      requirePinnedStaticWorker(finalOriginalWorker, ORIGINAL_PIN);
+      requireProof(finalOriginalWorker.deployment.percentage === 100);
+      await authorizeNow();
+      receipt.recoveryDecision = 'INTENTIONAL_NEW_GUARDED_RECOVERY_V2';
+      receipt.originalImportTerminalState = 'UNKNOWN_NO_CURSOR';
+      receipt.preflightSnapshotConsistency = 'OBSERVED_STABLE_NON_ATOMIC';
+      save();
     }
     receipt.phase = 'STATIC_PIN';
     const priorWorker = await worker.inspectProductionCatalogWorker({ env, cwd });
     receipt.preWorker = priorWorker; save();
     requireProof(priorWorker.authorityVerified === true && priorWorker.compatibilityCode === 'SUPPORTED');
+    if (operation === 'restore-v1') requirePinnedStaticWorker(priorWorker, ORIGINAL_PIN);
     receipt.worker = await worker.pinProductionCatalogStatic({
       env, cwd, expectedVersionId: priorWorker.deployment.versionId,
       catalogRestoreStarted: false, beforeMutation: authorizeNow,
@@ -151,7 +196,7 @@ export async function runCatalogRecovery({
     receipt.beforeImport = staticProof; save();
     importAttempted = true;
     receipt.importOutcome = 'ATTEMPTED_COMPLETION_UNCONFIRMED'; save();
-    wrangler('d1', 'execute', PRODUCTION_D1.name, '--remote', '--yes', '--file', sqlFile);
+    importFile(sqlFile);
     receipt.importOutcome = 'PROVIDER_REPORTED_SUCCESS';
     applied = true;
     receipt.phase = 'INDEPENDENT_POST_IMPORT_CERTIFICATION';
@@ -181,7 +226,7 @@ export async function runCatalogRecovery({
         await authorizeNow();
         const safe = await worker.inspectProductionCatalogWorker({ env, cwd });
         requirePinnedStaticWorker(safe, receipt.worker);
-        wrangler('d1', 'execute', PRODUCTION_D1.name, '--remote', '--yes', '--file', path.join(cwd, 'catalog-recovery-rollback.sql'));
+        importFile(path.join(cwd, 'catalog-recovery-rollback.sql'));
         receipt.rollback = { status: 'ARCHIVED_CATALOG_RESTORED', staticRoutingRetained: true };
         receipt.status = 'ROLLED_BACK_STATIC';
       } catch { receipt.rollback = { status: 'STOPPED_OPERATOR_REQUIRED', staticRoutingRequired: true }; }

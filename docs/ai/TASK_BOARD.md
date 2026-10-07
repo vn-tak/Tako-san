@@ -1,3 +1,73 @@
+# Catalog preflight diagnostic implementation - 2026-10-07 JST
+
+**State:** Production release remains incomplete. Production diagnostic
+37616546408 completed SUCCESS at 2026-10-07T12:17:44Z on main
+969d1d3735b85913c9b1dfe6ae4df2eba40e98b6 with normal independent approval by
+vn-taphoanhatung. Five actual artifact ZIP digests and extracted JSON bytes PASS
+in independent audit. Ledger stays 38 / 0038; 500 physical and hydrated recipes,
+0 hydration failures, 2702 ingredients and matching order rows, exact historical
+V1 ingredient lines/positions and stable observed non-atomic snapshots are proven.
+The missing 0039 diagnostic baseline is expected and does not explain migration
+37615237481's catalog preflight failure. T21R-B fingerprintVerified proves the
+target V1 source, not the live full runtime fingerprint. Live ordered IDs/slugs,
+media invariants and full runtime fingerprint remain unproven. Recovery is already
+APPLIED; no recovery replay, blind migration retry or rollback is justified.
+
+**Changes:** Implementation 3d043ec9156841b7f6b0e5b3a7068670b40c932d, tree
+c79bda74d06d7b0637eb034b3057e2df1eecf636, adds a read-only catalog preflight
+receipt to the existing protected diagnostic workflow. The helper reuses unchanged
+verifyCatalogAtTip and verifyRuntimeCatalogContent at exact ledger 38, requires
+repeat successful catalog/runtime captures and an unchanged complete ledger, and
+reports independent PASS/REJECTED/NOT_EVALUATED checks. Only 13 numeric/null
+aggregates, counts, hashes and fixed reason enums are uploaded; raw rows and
+exception messages stay private. Failed captures cannot reuse stale JSON. Stable
+non-atomic consistency is claimed only when ledger and both snapshot comparisons
+PASS. The final main fence runs even after a rejected diagnostic. No production
+write, runtime/migration/config/dependency or Environment-policy change.
+
+**Verification:** Final helper tests 38/38 PASS under Node 24.16; final exact
+Node 22.23.3 focused tests 3 files / 58 tests PASS (35.73s). Independent final
+review of implementation/tree reports no remaining finding. Actual CLI controls
+7/7 and exact workflow-shell stale JSON/provider-failure controls 5/5 PASS, with
+0 production calls; official Node 22 CLI controls 4/4 PASS. Final lint, typecheck, migration smoke, build, script
+syntax, actionlint 1.7.12 and diff checks PASS. Default local full suite returned 3 failed
+files / 12 failed / 6186 passed (179.65s): untouched capture tests compare
+uncanonical macOS /var temp paths with real /private/var paths, and the local
+Wrangler prefix test timed out under default concurrent workers. No tests were
+weakened. Independent focused3files/125tests PASS4.58s with canonical TMPDIR
+and maxWorkers=2; the two capture files reproduce the same11 failures with the
+uncanonical default TMPDIR even with two workers. All eight involved source/test
+files are byte-identical between969d and the implementation. Exact resource
+bottleneck of the concurrency-sensitive Wrangler timeout was not profiled. Full
+final regression with TMPDIR=/private/tmp and maxWorkers=2 is running.
+One actionlint invocation used a nonexistent certify filename; corrected to the
+actual production-certify.yml and all four affected release workflows PASS.
+
+**Production:** Public readiness at 2026-10-07T12:53:19.214Z remains healthy old
+Worker 136cb6ff3d2921eac237c7b106b37ab5ee12a13f / static / 0% / cutover false,
+config OK and database OK. No new provider smoke submitted. Staging969d completed
+its full shadow/1/5/25/D1 proof; that packet cannot certify a future main SHA.
+
+**Evidence:** /private/tmp/takosan-production-receipts-diagnostics-37616546408/
+independent-audit.json; /private/tmp/takosan-production-catalog-preflight-review-final.json;
+/private/tmp/takosan-production-catalog-preflight-cli-control/audit-results.json;
+/private/tmp/takosan-production-catalog-preflight-workflow-control/audit-results.json.
+Raw runner-local production rows were not exported or published.
+
+**Next:** Finish local gates and the documentation checkpoint, publish a normal
+PR and require final-head/exact-main hosted CI. Freeze the new main SHA and run
+one normally approved protected read-only diagnostic to identify the rejected
+catalog/runtime check. Repair only proven defects, then certify final-source
+staging, guarded0039 and production schema/catalog before T20=false production
+shadow, one synthetic provider smoke, canary1/5/25 and D1. Normal independent
+production review remains required per run. User-data retention certification is
+excluded by operator instruction. Do not claim production completion yet.
+
+Report: recipe-catalog/PRODUCTION_MIGRATION_GATE_20261007.md.
+All preceding checkpoints below are historical.
+
+---
+
 # Production preflight stopped; staging verified - 2026-10-07 JST
 
 **State:** Production release is incomplete. PR #56 merged normally as

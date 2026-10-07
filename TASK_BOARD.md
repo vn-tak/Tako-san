@@ -1,3 +1,58 @@
+# Post-media gate implementation and verification - 2026-10-08 JST
+
+**State:** Implementationdf2347caf414537c287e11defae0b87f8377cec7/tree
+7350e86740d246ace03ddb0bd86de522025d03d5 exactly matches independent reviewed
+complete tree. Draft PR58 is open. Production remains old healthy static136cb6ff;
+ledger38/0038 and recoveryAPPLIED. No production mutation/deploy/provider scan.
+
+**Changes:** Complete0038/0039 catalogs require19 safe aggregates, valid active
+hero coverage and actual domain metadata; historical pending-only gates remain.
+Generic verification and 0039 preflight validate immutable0035 schema definitions.
+The preflight privately reads all18media columns, validates actual rows through
+the real mapper/auditor and recomputes coverage/uniqueness. It binds the rowcount
+and full metadata/schema SHA256 before migration; post0039 must preserve them.
+Only aggregate counts/digests are uploaded. No runtime/config/applied migration,
+dependency/credential/Environment policy or protected payment/auth change.
+
+**Review:** Two independent reviews report no remaining concrete blocker after
+fixing stale aggregate acceptance of a newly invalid private row. Source review
+and actual CLI controls PASS. This proves persisted metadata and observed
+non-atomic preservation, not fresh R2 bytes. ADR042 records these limits.
+
+**Executed checks:** Node24 focused5files/98tests PASS40.23s; core migration114/114
+PASS4.60s and officialNode22.23.3 114/114PASS4.67s. Independent Node22 surrounding
+4files/97tests PASS38.42s plus24controls PASS. Lint, typecheck, migration smoke,
+actionlint1.7.12/four release workflows, syntax/diff checks PASS. Full Node24 suite
+with canonicalTMPDIR/CI=true/metricsfalse/maxWorkers2:254files PASS/1failed,
+6308tests PASS/1failed,356.58s. Its sole failure is the unchanged old reviewed
+SHA256 pin for d1-readonly-query.mjs; adding two reviewed fixed singleSELECT modes
+changes that fingerprint. Independent execution-path review confirms unchanged
+schema/catalog/runtime behavior and mutation guards. The pin is intentionally
+updated to reviewed9d43f62c25561423c6b4c00d611a262a82387dce724c6756274d1db9cfc4deb3;
+focused certification/query safety checks2files/68tests PASS6.45s after repin.
+No assertion or mutation guard is removed; full local PASS is not claimed.
+
+**Build:** An initial build run during active Vite loaders failed the existing
+service-worker token guard; retained log records that failure. After all test/CLI
+loaders exited, the exact same build command PASS serially without source changes.
+Concurrent output mutation is the observed limitation, not an application repair.
+
+**Evidence:** /private/tmp/takosan-post-media-final-independent-source-review.json;
+/private/tmp/takosan-catalog-preflight-diagnostic-audit-prep/media-surrounding-review/independent-controls.json;
+/private/tmp/takosan-post-media-full-test.log;
+/private/tmp/takosan-post-media-build-serial.log.
+
+**Next:** Complete repin safety checks, final documentation/tree review and
+final-head PR58 hosted CI. Merge normally only after green CI, prove reviewed/main
+tree equality and exact-main CI, freeze final source. Full final-source staging
+shadow/1/5/25/D1, guarded0039 and protected production certification precede
+T20=false production shadow, one synthetic scan and1/5/25/D1. Each production
+run requires normal independent Environment review. Production release incomplete.
+
+All preceding checkpoints below are historical.
+
+---
+
 # Post-media migration gate repair - 2026-10-08 JST
 
 **State:** Production release is incomplete. Normally approved read-only diagnostic

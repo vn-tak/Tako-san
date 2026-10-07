@@ -1,3 +1,69 @@
+# Post-media staging complete and production 0039 applied - 2026-10-08 JST
+
+**State:** Production rollout remains incomplete. PR58 merged normally as
+0c77720334d7154b25e81d6e6823ab804619adce from reviewed head
+82ce0cd8eb8188c475126fd5a88c2ff063ac25f9; main/reviewed tree equality is
+e122e554581afafcc7a2f6a37ff2377a3a56d5a2. Exact-main CI37686743768 is SUCCESS.
+Staging has completed the full final-source progression. Normally approved
+migration37689543237 applied only0039, independently audited PASS. Production
+ledger is now39/0039. Do not replay migration or recovery37536969564 (APPLIED).
+
+**Production:** Guarded workflow preflight proved500 recipes, hydration/fingerprint
+and valid operational media before the Time Travel bookmark and apply. Post-ledger,
+unchanged aggregates, FK[], quick_check=ok, catalog/runtime and schema gate PASS.
+Actual media rows500/ready500, zero operational anomalies. Full18-column metadata
+SHA256e12c0bd9871406bd3477d304f345308fb5e912f85712f41cdbbb617e21792e0c and media
+schema SHA2560503f30babe7efb858c02bb118b097c7610d3c834954c3cfb6912b76dca1feb6
+are preserved. This is observed non-atomic metadata evidence; R2 bytes are
+NOT_REVERIFIED. Normal reviewer vn-taphoanhatung, actor vn-tak, attempt1; both
+actual ZIP digests, provenance and extracted bytes PASS. Root reverified both
+archive byte digests/extractions before accepting root-reviewed-summary.json.
+
+**Worker baseline:** Public readiness at2026-10-07T21:57:04Z independently confirms
+old136cb6ff3d2921eac237c7b106b37ab5ee12a13f, static/0/cutoverfalse/globalstatic,
+config/database/queue healthy and fallbacknull. No new production Worker upload or
+provider scan. Email delivery remains unverified. User-data retention certification
+is excluded by user authorization; payment/PayOS/auth/infrastructure unchanged.
+
+**Executed hosted checks:** Final-head PR CI37685662053 SUCCESS; exact-main
+CI37686743768 SUCCESS,255files/6309tests PASS411.90s and all14steps SUCCESS,
+including lint/typecheck/migration-smoke/build. Staging shadow37687850533 ->
+canary1 37688177602 ->canary5 37688484213 ->canary25 37688778057 ->D1 37689066860
+all SUCCESS. Every phase proves schema39/T20server+UItrue, exact source/CI,
+actual twoZIPs,3readiness/assets pairs, hosted+independent public smoke and skipped
+production job. Final staging Worker054c2688-07d9-41e4-84f1-84c18b972de6;
+public500ordered IDs, fingerprintf8cf8c7ff59df9fe29e246b9e3c9aad0fd155fa8df35bf671ac4d03fa2b5ab37
+and imported detail15fields MATCH (5GETs/3readinessguards/0writes). No retry or
+source edit during staging. Historical local full-suite/hash-pin and concurrent
+Vite/build failures remain documented below; this checkpoint does not claim a
+new full local run. Independent operator controls migration46/certification32/
+ZIP+receipt23/freeze+dispatch26 PASS,0actualproduction requests in controls.
+
+**Evidence:** /private/tmp/takosan-post-media-staging-prep/staging-progression-receipt.json
+SHA25606f384a28f57314a5598516f94abbd54f4861c540f2a39e9e82f3d46b54ce0e0;
+/private/tmp/takosan-post-media-migration-37689543237/independent-audit.json;
+/private/tmp/takosan-post-media-migration-37689543237/root-reviewed-summary.json;
+/private/tmp/takosan-post-media-production-prep/root-exact-main-ci-proof.json;
+/private/tmp/takosan-post-media-production-prep/operator-activation-proof.json;
+/private/tmp/takosan-post-media-production-prep/post-migration-production-static-baseline-independent.json.
+Private raw rows, credentials and rollback bookmark values are not reproduced.
+
+**Next:** Read-only certification37693128721 has gateSUCCESS and is waiting for
+normal production Environment review byvn-taphoanhatung (CLIvn-tak cannot approve).
+No Worker upload in this certification. After completedSUCCESS, collect/audit real
+artifacts linked to migration37689543237, then freeze actual media counts/proofs.
+Deploy frozen0c777/T20false through production shadow, exactly one synthetic scan,
+1/5/25/D1; normal independent review is required separately for every production
+run. Audit receipts/liveassets/smoke before promotion. Finally verify public500
+content and mobile/desktop UI, finalize production packet and checkpoint actual
+outcome. Never redispatch an existing intent or bypass Environment reviews.
+This documentation checkpoint is kept separate so the frozen release HEAD/tree
+can remain unchanged while release operations continue.
+
+All preceding checkpoints below are historical.
+
+---
+
 # Post-media gate implementation and verification - 2026-10-08 JST
 
 **State:** Implementationdf2347caf414537c287e11defae0b87f8377cec7/tree

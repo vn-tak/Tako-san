@@ -1,3 +1,77 @@
+# Production preflight stopped; staging verified - 2026-10-07 JST
+
+**State:** Production release is incomplete. PR #56 merged normally as
+969d1d3735b85913c9b1dfe6ae4df2eba40e98b6. Reviewed head ca5df79 and merge have
+complete-tree equality 7c0cecd8e06657c570f5ce161cc5430ab8d9cd56. Final-head CI
+37613292017 and exact-main CI 37614255604 SUCCESS; hosted main ran 253 files /
+6,160 tests, lint, typecheck, migration smoke and build. Release source stays
+frozen at 969d1d.
+
+**Migration:** Run 37615237481 was approved normally by vn-taphoanhatung and its
+frozen-toolchain/exact-SHA gate passed. Production identity and ledger 38 / 0038
+were verified, then Require healthy current catalog before migration 0039 FAILED.
+Bookmark, baseline, plan, apply and every post-check were SKIPPED; this run did
+not apply 0039 or upload a Worker. No recovery replay or catalog rollback followed.
+Both candidate/receipt artifact ZIP digests and extracted manifest bytes PASS in
+root and independent audit. The sanitized receipt lacks the specific preflight
+failure reason and raw query outputs, so the cause remains UNKNOWN. Prior inspect
+APPLIED proves recovered rows/shape/counts, not complete runtime/media release proof.
+
+**Reproduction:** The actual failure manifest plus fresh immutable 0038 V1 local
+SELECT evidence passed the same verifier and exact four-argument CLI under
+Node 24.16.0 and independently checksum-verified official Node 22.23.3. Both report
+500 recipes, 0 hydration failures and fingerprint
+f8cf8c7ff59df9fe29e246b9e3c9aad0fd155fa8df35bf671ac4d03fa2b5ab37.
+No argv, serialization or Node-version failure reproduced. These fixtures do not
+certify live D1 and do not justify a blind migration retry.
+
+**Staging 969d:** Completed shadow 37615155277, 1% 37615530432, 5% 37615915508,
+25% 37616295460 and D1 37616679405. All five normal runs SUCCESS with production
+jobs SKIPPED; 10 actual artifact ZIP digests/extracted bytes, protected authority
+500/fingerprint/schema 39/T20 true, 15 paired readiness/service-worker observations
+and public smoke PASS. Final public 500 ordered IDs, runtime fingerprint and
+imported detail (15 fields, 6 ingredients, 5 steps) PASS via 3 readiness guards /
+5 GET requests. Final Worker b7b0a495-d933-4698-950c-a8d0918b20c4. Root independent
+offline packet, archives and previous-authority progression audit PASS. A temporary
+root assertion initially expected previousDeployment in staging; staging records
+previousRecipeAuthority, so the assertion was corrected to that actual schema
+before PASS. This certifies staging only.
+Packet: /private/tmp/takosan-migration-gate-staging-prep/staging-progression-receipt.json
+SHA256: ac9933239ac080c04fc7057e96b8c8adffe97ecae0cdfb3e42ec27a2ebf4366f.
+
+**Next protected run:** Read-only diagnostics 37616546408 was dispatched once at
+2026-10-07T11:48:03Z for frozen 969d / main CI 37614255604. Its source gate SUCCESS;
+GitHub API currently reports WAITING, approvals [], required production reviewer
+vn-taphoanhatung and CLI current_user_can_approve=false. Normal review is requested;
+do not bypass or change Environment settings. Read the new runtime, order, lineage
+and V1-comparison receipts to isolate the preflight failure before choosing a repair.
+Do not infer live hydration or media state from a successful local replay.
+
+**Production:** Public readiness at 2026-10-07T11:50:46Z reports healthy old Worker
+136cb6ff3d2921eac237c7b106b37ab5ee12a13f, static / 0%, cutover false, config OK and
+database OK. No new provider scan has been submitted. Production migration,
+certification, shadow, provider smoke, canary 1/5/25 and D1 remain required after
+the failure is resolved. Keep T20 server/UI false in production and preserve normal
+approval on every run. User-data retention certification remains excluded by
+operator instruction.
+
+**Evidence:** /private/tmp/takosan-migration-failure-37615237481/ and
+/private/tmp/takosan-production-receipts-migration-failure-37615237481/;
+independent Node 22 fixture proof at
+/private/tmp/takosan-production-receipts-node22-control/.
+Production schema/deploy verifiers remain prepared for 969d / main CI 37614255604
+at /private/tmp/takosan-migration-gate-production-prep/. Final packet assembler
+now checks smoke chronology before canary, fixture/terminal/readiness identity and
+final D1 content chronology. Syntax and 12 isolated controls PASS (1 valid,
+11 rejecting invalid cases); production requests 0, actual production packet not
+written. These are preparation checks until actual migration, certification and
+deployment receipts exist.
+
+Report: recipe-catalog/PRODUCTION_MIGRATION_GATE_20261007.md.
+All preceding checkpoints below are historical.
+
+---
+
 # Production migration gate toolchain - 2026-10-07 JST
 
 **State:** Production release remains incomplete. Protected inspection37611067522

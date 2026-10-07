@@ -5,8 +5,8 @@ import { afterEach, beforeAll, beforeEach, describe, expect, it } from 'vitest';
 import { SqliteD1 } from '../helpers/sqlite-d1';
 import { compileOriginalCatalogImportInspection, compileRecipeCatalogRecovery, loadCertifiedRecoverySource,
   RECOVERY_INTERNAL_TABLE_DDL, RECOVERY_TABLES } from '../../scripts/recipe-catalog-recovery.mjs';
-import { inspectCatalogImport, inspectLatestCatalogImport, inspectRecoveryPreflight,
-  LATEST_V2_IMPORT_INCIDENT, ORIGINAL_IMPORT_REPAIR_ID } from '../../scripts/production-catalog-import-inspection.mjs';
+import { inspectCatalogImport, inspectFixedV2Import37536969564, inspectLatestCatalogImport, inspectRecoveryPreflight,
+  FIXED_V2_IMPORT_INCIDENT_37536969564, LATEST_V2_IMPORT_INCIDENT, ORIGINAL_IMPORT_REPAIR_ID } from '../../scripts/production-catalog-import-inspection.mjs';
 
 const sha = execFileSync('git', ['rev-parse', 'HEAD'], { encoding: 'utf8' }).trim();
 const prefix = `catalog_recovery_${ORIGINAL_IMPORT_REPAIR_ID}`;
@@ -19,6 +19,8 @@ let plan;
 let recoveryPlan;
 let latestSource;
 let latestPlan;
+let fixed37536969564Source;
+let fixed37536969564Plan;
 let db;
 let calls;
 
@@ -28,6 +30,9 @@ beforeAll(async () => {
   recoveryPlan = compileRecipeCatalogRecovery({ source, repairId: 't21_v1_guarded_preflight_fixture' });
   latestSource = await loadCertifiedRecoverySource({ sha: LATEST_V2_IMPORT_INCIDENT.sourceSha });
   latestPlan = compileRecipeCatalogRecovery({ source: latestSource, repairId: LATEST_V2_IMPORT_INCIDENT.repairId });
+  fixed37536969564Source = await loadCertifiedRecoverySource({ sha: FIXED_V2_IMPORT_INCIDENT_37536969564.sourceSha });
+  fixed37536969564Plan = compileRecipeCatalogRecovery({ source: fixed37536969564Source,
+    repairId: FIXED_V2_IMPORT_INCIDENT_37536969564.repairId });
 }, 30000);
 beforeEach(() => {
   db = new SqliteD1({ through: '0038_auth_onboarding_completion.sql' });
@@ -51,6 +56,8 @@ function query(sql, meta = { served_by_primary: true, served_by: 'private-provid
 }
 const inspect = (over = {}) => inspectCatalogImport({ source, plan, query, ...over });
 const latest = (over = {}) => inspectLatestCatalogImport({ source: latestSource, plan: latestPlan, query, ...over });
+const fixed37536969564 = (over = {}) => inspectFixedV2Import37536969564({
+  source: fixed37536969564Source, plan: fixed37536969564Plan, query, ...over });
 const preflight = (over = {}) => inspectRecoveryPreflight({ source, plan: recoveryPlan, query, ...over });
 const liveCount = () => db.query('SELECT count(1) AS n FROM recipe_ingredients')[0].n;
 const schemaNames = () => db.query('SELECT name FROM sqlite_schema ORDER BY name');
@@ -764,6 +771,258 @@ describe('sealed latest V2 import incident SELECT-only inspection', () => {
   it('rejects a cloned source or missing callback before any observation', async () => {
     await expect(latest({ source: structuredClone(latestSource) })).rejects.toThrow('LATEST_IMPORT_INSPECTION_SOURCE_REJECTED');
     await expect(latest({ query: undefined })).rejects.toThrow('LATEST_IMPORT_INSPECTION_SOURCE_REJECTED');
+    expect(calls).toHaveLength(0);
+  });
+});
+
+describe('sealed fixed V2 import incident 37536969564 SELECT-only inspection', () => {
+  const incident = FIXED_V2_IMPORT_INCIDENT_37536969564;
+  const fixedPrefix = `catalog_recovery_${incident.repairId}`;
+  const applyFixed = () => db.batch(fixed37536969564Plan.statements.map((sql) => db.prepare(sql)));
+  const rejected = 'FIXED_V2_IMPORT_37536969564_INSPECTION_SOURCE_REJECTED';
+
+  it('seals the new failed run without reassigning the previous latest incident', async () => {
+    expect(Object.isFrozen(incident)).toBe(true);
+    expect(incident).toEqual({
+      runId: '37536969564', sourceSha: 'a8fa0324bb609274cc07a5c4b079e7ee4633fd83',
+      repairId: 't21_v1_37536969564', guardVersion: 2,
+      sqlSha256: 'e5a58960baa4b8e1f4cae8be94985dd03cf4e9acf03c274b38fb310ce79f28c0',
+      rollbackSqlSha256: 'ba48a606a1694ec87a3af22fc01a640f0653344335ebd21bd260cdbefd4fdcee',
+      sourceDigest: '4c6c4ce836202c4b7a00954414bc1d37c02a5c2155068239c1efc624fb0a8ca5',
+      runtimeFingerprint: 'f8cf8c7ff59df9fe29e246b9e3c9aad0fd155fa8df35bf671ac4d03fa2b5ab37',
+    });
+    expect(LATEST_V2_IMPORT_INCIDENT.runId).toBe('37491535308');
+    expect(fixed37536969564Plan.receipt.sqlSha256).toBe(incident.sqlSha256);
+    expect(fixed37536969564Plan.receipt.rollbackSqlSha256).toBe(incident.rollbackSqlSha256);
+    const before = schemaNames();
+    const receipt = await fixed37536969564();
+    expect(receipt.status).toBe('NO_RECOVERY_COMMIT_OBSERVED');
+    expect(receipt.incident).toEqual(incident);
+    expect(receipt.inventory).toMatchObject({ objectCount: 0, matchedObjectCount: 0,
+      expectedRestoreObjects: 58, missingObjectCount: 58, canonicalRollbackGuardObserved: false });
+    expect(receipt.preMutationGuards).toEqual(preflightLabels.map((label) => ({ label, result: 'MATCH', servedByPrimary: true })));
+    expect(receipt.queryObservations).toEqual({ successful: 9, failed: 0, primaryTrue: 9, primaryFalse: 0, primaryUnknown: 0 });
+    expect(receipt.blockers).toEqual([]); expect(calls).toHaveLength(9);
+    expect(schemaNames()).toEqual(before); expect(liveCount()).toBe(6720);
+    assertClosed(receipt);
+  });
+
+  it('does not select a different incident from extra caller parameters', async () => {
+    const receipt = await fixed37536969564({ incident: LATEST_V2_IMPORT_INCIDENT,
+      repairId: LATEST_V2_IMPORT_INCIDENT.repairId, prefix, runId: ORIGINAL_IMPORT_REPAIR_ID,
+      query: async sql => query(sql) });
+    expect(receipt.incident).toEqual(incident);
+    expect(receipt.status).toBe('NO_RECOVERY_COMMIT_OBSERVED');
+    expect(calls[0]).toContain(fixedPrefix);
+    assertClosed(receipt);
+  });
+
+  it('does not mistake previous incident objects for new incident objects', async () => {
+    db.seed(latestPlan.statements[0]);
+    const receipt = await fixed37536969564();
+    expect(receipt.status).toBe('NO_RECOVERY_COMMIT_OBSERVED');
+    expect(receipt.inventory.objectCount).toBe(0);
+    expect(receipt.incident).toEqual(incident);
+    expect(calls.some(sql => sql.includes(`FROM catalog_recovery_${LATEST_V2_IMPORT_INCIDENT.repairId}_guard`))).toBe(false);
+    assertClosed(receipt);
+  });
+
+  it('observes complete applied evidence with a marker unique to this run', async () => {
+    await applyFixed();
+    const before = schemaNames();
+    const receipt = await fixed37536969564();
+    expect(receipt.status).toBe('FIXED_V2_RECOVERY_37536969564_APPLIED_MARKER_OBSERVED');
+    expect(receipt.incident).toEqual(incident);
+    expect(receipt.inventory).toMatchObject({ objectCount: 58, tableCount: 16, triggerCount: 42,
+      matchedObjectCount: 58, exact: true, canonicalRollbackGuardObserved: false });
+    expect(receipt.guard).toEqual({ rows: 26, distinctLabels: 26, approvedPassingRows: 26, invalidRows: 0 });
+    expect(receipt.repairStatus).toEqual({ rows: 1, exactIdentityRows: 1, appliedRows: 1, rolledBackRows: 0 });
+    expect(receipt.preMutationGuards.find(guard => guard.label === 'bounded_observed_catalog')?.result).toBe('MISMATCH');
+    expect(receipt.objectSchemaChecks.every(check => check.result === 'MATCH')).toBe(true);
+    for (const table of Object.keys(RECOVERY_TABLES)) {
+      expect(receipt.aggregates.live[table].rows).toBe(fixed37536969564Source.tables[table].length);
+      expect(receipt.aggregates.target[table].rows).toBe(fixed37536969564Source.tables[table].length);
+    }
+    expect(receipt.aggregates.archive.recipes.rows).toBe(500);
+    expect(receipt.aggregates.archive.recipe_ingredients.rows).toBe(6720);
+    expect(receipt.aggregates.archive.recipe_runtime_ingredient_order.rows).toBe(0);
+    expect(receipt.aggregates.live.recipes).toEqual({ rows: 500, v1Rows: 500, v2Rows: 0, otherVersionRows: 0 });
+    expect(receipt.blockers).toEqual([]); expect(schemaNames()).toEqual(before);
+    assertClosed(receipt);
+  });
+
+  it('observes real rollback evidence and all canonical rollback guard rows', async () => {
+    await applyFixed();
+    await db.batch(fixed37536969564Plan.rollbackStatements.map(sql => db.prepare(sql)));
+    const before = schemaNames();
+    const receipt = await fixed37536969564();
+    expect(receipt.status).toBe('FIXED_V2_RECOVERY_37536969564_ROLLED_BACK_MARKER_OBSERVED');
+    expect(receipt.inventory).toMatchObject({ objectCount: 59, tableCount: 17, triggerCount: 42,
+      matchedObjectCount: 59, expectedRestoreObjects: 58, canonicalRollbackGuardObserved: true, exact: true });
+    const count = fixed37536969564Plan.rollbackStatements.filter(sql =>
+      sql.startsWith(`INSERT INTO ${fixedPrefix}_rollback_guard (label, ok) SELECT '`)).length;
+    expect(receipt.rollbackGuard).toEqual({ rows: count, distinctLabels: count, approvedPassingRows: count, invalidRows: 0 });
+    expect(receipt.repairStatus).toEqual({ rows: 1, exactIdentityRows: 1, appliedRows: 0, rolledBackRows: 1 });
+    expect(receipt.preMutationGuards.every(guard => guard.result === 'MATCH')).toBe(true);
+    expect(receipt.blockers).toEqual([]); expect(liveCount()).toBe(6720); expect(schemaNames()).toEqual(before);
+    assertClosed(receipt);
+  });
+
+  it('keeps partial objects blocked and never reads a malformed status table', async () => {
+    db.seed(fixed37536969564Plan.statements[0]);
+    db.seed(`CREATE TABLE ${fixedPrefix}_status (repair_id TEXT, source_digest TEXT)`);
+    const receipt = await fixed37536969564();
+    expect(receipt.status).toBe('INSPECTION_BLOCKED');
+    expect(receipt.blockers).toContain('PARTIAL_RECOVERY_OBJECTS');
+    expect(receipt.repairStatus).toBeNull();
+    expect(calls.some(sql => sql.includes(`FROM ${fixedPrefix}_status`))).toBe(false);
+    assertClosed(receipt);
+  });
+
+  it.each(['CATALOG_RECOVERY_T21_V1_37536969564_GUARD', 'Catalog_Recovery_t21_v1_37536969564_guard'])
+  ('blocks case-variant prefix %s without claiming no commit', async name => {
+    db.seed(`CREATE TABLE ${name} (label TEXT, ok INTEGER)`);
+    const receipt = await fixed37536969564();
+    expect(receipt.status).toBe('INSPECTION_BLOCKED');
+    expect(receipt.inventory).toMatchObject({ objectCount: 1, matchedObjectCount: 0, unexpectedObjectCount: 1 });
+    expect(receipt.blockers).toContain('UNEXPECTED_RECOVERY_OBJECTS');
+    expect(calls.some(sql => sql.includes(`FROM ${name}`))).toBe(false);
+    assertClosed(receipt);
+  });
+
+  it('rejects substituted status identity even when all applied objects exist', async () => {
+    await applyFixed();
+    db.seed(`UPDATE ${fixedPrefix}_status SET repair_id = '${LATEST_V2_IMPORT_INCIDENT.repairId}'`);
+    const receipt = await fixed37536969564();
+    expect(receipt.status).toBe('INSPECTION_BLOCKED');
+    expect(receipt.repairStatus.exactIdentityRows).toBe(0);
+    expect(receipt.blockers).toContain('RECOVERY_STATUS_IDENTITY_UNPROVEN');
+    assertClosed(receipt);
+  });
+
+  it('blocks applied count drift', async () => {
+    await applyFixed();
+    db.seed('DELETE FROM recipe_runtime_ingredient_order WHERE position = 1');
+    const receipt = await fixed37536969564();
+    expect(receipt.status).toBe('INSPECTION_BLOCKED');
+    expect(receipt.blockers).toContain('APPLIED_MARKER_CATALOG_COUNTS_UNPROVEN');
+    assertClosed(receipt);
+  });
+
+  it('blocks incomplete rollback evidence', async () => {
+    await applyFixed();
+    await db.batch(fixed37536969564Plan.rollbackStatements.map(sql => db.prepare(sql)));
+    db.seed(`DELETE FROM ${fixedPrefix}_rollback_guard WHERE label = 'exact_recovery_identity'`);
+    const receipt = await fixed37536969564();
+    expect(receipt.status).toBe('INSPECTION_BLOCKED');
+    expect(receipt.blockers).toContain('ROLLBACK_GUARD_INCOMPLETE');
+    assertClosed(receipt);
+  });
+
+  it('uses the approved reserved inventory before scanning application FK metadata', async () => {
+    db.seed(RECOVERY_INTERNAL_TABLE_DDL);
+    const receipt = await fixed37536969564();
+    expect(receipt.status).toBe('NO_RECOVERY_COMMIT_OBSERVED');
+    const authorized = authorizedInspection(calls);
+    expect(authorized).toMatchObject({ errors: 0, ingredientRows: 6720, repairObjects: 0 });
+    expect(authorized.visited).toEqual(authorized.expectedTables);
+    expect(authorized.visited).not.toContain('_cf_KV');
+    assertClosed(receipt);
+  });
+
+  it.each([
+    ['unknown reserved table', 'CREATE TABLE _cf_private_object (source_private_value TEXT)'],
+    ['case-variant reserved view', 'CREATE VIEW _CF_private_object AS SELECT 1'],
+    ['malformed reserved table', 'CREATE TABLE _cf_KV (key TEXT PRIMARY KEY, value BLOB)'],
+    ['reserved index', `${RECOVERY_INTERNAL_TABLE_DDL}; CREATE INDEX unreviewed_private_fk ON _cf_KV(value)`],
+  ])('blocks %s before any schema PRAGMA, as confirmed by a real authorizer', async (_label, ddl) => {
+    db.seed(ddl);
+    const receipt = await fixed37536969564();
+    expect(receipt.status).toBe('INSPECTION_BLOCKED');
+    expect(receipt.preMutationGuards[0]).toEqual({ label: 'approved_internal_inventory', result: 'MISMATCH', servedByPrimary: true });
+    expect(receipt.preMutationGuards.slice(1).every(guard => guard.result === 'NOT_EVALUATED')).toBe(true);
+    expect(calls).toHaveLength(2); expect(calls.some(sql => /pragma_/i.test(sql))).toBe(false);
+    const authorized = authorizedInspection(calls, ddl);
+    expect(authorized.errors).toBe(0); expect(authorized.pragmas).toEqual([]);
+    assertClosed(receipt);
+  });
+
+  it.each([undefined, false, 'true', 1, null])('blocks unproven internal inventory primary metadata %s before PRAGMAs', async primary => {
+    const receipt = await fixed37536969564({ query: sql => query(sql,
+      { served_by_primary: calls.length === 1 ? primary : true }) });
+    expect(receipt.status).toBe('INSPECTION_BLOCKED');
+    expect(receipt.preMutationGuards.slice(1).every(guard => guard.result === 'NOT_EVALUATED')).toBe(true);
+    expect(receipt.blockers).toContain('PRIMARY_OBSERVATION_UNPROVEN');
+    expect(calls).toHaveLength(2); expect(calls.some(sql => /pragma_/i.test(sql))).toBe(false);
+    assertClosed(receipt);
+  });
+
+  it.each(['namespace', 'schema', 'aggregate', 'status'])('requires strict primary metadata for each %s read', async phase => {
+    await applyFixed();
+    const isPhase = sql => phase === 'namespace' ? sql.includes('AS objectCount')
+      : phase === 'schema' ? sql.includes('pragma_table_xinfo')
+        : phase === 'aggregate' ? sql.includes(`FROM ${fixed37536969564Plan.targetTables.recipe_ingredients}`)
+          : sql.includes(`FROM ${fixedPrefix}_status`);
+    const receipt = await fixed37536969564({ query: sql => query(sql, { served_by_primary: !isPhase(sql) }) });
+    expect(receipt.status).toBe('INSPECTION_BLOCKED');
+    expect(receipt.blockers).toContain('PRIMARY_OBSERVATION_UNPROVEN');
+    expect(receipt.queryObservations.primaryFalse).toBeGreaterThan(0);
+    assertClosed(receipt);
+  });
+
+  it('redacts a failed inventory observation and skips all schema PRAGMAs', async () => {
+    const receipt = await fixed37536969564({ query: sql => {
+      if (calls.length === 1) { calls.push(sql); throw new Error('Authentication error [code: 10000] source_private_value'); }
+      return query(sql);
+    } });
+    expect(receipt.status).toBe('INSPECTION_BLOCKED');
+    expect(receipt.preMutationGuards[0].result).toBe('QUERY_FAILED');
+    expect(receipt.preMutationGuards.slice(1).every(guard => guard.result === 'NOT_EVALUATED')).toBe(true);
+    expect(receipt.queryObservations.failed).toBe(1);
+    expect(receipt.blockers).toContain('QUERY_OBSERVATIONS_INCOMPLETE');
+    expect(calls.some(sql => /pragma_/i.test(sql))).toBe(false);
+    assertClosed(receipt);
+  });
+
+  it.each([
+    ['original incident plan', () => plan],
+    ['previous latest incident plan', () => latestPlan],
+    ['different recovery ID', () => recoveryPlan],
+    ['source SHA', () => ({ ...fixed37536969564Plan, receipt: { ...fixed37536969564Plan.receipt, sourceSha: sha } })],
+    ['restore SQL bytes', () => ({ ...fixed37536969564Plan, sql: `${fixed37536969564Plan.sql}\nSELECT 1;` })],
+    ['rollback SQL bytes', () => ({ ...fixed37536969564Plan, rollbackSql: `${fixed37536969564Plan.rollbackSql}\nSELECT 1;` })],
+    ['restore statements', () => ({ ...fixed37536969564Plan, statements: ['SELECT 1', ...fixed37536969564Plan.statements.slice(1)] })],
+    ['rollback statements', () => ({ ...fixed37536969564Plan, rollbackStatements: ['SELECT 1', ...fixed37536969564Plan.rollbackStatements.slice(1)] })],
+    ['archive map', () => ({ ...fixed37536969564Plan, archiveTables: { ...fixed37536969564Plan.archiveTables, recipes: 'recipes' } })],
+    ['target map', () => ({ ...fixed37536969564Plan, targetTables: { ...fixed37536969564Plan.targetTables, recipes: 'recipes' } })],
+    ['restore SQL hash', () => ({ ...fixed37536969564Plan, receipt: { ...fixed37536969564Plan.receipt, sqlSha256: '0'.repeat(64) } })],
+    ['rollback SQL hash', () => ({ ...fixed37536969564Plan, receipt: { ...fixed37536969564Plan.receipt, rollbackSqlSha256: '0'.repeat(64) } })],
+    ['guard version', () => ({ ...fixed37536969564Plan, receipt: { ...fixed37536969564Plan.receipt, guardVersion: 1 } })],
+    ['purpose', () => ({ ...fixed37536969564Plan, receipt: { ...fixed37536969564Plan.receipt, purpose: 'INSPECTION_ONLY' } })],
+    ['source digest', () => ({ ...fixed37536969564Plan, receipt: { ...fixed37536969564Plan.receipt, sourceDigest: '0'.repeat(64) } })],
+    ['fingerprint', () => ({ ...fixed37536969564Plan, receipt: { ...fixed37536969564Plan.receipt, runtimeFingerprint: '0'.repeat(64) } })],
+    ['complete receipt', () => ({ ...fixed37536969564Plan, receipt: { ...fixed37536969564Plan.receipt, expectedBefore: {} } })],
+    ['self-rehashed rollback replacement', () => {
+      const rollbackStatements = ['SELECT 1', ...fixed37536969564Plan.rollbackStatements.slice(1)];
+      const rollbackSql = `${rollbackStatements.map(statement => `${statement};`).join('\n\n')}\n`;
+      return { ...fixed37536969564Plan, rollbackStatements, rollbackSql, receipt: { ...fixed37536969564Plan.receipt,
+        rollbackSqlSha256: createHash('sha256').update(rollbackSql).digest('hex') } };
+    }],
+  ])('rejects substituted %s before any query', async (_label, candidate) => {
+    await expect(fixed37536969564({ plan: candidate() })).rejects.toThrow(rejected);
+    expect(calls).toHaveLength(0); expect(liveCount()).toBe(6720);
+  });
+
+  it('rejects branded certified source from the previous SHA despite identical content', async () => {
+    expect(latestSource.sourceDigest).toBe(fixed37536969564Source.sourceDigest);
+    const wrongSourcePlan = compileRecipeCatalogRecovery({ source: latestSource, repairId: incident.repairId });
+    await expect(fixed37536969564({ source: latestSource, plan: wrongSourcePlan })).rejects.toThrow(rejected);
+    expect(calls).toHaveLength(0);
+  });
+
+  it('rejects a cloned source and missing callback before observations', async () => {
+    await expect(fixed37536969564({ source: structuredClone(fixed37536969564Source) })).rejects.toThrow(rejected);
+    await expect(fixed37536969564({ query: undefined })).rejects.toThrow(rejected);
     expect(calls).toHaveLength(0);
   });
 });

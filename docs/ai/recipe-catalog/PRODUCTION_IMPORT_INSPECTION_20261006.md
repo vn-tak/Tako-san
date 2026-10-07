@@ -1,3 +1,240 @@
+# Protected import inspection verified - 2026-10-07 JST
+
+**State:** Production remains incomplete. Protected read-only inspect37531433145
+completed SUCCESS with normal independent vn-taphoanhatung approval; this supersedes
+the prior WAITING/pending-approval state. Release main remains frozen at
+`a8fa0324bb609274cc07a5c4b079e7ee4633fd83`; reviewed PR54 head796097d,
+complete-tree equality and exact-mainCI37530420360 are verified. Latest catalog
+import remains provider-terminal UNKNOWN_NO_CURSOR, but no recovery commit is
+observed in repeated stable primary captures. No production mutation was executed.
+
+**Receipt:** statusINSPECTED_IMPORT_READ_ONLY/phaseCOMPLETE/mutations0,
+ledger38/0038 unchanged; original and latest recovery namespaces objects0.
+Latest failed incident37491535308:9 successful strict-primary observations,
+failed0/blockers0, eight guards MATCH and bounded old catalog MATCH. Current V2
+preflight:8 successful strict-primary observations/failed0/blockers0/all8MATCH.
+Original sealed incident37384670328 still has its two known schema/FK query
+failures and one legacy blocker;15 successful observations are primary. These
+failures are retained honestly and are covered by the independent corrected V2
+preflight; original terminal state is not certified. Both incident captures are
+OBSERVED_STABLE_NON_ATOMIC. Old static100% Worker deployment/version/modules/bindings
+are unchanged:1a47f7f7-3d74-4801-b26a-b91f39c7942e,
+moduleSHA5079c954a1905d6a72beb38828f3621833fdb0c57d57a4d93f371ed49cd4eca1.
+
+Artifact11446940708 ZIP digest verified
+`95cb8d80285da703cf5247929c109a94387e5da6aca0613f0346f6ad0e995424`.
+Sanitized receipt SHA256 `294fe872124f5b4c6f74f8593b2fb11838f8d424e7fde7d4539d39981008fd2f`;
+receipt and normal approval are in
+`/private/tmp/takosan-production-v2-inspect-37531433145/`.
+Root and independent reviewer both classify latest observations as ABSENT,
+not import completion/retry/write-permission/release certification.
+First temporary root verifier incorrectly required zero failed reads in the
+sealed original inspector, rejected its two known legacy query failures; corrected
+verifier explicitly retains those failures and separately requires exact latest
+and corrected strict-primary zero-failure proofs. Final verification PASS.
+
+**Credentials:** effectiveAPI_TOKEN/globalKeyPrecedencefalse; ACCOUNT token
+verificationACTIVE/HTTP200 after user-token endpoint401/1000. Account/database
+identity GETsHTTP200 and SELECT1 primarytrue prove read access. Token metadata
+GET403/9109 leaves D1 Edit/account resource/deny/IP/TTL policy UNKNOWN and
+writeAuthorizationUNKNOWN. Account-owned tokens officially support D1; pinned
+Wrangler3.114.17 uses the same Bearer path for query/import. Token kind alone
+is not evidence for prior10000. No credential values were read or published.
+
+**Cloudflare console observation:** existing Chrome session is authenticated to
+the same account and frigo-db binding. Named `tako-san-production-deploy` account
+token is Active, recently used, and the account-policy D1 filter shows Read=1,
+Edit=0. This is direct policy evidence for that named deployment token; the
+aggregate receipt intentionally contains no token identifier, so name/activity
+correlation is not an exact secret-to-token identity proof. No permissions were
+changed at this initial observation. User then explicitly confirmed adding only
+D1 Edit. Existing token policy was saved once:13 permissions versus12 before,
+D1 Read retained and D1 Write added. Reopening the persisted token verifies
+Read=1/Edit=1/Active. Existing entire-account resource, no expiry and all-IP policy
+are unchanged; no other permission, token rotation, secret value or GitHub secret
+was changed. The current receipt's writeAuthorization remains UNKNOWN; console
+name/activity correlation is not an exact secret mapping or HTTP write certificate.
+Evidence: cloudflare-console-scope-change.json beside the sanitized receipt.
+
+**Recovery dispatch:** new intentional guarded restore-v1 run37536969564
+https://github.com/vn-tak/Tako-san/actions/runs/37536969564, dispatched once at
+2026-10-06T21:53:09Z on frozena8fa/reviewed796. Main/CI/full-tree gate SUCCESS;
+normal review byvn-taphoanhatung is API-verified approved. The run completed
+FAILURE atBOOKMARK_AND_IMPORT, statusIMPORT_OUTCOME_UNKNOWN_STATIC_OPERATOR_INSPECTION_REQUIRED,
+importOutcomeATTEMPTED_COMPLETION_UNCONFIRMED. All fresh original/latest/current
+preflights passed; current eight guards strict-primaryMATCH/failed0/blockers0.
+Worker1a47f7f7 static100% was verified without redeployment (methodalready-static).
+PreLedger38, bytes7409664; bookmark
+0000018f-00000000-000050fc-4d329b2c830ec0bde6b059beb46b6150,
+captured2026-10-06T21:56:58.499Z. No importFailure field or retained provider code
+is present, and no post-import catalog/ledger/health/finalWorker certification.
+Artifact11446718824 ZIP digest independently verified
+ac8f45e104d4c0a9a06f59b8afb6af988aefc3c106169b9af23d1dafe84febe6.
+Receipt SHA256a484b5256be675df15154b0c59eb102358d4d602fe1728db8fc5946ebe2caab7,
+under/private/tmp/takosan-production-guarded-restore-37536969564/.
+Root offline exact planPASS: guardVersion2,
+SQLSHAe5a58960baa4b8e1f4cae8be94985dd03cf4e9acf03c274b38fb310ce79f28c0,
+rollbackSHAba48a606a1694ec87a3af22fc01a640f0653344335ebd21bd260cdbefd4fdcee;
+expected500/2702 ingredients/2064steps/2702positions.
+
+**Confirmed parser defect:** Independent offline replay of verbatim pinned
+Wrangler3.114.17 Handler/execute/import/spinner functions with mocked provider
+responsesPASS, no network/productionmutation. Both successful upload and cached
+init paths return nonempty all-success arrays but prepend spinner stdout even
+under --json/loggerLevelerror. Full stdoutJSON.parse fails; --command query control
+is cleanJSON. Runner's file-import parser therefore rejects legitimate successful
+output. This explains a possible post-success parse failure and the missing
+importFailure field; actual production import commit remains UNCONFIRMED until
+inspection of this exact new repair prefix. No blind retry/rollback/0039.
+
+**Next:** review and publish a narrowly validated file-import output parser and a
+third sealed read-only inspector for37536969564, preserving both old incident
+inspections. Use normal PR/mainCI/productionreview, then independently inspect
+objects/markers/live+archive+target/primary/ledger/static proofs before choosing any
+mutation. Current inspector only seals the two older incidents and cannot certify
+this new outcome. Only proceed to guarded0039 after V1 catalog/integrity proof at38.
+After guarded0039 and full
+production read-only certification, deploy the same release T20server+UIfalse:
+shadow, one synthetic live provider smoke, then1/5/25/D1 with normal approvals.
+Final-SHA staging five-stage progression/public500 proof is COMPLETE, packet
+SHA256a4a852df3464c243bc6d07cdb96d47cbea713288a7a81e4199fd1f7f5a5156f4.
+Production validators are prepared under/private/tmp/takosan-final-production-prep/;
+synthetic validator fixtures are not production evidence. Remote main stays frozen;
+this documentation checkpoint is local/unpublished. No0039/new application/AI smoke/
+production canary or D1 completion is claimed.
+
+---
+
+# PR54 merged forensics checkpoint - 2026-10-07 JST
+
+**State:** Production deployment is incomplete. Latest restore37491535308 was
+normally approved byvn-taphoanhatung and failed with unconfirmed import completion.
+It is not waiting for review. Provider terminal remainsUNKNOWN_NO_CURSOR. User
+requests production recovery/migration/deploy and excludes user-data retention;
+normal independent production Environment approval remains mandatory.
+
+**Published:** PR54 https://github.com/vn-tak/Tako-san/pull/54 merged normally at
+2026-10-06T20:57:58Z to a8fa0324bb609274cc07a5c4b079e7ee4633fd83.
+Executable86bfec959584f6a194543ec12470b956e5c951ff; reviewed finalhead
+796097d9c1e2db4972151376449873c1ef60419f. Local Git proves reviewedhead ancestry
+and identical complete tree0bdbdec8542b3304c7f6d11447b844bbf5945043 at main.
+All12paths independently reviewed, no concrete blocker. Historical migrations,
+PayOS/payment/billing, application runtime and unrelated auth remain unmodified.
+
+**Checks:** Full credential-free Node24 suite252files/5993testsPASS489.06s/exit0,
+no skipped. Earlier full5992PASS/1FAIL492.44s remains recorded: existing Wrangler
+catch-up test5273ms exceeded unchanged5000ms limit; isolated32/32PASS2.85s and
+full-recheck Wrangler787ms. No toolversion/timeout/test/protection was weakened.
+Lint/typecheck/migration smoke/build/actionlint/syntax/diffPASS. Final PR hosted
+CI37529365966 SUCCESS252files/5993tests390.11s/all gates; initial headCI37528405327
+SUCCESS252/5993/373.17s. Exact-main CI37530420360 SUCCESS252files/5993tests368.10s/all gates.
+Root reverified live maina8fa and dispatched consolidated inspect-import37531433145
+exactmain/reviewed796097d once. Source gate SUCCESS; approval reported; API
+verification pending. No remote inspection completion or production recovery is
+claimed. Finala8fa staging shadow/1/5/25/D1 at hardening089ae/T20server+UItrue is
+complete with hosted and independent receipt/readiness/SW/smoke/content proof.
+Staging operations made no production access or tracked source edits. Credential-free
+workflow registration37530420366 SUCCESS (echo only, no production access).
+
+**Next:** Freeze remote maina8fa. Await API-verified normal approval and completion
+of consolidated protected inspect-import37531433145 onmain/reviewed796097d.
+It reads both fixed incidents, corrected guards and bounded credential evidence,
+requires unchanged ledger38 and old static100% Worker before/after; no retry/release
+authority. Actual D1 import state and effective Cloudflare write grant remain
+unconfirmed. Final-SHA staging shadow/1/5/25/D1,T20server+UItrue is now certified.
+Current Deploy workflow is manual workflow_dispatch only; the DEPLOYMENT.md
+automatic-staging description is historical and must not drive operations. New
+production0039/application/AI smoke/canary/D1 success is not claimed.
+
+**Staging final a8fa:** COMPLETE and independently verified at frozen main
+`a8fa0324bb609274cc07a5c4b079e7ee4633fd83`, approved hardening
+`089ae329ebba2ba38659c030266068aeace9b8a8`, exact-main CI `37530420360`.
+Every stage is first-attempt SUCCESS, release/staging SUCCESS and production
+SKIPPED; schema 39/0039, T20 server+UI=true. Manifest, build-flag gate and upload
+command agree. Protected D1 probe is ready/500, fingerprint
+`f8cf8c7ff59df9fe29e246b9e3c9aad0fd155fa8df35bf671ac4d03fa2b5ab37`, release
+`rel-bd00a4f53fcaeee4`, fallback=null. Hosted and independent public smoke PASS
+at every stage; readiness and SW have three consecutive exact-SHA pairs.
+
+| Stage | Run | Previous Protected State | Hosted Wait / Independent Wait |
+| --- | --- | --- | --- |
+| shadow/0/cutover=false/global=static | [37531528831](https://github.com/vn-tak/Tako-san/actions/runs/37531528831) | 4092/d1/0, ancestor; rollback=true | 15153 ms / 7733 ms |
+| canary/1/cutover=true/global=mixed | [37531812833](https://github.com/vn-tak/Tako-san/actions/runs/37531812833) | a8fa/shadow/0; rollback=false | 14949 ms / 7608 ms |
+| canary/5/cutover=true/global=mixed | [37532189153](https://github.com/vn-tak/Tako-san/actions/runs/37532189153) | a8fa/canary/1; rollback=false | 7680 ms / 7703 ms |
+| canary/25/cutover=true/global=mixed | [37532527218](https://github.com/vn-tak/Tako-san/actions/runs/37532527218) | a8fa/canary/5; rollback=false | 29871 ms / 7671 ms |
+| d1/0/cutover=true/global=d1 | [37532897461](https://github.com/vn-tak/Tako-san/actions/runs/37532897461) | a8fa/canary/25; rollback=false | 14734 ms / 7791 ms |
+
+SW at every final-SHA stage is HTTP200/JavaScript/no-store/exact a8fa, SHA256
+`5056dccadfb9c387399c972531bb36419a2fdf2b6b810b7f190f85f3857e7f0f`.
+Checks use unchanged defaults: 90000 ms deadline, 3000 ms interval, 15000 ms
+request timeout and three consecutive pairs. No retry or check/bound/source change.
+
+Final D1 Worker `805d6281-bd61-44ba-9501-ff8d53ed17d3`.
+Artifact `11444883305`, `release-staging-37532897461-1`, digest
+`c5023768cd1a97243348141de9f98f20bf8d4b36b807aec140c4c09786d425bb`.
+Receipt `/private/tmp/takosan-final-staging-d1-37532897461/release-manifest.json`,
+SHA256 `3e4261cf14a5267fc167ba7c92b923561067a36d79229f45d0dc23531bd98974`.
+Full progression packet (all five artifacts/Workers/receipt hashes/logs/proofs):
+`/private/tmp/takosan-final-staging-prep/staging-progression-receipt.json`, SHA256
+`a4a852df3464c243bc6d07cdb96d47cbea713288a7a81e4199fd1f7f5a5156f4`.
+
+Independent final public catalog proof PASS at `2026-10-06T21:20:59.787Z`:
+767 local source blobs match final SHA; canonical sourceDigest
+`4c6c4ce836202c4b7a00954414bc1d37c02a5c2155068239c1efc624fb0a8ca5`.
+Five credential-free GETs with three exact-SHA/D1 readiness guards prove public
+list HTTP200/count500, ordered IDs MATCH and all 15 runtime-field fingerprint
+MATCH. Imported detail `imp-199ff78d3d8c8ab3` is HTTP200, full runtime canonical
+and list parity MATCH (six ingredients/five steps). Additive media fields are
+outside this runtime fingerprint. Root independently read the content proof PASS.
+Evidence `/private/tmp/takosan-final-staging-d1-37532897461/public-catalog-content-proof.json`.
+Live main remains a8fa; all five runs are completed SUCCESS. No further staging
+dispatch is required. This proves staging; no production completion is claimed.
+
+Protected production inspect `37531433145`: **approval reported; API verification pending**. User reports approval; root's latest API still shows source gate SUCCESS,
+recover WAITING/approvals[]/current_user_can_approve=false, required reviewer
+`vn-taphoanhatung`. Remote inspection outcome remains unverified. No D1 mutation,
+0039 or production application deployment follows from staging proof or approval
+report alone; wait for the authorized protected inspection result and its evidence.
+
+
+**Independent next-action audit:** Published main a8fa and reviewed PR54 head
+796097d have identical complete tree 0bdbdec8542b3304c7f6d11447b844bbf5945043.
+No additional concrete blocker was found in the targeted runner, migration and
+certification workflow review. Inspection evidence remains required before choosing
+any production mutation; this table does not certify an actual remote outcome.
+
+| Observed latest incident | Required evidence and next action |
+| --- | --- |
+| ABSENT | Two stable strict-primary captures, objects0/no observed commit, all eight guards MATCH/failed0/blockers0, unchanged original ledger38/static100. Review effective write credential before one intentional new guarded restore under normal approval; require V1_CATALOG_CERTIFIED_STATIC/500/exact fingerprint before0039. |
+| APPLIED | Exact58 objects/26 passing guard rows/APPLIED identity, live+target canonical counts/archive bounds, stable primary/blockers0/no rollback guard. Do not restore; use the existing guarded0038-to0039 migration with its independent V1 provenance/runtime preflight. |
+| PARTIAL/BLOCKED/changing | Keep static. No restore, rollback,0039 or application deploy; define a separate reviewed recovery protocol from the sanitized receipt. |
+| ROLLED_BACK | Exact59 objects/canonical rollback guard/full approved rows/exact rolled-back identity/live=archive counts/old-catalog guards/stable primary. Existing restore rejects objects>0; define a separate reviewed recovery decision. |
+
+Credential verification, read success and observed allow metadata do not certify
+an effective write grant. Review credential precedence, applicable D1 Edit/account
+resource, deny/IP/TTL evidence; no write-permission probe is authorized by inspection.
+Prior provider10000 does not prove missing permissions or absence of writes.
+Migration0039 preflight at ledger38 proves V1 provenance/hydration/fingerprint;
+quick_check occurs after apply, so full pre-migration integrity is not claimed.
+Production read-only certification requires schema39 and cannot certify ledger38.
+After successful0039/certification, production uses the same frozena8fa,
+hardening089ae and T20server+UIfalse: shadow, one synthetic live provider smoke,
+then1/5/25/D1 with normal approval and receipts at each stage.
+
+Fresh credential-free production readiness GET at2026-10-06T21:24:20.545Z is
+statusok/source136cb6ff3d2921eac237c7b106b37ab5ee12a13f/static0/cutoverfalse/
+globalstatic/fallbacknull/databaseok/queueok/configok. This is public health evidence,
+not protected D1 catalog or write-permission certification. Local response:
+/private/tmp/takosan-production-pending-inspect-health.json.
+Root packet consistency check PASS: all five receipt hashes and stage transitions,
+final public500/orderedIDs/15-field fingerprint/imported detail agree with packet
+SHA256a4a852df3464c243bc6d07cdb96d47cbea713288a7a81e4199fd1f7f5a5156f4.
+
+This local evidence update is unpublished to preserve the frozen release SHA.
+Prior pending-main/restore-WAITING sections are historical and superseded here.
+
+---
+
 # Latest V2 import failure and read-only forensics - 2026-10-07 JST
 
 Production deployment remains incomplete. User authorizes production recovery,

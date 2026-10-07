@@ -11,6 +11,14 @@ export const LATEST_V2_IMPORT_INCIDENT = Object.freeze({
   sourceDigest: '4c6c4ce836202c4b7a00954414bc1d37c02a5c2155068239c1efc624fb0a8ca5',
   runtimeFingerprint: 'f8cf8c7ff59df9fe29e246b9e3c9aad0fd155fa8df35bf671ac4d03fa2b5ab37',
 });
+export const FIXED_V2_IMPORT_INCIDENT_37536969564 = Object.freeze({
+  runId: '37536969564', sourceSha: 'a8fa0324bb609274cc07a5c4b079e7ee4633fd83',
+  repairId: 't21_v1_37536969564', guardVersion: 2,
+  sqlSha256: 'e5a58960baa4b8e1f4cae8be94985dd03cf4e9acf03c274b38fb310ce79f28c0',
+  rollbackSqlSha256: 'ba48a606a1694ec87a3af22fc01a640f0653344335ebd21bd260cdbefd4fdcee',
+  sourceDigest: '4c6c4ce836202c4b7a00954414bc1d37c02a5c2155068239c1efc624fb0a8ca5',
+  runtimeFingerprint: 'f8cf8c7ff59df9fe29e246b9e3c9aad0fd155fa8df35bf671ac4d03fa2b5ab37',
+});
 const RUN_ID = '37384670328';
 const PREFIX = `catalog_recovery_${ORIGINAL_IMPORT_REPAIR_ID}`;
 const SQL_HASH = 'f4b6a4d05abfaff9f50a73063edc577e4b4e3ece9ff0f3a84b911e2ae2b42797';
@@ -27,6 +35,7 @@ const literal = (value) => value === null ? 'NULL' : typeof value === 'number' ?
 const stopped = () => new Error('IMPORT_INSPECTION_SOURCE_REJECTED');
 const preflightStopped = () => new Error('RECOVERY_PREFLIGHT_SOURCE_REJECTED');
 const latestStopped = () => new Error('LATEST_IMPORT_INSPECTION_SOURCE_REJECTED');
+const fixed37536969564Stopped = () => new Error('FIXED_V2_IMPORT_37536969564_INSPECTION_SOURCE_REJECTED');
 const queryObservations = () => ({ successful: 0, failed: 0, primaryTrue: 0, primaryFalse: 0, primaryUnknown: 0 });
 const incidentIdentity = () => ({ runId: RUN_ID, repairId: ORIGINAL_IMPORT_REPAIR_ID, sqlSha256: SQL_HASH,
   sourceDigest: SOURCE_DIGEST, runtimeFingerprint: FINGERPRINT });
@@ -82,8 +91,12 @@ function approvedPlan(source, plan) {
 }
 
 function approvedLatestPlan(source, plan) {
+  return approvedFixedV2Plan(source, plan, LATEST_V2_IMPORT_INCIDENT, latestStopped);
+}
+
+function approvedFixedV2Plan(source, plan, incident, rejected) {
   try {
-    const incident = LATEST_V2_IMPORT_INCIDENT;
+    if (incident !== LATEST_V2_IMPORT_INCIDENT && incident !== FIXED_V2_IMPORT_INCIDENT_37536969564) throw rejected();
     const canonical = compileRecipeCatalogRecovery({ source, repairId: incident.repairId });
     if (source.sha !== incident.sourceSha || source.sourceDigest !== incident.sourceDigest
         || source.fingerprint !== incident.runtimeFingerprint
@@ -96,9 +109,9 @@ function approvedLatestPlan(source, plan) {
         || JSON.stringify(plan?.rollbackStatements) !== JSON.stringify(canonical.rollbackStatements)
         || JSON.stringify(plan?.archiveTables) !== JSON.stringify(canonical.archiveTables)
         || JSON.stringify(plan?.targetTables) !== JSON.stringify(canonical.targetTables)
-        || JSON.stringify(plan?.receipt) !== JSON.stringify(canonical.receipt)) throw latestStopped();
+        || JSON.stringify(plan?.receipt) !== JSON.stringify(canonical.receipt)) throw rejected();
     return canonical;
-  } catch { throw latestStopped(); }
+  } catch { throw rejected(); }
 }
 
 function approvedRecoveryPlan(source, plan) {
@@ -233,7 +246,19 @@ export async function inspectLatestCatalogImport({ source, plan, query }) {
     incident: LATEST_V2_IMPORT_INCIDENT, latest: true });
 }
 
-async function inspectApprovedCatalogImport({ source, approved, query, incident = incidentIdentity(), latest = false }) {
+/** Observes only the sealed bytes of run 37536969564, whose provider import outcome is unconfirmed. */
+export async function inspectFixedV2Import37536969564({ source, plan, query }) {
+  if (typeof query !== 'function') throw fixed37536969564Stopped();
+  const incident = FIXED_V2_IMPORT_INCIDENT_37536969564;
+  return inspectApprovedCatalogImport({ source,
+    approved: approvedFixedV2Plan(source, plan, incident, fixed37536969564Stopped), query, incident, latest: true,
+    appliedMarkerStatus: 'FIXED_V2_RECOVERY_37536969564_APPLIED_MARKER_OBSERVED',
+    rolledBackMarkerStatus: 'FIXED_V2_RECOVERY_37536969564_ROLLED_BACK_MARKER_OBSERVED' });
+}
+
+async function inspectApprovedCatalogImport({ source, approved, query, incident = incidentIdentity(), latest = false,
+  appliedMarkerStatus = 'LATEST_V2_RECOVERY_APPLIED_MARKER_OBSERVED',
+  rolledBackMarkerStatus = 'LATEST_V2_RECOVERY_ROLLED_BACK_MARKER_OBSERVED' }) {
   if (typeof query !== 'function') throw stopped();
   const prefix = `catalog_recovery_${incident.repairId}`;
   const guardCount = latest ? 26 : 25;
@@ -438,7 +463,7 @@ async function inspectApprovedCatalogImport({ source, approved, query, incident 
         const currentGuardsMatch = receipt.preMutationGuards.every((guard) => guard.result === 'MATCH'
           || (guard.label === 'bounded_observed_catalog' && guard.result === 'MISMATCH'));
         if (targetCountsMatch && archiveCountsMatch && currentGuardsMatch && !rollbackPresent) {
-          receipt.status = 'LATEST_V2_RECOVERY_APPLIED_MARKER_OBSERVED';
+          receipt.status = appliedMarkerStatus;
           receipt.blockers = receipt.blockers.filter((blocker) => blocker !== 'GUARD_BOUNDED_OBSERVED_CATALOG_MISMATCH');
         } else receipt.blockers.push('APPLIED_MARKER_CATALOG_COUNTS_UNPROVEN');
       }
@@ -454,7 +479,7 @@ async function inspectApprovedCatalogImport({ source, approved, query, incident 
             && receipt.rollbackGuard.approvedPassingRows === rollbackGuards.length
             && receipt.rollbackGuard.invalidRows === 0 && restoredCountsMatch
             && receipt.preMutationGuards.every((guard) => guard.result === 'MATCH')) {
-          receipt.status = 'LATEST_V2_RECOVERY_ROLLED_BACK_MARKER_OBSERVED';
+          receipt.status = rolledBackMarkerStatus;
         } else receipt.blockers.push('ROLLED_BACK_MARKER_CATALOG_COUNTS_UNPROVEN');
       }
     }

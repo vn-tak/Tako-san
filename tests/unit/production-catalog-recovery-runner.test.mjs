@@ -17,6 +17,7 @@ const fingerprint = 'f8cf8c7ff59df9fe29e246b9e3c9aad0fd155fa8df35bf671ac4d03fa2b
 const capacityBytes = 8 * 1024 * 1024;
 let source;
 let incidentSource;
+let fixedSource;
 let db;
 let files;
 let events;
@@ -34,6 +35,7 @@ const staticProof = { deployment: { versionId: '1a47f7f7-3d74-4801-b26a-b91f39c7
 beforeAll(async () => {
   source = await loadCertifiedRecoverySource({ sha });
   incidentSource = await loadCertifiedRecoverySource({ sha: '4092d4ca2dacee8bb01da484aae93592e9bd94da' });
+  fixedSource = await loadCertifiedRecoverySource({ sha: 'a8fa0324bb609274cc07a5c4b079e7ee4633fd83' });
 }, 30000);
 beforeEach(() => {
   db = new SqliteD1({ through: '0038_auth_onboarding_completion.sql' });
@@ -53,7 +55,7 @@ function options(extra = {}) {
   return {
     operation: 'restore-v1', env, cwd,
     authorize: async () => { events.push('authorize'); return { mainSha: sha }; },
-    loadSource: async ({ sha: requested }) => requested === incidentSource.sha ? incidentSource : source,
+    loadSource: async ({ sha: requested }) => requested === incidentSource.sha ? incidentSource : requested === fixedSource.sha ? fixedSource : source,
     diagnoseCredentials: async ({ databaseId }) => {
       expect(databaseId).toBe('f975ec39-b2c8-4a2a-80e1-0366054599d3');
       events.push('credential-diagnosis');
@@ -85,7 +87,10 @@ function options(extra = {}) {
         try { db.seed(readFileSync(path.join(files, path.basename(file)), 'utf8')); db.seed('COMMIT'); }
         catch (error) { db.seed('ROLLBACK'); throw error; }
         if (loseImportResponse && kind === 'import') throw new Error('response lost after commit');
-        return JSON.stringify([{ success: true, results: [] }]);
+        return JSON.stringify([{ success: true, finalBookmark: 'fixture-bookmark',
+          results: [{ 'Total queries executed': kind === 'import' ? 296 : 36, 'Rows read': 10000,
+            'Rows written': 10000, 'Database size (MB)': '8.39' }],
+          meta: { duration: 100, rows_read: 10000, rows_written: 10000, size_after: capacityBytes } }]);
       }
       const sql = args[args.indexOf('--command') + 1];
       sqlCommands.push(sql);
@@ -122,6 +127,8 @@ describe('bounded production recovery orchestration', () => {
     expect(events.slice(0, events.indexOf('pin')).filter((e) => e === 'ledger')).toHaveLength(1);
     expect(receipt.recoveryDecision).toBe('INTENTIONAL_NEW_GUARDED_RECOVERY_V2');
     expect(receipt.originalImportTerminalState).toBe('UNKNOWN_NO_CURSOR');
+    expect(receipt.fixedImport37536969564TerminalState).toBe('UNKNOWN_NO_CURSOR');
+    expect(receipt.fixedImport37536969564Inspection.inventory.objectCount).toBe(0);
     expect(receipt.plan).toMatchObject({ guardVersion: 2, purpose: 'RESTORE_V1' });
     expect(receipt.recoveryPreflight.status).toBe('GUARDED_PREFLIGHT_MATCH');
     expect(sqlCommands.some((sql) => /pragma_page_(?:count|size)/i.test(sql))).toBe(false);
@@ -271,6 +278,32 @@ describe('bounded production recovery orchestration', () => {
     expect(receipt.latestImportInspection.retryAuthorized).toBe(false);
     assertStoppedBeforeMutation();
   });
+  it('loads the third incident from immutable a8fa and saves two stable SELECT-only observations', async () => {
+    const seen = [];
+    const receipt = await run(inspectionOptions({
+      inspectFixedImport37536969564: async ({ source: actual, plan, query }) => {
+        expect(actual).toBe(fixedSource);
+        expect(plan.receipt).toMatchObject({ sourceSha: fixedSource.sha, repairId: 't21_v1_37536969564',
+          guardVersion: 2, sqlSha256: 'e5a58960baa4b8e1f4cae8be94985dd03cf4e9acf03c274b38fb310ce79f28c0' });
+        seen.push(actual.sha); query('SELECT 1 AS ok');
+        return { readOnly: true, mutations: 0, retryAuthorized: false, providerImportState: 'UNKNOWN_NO_CURSOR' };
+      },
+    }));
+    expect(seen).toEqual([fixedSource.sha, fixedSource.sha]);
+    expect(receipt.fixedImport37536969564SnapshotConsistency).toBe('OBSERVED_STABLE_NON_ATOMIC');
+    expect(receipt.fixedImport37536969564Inspection.retryAuthorized).toBe(false);
+    assertStoppedBeforeMutation();
+  });
+  it('persists the first third-incident capture and stops if the repeat changes', async () => {
+    let observed = 0;
+    await expect(run(inspectionOptions({ inspectFixedImport37536969564: async () => ({ observed: observed++ }) })))
+      .rejects.toThrow('RECOVERY_STOPPED');
+    const receipt = JSON.parse(readFileSync(path.join(files, 'catalog-recovery-receipt.json'), 'utf8'));
+    expect(receipt.fixedImport37536969564Inspection).toEqual({ observed: 0 });
+    expect(receipt.fixedImport37536969564SnapshotConsistency).toBeUndefined();
+    expect(receipt.releaseCertification).toBe('NOT_A_RELEASE_CERTIFICATION');
+    assertStoppedBeforeMutation();
+  });
   it('preserves unknown state and stops on changing latest incident observations', async () => {
     let observed = 0;
     await expect(run(inspectionOptions({ inspectLatestImport: async () => ({ observed: observed++ }) })))
@@ -374,6 +407,34 @@ describe('bounded production recovery orchestration', () => {
       .rejects.toThrow('RECOVERY_STOPPED');
     assertStoppedBeforeMutation();
   });
+  it.each([
+    ['objects', { inventory: { objectCount: 1 } }],
+    ['applied marker', { status: 'FIXED_V2_RECOVERY_37536969564_APPLIED_MARKER_OBSERVED' }],
+    ['rolled-back marker', { status: 'FIXED_V2_RECOVERY_37536969564_ROLLED_BACK_MARKER_OBSERVED' }],
+    ['primary unavailable', { providerBlockingEvidence: 'BLOCKING_STATE_UNKNOWN' }],
+    ['failed read', { queryObservations: { successful: 9, failed: 1, primaryTrue: 9, primaryFalse: 0, primaryUnknown: 0 } }],
+    ['non-primary read', { queryObservations: { successful: 9, failed: 0, primaryTrue: 8, primaryFalse: 1, primaryUnknown: 0 } }],
+    ['missing guard evidence', { preMutationGuards: [] }],
+    ['guard mismatch', { blockers: ['GUARD_BOUNDED_OBSERVED_CATALOG_MISMATCH'] }],
+  ])('blocks a new import before pin/bookmark when the third incident has %s', async (_label, change) => {
+    const { inspectFixedV2Import37536969564 } = await import('../../scripts/production-catalog-import-inspection.mjs');
+    await expect(run({ inspectFixedImport37536969564: async (args) => ({
+      ...await inspectFixedV2Import37536969564(args), ...change,
+    }) })).rejects.toThrow('RECOVERY_STOPPED');
+    assertStoppedBeforeMutation();
+  });
+  it('blocks new recovery when third-incident captures drift and retains unknown terminal state', async () => {
+    const { inspectFixedV2Import37536969564 } = await import('../../scripts/production-catalog-import-inspection.mjs');
+    let observed = 0;
+    await expect(run({ inspectFixedImport37536969564: async (args) => ({
+      ...await inspectFixedV2Import37536969564(args), observed: observed++,
+    }) })).rejects.toThrow('RECOVERY_STOPPED');
+    assertStoppedBeforeMutation();
+    const receipt = JSON.parse(readFileSync(path.join(files, 'catalog-recovery-receipt.json'), 'utf8'));
+    expect(receipt.phase).toBe('FIXED_IMPORT_37536969564_PREFLIGHT');
+    expect(receipt.recoveryDecision).toBeUndefined();
+    expect(receipt.fixedImport37536969564Inspection.retryAuthorized).toBe(false);
+  });
   it('stops new recovery on changing original observations', async () => {
     let observation = 0;
     await expect(run({ inspectImport: async (args) => ({ ...await inspectCatalogImport(args), observation: observation++ }) }))
@@ -465,6 +526,40 @@ describe('bounded production recovery orchestration', () => {
     expect(db.query('SELECT count(1) AS n FROM recipe_ingredients')[0].n).toBe(6720);
   });
 
+  it.each(['cached', 'uploaded'])('certifies a successful import despite pinned Wrangler %s progress on stdout', async (kind) => {
+    const execute = options().execute;
+    const receipt = await run({ execute: (cmd, args, settings) => {
+      const output = execute(cmd, args, settings);
+      const upload = kind === 'uploaded' ? '\u251c \u{1f300} Uploading fixture.sql\n\u2502 \u{1f300} Uploading complete.\n\u2502\n' : '';
+      return args.includes('--file') ? `\u251c Checking if file needs uploading\n\u2502\n${upload}${output}` : output;
+    } });
+    expect(receipt.status).toBe('V1_CATALOG_CERTIFIED_STATIC');
+    expect(receipt.importOutcome).toBe('PROVIDER_REPORTED_SUCCESS');
+    expect(events.filter((e) => e === 'import')).toHaveLength(1);
+    expect(events).not.toContain('rollback');
+  });
+  it('confirms guarded archive rollback with vendor progress after independent certification fails', async () => {
+    failPost = true;
+    const execute = options().execute;
+    await expect(run({ execute: (cmd, args, settings) => {
+      const output = execute(cmd, args, settings);
+      return args.includes('--file') ? `\u251c Checking if file needs uploading\n\u2502\n\u251c \u{1f300} Uploading fixture.sql\n\u2502 \u{1f300} Uploading complete.\n\u2502\n${output}` : output;
+    } })).rejects.toThrow('RECOVERY_STOPPED');
+    expect(events.filter((e) => e === 'import')).toHaveLength(1);
+    expect(events.filter((e) => e === 'rollback')).toHaveLength(1);
+    const receipt = JSON.parse(readFileSync(path.join(files, 'catalog-recovery-receipt.json'), 'utf8'));
+    expect(receipt.status).toBe('ROLLED_BACK_STATIC');
+    expect(receipt.rollback).toEqual({ status: 'ARCHIVED_CATALOG_RESTORED', staticRoutingRetained: true });
+    expect(db.query('SELECT count(1) AS n FROM recipe_ingredients')[0].n).toBe(6720);
+  });
+  it('keeps query stdout strict instead of applying the file-import parser to SELECTs', async () => {
+    const execute = options().execute;
+    await expect(run({ execute: (cmd, args, settings) => {
+      const output = execute(cmd, args, settings);
+      return args.includes('--command') ? `\u251c Checking if file needs uploading\n\u2502\n${output}` : output;
+    } })).rejects.toThrow('RECOVERY_STOPPED');
+    assertStoppedBeforeMutation();
+  });
   it.each(['malformed json', '[]', '[{"success":false}]'])
   ('does not claim success or rollback on an unproved file response: %s', async (response) => {
     const execute = options().execute;
@@ -476,6 +571,7 @@ describe('bounded production recovery orchestration', () => {
     const receipt = JSON.parse(readFileSync(path.join(files, 'catalog-recovery-receipt.json'), 'utf8'));
     expect(receipt.status).toBe('IMPORT_OUTCOME_UNKNOWN_STATIC_OPERATOR_INSPECTION_REQUIRED');
     expect(receipt.importOutcome).toBe('ATTEMPTED_COMPLETION_UNCONFIRMED');
+    expect(receipt.importFailure).toEqual({ category: 'OUTPUT_UNCONFIRMED', providerCodes: [] });
     expect(events).not.toContain('rollback');
   });
   it('keeps a timed-out import outcome unknown without inventing an exit status', async () => {

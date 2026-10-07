@@ -3,17 +3,19 @@ import { createHash } from 'node:crypto';
 import { mkdtempSync, mkdirSync, rmSync, writeFileSync } from 'node:fs';
 import { tmpdir } from 'node:os';
 import path from 'node:path';
-import { afterAll, beforeAll, describe, expect, it } from 'vitest';
+import { afterAll, afterEach, beforeAll, beforeEach, describe, expect, it } from 'vitest';
 import {
   APPROVED_BATCHES_REGISTRY,
   CATALOG_RELEASE_MANIFEST,
   PRODUCTION_D1,
   RUNTIME_CATALOG_READ_STATEMENT_COUNT,
+  RECIPE_MEDIA_OPERATIONAL_AGGREGATES,
   baselineQuery,
   catalogQuery,
   classifyPreLedger,
   expectedCatalogAtTip,
   parseWranglerJsonc,
+  loadRuntimeCatalogPipeline,
   runtimeCatalogQuery,
   runtimeCatalogQueries,
   validateMigrationCandidate,
@@ -27,9 +29,11 @@ import {
   verifyRuntimeCatalogContent,
   verifyPostLedger,
   verifyRecipeMediaSeed,
+  verifyRecipeMediaOperational,
 } from '../../scripts/d1-migration-check.mjs';
 import { readFileSync } from 'node:fs';
 import { prepareRecipeContentRead } from '../../packages/db/src/recipe-content';
+import { SqliteD1 } from '../helpers/sqlite-d1';
 
 const ok = (results) => [{ success: true, results }];
 const sha256 = (text) => createHash('sha256').update(text).digest('hex');
@@ -885,5 +889,205 @@ describe('pre-deploy runtime catalog content certification', () => {
         registryOnDisk,
       ),
     ).toThrow('does not match approved batch identity');
+  });
+});
+
+describe('operational recipe media at complete 0038 and 0039 catalogs', () => {
+  const release = JSON.parse(readFileSync(CATALOG_RELEASE_MANIFEST, 'utf8'));
+  const registry = JSON.parse(readFileSync(APPROVED_BATCHES_REGISTRY, 'utf8'));
+  const tips = ['0038_auth_onboarding_completion.sql', '0039_meal_composition_v2.sql'];
+  const firstId = release.orderedRecipeIds[0];
+  let db, cliDirectory;
+  const capture = () => catalogQuery().split(';').map((query) => db.execute(query));
+  const schema = () => ok(db.query("SELECT type, name, sql FROM sqlite_master WHERE tbl_name = 'recipe_media' ORDER BY type, name"));
+  const verify = (tip = tips[0], statements = capture()) => verifyCatalogAtTip(release, tip, statements, registry);
+  const operational = (catalog = capture(), objects = schema()) => verifyRecipeMediaOperational({ catalog, schema: objects, recipes: 500 });
+  const ready = (count = 500) => db.seed(`
+    UPDATE recipe_media SET status = 'ready', source_type = 'generated',
+      storage_key = 'recipes/' || recipe_id || '/hero/v1.webp', mime_type = 'image/webp',
+      width = 1200, height = 800, content_length = 42, content_hash = '${'a'.repeat(64)}'
+    WHERE recipe_id IN (SELECT recipe_id FROM recipe_runtime_fields WHERE runtime_order < ${count});
+  `);
+  const readyOne = (overrides = {}) => {
+    const values = {
+      status: 'ready', source_type: 'generated', storage_key: `recipes/${firstId}/hero/v1.webp`,
+      mime_type: 'image/webp', width: 1200, height: 800, content_length: 42, content_hash: 'a'.repeat(64),
+      ...overrides,
+    };
+    db.execute(`UPDATE recipe_media SET ${Object.keys(values).map((key) => `${key} = ?`).join(', ')} WHERE recipe_id = ?`, [...Object.values(values), firstId]);
+  };
+  const insertVersion = (role = 'hero', status = 'pending', version = 2, recipeId = firstId) => {
+    const filled = status === 'ready';
+    db.execute('INSERT INTO recipe_media (id, recipe_id, role, version, status, source_type, storage_key, mime_type, width, height, content_length, content_hash) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)', [
+      `${recipeId}_media_${role}_v${version}`, recipeId, role, version, status,
+      filled ? 'generated' : null, filled ? `recipes/${recipeId}/${role}/v${version}.webp` : null,
+      filled ? 'image/webp' : null, filled ? 1200 : null, filled ? 800 : null, filled ? 42 : null, filled ? 'a'.repeat(64) : null,
+    ]);
+  };
+  const cliVerify = (tip, includeCatalog = true) => {
+    const save = (name, value) => {
+      const file = path.join(cliDirectory, name);
+      writeFileSync(file, JSON.stringify(value));
+      return file;
+    };
+    const manifestFile = save('manifest.json', { preLedger: { chain: [] }, preBaseline: { recipes: 500 }, postLedger: { count: Number(tip.slice(0, 4)), tip } });
+    const evidence = [
+      save('baseline.json', ok([{ recipes: 500 }])), save('fk.json', ok([])), save('quick.json', ok([{ quick_check: 'ok' }])),
+      save('summary.json', ok(db.query("SELECT COUNT(*) AS total, SUM(role = 'hero') AS hero, SUM(role = 'thumbnail') AS thumbnail, SUM(status = 'pending') AS pending, SUM(status = 'ready') AS ready, SUM(status = 'rejected') AS rejected, SUM(status = 'superseded') AS superseded FROM recipe_media"))),
+      save('slots.json', ok([{ recipes_without_exact_hero_v1_pending: 500 }])), save('schema.json', schema()),
+      ...(includeCatalog ? [save('catalog.json', capture())] : []),
+    ];
+    execFileSync(process.execPath, ['scripts/d1-migration-check.mjs', 'verify', manifestFile, ...evidence], { stdio: ['ignore', 'pipe', 'pipe'] });
+    return JSON.parse(readFileSync(manifestFile, 'utf8'));
+  };
+  beforeAll(() => {
+    db = new SqliteD1({ through: tips[0] });
+    cliDirectory = mkdtempSync(path.join(tmpdir(), 'frigo-media-operational-cli-'));
+  });
+  beforeEach(() => db.seed('PRAGMA ignore_check_constraints = OFF; SAVEPOINT media_gate_control; PRAGMA defer_foreign_keys = ON;'));
+  afterEach(() => db.seed('ROLLBACK TO media_gate_control; RELEASE media_gate_control; PRAGMA defer_foreign_keys = OFF; PRAGMA ignore_check_constraints = OFF;'));
+  afterAll(() => { db.close(); rmSync(cliDirectory, { recursive: true }); });
+
+  it.each(tips)('accepts the historical pending seed at operational tip %s', (tip) => {
+    expect(verify(tip)).toMatchObject({ mediaReady: 0, recipeMedia: { policy: 'OPERATIONAL_READY_OR_PENDING', rows: 500, ready: 0, r2Availability: 'NOT_REVERIFIED' } });
+    expect(operational()).toMatchObject({ rows: 500, ready: 0, storageKeyContract: 'exact' });
+  });
+  it.each(tips)('accepts 500 ready heroes without changing metadata at %s', (tip) => {
+    ready();
+    const before = db.query('SELECT id, status, storage_key, content_hash FROM recipe_media ORDER BY id');
+    expect(verify(tip)).toMatchObject({ mediaReady: 500, recipeMedia: { rows: 500, ready: 500 } });
+    expect(operational()).toMatchObject({ ready: 500 });
+    expect(db.query('SELECT id, status, storage_key, content_hash FROM recipe_media ORDER BY id')).toEqual(before);
+  });
+  it('accepts a mixed ready and pending rollout', () => {
+    ready(250);
+    expect(verify()).toMatchObject({ mediaReady: 250, recipeMedia: { rows: 500, ready: 250 } });
+  });
+  it('accepts a pending successor alongside the current ready hero', () => {
+    ready(); insertVersion();
+    expect(verify()).toMatchObject({ recipeMedia: { rows: 501, ready: 500 } });
+  });
+  it('accepts a valid ready thumbnail while requiring each recipe hero', () => {
+    ready(); insertVersion('thumbnail', 'ready');
+    expect(verify()).toMatchObject({ recipeMedia: { rows: 501, ready: 501 } });
+  });
+  it.each([['image/webp', 'webp'], ['image/avif', 'avif'], ['image/jpeg', 'jpg'], ['image/png', 'png']])('accepts trusted %s metadata', (mime, extension) => {
+    readyOne({ mime_type: mime, storage_key: `recipes/${firstId}/hero/v1.${extension}`, content_length: 0 });
+    expect(verify()).toMatchObject({ mediaReady: 1 });
+  });
+  it('keeps 0037 pending-only rather than allowing media rollout at historical import tips', () => {
+    ready();
+    expect(() => verify('0037_recipe_catalog_scale.sql')).toThrow('media_ready=500');
+  });
+  it('does not extend operational policy to an unknown future tip', () => {
+    ready();
+    expect(() => verify('0040_future.sql')).toThrow('media_ready=500');
+  });
+  it('keeps catalog capture at exactly two read-only statements with 19 aggregate fields', () => {
+    const queries = catalogQuery().split(';');
+    expect(queries).toHaveLength(2);
+    expect(queries.every((query) => query.trim().startsWith('SELECT '))).toBe(true);
+    expect(Object.keys(capture()[0].results[0])).toHaveLength(19);
+  });
+  it('requires active hero coverage when a recipe has only rejected media', () => {
+    db.execute("UPDATE recipe_media SET status = 'rejected' WHERE recipe_id = ?", [firstId]);
+    expect(() => verify()).toThrow('recipes_without_active_hero=1');
+  });
+  it('rejects a missing hero even if a valid thumbnail exists', () => {
+    db.execute('DELETE FROM recipe_media WHERE recipe_id = ?', [firstId]);
+    insertVersion('thumbnail', 'ready');
+    expect(() => verify()).toThrow('recipes_without_active_hero=1');
+  });
+  it('rejects multiple pending heroes when no ready hero exists', () => {
+    insertVersion();
+    expect(() => verify()).toThrow('recipes_without_active_hero=1');
+  });
+  it.each(['hero', 'thumbnail'])('rejects duplicate current ready %s roles despite valid metadata', (role) => {
+    ready(); db.seed('DROP INDEX idx_recipe_media_current_ready;');
+    if (role === 'thumbnail') insertVersion(role, 'ready', 2);
+    insertVersion(role, 'ready', 3);
+    expect(capture()[0].results[0].media_duplicate_ready_roles).toBe(1);
+    expect(() => verify()).toThrow();
+  });
+  it('rejects orphan media rows even when all real recipes have valid heroes', () => {
+    insertVersion('hero', 'ready', 1, 'orphan-recipe');
+    expect(() => verify()).toThrow('media_orphan_rows=1');
+  });
+  it('loads the actual domain media mapper and validator through the runtime pipeline', async () => {
+    readyOne();
+    const pipeline = await loadRuntimeCatalogPipeline();
+    try {
+      const row = db.query('SELECT id, recipe_id, role, version, status, source_type, storage_key, mime_type, width, height, content_length, content_hash, source_reference, generator_provider, generator_model, prompt_hash, created_at, updated_at FROM recipe_media WHERE recipe_id = ?', firstId)[0];
+      const record = pipeline.mapRecipeMediaRow(row);
+      expect(record).not.toBeNull();
+      expect(pipeline.auditReadyRecipeMediaRecord(record)).toEqual([]);
+      expect(pipeline.isCanonicalRecipeIdShape(firstId)).toBe(true);
+      expect(pipeline.isCanonicalRecipeIdShape('good-id\0bad')).toBe(false);
+      expect(pipeline.isRecipeMediaMimeType('image/svg+xml')).toBe(false);
+      expect(pipeline.isSha256Hex(`${'a'.repeat(64)}\0`)).toBe(false);
+      expect(pipeline.isTrustedRecipeMediaStorageKey(record.storageKey, record.recipeId, record.role, record.version, record.mimeType)).toBe(true);
+      expect(pipeline.mapRecipeMediaRow({ ...row, version: 1000001 })).toBeNull();
+    } finally {
+      await pipeline.close();
+    }
+  });
+  it.each([
+    ['storage_key', null], ['mime_type', null], ['width', null], ['height', null], ['content_length', null], ['content_hash', null],
+    ['storage_key', `recipes/${firstId}/hero/v1.jpeg`], ['mime_type', 'image/svg+xml'], ['width', 0], ['height', -1], ['width', 1.5],
+    ['content_length', -1], ['content_length', 1.5], ['content_hash', 'A'.repeat(64)], ['content_hash', 'a'.repeat(63)], ['content_hash', 'g'.repeat(64)], ['content_hash', `${'a'.repeat(64)}\0`],
+  ])('rejects incomplete or malformed ready %s=%s using real SQL aggregates', (field, value) => {
+    db.seed('PRAGMA ignore_check_constraints = ON;');
+    readyOne({ [field]: value });
+    expect(capture()[0].results[0].media_invalid_ready_metadata).toBe(1);
+    expect(() => verify()).toThrow(/media_invalid_(ready_)?metadata=1/);
+  });
+  it.each([
+    ['id', ''], ['role', 'other'], ['status', 'unknown'], ['source_type', 'unknown'], ['source_type', new Uint8Array([1])],
+    ['version', 0], ['version', 1.5], ['version', 1000001], ['recipe_id', 'Bad-ID'], ['recipe_id', '-bad'], ['recipe_id', 'bad--id'], ['recipe_id', 'a'.repeat(65)], ['recipe_id', 'good-id\0bad'],
+    ['created_at', ''], ['updated_at', ''], ['prompt_hash', 'broken'], ['source_reference', ''], ['generator_provider', ''], ['generator_model', ''],
+  ])('rejects malformed common metadata %s=%s instead of coercing it', (field, value) => {
+    db.seed('PRAGMA ignore_check_constraints = ON;');
+    db.execute(`UPDATE recipe_media SET ${field} = ? WHERE recipe_id = ?`, [value, firstId]);
+    expect(capture()[0].results[0].media_invalid_metadata).toBe(1);
+    expect(() => verify()).toThrow();
+  });
+  it.each(RECIPE_MEDIA_OPERATIONAL_AGGREGATES)('rejects missing operational aggregate %s', (field) => {
+    const catalog = capture(); delete catalog[0].results[0][field];
+    expect(() => verify(tips[0], catalog)).toThrow(`aggregate ${field} is invalid`);
+  });
+  it.each([null, -1, 1.5, '0', Number.MAX_SAFE_INTEGER + 1])('rejects invalid aggregate type/value %s', (value) => {
+    const catalog = capture(); catalog[0].results[0].media_invalid_ready_metadata = value;
+    expect(() => verify(tips[0], catalog)).toThrow('aggregate media_invalid_ready_metadata is invalid');
+  });
+  it('rejects inconsistent total and ready counts', () => {
+    const catalog = capture(); catalog[0].results[0].media_ready = 501;
+    expect(() => verify(tips[0], catalog)).toThrow('totals are inconsistent');
+  });
+  it('rejects extra aggregate rows rather than selecting the first', () => {
+    const catalog = capture(); catalog[0].results.push({ ...catalog[0].results[0] });
+    expect(() => verify(tips[0], catalog)).toThrow('exactly one row');
+    expect(() => operational(catalog)).toThrow('two successful catalog results');
+  });
+  it.each(['recipe_media', 'idx_recipe_media_current_ready', 'idx_recipe_media_recipe_role_status', 'idx_recipe_media_content_hash', 'trg_recipe_media_ready_immutable_update'])('requires immutable schema definition for %s', (name) => {
+    const objects = schema(); objects[0].results.find((object) => object.name === name).sql += ' -- changed';
+    expect(() => operational(capture(), objects)).toThrow(`schema object ${name} differs`);
+  });
+  it('rejects a same-name nonunique ready index', () => {
+    db.seed("DROP INDEX idx_recipe_media_current_ready; CREATE INDEX idx_recipe_media_current_ready ON recipe_media(recipe_id, role) WHERE status = 'ready';");
+    expect(() => operational()).toThrow('schema object idx_recipe_media_current_ready differs');
+  });
+  it('rejects a same-name no-op immutability trigger', () => {
+    db.seed('DROP TRIGGER trg_recipe_media_ready_immutable_update; CREATE TRIGGER trg_recipe_media_ready_immutable_update BEFORE UPDATE ON recipe_media BEGIN SELECT 1; END;');
+    expect(() => operational()).toThrow('schema object trg_recipe_media_ready_immutable_update differs');
+  });
+  it.each(tips)('generic verify CLI accepts ready media at %s using mandatory catalog evidence', (tip) => {
+    ready();
+    expect(cliVerify(tip)).toMatchObject({ aggregateDrift: 'none', recipeMedia: { rows: 500, ready: 500, policy: 'OPERATIONAL_READY_OR_PENDING' } });
+  });
+  it('generic modern verify CLI fails closed without catalog evidence', () => {
+    ready(); expect(() => cliVerify(tips[1], false)).toThrow();
+  });
+  it('generic 0037 verify CLI retains the strict seed check', () => {
+    ready(); expect(() => cliVerify('0037_recipe_catalog_scale.sql')).toThrow();
   });
 });

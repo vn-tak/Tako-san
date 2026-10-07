@@ -4,6 +4,8 @@ import path from 'node:path';
 import { pathToFileURL } from 'node:url';
 
 const proofs = {
+  media: { input: 'media.sql', output: 'media.json', count: 1, start: /^SELECT\b/i },
+  'media-schema': { input: 'media-schema.sql', output: 'media-schema.json', count: 1, start: /^SELECT\b/i },
   schema: { input: 'schema-gate.sql', output: 'schema-proof.json', count: 1, start: /^WITH\b/i },
   catalog: { input: 'catalog.sql', output: 'catalog.json', count: 2, start: /^SELECT\b/i },
   'runtime-catalog': { input: 'runtime-catalog.sql', output: 'runtime-catalog.json', count: 5, start: /^SELECT\b/i },

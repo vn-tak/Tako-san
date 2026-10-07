@@ -4,11 +4,14 @@ import path from 'node:path';
 import { describe, expect, it } from 'vitest';
 import { runReadOnlyProof } from '../../scripts/d1-readonly-query.mjs';
 import { catalogQuery, loadRuntimeCatalogPipeline } from '../../scripts/d1-migration-check.mjs';
+import { recipeMediaQuery, recipeMediaSchemaQuery } from '../../scripts/production-media-preservation.mjs';
 import { renderSchemaGateCommand } from '../../scripts/d1-schema-gate.mjs';
 
 function fixture(name, sql, responses = []) {
   const inputs = {
     schema: ['schema-gate.sql', 'schema-proof.json'],
+    media: ['media.sql', 'media.json'],
+    'media-schema': ['media-schema.sql', 'media-schema.json'],
     catalog: ['catalog.sql', 'catalog.json'],
     'runtime-catalog': ['runtime-catalog.sql', 'runtime-catalog.json'],
   };
@@ -34,6 +37,8 @@ describe('read-only production D1 query proofs', () => {
     try {
       for (const [name, sql, count] of [
         ['schema', renderSchemaGateCommand(), 1],
+        ['media', recipeMediaQuery(), 1],
+        ['media-schema', recipeMediaSchemaQuery(), 1],
         ['catalog', catalogQuery(), 2],
         ['runtime-catalog', pipeline.queries.join(';\n'), 5],
       ]) {
@@ -59,6 +64,9 @@ describe('read-only production D1 query proofs', () => {
     ['schema', 'SELECT 1'],
     ['schema', 'WITH x AS (SELECT 1) DELETE FROM recipes'],
     ['schema', 'WITH x AS (SELECT 1) SELECT * FROM pragma_wal_checkpoint'],
+    ['media', 'SELECT 1; SELECT 2'],
+    ['media', 'DELETE FROM recipe_media'],
+    ['media-schema', 'SELECT 1; DROP TABLE recipe_media'],
     ['catalog', 'SELECT 1'],
     ['catalog', 'SELECT 1; DELETE FROM recipes'],
     ['runtime-catalog', Array(4).fill('SELECT 1').join(';')],

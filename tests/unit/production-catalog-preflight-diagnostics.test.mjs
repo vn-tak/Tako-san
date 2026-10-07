@@ -17,7 +17,9 @@ const aggregateKeys = [
   'recipes', 'duplicate_recipe_ids', 'duplicate_slugs', 'runtime_fields',
   'order_min', 'order_max', 'order_distinct', 'recipes_without_runtime_fields',
   'recipes_without_ingredients', 'recipes_without_steps', 'ingredients_without_order',
-  'media_ready', 'recipes_without_pending_hero',
+  'media_ready', 'recipes_without_pending_hero', 'media_total',
+  'recipes_without_active_hero', 'media_orphan_rows', 'media_duplicate_ready_roles',
+  'media_invalid_metadata', 'media_invalid_ready_metadata',
 ];
 const checkKeys = [
   'catalogCapture', 'runtimeCapture', 'ledger', 'catalogStable', 'runtimeStable', 'catalog', 'runtime',
@@ -99,6 +101,31 @@ describe('production catalog preflight diagnostics using the real 0038 catalog',
     expect(db.query('SELECT total_changes() AS count')[0].count).toBe(changesBefore);
     expect(db.query("SELECT name FROM sqlite_master WHERE name = 'generated_meal_plan_compositions'")).toEqual([]);
   });
+
+  it('accepts 500 already-ready heroes while keeping the receipt aggregate-only', async () => {
+    db.seed(`UPDATE recipe_media SET status = 'ready', storage_key = 'recipes/' || recipe_id || '/hero/v1.webp',
+      mime_type = 'image/webp', width = 1024, height = 768, content_length = 1234,
+      content_hash = '${'a'.repeat(64)}'`);
+    const receipt = await inspectProductionCatalogPreflight(await evidence());
+    expect(receipt.status).toBe('CATALOG_PREFLIGHT_DIAGNOSTIC_PASS');
+    expect(receipt.catalogAggregates).toMatchObject({ media_total: 500, media_ready: 500,
+      recipes_without_pending_hero: 500, recipes_without_active_hero: 0,
+      media_invalid_metadata: 0, media_invalid_ready_metadata: 0 });
+    expect(receipt.runtimeProof.runtimeFingerprint).toBe(fingerprint);
+    expect(JSON.stringify(receipt)).not.toMatch(/storage_key|image\/webp|content_hash/);
+  });
+
+  it.each(['media_total', 'recipes_without_active_hero', 'media_orphan_rows',
+    'media_duplicate_ready_roles', 'media_invalid_metadata', 'media_invalid_ready_metadata'])(
+    'rejects missing operational aggregate %s without fallback to the stale policy', async (key) => {
+      const captured = await evidence();
+      delete captured.catalogFirst[0].results[0][key];
+      delete captured.catalogRepeat[0].results[0][key];
+      const receipt = await inspectProductionCatalogPreflight(captured);
+      expectBlocked(receipt);
+      expect(receipt.catalogAggregates).toBeNull();
+      expect(receipt.reasons.catalog).toBe('MALFORMED_AGGREGATE_EVIDENCE');
+    });
 
   it('rejects a missing pending hero even though all recipes hydrate and the runtime fingerprint matches', async () => {
     db.seed('DELETE FROM recipe_media WHERE id = (SELECT id FROM recipe_media ORDER BY id LIMIT 1)');

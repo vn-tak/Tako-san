@@ -1,3 +1,178 @@
+# Post-media gate implementation and verification - 2026-10-08 JST
+
+**State:** Implementationdf2347caf414537c287e11defae0b87f8377cec7/tree
+7350e86740d246ace03ddb0bd86de522025d03d5 exactly matches independent reviewed
+complete tree. Draft PR58 is open. Production remains old healthy static136cb6ff;
+ledger38/0038 and recoveryAPPLIED. No production mutation/deploy/provider scan.
+
+**Changes:** Complete0038/0039 catalogs require19 safe aggregates, valid active
+hero coverage and actual domain metadata; historical pending-only gates remain.
+Generic verification and 0039 preflight validate immutable0035 schema definitions.
+The preflight privately reads all18media columns, validates actual rows through
+the real mapper/auditor and recomputes coverage/uniqueness. It binds the rowcount
+and full metadata/schema SHA256 before migration; post0039 must preserve them.
+Only aggregate counts/digests are uploaded. No runtime/config/applied migration,
+dependency/credential/Environment policy or protected payment/auth change.
+
+**Review:** Two independent reviews report no remaining concrete blocker after
+fixing stale aggregate acceptance of a newly invalid private row. Source review
+and actual CLI controls PASS. This proves persisted metadata and observed
+non-atomic preservation, not fresh R2 bytes. ADR042 records these limits.
+
+**Executed checks:** Node24 focused5files/98tests PASS40.23s; core migration114/114
+PASS4.60s and officialNode22.23.3 114/114PASS4.67s. Independent Node22 surrounding
+4files/97tests PASS38.42s plus24controls PASS. Lint, typecheck, migration smoke,
+actionlint1.7.12/four release workflows, syntax/diff checks PASS. Full Node24 suite
+with canonicalTMPDIR/CI=true/metricsfalse/maxWorkers2:254files PASS/1failed,
+6308tests PASS/1failed,356.58s. Its sole failure is the unchanged old reviewed
+SHA256 pin for d1-readonly-query.mjs; adding two reviewed fixed singleSELECT modes
+changes that fingerprint. Independent execution-path review confirms unchanged
+schema/catalog/runtime behavior and mutation guards. The pin is intentionally
+updated to reviewed9d43f62c25561423c6b4c00d611a262a82387dce724c6756274d1db9cfc4deb3;
+focused certification/query safety checks2files/68tests PASS6.45s after repin.
+No assertion or mutation guard is removed; full local PASS is not claimed.
+
+**Build:** An initial build run during active Vite loaders failed the existing
+service-worker token guard; retained log records that failure. After all test/CLI
+loaders exited, the exact same build command PASS serially without source changes.
+Concurrent output mutation is the observed limitation, not an application repair.
+
+**Evidence:** /private/tmp/takosan-post-media-final-independent-source-review.json;
+/private/tmp/takosan-catalog-preflight-diagnostic-audit-prep/media-surrounding-review/independent-controls.json;
+/private/tmp/takosan-post-media-full-test.log;
+/private/tmp/takosan-post-media-build-serial.log.
+
+**Next:** Complete repin safety checks, final documentation/tree review and
+final-head PR58 hosted CI. Merge normally only after green CI, prove reviewed/main
+tree equality and exact-main CI, freeze final source. Full final-source staging
+shadow/1/5/25/D1, guarded0039 and protected production certification precede
+T20=false production shadow, one synthetic scan and1/5/25/D1. Each production
+run requires normal independent Environment review. Production release incomplete.
+
+All preceding checkpoints below are historical.
+
+---
+
+# Post-media migration gate repair - 2026-10-08 JST
+
+**State:** Production release is incomplete. Normally approved read-only diagnostic
+37681758263 completed with an intentional catalog gate rejection. Independent
+actual artifact/API audit PASS: five ZIP digests and extracted bytes, exact main
+282e564faaa7c608fa5617f65bb48d453d8e2fcd, successful CI37680537546 and normal
+reviewer vn-taphoanhatung. The final main fence and sanitized uploads succeeded.
+No production mutation occurred. Ledger remains38/0038; recovery37536969564 is
+APPLIED and must not be replayed.
+
+**Confirmed cause:** Runtime PASS proves500 recipes,0 hydration failures and
+fingerprint f8cf8c7ff59df9fe29e246b9e3c9aad0fd155fa8df35bf671ac4d03fa2b5ab37.
+Catalog order0..499, IDs/slugs, provenance, ingredient/step/order coverage and
+repeat-capture stability PASS. The old gate rejects media_ready=500 and
+recipes_without_pending_hero=500 because it encodes the historical pre-media
+rollout condition. These counts do not yet prove per-recipe ready hero coverage,
+valid metadata or current R2 bytes. The earlier missing-pending hypothesis is
+superseded by this actual evidence; no ready media reset/delete is authorized.
+
+**Decision:** ADR-042 preserves historical pending-only seed/catchup gates and
+adds fail-closed operational media checks only for complete0038/0039 catalogs.
+Require active hero coverage, closed vocabulary/identity/version, exact ready
+key/MIME/dimensions/hash/length, no orphan or duplicate ready role. Guarded0039
+must preserve a private ordered full metadata capture by count/SHA256 across the
+additive migration. Receipts publish only aggregate counts/hashes. This is metadata
+and preservation proof, not a fresh R2 object-byte verification.
+
+**Staging:** Source282e shadow37681762795 and canary1%37682153382 SUCCESS,
+with protected500/fingerprint/schema39/T20=true, four ZIP digests/extracted bytes,
+six paired readiness/assets observations and public smoke PASS. Current staging
+Worker51d78f0a-cf93-4990-af98-d9719d556b23. Stages5/25/D1 were not executed;
+this partial packet does not certify the future patched source. No production
+operation/provider smoke followed. User-data retention certification is excluded.
+
+**Evidence:** /private/tmp/takosan-production-catalog-preflight-independent/takosan-production-receipts-catalog-preflight-37681758263/independent-audit.json;
+/private/tmp/takosan-catalog-preflight-staging-prep/partial-staging-receipt.json
+SHA2566b305423e9916821ad9aea7aa97675b94bd7a06b7e9d6abe0e31d099be3f2558.
+
+**Next:** Implement/review/test the bounded media policy repair on
+codex/post-media-migration-gate, normal PR/final-head CI/merge/exact-main CI,
+then certify actual production media before guarded0039. Certify final-source
+staging shadow/1/5/25/D1 and production schema/catalog before T20=false production
+shadow, one synthetic provider scan,1/5/25/D1. Every production run retains normal
+independent Environment review; no bypass or blind retry.
+
+All preceding checkpoints below are historical.
+
+---
+
+# Catalog preflight diagnostics merged - 2026-10-08 JST
+
+**State:** Production release remains incomplete. PR57 was merged normally at
+2026-10-07T20:14:43Z as282e564faaa7c608fa5617f65bb48d453d8e2fcd. Its parents are
+969d1d3735b85913c9b1dfe6ae4df2eba40e98b6 and reviewed head
+0745bfc3f8ceaf0ed4bc79e41fb0635a991058d4; merge/reviewed complete-tree equality
+9a8a01ecb9fe17339adab314e2743985d87c7e71 verified. Final-head CI37625628744
+SUCCESS:254files/6198tests247.54s, lint, typecheck, migration smoke and build.
+Exact-main CI37680537546 SUCCESS:254files/6198tests414.81s and all release gates.
+Current main282e and frozen release identity were rechecked before dispatch.
+Local full-suite failures remain documented in the preceding checkpoint; hosted
+full-suite success does not change that recorded local limitation.
+
+**Prior production diagnosis:** Normally approved37616546408 SUCCESS proves500
+physical/hydrated V1 recipes, zero hydration failures,2702matching ingredient/order
+rows and stable observed non-atomic snapshots at ledger38/0038. It does not prove
+live full runtime fingerprint, complete ordered IDs/slugs or pending hero/media
+invariants. Missing0039 in that diagnostic's baseline is expected and does not
+explain the preflight failure of migration37615237481. Recovery is alreadyAPPLIED;
+no replay, blind migration retry or rollback followed.
+
+**Implementation:** Reviewed3d043ec9156841b7f6b0e5b3a7068670b40c932d adds sanitized
+read-only preflight diagnostics with unchanged catalog/runtime verifiers, complete
+38-prefix ledger fencing, repeated successful snapshots and fixed error enums.
+Failed queries cannot reuse stale JSON. Only safe aggregates/counts/hashes are
+published. The final main fence executes after rejected diagnosis. Runtime,
+config, migrations, credentials, dependencies and Environment policy are unchanged.
+
+**Local investigation:** The exact historical recovery plan was recompiled from
+a8fa0324bb609274cc07a5c4b079e7ee4633fd83 with original SQL SHA
+e5a58960baa4b8e1f4cae8be94985dd03cf4e9acf03c274b38fb310ce79f28c0.
+Four local controls PASS: recovery preserves recipe_media, so missing/duplicate
+pending heroes can survive an APPLIED V1 catalog with500hydrated recipes and exact
+runtime fingerprint while verifyCatalogAtTip rejects it. Runtime order is restored
+from1000..1499 to0..499 by the same plan. This is a source/local hypothesis only;
+live media state still requires the new protected read-only diagnostic.
+
+**Preparation:** Fresh local-only pinned282e catalog source proof PASS:769source
+files,500canonical recipes, expected fingerprint and ordered-ID/detail hashes;
+production/public requests0. A separate five-stage staging packet is prepared with
+previous969d/d1/0/Workerb7b0, preserving all old evidence. Independent previous
+staging paired readiness/service-worker proof PASS3observations at20:17:44Z.
+Staging shadow37681762795 dispatched once with T20=true/shadow0/rollback=true
+from969dD1; source release gateSUCCESS, stagingin_progress, productionSKIPPED.
+Remaining1/5/25/D1 stages require each prior stage complete proof.
+
+**Production:** Readiness at2026-10-07T20:18:48.830Z remains healthy old136cb6ff /
+static/0%/cutoverfalse, configOK/databaseOK. No new provider smoke submitted.
+User-data retention certification remains excluded by operator instruction.
+
+**Evidence:** /private/tmp/takosan-catalog-preflight-production-prep/pr57-merge-proof.json;
+/private/tmp/takosan-catalog-preflight-local-source-root.json;
+/private/tmp/takosan-recovery-catalog-compatibility-audit.json;
+/private/tmp/takosan-catalog-preflight-staging-prep/preparation-receipt.json.
+
+**Protected diagnostic:** Run37681758263 dispatched once at2026-10-07T20:24:30Z
+for frozen282e/mainCI37680537546. GateSUCCESS; diagnoseWAITING. GitHub API
+current_user_can_approve=false, required reviewervn-taphoanhatung. Normal review
+requested; no bypass or Environment setting change. New helper can intentionally
+mark the runFAILED while publishing a sanitized rejected catalog/runtime receipt;
+that is evidence to interpret, not permission to retry migration.
+
+**Next:** Obtain required independent vn-taphoanhatung approval for37681758263. Audit its complete catalog/runtime receipts
+before selecting a bounded repair or retry. Complete same-source staging proof,
+guarded0039 and protected certification before productionT20=false shadow, one
+synthetic provider smoke,1/5/25/D1. Each production run retains normal review.
+
+All preceding checkpoints below are historical.
+
+---
+
 # Catalog preflight diagnostic implementation - 2026-10-07 JST
 
 **State:** Production release remains incomplete. Production diagnostic

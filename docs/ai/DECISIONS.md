@@ -1,5 +1,47 @@
 # Architecture Decisions
 
+## ADR-042 - Operational media gates after the catalog media rollout
+
+**Status:** Accepted for bounded implementation and independent review 2026-10-08.
+Normal PR/current-main CI and independent production Environment approval still
+control remote execution. No real users exist; user-data retention certification
+remains excluded by the operator's instruction.
+
+**Context:** Normally approved diagnostic37681758263 proves a complete V1 runtime
+catalog at0038,500ready media records, and rejection solely by the historical
+media_ready=0/exactly-one-pending-hero catalog gate. Generic migration verification
+also unconditionally calls the seed gate. T15A explicitly marked this gate as a
+future compatibility issue. A global ready count does not prove hero coverage or
+metadata integrity; ready data must not be demoted/deleted to satisfy the old gate.
+
+**Decision:** Preserve the immutable0035 seed and historical0034-0037/catchup
+certification. For complete reviewed catalogs at exact0038/0039, require each
+recipe to own exactly one ready hero, or exactly one pending hero when no ready
+hero exists. A pending successor may coexist with its ready predecessor. Require
+no orphan media, no duplicate ready(recipe,role), valid metadata identities,
+closed role/status/source vocabularies and integer versions1..1000000. Ready
+metadata must match the existing domain storage-key/MIME/dimension/hash/length
+policy. Missing, NULL or malformed aggregate evidence fails closed. Validate the
+existing media schema/index/immutable trigger as well as actual data.
+
+Before0039, capture every existing media metadata column in deterministic order
+in private runner-local JSON and bind its rowcount to the catalog aggregate.
+After0039, require the same count and canonical SHA256 plus successful current
+metadata/schema certification. Upload only counts/hashes, never raw rows, storage
+keys, generator references or exception messages. Keep existing bookmark, ledger,
+main/CI and separate Worker deployment gates. No ready media write is introduced.
+
+**Compatibility and limits:**0039 is additive and must preserve media. Recipe
+runtime authority/fingerprint excludes media and remains unchanged. Existing
+ready semantics rely on byte verification at promotion; this gate certifies
+persisted metadata and observed before/after preservation. It does not freshly
+verify R2 existence or bytes, prove transactionally atomic cross-query snapshots,
+or supersede the separate media-serving/promotion boundaries. Historical seed
+checks, applied migrations, runtime/config/dependencies, credentials, payments,
+auth and Environment review policy remain unchanged. A failed preservation check
+stops rollout; it does not authorize an automatic database restore.
+
+
 ## ADR-041 - Bounded V1 catalog source replacement before production release
 **Status:** Proposed 2026-10-05 for independent implementation review. A credential-free main-push echo job registers the workflow; the production
 gate explicitly requires manual dispatch. Remote execution

@@ -18,7 +18,9 @@ const AGGREGATES = [
   'recipes', 'duplicate_recipe_ids', 'duplicate_slugs', 'runtime_fields',
   'order_min', 'order_max', 'order_distinct', 'recipes_without_runtime_fields',
   'recipes_without_ingredients', 'recipes_without_steps', 'ingredients_without_order',
-  'media_ready', 'recipes_without_pending_hero',
+  'media_ready', 'recipes_without_pending_hero', 'media_total',
+  'recipes_without_active_hero', 'media_orphan_rows', 'media_duplicate_ready_roles',
+  'media_invalid_metadata', 'media_invalid_ready_metadata',
 ];
 const readJson = (file) => JSON.parse(readFileSync(file, 'utf8'));
 const capturedJson = (file) => {

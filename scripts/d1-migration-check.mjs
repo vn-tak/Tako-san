@@ -10,6 +10,13 @@ import { migrationManifest, requireSuccessfulCi } from './release-check.mjs';
 export const PRODUCTION_D1 = { name: 'frigo-db', id: 'f975ec39-b2c8-4a2a-80e1-0366054599d3' };
 export const PRODUCTION_WRANGLER_CONFIG = 'wrangler.jsonc';
 export const RUNTIME_CATALOG_READ_STATEMENT_COUNT = 5;
+export const RECIPE_MEDIA_OPERATIONAL_AGGREGATES = [
+  'media_total', 'media_ready', 'recipes_without_active_hero', 'media_orphan_rows',
+  'media_duplicate_ready_roles', 'media_invalid_metadata', 'media_invalid_ready_metadata',
+];
+const POST_MEDIA_TIPS = new Set([
+  '0038_auth_onboarding_completion.sql', '0039_meal_composition_v2.sql',
+]);
 const SHA = /^[a-f0-9]{40}$/;
 const SHA256 = /^[a-f0-9]{64}$/;
 const MIGRATION_NAME = /^\d{4}_[A-Za-z0-9_-]+\.sql$/;
@@ -156,6 +163,25 @@ export function baselineQuery() {
 // Catalog identity is global, non-customer data. Exact IDs/order and slug uniqueness are certified
 // alongside aggregate completeness; recipe prose and household data are never selected.
 export function catalogQuery() {
+  const validHash = (field) => `typeof(${field}) = 'text' AND length(${field}) = 64 AND instr(${field}, char(0)) = 0 AND ${field} NOT GLOB '*[^0-9a-f]*'`;
+  const validKey = `typeof(storage_key) = 'text' AND storage_key = 'recipes/' || recipe_id || '/' || role || '/v' || version || CASE mime_type WHEN 'image/webp' THEN '.webp' WHEN 'image/avif' THEN '.avif' WHEN 'image/jpeg' THEN '.jpg' WHEN 'image/png' THEN '.png' END`;
+  const validMetadata = [
+    "typeof(id) = 'text' AND length(id) > 0",
+    "typeof(recipe_id) = 'text' AND length(recipe_id) BETWEEN 1 AND 64 AND instr(recipe_id, char(0)) = 0 AND recipe_id NOT GLOB '*[^a-z0-9-]*' AND substr(recipe_id, 1, 1) <> '-' AND substr(recipe_id, -1) <> '-' AND instr(recipe_id, '--') = 0",
+    "typeof(role) = 'text' AND role IN ('hero', 'thumbnail')",
+    "typeof(status) = 'text' AND status IN ('pending', 'ready', 'rejected', 'superseded')",
+    "typeof(version) = 'integer' AND version BETWEEN 1 AND 1000000",
+    "(source_type IS NULL OR (typeof(source_type) = 'text' AND source_type IN ('legacy_static', 'legacy_external', 'generated', 'uploaded', 'derived')))",
+    "(mime_type IS NULL OR (typeof(mime_type) = 'text' AND mime_type IN ('image/webp', 'image/avif', 'image/jpeg', 'image/png')))",
+    `(storage_key IS NULL OR (${validKey}))`,
+    ...['width', 'height'].map((field) => `(${field} IS NULL OR (typeof(${field}) = 'integer' AND ${field} > 0))`),
+    "(content_length IS NULL OR (typeof(content_length) = 'integer' AND content_length >= 0))",
+    `(content_hash IS NULL OR (${validHash('content_hash')}))`,
+    `(prompt_hash IS NULL OR (${validHash('prompt_hash')}))`,
+    ...['source_reference', 'generator_provider', 'generator_model'].map((field) => `(${field} IS NULL OR (typeof(${field}) = 'text' AND length(${field}) > 0))`),
+    ...['created_at', 'updated_at'].map((field) => `typeof(${field}) = 'text' AND length(${field}) > 0`),
+  ].join(' AND ');
+  const validReady = `${validMetadata} AND ${validKey} AND typeof(width) = 'integer' AND width > 0 AND typeof(height) = 'integer' AND height > 0 AND typeof(content_length) = 'integer' AND content_length >= 0 AND ${validHash('content_hash')}`;
   const aggregate = [
     '(SELECT COUNT(*) FROM recipes) AS recipes',
     '(SELECT COUNT(*) - COUNT(DISTINCT id) FROM recipes) AS duplicate_recipe_ids',
@@ -168,7 +194,14 @@ export function catalogQuery() {
     '(SELECT COUNT(*) FROM recipes r WHERE NOT EXISTS (SELECT 1 FROM recipe_ingredients i WHERE i.recipe_id = r.id)) AS recipes_without_ingredients',
     '(SELECT COUNT(*) FROM recipes r WHERE NOT EXISTS (SELECT 1 FROM recipe_steps s WHERE s.recipe_id = r.id)) AS recipes_without_steps',
     '(SELECT COUNT(*) FROM recipe_ingredients i WHERE NOT EXISTS (SELECT 1 FROM recipe_runtime_ingredient_order o WHERE o.recipe_ingredient_id = i.id)) AS ingredients_without_order',
+    '(SELECT COUNT(*) FROM recipe_media) AS media_total',
     "(SELECT COUNT(*) FROM recipe_media WHERE status = 'ready') AS media_ready",
+    "(SELECT COUNT(*) FROM recipes r WHERE NOT ((SELECT COUNT(*) FROM recipe_media m WHERE m.recipe_id = r.id AND m.role = 'hero' AND m.status = 'ready') = 1 OR ((SELECT COUNT(*) FROM recipe_media m WHERE m.recipe_id = r.id AND m.role = 'hero' AND m.status = 'ready') = 0 AND (SELECT COUNT(*) FROM recipe_media m WHERE m.recipe_id = r.id AND m.role = 'hero' AND m.status = 'pending') = 1))) AS recipes_without_active_hero",
+    '(SELECT COUNT(*) FROM recipe_media m WHERE NOT EXISTS (SELECT 1 FROM recipes r WHERE r.id = m.recipe_id)) AS media_orphan_rows',
+    "(SELECT COUNT(*) FROM (SELECT recipe_id, role FROM recipe_media WHERE status = 'ready' GROUP BY recipe_id, role HAVING COUNT(*) > 1)) AS media_duplicate_ready_roles",
+    // COALESCE makes incomplete metadata a rejection instead of allowing SQL NULL to hide it.
+    `(SELECT COUNT(*) FROM recipe_media WHERE NOT COALESCE((${validMetadata}), 0)) AS media_invalid_metadata`,
+    `(SELECT COUNT(*) FROM recipe_media WHERE status = 'ready' AND NOT COALESCE((${validReady}), 0)) AS media_invalid_ready_metadata`,
     "(SELECT COUNT(*) FROM recipes r WHERE (SELECT COUNT(*) FROM recipe_media m WHERE m.recipe_id = r.id AND m.role = 'hero' AND m.status = 'pending') <> 1) AS recipes_without_pending_hero",
   ]
     .join(', ')
@@ -378,7 +411,10 @@ export function verifyCatalogAtTip(release, tip, statements, registry) {
   }
   const row = statements[0].results[0];
   const identities = statements[1].results;
-  if (!row || typeof row !== 'object') throw new Error('Catalog aggregate result is missing');
+  if (!row || typeof row !== 'object' || Array.isArray(row) || statements[0].results.length !== 1)
+    throw new Error('Catalog aggregate result must be exactly one row');
+  const postMedia = expected.releaseComplete && POST_MEDIA_TIPS.has(tip);
+  const recipeMedia = postMedia ? verifyRecipeMediaOperationalCounts(row, expected.recipes) : null;
   const problems = [];
   if (row.recipes !== expected.recipes)
     problems.push(`recipes ${row.recipes} != ${expected.recipes}`);
@@ -401,13 +437,13 @@ export function verifyCatalogAtTip(release, tip, statements, registry) {
     'recipes_without_ingredients',
     'recipes_without_steps',
     'ingredients_without_order',
-    'recipes_without_pending_hero',
+    ...(!postMedia ? ['recipes_without_pending_hero'] : []),
   ]) {
     if (row[key] !== 0) problems.push(`${key}=${row[key]}`);
   }
-  // T15A pre-media-rollout condition: population is a separate task, so a catalog migration must
-  // never mark media ready. Revisit this invariant before any migration that follows media rollout.
-  if (row.media_ready !== 0) problems.push(`media_ready=${row.media_ready}`);
+  // Historical catalog-import tips certify the untouched pending-only seed. Operational tips
+  // 0038/0039 preserve media rollout and separately validate active heroes and ready metadata.
+  if (!postMedia && row.media_ready !== 0) problems.push(`media_ready=${row.media_ready}`);
 
   const expectedIds = release.orderedRecipeIds?.slice(0, expected.recipes);
   if (
@@ -451,7 +487,8 @@ export function verifyCatalogAtTip(release, tip, statements, registry) {
     expectedRuntimeFingerprint: expected.releaseComplete
       ? release.expectedRuntimeFingerprint
       : null,
-    mediaReady: 0,
+    mediaReady: row.media_ready,
+    ...(recipeMedia ? { recipeMedia } : {}),
     checkedAt: new Date().toISOString(),
   };
 }
@@ -499,12 +536,20 @@ export async function loadRuntimeCatalogPipeline({ cwd = process.cwd() } = {}) {
     const dbReader = await vite.ssrLoadModule('/packages/db/src/recipe-content.ts');
     const hydration = await vite.ssrLoadModule('/packages/recipes/src/runtime-hydration.ts');
     const fingerprint = await vite.ssrLoadModule('/packages/recipes/src/catalog-fingerprint.ts');
+    const mediaDbReader = await vite.ssrLoadModule('/packages/db/src/recipe-media.ts');
+    const mediaDomain = await vite.ssrLoadModule('/packages/recipes/src/recipe-media.ts');
     const queries = runtimeCatalogQueries(dbReader.prepareRecipeContentRead);
     return {
       queries,
       mapRecipeContentRead: dbReader.mapRecipeContentRead,
       hydrateRuntimeRecipes: hydration.hydrateRuntimeRecipes,
       fingerprintRecipes: fingerprint.fingerprintRecipes,
+      mapRecipeMediaRow: mediaDbReader.mapRecipeMediaRow,
+      auditReadyRecipeMediaRecord: mediaDomain.auditReadyRecipeMediaRecord,
+      isCanonicalRecipeIdShape: mediaDomain.isCanonicalRecipeIdShape,
+      isRecipeMediaMimeType: mediaDomain.isRecipeMediaMimeType,
+      isSha256Hex: mediaDomain.isSha256Hex,
+      isTrustedRecipeMediaStorageKey: mediaDomain.isTrustedRecipeMediaStorageKey,
       close: () => vite.close(),
     };
   } catch (error) {
@@ -811,6 +856,50 @@ export function verifyHealth({ foreignKeys, quickCheck }) {
   return { foreignKeyCheck: '[]', quickCheck: 'ok' };
 }
 
+function verifyRecipeMediaOperationalCounts(row, recipes) {
+  if (!Number.isSafeInteger(recipes) || recipes < 1 || row.recipes !== recipes)
+    throw new Error('Operational recipe_media recipe count is invalid');
+  for (const key of RECIPE_MEDIA_OPERATIONAL_AGGREGATES) {
+    if (!Number.isSafeInteger(row[key]) || row[key] < 0)
+      throw new Error(`Operational recipe_media aggregate ${key} is invalid`);
+    if (!['media_total', 'media_ready'].includes(key) && row[key] !== 0)
+      throw new Error(`Operational recipe_media ${key}=${row[key]}`);
+  }
+  if (row.media_total < recipes || row.media_ready > row.media_total)
+    throw new Error('Operational recipe_media totals are inconsistent');
+  return {
+    policy: 'OPERATIONAL_READY_OR_PENDING', rows: row.media_total, ready: row.media_ready,
+    recipesWithoutActiveHero: 0, orphanRows: 0, duplicateReadyRoles: 0,
+    invalidMetadata: 0, invalidReadyMetadata: 0, storageKeyContract: 'exact',
+    r2Availability: 'NOT_REVERIFIED',
+  };
+}
+
+export function verifyRecipeMediaOperational({ catalog, schema, recipes }) {
+  if (!Array.isArray(catalog) || catalog.length !== 2 ||
+      catalog.some((statement) => statement?.success !== true || !Array.isArray(statement.results)) ||
+      catalog[0].results.length !== 1) {
+    throw new Error('Operational recipe_media requires two successful catalog results');
+  }
+  const counts = verifyRecipeMediaOperationalCounts(catalog[0].results[0], recipes);
+  const objects = singleResult(schema, 'recipe_media schema');
+  const source = readFileSync('migrations/0035_recipe_media_layer.sql', 'utf8');
+  const definitions = [
+    ['table', 'recipe_media', source.match(/CREATE TABLE IF NOT EXISTS recipe_media \([\s\S]*?\n\);/)?.[0]],
+    ...['idx_recipe_media_current_ready', 'idx_recipe_media_recipe_role_status', 'idx_recipe_media_content_hash'].map((name) =>
+      ['index', name, source.split('\n').find((line) => line.startsWith('CREATE ') && line.includes(` ${name} `))]),
+    ['trigger', 'trg_recipe_media_ready_immutable_update', source.match(/CREATE TRIGGER IF NOT EXISTS trg_recipe_media_ready_immutable_update[\s\S]*?\nEND;/)?.[0]],
+  ];
+  const normalize = (sql) => typeof sql === 'string'
+    ? sql.replace(/ IF NOT EXISTS /g, ' ').replace(/;\s*$/, '').replace(/\s+/g, ' ').trim() : null;
+  for (const [type, name, expectedSql] of definitions) {
+    const matches = objects.filter((object) => object?.type === type && object.name === name);
+    if (matches.length !== 1 || !expectedSql || normalize(matches[0].sql) !== normalize(expectedSql))
+      throw new Error(`Operational recipe_media schema object ${name} differs from immutable 0035`);
+  }
+  return { ...counts, schemaObjects: objects.map((object) => object.name).sort() };
+}
+
 // 0035 seeds exactly one pending hero v1 slot per recipe and nothing ready.
 export function verifyRecipeMediaSeed({ summary, slots, schema, recipes }) {
   const row = singleResult(summary, 'recipe_media summary')[0];
@@ -950,7 +1039,7 @@ async function main() {
   } else if (command === 'post-ledger') {
     manifest.postLedger = verifyPostLedger(manifest, readJson(args[0]));
   } else if (command === 'verify') {
-    const [postBaseline, foreignKeys, quickCheck, mediaSummary, mediaSlots, mediaSchema] =
+    const [postBaseline, foreignKeys, quickCheck, mediaSummary, mediaSlots, mediaSchema, mediaCatalog] =
       args.map(readJson);
     const registry = JSON.parse(readFileSync(APPROVED_BATCHES_REGISTRY, 'utf8'));
     const growthMigrations = new Set(registry.batches.map((batch) => batch.migration));
@@ -966,8 +1055,15 @@ async function main() {
     manifest.aggregateDrift = preserved.drift;
     manifest.catalogGrowthTables = preserved.catalogGrowth;
     manifest.health = verifyHealth({ foreignKeys, quickCheck });
-    // recipe_media exists from 0035 on; every recipe (legacy or imported) owns exactly one pending hero slot.
-    if (manifest.postLedger.tip >= '0035_recipe_media_layer.sql') {
+    if (POST_MEDIA_TIPS.has(manifest.postLedger.tip)) {
+      const release = readJson(CATALOG_RELEASE_MANIFEST);
+      const expected = expectedCatalogAtTip(release, manifest.postLedger.tip, registry);
+      if (!expected.releaseComplete || manifest.postBaseline.recipes !== expected.recipes)
+        throw new Error('Operational recipe_media requires the complete reviewed catalog');
+      manifest.recipeMedia = verifyRecipeMediaOperational({
+        catalog: mediaCatalog, schema: mediaSchema, recipes: expected.recipes,
+      });
+    } else if (manifest.postLedger.tip >= '0035_recipe_media_layer.sql') {
       manifest.recipeMedia = verifyRecipeMediaSeed({
         summary: mediaSummary,
         slots: mediaSlots,

@@ -1,5 +1,6 @@
 import { readFileSync, writeFileSync } from 'node:fs';
 import { pathToFileURL } from 'node:url';
+import { captureRecipeMedia } from './production-media-preservation.mjs';
 import {
   APPROVED_BATCHES_REGISTRY,
   CATALOG_RELEASE_MANIFEST,
@@ -21,6 +22,8 @@ export async function verifyProductionMigrationPreflight({
   ledger,
   catalog,
   runtimeCatalog,
+  media,
+  mediaSchema,
   pipeline,
   release = readJson(CATALOG_RELEASE_MANIFEST),
   registry = readJson(APPROVED_BATCHES_REGISTRY),
@@ -38,6 +41,7 @@ export async function verifyProductionMigrationPreflight({
     throw new Error('Production migration ledger changed during catalog preflight');
   }
   const catalogProof = verifyCatalogAtTip(release, currentLedger.tip, catalog, registry);
+  const mediaCapture = captureRecipeMedia({ catalog, media, schema: mediaSchema, pipeline });
   const runtimeProof = await verifyRuntimeCatalogContent({
     release, registry, tip: currentLedger.tip, statements: runtimeCatalog, pipeline,
   });
@@ -52,13 +56,15 @@ export async function verifyProductionMigrationPreflight({
     recipeCount: runtimeProof.actualRecipes,
     hydrationFailureCount: runtimeProof.hydrationFailureCount,
     runtimeFingerprint: runtimeProof.runtimeFingerprint,
+    recipeMedia: catalogProof.recipeMedia,
+    mediaCapture,
     checkedAt: runtimeProof.checkedAt,
   };
 }
 
 async function main() {
-  const [manifestFile, ledgerFile, catalogFile, runtimeFile] = process.argv.slice(2);
-  if (process.argv.length !== 6) throw new Error('Expected manifest, current ledger, catalog and runtime catalog');
+  const [manifestFile, ledgerFile, catalogFile, runtimeFile, mediaFile, mediaSchemaFile] = process.argv.slice(2);
+  if (process.argv.length !== 8) throw new Error('Expected manifest, ledger, catalog, runtime catalog, media and media schema');
   const manifest = readJson(manifestFile);
   const pipeline = await loadRuntimeCatalogPipeline();
   try {
@@ -67,8 +73,11 @@ async function main() {
       ledger: readJson(ledgerFile),
       catalog: readJson(catalogFile),
       runtimeCatalog: readJson(runtimeFile),
+      media: readJson(mediaFile),
+      mediaSchema: readJson(mediaSchemaFile),
       pipeline,
     });
+    manifest.preMigrationMedia = manifest.preMigrationCatalog.mediaCapture;
     writeFileSync(manifestFile, `${JSON.stringify(manifest, null, 2)}\n`);
     console.log(`Production catalog verified before 0039: ${manifest.preMigrationCatalog.recipeCount} recipes`);
   } finally {

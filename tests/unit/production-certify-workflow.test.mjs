@@ -28,7 +28,8 @@ const reviewedCommands = {
   'certify: Recheck exact main and finalize sanitized certification receipt': '238204516ee89aa6389b3241d476c7c6293ee9903a89796439f6311d5efc131b',
 };
 const reviewedSchemaGate = {
-  'scripts/d1-readonly-query.mjs': '3567c70842edaca5deae7828454548983fd6fff6aae05ae1becf271bee2888c2',
+  // Reviewed addition: media and media-schema use the same guarded single-SELECT path.
+  'scripts/d1-readonly-query.mjs': '9d43f62c25561423c6b4c00d611a262a82387dce724c6756274d1db9cfc4deb3',
   'scripts/d1-schema-gate.sh': 'e48596c6001f7fc20bb0d03213553f0bfe7575585bc02144d432f0a11cccb625',
   'scripts/d1-schema-gate.mjs': 'e443766807873c458581c82049cef1b0967dff2493b61804e1ae7f6bb6e7128a',
   'scripts/d1-schema-gate.sql': 'c6d7da1c5f5cb9b16e7738242723cf571cbf426f8aeb7c68ba01e37b2ba2888c',

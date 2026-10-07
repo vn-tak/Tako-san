@@ -3,6 +3,9 @@ import { readFileSync } from 'node:fs';
 import { createRequire } from 'node:module';
 import { afterEach, beforeEach, describe, expect, it } from 'vitest';
 import { SqliteD1 } from '../helpers/sqlite-d1';
+import { mapRecipeMediaRow } from '../../packages/db/src/recipe-media';
+import { auditReadyRecipeMediaRecord, isCanonicalRecipeIdShape, isRecipeMediaMimeType,
+  isSha256Hex, isTrustedRecipeMediaStorageKey } from '../../packages/recipes/src/recipe-media';
 import { mapRecipeContentRead, prepareRecipeContentRead } from '../../packages/db/src/recipe-content';
 import { hydrateRuntimeRecipes } from '../../packages/recipes/src/runtime-hydration';
 import { fingerprintRecipes } from '../../packages/recipes/src/catalog-fingerprint';
@@ -12,6 +15,7 @@ import {
   classifyPreLedger,
 } from '../../scripts/d1-migration-check.mjs';
 import { verifyProductionMigrationPreflight } from '../../scripts/production-migration-preflight.mjs';
+import { recipeMediaQuery, recipeMediaSchemaQuery } from '../../scripts/production-media-preservation.mjs';
 import { migrationManifest } from '../../scripts/release-check.mjs';
 
 const require = createRequire(import.meta.url);
@@ -23,7 +27,7 @@ const sha = 'a'.repeat(40);
 const schema = migrationManifest(process.cwd(), execFileSync('git', ['rev-parse', 'HEAD'], { encoding: 'utf8' }).trim());
 const ok = (results) => ({ success: true, results });
 const ledger = (names) => [ok(names.map((name) => ({ name })))];
-const pipeline = { mapRecipeContentRead, hydrateRuntimeRecipes, fingerprintRecipes };
+const pipeline = { mapRecipeContentRead, hydrateRuntimeRecipes, fingerprintRecipes, mapRecipeMediaRow, auditReadyRecipeMediaRecord, isCanonicalRecipeIdShape, isRecipeMediaMimeType, isSha256Hex, isTrustedRecipeMediaStorageKey };
 let db;
 let manifest;
 
@@ -33,6 +37,8 @@ async function evidence(overrides = {}) {
     ledger: ledger(db.migrations),
     catalog: catalogQuery().split(';').map((sql) => ok(db.query(sql))),
     runtimeCatalog: await db.batch(prepareRecipeContentRead(db)),
+    media: [ok(db.query(recipeMediaQuery()))],
+    mediaSchema: [ok(db.query(recipeMediaSchemaQuery()))],
     pipeline,
     ...overrides,
   };
@@ -60,6 +66,25 @@ describe('production 0039 migration preflight', () => {
     expect(JSON.stringify(proof)).not.toContain('orderedRecipeIds');
     expect(db.query("SELECT name FROM sqlite_master WHERE name = 'generated_meal_plan_compositions'")).toEqual([]);
     expect(db.query('SELECT total_changes() AS count')[0].count).toBe(changes);
+  });
+
+  it('certifies already-ready heroes and records a private metadata digest before mutation', async () => {
+    db.seed(`UPDATE recipe_media SET status = 'ready', storage_key = 'recipes/' || recipe_id || '/hero/v1.webp',
+      mime_type = 'image/webp', width = 1024, height = 768, content_length = 1234,
+      content_hash = '${'a'.repeat(64)}'`);
+    const proof = await verifyProductionMigrationPreflight(await evidence());
+    expect(proof.recipeMedia).toMatchObject({ ready: 500, recipesWithoutActiveHero: 0 });
+    expect(proof.mediaCapture).toMatchObject({ status: 'MEDIA_METADATA_CAPTURE_PASS', rows: 500, ready: 500,
+      r2Availability: 'NOT_REVERIFIED' });
+    expect(proof.mediaCapture.metadataSha256).toMatch(/^[a-f0-9]{64}$/);
+    expect(JSON.stringify(proof)).not.toMatch(/storage_key|content_hash|recipes\//);
+  });
+
+  it('rejects current invalid private metadata even after valid catalog aggregates', async () => {
+    const captured = await evidence();
+    db.seed('UPDATE recipe_media SET version = 1000001 WHERE id = (SELECT id FROM recipe_media ORDER BY id LIMIT 1)');
+    captured.media = [ok(db.query(recipeMediaQuery()))];
+    await expect(verifyProductionMigrationPreflight(captured)).rejects.toThrow(/actual domain validation/);
   });
 
   it('stops on the production failure of missing ingredient-order rows', async () => {
@@ -119,7 +144,9 @@ describe('production migration workflow ordering', () => {
     expect(preflight.if).toBe("inputs.migration == '0039_meal_composition_v2.sql'");
     expect(preflight.run).toContain('node scripts/d1-readonly-query.mjs catalog');
     expect(preflight.run).toContain('node scripts/d1-readonly-query.mjs runtime-catalog');
-    expect(preflight.run).toContain('node scripts/production-migration-preflight.mjs migration-manifest.json preflight-ledger.json catalog.json runtime-catalog.json');
+    expect(preflight.run).toContain('node scripts/d1-readonly-query.mjs media');
+    expect(preflight.run).toContain('node scripts/d1-readonly-query.mjs media-schema');
+    expect(preflight.run).toContain('node scripts/production-migration-preflight.mjs migration-manifest.json preflight-ledger.json catalog.json runtime-catalog.json media.json media-schema.json');
     expect(preflight.run).not.toMatch(/migrations apply|time-travel info|wrangler deploy/);
     expect(apply.if).toBe("steps.pre_ledger.outputs.mode == 'apply' && (inputs.migration != '0039_meal_composition_v2.sql' || steps.catalog_preflight.outcome == 'success')");
     const stepIndex = (name) => steps.findIndex((step) => step.name === name);
@@ -139,6 +166,11 @@ describe('production migration workflow ordering', () => {
     expect(steps.indexOf(finalFence)).toBe(steps.indexOf(apply) - 1);
     expect(finalFence.if).toBe("inputs.migration == '0039_meal_composition_v2.sql' && steps.pre_ledger.outputs.mode == 'apply'");
     expect(workflow.jobs.migrate.environment).toBe('production');
+    const preservation = steps.find((step) => step.name === 'Require unchanged media metadata across migration 0039');
+    expect(preservation.if).toBe("inputs.migration == '0039_meal_composition_v2.sql'");
+    expect(preservation.run).toContain('node scripts/production-media-preservation.mjs verify migration-manifest.json catalog.json media.json media-schema.json');
+    expect(steps.indexOf(preservation)).toBeGreaterThan(stepIndex('Production schema gate (read-only)'));
+    expect(steps.indexOf(preservation)).toBeLessThan(steps.length - 1);
     expect(steps.at(-1).with.path).toBe('migration-manifest.json');
   });
 });

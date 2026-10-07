@@ -167,7 +167,12 @@ jobs:
           node scripts/d1-migration-check.mjs runtime-catalog-query > runtime-catalog.sql
           node scripts/d1-readonly-query.mjs runtime-catalog
           pnpm wrangler d1 execute frigo-db --remote --yes --command "SELECT name FROM d1_migrations ORDER BY name" --json > preflight-ledger.json
-          node scripts/production-migration-preflight.mjs migration-manifest.json preflight-ledger.json catalog.json runtime-catalog.json
+          umask 077
+          node scripts/production-media-preservation.mjs query > media.sql
+          node scripts/d1-readonly-query.mjs media
+          node scripts/production-media-preservation.mjs schema-query > media-schema.sql
+          node scripts/d1-readonly-query.mjs media-schema
+          node scripts/production-migration-preflight.mjs migration-manifest.json preflight-ledger.json catalog.json runtime-catalog.json media.json media-schema.json
 
       - name: Capture D1 Time Travel rollback bookmark
         env:
@@ -234,7 +239,7 @@ jobs:
           pnpm wrangler d1 execute frigo-db --remote --yes --command "SELECT name FROM d1_migrations ORDER BY name" --json > post-ledger.json
           node scripts/d1-migration-check.mjs post-ledger migration-manifest.json post-ledger.json
 
-      - name: Post-migration verification (aggregates, FK, quick_check, recipe_media seed)
+      - name: Post-migration verification (aggregates, FK, quick_check, recipe media)
         env:
           CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
@@ -247,7 +252,9 @@ jobs:
           d1 "SELECT COUNT(*) AS total, SUM(role = 'hero') AS hero, SUM(role = 'thumbnail') AS thumbnail, SUM(status = 'pending') AS pending, SUM(status = 'ready') AS ready, SUM(status = 'rejected') AS rejected, SUM(status = 'superseded') AS superseded FROM recipe_media" > media-summary.json
           d1 "SELECT COUNT(*) AS recipes_without_exact_hero_v1_pending FROM recipes r WHERE (SELECT COUNT(*) FROM recipe_media m WHERE m.recipe_id = r.id AND m.role = 'hero' AND m.version = 1 AND m.status = 'pending') <> 1 OR (SELECT COUNT(*) FROM recipe_media m WHERE m.recipe_id = r.id) <> 1" > media-slots.json
           d1 "SELECT type, name, sql FROM sqlite_master WHERE tbl_name = 'recipe_media' ORDER BY type, name" > media-schema.json
-          node scripts/d1-migration-check.mjs verify migration-manifest.json post-baseline.json fk.json quick.json media-summary.json media-slots.json media-schema.json
+          node --input-type=module -e 'import { catalogQuery } from "./scripts/d1-migration-check.mjs"; process.stdout.write(catalogQuery());' > catalog.sql
+          node scripts/d1-readonly-query.mjs catalog
+          node scripts/d1-migration-check.mjs verify migration-manifest.json post-baseline.json fk.json quick.json media-summary.json media-slots.json media-schema.json catalog.json
           node -p 'const m = require("./migration-manifest.json"); JSON.stringify({ postLedger: m.postLedger, recipeMedia: m.recipeMedia, health: m.health, aggregateDrift: m.aggregateDrift, postBaseline: m.postBaseline })'
 
       # The ledger tip promises a catalog (legacy 71 + every approved batch whose migration is
@@ -273,6 +280,20 @@ jobs:
         run: |
           bash scripts/d1-schema-gate.sh remote
           node scripts/d1-migration-check.mjs schema-gate migration-manifest.json
+
+      - name: Require unchanged media metadata across migration 0039
+        if: inputs.migration == '0039_meal_composition_v2.sql'
+        env:
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          WRANGLER_SEND_METRICS: 'false'
+        run: |
+          umask 077
+          node scripts/production-media-preservation.mjs query > media.sql
+          node scripts/d1-readonly-query.mjs media
+          node scripts/production-media-preservation.mjs schema-query > media-schema.sql
+          node scripts/d1-readonly-query.mjs media-schema
+          node scripts/production-media-preservation.mjs verify migration-manifest.json catalog.json media.json media-schema.json
 
       # Sanitized receipt only: SHAs, ledger names, bookmark, aggregate counts. Never rows or tokens.
       - name: Save sanitized migration receipt (even on failure)

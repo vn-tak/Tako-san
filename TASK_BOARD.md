@@ -39,7 +39,11 @@ and maxWorkers=2; the two capture files reproduce the same11 failures with the
 uncanonical default TMPDIR even with two workers. All eight involved source/test
 files are byte-identical between969d and the implementation. Exact resource
 bottleneck of the concurrency-sensitive Wrangler timeout was not profiled. Full
-final regression with TMPDIR=/private/tmp and maxWorkers=2 is running.
+canonical-TMPDIR/maxWorkers=2 regression completed 253 passed / 1 failed files,
+6197 passed / 1 failed tests (328.71s). The remaining unchanged local Wrangler
+catchup test took33.993s and timed out at its existing5s bound; it passed1.745s
+in focused verification. All new38tests passed in both full runs. Draft PR57
+CI37624949372 is pending; no local full-suite PASS is claimed.
 One actionlint invocation used a nonexistent certify filename; corrected to the
 actual production-certify.yml and all four affected release workflows PASS.
 
@@ -54,8 +58,8 @@ independent-audit.json; /private/tmp/takosan-production-catalog-preflight-review
 /private/tmp/takosan-production-catalog-preflight-workflow-control/audit-results.json.
 Raw runner-local production rows were not exported or published.
 
-**Next:** Finish local gates and the documentation checkpoint, publish a normal
-PR and require final-head/exact-main hosted CI. Freeze the new main SHA and run
+**Next:** Finish the CI/environmental diagnosis and documentation checkpoint,
+require final-head hosted CI on draft PR57, then normal merge and exact-main CI. Freeze the new main SHA and run
 one normally approved protected read-only diagnostic to identify the rejected
 catalog/runtime check. Repair only proven defects, then certify final-source
 staging, guarded0039 and production schema/catalog before T20=false production

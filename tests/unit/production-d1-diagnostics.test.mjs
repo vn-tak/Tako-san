@@ -19,6 +19,7 @@ const reviewedCommands = {
   'diagnose: Compare live ingredient lines with canonical Recipe Refresh V2': '6334f392ce12b0f6c5308cabaa655030ba565e776ce03f80e8525b486aba437c',
   'diagnose: Recheck read-only catalog snapshot and migration ledger': 'b75452c2b25cfe2813480dcbd4fc7ed641b1cef1f052ba398ed11984fa158b3a',
   'diagnose: Compare stable production snapshot with certified V1': '2a40019bfa692fd2a8db74593fa1330435bbb521649e2bc86f01cab43f6081cf',
+  'diagnose: Diagnose exact catalog and runtime preflight without mutation': '6679dce3ec20b7889e479eb3b2e57b5f7463f995f55b4fcacc936a4a5832bb82',
   'diagnose: Reject main change during diagnosis': 'aeff76d12b6bb0d47fe50f41a1c3f44116874d40a5e3d5975781f32e86078d69',
 };
 const sha = 'a'.repeat(40);
@@ -76,6 +77,7 @@ function assertReviewedWorkflow(candidate) {
     'diagnose: actions/upload-artifact@v4',
     'diagnose: actions/upload-artifact@v4',
     'diagnose: actions/upload-artifact@v4',
+    'diagnose: actions/upload-artifact@v4',
   ]);
   expect(candidate.jobs.gate.steps[0].with).toMatchObject({ ref: 'main', 'persist-credentials': false });
   expect(candidate.jobs.diagnose.steps[0].with).toMatchObject({ ref: '${{ needs.gate.outputs.candidate_sha }}', 'persist-credentials': false });
@@ -107,7 +109,8 @@ function assertReviewedWorkflow(candidate) {
     .toBeLessThan(names.indexOf('Reject main change during diagnosis'));
   const uploads = Object.values(candidate.jobs).flatMap((job) => job.steps.filter((step) => step.uses === 'actions/upload-artifact@v4'));
   expect(uploads.map((step) => step.with.path)).toEqual([
-    'release-manifest.json', 'production-t21rb-v1.json', 'production-catalog-v2-lineage.json',
+    'release-manifest.json', 'production-catalog-preflight-diagnostics.json',
+    'production-t21rb-v1.json', 'production-catalog-v2-lineage.json',
     'production-catalog-lineage.json', 'production-d1-diagnostics.json',
   ]);
   const scripts = candidate.jobs.diagnose.steps.map((step) => step.run ?? '').join('\n');
@@ -118,8 +121,27 @@ function assertReviewedWorkflow(candidate) {
   expect(scripts).toContain('node scripts/production-catalog-v2-lineage.mjs release-manifest.json pre-ledger.json runtime-catalog.json order-coverage.json post-ledger.json production-catalog-v2-lineage.json');
   expect(scripts).toContain('cat runtime-catalog.json > runtime-catalog-first.json');
   expect(scripts).toContain('node scripts/t21rb-v1-production.mjs release-manifest.json pre-ledger.json runtime-catalog-first.json runtime-catalog.json order-coverage.json post-ledger.json t21rb-post-ledger.json production-d1-diagnostics.json production-t21rb-v1.json');
-  expect(scripts.match(/node scripts\/d1-readonly-query\.mjs runtime-catalog/g)).toHaveLength(2);
+  expect(scripts.match(/node scripts\/d1-readonly-query\.mjs runtime-catalog/g)).toHaveLength(3);
   expect(scripts).toContain('> t21rb-post-ledger.json');
+  expect(scripts).toContain('> catalog-final-ledger.json');
+  expect(scripts.match(/node scripts\/d1-readonly-query\.mjs catalog/g)).toHaveLength(2);
+  expect(scripts).toContain('node scripts/production-catalog-preflight-diagnostics.mjs release-manifest.json pre-ledger.json catalog-final-ledger.json catalog-first.json catalog.json runtime-catalog-first.json runtime-catalog.json production-catalog-preflight-diagnostics.json');
+  expect(candidate.jobs.diagnose.steps.find((step) => step.name === 'Reject main change during diagnosis').if).toBe('always()');
+  const preflight = candidate.jobs.diagnose.steps.find((step) => step.name === 'Diagnose exact catalog and runtime preflight without mutation');
+  expect(preflight.env).toEqual({
+    CLOUDFLARE_API_TOKEN: '${{ secrets.CLOUDFLARE_API_TOKEN }}',
+    CLOUDFLARE_ACCOUNT_ID: '${{ secrets.CLOUDFLARE_ACCOUNT_ID }}',
+    WRANGLER_SEND_METRICS: 'false',
+  });
+  for (const file of ['catalog-first.json', 'catalog.json', 'runtime-catalog.json', 'catalog-final-ledger.json']) {
+    expect(preflight.run).toContain(`: > ${file}`);
+  }
+  expect(preflight.run.indexOf(': > runtime-catalog.json')).toBeLessThan(preflight.run.indexOf('node scripts/d1-readonly-query.mjs runtime-catalog'));
+  expect(preflight.run.lastIndexOf(': > catalog.json')).toBeLessThan(preflight.run.lastIndexOf('node scripts/d1-readonly-query.mjs catalog'));
+  expect(names.indexOf('Compare stable production snapshot with certified V1'))
+    .toBeLessThan(names.indexOf('Diagnose exact catalog and runtime preflight without mutation'));
+  expect(names.indexOf('Diagnose exact catalog and runtime preflight without mutation'))
+    .toBeLessThan(names.indexOf('Reject main change during diagnosis'));
   expect(scripts).toContain('node scripts/production-d1-diagnostics.mjs order-query > order-coverage.sql');
   expect(scripts).toContain('SELECT name FROM d1_migrations ORDER BY name');
   expect(scripts).not.toMatch(/\b(?:migrations apply|wrangler deploy|secret put|--file runtime-catalog)\b/);

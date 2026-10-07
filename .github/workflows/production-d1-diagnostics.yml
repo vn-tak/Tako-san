@@ -132,10 +132,39 @@ jobs:
           pnpm wrangler d1 execute frigo-db --remote --yes --json --command "SELECT name FROM d1_migrations ORDER BY name" > t21rb-post-ledger.json
       - name: Compare stable production snapshot with certified V1
         run: node scripts/t21rb-v1-production.mjs release-manifest.json pre-ledger.json runtime-catalog-first.json runtime-catalog.json order-coverage.json post-ledger.json t21rb-post-ledger.json production-d1-diagnostics.json production-t21rb-v1.json
+      - name: Diagnose exact catalog and runtime preflight without mutation
+        env:
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          WRANGLER_SEND_METRICS: 'false'
+        run: |
+          node --input-type=module -e 'import { catalogQuery } from "./scripts/d1-migration-check.mjs"; process.stdout.write(catalogQuery());' > catalog.sql
+          : > catalog-first.json
+          : > catalog.json
+          : > runtime-catalog.json
+          : > catalog-final-ledger.json
+          if node scripts/d1-readonly-query.mjs catalog; then
+            cat catalog.json > catalog-first.json
+          fi
+          : > catalog.json
+          if node scripts/d1-readonly-query.mjs runtime-catalog; then
+            node scripts/d1-readonly-query.mjs catalog || :
+          fi
+          pnpm wrangler d1 execute frigo-db --remote --yes --json --command "SELECT name FROM d1_migrations ORDER BY name" > catalog-final-ledger.json || :
+          node scripts/production-catalog-preflight-diagnostics.mjs release-manifest.json pre-ledger.json catalog-final-ledger.json catalog-first.json catalog.json runtime-catalog-first.json runtime-catalog.json production-catalog-preflight-diagnostics.json
       - name: Reject main change during diagnosis
+        if: always()
         env:
           GH_TOKEN: ${{ github.token }}
         run: test "$(gh api "repos/$GITHUB_REPOSITORY/commits/main" --jq .sha)" = "$(node -p 'require("./production-d1-diagnostics.json").candidateSha')"
+      - name: Save sanitized catalog preflight diagnosis only
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: production-catalog-preflight-diagnostics-${{ github.run_id }}-${{ github.run_attempt }}
+          path: production-catalog-preflight-diagnostics.json
+          if-no-files-found: warn
+          retention-days: 90
       - name: Save sanitized T21R-B V1 comparison only
         if: success()
         uses: actions/upload-artifact@v4

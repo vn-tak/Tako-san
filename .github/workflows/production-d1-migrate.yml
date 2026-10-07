@@ -49,6 +49,13 @@ jobs:
         with:
           node-version: 22
 
+      - uses: pnpm/action-setup@b906affcce14559ad1aafd4ab0e942779e9f58b1
+        with:
+          version: 10
+
+      - name: Install the frozen migration gate toolchain
+        run: pnpm install --frozen-lockfile
+
       - name: Exact-SHA gate (main ancestry, migration tip, pinned history, hosted CI)
         id: gate
         env:

@@ -60,3 +60,11 @@ trong lúc các journeys đang chạy.
 Chỉ khi receipt source cuối và mọi gate đạt mới request production workflow;
 reviewer `vn-taphoanhatung` duyệt Environment bình thường. Không dùng quyền admin
 để bypass. Không chạy lại scan AI thất bại hoặc migration0039.
+
+## Sửa contract timestamp trước lần prepare đầu tiên
+
+Migration0021 yêu cầu updated_at ở UTC ISO với mili giây. Fixture dùng
+strftime đúng format, được kiểm tra prepare/audit cả bốn policy trên toàn bộ
+migration chain bằng SqliteD1. Không sửa constraint/migration để chấp nhận format
+sai. Lỗi datetime cũ tái hiện4FAIL trước,27/27 focused tests PASS sau sửa.
+Không có remote fixture write hay deploy nào trước khi tìm và sửa lỗi này.

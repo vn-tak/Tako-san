@@ -108,3 +108,40 @@ it.each(['prepare', 'audit'])('pins every remote call to the staging database an
   expect(JSON.stringify(result)).not.toContain('test-cf-token');
   expect(calls.filter(call=>call.body&&JSON.parse(call.body).sql.startsWith('INSERT'))).toHaveLength(operation==='prepare'?1:0);
 });
+it.each(Object.keys(POLICIES))('prepares and audits %s using the complete applied D1 schema', async policy => {
+  const { execFileSync } = await import('node:child_process');
+  const { SqliteD1 } = await import('../helpers/sqlite-d1.ts');
+  const { STAGING_D1 } = await import('../../scripts/staging-d1-runtime-readiness-check.mjs');
+  const db = new SqliteD1();
+  try {
+    const target = { ...fixture, policy };
+    db.execute('INSERT INTO users (id, email) VALUES (?, ?)', [target.userId, target.email]);
+    db.execute('INSERT INTO households (id, name, created_by) VALUES (?, ?, ?)', [target.householdId, 'T20 certification', target.userId]);
+    db.execute('INSERT INTO household_members (id, household_id, user_id, role) VALUES (?, ?, ?, ?)', ['fixture-member', target.householdId, target.userId, 'owner']);
+    db.execute('INSERT INTO auth_accounts (id, user_id, email, is_verified) VALUES (?, ?, ?, ?)', ['fixture-auth', target.userId, target.email, 1]);
+    const ref = execFileSync('git', ['rev-parse', 'HEAD'], { encoding: 'utf8' }).trim();
+    const context = {
+      ref, fixtureJson: JSON.stringify(target),
+      env: { GITHUB_REPOSITORY: 'vn-tak/Tako-san', GITHUB_REPOSITORY_ID: '1385308553', GITHUB_REF: 'refs/heads/main', T20_FIXTURE_ENVIRONMENT: 'staging', CONFIRM_STAGING_FIXTURE: 'true', GH_TOKEN: 'test-github-token', CLOUDFLARE_API_TOKEN: 'test-cf-token', CLOUDFLARE_ACCOUNT_ID: 'a'.repeat(32) },
+      requireMain: async input => { expect(input.sha).toBe(ref); },
+      fetchJson: async (url, options = {}) => {
+        if (url.startsWith('https://api.github.com/')) return { workflow_runs: [{ id: 1, run_attempt: 1, head_sha: ref, head_branch: 'main', event: 'push', path: '.github/workflows/ci.yml', repository: { full_name: 'vn-tak/Tako-san' }, head_repository: { full_name: 'vn-tak/Tako-san' }, status: 'completed', conclusion: 'success' }] };
+        if (url.startsWith('https://frigo-staging.')) return { commit: ref, recipeAuthority: { configuredMode: 'd1', globalSource: 'd1', fallbackReason: null } };
+        expect(url).toContain(`/d1/database/${STAGING_D1.id}`);
+        if (!url.endsWith('/query')) return { success: true, result: { uuid: STAGING_D1.id, name: STAGING_D1.name } };
+        const query = JSON.parse(options.body);
+        return { success: true, result: [db.execute(query.sql, query.params)] };
+      },
+    };
+    const prepared = await run({ ...context, operation: 'prepare' });
+    expect(prepared.writes).toBe(1);
+    const stored = db.query('SELECT values_json, updated_at FROM household_ranking_preferences WHERE household_id = ?', target.householdId)[0];
+    expect(stored.values_json).toBe(fixtureQueries(target).stored);
+    expect(stored.updated_at).toMatch(/^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}\.\d{3}Z$/);
+    const audited = await run({ ...context, operation: 'audit' });
+    expect(audited.writes).toBe(0);
+    expect(audited.inventory).toEqual(prepared.inventory);
+    await expect(run({ ...context, operation: 'prepare' })).rejects.toThrow('Existing household policy');
+    expect(db.query('PRAGMA foreign_key_check')).toEqual([]);
+  } finally { db.close(); }
+});

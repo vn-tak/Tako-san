@@ -67,7 +67,7 @@ export async function run({ ref, fixtureJson, operation = 'prepare', env = proce
   const headers = { Authorization: `Bearer ${env.GH_TOKEN}`, Accept: 'application/vnd.github+json' };
   const runs = await fetchJson(`https://api.github.com/repos/${REPOSITORY}/actions/workflows/ci.yml/runs?branch=main&event=push&head_sha=${ref}&per_page=100`, { headers });
   const ci = requireSuccessfulCi(runs.workflow_runs, { sha: ref, repository: REPOSITORY });
-  const readiness = await fetchJson(`${ORIGIN}/api/v1/health/readiness`);
+  const readiness = await fetchJson(`${ORIGIN}/api/v1/health/ready`);
   assert.equal(readiness.commit, ref);
   assert.equal(readiness.recipeAuthority.configuredMode, 'd1');
   assert.equal(readiness.recipeAuthority.globalSource, 'd1');

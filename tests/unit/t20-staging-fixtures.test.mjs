@@ -91,7 +91,7 @@ it.each(['prepare', 'audit'])('pins every remote call to the staging database an
     fetchJson:async (url,options={})=>{
       calls.push({url,...options});
       if(url.startsWith('https://api.github.com/')) return {workflow_runs:[{id:1,run_attempt:1,head_sha:ref,head_branch:'main',event:'push',path:'.github/workflows/ci.yml',repository:{full_name:'vn-tak/Tako-san'},head_repository:{full_name:'vn-tak/Tako-san'},status:'completed',conclusion:'success'}]};
-      if(url.startsWith('https://frigo-staging.')) return {commit:ref,recipeAuthority:{configuredMode:'d1',globalSource:'d1',fallbackReason:null}};
+      if(url.startsWith('https://frigo-staging.')) { expect(url).toBe('https://frigo-staging.tungbipdz.workers.dev/api/v1/health/ready'); return {commit:ref,recipeAuthority:{configuredMode:'d1',globalSource:'d1',fallbackReason:null}}; }
       expect(url).toContain(`/d1/database/${STAGING_D1.id}`);
       expect(url).not.toContain('f975ec39-b2c8-4a2a-80e1-0366054599d3');
       if(!url.endsWith('/query')) return {success:true,result:{uuid:STAGING_D1.id,name:STAGING_D1.name}};

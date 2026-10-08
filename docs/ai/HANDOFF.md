@@ -1,3 +1,57 @@
+# T20 fixture staging: sửa tương thích timestamp trước rollout — 2026-10-09 JST
+
+**Task/status:** `T20_STAGING_CERTIFICATION_REQUIRED` /
+`T20_PRODUCTION_READINESS_BLOCKED`. PR61 đã merge theo operator continuation;
+phát hiện blocker ở công cụ certification trước khi dispatch fixture hoặc deploy.
+
+**Repository/source:** `vn-tak/Tako-san`, ID1385308553, main
+`23065108be8e72951c289445cd2c537b87f18f4c`. PR61 normal merge head
+`b789d7986c9a4e74e86840f8026a1fcb1b91985f`; parents5dfab234/b789d798,
+merge/head tree `6d35cda4f7393456b6bf3c24be7875d238e1f69b` khớp.
+Main CI `37851106419` SUCCESS, 259files/6361tests; CI green vẫn bỏ sót
+fixture defect dưới đây. Nhánh sửa riêng `codex/t20-fixture-schema-contract`.
+
+**Finding/fix:** P1 staging certification: fixture SQL dùng `datetime('now')`,
+vi phạm CHECK `updated_at IS strftime('%Y-%m-%dT%H:%M:%fZ', updated_at)` của
+migration0021. Test cũ dùng bảng tối giản không có CHECK nên bỏ sót.
+Sửa đúng một expression thành UTC ISO `strftime(..., 'now')`; không đổi migration,
+policy values, bindings, workflow guards, auth/runtime hoặc production data.
+Thêm4 regression chạy prepare/audit với full migration chain bằng SqliteD1,
+kiểm chứng timestamp, stored policy, insert1, audit0, duplicate prepare reject,
+stock/event snapshot không đổi và FK check. Auth records trong tests chỉ là local
+SQLite fixtures; workflow remote vẫn chỉ nhận normally registered verified owner.
+
+**Verification:** Before4FAIL/23PASS, cả4 lỗi đúng CHECK timestamp. After27/27PASS,
+failed0. Lượt full đầu có6365PASS nhưng2suitefail do hai file tạm ignored bị Vitest nhận
+nhầm test. Đã đổi tên file tạm, giữ nguyên test config/assertions. Lượt rerun
+`CI=true TMPDIR=/private/tmp pnpm check` exit0:259files/6365tests,0FAIL,
+127.52s suite; lint/typecheck/migration-smoke/build PASS. Remote schema/Week
+gates skipped có chủ đích; không claim hosted certification. Implementation
+`4fb0ff8bb4143328bd1e20d4091e65d29efc95d1`; documentation checkpoint theo sau.
+Private logs: `.wrangler/t20-rollout/20261009/schema-contract-before.log`,
+`schema-contract-after.log`, `schema-contract-full-check.log`,
+`schema-contract-full-check-clean.log`. Prod audit0high/critical,2moderate hiện hữu;
+không đổi dependencies, không claim repo-wide tooling audit PASS.
+45 hosted journeys chưa chạy; final-source readiness phải rerun sau source mới.
+
+**Operational evidence:** Staging read-only readiness `37850099945` SUCCESS cho
+main5dfab234 trước merge: D1500/ledger39/ID-order-fingerprint/provenance/integrity
+match. Public serving baseline6f6eaaab ở cả hai môi trường, production T20false.
+Năm normal accounts còn dùng được qua GET-only preflight. Không deploy Worker,
+insert remote policy, production D1/R2 mutation, replay0039 hoặc failed scan.
+Harness ignored thêm source/unique journey và đủ45 HTTP observation gates;
+local rejection guards10/10PASS. Không dùng10 guard fixtures làm hosted PASS.
+
+**Next action:** Review/CI final repair head, normal merge khi operator cho phép;
+pin exact-main CI/SHA, final-source staging D1 read-only readiness, staging
+shadow→1→5→25→D1, prepare fixed policy cho test households,45 hosted journeys
+và audit stock/events. Chỉ sau `STAGING_CERTIFIED` mới production cùng source;
+normal reviewer `vn-taphoanhatung` duyệt từng Environment run, không bypass.
+Không reapply0039 hoặc thay catalog. Rollback theo `T20_RELEASE_READINESS.md`,
+giữ additive schema/composition records. Production enablement chưa thực hiện.
+
+---
+
 # T20 implementation hoàn tất local; chờ review và chứng nhận staging — 2026-10-09 JST
 
 **Task/status:** `T20_CODE_COMPLETE_REVIEW_REQUIRED` / `T20_TEST_VERIFIED` (local).

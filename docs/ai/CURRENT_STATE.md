@@ -1,3 +1,77 @@
+# T20 implementation hoàn tất local; chờ review và chứng nhận staging — 2026-10-09 JST
+
+**Task/status:** `T20_CODE_COMPLETE_REVIEW_REQUIRED` / `T20_TEST_VERIFIED` (local).
+`T20_STAGING_CERTIFICATION_REQUIRED` / `T20_PRODUCTION_READINESS_BLOCKED`.
+Checkpoint này thay thế current-state/next-action cũ; các mục phía sau giữ lịch sử.
+
+**Repository/source:** Repo API xác nhận `vn-tak/Tako-san`, ID `1385308553`,
+main/base `6f6eaaab518cf2430de225d0be73d695b40706e4`, protected/strict validate.
+Nhánh riêng `codex/t20-production-completion`; implementation
+`8592fa6a35890b54833f81282434101ada1e7694`. Documentation checkpoint theo sau;
+reviewer phải kiểm tra final PR head và hosted CI chính head đó. Push/PR dùng
+canonical repo rõ ràng, không dùng tên owner cũ trong origin làm authority.
+PR20/29 overlap historical docs; không sửa nhánh của họ.
+
+**Actual production baseline:** Rollout D1 trước takeover đã SUCCESS qua
+[Deploy37789673028](https://github.com/vn-tak/Tako-san/actions/runs/37789673028),
+source6f6eaaab, Worker `f92df570-6cb0-43de-bfa6-a4c7bd7f07d8`, D1/500/schema39,
+release `rel-bd00a4f53fcaeee4`, no fallback, T20 server/UI=false. Staging baseline
+source cùng6f6eaaab/D1/500/schema39/T20true theo Deploy37782346206. Public read-only
+proof xác nhận source/catalog/database/config; production readiness degraded chỉ
+bởi intentional `CONFIG_RECIPE_CATALOG_D1_AUTHORITY` warning. Các status shadow,
+provider/canary pending trong lịch sử không còn là next-action hiện tại. Receipt
+baseline không phải chứng nhận T20 head mới. Không replay recovery/0039/AI scan.
+
+**Actual changes:** P1 composition pending/500/offline/missing không hiển thị
+anchor V1 stale; loading/error/retry rõ, giữ404 server-off/familyV1, unknown-slot
+unavailable. Parent chia sẻ canonical query với composer. P1 release draft thêm
+production planner UI/Worker prerequisite derive từ normalized T20 decision,
+guard cả staging/production; không đổi runtime flags/config. Assisted có action
+regenerate_unlocked preview/apply qua API hiện có; typed errors vi/en, untracked
+shopping/week explicit, touch controls≥44px. Domain/scoring/authority/service/DB,
+schema/migrations/dependencies, physical inventory, auth và PayOS không đổi.
+ADR-043 ghi quyết định, compatibility và rollback.
+
+**Verification:** Node24.16.0/pnpm10.33.2. Final
+`PATH=/opt/homebrew/opt/node@24/bin:$PATH CI=true TMPDIR=/private/tmp pnpm check`
+exit0:258/258files,6337/6337tests,132.31s, no reported skip/failure;
+lint/typecheck/migration-smoke/build PASS. Remote schema/Week parity skipped
+có chủ đích. Baseline6315PASS/1Wrangler timeout, isolated32PASS; không sửa timeout.
+Browser sequential T20on39/off3/UI-on-server-off3 PASS tại390/768/1280, retries0;
+Manual4/save/reload, Assisted2, Auto3, shopping100g/single subtraction,
+restrictions10/20/forbidden/dietary/nutrition, D1-only detail/cooking,200/409,
+UI canonical reload/500retry, untracked, keyboard/focus/axe0/targets≥44px.
+Production true/true và false/false local builds + actual build-record CLI guards
+PASS; local flag manifest fixtures không phải approved release manifest.
+Hosted CI full final head và PR URL/result được ghi trong PR release evidence;
+checkpoint này chưa giả một run chưa chạy. Sau merge vẫn cần exact-main CI riêng.
+
+**Performance/security:** Composer byte-identical base;200 samples71/320/500,
+median0.452/0.428/0.490ms,124expansions/scores,3options;320pool cap giữ nguyên.
+Worker20 samples:picker46.30ms median/48.79p95,14–15SQL;Auto191.44/225.95ms,29SQL;
+local wall time, không hosted CPU/SLA/cost. Tenancy/CSRF/revision/locks/hard
+restrictions full suite PASS. Prod dependency audit0high/critical,2moderate; full
+audit tooling dev2critical/16high hiện hữu, cần maintenance review riêng,
+không claim repo-wide security PASS. Private ignored evidence giữ ở
+`.wrangler/t20-completion/20261008/`, không publish raw sessions/credentials.
+
+**Deferred:** Whole-week V2 Auto OPTIONAL_EXTENSION; tuần7 ngày hiện dùng V1
+anchors + V2 per-slot đã verified. Leftovers/per-component servings/role-curation/
+drag-and-drop/real prices theo rationale trong audit, không mở rộng schema/engine.
+No known unresolved P0/P1 implementation sau own-review; independent review chưa có.
+
+**Readiness/next action:** Ma trận28 capability và defects/evidence:
+`docs/ai/T20_TAKEOVER_AUDIT.md`; release/rollback packet:
+`docs/ai/T20_RELEASE_READINESS.md`; task:`docs/ai/tasks/T20-production-completion.md`.
+Reviewer kiểm tra final PR head/hosted validate. Operator merge qua protection,
+pin exact-main CI, review staging deploy plan và normal-session A–I certification.
+Chỉ khi staging source mới certified mới xin production enablement approval riêng.
+CODE_COMPLETE/TEST_VERIFIED local không là STAGING_CERTIFIED/PRODUCTION_READY;
+PRODUCTION_ENABLED vẫn false. Không tự merge/approve/dispatch/deploy/migrate,
+đổi protected flags/secrets/data hoặc xoá composition records để rollback.
+
+---
+
 # Production scan telemetry recovered; bounded validation repair candidate - 2026-10-08 JST
 
 **Task/status:** Production rollout remains INCOMPLETE. Frozen deployed source/main

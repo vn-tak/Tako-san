@@ -346,3 +346,18 @@ test('D: untracked fruit remains explicit in shopping and week summaries', async
   await page.goto(`/planner/${plan.id}`);
   await expect(page.getByTestId('planned-meal').first()).toContainText('Not tracked in inventory');
 });
+
+
+test('H: a warm V2 week cache gives way to V1 when server composition routes turn off', async ({ page }) => {
+  const plan = await empty(page, await create(page));
+  await open(page, plan);
+  await add(page, 'staple', 'simple_food', 'sf-steamed-rice');
+  const response = page.waitForResponse((item) => item.url().endsWith('/compositions') && item.status() === 404);
+  await page.route('**/compositions', (route) => route.fulfill({ status: 404, json: { error: 'Not found' } }));
+  await page.getByRole('link', { name: 'Back to meals', exact: true }).click();
+  await response;
+  await expect(page.getByTestId('planned-meal').first().getByRole('heading', { name: plan.result.meals[0].title, exact: true })).toBeVisible();
+  await expect(page.getByRole('list', { name: 'Dishes in this meal' })).toHaveCount(0);
+  await expect(page.getByTestId('planned-meal').first()).not.toContainText('Steamed rice');
+  await expect(page.getByRole('button', { name: 'Regenerate plan', exact: true })).toBeEnabled();
+});

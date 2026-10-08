@@ -51,7 +51,7 @@ export function PlannerWeek({ plan, model, locale }: { plan: MealPlanDto; model:
         <Link to={`/planner/${plan.id}/meal/${encodeURIComponent(meal.slotId)}`} className="block p-4 sm:p-5 hover:bg-takosan-mint/30 transition-colors">
           <div className="flex justify-between items-center mb-2"><span className="text-[11px] font-bold uppercase tracking-wide text-takosan-green-deep">{t[meal.mealType]} · {meal.time}</span><ChevronRight size={17} className="text-semantic-text-muted" /></div>
           {(() => {
-            const composition = composing ? compositionFor(meal.slotId) : undefined;
+            const composition = legacy ? undefined : compositionFor(meal.slotId);
             if (!legacy && (!compositions.isSuccess || !composition)) return <p className="text-sm text-semantic-text-muted">{compositions.isPending ? compositionCopy[locale].loadingDishes : compositionCopy[locale].loadFailed}</p>;
             if (!composition || composition.source === 'v1_projection') return <>
               <h3 className="text-lg font-heading font-bold text-semantic-text-primary leading-snug">{meal.title}</h3>

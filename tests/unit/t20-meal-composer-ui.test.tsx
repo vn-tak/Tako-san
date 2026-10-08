@@ -402,3 +402,22 @@ it('an unknown slot stays unavailable instead of offering an endless composition
   expect(byLabel('Try again')).toBeUndefined();
   expect(byLabel('Add dish')).toBeUndefined();
 });
+
+it('week returns to V1 after a server-off 404 even when V2 compositions are cached', async () => {
+  const { ApiError } = await import('../../src/web/services/http');
+  const { queryKeys } = await import('../../src/web/lib/queryKeys');
+  const current = plan();
+  const client = new QueryClient({ defaultOptions: { queries: { retry: false } } });
+  const key = queryKeys.mealPlanningCompositions(current.id, current.revision);
+  client.setQueryData(key, compositions());
+  api.plan.mockRejectedValue(new ApiError('http', 'Not found', 404));
+  await act(async () => root.render(<QueryClientProvider client={client}><MemoryRouter>
+    <PlannerWeek plan={current} model={model(current) as never} locale="en" />
+  </MemoryRouter></QueryClientProvider>));
+  await settle();
+  expect(client.getQueryState(key)?.status).toBe('error');
+  expect(client.getQueryData(key)).toEqual(compositions());
+  expect(container.querySelector('ul[aria-label="Dishes in this meal"]')).toBeNull();
+  expect(container.textContent).toContain('Phở bò');
+  expect(container.textContent).not.toContain('Steamed rice');
+});

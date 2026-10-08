@@ -131,3 +131,12 @@ PASS. PR60 final head gồm docs checkpoint; latest hosted CI/reviewer phải ki
 head cuối, không dùng CI37841636469 của previous318b10e để authorize release.
 PR: https://github.com/vn-tak/Tako-san/pull/60. Cached404 rollback giờ trở về V1;
 không xoá cache/database composition records. Operator gates phía trên giữ nguyên.
+
+## Đính chính input rollout khi thực thi — 2026-10-09
+
+PR60 đã merge tại `5dfab234247dcbee1339decf39b6a7d999869c11` và CI main-push
+37845102901 PASS sau operator authorization. Gate runtime đang yêu cầu SHA mới
+restart shadow rồi1/5/25/D1; input d1 trực tiếp trong packet cũ sẽ bị từ chối.
+Không sửa/weaken guard để bỏ bước này. Kế hoạch chứng nhận và staging-only fixture
+được mô tả tại `T20_STAGING_CERTIFICATION.md`. SHA mới sau tooling phải có CI main
+riêng và toàn bộ artifact/hosted journeys gắn với SHA đó trước production.

@@ -1,0 +1,69 @@
+name: T20 Staging Restricted Household Fixture
+
+on:
+  workflow_dispatch:
+    inputs:
+      ref:
+        description: Exact current main SHA already deployed to staging D1 with successful main CI
+        required: true
+        type: string
+      fixture_json:
+        description: Single fresh normally registered certification household (userId, householdId, email, policy)
+        required: true
+        type: string
+      operation:
+        description: Prepare a fresh test policy or audit physical stock/events without writing
+        type: choice
+        options: [prepare, audit]
+        default: prepare
+      confirm_staging_fixture:
+        description: Authorize one policy insert for this staging-only certification household
+        default: false
+        type: boolean
+
+permissions:
+  contents: read
+  actions: read
+
+concurrency:
+  group: frigo-deploy-staging
+  cancel-in-progress: false
+
+jobs:
+  fixture:
+    if: github.ref == 'refs/heads/main' && inputs.confirm_staging_fixture == true
+    runs-on: ubuntu-latest
+    environment: staging
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+          fetch-depth: 0
+          persist-credentials: false
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - uses: pnpm/action-setup@v4
+        with:
+          version: 10
+      - name: Install pinned script dependencies
+        run: pnpm install --frozen-lockfile
+      - name: Guard current main, CI, deployed source, staging D1 and fresh test household before one insert
+        env:
+          GH_TOKEN: ${{ github.token }}
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          FIXTURE_REF: ${{ inputs.ref }}
+          FIXTURE_OPERATION: ${{ inputs.operation }}
+          FIXTURE_JSON: ${{ inputs.fixture_json }}
+          CONFIRM_STAGING_FIXTURE: ${{ inputs.confirm_staging_fixture }}
+          T20_FIXTURE_ENVIRONMENT: staging
+        run: node scripts/t20-staging-fixtures.mjs
+      - name: Save sanitized fixture receipt
+        uses: actions/upload-artifact@v4
+        with:
+          name: t20-staging-fixture-${{ github.run_id }}-${{ github.run_attempt }}
+          path: t20-staging-fixture-receipt.json
+          if-no-files-found: error
+          retention-days: 90

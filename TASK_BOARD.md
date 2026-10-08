@@ -1,3 +1,65 @@
+# Production rollout checkpoint - 2026-10-08 JST
+
+**Task/status:** PRODUCTION_CANARY_25_APPROVED_GATES_RUNNING; rollout INCOMPLETE.
+Frozen main/source 6f6eaaab518cf2430de225d0be73d695b40706e4, implementation648dbd32010363712f219d25ca0b5109db37c3d3,
+normal PR59 merge; exact-main CI37780227955 PASS256files/6316tests308.04s.
+
+**Actual production:** run37786352966, Worker426db3b9-2db3-45a8-94c5-b9b7e330a61b,
+canary/5%/cutovertrue/globalmixed/T20false.
+Schema39,500 hydrated recipes, zero hydration failures, media500/ready500,
+FK[]/quick_check=ok, no fallback. Runtime fingerprint
+f8cf8c7ff59df9fe29e246b9e3c9aad0fd155fa8df35bf671ac4d03fa2b5ab37.
+Applied0039 (migration37689543237) and recovery37536969564 remain APPLIED.
+User-data retention certification is excluded by operator authorization.
+
+| Stage | Run | Actual Proof |
+| --- | --- | --- |
+| shadow-0 | [37782664023](https://github.com/vn-tak/Tako-san/actions/runs/37782664023) | PASS |
+| canary-1 | [37784465213](https://github.com/vn-tak/Tako-san/actions/runs/37784465213) | PASS |
+| canary-5 | [37786352966](https://github.com/vn-tak/Tako-san/actions/runs/37786352966) | PASS |
+
+**Checks/evidence:** 3 production stages, 12 rehashed ZIP/JSON digests,
+9 independent readiness/assets pairs; same D1/source/CI, normal independent
+Environment approvals and exact previous-Worker rollback chain PASS. Service-worker
+SHA2566a0af02b38a9c35d75fcd43ab75c0790d30ebf613d1b7e3297d1ad78d87b092a.
+Final-source staging shadow37781071862/1%37781412721/5%37781697963/
+25%37782044271/D137782346206 all PASS; T20 enabled only in staging.
+
+One distinct scan PASSbe56b53e3b17, accepted202, ready,6/6 items/quantities/units/
+prices and total138000VND match, logout200, no inventory confirmation. Correlated
+Cloudflare telemetry proves qwen-vl-ocr success on attempt1 (1311input/454output,
+4089ms), no repair/escalation. Original b6db841cbed9 scan was not replayed.
+Production anonymous landing/auth rendering PASS mobile/desktop; official Google
+iframe rendered on both; reduced-motion input visibility PASS. Initial operator
+English-title selector timed out against localized title; another textbox wait
+failed during deploy. Both failures are preserved; subsequent inspected normal
+and reduced-motion checks passed. No product fix was inferred from those waits.
+
+**Limits:** Historical exact schema defect and original receipt accuracy remain
+unproved. Successful new receipt does not certify every image or repair branch.
+Current R2 object bytes and actual Google sign-in/email delivery remain unverified.
+Earlier local full suite had1 unchanged5s Wrangler startup timeout:255files/
+6315tests PASS,1failed348.06s; isolated32/32PASS3.31s, startup1099ms.
+Focused9files/109tests and local lint/typecheck/migration/build PASS; hosted full
+success does not erase the local timeout. Source review is self-review; independent
+code review is not claimed. Payments/PayOS/auth and applied migrations are unchanged.
+
+**Next action:** Wait for approved run37788079550; collect actual artifacts and live
+proof after SUCCESS before the next stage. Each production run requires a separate
+normal Environment review by vn-taphoanhatung.
+
+**Checkpoint:** Keep this documentation on codex/ai-scan-rollout-evidence,
+separate from frozen source. Exact receipts/hashes, private responses/telemetry,
+operator scripts and continuation live ignored under
+.wrangler/production-evidence/20261008. Restore clean source branch
+codex/ai-scan-validation-release after publishing.
+
+[Production shadow diagnostic](docs/ai/scan/PRODUCTION_SHADOW_DIAGNOSTIC_20261008.md).
+
+All preceding checkpoints below are historical.
+
+---
+
 # Production shadow and distinct provider gate PASS - 2026-10-08 JST
 
 **Task/status:** PRODUCTION_CANARY_1_APPROVED_GATES_RUNNING; rollout INCOMPLETE.

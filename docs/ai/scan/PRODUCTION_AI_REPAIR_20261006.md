@@ -1,3 +1,67 @@
+# Production shadow and distinct provider gate PASS - 2026-10-08 JST
+
+**Task/status:** PRODUCTION_CANARY_1_APPROVED_GATES_RUNNING; rollout INCOMPLETE.
+Frozen source/main is 6f6eaaab518cf2430de225d0be73d695b40706e4; implementation 648dbd32010363712f219d25ca0b5109db37c3d3,
+normally merged by PR59. Exact-main CI37780227955 PASS (256 files / 6316 tests,
+308.04s). Production canary1 run37784465213 has normal independent Environment
+approval by vn-taphoanhatung and is running local gates. No canary upload is claimed
+at this checkpoint. Production5/25/D1 are not dispatched. Do not redispatch canary1.
+
+**Actual production:** Shadow run37782664023 SUCCESS, source 6f6eaaab518cf2430de225d0be73d695b40706e4,
+Worker e6c0bd6b-df45-488c-863d-70c012c4e943, shadow/0%/cutover false/global static/T20 false.
+Actual candidate/receipt ZIP digests, provenance and extracted JSON/source/run/CI
+assertions PASS; 3 independent readiness/service-worker pairs PASS. D1 ledger39,
+500 physical/hydrated recipes, hydration failures0, media500/ready500, FK[] and
+quick_check=ok. Runtime fingerprint f8cf8c7ff59df9fe29e246b9e3c9aad0fd155fa8df35bf671ac4d03fa2b5ab37;
+service-worker SHA256 6a0af02b38a9c35d75fcd43ab75c0790d30ebf613d1b7e3297d1ad78d87b092a.
+Applied migration37689543237 (only0039) and recovery37536969564 MUST NOT be replayed.
+Operator excludes user-data retention certification; payments/auth are unchanged.
+
+**Live provider evidence:** Exactly one distinct non-PII scan accepted202,
+2026-10-08T13:26:34.115Z to 2026-10-08T13:26:57.782Z, support be56b53e3b17,
+terminal ready/error null/queue attempt1/max3. All6 items match expected names,
+quantities, units, unit prices, line totals and overall138000VND; logout200.
+Fixture SHA256 8a47ba31ff70f9ee544c96e8772b64edb4dcce2b3a1de85ee1ebada624ab8cd4. No inventory confirmation.
+Original failed scan b6db841cbed9 was not replayed; its missing bytes and exact
+historical schema defect remain unproved. This success certifies the new fixture
+on this release; it does not prove every historical receipt or repair branch.
+
+Bounded dry=true telemetry query matched certified account/service/Worker and
+support/request/trace. Two diagnostic events/four invocation events: qwen-vl-ocr
+succeeded on provider attempt1, input1311/output454 tokens, latency4089ms;
+no repair/escalation occurred. Terminal latency5284ms. No source change or second
+scan was used to obtain this PASS. OAuth/logs and receipt responses remain private.
+
+**Checks and staging:** Shadow hosted gates PASS256files/6316tests,412.76s,
+plus lint/typecheck/migration smoke/build. New-source staging shadow37781071862,
+canary1 37781412721, canary5 37781697963, canary25 37782044271 and D1 37782346206
+all PASS, T20 enabled only in staging, actual artifacts and 3 live pairs per stage.
+Production landing/auth navigation passed headless Chromium mobile390x844 and
+desktop1365x900: logo loaded, no overflow/pageerror/first-party asset failures,
+zero mutations. Four screenshots visually inspected; desktop auth capture includes
+the transient Google loading state. This is not a completed Google sign-in/email
+verification. Earlier local full-suite 1 unchanged Wrangler5s startup timeout is
+retained:255files/6315tests PASS,1failed348.06s; isolated32/32PASS3.31s.
+Focused9files/109tests and final local lint/typecheck/migration/build PASS.
+Self-review is not independent code review. Current R2 object bytes and email
+delivery remain unverified at this checkpoint.
+
+**Next action:** Wait for approved canary1 run37784465213; require SUCCESS and
+actual artifacts/source/CI/approval/catalog/readiness/assets proofs before5%,
+then25%, thenD1. Each production run requires normal independent Environment
+review. No bypass, migration replay, scan replay, or concurrent deploy.
+
+**Checkpoint:** Evidence docs stay on codex/ai-scan-rollout-evidence, separate
+from frozen source. Ignored private evidence and continuation are under
+.wrangler/production-evidence/20261008. Restore clean source branch
+codex/ai-scan-validation-release after publication.
+
+[Production shadow diagnostic](PRODUCTION_SHADOW_DIAGNOSTIC_20261008.md).
+
+All preceding checkpoints below are historical.
+
+---
+
 # New AI release merged and main CI verified - 2026-10-08 JST
 
 **Task/status:** `PRODUCTION_SHADOW_REVIEW_REQUIRED`; production rollout INCOMPLETE.

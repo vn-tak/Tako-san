@@ -39,7 +39,7 @@ export function fixtureQueries(raw) {
     inspect: { sql: `SELECT h.id, p.values_json FROM ${joined}
       LEFT JOIN household_ranking_preferences p ON p.household_id = h.id WHERE ${where}`, params },
     insert: { sql: `INSERT INTO household_ranking_preferences (household_id, values_json, updated_at)
-      SELECT h.id, ?, datetime('now') FROM ${joined} WHERE ${where}
+      SELECT h.id, ?, strftime('%Y-%m-%dT%H:%M:%fZ', 'now') FROM ${joined} WHERE ${where}
       AND NOT EXISTS (SELECT 1 FROM household_ranking_preferences p WHERE p.household_id = h.id)`,
     params: [stored, ...params] },
     stored,

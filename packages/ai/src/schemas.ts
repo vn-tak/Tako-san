@@ -1,4 +1,5 @@
 import { z } from 'zod';
+import type { AIFailureDiagnostics } from './failure-diagnostics';
 
 export const StandardUnitSchema = z.enum([
   'g',
@@ -56,7 +57,7 @@ export type VisionScanResult = z.infer<typeof VisionScanResultSchema>;
 export type ReceiptItem = z.infer<typeof ReceiptItemSchema>;
 export type ReceiptScanResult = z.infer<typeof ReceiptScanResultSchema>;
 
-export interface AIUsageLog {
+export interface AIUsageLog extends AIFailureDiagnostics {
   userId?: string;
   task: 'fridge_scan' | 'receipt_scan' | 'ingredient_normalization' | 'recipe_rank' | 'chat'
     | 'recipe_generation' | 'recipe_ranking' | 'recipe_explanation' | 'fridge_chat' | 'receipt_ocr' | 'label_ocr'

@@ -26,6 +26,7 @@ import {
 import { buildPrompt } from './prompts';
 import { QwenProvider, type QwenCallOptions } from './providers/qwen';
 import { applyReceiptScanQualityGate, applyVisionScanQualityGate } from './quality-gate';
+import { failureDiagnostics } from './failure-diagnostics';
 
 export interface AIRuntimeRequest<T = unknown> {
   task: AITask;
@@ -281,6 +282,7 @@ export class QwenTaskRuntime {
       } catch (error) {
         lastError = error;
         const code = providerCode(error);
+        const diagnostics = isVisionTask(request.task) ? failureDiagnostics(error) : {};
         const providerUsage = provider.getLastUsage();
         const measuredInput = providerUsage?.inputTokens ?? inputBudget.inputTokens;
         const measuredOutput = providerUsage?.outputTokens ?? 0;
@@ -293,6 +295,7 @@ export class QwenTaskRuntime {
         const log = this.makeLog(request.task, role, alias.physicalModel, measuredInput,
           measuredOutput, providerUsage?.cachedInputTokens ?? 0, Date.now() - startedAt, estimatedCostUsd,
           index + 1, escalationReason, 'error', provider, code);
+        Object.assign(log, diagnostics);
         usage.push(log);
         this.onUsageLogged?.(log);
         if (!(isAIProviderError(error) && error.code === 'AI_BUDGET_EXCEEDED')) {
@@ -303,7 +306,7 @@ export class QwenTaskRuntime {
           || error.code === 'INVALID_RESPONSE'
           || error.code === 'AI_SCAN_NO_USABLE_ITEMS'
         )) {
-          repairInput = { previousError: error.code, detail: error.message.slice(0, 500), ...(repairInput === undefined ? {} : { prior: repairInput }) };
+          repairInput = { previousError: error.code, detail: error.message.slice(0, 500), ...diagnostics, ...(repairInput === undefined ? {} : { prior: repairInput }) };
         }
         if (isAIProviderError(error) && !error.retryable) {
           const repairable = error.code === 'SCHEMA_VALIDATION'

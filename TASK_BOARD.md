@@ -1,3 +1,61 @@
+# Production shadow verified; AI diagnosis blocked on historical logs - 2026-10-08 JST
+
+**Task/status:** Production rollout INCOMPLETE. Frozen release/main is
+`0c77720334d7154b25e81d6e6823ab804619adce`, exact-main CI `37686743768`
+SUCCESS. Migration `37689543237` APPLIED only 0039; read-only certification
+`37693128721` PASS; production shadow `37763248411` SUCCESS. Each received
+normal independent Environment approval by `vn-taphoanhatung`. No canary run
+has been dispatched. T20 server/UI remain false; user-data retention certification
+is excluded by the operator's instruction.
+
+**Actual production:** Worker `f9c44422-4667-41bf-835e-51d5ce12787b`, deployment
+`7f2f522f-c9cf-4762-9022-3435ae7e6e38`, shadow/0%/cutover false/global static.
+Schema 39, 500 hydrated recipes, zero hydration failures, 500 valid ready media;
+FK clean and quick_check ok. Three new public readiness/service-worker pairs
+PASS through `2026-10-08T11:48:52.379Z`: exact source/assets, healthy DB/queue,
+config OK, no fallback. Shadow's hosted gates passed 255 files / 6309 tests
+(438.75s). Email delivery and current R2 object bytes remain unverified.
+
+**AI blocker:** One synthetic scan on this shadow release was accepted 202 and
+ended FAILED / INVALID_RESPONSE / queue attempt 1 / max 3 / items 0, support hash
+`b6db841cbed9`, at 10:41:55-10:42:33 UTC (19:41:55-19:42:33 JST). Logout was 200.
+Its original fixture/receipt bytes disappeared during session interruption.
+Recovered conversation history is explicitly labelled and cannot certify original
+receipt bytes or accuracy. Do not resubmit this scan. No confirmed live root cause
+or new AI behavior change: malformed envelope, empty content, unparseable content
+and empty items can share this code; queue attempt 1 can include multiple provider
+calls. Historical `ai_usage` and `scan_terminal` are needed before selecting a fix.
+
+**Recovery/checks:** Re-downloaded all six GitHub candidate/receipt ZIPs; verified
+API digests, archive provenance, exact extracted JSON bytes, run/attempt/SHA/CI,
+normal approvals, and cross-receipt catalog/media/ledger/Worker invariants.
+Account identity matched the certified hash after successful restricted CLI login.
+One bounded historical log query (frigo only, 50 seconds, dry=true) was rejected
+HTTP 403 / API 10000. Official endpoint requires Workers Observability Write;
+OAuth has only account:read/workers_tail:read/offline_access. No scope expansion,
+new provider submission, database write, Worker change or Environment bypass.
+Original operator wrappers/control receipts and staging private packet are missing;
+previous observations remain historical, not newly reverified executable evidence.
+
+**Checkpoint/source:** This documentation stays on `codex/post-media-rollout-evidence`,
+separate from frozen production main. Implementation remains reviewed `df2347ca`,
+merged via PR58/main `0c777203`. Previous local test/hash-pin and concurrent build
+failures are preserved below; no new full local suite is claimed for this docs edit.
+Detailed digests, executed recovery commands and restart instructions:
+[Production shadow diagnostic](docs/ai/scan/PRODUCTION_SHADOW_DIAGNOSTIC_20261008.md).
+
+**Next action:** Obtain sanitized historical `ai_usage` + matching `scan_terminal`
+metadata via Cloudflare Logs for the window above. The restricted CLI received 403;
+operator was asked to provide metadata, without credentials or receipt content.
+Then isolate the cause, add a meaningful regression and the smallest justified fix,
+normal review/CI/merge and validation of any changed final source before a distinct
+provider validation. Promote 1/5/25/D1 only after the provider gate passes. Never
+replay migration 0039 or recovery `37536969564`, or bypass Environment review.
+
+All preceding checkpoints below are historical.
+
+---
+
 # Post-media staging complete and production 0039 applied - 2026-10-08 JST
 
 **State:** Production rollout remains incomplete. PR58 merged normally as

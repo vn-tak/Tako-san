@@ -1,3 +1,71 @@
+# New AI release merged and main CI verified - 2026-10-08 JST
+
+**Task/status:** `PRODUCTION_SHADOW_REVIEW_REQUIRED`; production rollout INCOMPLETE.
+[PR59](https://github.com/vn-tak/Tako-san/pull/59) merged normally as
+`6f6eaaab518cf2430de225d0be73d695b40706e4` at 2026-10-08T12:54:09Z. Reviewed head
+`bc4a1cdfb567610e339e35d4845a993bfb0a6534` and merged main have identical tree
+`1473bb07c6e95f7478a68c880ea31e2e3cd5c1d8`. No unresolved review threads,
+admin bypass or direct main push. Source/release review was self-review; no
+independent code-review claim. Final-head CI 37778968273 SUCCESS, 256 files / 6316 tests,
+424.01s; exact-main CI 37780227955 SUCCESS, 256 files / 6316 tests, 308.04s, with lint,
+typecheck, migration smoke and build. This new SHA is the frozen release source.
+
+**Actual production:** Still old source 0c777203, shadow Worker f9c44422,
+shadow / 0% / cutover false / global static / T20 false. Main merge is not a deployment.
+Applied 0039 / migration 37689543237 and recovery 37536969564 must not be replayed.
+Certification 37693128721 and shadow 37763248411 recovered artifacts remain valid
+historical proofs. Operator excludes user-data retention certification.
+
+**AI evidence/change:** Historical MCP telemetry is recovered and correlated to
+support b6db841cbed9, certified account/service/Worker and request/trace IDs:
+OCR twice SCHEMA_VALIDATION / 611 output tokens, escalation INVALID_RESPONSE / 2 output tokens.
+The merged 648dbd3 implementation supplies capped 8 / deduplicated fixed schema
+paths/codes to scan repair and logs, plus four fixed parse-failure stages.
+It retains schema/quality validation, models, budgets and queue policy. Exact
+historical schema fields remain unavailable; no live provider repair claim.
+Original failed scan/fixture was not replayed. Raw telemetry/OAuth remain private.
+
+**New-source staging:** T20 remains enabled in staging; shadow transition explicitly
+confirmed the prior staging D1 downgrade. Each completed step has actual ZIP digests,
+extracted JSON/source/run/CI verification, 500 D1-ready recipes, no fallback and 3
+independent readiness/service-worker pairs. Progress at this checkpoint:
+
+| Stage | Run | Status |
+| --- | --- | --- |
+| shadow-0 | 37781071862 | PASS |
+| canary-1 | 37781412721 | PASS |
+| canary-5 | 37781697963 | PASS |
+| canary-25 | 37782044271 | PASS |
+| d1-0 | 37782346206 | PASS |
+
+
+**Remaining gate:** Production shadow [run 37782664023](https://github.com/vn-tak/Tako-san/actions/runs/37782664023) has passed the release/main-CI job and requires normal independent production Environment approval by `vn-taphoanhatung`. It has not uploaded a Worker. CLI `vn-tak` is not an eligible reviewer; no bypass or Environment policy change. Next: review this actual run, verify its receipt/Worker/catalog/readiness/assets, then execute the distinct prepared provider validation.
+
+Only a passing provider validation on this new shadow permits production 1/5/25/D1,
+with separate normal Environment approvals. Prepared distinct non-PII fixture:
+6 items / 138000 VND, SHA256
+`8a47ba31ff70f9ee544c96e8772b64edb4dcce2b3a1de85ee1ebada624ab8cd4`;
+not submitted. Its bytes were visually inspected and arithmetic ground truth PASS.
+New operator 5 provider and 11 dispatch controls PASS entirely offline. Collector
+end-to-end PASS on the actual approved old shadow. Operator self-review is not
+independent review. New wrappers are not the vanished originals. Original receipt
+accuracy, R2 object bytes and email delivery remain unverified.
+
+**Local checks/limits:** Focused 9 files / 109 tests PASS. Full local 255 files / 6315 tests
+PASS with 1 unchanged 5s staging-Wrangler startup timeout, 348.06s; isolated unchanged
+32 tests PASS, 3.31s / startup 1099ms. Final lint/typecheck/migration/build PASS. Hosted
+full success does not erase that local failure. No relaxed timeout/assertion.
+
+**Checkpoint:** This evidence lives on `codex/ai-scan-rollout-evidence`, separate
+from frozen main. Detailed history:
+[Production shadow diagnostic](scan/PRODUCTION_SHADOW_DIAGNOSTIC_20261008.md). Private continuation and proofs
+remain ignored at `.wrangler/production-evidence/20261008`. Restore the clean
+`codex/ai-scan-validation-release` source branch after publishing evidence.
+
+All preceding checkpoints below are historical.
+
+---
+
 # Production scan telemetry recovered; bounded validation repair candidate - 2026-10-08 JST
 
 **Task/status:** Production rollout remains INCOMPLETE. Frozen deployed source/main

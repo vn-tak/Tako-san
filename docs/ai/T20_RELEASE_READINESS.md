@@ -123,3 +123,11 @@ staging certified và authorization riêng; `confirm_production=true`, Environme
 review bình thường. Rollback T20false giữ catalog d1/0/cutovertrue, composition
 records/schema39 giữ nguyên; production planner/UI trở vềfalse như baseline.
 Task takeover không dispatch bất kỳ input nào trong packet này.
+
+Final engineering source sau own-review cache404:
+`12fe6fc44370188d02812f449cee4052dbb57364`. Local6338tests/258files full gate và
+browser48PASS(on42/off3/mismatch3), true/false production builds và actual guards
+PASS. PR60 final head gồm docs checkpoint; latest hosted CI/reviewer phải kiểm tra
+head cuối, không dùng CI37841636469 của previous318b10e để authorize release.
+PR: https://github.com/vn-tak/Tako-san/pull/60. Cached404 rollback giờ trở về V1;
+không xoá cache/database composition records. Operator gates phía trên giữ nguyên.

@@ -7,7 +7,7 @@ Checkpoint này thay thế current-state/next-action cũ; các mục phía sau g
 **Repository/source:** Repo API xác nhận `vn-tak/Tako-san`, ID `1385308553`,
 main/base `6f6eaaab518cf2430de225d0be73d695b40706e4`, protected/strict validate.
 Nhánh riêng `codex/t20-production-completion`; implementation
-`8592fa6a35890b54833f81282434101ada1e7694`. Documentation checkpoint theo sau;
+`12fe6fc44370188d02812f449cee4052dbb57364`. Documentation checkpoint theo sau;
 reviewer phải kiểm tra final PR head và hosted CI chính head đó. Push/PR dùng
 canonical repo rõ ràng, không dùng tên owner cũ trong origin làm authority.
 PR20/29 overlap historical docs; không sửa nhánh của họ.
@@ -22,6 +22,8 @@ bởi intentional `CONFIG_RECIPE_CATALOG_D1_AUTHORITY` warning. Các status shad
 provider/canary pending trong lịch sử không còn là next-action hiện tại. Receipt
 baseline không phải chứng nhận T20 head mới. Không replay recovery/0039/AI scan.
 
+**PR:** [#60](https://github.com/vn-tak/Tako-san/pull/60), chờ independent review.
+
 **Actual changes:** P1 composition pending/500/offline/missing không hiển thị
 anchor V1 stale; loading/error/retry rõ, giữ404 server-off/familyV1, unknown-slot
 unavailable. Parent chia sẻ canonical query với composer. P1 release draft thêm
@@ -34,13 +36,13 @@ ADR-043 ghi quyết định, compatibility và rollback.
 
 **Verification:** Node24.16.0/pnpm10.33.2. Final
 `PATH=/opt/homebrew/opt/node@24/bin:$PATH CI=true TMPDIR=/private/tmp pnpm check`
-exit0:258/258files,6337/6337tests,132.31s, no reported skip/failure;
+exit0:258/258files,6338/6338tests,143.70s, no reported skip/failure;
 lint/typecheck/migration-smoke/build PASS. Remote schema/Week parity skipped
 có chủ đích. Baseline6315PASS/1Wrangler timeout, isolated32PASS; không sửa timeout.
-Browser sequential T20on39/off3/UI-on-server-off3 PASS tại390/768/1280, retries0;
+Browser sequential T20on42/off3/UI-on-server-off3 PASS tại390/768/1280, retries0;
 Manual4/save/reload, Assisted2, Auto3, shopping100g/single subtraction,
 restrictions10/20/forbidden/dietary/nutrition, D1-only detail/cooking,200/409,
-UI canonical reload/500retry, untracked, keyboard/focus/axe0/targets≥44px.
+UI canonical reload/500retry/cache404 rollback, untracked, keyboard/focus/axe0/targets≥44px.
 Production true/true và false/false local builds + actual build-record CLI guards
 PASS; local flag manifest fixtures không phải approved release manifest.
 Hosted CI full final head và PR URL/result được ghi trong PR release evidence;

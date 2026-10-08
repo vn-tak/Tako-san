@@ -292,7 +292,7 @@ chỉ là source/local scope được kiểm tra, không chứng nhận hosted d
 |23|Error/empty COMPLETE_VERIFIED|LoadState/PlannerMeal/Week/presentation|U pending/offline/500/missing/empty/unknown slot; browser retry/conflict|Typed vi/en actionable; raw text không expose|
 |24|Flags COMPLETE_VERIFIED (local)|workflow/composition-flags/Vite record|U22; schema-off2; browser off3+mismatch3; real on/off build guards|Runtime baseline không đổi; operator staged enablement riêng|
 |25|Performance COMPLETE_VERIFIED (local)|bounded composer/batch readers|200 samples71/320/500; Worker20 samples, bounded SQL/payload/no writes|Hosted CPU/cost/load unverified; không SLA claim|
-|26|CI/test COMPLETE_VERIFIED (local), hosted gate cần final head|deploy-check/CI/new browser config|258files/6337tests/migration/build PASS; browser45PASS|PR exact-head validate phải PASS; sau merge exact-main CI riêng|
+|26|CI/test COMPLETE_VERIFIED (local), hosted gate cần final head|deploy-check/CI/new browser config|258files/6338tests/migration/build PASS; browser48PASS|PR exact-head validate phải PASS; sau merge exact-main CI riêng|
 |27|Staging BLOCKED_EXTERNAL (new source)|deployment/release packet|Base D1/500/schema39/T20true receipt only|P1 operational gate: independent review + operator deploy + A–I certification|
 |28|Production BLOCKED_EXTERNAL|release/schema/paired flags|Base final D1 deployment37789673028 SUCCESS, T20false|P1 operational gate: review + exact-mainCI + staging receipt + operator approval|
 
@@ -315,3 +315,49 @@ và certify, rồi production enablement theo `T20_RELEASE_READINESS.md`. Không
 recovery/import/replay0039/AI scan. Maintenance tooling vulnerability cần PR riêng;
 whole-week Auto, leftovers, servings/curation/drag-and-drop/real prices giữ phân
 loại deferred phía trên, không mở rộng engine/schema trong PR này.
+
+## Own-review bổ sung — cache404 rollback
+
+Sau khi mở PR60, review phát hiện P2: TanStack Query giữ data V2 sau refetch404.
+Week dùng data đó dù đã chọn legacy fallback, nên client còn mở trong lúc
+rollback backend có thể hiển thị composition cũ. Regression trên warm cache
+thất bại1/23 (22PASS) trước sửa, PASS23/23 sau sửa. `PlannerWeek` chọn component
+chỉ khi không ở legacy fallback; 404 vẫn đưa thẻ về V1, không xoá cache/data.
+Thêm browser navigation cùng SPA warm cache, route404, V1 heading và no V2 list.
+Implementation bổ sung `12fe6fc44370188d02812f449cee4052dbb57364` kế thừa
+`8592fa6a35890b54833f81282434101ada1e7694`. Lint/typecheck PASS; kết quả final
+full gate/browser/CI của source bổ sung được ghi ở checkpoint tiếp theo.
+PR: https://github.com/vn-tak/Tako-san/pull/60. Review/CI318b10e không thay final head.
+
+## Final engineering checkpoint sau cache404 — 2026-10-09 JST
+
+Checkpoint này supersede counts/source của các chứng nhận local trước nó.
+Implementation cuối `12fe6fc44370188d02812f449cee4052dbb57364`, base/main vẫn
+`6f6eaaab518cf2430de225d0be73d695b40706e4`. Local final `pnpm check` cùng command
+PATH/CI/TMPDIR đã ghi: exit0,258/258files,6338/6338tests,143.70s;
+lint/typecheck/migration smoke/build PASS, no reported failure/skip. Timeout cũ
+không tái xuất hiện, không đổi timeout/assertions. Evidence `final-check-cached-404.log`.
+
+Final browser48/48PASS = on42 (14journeys×3widths,121.9s), off3 (10.0s), mismatch3
+(9.5s), retries0/skip0/flaky0. Thêm warm-cache404 same-SPA rollback để chứng minh
+V1 fallback sau khi TanStack giữ stale V2 data. Logs `browser-final-cached-404.log`,
+`browser-off-cached-404.log`, `browser-mismatch-cached-404.log`; screenshots/axe
+và toàn bộ Manual/Assisted/Auto/shopping/safety/concurrency được chạy lại.
+Hai local production builds trên12fe6fc và actual build-record/CLI guards đều
+PASS (true/true và false/false); files `flag-on-final-build.log`,
+`flag-off-final-build.log`, `flag-on-final-build-record.json`,
+`flag-off-final-build-record.json`. Fixtures tiếp tục không phải approved manifests.
+
+PR [60](https://github.com/vn-tak/Tako-san/pull/60), dedicated branch; hosted
+CI37841636469 đã PASS258files/6337tests429.10s trên previous head318b10e,
+không được dùng làm final-head certification sau cache404 fix. Final PR head
+thêm docs checkpoint, CI/source/run/result cuối phải đối chiếu tại body/checks
+PR60. Reviewer không tái dùng approval previous head. Không self-review approval.
+
+Ma trận28 capability phía trên vẫn áp dụng với code/test mới và counts6338/48.
+CODE_COMPLETE_REVIEW_REQUIRED/TEST_VERIFIED(local); new-source staging certification
+và independent review còn thiếu, PRODUCTION_READY chưa đạt/PRODUCTION_ENABLEDfalse.
+No known unresolved P0/P1 implementation sau own-review; không claim T20_COMPLETE.
+Remote deploy/migrate/config/flag/data mutations0; production/staging baseline giữ nguyên.
+Next: final-head hosted validate → independent review → operator merge/exact-mainCI
+→ authorization+staging A–I certification → production enablement review riêng.

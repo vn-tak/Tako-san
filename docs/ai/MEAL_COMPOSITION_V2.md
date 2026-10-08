@@ -3,7 +3,7 @@
 ## Takeover checkpoint hiện tại — 2026-10-09 JST
 
 `T20_CODE_COMPLETE_REVIEW_REQUIRED` / `T20_TEST_VERIFIED` (local).
-Implementation `8592fa6a35890b54833f81282434101ada1e7694`, base/main
+Implementation `12fe6fc44370188d02812f449cee4052dbb57364`, base/main
 `6f6eaaab518cf2430de225d0be73d695b40706e4`, branch
 `codex/t20-production-completion`. Audit28 capability và evidence hiện tại:
 [T20 takeover](T20_TAKEOVER_AUDIT.md); [release/rollback packet](T20_RELEASE_READINESS.md).
@@ -12,11 +12,11 @@ ADR-031 storage/revision/projection/search architecture giữ nguyên.
 
 Manual/Assisted/Auto per-slot và weekly/shopping core journeys verified local.
 Assisted UI expose complete + regenerate_unlocked; pending/500/offline/missing
-không fallback anchorV1; chỉ404 server-off/familyV1 giữ compatibility. Shopping
+không fallback anchorV1; cache V2 bị bỏ khỏi thẻ tuần khi server404; chỉ404 server-off/familyV1 giữ compatibility. Shopping
 untracked explicit, validation copy actionable và touch targets≥44px.
-Full `pnpm check`6337tests/258files PASS, lint/typecheck/migration/build PASS;
-browser on39/off3/mismatch3 PASS trên390/768/1280. Production on/off local builds
-và flag guards PASS. Hosted CI và final head là PR gate riêng.
+Full `pnpm check`6338tests/258files PASS, lint/typecheck/migration/build PASS;
+browser on42/off3/mismatch3 PASS trên390/768/1280. Production on/off local builds
+và flag guards PASS. Hosted CI và final head là gate của [PR60](https://github.com/vn-tak/Tako-san/pull/60).
 
 Production D1 rollout trước takeover đã SUCCESS37789673028 trên6f6eaaab,
 D1/500/schema39/no fallback/T20false; staging cùng base/schema39/T20true.

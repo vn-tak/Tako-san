@@ -1,3 +1,186 @@
+# Production scan telemetry recovered; bounded validation repair candidate - 2026-10-08 JST
+
+**Task/status:** Production rollout remains INCOMPLETE. Frozen deployed source/main
+is `0c77720334d7154b25e81d6e6823ab804619adce`; shadow Worker
+`f9c44422-4667-41bf-835e-51d5ce12787b` remains shadow/0%/cutover false,
+global static, T20 false. Migration 37689543237 APPLIED only0039 and certification
+37693128721 PASS. No canary dispatched; never replay0039 or recovery37536969564.
+Operator excludes user-data retention certification because no real users exist.
+
+**Confirmed telemetry:** The operator completed separately scoped Cloudflare API
+MCP OAuth, including telemetry-query permission. Bounded `dry=true` queries retrieved
+four scan events and seven events from the same invocation, verified against account
+hash, Worker version, service, 50-second window, support hash `b6db841cbed9`, request
+and trace IDs. OCR attempts1/2 on qwen-vl-ocr each returned SCHEMA_VALIDATION,
+611 output tokens; escalation attempt3 on qwen3.8-flash returned INVALID_RESPONSE,
+2 output tokens. This supersedes the previous log-access blocker. Schema fields and
+escalation parsing branch were not logged; equal token counts do not prove equal
+content. The original scan/fixture bytes remain missing and the scan was not replayed.
+
+**Candidate changes:** On `codex/ai-scan-validation-diagnostics`, propagate only
+fixed schema field paths and Zod codes (deduplicated, maximum8) into existing bounded
+scan repair feedback and `ai_usage`; emit fixed invalid-envelope/empty-content/
+unparseable-content/empty-items stages. Revalidate the diagnostic allowlist at Worker
+logging. Unknown field names, item indexes, Zod messages/received values and raw
+provider content are excluded. Public error codes, validation/quality gates, provider
+models, token/call limits, queue fencing, payments and auth are unchanged. This fixes
+lost actionable schema feedback and missing diagnostic precision, not a proved live
+receipt-schema root cause. No live provider success is claimed.
+
+**Checks:** Initial regression import failed before module creation; with a no-op
+module, all6 regression assertions failed as expected. Initial focused6files/87tests
+PASS. Final focused9files/109tests PASS4.75s, including adversarial log redaction,
+bounded/deduplicated paths, repair prompts, provider stages and queue retry/fencing.
+Final `pnpm typecheck`, `pnpm lint`, migration smoke and build PASS. Full suite
+with Node24/TMPDIR=/private/tmp/CI=true/maxWorkers2:255files PASS/1failed,
+6315tests PASS/1failed348.06s; the unchanged local Wrangler staging-startup test
+exceeded its5s timeout. Isolated unchanged rerun32/32PASS3.31s, actual Wrangler
+case1099ms. No full local PASS is claimed. Source/release self-review found no
+remaining concrete issue; it is not independent review. Public provider success
+still requires new-release validation. Implementation checkpoint `648dbd32010363712f219d25ca0b5109db37c3d3`.
+No production write, Worker change or new scan occurred in this diagnostic continuation.
+
+**Checkpoint/source:** Detailed evidence and continuation:
+[Production shadow diagnostic](docs/ai/scan/PRODUCTION_SHADOW_DIAGNOSTIC_20261008.md).
+The former documentation checkpoint is `a29af19`; credentials/raw telemetry remain
+ignored under `.wrangler/production-evidence/20261008`. Do not publish raw logs,
+account IDs, receipt data or OAuth tokens. R2 bytes and email delivery remain unverified.
+
+**Next action:** Finish checks and source review, normal PR/exact-head CI/merge and
+exact-main CI, then revalidate the frozen new source through protected deployment
+and a distinct non-PII provider validation. Original failed scan must not be replayed.
+If validation still fails, use the new correlated diagnostics to isolate a smallest
+justified fix. Only a passing provider gate permits production1/5/25/D1, each with
+normal independent Environment approval. No review bypass or migration replay.
+
+All preceding checkpoints below are historical.
+
+---
+
+# Production shadow verified; AI diagnosis blocked on historical logs - 2026-10-08 JST
+
+**Task/status:** Production rollout INCOMPLETE. Frozen release/main is
+`0c77720334d7154b25e81d6e6823ab804619adce`, exact-main CI `37686743768`
+SUCCESS. Migration `37689543237` APPLIED only 0039; read-only certification
+`37693128721` PASS; production shadow `37763248411` SUCCESS. Each received
+normal independent Environment approval by `vn-taphoanhatung`. No canary run
+has been dispatched. T20 server/UI remain false; user-data retention certification
+is excluded by the operator's instruction.
+
+**Actual production:** Worker `f9c44422-4667-41bf-835e-51d5ce12787b`, deployment
+`7f2f522f-c9cf-4762-9022-3435ae7e6e38`, shadow/0%/cutover false/global static.
+Schema 39, 500 hydrated recipes, zero hydration failures, 500 valid ready media;
+FK clean and quick_check ok. Three new public readiness/service-worker pairs
+PASS through `2026-10-08T11:48:52.379Z`: exact source/assets, healthy DB/queue,
+config OK, no fallback. Shadow's hosted gates passed 255 files / 6309 tests
+(438.75s). Email delivery and current R2 object bytes remain unverified.
+
+**AI blocker:** One synthetic scan on this shadow release was accepted 202 and
+ended FAILED / INVALID_RESPONSE / queue attempt 1 / max 3 / items 0, support hash
+`b6db841cbed9`, at 10:41:55-10:42:33 UTC (19:41:55-19:42:33 JST). Logout was 200.
+Its original fixture/receipt bytes disappeared during session interruption.
+Recovered conversation history is explicitly labelled and cannot certify original
+receipt bytes or accuracy. Do not resubmit this scan. No confirmed live root cause
+or new AI behavior change: malformed envelope, empty content, unparseable content
+and empty items can share this code; queue attempt 1 can include multiple provider
+calls. Historical `ai_usage` and `scan_terminal` are needed before selecting a fix.
+
+**Recovery/checks:** Re-downloaded all six GitHub candidate/receipt ZIPs; verified
+API digests, archive provenance, exact extracted JSON bytes, run/attempt/SHA/CI,
+normal approvals, and cross-receipt catalog/media/ledger/Worker invariants.
+Account identity matched the certified hash after successful restricted CLI login.
+One bounded historical log query (frigo only, 50 seconds, dry=true) was rejected
+HTTP 403 / API 10000. Official endpoint requires Workers Observability Write;
+OAuth has only account:read/workers_tail:read/offline_access. No scope expansion,
+new provider submission, database write, Worker change or Environment bypass.
+Original operator wrappers/control receipts and staging private packet are missing;
+previous observations remain historical, not newly reverified executable evidence.
+
+**Checkpoint/source:** This documentation stays on `codex/post-media-rollout-evidence`,
+separate from frozen production main. Implementation remains reviewed `df2347ca`,
+merged via PR58/main `0c777203`. Previous local test/hash-pin and concurrent build
+failures are preserved below; no new full local suite is claimed for this docs edit.
+Detailed digests, executed recovery commands and restart instructions:
+[Production shadow diagnostic](docs/ai/scan/PRODUCTION_SHADOW_DIAGNOSTIC_20261008.md).
+
+**Next action:** Obtain sanitized historical `ai_usage` + matching `scan_terminal`
+metadata via Cloudflare Logs for the window above. The restricted CLI received 403;
+operator was asked to provide metadata, without credentials or receipt content.
+Then isolate the cause, add a meaningful regression and the smallest justified fix,
+normal review/CI/merge and validation of any changed final source before a distinct
+provider validation. Promote 1/5/25/D1 only after the provider gate passes. Never
+replay migration 0039 or recovery `37536969564`, or bypass Environment review.
+
+All preceding checkpoints below are historical.
+
+---
+
+# Post-media staging complete and production 0039 applied - 2026-10-08 JST
+
+**State:** Production rollout remains incomplete. PR58 merged normally as
+0c77720334d7154b25e81d6e6823ab804619adce from reviewed head
+82ce0cd8eb8188c475126fd5a88c2ff063ac25f9; main/reviewed tree equality is
+e122e554581afafcc7a2f6a37ff2377a3a56d5a2. Exact-main CI37686743768 is SUCCESS.
+Staging has completed the full final-source progression. Normally approved
+migration37689543237 applied only0039, independently audited PASS. Production
+ledger is now39/0039. Do not replay migration or recovery37536969564 (APPLIED).
+
+**Production:** Guarded workflow preflight proved500 recipes, hydration/fingerprint
+and valid operational media before the Time Travel bookmark and apply. Post-ledger,
+unchanged aggregates, FK[], quick_check=ok, catalog/runtime and schema gate PASS.
+Actual media rows500/ready500, zero operational anomalies. Full18-column metadata
+SHA256e12c0bd9871406bd3477d304f345308fb5e912f85712f41cdbbb617e21792e0c and media
+schema SHA2560503f30babe7efb858c02bb118b097c7610d3c834954c3cfb6912b76dca1feb6
+are preserved. This is observed non-atomic metadata evidence; R2 bytes are
+NOT_REVERIFIED. Normal reviewer vn-taphoanhatung, actor vn-tak, attempt1; both
+actual ZIP digests, provenance and extracted bytes PASS. Root reverified both
+archive byte digests/extractions before accepting root-reviewed-summary.json.
+
+**Worker baseline:** Public readiness at2026-10-07T21:57:04Z independently confirms
+old136cb6ff3d2921eac237c7b106b37ab5ee12a13f, static/0/cutoverfalse/globalstatic,
+config/database/queue healthy and fallbacknull. No new production Worker upload or
+provider scan. Email delivery remains unverified. User-data retention certification
+is excluded by user authorization; payment/PayOS/auth/infrastructure unchanged.
+
+**Executed hosted checks:** Final-head PR CI37685662053 SUCCESS; exact-main
+CI37686743768 SUCCESS,255files/6309tests PASS411.90s and all14steps SUCCESS,
+including lint/typecheck/migration-smoke/build. Staging shadow37687850533 ->
+canary1 37688177602 ->canary5 37688484213 ->canary25 37688778057 ->D1 37689066860
+all SUCCESS. Every phase proves schema39/T20server+UItrue, exact source/CI,
+actual twoZIPs,3readiness/assets pairs, hosted+independent public smoke and skipped
+production job. Final staging Worker054c2688-07d9-41e4-84f1-84c18b972de6;
+public500ordered IDs, fingerprintf8cf8c7ff59df9fe29e246b9e3c9aad0fd155fa8df35bf671ac4d03fa2b5ab37
+and imported detail15fields MATCH (5GETs/3readinessguards/0writes). No retry or
+source edit during staging. Historical local full-suite/hash-pin and concurrent
+Vite/build failures remain documented below; this checkpoint does not claim a
+new full local run. Independent operator controls migration46/certification32/
+ZIP+receipt23/freeze+dispatch26 PASS,0actualproduction requests in controls.
+
+**Evidence:** /private/tmp/takosan-post-media-staging-prep/staging-progression-receipt.json
+SHA25606f384a28f57314a5598516f94abbd54f4861c540f2a39e9e82f3d46b54ce0e0;
+/private/tmp/takosan-post-media-migration-37689543237/independent-audit.json;
+/private/tmp/takosan-post-media-migration-37689543237/root-reviewed-summary.json;
+/private/tmp/takosan-post-media-production-prep/root-exact-main-ci-proof.json;
+/private/tmp/takosan-post-media-production-prep/operator-activation-proof.json;
+/private/tmp/takosan-post-media-production-prep/post-migration-production-static-baseline-independent.json.
+Private raw rows, credentials and rollback bookmark values are not reproduced.
+
+**Next:** Read-only certification37693128721 has gateSUCCESS and is waiting for
+normal production Environment review byvn-taphoanhatung (CLIvn-tak cannot approve).
+No Worker upload in this certification. After completedSUCCESS, collect/audit real
+artifacts linked to migration37689543237, then freeze actual media counts/proofs.
+Deploy frozen0c777/T20false through production shadow, exactly one synthetic scan,
+1/5/25/D1; normal independent review is required separately for every production
+run. Audit receipts/liveassets/smoke before promotion. Finally verify public500
+content and mobile/desktop UI, finalize production packet and checkpoint actual
+outcome. Never redispatch an existing intent or bypass Environment reviews.
+This documentation checkpoint is kept separate so the frozen release HEAD/tree
+can remain unchanged while release operations continue.
+
+All preceding checkpoints below are historical.
+
+---
+
 # Post-media gate implementation and verification - 2026-10-08 JST
 
 **State:** Implementationdf2347caf414537c287e11defae0b87f8377cec7/tree

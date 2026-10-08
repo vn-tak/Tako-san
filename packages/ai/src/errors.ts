@@ -3,6 +3,8 @@
  * Provider failures are untrusted external input, so callers should use the
  * retryable flag rather than guessing from an error message.
  */
+import type { AIFailureStage } from './failure-diagnostics';
+
 export interface AIProviderErrorOptions {
   code: string;
   retryable: boolean;
@@ -10,6 +12,7 @@ export interface AIProviderErrorOptions {
   provider?: string;
   model?: string;
   cause?: unknown;
+  failureStage?: AIFailureStage;
 }
 
 export class AIProviderError extends Error {
@@ -18,6 +21,7 @@ export class AIProviderError extends Error {
   readonly status?: number;
   readonly provider?: string;
   readonly model?: string;
+  readonly failureStage?: AIFailureStage;
 
   constructor(message: string, options: AIProviderErrorOptions) {
     super(message, options.cause === undefined ? undefined : { cause: options.cause });
@@ -27,6 +31,7 @@ export class AIProviderError extends Error {
     this.status = options.status;
     this.provider = options.provider;
     this.model = options.model;
+    this.failureStage = options.failureStage;
     Object.setPrototypeOf(this, new.target.prototype);
   }
 }
@@ -152,6 +157,7 @@ export function createAIResponseError(
   message: string,
   model?: string,
   cause?: unknown,
+  failureStage?: AIFailureStage,
 ): AIRequestError {
   return new AIRequestError(message, {
     code: 'INVALID_RESPONSE',
@@ -159,6 +165,7 @@ export function createAIResponseError(
     provider,
     model,
     cause,
+    failureStage,
   });
 }
 

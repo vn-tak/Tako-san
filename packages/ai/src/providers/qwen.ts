@@ -368,7 +368,7 @@ Bỏ qua dòng không phải thực phẩm và không tự bịa sản phẩm kh
       throw createAISchemaError('Qwen', 'Qwen response failed receipt schema validation', this.model, error);
     }
     if (validated.items.length === 0) {
-      throw createAIResponseError('Qwen', 'Qwen returned no receipt items', this.model);
+      throw createAIResponseError('Qwen', 'Qwen returned no receipt items', this.model, undefined, 'empty_items');
     }
     return {
       ...validated,
@@ -435,7 +435,7 @@ Bỏ qua dòng không phải thực phẩm và không tự bịa sản phẩm kh
       try {
         data = await res.json() as typeof data;
       } catch (error) {
-        throw createAIResponseError('Qwen', 'Qwen returned an invalid JSON envelope', this.model, error);
+        throw createAIResponseError('Qwen', 'Qwen returned an invalid JSON envelope', this.model, error, 'invalid_envelope');
       }
       const usage = data.usage;
       if (usage) {
@@ -465,7 +465,7 @@ Bỏ qua dòng không phải thực phẩm và không tự bịa sản phẩm kh
         return typeof candidate !== 'string' || candidate.trim().length > 0;
       });
       if (rawContent === undefined) {
-        throw createAIResponseError('Qwen', 'Qwen returned empty response', this.model);
+        throw createAIResponseError('Qwen', 'Qwen returned empty response', this.model, undefined, 'empty_content');
       }
       return rawContent;
     } catch (error) {
@@ -492,7 +492,7 @@ Bỏ qua dòng không phải thực phẩm và không tự bịa sản phẩm kh
     ], { maxTokens, jsonMode: true, temperature: temperature ?? 0.1 });
     const parsed = parseJsonValue(contentText(rawContent) || rawContent);
     if (parsed === null || parsed === undefined) {
-      throw createAIResponseError('Qwen', 'Qwen returned empty or non-JSON response', this.model);
+      throw createAIResponseError('Qwen', 'Qwen returned empty or non-JSON response', this.model, undefined, 'unparseable_content');
     }
     return parsed;
   }

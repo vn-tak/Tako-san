@@ -2,6 +2,7 @@ import { createGovernanceConfig } from '../../../packages/ai/src/model-governanc
 import type { AIConfig } from '../../../packages/ai/src/types';
 import type { AIUsageLog } from '../../../packages/ai/src/schemas';
 import type { Env } from '../types';
+import { sanitizeFailureDiagnostics } from '../../../packages/ai/src/failure-diagnostics';
 
 /** Build one server-side AI policy from Worker vars. Secrets stay in Env. */
 export function aiConfigFromEnv(env: Env, backgroundExecutor?: (promise: Promise<unknown>) => void): AIConfig {
@@ -59,6 +60,7 @@ export function logAIUsage(log: AIUsageLog): void {
     attempt: log.attempt || 1,
     escalationReason: log.escalationReason,
     failureCode: log.failureCode,
+    ...sanitizeFailureDiagnostics(log),
     status: log.status,
   }));
 }

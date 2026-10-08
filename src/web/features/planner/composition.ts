@@ -2,6 +2,7 @@ import { useQuery } from '@tanstack/react-query';
 import type { MealRole, PickerCuisine } from '../../../../packages/domain/src/meal-composition-api';
 import type { MealPlanDto } from '../../../../packages/domain/src/meal-planning-api';
 import { queryKeys } from '../../lib/queryKeys';
+import { ApiError } from '../../services/http';
 import { mealCompositionApi } from '../../services/meal-composition';
 import type { PlannerLocale } from './copy';
 
@@ -16,6 +17,8 @@ export function usePlanCompositions(plan: MealPlanDto | undefined, enabled = tru
     retry: false,
   });
 }
+
+export const compositionUnavailable = (error: unknown) => error instanceof ApiError && error.status === 404;
 
 const ROLE_LABELS: Record<PlannerLocale, Record<MealRole, string>> = {
   vi: { main: 'Món chính', side: 'Món phụ', vegetable: 'Món rau', soup: 'Món canh', staple: 'Cơm / tinh bột', dessert: 'Tráng miệng', simple_food: 'Món đơn giản' },
@@ -41,6 +44,9 @@ export function componentTitle(item: { kind: string; simpleFoodId?: string | nul
 
 export const compositionCopy = {
   vi: {
+    loadingDishes: 'Đang tải các món trong bữa…', loadFailed: 'Chưa tải được các món trong bữa này. Vui lòng thử lại.',
+    untrackedShopping: 'Danh sách đi chợ không tính số lượng cho các món này. Bạn cần kiểm tra và mua thêm nếu cần.',
+    regenerateUnlocked: 'Gợi ý lại món chưa khoá',
     heading: 'Các món trong bữa', editHint: 'Mọi thay đổi được lưu trên máy chủ ngay khi bạn chọn.', addDish: 'Thêm món',
     complete: 'Hoàn thiện bữa này', build: 'Để Takosan gợi ý cả bữa', swapDish: 'Đổi món', remove: 'Bỏ món', lock: 'Khoá món',
     unlock: 'Mở khoá món', locked: 'Đã khoá', moveUp: 'Chuyển lên', moveDown: 'Chuyển xuống', role: 'Vai trò',
@@ -63,6 +69,9 @@ export const compositionCopy = {
     roleAdded: (role: string) => `Thêm ${role.toLowerCase()} cho bữa ăn cân đối.`, roleUnfilled: (role: string) => `Chưa tìm được ${role.toLowerCase()} phù hợp.`,
   },
   en: {
+    loadingDishes: 'Loading dishes…', loadFailed: 'Could not load the dishes in this meal. Please try again.',
+    untrackedShopping: 'The shopping list does not calculate quantities for these dishes. Check them and purchase separately if needed.',
+    regenerateUnlocked: 'Suggest new unlocked dishes',
     heading: 'Dishes in this meal', editHint: 'Every change is saved on the server as soon as you choose it.', addDish: 'Add dish',
     complete: 'Complete this meal', build: 'Let Takosan build the meal', swapDish: 'Swap dish', remove: 'Remove dish', lock: 'Lock dish',
     unlock: 'Unlock dish', locked: 'Locked', moveUp: 'Move up', moveDown: 'Move down', role: 'Role',

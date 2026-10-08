@@ -16,6 +16,7 @@ vi.mock('../../src/web/services/meal-planning', () => ({ mealPlanningApi: { get:
 
 import { MealComposer } from '../../src/web/features/planner/MealComposer';
 import { PlannerMeal } from '../../src/web/features/planner/PlannerMeal';
+import { PlannerShopping } from '../../src/web/features/planner/PlannerShopping';
 import { PlannerWeek } from '../../src/web/features/planner/PlannerWeek';
 
 const planId = '5b7c8f1e-2a3d-4c5b-8e9f-0a1b2c3d4e5f';
@@ -300,4 +301,104 @@ describe('T20 meal page keeps V1 controls where the composer cannot act', () => 
     expect(swapVisible()).toBe(true);
     expect(composerVisible()).toBe(false);
   });
+});
+
+describe('T20 authoritative composition loading and recovery', () => {
+  it.each(['meal', 'week'] as const)('does not show a stale V1 anchor while %s compositions load', async (page) => {
+    api.plan.mockReturnValue(new Promise(() => {}));
+    const current = plan();
+    await render(page === 'meal'
+      ? <PlannerMeal plan={current} slotId={slotId} model={model(current) as never} locale="en" />
+      : <PlannerWeek plan={current} model={model(current) as never} locale="en" />);
+    expect(container.textContent).not.toContain('Phở bò');
+    expect(container.textContent).toContain('Loading dishes');
+    expect(byLabel('Swap meal')).toBeUndefined();
+  });
+
+  it.each(['meal', 'week'] as const)('keeps %s on an explicit error until Retry recovers canonical components', async (page) => {
+    const { ApiError } = await import('../../src/web/services/http');
+    api.plan.mockRejectedValueOnce(new ApiError('http', 'Unavailable', 500));
+    const current = plan();
+    await render(page === 'meal'
+      ? <PlannerMeal plan={current} slotId={slotId} model={model(current) as never} locale="en" />
+      : <PlannerWeek plan={current} model={model(current) as never} locale="en" />);
+    expect(container.textContent).not.toContain('Phở bò');
+    expect(byLabel('Swap meal')).toBeUndefined();
+    expect(container.querySelector('[role="alert"]')).not.toBeNull();
+    await act(async () => byLabel('Try again').click());
+    await settle();
+    expect(container.textContent).toContain('Steamed rice');
+    expect(api.plan).toHaveBeenCalledTimes(2);
+  });
+
+  it('offline composition reads never expose V1 ingredients, instructions or swap', async () => {
+    const { ApiError } = await import('../../src/web/services/http');
+    api.plan.mockRejectedValue(new ApiError('offline', 'Offline'));
+    const current = plan();
+    await render(<PlannerMeal plan={current} slotId={slotId} model={model(current) as never} locale="en" />);
+    expect(container.textContent).not.toContain('Phở bò');
+    expect(container.textContent).not.toContain('Ingredients');
+    expect(byLabel('Swap meal')).toBeUndefined();
+    expect(container.querySelector('[role="alert"]')).not.toBeNull();
+  });
+
+  it('a successful response missing the slot is actionable and cannot imply a V1 meal', async () => {
+    api.plan.mockResolvedValueOnce({ ...compositions(), compositions: [] });
+    const current = plan();
+    await render(<PlannerMeal plan={current} slotId={slotId} model={model(current) as never} locale="en" />);
+    expect(container.textContent).not.toContain('Phở bò');
+    expect(container.textContent).toContain('Could not load the dishes in this meal');
+    await act(async () => byLabel('Try again').click());
+    await settle();
+    expect(container.textContent).toContain('Steamed rice');
+  });
+});
+
+it('Assisted regeneration previews locked dishes and applies the same action only on acceptance', async () => {
+  const current = plan();
+  api.assist.mockResolvedValue({ schemaVersion: 1, planId, planRevision: 4, slotId, action: 'regenerate_unlocked', variant: 0,
+    proposal: { optionId: 'b'.repeat(32), removedComponentIds: ['v1.x'], unfilledRoles: [],
+      explanations: [{ code: 'LOCKED_PRESERVED', count: 1, role: null }],
+      components: [{ kind: 'simple_food', role: 'staple', recipeId: null, simpleFoodId: 'sf-steamed-rice', title: 'Cơm trắng', locked: true, existingComponentId: 'c-rice' }] } });
+  api.assistApply.mockResolvedValue({});
+  await render(<MealComposer plan={current} slotId={slotId} model={model(current) as never} locale="en" />);
+  await act(async () => byLabel('Suggest new unlocked dishes').click());
+  expect(api.assist).toHaveBeenCalledWith(planId, slotId, { revision: 4, action: 'regenerate_unlocked' });
+  expect(container.textContent).toContain('Keeps 1 locked dishes.');
+  expect(api.assistApply).not.toHaveBeenCalled();
+  await act(async () => byLabel('Use this suggestion').click());
+  expect(api.assistApply).toHaveBeenCalledWith(planId, slotId, { revision: 4, action: 'regenerate_unlocked', variant: 0, proposalId: 'b'.repeat(32) });
+});
+
+
+describe('T20 shopping makes untracked simple foods explicit', () => {
+  function untracked() {
+    const dto = compositions();
+    const fruit = { ...dto.compositions[0].components[1], id: 'fruit', title: 'Trái cây theo mùa', role: 'dessert',
+      simpleFoodId: 'sf-seasonal-fruit', permittedRoles: ['dessert', 'simple_food'], projection: { status: 'not_tracked', missingCount: 0, inventoryLineCount: 0 } };
+    return PlanCompositionsDtoSchema.parse({ ...dto, compositions: [{ ...dto.compositions[0], components: [fruit] }] });
+  }
+  it('shows the untracked dish and its meal in shopping instead of implying zero demand', async () => {
+    api.plan.mockResolvedValue(untracked());
+    const current = plan();
+    await render(<PlannerShopping plan={current} model={model(current) as never} locale="en" />);
+    expect(container.textContent).toContain('Seasonal fruit');
+    expect(container.textContent).toContain('Not tracked in inventory');
+    expect(container.querySelector(`a[href="/planner/${planId}/meal/${encodeURIComponent(slotId)}"]`)).not.toBeNull();
+  });
+  it('never labels an entirely untracked meal as available inventory', async () => {
+    api.plan.mockResolvedValue(untracked());
+    const current = plan();
+    await render(<PlannerWeek plan={current} model={model(current) as never} locale="en" />);
+    expect(container.querySelector('[data-testid="planned-meal"]')!.textContent).toContain('Not tracked in inventory');
+    expect(container.querySelector('[data-testid="planned-meal"]')!.textContent).not.toContain('Available');
+  });
+});
+
+it('an unknown slot stays unavailable instead of offering an endless composition retry', async () => {
+  const current = plan();
+  await render(<PlannerMeal plan={current} slotId={`${date}:lunch:99`} model={model(current) as never} locale="en" />);
+  expect(container.textContent).toContain('This meal is not in the current plan revision.');
+  expect(byLabel('Try again')).toBeUndefined();
+  expect(byLabel('Add dish')).toBeUndefined();
 });

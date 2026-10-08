@@ -1,6 +1,7 @@
 import { createServer as createHttpServer } from 'node:http';
 import { createServer as createViteServer } from 'vite';
 import { createPreviewCache, createPreviewControls, seedPlannerPreview, PREVIEW_USER_ID, PREVIEW_HOUSEHOLD_ID } from './planner-preview-fixtures.mjs';
+import { seedT20Preview, t20RestrictionFixture } from './t20-preview-fixtures.mjs';
 import { isolatedPreviewHtml } from './isolated-preview-html.mjs';
 import { seedT13ReconciliationEvidence } from './t13-reconciliation-fixtures.mjs';
 
@@ -33,10 +34,13 @@ const { recordInventoryObservation } = await vite.ssrLoadModule('/packages/db/sr
 let db = new SqliteD1();
 const operatorRequests = [];
 seedPlannerPreview(db);
+const t20D1 = process.env.PREVIEW_T20_D1 === 'true';
+if (t20D1) seedT20Preview(db);
 const env = { DB: db, CACHE: createPreviewCache(), ENVIRONMENT: 'development', APP_URL: process.env.PREVIEW_APP_URL || `http://127.0.0.1:${port}`,
   JWT_SECRET: 'isolated-local-preview-jwt-secret-no-production-use',
   OTP_HASH_SECRET: 'isolated-local-preview-otp-secret-no-production-use',
-  AI_MOCK_MODE: 'true', SCAN_QUEUE_MODE: 'sync', MEAL_PLANNER_ENABLED: 'true', MEAL_COMPOSITION_V2_ENABLED: compositionV2Server };
+  AI_MOCK_MODE: 'true', SCAN_QUEUE_MODE: 'sync', MEAL_PLANNER_ENABLED: 'true', MEAL_COMPOSITION_V2_ENABLED: compositionV2Server,
+  ...(t20D1 ? { RECIPE_CATALOG_MODE: 'd1', RECIPE_CATALOG_CUTOVER_ENABLED: 'true' } : {}) };
 // T13R-B browser case B: while armed, authoritative inventory GET reads fail
 // with a synthetic 500 (no private detail); mutations stay real and reads are
 // restored by control or reset.
@@ -49,6 +53,7 @@ const controls = createPreviewControls({ getDatabase: () => db, getOperatorReque
   failInventoryReads = false;
   const fresh = new SqliteD1();
   seedPlannerPreview(fresh);
+  if (t20D1) seedT20Preview(fresh);
   const previous = db;
   db = fresh;
   env.DB = fresh;
@@ -75,7 +80,7 @@ const api = createHttpServer((req, res) => {
       && /^\/api\/v1\/inventory(\/lots\/[^/]+)?$/.test(new URL(request.url).pathname);
     const response = armedReadFailure
       ? Response.json({ error: 'Isolated preview: synthetic read failure', code: 'PREVIEW_READ_FAILURE' }, { status: 500 })
-      : await controls(request) || await worker.fetch(request, { ...env, APP_URL: requestOrigin }, {
+      : (t20D1 && compositionV2Server === 'true' ? t20RestrictionFixture(db, request) : null) || await controls(request) || await worker.fetch(request, { ...env, APP_URL: requestOrigin }, {
         waitUntil(p) { p.catch(console.error); }, passThroughOnException() {},
       });
     const pathname = new URL(request.url).pathname;

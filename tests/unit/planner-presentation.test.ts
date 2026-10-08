@@ -248,3 +248,20 @@ describe('safe actionable planner errors', () => {
       expect(plannerErrorMessage(parsed.error, 'en')).toBe(plannerCopy.en.errors.invalid);
   });
 });
+
+describe('T20 actionable composition errors', () => {
+  it.each([
+    ['PROPOSAL_STALE', 'gợi ý mới', 'new suggestion'],
+    ['HARD_CONSTRAINT_CONFLICT', 'giới hạn thời gian', 'time limit'],
+    ['DUPLICATE_COMPONENT', 'đã có', 'already in'],
+    ['ROLE_NOT_PERMITTED', 'vai trò khác', 'another role'],
+    ['TARGET_NOT_FOUND', 'danh sách', 'choices'],
+    ['COMPONENT_LIMIT', 'bớt', 'Remove a dish'],
+  ])('%s guides recovery in Vietnamese and English without showing a machine code', (code, viText, enText) => {
+    const error = new ApiError('http', `HTTP 422: ${JSON.stringify({ code, error: 'private raw detail' })}`, 422);
+    expect(plannerErrorMessage(error, 'vi')).toContain(viText);
+    expect(plannerErrorMessage(error, 'en')).toContain(enText);
+    expect(plannerErrorMessage(error, 'en')).not.toContain(code);
+    expect(plannerErrorMessage(error, 'en')).not.toContain('private raw detail');
+  });
+});

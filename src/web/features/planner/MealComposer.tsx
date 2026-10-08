@@ -14,6 +14,7 @@ import { Card } from '../../components/common/Card';
 import { Button } from '../../components/common/Button';
 import { mealCompositionApi } from '../../services/meal-composition';
 import { mealPlanningApi } from '../../services/meal-planning';
+import { CompositionLoadState } from './CompositionLoadState';
 import { ComponentPicker } from './ComponentPicker';
 import { compositionCopy, componentTitle, roleLabel, usePlanCompositions } from './composition';
 import type { PlannerLocale } from './copy';
@@ -24,11 +25,13 @@ let pendingFocus: { id: string; message: string } | null = null;
 
 type Picker = { mode: 'add'; role?: MealRole } | { mode: 'swap'; component: MealComponentDto };
 
-export function MealComposer({ plan, slotId, model, locale }: {
+export function MealComposer({ plan, slotId, model, locale, query: loaded }: {
   plan: MealPlanDto; slotId: string; model: ReturnType<typeof usePlanner>; locale: PlannerLocale;
+  query?: ReturnType<typeof usePlanCompositions>;
 }) {
   const c = compositionCopy[locale];
-  const query = usePlanCompositions(plan);
+  const ownQuery = usePlanCompositions(plan, !loaded);
+  const query = loaded ?? ownQuery;
   const composition = query.data?.compositions.find((entry) => entry.slotId === slotId);
   const [picker, setPicker] = useState<Picker | null>(null);
   const [proposal, setProposal] = useState<AssistProposalDto | null>(null);
@@ -66,8 +69,7 @@ export function MealComposer({ plan, slotId, model, locale }: {
     }
   }
 
-  if (query.isPending) return <Card><p role="status" className="text-sm">…</p></Card>;
-  if (query.isError || !composition) return null;
+  if (!query.isSuccess || !composition) return <Card><CompositionLoadState query={query} locale={locale} missing={!composition} /></Card>;
   const disabled = !!model.busy || past;
   const components = composition.components;
   return <Card className="!p-5 sm:!p-6" aria-labelledby="composition-heading">
@@ -93,13 +95,18 @@ export function MealComposer({ plan, slotId, model, locale }: {
         <p className="text-sm text-takosan-green-deep">{c.missing(roleLabel(role, locale))}</p>
         <Button size="sm" variant="outline" disabled={disabled} aria-label={`${c.addDish}: ${roleLabel(role, locale)}`} onClick={() => setPicker({ mode: 'add', role })}><Plus size={14} className="mr-1" />{c.addDish}</Button>
       </div>)}
-    <div className="grid sm:grid-cols-3 gap-2 mt-4">
+    <div className="grid sm:grid-cols-2 gap-2 mt-4">
       <Button variant="secondary" disabled={disabled} onClick={() => setPicker({ mode: 'add' })}><Plus size={16} className="mr-2" />{c.addDish}</Button>
       <Button variant="outline" disabled={disabled} onClick={async () => {
         setOptions(null);
         const result = await model.perform('composition-assist', () => mealCompositionApi.assist(plan.id, slotId, { revision: plan.revision, action: 'complete' }));
         if (result) { setProposal(result); setMessage(c.proposalReady); }
       }}><Sparkles size={16} className="mr-2" />{c.complete}</Button>
+      <Button variant="outline" disabled={disabled} onClick={async () => {
+        setOptions(null);
+        const result = await model.perform('composition-assist', () => mealCompositionApi.assist(plan.id, slotId, { revision: plan.revision, action: 'regenerate_unlocked' }));
+        if (result) { setProposal(result); setMessage(c.proposalReady); }
+      }}><RefreshCw size={16} className="mr-2" />{c.regenerateUnlocked}</Button>
       <Button variant="outline" disabled={disabled} onClick={async () => {
         setProposal(null);
         const result = await model.perform('composition-auto', () => mealCompositionApi.auto(plan.id, slotId, { revision: plan.revision }));
@@ -143,11 +150,11 @@ function ComponentRow({ component, index, count, locale, disabled, onLock, onRol
       </Button>
     </div>
     <details className="mt-2 group">
-      <summary className="text-xs text-takosan-green-deep underline cursor-pointer min-h-8 inline-flex items-center">{c.swapDish} · {c.remove} · {c.role}</summary>
+      <summary className="text-xs text-takosan-green-deep underline cursor-pointer min-h-11 inline-flex items-center">{c.swapDish} · {c.remove} · {c.role}</summary>
       <div className="flex flex-wrap items-center gap-2 mt-2">
         {component.permittedRoles.length > 1 && <label className="text-xs flex items-center gap-2">{c.role}
           <select id={`role-${component.id}`} value={component.role} disabled={disabled} onChange={(event) => onRole(event.target.value as MealRole)}
-            className="min-h-9 rounded-lg border border-semantic-border px-2 bg-white" aria-label={`${c.role}: ${title}`}>
+            className="min-h-11 rounded-lg border border-semantic-border px-2 bg-white" aria-label={`${c.role}: ${title}`}>
             {component.permittedRoles.map((role) => <option key={role} value={role}>{roleLabel(role, locale)}</option>)}
           </select></label>}
         <Button size="sm" variant="outline" disabled={disabled} aria-label={`${c.swapDish}: ${title}`} onClick={onSwap}><RefreshCw size={14} className="mr-1" />{c.swapDish}</Button>
@@ -157,8 +164,8 @@ function ComponentRow({ component, index, count, locale, disabled, onLock, onRol
       </div>
       <div className="mt-2 text-xs">
         {component.cookable && component.recipeId ? <span className="flex gap-3">
-          <Link className="underline min-h-8 inline-flex items-center" to={`/recipes/id/${encodeURIComponent(component.recipeId)}`}>{c.detail}</Link>
-          <Link className="underline min-h-8 inline-flex items-center" to={`/cooking/${encodeURIComponent(component.recipeId)}`}>{c.cook}</Link>
+          <Link className="underline min-h-11 inline-flex items-center" to={`/recipes/id/${encodeURIComponent(component.recipeId)}`}>{c.detail}</Link>
+          <Link className="underline min-h-11 inline-flex items-center" to={`/cooking/${encodeURIComponent(component.recipeId)}`}>{c.cook}</Link>
         </span> : component.kind === 'simple_food' ? <span className="text-semantic-text-muted">{c.noCooking}</span> : null}
       </div>
     </details>

@@ -1,3 +1,115 @@
+# Production scan telemetry recovered; bounded validation repair candidate - 2026-10-08 JST
+
+**Task/status:** Production rollout remains INCOMPLETE. Frozen deployed source/main
+is `0c77720334d7154b25e81d6e6823ab804619adce`; shadow Worker
+`f9c44422-4667-41bf-835e-51d5ce12787b` remains shadow/0%/cutover false,
+global static, T20 false. Migration 37689543237 APPLIED only0039 and certification
+37693128721 PASS. No canary dispatched; never replay0039 or recovery37536969564.
+Operator excludes user-data retention certification because no real users exist.
+
+**Confirmed telemetry:** The operator completed separately scoped Cloudflare API
+MCP OAuth, including telemetry-query permission. Bounded `dry=true` queries retrieved
+four scan events and seven events from the same invocation, verified against account
+hash, Worker version, service, 50-second window, support hash `b6db841cbed9`, request
+and trace IDs. OCR attempts1/2 on qwen-vl-ocr each returned SCHEMA_VALIDATION,
+611 output tokens; escalation attempt3 on qwen3.8-flash returned INVALID_RESPONSE,
+2 output tokens. This supersedes the previous log-access blocker. Schema fields and
+escalation parsing branch were not logged; equal token counts do not prove equal
+content. The original scan/fixture bytes remain missing and the scan was not replayed.
+
+**Candidate changes:** On `codex/ai-scan-validation-diagnostics`, propagate only
+fixed schema field paths and Zod codes (deduplicated, maximum8) into existing bounded
+scan repair feedback and `ai_usage`; emit fixed invalid-envelope/empty-content/
+unparseable-content/empty-items stages. Revalidate the diagnostic allowlist at Worker
+logging. Unknown field names, item indexes, Zod messages/received values and raw
+provider content are excluded. Public error codes, validation/quality gates, provider
+models, token/call limits, queue fencing, payments and auth are unchanged. This fixes
+lost actionable schema feedback and missing diagnostic precision, not a proved live
+receipt-schema root cause. No live provider success is claimed.
+
+**Checks:** Initial regression import failed before module creation; with a no-op
+module, all6 regression assertions failed as expected. Initial focused6files/87tests
+PASS. Final focused9files/109tests PASS4.75s, including adversarial log redaction,
+bounded/deduplicated paths, repair prompts, provider stages and queue retry/fencing.
+Initial `pnpm typecheck`, `pnpm lint`, `git diff --check` PASS. Full suite and final
+checks are running; results must be recorded before publishing/merging the candidate.
+No production write, Worker change or new scan occurred in this diagnostic continuation.
+
+**Checkpoint/source:** Detailed evidence and continuation:
+[Production shadow diagnostic](../scan/PRODUCTION_SHADOW_DIAGNOSTIC_20261008.md).
+The former documentation checkpoint is `a29af19`; credentials/raw telemetry remain
+ignored under `.wrangler/production-evidence/20261008`. Do not publish raw logs,
+account IDs, receipt data or OAuth tokens. R2 bytes and email delivery remain unverified.
+
+**Next action:** Finish checks and source review, normal PR/exact-head CI/merge and
+exact-main CI, then revalidate the frozen new source through protected deployment
+and a distinct non-PII provider validation. Original failed scan must not be replayed.
+If validation still fails, use the new correlated diagnostics to isolate a smallest
+justified fix. Only a passing provider gate permits production1/5/25/D1, each with
+normal independent Environment approval. No review bypass or migration replay.
+
+All preceding checkpoints below are historical.
+
+---
+
+# Production shadow verified; AI diagnosis blocked on historical logs - 2026-10-08 JST
+
+**Task/status:** Production rollout INCOMPLETE. Frozen release/main is
+`0c77720334d7154b25e81d6e6823ab804619adce`, exact-main CI `37686743768`
+SUCCESS. Migration `37689543237` APPLIED only 0039; read-only certification
+`37693128721` PASS; production shadow `37763248411` SUCCESS. Each received
+normal independent Environment approval by `vn-taphoanhatung`. No canary run
+has been dispatched. T20 server/UI remain false; user-data retention certification
+is excluded by the operator's instruction.
+
+**Actual production:** Worker `f9c44422-4667-41bf-835e-51d5ce12787b`, deployment
+`7f2f522f-c9cf-4762-9022-3435ae7e6e38`, shadow/0%/cutover false/global static.
+Schema 39, 500 hydrated recipes, zero hydration failures, 500 valid ready media;
+FK clean and quick_check ok. Three new public readiness/service-worker pairs
+PASS through `2026-10-08T11:48:52.379Z`: exact source/assets, healthy DB/queue,
+config OK, no fallback. Shadow's hosted gates passed 255 files / 6309 tests
+(438.75s). Email delivery and current R2 object bytes remain unverified.
+
+**AI blocker:** One synthetic scan on this shadow release was accepted 202 and
+ended FAILED / INVALID_RESPONSE / queue attempt 1 / max 3 / items 0, support hash
+`b6db841cbed9`, at 10:41:55-10:42:33 UTC (19:41:55-19:42:33 JST). Logout was 200.
+Its original fixture/receipt bytes disappeared during session interruption.
+Recovered conversation history is explicitly labelled and cannot certify original
+receipt bytes or accuracy. Do not resubmit this scan. No confirmed live root cause
+or new AI behavior change: malformed envelope, empty content, unparseable content
+and empty items can share this code; queue attempt 1 can include multiple provider
+calls. Historical `ai_usage` and `scan_terminal` are needed before selecting a fix.
+
+**Recovery/checks:** Re-downloaded all six GitHub candidate/receipt ZIPs; verified
+API digests, archive provenance, exact extracted JSON bytes, run/attempt/SHA/CI,
+normal approvals, and cross-receipt catalog/media/ledger/Worker invariants.
+Account identity matched the certified hash after successful restricted CLI login.
+One bounded historical log query (frigo only, 50 seconds, dry=true) was rejected
+HTTP 403 / API 10000. Official endpoint requires Workers Observability Write;
+OAuth has only account:read/workers_tail:read/offline_access. No scope expansion,
+new provider submission, database write, Worker change or Environment bypass.
+Original operator wrappers/control receipts and staging private packet are missing;
+previous observations remain historical, not newly reverified executable evidence.
+
+**Checkpoint/source:** This documentation stays on `codex/post-media-rollout-evidence`,
+separate from frozen production main. Implementation remains reviewed `df2347ca`,
+merged via PR58/main `0c777203`. Previous local test/hash-pin and concurrent build
+failures are preserved below; no new full local suite is claimed for this docs edit.
+Detailed digests, executed recovery commands and restart instructions:
+[Production shadow diagnostic](../scan/PRODUCTION_SHADOW_DIAGNOSTIC_20261008.md).
+
+**Next action:** Obtain sanitized historical `ai_usage` + matching `scan_terminal`
+metadata via Cloudflare Logs for the window above. The restricted CLI received 403;
+operator was asked to provide metadata, without credentials or receipt content.
+Then isolate the cause, add a meaningful regression and the smallest justified fix,
+normal review/CI/merge and validation of any changed final source before a distinct
+provider validation. Promote 1/5/25/D1 only after the provider gate passes. Never
+replay migration 0039 or recovery `37536969564`, or bypass Environment review.
+
+All preceding checkpoints below are historical.
+
+---
+
 # Production D1 0038 to 0039 migration packet
 
 ## 2026-09-29 catalog order STOP (newer evidence)

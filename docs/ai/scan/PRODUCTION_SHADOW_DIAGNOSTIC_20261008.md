@@ -1,3 +1,125 @@
+# Production rollout complete - 2026-10-08 JST
+
+**Task/status:** PRODUCTION_RELEASE_COMPLETE. Production is deployed and final
+verification has passed at 2026-10-08T14:30:05.305Z. No pending run or approval.
+Public application: [Takosan](https://frigo.tungjpstore.net).
+
+**Source/change:** Frozen main and deployed source
+`6f6eaaab518cf2430de225d0be73d695b40706e4`; normal [PR59](https://github.com/vn-tak/Tako-san/pull/59)
+merge, implementation `648dbd32010363712f219d25ca0b5109db37c3d3`.
+The reviewed fix preserves bounded, deduplicated fixed schema paths/Zod codes in
+scan repair feedback and sanitized logs, and records fixed parsing stages.
+Provider models, schema/quality gates, call/token budgets and queue policy remain
+unchanged. Source review was self-review; independent code review is not claimed.
+This final checkpoint changes documentation only.
+
+**Actual production:** [Deploy101 / run37789673028](https://github.com/vn-tak/Tako-san/actions/runs/37789673028)
+SUCCESS, Worker `f92df570-6cb0-43de-bfa6-a4c7bd7f07d8`, deployment
+`274b145a-d41d-462f-a97d-c4c993b94dcd`. Recipe authority is `d1`, global source
+`d1`, canary percent0, cutover enabled, T20 server/UI false. Schema39;
+500 physical/hydrated recipes, zero hydration failures, media500/ready500,
+FK[] and quick_check=ok, no fallback. Runtime fingerprint:
+`f8cf8c7ff59df9fe29e246b9e3c9aad0fd155fa8df35bf671ac4d03fa2b5ab37`.
+Applied0039 (migration37689543237) and recovery37536969564 remain APPLIED.
+User-data retention certification is excluded by operator authorization.
+
+| Stage | Staging Run | Production Run | Actual Proof |
+| --- | --- | --- | --- |
+| Shadow 0% | [37781071862](https://github.com/vn-tak/Tako-san/actions/runs/37781071862) | [37782664023](https://github.com/vn-tak/Tako-san/actions/runs/37782664023) | PASS |
+| Canary 1% | [37781412721](https://github.com/vn-tak/Tako-san/actions/runs/37781412721) | [37784465213](https://github.com/vn-tak/Tako-san/actions/runs/37784465213) | PASS |
+| Canary 5% | [37781697963](https://github.com/vn-tak/Tako-san/actions/runs/37781697963) | [37786352966](https://github.com/vn-tak/Tako-san/actions/runs/37786352966) | PASS |
+| Canary 25% | [37782044271](https://github.com/vn-tak/Tako-san/actions/runs/37782044271) | [37788079550](https://github.com/vn-tak/Tako-san/actions/runs/37788079550) | PASS |
+| Full D1 | [37782346206](https://github.com/vn-tak/Tako-san/actions/runs/37782346206) | [37789673028](https://github.com/vn-tak/Tako-san/actions/runs/37789673028) | PASS |
+
+**Deployment evidence:** All10 stages PASS on the same frozen source. Aggregate
+verification rehashed20 actual ZIP archives and their20 extracted JSON files
+(40 digest checks), checked30 separately requested readiness/service-worker pairs,
+and verified the same production D1 and exact previous-Worker rollback chain.
+All5 production runs had normal independent Environment approval by
+`vn-taphoanhatung`; no bypass. T20 is enabled only in staging.
+Service-worker SHA256:
+`6a0af02b38a9c35d75fcd43ab75c0790d30ebf613d1b7e3297d1ad78d87b092a`.
+Aggregate proof: `complete-production-release-audit.json`, SHA256
+`521474fe037bd02d937c28d24c8c99923bac7b0c400409ad0404283bc6c660d8`.
+
+**Executed gates:** Exact-main CI37780227955 PASS256files/6316tests308.04s;
+final-head CI37778968273 PASS256files/6316tests424.01s. All5 production deployments
+re-ran full hosted gates with256files/6316tests each; final D1 tests414.93s.
+Hosted lint/typecheck/migration-smoke/build all PASS. Earlier local focused tests
+9files/109tests and `pnpm lint`, `pnpm typecheck`, `pnpm check:migrations`,
+`pnpm build` PASS. Earlier local full `pnpm test` with Node24, CI=true,
+TMPDIR=/private/tmp and maxWorkers2:255files/6315tests PASS,1 unchanged5s Wrangler
+staging-startup timeout,348.06s. Isolated unchanged rerun32/32 PASS3.31s,
+startup1099ms. Hosted success does not erase that local failure. No local full
+suite was rerun for this final documentation-only checkpoint.
+
+**AI provider proof:** Exactly one distinct synthetic scan on the new shadow,
+support `be56b53e3b17`, accepted202 and terminalready;6/6 names, quantities,
+units, unit prices, line totals and total138000VND match. Queue attempt1/max3,
+logout200; no inventory confirmation. Correlated Cloudflare telemetry proves
+qwen-vl-ocr first-attempt success (1311input/454output tokens,4089ms), terminal
+latency5284ms, no repair/escalation. Fixture SHA256:
+`8a47ba31ff70f9ee544c96e8772b64edb4dcce2b3a1de85ee1ebada624ab8cd4`.
+The historical failed scan `b6db841cbed9` was not replayed. Its exact schema
+defect and original receipt accuracy remain unproved; successful new input does
+not certify all receipts or repair branches.
+
+**Final public/UI proof:** PASS500 ordered recipe IDs and exact runtime
+fingerprint; all500 canonical media GETs PASS with zero failures,
+61128744 total bytes. SHA256 of bytes equals ETag;
+length/MIME/decoded dimensions and cache/security headers match the contract.
+This verifies public served bytes; direct R2 bucket API inspection and image
+relevance remain unverified. Final normal guest recipe search and imported
+recipe detail PASS mobile390x844 and desktop1365x900:500 recommendations,
+actual canonical image loaded, detail matches public list, no overflow/page
+errors/server failures, logout200. The successful final check used2 guest
+sessions; one earlier session was logged out after the selector failure below.
+No inventory/cooking/payment/provider mutation was requested by these UI checks.
+Anonymous landing/auth rendering and reduced-motion input visibility also PASS;
+the official Google iframe rendered on mobile/desktop. Actual Google sign-in
+and email delivery remain unverified.
+
+**Readiness policy/operator corrections:** Final readiness is HTTP200,
+`status=degraded`, database/queue=ok, config.ok=true, no fallback. The sole issue
+is `CONFIG_RECIPE_CATALOG_D1_AUTHORITY` / severitywarning: intentional policy
+from ADR-026, `src/worker/config/validation.ts:149` and
+`tests/unit/recipe-catalog-authority.test.ts:136`. Final checks require exactly
+this issue; they do not accept arbitrary degraded warnings. An initial operator
+check wrongly expected statusok; its failure and three consistent fresh readings
+are preserved. The first imported-detail selector matched both h1/h2; the corrected
+check requires the visible primary h1 and retains all data/image/logout checks.
+The partial screenshot is preserved. Earlier English Google iframe-title and
+during-deploy textbox waits also failed; subsequent normal/reduced-motion checks
+passed. These were operator check corrections; no application change was made.
+
+**Evidence/limits:** Private receipts, hashes, responses, telemetry, screenshots,
+operator scripts and continuation remain ignored under
+`.wrangler/production-evidence/20261008`. Final proof files are
+`complete-production-release-audit.json`,
+`production-6f6eaaab518cf2430de225d0be73d695b40706e4-final-public-catalog-media-proof.json`,
+`production-6f6eaaab518cf2430de225d0be73d695b40706e4-final-recipe-ui-proof.json` and
+`final-operator-contract-corrections.json`.
+Original staging private/operator packets disappeared; those original observations
+remain historical. All10 new-source stages now have actual verified archives.
+Payments/PayOS and unrelated authentication/infrastructure remain unchanged.
+
+**Next action:** Rollout complete for this source; D1 serves all households and
+T20 remains false. Do not replay recovery37536969564, migration0039 or either
+existing AI scan. Future source changes require normal PR/main CI/staging/release
+gates. Google sign-in/email delivery and broader receipt accuracy require separate
+validation before claims about those flows.
+
+**Documentation checkpoint:** Publish these6 canonical records on
+`codex/ai-scan-rollout-evidence`, separate from frozen source. Previous checkpoint
+`c541e9ef4157e0a9dcac7113c072867cf7625432`; its bytes are preserved below. Restore
+clean `codex/ai-scan-validation-release` at frozen main after publication.
+
+[Production shadow diagnostic](PRODUCTION_SHADOW_DIAGNOSTIC_20261008.md).
+
+All preceding checkpoints below are historical.
+
+---
+
 # Production rollout checkpoint - 2026-10-08 JST
 
 **Task/status:** PRODUCTION_D1_APPROVED_GATES_RUNNING; rollout INCOMPLETE.

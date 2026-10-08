@@ -277,11 +277,13 @@ jobs:
       - name: Build
         env:
           GIT_COMMIT: ${{ needs.release.outputs.deploy_sha }}
+          VITE_MEAL_PLANNER_ENABLED: ${{ needs.release.outputs.meal_composition_v2_enabled }}
           VITE_MEAL_COMPOSITION_V2_ENABLED: ${{ needs.release.outputs.meal_composition_v2_enabled }}
         run: pnpm build
 
       - name: Require matching Meal Composition V2 server and UI flags
         env:
+          MEAL_PLANNER_ENABLED: ${{ needs.release.outputs.meal_composition_v2_enabled }}
           MEAL_COMPOSITION_V2_ENABLED: ${{ needs.release.outputs.meal_composition_v2_enabled }}
           VITE_MEAL_COMPOSITION_V2_ENABLED: ${{ needs.release.outputs.meal_composition_v2_enabled }}
         run: node scripts/composition-flags.mjs verify release-manifest.json dist/composition-flags.json
@@ -372,7 +374,7 @@ jobs:
         with:
           apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
-          command: deploy --var GIT_COMMIT:${{ needs.release.outputs.deploy_sha }} --var RECIPE_CATALOG_MODE:${{ needs.release.outputs.recipe_catalog_mode }} --var RECIPE_CATALOG_D1_CANARY_PERCENT:${{ needs.release.outputs.recipe_catalog_d1_canary_percent }} --var RECIPE_CATALOG_CUTOVER_ENABLED:${{ needs.release.outputs.recipe_catalog_cutover_enabled }} --var MEAL_COMPOSITION_V2_ENABLED:${{ needs.release.outputs.meal_composition_v2_enabled }}
+          command: deploy --var GIT_COMMIT:${{ needs.release.outputs.deploy_sha }} --var RECIPE_CATALOG_MODE:${{ needs.release.outputs.recipe_catalog_mode }} --var RECIPE_CATALOG_D1_CANARY_PERCENT:${{ needs.release.outputs.recipe_catalog_d1_canary_percent }} --var RECIPE_CATALOG_CUTOVER_ENABLED:${{ needs.release.outputs.recipe_catalog_cutover_enabled }} --var MEAL_PLANNER_ENABLED:${{ needs.release.outputs.meal_composition_v2_enabled }} --var MEAL_COMPOSITION_V2_ENABLED:${{ needs.release.outputs.meal_composition_v2_enabled }}
 
       # T19D: the deployment is not successful until the Worker proves, through the protected
       # recipe-authority evidence, that it serves exactly the approved authority state (mode,

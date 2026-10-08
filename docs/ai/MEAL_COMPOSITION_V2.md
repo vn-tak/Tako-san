@@ -1,5 +1,40 @@
 # T20 — Meal Composition V2
 
+## Takeover checkpoint hiện tại — 2026-10-09 JST
+
+`T20_CODE_COMPLETE_REVIEW_REQUIRED` / `T20_TEST_VERIFIED` (local).
+Implementation `12fe6fc44370188d02812f449cee4052dbb57364`, base/main
+`6f6eaaab518cf2430de225d0be73d695b40706e4`, branch
+`codex/t20-production-completion`. Audit28 capability và evidence hiện tại:
+[T20 takeover](T20_TAKEOVER_AUDIT.md); [release/rollback packet](T20_RELEASE_READINESS.md).
+ADR-043 bổ sung authoritative loading/error recovery và prerequisite production;
+ADR-031 storage/revision/projection/search architecture giữ nguyên.
+
+Manual/Assisted/Auto per-slot và weekly/shopping core journeys verified local.
+Assisted UI expose complete + regenerate_unlocked; pending/500/offline/missing
+không fallback anchorV1; cache V2 bị bỏ khỏi thẻ tuần khi server404; chỉ404 server-off/familyV1 giữ compatibility. Shopping
+untracked explicit, validation copy actionable và touch targets≥44px.
+Full `pnpm check`6338tests/258files PASS, lint/typecheck/migration/build PASS;
+browser on42/off3/mismatch3 PASS trên390/768/1280. Production on/off local builds
+và flag guards PASS. Hosted CI và final head là gate của [PR60](https://github.com/vn-tak/Tako-san/pull/60).
+
+Production D1 rollout trước takeover đã SUCCESS37789673028 trên6f6eaaab,
+D1/500/schema39/no fallback/T20false; staging cùng base/schema39/T20true.
+Các status0039/provider/canary pending phía sau là lịch sử, không hướng dẫn replay.
+Không có staging certification cho source mới; production T20 chưa enabled.
+Reviewer final head, operator merge/exact-mainCI, reviewed staging deployment+
+certification rồi authorization production riêng vẫn bắt buộc. Task này không
+merge/dispatch/deploy/migrate/bật flag. Rollback giữ schema39/composition records.
+
+Whole-week V2 Auto OPTIONAL_EXTENSION; tuần dùng V1 anchors và V2 từng slot đã
+verified giữ các ngày khác. Leftovers/servings/curation/drag-and-drop/real prices
+được phân loại riêng trong audit. Không gọi T20_COMPLETE ở checkpoint local.
+
+Các checkpoint cũ phía sau được giữ làm lịch sử.
+
+---
+
+
 Status: PR #8 and PR #9 merged into `main` at `662a065` and `cb22cfb`;
 exact-main CI green. Staging 0039 remote identity/ledger and flag-on runtime
 certification pending; local Wrangler unauthenticated. Default OFF;

@@ -14,9 +14,17 @@ import { budgetStatusLabel, formatMoney, formatQuantity, ingredientLabel, parseB
 import { plannerInputClass } from './PlannerSetup';
 import type { usePlanner } from './usePlanner';
 
+import { compositionCopy, compositionUnavailable, componentTitle, isMealCompositionEnabled, usePlanCompositions } from './composition';
+import { CompositionLoadState } from './CompositionLoadState';
+
 type Shopping = z.infer<typeof PlanShoppingDtoSchema>;
 export function PlannerShopping({ plan, model, locale }: { plan: MealPlanDto; model: ReturnType<typeof usePlanner>; locale: PlannerLocale }) {
   const t = plannerCopy[locale];
+  const c = compositionCopy[locale];
+  const composing = isMealCompositionEnabled();
+  const compositions = usePlanCompositions(plan, composing);
+  const untracked = compositions.isSuccess ? compositions.data.compositions.flatMap((meal) => meal.components
+    .filter((item) => item.projection?.status === 'not_tracked').map((item) => ({ meal, item }))) : [];
   const client = useQueryClient();
   const [currency, setCurrency] = useState<MoneyDto['currency']>('VND');
   const [budget, setBudget] = useState('');
@@ -35,6 +43,16 @@ export function PlannerShopping({ plan, model, locale }: { plan: MealPlanDto; mo
     }), (result) => client.setQueryData(key, result));
   }
   return <>
+    {composing && !compositionUnavailable(compositions.error) && <CompositionLoadState query={compositions} locale={locale} />}
+    {untracked.length > 0 && <section aria-labelledby="untracked-shopping" className="rounded-xl bg-semantic-warning-soft p-4 space-y-2">
+      <h2 id="untracked-shopping" className="font-semibold text-sm">{c.notTracked}</h2>
+      <p className="text-sm">{c.untrackedShopping}</p>
+      <ul className="text-sm">{untracked.map(({ meal, item }) => <li key={`${meal.slotId}:${item.id}`}>
+        <Link className="inline-flex min-h-11 items-center underline" to={`/planner/${plan.id}/meal/${encodeURIComponent(meal.slotId)}`}>
+          {componentTitle(item, locale)} · {meal.date} · {t[meal.mealType]}
+        </Link>
+      </li>)}</ul>
+    </section>}
     <Card><h2 className="font-heading font-bold text-xl flex items-center gap-2"><ShoppingBag className="text-takosan-green-deep" />{t.shopping}</h2><p className="text-sm text-semantic-text-secondary mt-2 leading-relaxed">{t.shoppingIntro}</p>
       <form onSubmit={submit} className="space-y-4 mt-5"><fieldset disabled={!!model.busy || !fresh} className="space-y-4 disabled:opacity-60">
         <div className="grid grid-cols-[100px_1fr] gap-3"><label className="text-sm font-semibold">{t.currency}<select value={currency} onChange={(e) => setCurrency(e.target.value as MoneyDto['currency'])} className={plannerInputClass}>{['VND', 'JPY', 'USD', 'EUR'].map((value) => <option key={value}>{value}</option>)}</select></label><label className="text-sm font-semibold">{t.budget}<input inputMode="decimal" value={budget} maxLength={100} onChange={(e) => setBudget(e.target.value)} className={plannerInputClass} placeholder="—" /></label></div>

@@ -31,15 +31,19 @@ export function verifyCompositionRelease({ server, ui, manifest, buildRecord }) 
   return value;
 }
 
+export function verifyPlannerPrerequisite({ composition, server, buildRecord }) {
+  if (composition !== 'true') return;
+  if (server !== 'true')
+    throw new Error('T20 requires MEAL_PLANNER_ENABLED=true on the Worker');
+  if (buildRecord?.VITE_MEAL_PLANNER_ENABLED !== 'true')
+    throw new Error('T20 requires VITE_MEAL_PLANNER_ENABLED=true in the built UI');
+}
+
 /** Staging T20 must not ship behind a disabled planner route or a hidden planner UI. */
 export function verifyStagingPlannerPrerequisite({ composition, config, buildRecord }) {
   if (config?.vars?.ENVIRONMENT !== 'staging')
     throw new Error('Planner prerequisite must use the staging Wrangler configuration');
-  if (composition !== 'true') return;
-  if (config.vars.MEAL_PLANNER_ENABLED !== 'true')
-    throw new Error('Staging T20 requires MEAL_PLANNER_ENABLED=true in Wrangler config');
-  if (buildRecord?.VITE_MEAL_PLANNER_ENABLED !== 'true')
-    throw new Error('Staging T20 requires VITE_MEAL_PLANNER_ENABLED=true in the built UI');
+  verifyPlannerPrerequisite({ composition, server: config.vars.MEAL_PLANNER_ENABLED, buildRecord });
 }
 
 function main() {
@@ -60,6 +64,11 @@ function main() {
       config: parseWranglerJsonc(readFileSync(stagingConfigFile, 'utf8'), stagingConfigFile),
       buildRecord,
     });
+  } else {
+    const file = 'wrangler.jsonc';
+    const config = parseWranglerJsonc(readFileSync(file, 'utf8'), file);
+    verifyPlannerPrerequisite({ composition: value,
+      server: process.env.MEAL_PLANNER_ENABLED ?? config.vars?.MEAL_PLANNER_ENABLED, buildRecord });
   }
   console.log(`Meal Composition V2 flags consistent: server=${value} ui=${value}`);
 }

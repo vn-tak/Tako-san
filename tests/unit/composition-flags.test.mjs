@@ -38,7 +38,7 @@ describe('T20 staging planner prerequisites', () => {
     const build = deploy.jobs.staging.steps.find((step) => step.name === 'Build');
     expect(build.env.VITE_MEAL_PLANNER_ENABLED).toBe('true');
     const productionBuild = deploy.jobs.production.steps.find((step) => step.name === 'Build');
-    expect(productionBuild.env.VITE_MEAL_PLANNER_ENABLED).toBeUndefined();
+    expect(productionBuild.env.VITE_MEAL_PLANNER_ENABLED).toBe(OUTPUT);
   });
   it('rejects T20 when either staging planner flag is missing or the wrong environment is supplied', () => {
     const built = { VITE_MEAL_PLANNER_ENABLED: 'true' };
@@ -116,6 +116,7 @@ describe('T20 composition flags: deploy workflow wiring', () => {
       expect(steps[guard].env).toEqual({
         MEAL_COMPOSITION_V2_ENABLED: OUTPUT,
         VITE_MEAL_COMPOSITION_V2_ENABLED: OUTPUT,
+        ...(job === 'production' ? { MEAL_PLANNER_ENABLED: OUTPUT } : {}),
       });
       if (job === 'staging') expect(steps[guard].if).toBe(steps[build].if);
       expect(steps[deployStep].with.command).toContain(`--var MEAL_COMPOSITION_V2_ENABLED:${OUTPUT}`);
@@ -163,8 +164,8 @@ describe('T20 composition flags: build consistency guard', () => {
     const manifestFile = path.join(dir, 'manifest.json');
     const recordFile = path.join(dir, 'record.json');
     writeFileSync(manifestFile, JSON.stringify(manifest(enabled)));
-    writeFileSync(recordFile, JSON.stringify(record(built)));
-    const env = { PATH: process.env.PATH };
+    writeFileSync(recordFile, JSON.stringify({ ...record(built), VITE_MEAL_PLANNER_ENABLED: 'true' }));
+    const env = { PATH: process.env.PATH, MEAL_PLANNER_ENABLED: 'true' };
     if (server !== undefined) env.MEAL_COMPOSITION_V2_ENABLED = server;
     if (ui !== undefined) env.VITE_MEAL_COMPOSITION_V2_ENABLED = ui;
     return spawnSync(process.execPath, ['scripts/composition-flags.mjs', 'verify', manifestFile, recordFile], {
@@ -179,5 +180,40 @@ describe('T20 composition flags: build consistency guard', () => {
     expect(runCli({ server: 'false', ui: 'true', enabled: false, built: 'true' })).not.toBe(0);
     expect(runCli({ server: 'true', ui: 'true', enabled: true, built: 'false' })).not.toBe(0);
     expect(runCli({ server: undefined, ui: undefined, enabled: false, built: 'false' })).not.toBe(0);
+  });
+});
+
+
+describe('T20 production planner prerequisite', () => {
+  it('binds the production backend, compiled UI and pre-upload guard to the normalized T20 decision', () => {
+    const steps = deploy.jobs.production.steps;
+    const build = steps.find((step) => step.name === 'Build');
+    const guard = steps.find((step) => step.name === GUARD);
+    const upload = steps.find((step) => String(step.with?.command ?? '').startsWith('deploy '));
+    expect(build.env.VITE_MEAL_PLANNER_ENABLED).toBe(OUTPUT);
+    expect(guard.env.MEAL_PLANNER_ENABLED).toBe(OUTPUT);
+    expect(upload.with.command).toContain(`--var MEAL_PLANNER_ENABLED:${OUTPUT}`);
+    // Production defaults remain off; no config edit activates a runtime.
+    expect(parseWranglerJsonc(read('wrangler.jsonc'), 'wrangler.jsonc').vars.MEAL_PLANNER_ENABLED).not.toBe('true');
+  });
+  it('cannot pass the production CLI guard with T20 on while the compiled planner or Worker prerequisite is missing', () => {
+    const dir = mkdtempSync(path.join(tmpdir(), 't20-prerequisite-'));
+    try {
+      const manifest = path.join(dir, 'manifest.json');
+      const built = path.join(dir, 'built.json');
+      writeFileSync(manifest, JSON.stringify({ mealCompositionV2Enabled: true }));
+      const run = (server, ui) => {
+        writeFileSync(built, JSON.stringify({ VITE_MEAL_COMPOSITION_V2_ENABLED: 'true', VITE_MEAL_PLANNER_ENABLED: ui }));
+        return spawnSync(process.execPath, ['scripts/composition-flags.mjs', 'verify', manifest, built], {
+          encoding: 'utf8', env: { PATH: process.env.PATH, MEAL_COMPOSITION_V2_ENABLED: 'true',
+            VITE_MEAL_COMPOSITION_V2_ENABLED: 'true', ...(server === undefined ? {} : { MEAL_PLANNER_ENABLED: server }) },
+        });
+      };
+      expect(run(undefined, 'true').status).not.toBe(0);
+      expect(run('false', 'true').status).not.toBe(0);
+      expect(run('true', undefined).status).not.toBe(0);
+      expect(run('true', 'false').status).not.toBe(0);
+      expect(run('true', 'true').status).toBe(0);
+    } finally { rmSync(dir, { recursive: true, force: true }); }
   });
 });

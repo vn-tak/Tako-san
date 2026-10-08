@@ -1,5 +1,42 @@
 # Architecture Decisions
 
+## ADR-043 — T20 hiển thị composition có thẩm quyền và kiểm tra prerequisite trên cả hai môi trường
+
+**Trạng thái:** Đề xuất implementation ngày 2026-10-09, chờ reviewer độc lập
+kiểm tra final PR head. Không cấp quyền merge, deploy, migrate hoặc bật flag.
+
+**Bối cảnh:** Khi GET composition pending, lỗi 500/offline hoặc thiếu slot,
+PlannerMeal/PlannerWeek có thể hiển thị title/ingredients/method V1 đã không còn
+mô tả bữa V2. Guard prerequisite planner chỉ áp dụng staging; production có thể
+bật T20 nhưng parent UI hoặc Worker planner vẫn tắt. API Assisted đã có
+`regenerate_unlocked` nhưng UI chưa cung cấp action đó.
+
+**Quyết định:**
+
+- Pending/error/missing composition phải có loading/error/retry và chặn nội dung
+  V1 có thể sai cùng thao tác regenerate. Chỉ 404 từ composition API cho phép
+  compatibility fallback khi server tắt; family V1 vẫn dùng editor V1. Slot URL
+  không tồn tại trả unavailable, không retry vô hạn. Meal page truyền canonical
+  query vào composer để tránh refetch khi mount.
+- UI expose `regenerate_unlocked` bằng API preview/apply hiện có, giữ validation,
+  proposal identity, locked components và shared revision fence của ADR-031.
+- Production build, pre-upload guard và Worker deploy override derive planner
+  flag từ normalized T20 release decision. T20=true đòi hỏi cả planner Worker
+  và compiled UI=true. T20=false giữ production planner=false như baseline.
+  Staging planner vẫn true độc lập; guard chung kiểm tra cả hai môi trường.
+- Validation copy vi/en dựa allowlist mã lỗi; không đưa raw server text vào UI.
+  Week/shopping phải ghi rõ simple-food `not_tracked`; không gọi đó là covered,
+  không bịa số lượng hoặc thay calculator.
+
+**Tương thích và rollback:** Không thêm API, schema hoặc migration; không thay
+composer/scoring, T19 authority, T21 diagnostics, auth, PayOS hay physical stock.
+0039 additive đã có theo receipt production trước; không replay migration.
+Đổi workflow là draft cho release sau review, không đổi runtime hiện tại.
+Rollback bằng paired flags/source đã review, giữ composition records và ledger.
+Local SQLite/browser/build verification không thay staging certification hoặc
+operator approval. Xem `T20_TAKEOVER_AUDIT.md` và `T20_RELEASE_READINESS.md`.
+
+
 ## ADR-042 - Operational media gates after the catalog media rollout
 
 **Status:** Accepted for bounded implementation and independent review 2026-10-08.

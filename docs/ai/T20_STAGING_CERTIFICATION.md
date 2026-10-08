@@ -68,3 +68,45 @@ strftime đúng format, được kiểm tra prepare/audit cả bốn policy trê
 migration chain bằng SqliteD1. Không sửa constraint/migration để chấp nhận format
 sai. Lỗi datetime cũ tái hiện4FAIL trước,27/27 focused tests PASS sau sửa.
 Không có remote fixture write hay deploy nào trước khi tìm và sửa lỗi này.
+
+## Kết quả thực thi trên source cuối — 2026-10-09 JST
+
+`STAGING_CERTIFIED`, source `27d47b056455a57df811199cd7e9c32a84cbffe5`,
+hardening head operator đã duyệt `8b7b254ddcc9e0a36989a2c8c3add6ad3d776ee9`.
+PR62 normal merge; exact-main CI37853046693 SUCCESS,259files/6365tests.
+Final-source D1 readiness37853983168 SUCCESS:ledger39/0039,D1500,hydration0,
+ID/order/legacy/fingerprint/provenance/integrity match.
+
+Staging shadow37854154953 →1%37854379595 →5%37854606958 →25%37854792161
+→D137855017250 đều PASS. Mỗi stage verify hai ZIP artifact digests/source/manifests
+và ba live readiness/service-worker assets observations. Cuối chuỗi D1/cutovertrue,
+T20/planner pairedtrue, release rel-bd00a4f53fcaeee4, fingerprint
+`f8cf8c7ff59df9fe29e246b9e3c9aad0fd155fa8df35bf671ac4d03fa2b5ab37`.
+
+Browser36/36 normal journeys PASS24.1min; restricted9/9 PASS2.7min,
+0FAIL/0skip/0retry,390/768/1280. Tất cả45 HTTP windows đúng source, unique,
+statuspassed và unexplainedWorker5xx0. Manual/A11y/axe, Assisted2 actions/locks,
+Auto3options/preview-no-write, shopping100g, time10/20, D1-only detail/cooking
+reads,200/409, tenancy và frontend failure/rollback đều đạt. Synthetic500/404
+được ghi rõ; không thực sự tắt hosted flags trong lúc test.
+
+|Policy|Prepare run (1 insert)|Audit run (0 writes)|Stock/events trước-sau|
+|---|---|---|---|
+|none|37855296480|37858233428|Khớp counts/hashes|
+|forbidden|37855367431|37858300518|Khớp counts/hashes|
+|dietary|37855441990|37858367077|Khớp counts/hashes|
+|nutrition|37855512801|37858464407|Khớp counts/hashes|
+
+Staging receipt aggregate được lưu private ignored tại
+`.wrangler/t20-rollout/20261009/staging-functional-certification.json`.
+Playwright reporter resolve relative paths theo config directory; collector đọc
+đúng report thực tại đường dẫn nested, giữ nguyên bytes và checksum, không sửa
+report hoặc rerun journeys. Không upload private accounts/cookies/screenshots.
+Báo cáo public: `T20_ROLLOUT_CERTIFICATION_20261009.md`.
+
+Production shadow37858608953 đã dispatch sau certification theo authorization;
+GitHub Environment đang chờ vn-taphoanhatung duyệt, CLIvn-tak không được duyệt.
+Chưa deploy hoặc certify production T20. Private production browser session
+chưa capture; hai cửa sổ login10/20min đã hết hạn. Sau protected rollout phải
+normal-login smoke5journeys và inventory HTTP snapshot comparison; production
+inventory event ledger chưa được query. Không dùng staging PASS thay production.

@@ -140,3 +140,34 @@ restart shadow rồi1/5/25/D1; input d1 trực tiếp trong packet cũ sẽ bị
 Không sửa/weaken guard để bỏ bước này. Kế hoạch chứng nhận và staging-only fixture
 được mô tả tại `T20_STAGING_CERTIFICATION.md`. SHA mới sau tooling phải có CI main
 riêng và toàn bộ artifact/hosted journeys gắn với SHA đó trước production.
+
+## Gate staging đã đạt; production chờ reviewer — 2026-10-09 JST
+
+Source cuối `27d47b056455a57df811199cd7e9c32a84cbffe5`, approved hardening
+`8b7b254ddcc9e0a36989a2c8c3add6ad3d776ee9`; main-push CI37853046693 SUCCESS
+259files/6365tests. Operator đã cho phép merge PR62 và tiếp tục rollout theo
+các gate chuẩn. Đây là authorization thay giới hạn takeover, không phải GitHub
+review hoặc approval Environment. Không xin lại authorization PR62.
+
+Staging final-source readiness, năm stage artifact/live proofs,45hosted journeys
+và bốn policy stock/event audits đều PASS; xem `T20_STAGING_CERTIFICATION.md`
+và `T20_ROLLOUT_CERTIFICATION_20261009.md`. Source/schema/catalog/fingerprint
+không đổi trong lúc rollout. CODE_COMPLETE/TEST_VERIFIED/STAGING_CERTIFIED đạt;
+PRODUCTION_READY theo evidence staging đạt, PRODUCTION_ENABLED chưa đạt.
+
+Run [37858608953](https://github.com/vn-tak/Tako-san/actions/runs/37858608953)
+đã qua release gate, đang waiting tại production Environment. Reviewer bắt buộc
+vn-taphoanhatung; APIcurrent_user_can_approve=false cho CLIvn-tak. Không bypass.
+Lượt đầu shadow0/T20true/plannertrue, sau đó1/5/25/D1 chỉ sau verified proof
+mỗi stage. Không reapply0039, recovery/import catalog hoặc failed scan replay.
+
+Rollback dự kiến trên chính source đã pin: pairedT20false/plannerfalse,
+recipe_catalog_mode=d1/percent0/cutovertrue; giữ schema39/composition records.
+Dispatch qua Deploy và reviewer chuẩn. Không tự xóa records/stock hoặc đổi
+secrets/bindings. Nếu phát hiện tenant/hard-policy/lost-update/inventory defect,
+dừng promotion và thu thập evidence trước repair hoặc operator rollback.
+
+Production functional smoke chưa chạy: cần registered normal browser session,
+5journeys mobile390, no cooking consumption/provider scan, inventory HTTP
+snapshots trước/sau và bounded HTTP5xx windows. Phiên login kiểm thử chưa capture;
+không sao chép cookie Chrome hoặc bypass auth để thay normal session.

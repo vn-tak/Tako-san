@@ -61,3 +61,21 @@ chứa identity/schema/fingerprint/flags và rollback giữ composition records.
 Own-review bổ sung đã sửa cached404 rollback: week warm V2 cache trở về V1 khi
 backend tắt; unit regression FAIL trước/PASS23/23 sau, browser3widths PASS.
 PR review: https://github.com/vn-tak/Tako-san/pull/60.
+
+## Checkpoint vận hành hiện hành — 2026-10-09 JST
+
+Các nhãn pending local/review/staging phía trên là lịch sử. Operator đã duyệt
+merge/rollout PR60 và PR62 theo gates chuẩn. Source final
+`27d47b056455a57df811199cd7e9c32a84cbffe5`, approved head8b7b254d;
+CI main37853046693 SUCCESS259files/6365tests. Staging readiness37853983168,
+shadow→1→5→25→D1,45/45hosted browser và bốnstock/event audits đều PASS;
+`STAGING_CERTIFIED`. Chi tiết và rollout table trong
+`../T20_ROLLOUT_CERTIFICATION_20261009.md`.
+
+Production shadow37858608953 đã dispatch, waiting Environment reviewer
+vn-taphoanhatung; CLIvn-tak không được duyệt. Chưa bật/certify T20 production;
+source vẫn pin, không merge documentation checkpoint làm đổi main giữa chuỗi.
+Sau reviewer approval collect artifact/live proof, tiếp tục1/5/25/D1 lần lượt
+với approval mỗi run; normal registered production smoke còn phải chạy.
+Hai cửa sổ Chromium login đã timeout, chưa có private production session.
+Không replay fixtures/journeys certified hoặc reapply0039/failed AI scan.

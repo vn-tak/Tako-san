@@ -68,8 +68,13 @@ TMPDIR=/private/tmp TZ=UTC WRANGLER_SEND_METRICS=false pnpm exec vitest run test
 
 Query/correlation PASS; final focused9files/109tests PASS4.75s. Initial regression
 failed module import before its creation, then all6 assertions failed against a
-no-op diagnostic module. Initial typecheck/lint/diff PASS. Full suite/final checks
-are pending. This turn has zero production writes, Worker changes or provider
+no-op diagnostic module. Final typecheck/lint/migration-smoke/build PASS. Full local
+Node24/TMPDIR=/private/tmp/CI=true/maxWorkers2 run:255files PASS/1failed,
+6315tests PASS/1failed348.06s; unchanged staging Wrangler startup exceeded5000ms.
+Its isolated unchanged32test rerun PASS3.31s, startup case1099ms. This is not a
+full local green result. Self source/release review found no remaining concrete
+issue; independent review is not claimed. Implementation checkpoint
+`648dbd32010363712f219d25ca0b5109db37c3d3`. This turn has zero production writes, Worker changes or provider
 submissions. Original failed scan must not be replayed. Required next action is
 reviewed/validated new-source release, then a distinct non-PII validation; only its
 passing provider gate permits canary progression. Applied0039/recovery stay applied.

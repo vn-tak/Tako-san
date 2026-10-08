@@ -31,8 +31,13 @@ receipt-schema root cause. No live provider success is claimed.
 module, all6 regression assertions failed as expected. Initial focused6files/87tests
 PASS. Final focused9files/109tests PASS4.75s, including adversarial log redaction,
 bounded/deduplicated paths, repair prompts, provider stages and queue retry/fencing.
-Initial `pnpm typecheck`, `pnpm lint`, `git diff --check` PASS. Full suite and final
-checks are running; results must be recorded before publishing/merging the candidate.
+Final `pnpm typecheck`, `pnpm lint`, migration smoke and build PASS. Full suite
+with Node24/TMPDIR=/private/tmp/CI=true/maxWorkers2:255files PASS/1failed,
+6315tests PASS/1failed348.06s; the unchanged local Wrangler staging-startup test
+exceeded its5s timeout. Isolated unchanged rerun32/32PASS3.31s, actual Wrangler
+case1099ms. No full local PASS is claimed. Source/release self-review found no
+remaining concrete issue; it is not independent review. Public provider success
+still requires new-release validation. Implementation checkpoint `648dbd32010363712f219d25ca0b5109db37c3d3`.
 No production write, Worker change or new scan occurred in this diagnostic continuation.
 
 **Checkpoint/source:** Detailed evidence and continuation:

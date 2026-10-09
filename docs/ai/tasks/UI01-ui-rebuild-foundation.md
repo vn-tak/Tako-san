@@ -37,3 +37,15 @@ lightweight recipe catalog. The full remaining roadmap and audit reside under
 `docs/ui-rebuild`. Independent review, broader browser/device QA, user recognition
 and usability tests, hosted CI and release remain outstanding.
 T20 operational certification retains its separate prior status and authorization.
+
+## Verified implementation
+
+Status: `UI01_LOCAL_VERIFIED_REVIEW_REQUIRED` on 2026-10-10 JST.
+Implementation: `716fa9aabfca9bb2bce77963b57ed80fef07153f`; documentation checkpoint follows.
+262 files / 6,380 tests and lint/typecheck/migrations/build passed locally.
+Final app checks: 12 axe audits, zero selected violations/overflow/page errors;
+keyboard, reduced motion and a two-egg shopping POST verified. Navigation success
+before/after switching recipes stays scoped to its source recipe.
+Exact commands, earlier failures, Git object recovery, local concurrency settings,
+evidence and limitations: `docs/ui-rebuild/VERIFICATION.md`.
+Independent review, hosted CI and release remain outstanding.

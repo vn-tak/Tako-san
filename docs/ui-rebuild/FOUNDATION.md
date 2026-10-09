@@ -78,3 +78,7 @@ Run the full repository gates with `pnpm check`; exact results are recorded in
 Remaining audit findings and the six-to-nine-week roadmap are tracked in the
 baseline audit documents. Brand research, full-device/browser QA, user testing,
 independent review, hosted CI and release remain outstanding.
+
+Verified implementation checkpoint: `716fa9aabfca9bb2bce77963b57ed80fef07153f`.
+A documentation checkpoint follows; this milestone is committed locally.
+See [VERIFICATION.md](VERIFICATION.md) for all executed results and limits.

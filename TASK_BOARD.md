@@ -1,3 +1,39 @@
+# UI01 — Đợt đầu rebuild Tako-san đã kiểm chứng local — 2026-10-10 JST
+
+**Task/status:** `UI01_LOCAL_VERIFIED_REVIEW_REQUIRED`. Người dùng đã yêu cầu bắt
+đầu rebuild ngày2026-10-09. Full rebuild còn trong roadmap; không claim hoàn tất.
+
+**Repository/source:** Canonical `vn-tak/Tako-san@27d47b056455a57df811199cd7e9c32a84cbffe5`.
+Nhánh `codex/ui-rebuild-foundation`, checkout `/Users/tunbee27/Documents/Tako-san-ui-rebuild`.
+Implementation `716fa9aabfca9bb2bce77963b57ed80fef07153f`; documentation checkpoint theo sau.
+
+| Hạng mục | Trạng thái / bằng chứng |
+| --- | --- |
+| Quantity/no-buy/shortfall dùng T02; draft/offline nhiều lot | Local PASS; cần4/có2 mua2, contextual unresolved, không double-spend |
+| Inventory no-results/reset/focus | Local PASS; phân biệt với tủ thật sự trống |
+| Recipe detail responsive + neutral image fallback | Local PASS;320–1440px, keyboard/reduced-motion |
+| Palette/font/logo prototype scoped | Local PASS;9WOFF2/OFL/Vietnamese glyphs, board trong `docs/ui-rebuild` |
+| Repository gates |262files/6380tests PASS; lint/typecheck/migrations/build PASS |
+| Actual browser |12 axe checks:0violation/overflow/pageerror; local shopping201 |
+| Home canonical planner + shared shell/header | NEXT: UI02, giữ flag/Week compatibility |
+| URL filters + summary DTO/pagination24 | TODO: ADR/task riêng, regression toàn catalog |
+| Brand final/motion kit/toàn bộ màn/device/usability | TODO theo `docs/ui-rebuild/REBUILD_PLAN.md` |
+| Independent review/hosted CI/release | Chưa thực hiện; không push/deploy |
+
+**Executed checks/failures:** Exact final `pnpm check` với Node24, telemetryoff,
+Vitest tối đa2worker và TMPDIR=/private/tmp; exit0. Ban đầu5FAIL gồm contextual
+fixture, historical Git objects thiếu và Wrangler timeout; lượt sau1timeout.
+Đã phục hồi object đúng hash, cập nhật assertion đúng contract, giảm concurrency
+qua env; không đổi timeout/config/historical tests. Commands/logs:
+`docs/ui-rebuild/VERIFICATION.md`, `.artifacts/ui-rebuild/full-check-bounded.log`.
+
+**Boundary:** Chỉ local synthetic preview/migration smoke; preview đã dừng. Không
+schema/dependencies/payment/auth/infrastructure/remote data/flag mutation.
+Trạng thái T20 phía sau vẫn giữ nguyên, không được UI01 chứng nhận thêm.
+Packet `docs/ai/tasks/UI01-ui-rebuild-foundation.md`, ADR-044, handoff đã cập nhật.
+
+---
+
 # T20 implementation hoàn tất local; chờ review và chứng nhận staging — 2026-10-09 JST
 
 **Task/status:** `T20_CODE_COMPLETE_REVIEW_REQUIRED` / `T20_TEST_VERIFIED` (local).

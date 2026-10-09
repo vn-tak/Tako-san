@@ -1,3 +1,54 @@
+# UI01 — Nền giao diện Tako-san đã kiểm chứng local — 2026-10-10 JST
+
+**Task/status:** `UI01_LOCAL_VERIFIED_REVIEW_REQUIRED`. Đây là đợt đầu của rebuild
+được người dùng yêu cầu bắt đầu ngày 2026-10-09, không phải toàn bộ roadmap đã xong.
+Packet: `docs/ai/tasks/UI01-ui-rebuild-foundation.md`; contract: ADR-044.
+Các trạng thái vận hành T20 phía sau giữ nguyên; UI01 không chứng nhận T20 release.
+
+**Repository/source:** `vn-tak/Tako-san`, ID1385308553, canonical base
+`27d47b056455a57df811199cd7e9c32a84cbffe5`. Checkout riêng
+`/Users/tunbee27/Documents/Tako-san-ui-rebuild`, nhánh `codex/ui-rebuild-foundation`.
+Implementation đã commit `716fa9aabfca9bb2bce77963b57ed80fef07153f`;
+checkpoint tài liệu này theo sau. Không push/PR/merge/deploy.
+Checkout Frigo cũ không được dùng làm source UI và được giữ nguyên.
+
+**Actual changes:** Matcher/detail/draft nấu dùng lot arithmetic T02: cộng lot
+cùng đơn vị quy đổi, chống double-spend, required trước optional; contextual
+pack/bunch/slice cần bằng chứng. Coverage loại vẫn riêng với chứng cứ đủ lượng.
+Cần4/có2 trứng -> no-buy false, shopping gửi2; xác nhận mua gắn với món nguồn,
+kể cả phản hồi về sau khi đổi route. Offline projection chỉ trừ một lần qua các
+lot. Không dùng quantity evidence để bảo đảm độ tươi/dị ứng. Recipe list không
+đính per-lot evidence dài; detail có additive evidence. Tủ có dữ liệu nhưng filter
+không ra kết quả dùng no-results/reset/focus riêng; ảnh lỗi kết thúc tại SVG trung tính.
+Inventory/detail bắt đầu theme scoped với canvas/pine/coral, Be Vietnam Pro
+self-hosted có dấu tiếng Việt và logo bạch tuộc/wordmark prototype; desktop detail
+hai cột, hướng dẫn16px. Global nav/portal/brand kit còn cần migration tiếp.
+
+**Verification:** Node24.16.0/pnpm10.33.2. Lệnh cuối:
+`PATH=/opt/homebrew/opt/node@24/bin:$PATH CI=true TMPDIR=/private/tmp WRANGLER_SEND_METRICS=false VITEST_MAX_THREADS=2 VITEST_MIN_THREADS=1 VITEST_MAX_FORKS=2 VITEST_MIN_FORKS=1 pnpm check`
+exit0:262files/6380tests, failed0; lint/typecheck/migration-smoke/build PASS.
+Sau sửa harness, `pnpm lint` PASS; surface7/7 PASS sau format-only. Local browser
+12 axe checks tại320/390/768/1024/1440:0violations/0overflow/0pageerror;
+keyboard/focus/reduced-motion và shopping POST quantity2/HTTP201 PASS.
+14 screenshot gồm12app +2brand, JSON trong `docs/ui-rebuild/evidence`.
+Lượt đầu6373PASS/5FAIL (contextual fixture,3 missing historical Git blobs,Wrangler
+local timeout); sửa assertion theo contract và phục hồi Git objects đúng hash,
+không đổi historical tests. Lượt tiếp6377PASS/1 Wrangler timeout; final giảm
+concurrency qua env, giữ timeout/assertions/config. Chi tiết commands/logs/limits:
+`docs/ui-rebuild/VERIFICATION.md`; log final `.artifacts/ui-rebuild/full-check-bounded.log`.
+
+**Database/operational state:** Local synthetic SQLite preview và migration smoke.
+Không sửa schema/migration/dependency/auth/PayOS/payment/infrastructure; không dùng
+credentials, ghi remote D1/R2 hoặc đổi flag production. Remote schema/Week gates
+skipped. Preview local đã dừng sau QA. T20 staging/production giữ status trước đó.
+
+**Next action:** Review implementation/hosted CI trên source cuối. UI02: Home
+adapter theo flag đọc canonical planner, giữ Week compatibility; thống nhất
+responsive shell/PageHeader. Sau đó ADR/list DTO nhẹ, URL filters và pagination24.
+Full kit/motion/device/screen-reader/usability còn trong `docs/ui-rebuild/REBUILD_PLAN.md`.
+
+---
+
 # T20 fixture staging: sửa tương thích timestamp trước rollout — 2026-10-09 JST
 
 **Task/status:** `T20_STAGING_CERTIFICATION_REQUIRED` /

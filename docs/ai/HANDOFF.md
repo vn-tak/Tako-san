@@ -1,3 +1,60 @@
+# UI01 — Handoff đợt đầu rebuild Tako-san — 2026-10-10 JST
+
+**Task/status:** `UI01_LOCAL_VERIFIED_REVIEW_REQUIRED`, người dùng đã yêu cầu bắt
+đầu ngày2026-10-09. Chỉ milestone đầu hoàn tất local; roadmap toàn hệ thống vẫn mở.
+
+**Repository/source:** `vn-tak/Tako-san`, ID1385308553; canonical base
+`27d47b056455a57df811199cd7e9c32a84cbffe5`. Thao tác tiếp trong
+`/Users/tunbee27/Documents/Tako-san-ui-rebuild`, nhánh `codex/ui-rebuild-foundation`.
+Implementation đã kiểm chứng/commit `716fa9aabfca9bb2bce77963b57ed80fef07153f`.
+Documentation checkpoint này theo sau; kiểm tra final HEAD trước review/CI.
+Không push/PR/merge/deploy; không lấy checkout Frigo cũ làm source implementation.
+
+**Actual changes:** ADR-044, packet `tasks/UI01-ui-rebuild-foundation.md`.
+Shared legacy quantity adapter tái dùng T02 index/session/exact arithmetic,
+required trước optional, IDs giữ duplicate detection, cộng lot tương thích và
+không quy đổi đoán pack/bunch/slice. No-buy dựa trên lượng; % vẫn coverage loại.
+Detail cho xem lượng thiếu, shopping chỉ gửi shortfall biết được; state/source
+của shopping không lẫn khi đổi route trước hoặc sau response. Cooking draft và
+pending offline cache trừ lượng qua lot một lần; server FEFO/session/revision
+commands giữ nguyên. Evidence chỉ quantity, không bảo đảm expiry/allergy.
+Filtered inventory có no-results/reset/focus; ảnh lỗi về SVG trung tính.
+Theme/font/logo prototype scoped ở inventory/detail; desktop recipe2cột,
+hướng dẫn16px, Be Vietnam Pro400/600/700 tự host,9subset/OFL/Vietnameseglyph.
+Palettecontrast, nguồn asset và14ảnh review tại `docs/ui-rebuild`.
+
+**Verification:** Node24.16.0/pnpm10.33.2, frozen lockfile. Full command:
+`PATH=/opt/homebrew/opt/node@24/bin:$PATH CI=true TMPDIR=/private/tmp WRANGLER_SEND_METRICS=false VITEST_MAX_THREADS=2 VITEST_MIN_THREADS=1 VITEST_MAX_FORKS=2 VITEST_MIN_FORKS=1 pnpm check`
+exit0,262files/6380tests,0FAIL,324.07s; lint/typecheck/migration-smoke/build PASS.
+Final harness lint PASS; surface7/7 PASS sau format-only; Prettier targeted PASS.
+Final browser command và preview env lưu trong `../ui-rebuild/VERIFICATION.md`:
+12selected axe checks tại320/390/768/1024/1440 ->0violation/overflow/pageerror;
+reduced-motion animation-none, keyboard/focus, shopping2eggs/HTTP201 PASS.
+Standalone board1100/390 ->0overflow/brokenimage,4fontfacesloaded.
+Log final `.artifacts/ui-rebuild/full-check-bounded.log`, `browser-final.log`.
+JSON/screenshots `docs/ui-rebuild/evidence`; preview session đã dừng.
+
+**Failures/recovery:** Full đầu6373PASS/5FAIL: contextual catalog fixture,3
+historical Git blobs thiếu do partial clone và localWrangler timeout.
+Assertion đổi đúng T02 contextual policy, thêm evidence cụ thể, giữ catalog/
+planner/cooking assertions. Historical objects phục hồi đúng hash từ caches cũ,
+không đổi test/source cũ;54/54PASS. Wrangler32/32PASS riêng với telemetryoff;
+full tiếp6377PASS/1timeout. Full final giới hạn2worker qua env PASS toàn bộ,
+không tăng timeout/thay config/giảm assertion. Chi tiết trong VERIFICATION.
+
+**Database/operational state:** Local synthetic SQLite/migration smoke; không
+sửa schema/migration/dependencies/auth/payment/infrastructure. Không credentials,
+remoteD1/R2 write, hosted run hoặc flag mutation. Remote schema/Week gates skipped.
+UI01 không thay thế T20 staging/production status và authorization bên dưới.
+
+**Next action:** Review source cuối/hosted CI. Tạo UI02 task+ADR nếu cần cho Home
+flag-aware canonical planner adapter và responsive shell/PageHeader, giữ Week.
+Tiếp theo URL filters, summary API nhỏ và stablepagination24. Sau đó scan/editor/
+cooking/planner/shopping, fullbrand/motionkit; device/Safari/screen-reader/
+recognition/usability QA. Chưa có chứng nhận independent/hosted/release.
+
+---
+
 # T20 fixture staging: sửa tương thích timestamp trước rollout — 2026-10-09 JST
 
 **Task/status:** `T20_STAGING_CERTIFICATION_REQUIRED` /

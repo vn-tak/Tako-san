@@ -1,27 +1,13 @@
 import type { RecipeMatchResult, VietnameseCategory } from '@frigo/recipes';
 
-export const DISCOVERY_PAGE_SIZE = 24;
-export const DISCOVERY_CUISINES = [
-  'vietnamese',
-  'korean',
-  'japanese',
-  'chinese',
-  'thai',
-  'italian',
-] as const;
-export const DISCOVERY_CATEGORIES: VietnameseCategory[] = [
-  'mon_canh',
-  'mon_kho',
-  'mon_xao',
-  'mon_chien',
-  'mon_hap_luoc',
-  'mon_cuon_nom',
-  'mon_bun_pho',
-  'mon_chay',
-  'mon_nhanh_sang',
-  'mon_lau_tiec',
-];
-export const DISCOVERY_REGIONS = ['bac', 'trung', 'nam'] as const;
+import {
+  DISCOVERY_PAGE_SIZE,
+  DISCOVERY_CUISINES,
+  DISCOVERY_CATEGORIES,
+  DISCOVERY_REGIONS,
+  type DiscoveryParams,
+} from '../../../packages/recipes/src/discovery-contract';
+export { DISCOVERY_PAGE_SIZE, DISCOVERY_CUISINES, DISCOVERY_CATEGORIES, DISCOVERY_REGIONS };
 export interface DiscoveryFilters {
   q: string;
   cuisine: string | null;
@@ -30,6 +16,7 @@ export interface DiscoveryFilters {
   noBuy: boolean;
   fast: boolean;
   page: number;
+  cursor?: string;
 }
 
 function accepted<T extends string>(value: string | null, allowed: readonly T[]): T | null {
@@ -39,6 +26,7 @@ export function readDiscoveryFilters(params: URLSearchParams): DiscoveryFilters 
   const page = params.get('page');
   return {
     q: (params.get('q') ?? '').slice(0, 160),
+    cursor: params.get('cursor') || undefined,
     cuisine: accepted(params.get('cuisine'), DISCOVERY_CUISINES),
     category: accepted(params.get('category'), DISCOVERY_CATEGORIES),
     region: accepted(params.get('region'), DISCOVERY_REGIONS),
@@ -50,6 +38,7 @@ export function readDiscoveryFilters(params: URLSearchParams): DiscoveryFilters 
 export function updateDiscoveryFilters(params: URLSearchParams, patch: Partial<DiscoveryFilters>) {
   const next = new URLSearchParams(params);
   if (!Object.hasOwn(patch, 'page')) next.delete('page');
+  if (!Object.hasOwn(patch, 'cursor')) next.delete('cursor');
   for (const [key, value] of Object.entries(patch)) {
     const name = key === 'fast' ? 'maxTime' : key;
     const encoded =
@@ -69,7 +58,7 @@ export function updateDiscoveryFilters(params: URLSearchParams, patch: Partial<D
 }
 export function resetDiscoveryFilters(params: URLSearchParams) {
   const next = new URLSearchParams(params);
-  for (const name of ['q', 'cuisine', 'category', 'region', 'noBuy', 'maxTime', 'page'])
+  for (const name of ['q', 'cuisine', 'category', 'region', 'noBuy', 'maxTime', 'page', 'cursor'])
     next.delete(name);
   return next;
 }
@@ -98,4 +87,17 @@ export function pageDiscoveryResults(results: RecipeMatchResult[], requestedPage
   const page = Math.min(requestedPage, pages);
   const offset = (page - 1) * DISCOVERY_PAGE_SIZE;
   return { page, pages, offset, items: results.slice(offset, offset + DISCOVERY_PAGE_SIZE) };
+}
+
+export function discoveryRequest(filters: DiscoveryFilters): DiscoveryParams {
+  return {
+    q: filters.q,
+    cuisine: (filters.cuisine as DiscoveryParams['cuisine']) ?? undefined,
+    category: filters.category ?? undefined,
+    region: filters.region ?? undefined,
+    noBuy: filters.noBuy,
+    maxTime: filters.fast ? 20 : undefined,
+    page: filters.page,
+    cursor: filters.cursor,
+  };
 }

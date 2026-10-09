@@ -1,3 +1,18 @@
+# UI03 reader audit addendum — 2026-10-10 JST
+
+Current repository: `vn-tak/Tako-san`. ADR-046 adds the explicitly approved
+`src/web/services/recipe-discovery.ts` offline browser reader. It uses static71
+only after network/offline errors, retains user/household session fences, labels
+results `device`, and cannot override an HTTP failure or select Worker authority.
+`src/worker/services/recipe-discovery.ts` consumes the request's existing
+RecipeAuthoritySnapshot and strict household stock; it has no direct static reader.
+The unknown-reader guard remains0; its allowlist now records this deliberate
+frontend consumer. UI03 tests prove503 does not fall back, late household responses
+fail, device source is labelled, and cross-source cursors cannot mix catalog pages.
+Historical T14D repository/count/production statements below are unchanged history.
+
+---
+
 # T14D — Recipe Catalog Authority Cutover Architecture (design, audit, evidence)
 
 ```text

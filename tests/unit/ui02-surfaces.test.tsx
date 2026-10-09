@@ -10,6 +10,8 @@ import { RecipesPage } from '../../src/web/pages/RecipesPage';
 import { KitchenHeader } from '../../src/web/components/common/KitchenHeader';
 import { useHomePlan } from '../../src/web/lib/use-home-plan';
 import { ApiError } from '../../src/web/services/http';
+import { discoveryFixture, DISCOVERY_FIXTURE_SNAPSHOT } from '../helpers/ui03-fixtures';
+import type { DiscoveryParams, DiscoveryPage } from '../../packages/recipes/src/discovery-contract';
 import { queryKeys } from '../../src/web/lib/queryKeys';
 import { hookPlan } from '../helpers/planner-hook-fixtures';
 import { homeComposition, discoveryRecipes, homeWeekPlan } from '../helpers/ui02-fixtures';
@@ -27,7 +29,7 @@ vi.mock('../../src/web/services/api', async () => ({
   api: {
     getCurrentWeekPlan: mocks.week,
     getInventory: mocks.inventory,
-    getRecommendations: mocks.recommendations,
+    getRecipeDiscovery: mocks.recommendations,
     getRecipeById: mocks.recipe,
   },
 }));
@@ -117,7 +119,9 @@ beforeEach(() => {
   mocks.week.mockResolvedValue(null);
   mocks.compositions.mockResolvedValue(homeComposition());
   mocks.inventory.mockResolvedValue([]);
-  mocks.recommendations.mockResolvedValue(discoveryRecipes());
+  mocks.recommendations.mockImplementation((params: DiscoveryParams) =>
+    Promise.resolve(discoveryFixture(discoveryRecipes(), params)),
+  );
   mocks.recipe.mockResolvedValue({
     recipe: discoveryRecipes(1)[0].recipe,
     match: { matchPercentage: 0, availableIngredientCount: 0 },
@@ -265,10 +269,12 @@ describe('Discovery mounted URL interactions', () => {
   it('renders24/page with native pagination and focuses the new results heading', async () => {
     await mount(<RecipesPage />, '/recipes');
     await until(() => expect(container.querySelectorAll('.discovery-grid > a')).toHaveLength(24));
-    expect(container.querySelector('a[href="/recipes?page=2"]')).not.toBeNull();
+    expect(container.querySelector('a[href^="/recipes?page=2&cursor="]')).not.toBeNull();
     await click('Tiếp');
     await until(() =>
-      expect(container.querySelector('[data-location]')!.textContent).toBe('/recipes?page=2'),
+      expect(container.querySelector('[data-location]')!.textContent).toBe(
+        `/recipes?page=2&cursor=v1.2.${DISCOVERY_FIXTURE_SNAPSHOT}`,
+      ),
     );
     expect(container.querySelector('.discovery-grid h3')!.textContent).toBe('Món 24');
     expect(document.activeElement).toBe(container.querySelector('#recipes-results-heading'));
@@ -276,7 +282,7 @@ describe('Discovery mounted URL interactions', () => {
     await until(() =>
       expect(container.querySelector('.discovery-grid h3')!.textContent).toBe('Món 0'),
     );
-    expect(mocks.recommendations).toHaveBeenCalledTimes(1);
+    expect(mocks.recommendations).toHaveBeenCalledTimes(3);
   });
   it('deep-linked search reaches later ingredients and reset restores all results/focus', async () => {
     await mount(<RecipesPage />, '/recipes?q=dau+do&page=8&origin=home');
@@ -314,14 +320,54 @@ describe('Discovery mounted URL interactions', () => {
       expect(container.querySelector('.discovery-grid h3')!.textContent).toBe('Món 24'),
     );
   });
+  it('stale cursor hides results and restarts with the same filters and heading focus', async () => {
+    await mount(<RecipesPage />, '/recipes?cuisine=vietnamese&origin=home');
+    await until(() => expect(container.querySelectorAll('.discovery-grid > a')).toHaveLength(24));
+    mocks.recommendations.mockRejectedValueOnce(
+      new ApiError('http', 'HTTP 409: {"code":"DISCOVERY_SNAPSHOT_CHANGED"}', 409),
+    );
+    await click('Tiếp');
+    await until(() => expect(container.textContent).toContain('Danh sách món cần tải lại'));
+    expect(container.querySelector('.discovery-grid')).toBeNull();
+    expect(mocks.recommendations).toHaveBeenCalledTimes(2);
+    await click('Tải lại từ trang đầu');
+    await until(() => expect(container.querySelectorAll('.discovery-grid > a')).toHaveLength(24));
+    expect(container.querySelector('[data-location]')!.textContent).toBe(
+      '/recipes?cuisine=vietnamese&origin=home',
+    );
+    expect(document.activeElement).toBe(container.querySelector('#recipes-results-heading'));
+  });
+  it('changing filters waits for the correct request and ignores an older response', async () => {
+    await mount(<RecipesPage />, '/recipes');
+    await until(() => expect(container.querySelectorAll('.discovery-grid > a')).toHaveLength(24));
+    const older = deferred<DiscoveryPage>();
+    mocks.recommendations.mockReturnValueOnce(older.promise);
+    await click('Không mua thêm');
+    await until(() => expect(container.textContent).toContain('Đang tìm món phù hợp'));
+    expect(container.querySelector('.discovery-grid')).toBeNull();
+    await click('Tối đa 20 phút');
+    await until(() => expect(container.querySelectorAll('.discovery-grid > a')).toHaveLength(24));
+    await act(async () => older.resolve(discoveryFixture(discoveryRecipes(), { noBuy: true })));
+    expect(container.querySelector('[data-location]')!.textContent).toBe(
+      '/recipes?noBuy=true&maxTime=20',
+    );
+    expect(container.querySelector('.discovery-grid h3')!.textContent).toBe('Món 0');
+    expect(container.textContent).toContain('28 món');
+  });
+  it('empty offline results retain their device-source qualifier', async () => {
+    mocks.recommendations.mockResolvedValue({ ...discoveryFixture([]), source: 'device' });
+    await mount(<RecipesPage />);
+    await until(() => expect(container.textContent).toContain('Không tìm thấy món phù hợp'));
+    expect(container.textContent).toContain('lưu trên thiết bị');
+  });
   it('a pending list does not claim zero matches', async () => {
-    const pending = deferred<ReturnType<typeof discoveryRecipes>>();
+    const pending = deferred<DiscoveryPage>();
     mocks.recommendations.mockReturnValue(pending.promise);
     await mount(<RecipesPage />, '/recipes?page=2');
     expect(container.textContent).toContain('Đang tìm món phù hợp');
     expect(container.textContent).not.toContain('0 món');
     expect(container.querySelector('[data-location]')!.textContent).toBe('/recipes?page=2');
-    await act(async () => pending.resolve(discoveryRecipes()));
+    await act(async () => pending.resolve(discoveryFixture(discoveryRecipes(), { page: 2 })));
     await until(() =>
       expect(container.querySelector('.discovery-grid h3')!.textContent).toBe('Món 24'),
     );

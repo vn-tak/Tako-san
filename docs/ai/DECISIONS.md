@@ -1,3 +1,73 @@
+# ADR-046 - Additive discovery summaries and snapshot-fenced pagination (UI03)
+
+Status: accepted for local implementation, 2026-10-10 JST. Packet:
+`tasks/UI03-discovery-api-media.md`. Builds on ADR-044/045/026/025.
+
+## Problem
+
+UI02 limits DOM to24 but downloads full recipe requirements/steps for every result.
+Legacy recommendations treat cuisine/time as score preferences, while discovery
+needs hard filters. Ranking depends on household stock; unfenced offset links can
+silently duplicate/skip dishes after inventory or catalog changes. Fresh local D1
+contains429 imported dishes sharing one decorative pasta illustration. Several
+legacy global dishes reuse unrelated food photographs; Unsplash mappings have no
+repo evidence proving each image depicts the named dish.
+
+## Decision
+
+Add `GET /api/v1/recipe-discovery`, authenticated under existing middleware, with
+strict Zod request/response schemas and no-store responses. Use one existing
+recipe authority snapshot and a strict household inventory read per request.
+Filter full catalog before the existing quantity-aware ranker; resolve score,
+match percentage and time ties by stable recipe ID. Slice only after ranking.
+Return small card summaries, total/page/pageSize/pages and previous/next cursors;
+media enrichment reads only the selected IDs. Recipe detail remains independent.
+Recipes defaults24; Home requests3. Old endpoints, scoring and command consumers
+are unchanged. No database migration or parallel catalog authority is introduced.
+
+Cursor encodes version, target page and SHA256 witness over normalized filters,
+page size, user/household, catalog source/fingerprint and sorted inventory fields
+used by quantity/ranking (plus available version identifiers). It contains no raw
+identity or stock. It confers no access: the current authenticated inputs must
+produce the same witness. Malformed/page-mismatched cursor400; changed witness409
+`DISCOVERY_SNAPSHOT_CHANGED`. UI shows explicit restart with same filters/page1.
+An unfenced direct page URL uses current data and clamps to current pages. Links
+carry cursors for refresh/back/detail-return; changing filters removes the cursor.
+This is stateless snapshot-fenced offset pagination, not persistent historical
+snapshots or database keyset paging. No HMAC secret is needed because the witness
+cannot select stock/catalog or bypass authorization and only compares current data.
+
+Frontend shares the contract, validates responses, retains transport/session
+fences, uses the existing scoped recommendations cache prefix for inventory
+invalidation, and labels offline static-catalog/local-inventory results. Offline
+source has its own witness; switching source invalidates fenced navigation.
+`src/web/services/recipe-discovery.ts` is an explicitly approved offline static
+reader in the T14D audit allowlist; server discovery only accepts its routed
+RecipeAuthoritySnapshot. The unknown-reader guard remains enforced.
+
+Media quarantine lives in shared presentation policy: generic illustration,
+precise confirmed recipe/path mismatches, and known legacy Unsplash mappings
+without dish review. Raw URLs/release fingerprints/migrations stay intact;
+ready canonical media wins and its failure falls only to an allowed legacy image
+or neutral placeholder. Audit records URL reuse separately from duplicate bytes,
+local file SHA/dimensions, pending media, and unknown license/provider provenance.
+No generated replacement or claim of new verified photo coverage.
+
+## Limits and compatibility
+
+Server still loads the authoritative full catalog and evaluates candidates for
+household ranking each request. This reduces transfer/DOM and bounds media reads,
+not catalog hydration/CPU. Canonical media may change independently of ranking.
+Legacy APIs retain their payloads and source selection. A fail-closed strict
+inventory read is specific to the new endpoint; no legacy reader behavior changes.
+No payment/auth/command/Week/flag/infrastructure or remote operations.
+
+Validation: API all-page coverage/filter/no-buy/source/stock/session fixtures;
+mounted URL/loading/recovery tests; real local Worker/browser/network/axe checks;
+full pnpm check. Exact results and implementation hash recorded at completion.
+
+---
+
 # Architecture Decisions
 
 ## ADR-045 - Home plan authority and scoped daily discovery

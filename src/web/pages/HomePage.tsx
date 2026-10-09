@@ -127,8 +127,8 @@ export const HomePage = () => {
     queryFn: () => api.getInventory(),
   });
   const recommendationsQuery = useQuery({
-    queryKey: queryKeys.recommendations({ noBuy: false, cuisine: null }),
-    queryFn: () => api.getRecommendations({ noBuy: false }),
+    queryKey: queryKeys.recipeDiscovery({ pageSize: 3 }),
+    queryFn: () => api.getRecipeDiscovery({ pageSize: 3 }),
   });
   const inventory = inventoryQuery.data ?? [];
   const useSoon = inventory
@@ -141,7 +141,7 @@ export const HomePage = () => {
     .slice(0, 4);
   const firstName = displayName?.trim().split(/\s+/).at(-1);
   const plan = home.plan;
-  const recommendations = (recommendationsQuery.data ?? []).slice(0, 3);
+  const recommendations = recommendationsQuery.data?.items ?? [];
 
   return (
     <div className="takosan-rebuild min-h-screen bg-semantic-background pb-12">
@@ -295,6 +295,11 @@ export const HomePage = () => {
                 Xem thêm <ArrowRight size={17} aria-hidden="true" />
               </Link>
             </div>
+            {recommendationsQuery.data?.source === 'device' && (
+              <p role="status" className="text-sm text-semantic-text-secondary">
+                Gợi ý từ nguyên liệu và công thức lưu trên thiết bị.
+              </p>
+            )}
             {recommendationsQuery.isPending ? (
               <InlineLoading label="Đang tìm món phù hợp…" />
             ) : recommendationsQuery.isError ? (

@@ -1,3 +1,24 @@
+# UI03 discovery read path (ADR-046, 2026-10-10)
+
+`GET /api/v1/recipe-discovery` is additive under recipe routes and existing auth/
+tenancy guards. `src/worker/services/recipe-discovery.ts` accepts one routed
+RecipeAuthoritySnapshot, reads strict household inventory and uses
+`packages/recipes/src/discovery.ts` for whole-catalog filtering, legacy quantity
+ranking, deterministic ties and snapshot-fenced offset pagination. Shared Zod
+request/card/page contracts are in `discovery-contract.ts`. Only selected page
+IDs receive media enrichment; detail/legacy APIs and commands stay unchanged.
+
+`src/web/services/recipe-discovery.ts` validates response/session and is the
+explicitly approved offline static reader (T14D audit addendum); device results are
+labelled and source-fenced. Home requests3, Recipes24, with scoped recommendation
+cache prefix/invalidation and URL cursor/restart. `legacy-media-policy.ts` is a
+presentation quarantine used by the central web resolver; raw catalog/release
+fingerprints and canonical media serving authority are unchanged. Local evidence:
+`../ui-rebuild/round-3/FOUNDATION.md`. Full catalog ranking/hydration remains;
+this contract reduces transfer and selected-page media reads, not database CPU.
+
+---
+
 # Architecture — T01 foundation through T05 shopping optimization
 
 T20 adds `packages/recipes/src/composition/*` (roles, simple foods, profiles, pure

@@ -69,7 +69,10 @@ export function discoveryRecipes(count = 55): RecipeMatchResult[] {
     score: 50,
     expiringIngredientsUsed: [],
     canCookWithoutBuying: index % 2 === 0,
-    missingRequiredIngredients: [],
+    missingRequiredIngredients:
+      index % 2 === 0
+        ? []
+        : [{ ingredientId: `INGREDIENT_${index}`, name: 'Rau', requiredQuantity: 100, unit: 'g' }],
   }));
 }
 

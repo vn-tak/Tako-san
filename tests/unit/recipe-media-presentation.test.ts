@@ -29,11 +29,12 @@ describe('T14C — frontend recipe image resolution (single fallback point)', ()
     }
   });
 
-  it('every canonical recipe resolves to a renderable src today (legacy compatibility preserved before population)', () => {
+  it('legacy mappings without subject review resolve neutrally; six matching global mappings remain usable', () => {
     const resolved = ALL_RECIPES.map((recipe) => resolveRecipeImage(recipe));
-    expect(resolved.every((image) => image.src.length > 0 && image.source !== 'placeholder')).toBe(true);
-    expect(resolved.filter((image) => image.source === 'legacy_static')).toHaveLength(12);
-    expect(resolved.filter((image) => image.source === 'legacy_external')).toHaveLength(59);
+    expect(resolved.every((image) => image.src.length > 0)).toBe(true);
+    expect(resolved.filter((image) => image.source === 'placeholder')).toHaveLength(65);
+    expect(resolved.filter((image) => image.source === 'legacy_static')).toHaveLength(6);
+    expect(resolved.filter((image) => image.source === 'legacy_external')).toHaveLength(0);
   });
 
   it('onError tries the legacy fallback, then a neutral image, and stops on placeholder failure', () => {

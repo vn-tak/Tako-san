@@ -1,0 +1,229 @@
+{
+  "base": "http://127.0.0.1:5197",
+  "syntheticLocalOnly": true,
+  "observations": [
+    {
+      "name": "home-summary-390",
+      "url": "http://127.0.0.1:5197/",
+      "viewport": 390,
+      "documentWidth": 390,
+      "font": "\"Be Vietnam Pro\", sans-serif",
+      "animations": [
+        "none"
+      ],
+      "cards": 0,
+      "brokenImages": [],
+      "violations": []
+    },
+    {
+      "name": "network-catalog",
+      "legacyBytes": 1081667,
+      "legacyGzipBytes": 130990,
+      "summaryBytes": 14194,
+      "summaryGzipBytes": 3010,
+      "pages": 21,
+      "uniqueRecipes": 500,
+      "note": "Raw JSON and locally computed gzip sizes; not wire-compression or latency measurements."
+    },
+    {
+      "name": "discovery-320",
+      "url": "http://127.0.0.1:5197/recipes",
+      "viewport": 320,
+      "documentWidth": 320,
+      "font": "\"Be Vietnam Pro\", sans-serif",
+      "animations": [
+        "none"
+      ],
+      "cards": 24,
+      "brokenImages": [],
+      "violations": []
+    },
+    {
+      "name": "discovery-390",
+      "url": "http://127.0.0.1:5197/recipes",
+      "viewport": 390,
+      "documentWidth": 390,
+      "font": "\"Be Vietnam Pro\", sans-serif",
+      "animations": [
+        "none"
+      ],
+      "cards": 24,
+      "brokenImages": [],
+      "violations": []
+    },
+    {
+      "name": "discovery-768",
+      "url": "http://127.0.0.1:5197/recipes",
+      "viewport": 768,
+      "documentWidth": 768,
+      "font": "\"Be Vietnam Pro\", sans-serif",
+      "animations": [
+        "none"
+      ],
+      "cards": 24,
+      "brokenImages": [],
+      "violations": []
+    },
+    {
+      "name": "discovery-1024",
+      "url": "http://127.0.0.1:5197/recipes",
+      "viewport": 1024,
+      "documentWidth": 1024,
+      "font": "\"Be Vietnam Pro\", sans-serif",
+      "animations": [
+        "none"
+      ],
+      "cards": 24,
+      "brokenImages": [],
+      "violations": []
+    },
+    {
+      "name": "discovery-1440",
+      "url": "http://127.0.0.1:5197/recipes",
+      "viewport": 1440,
+      "documentWidth": 1440,
+      "font": "\"Be Vietnam Pro\", sans-serif",
+      "animations": [
+        "none"
+      ],
+      "cards": 24,
+      "brokenImages": [],
+      "violations": []
+    },
+    {
+      "name": "discovery-page2-390",
+      "url": "http://127.0.0.1:5197/recipes?page=2&cursor=v1.2.a2032a61ac4238ffab20ef08924702ac52e33768d3a92b928919a1678d984d6d",
+      "viewport": 390,
+      "documentWidth": 390,
+      "font": "\"Be Vietnam Pro\", sans-serif",
+      "animations": [
+        "none"
+      ],
+      "cards": 24,
+      "brokenImages": [],
+      "violations": []
+    },
+    {
+      "name": "detail-neutral-390",
+      "url": "http://127.0.0.1:5197/recipes/trung-hap-han",
+      "viewport": 390,
+      "documentWidth": 390,
+      "font": "\"Be Vietnam Pro\", sans-serif",
+      "animations": [
+        "none"
+      ],
+      "cards": 0,
+      "brokenImages": [],
+      "violations": []
+    },
+    {
+      "name": "discovery-search-390",
+      "url": "http://127.0.0.1:5197/recipes?q=trung+hap+han",
+      "viewport": 390,
+      "documentWidth": 390,
+      "font": "\"Be Vietnam Pro\", sans-serif",
+      "animations": [
+        "none"
+      ],
+      "cards": 1,
+      "brokenImages": [],
+      "violations": []
+    },
+    {
+      "name": "discovery-filtered-390",
+      "url": "http://127.0.0.1:5197/recipes?cuisine=japanese&maxTime=20",
+      "viewport": 390,
+      "documentWidth": 390,
+      "font": "\"Be Vietnam Pro\", sans-serif",
+      "animations": [
+        "none"
+      ],
+      "cards": 24,
+      "brokenImages": [],
+      "violations": []
+    },
+    {
+      "name": "discovery-snapshot-changed-390",
+      "url": "http://127.0.0.1:5197/recipes?page=2&cursor=v1.2.a2032a61ac4238ffab20ef08924702ac52e33768d3a92b928919a1678d984d6d",
+      "viewport": 390,
+      "documentWidth": 390,
+      "font": "\"Be Vietnam Pro\", sans-serif",
+      "animations": [
+        "none"
+      ],
+      "cards": 0,
+      "brokenImages": [],
+      "violations": []
+    },
+    {
+      "name": "discovery-empty-320",
+      "url": "http://127.0.0.1:5197/recipes?q=khongcomonnaoday",
+      "viewport": 320,
+      "documentWidth": 320,
+      "font": "\"Be Vietnam Pro\", sans-serif",
+      "animations": [
+        "none"
+      ],
+      "cards": 0,
+      "brokenImages": [],
+      "violations": []
+    },
+    {
+      "name": "discovery-read-error-320",
+      "url": "http://127.0.0.1:5197/recipes",
+      "viewport": 320,
+      "documentWidth": 320,
+      "font": "\"Be Vietnam Pro\", sans-serif",
+      "animations": [
+        "none"
+      ],
+      "cards": 0,
+      "brokenImages": [],
+      "violations": []
+    },
+    {
+      "name": "discovery-offline-320",
+      "url": "http://127.0.0.1:5197/recipes",
+      "viewport": 320,
+      "documentWidth": 320,
+      "font": "\"Be Vietnam Pro\", sans-serif",
+      "animations": [
+        "none"
+      ],
+      "cards": 24,
+      "brokenImages": [],
+      "violations": []
+    },
+    {
+      "name": "discovery-invalid-link-320",
+      "url": "http://127.0.0.1:5197/recipes?cursor=broken&page=2",
+      "viewport": 320,
+      "documentWidth": 320,
+      "font": "\"Be Vietnam Pro\", sans-serif",
+      "animations": [
+        "none"
+      ],
+      "cards": 0,
+      "brokenImages": [],
+      "violations": []
+    },
+    {
+      "name": "journeys",
+      "passed": [
+        "Home3-summary",
+        "all500-unique",
+        "server-page-reload",
+        "catalog-detail-return",
+        "accent-search-beyond24",
+        "filter-reload",
+        "inventory-change409-restart",
+        "deep-link-clamp",
+        "empty",
+        "503-no-fallback",
+        "offline-source",
+        "invalid-link-recovery"
+      ]
+    }
+  ],
+  "errors": []
+}

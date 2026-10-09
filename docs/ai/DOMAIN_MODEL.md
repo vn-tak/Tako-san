@@ -1,3 +1,22 @@
+# UI03 discovery presentation contract (ADR-046)
+
+Discovery summaries are read-only projections of the existing recipe authority and
+current household inventory. `DiscoveryItem` contains card recipe fields,
+matchPercentage (ingredient coverage), canCookWithoutBuying (quantity sufficiency)
+and missingRequiredIngredientCount. No ingredient demands, steps, nutrition,
+per-lot evidence or safety assurance is carried in list; detail remains authoritative
+for those views. Count0 agrees with quantity-based no-buy, never a stored recipe flag.
+
+`DiscoveryPage` includes total/page/pageSize/pages, source server|device, SHA256
+snapshot witness and previous/next cursors. Cursor is a current-input equality
+witness, not authorization or a retained historical snapshot. User/household,
+actual authority source/content fingerprint, stock/versions and filters/page size
+bind the witness; changed input409 requires restart. Media may change independently
+without changing ranking identity. Shared schema: `packages/recipes/src/discovery-contract.ts`.
+No new persistence or inventory/planner/cooking domain command is introduced.
+
+---
+
 # Domain Model — T01 foundation through T05 shopping optimization
 
 T05 introduces `ShoppingContext`, `PurchaseOption`, `PurchaseRequirement`, scoped

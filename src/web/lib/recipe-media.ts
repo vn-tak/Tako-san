@@ -9,10 +9,12 @@
  * nothing here attaches credentials. Media never changes which recipe is shown, only its picture.
  */
 import type { Recipe, RecipeMediaPresentationSet } from '@frigo/recipes';
+import { legacyRecipeImageIssue } from '../../../packages/recipes/src/legacy-media-policy';
 
 export const RECIPE_IMAGE_PLACEHOLDER = '/takosan/recipe-placeholder.svg';
 
 export type RecipeWithOptionalMedia = Pick<Recipe, 'imageUrl'> & {
+  id?: string;
   media?: RecipeMediaPresentationSet | null;
 };
 
@@ -39,6 +41,8 @@ export function resolveRecipeImage(
   placeholder = RECIPE_IMAGE_PLACEHOLDER,
 ): ResolvedRecipeImage {
   const hero = recipe?.media?.hero;
+  const legacyAllowed =
+    recipe && isRenderableLegacyUrl(recipe.imageUrl) && !legacyRecipeImageIssue(recipe);
   if (
     hero &&
     hero.source === 'canonical_r2' &&
@@ -49,15 +53,15 @@ export function resolveRecipeImage(
     const height = hero.height ?? null;
     return {
       src: hero.url,
-      fallbackSrc: isRenderableLegacyUrl(recipe?.imageUrl) ? recipe!.imageUrl.trim() : placeholder,
+      fallbackSrc: legacyAllowed ? recipe.imageUrl.trim() : placeholder,
       source: 'canonical_r2',
       width,
       height,
       aspectRatio: width && height ? `${width} / ${height}` : undefined,
     };
   }
-  if (isRenderableLegacyUrl(recipe?.imageUrl)) {
-    const url = recipe!.imageUrl.trim();
+  if (legacyAllowed) {
+    const url = recipe.imageUrl.trim();
     return {
       src: url,
       fallbackSrc: placeholder,

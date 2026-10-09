@@ -20,6 +20,9 @@ export const queryKeys = {
     region?: string | null;
     maxTime?: number;
   }) => ['recommendations', ...scope(), params] as const,
+  recipeDiscovery: (
+    params: import('../../../packages/recipes/src/discovery-contract').DiscoveryParams,
+  ) => ['recommendations', ...scope(), 'discovery', params] as const,
   recipes: () => ['recipe', ...scope()] as const,
   recipe: (idOrSlug: string) => ['recipe', ...scope(), idOrSlug] as const,
   weekPlans: () => ['weekPlan', ...scope()] as const,
@@ -34,7 +37,8 @@ export const queryKeys = {
     ['mealPlanningAlternatives', ...scope(), planId] as const,
   mealPlanningCompositions: (planId: string, revision: number) =>
     ['mealPlanningCompositions', ...scope(), planId, revision] as const,
-  mealPlanningCompositionsForPlan: (planId: string) => ['mealPlanningCompositions', ...scope(), planId] as const,
+  mealPlanningCompositionsForPlan: (planId: string) =>
+    ['mealPlanningCompositions', ...scope(), planId] as const,
   mealCompositionPicker: (params: { role: string; q: string; kind: string }) =>
     ['mealCompositionPicker', ...scope(), params] as const,
   notifications: () => ['notifications', ...scope()] as const,

@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useRef, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { useQuery } from '@tanstack/react-query';
 import { Link, useNavigate, useSearchParams } from 'react-router-dom';
 import { KitchenPageHeading } from '../components/common/KitchenHeader';
@@ -6,14 +6,13 @@ import { TopBar } from '../components/common/TopBar';
 import { RecipeCard } from '../components/common/RecipeCard';
 import { InlineError, InlineLoading } from '../components/common/AsyncState';
 import { Button } from '../components/common/Button';
-import { api } from '../services/api';
+import { api, ApiError } from '../services/api';
 import { queryKeys } from '../lib/queryKeys';
 import {
   readDiscoveryFilters,
   updateDiscoveryFilters,
   resetDiscoveryFilters,
-  filterDiscoveryResults,
-  pageDiscoveryResults,
+  discoveryRequest,
   type DiscoveryFilters,
 } from '../lib/recipe-discovery';
 import { Search, ArrowLeft, ArrowRight, Clock, CheckCircle } from 'lucide-react';
@@ -70,48 +69,38 @@ export const RecipesPage = () => {
     setParams(resetDiscoveryFilters(params));
     inputRef.current?.focus();
   };
+  const [readySearch, setReadySearch] = useState(filters.q);
+  useEffect(() => {
+    const timer = window.setTimeout(() => setReadySearch(filters.q), 250);
+    return () => window.clearTimeout(timer);
+  }, [filters.q]);
+  const request = discoveryRequest(filters);
   const query = useQuery({
-    queryKey: queryKeys.recommendations({
-      noBuy: filters.noBuy,
-      cuisine: filters.cuisine,
-      category: filters.category,
-      region: filters.region,
-      maxTime: filters.fast ? 20 : undefined,
-    }),
-    queryFn: () =>
-      api.getRecommendations({
-        noBuy: filters.noBuy,
-        cuisine: filters.cuisine ?? undefined,
-        category: filters.category ?? undefined,
-        region: filters.region ?? undefined,
-        maxTime: filters.fast ? 20 : undefined,
-      }),
+    queryKey: queryKeys.recipeDiscovery(request),
+    enabled: readySearch === filters.q,
+    queryFn: () => api.getRecipeDiscovery(request),
   });
-  const { q, cuisine, category, region, noBuy, fast } = filters;
-  const filtered = useMemo(
-    () =>
-      filterDiscoveryResults(query.data ?? [], {
-        q,
-        cuisine,
-        category,
-        region,
-        noBuy,
-        fast,
-        page: 1,
-      }),
-    [query.data, q, cuisine, category, region, noBuy, fast],
-  );
-  const result = pageDiscoveryResults(filtered, filters.page);
+  const result = query.data;
+  const snapshotChanged =
+    query.error instanceof ApiError && query.error.code === 'DISCOVERY_SNAPSHOT_CHANGED';
+  const invalidCursor =
+    query.error instanceof ApiError &&
+    (query.error.code === 'DISCOVERY_CURSOR_INVALID' ||
+      (!!filters.cursor && query.error.code === 'DISCOVERY_QUERY_INVALID'));
   useEffect(() => {
-    if (query.isSuccess && filters.page !== result.page)
+    if (query.isSuccess && result && filters.page !== result.page)
       setParams(updateDiscoveryFilters(params, { page: result.page }), { replace: true });
-  }, [query.isSuccess, filters.page, result.page, params, setParams]);
+  }, [query.isSuccess, filters.page, result, params, setParams]);
   useEffect(() => {
-    if (focusResults.current && query.isSuccess) {
+    if (focusResults.current && !query.isFetching && (query.isSuccess || query.isError)) {
       focusResults.current = false;
       headingRef.current?.focus();
     }
-  }, [result.page, query.isSuccess]);
+  }, [result, query.isSuccess, query.isError, query.isFetching]);
+  const restart = () => {
+    focusResults.current = true;
+    setParams(updateDiscoveryFilters(params, { page: 1 }));
+  };
   const active = !!(
     filters.q ||
     filters.cuisine ||
@@ -120,7 +109,8 @@ export const RecipesPage = () => {
     filters.noBuy ||
     filters.fast
   );
-  const pagerHref = (page: number) => `?${updateDiscoveryFilters(params, { page })}`;
+  const pagerHref = (page: number, cursor: string | null) =>
+    `?${updateDiscoveryFilters(params, { page, cursor: cursor ?? undefined })}`;
 
   return (
     <div className="takosan-rebuild min-h-screen bg-semantic-background pb-12">
@@ -251,17 +241,35 @@ export const RecipesPage = () => {
               <h2 id="recipes-results-heading" ref={headingRef} tabIndex={-1}>
                 {filters.q.trim() ? `Kết quả cho “${filters.q.trim()}”` : 'Công thức phù hợp'}
               </h2>
-              {query.isSuccess && (
+              {query.isSuccess && !query.isFetching && (
                 <p role="status" className="text-sm text-semantic-text-muted shrink-0">
-                  {filtered.length} món
+                  {result?.total} món
                 </p>
               )}
             </div>
-            {query.isPending ? (
+            {result?.source === 'device' && (
+              <p role="status" className="text-sm text-semantic-text-secondary">
+                Đang dùng công thức và nguyên liệu lưu trên thiết bị. Kết nối lại để xem danh sách
+                đầy đủ.
+              </p>
+            )}
+            {query.isPending || query.isFetching ? (
               <InlineLoading label="Đang tìm món phù hợp…" />
+            ) : snapshotChanged || invalidCursor ? (
+              <div role="alert" className="kitchen-neutral-panel">
+                <h3 className="text-lg font-semibold">Danh sách món cần tải lại</h3>
+                <p className="mt-2 text-sm text-semantic-text-secondary">
+                  {snapshotChanged
+                    ? 'Nguyên liệu hoặc công thức đã thay đổi. Tải lại từ trang đầu để xem các món phù hợp hiện tại.'
+                    : 'Liên kết phân trang không còn hợp lệ. Tải lại danh sách với bộ lọc đang dùng.'}
+                </p>
+                <Button className="mt-4" onClick={restart}>
+                  Tải lại từ trang đầu
+                </Button>
+              </div>
             ) : query.isError ? (
               <InlineError error={query.error} onRetry={() => void query.refetch()} />
-            ) : !filtered.length ? (
+            ) : !result?.total ? (
               <div className="kitchen-neutral-panel" role="status">
                 <h3 className="text-lg font-semibold">Không tìm thấy món phù hợp</h3>
                 <p className="mt-2 text-sm text-semantic-text-secondary">
@@ -274,8 +282,9 @@ export const RecipesPage = () => {
             ) : (
               <>
                 <p className="text-sm text-semantic-text-secondary">
-                  Đang xem {result.offset + 1}–{result.offset + result.items.length} trong{' '}
-                  {filtered.length} món
+                  Đang xem {(result.page - 1) * result.pageSize + 1}–
+                  {(result.page - 1) * result.pageSize + result.items.length} trong {result?.total}{' '}
+                  món
                 </p>
                 <div data-testid="recipe-discovery-grid" className="discovery-grid">
                   {result.items.map((item) => (
@@ -296,7 +305,7 @@ export const RecipesPage = () => {
                   <nav aria-label="Phân trang công thức" className="discovery-pager">
                     {result.page > 1 ? (
                       <Link
-                        to={pagerHref(result.page - 1)}
+                        to={pagerHref(result.page - 1, result.previousCursor)}
                         onClick={(event) => {
                           if (
                             event.button === 0 &&
@@ -320,7 +329,7 @@ export const RecipesPage = () => {
                     </span>
                     {result.page < result.pages ? (
                       <Link
-                        to={pagerHref(result.page + 1)}
+                        to={pagerHref(result.page + 1, result.nextCursor)}
                         onClick={(event) => {
                           if (
                             event.button === 0 &&

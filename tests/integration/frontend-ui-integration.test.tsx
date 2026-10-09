@@ -1,3 +1,4 @@
+import { discoveryFixture } from '../helpers/ui03-fixtures';
 import type { ReactElement } from 'react';
 import { renderToStaticMarkup } from 'react-dom/server';
 import { readFileSync } from 'node:fs';
@@ -113,7 +114,7 @@ describe('real Home data rendered through the shared QueryClient', () => {
     const { HomePage } = await import('../../src/web/pages/HomePage');
     ui.queryClient.setQueryData(ui.queryKeys.inventory(), []);
     ui.queryClient.setQueryData(ui.queryKeys.currentWeekPlan(), null);
-    ui.queryClient.setQueryData(ui.queryKeys.recommendations({ noBuy: false, cuisine: null }), []);
+    ui.queryClient.setQueryData(ui.queryKeys.recipeDiscovery({ pageSize: 3 }), discoveryFixture([], { pageSize: 3 }));
     const html = ui.render(<HomePage />);
     expect(html).toContain('Tủ lạnh đang trống');
     expect(html).toContain('Chưa có món phù hợp để gợi ý.');
@@ -133,7 +134,7 @@ describe('real Home data rendered through the shared QueryClient', () => {
       { id: 'expiring-a', name: 'REAL_EXPIRING_FROM_INVENTORY', freshness: 'use_soon', expiryDate: '2026-09-09T00:00:00' },
       { id: 'fresh-a', name: 'FRESH_ITEM_NOT_IN_USE_SOON', freshness: 'fresh' },
     ]);
-    ui.queryClient.setQueryData(ui.queryKeys.recommendations({ noBuy: false, cuisine: null }), []);
+    ui.queryClient.setQueryData(ui.queryKeys.recipeDiscovery({ pageSize: 3 }), discoveryFixture([], { pageSize: 3 }));
     const html = ui.render(<HomePage />);
     expect(html).toContain('REAL_breakfast_FROM_WEEK');
     expect(html).not.toContain('REAL_dinner_FROM_WEEK');
@@ -156,7 +157,7 @@ describe('real Home data rendered through the shared QueryClient', () => {
       { id: 'known', name: 'KNOWN_ITEM', freshness: 'use_soon', expiryKind: 'KNOWN', expiryDate: '2026-09-10' },
       { id: 'unknown', name: 'UNKNOWN_ITEM', freshness: 'expiring', expiryKind: 'UNKNOWN', expiryDate: null },
     ]);
-    ui.queryClient.setQueryData(ui.queryKeys.recommendations({ noBuy: false, cuisine: null }), []);
+    ui.queryClient.setQueryData(ui.queryKeys.recipeDiscovery({ pageSize: 3 }), discoveryFixture([], { pageSize: 3 }));
     const html = ui.render(<HomePage />);
     const chips = [...html.matchAll(/data-testid="home-use-soon-expiry" data-expiry-kind="([A-Z]+)"[^>]*>([^<]*)</g)]
       .map((match) => [match[1], match[2].trim()]);
@@ -176,7 +177,7 @@ describe('real Home data rendered through the shared QueryClient', () => {
     const ui = await loadUi();
     const { HomePage } = await import('../../src/web/pages/HomePage');
     ui.queryClient.setQueryData(ui.queryKeys.inventory(), [{ id: 'i', name: 'REAL_SURVIVING_WIDGET', freshness: 'expiring' }]);
-    ui.queryClient.setQueryData(ui.queryKeys.recommendations({ noBuy: false, cuisine: null }), []);
+    ui.queryClient.setQueryData(ui.queryKeys.recipeDiscovery({ pageSize: 3 }), discoveryFixture([], { pageSize: 3 }));
     await ui.failQuery(ui.queryKeys.currentWeekPlan(), new ui.ApiError('http', 'internal failure', 500));
     const html = ui.render(<HomePage />);
     expect(html).toContain('REAL_SURVIVING_WIDGET');
@@ -190,9 +191,9 @@ describe('real Home data rendered through the shared QueryClient', () => {
     const { HomePage } = await import('../../src/web/pages/HomePage');
     ui.queryClient.setQueryData(ui.queryKeys.inventory(), []);
     ui.queryClient.setQueryData(ui.queryKeys.currentWeekPlan(), null);
-    ui.queryClient.setQueryData(ui.queryKeys.recommendations({ noBuy: false, cuisine: null }), [
+    ui.queryClient.setQueryData(ui.queryKeys.recipeDiscovery({ pageSize: 3 }), discoveryFixture([
       evaluateRecipeMatch(recipe, { inventory: [] }),
-    ]);
+    ], { pageSize: 3 }));
     const html = ui.render(<HomePage />);
     expect(html).toContain(recipe.title);
     expect(html).not.toContain('Chưa có món phù hợp để gợi ý.');

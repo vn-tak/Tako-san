@@ -7,6 +7,7 @@ import { inventoryApi } from './inventory';
 import { inventoryTruthApi } from './inventory-truth';
 import { scansApi } from './scans';
 import { recipesApi } from './recipes';
+import { discoveryApi } from './recipe-discovery';
 import { shoppingApi } from './shopping';
 import { weekApi } from './week';
 import { notificationsApi } from './notifications';
@@ -22,6 +23,7 @@ export const api = {
   ...inventoryTruthApi,
   ...scansApi,
   ...recipesApi,
+  ...discoveryApi,
   ...shoppingApi,
   ...weekApi,
   ...notificationsApi,

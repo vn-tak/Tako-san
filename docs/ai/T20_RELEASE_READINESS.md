@@ -171,3 +171,15 @@ Production functional smoke chưa chạy: cần registered normal browser sessio
 5journeys mobile390, no cooking consumption/provider scan, inventory HTTP
 snapshots trước/sau và bounded HTTP5xx windows. Phiên login kiểm thử chưa capture;
 không sao chép cookie Chrome hoặc bypass auth để thay normal session.
+
+## Production shadow đã verified — continuation 2026-10-09 JST
+
+Run37858608953 normalapproved vn-taphoanhatung và SUCCESS; artifact/live3proof,
+source27d47b05,Workerbinding,ledger39,D1500/hydration0/media500/FK/quickcheck
+match. PairedT20/planner đã bật ở shadow; PRODUCTION_ENABLED=true(stage shadow),
+PRODUCTION_ROLLOUT_COMPLETE=false,PRODUCTION_FUNCTIONAL_SMOKE=false.
+Canary 1% run37922994678 đã approved và đang chạy; sau proof1 mới5/25/D1.
+Normal registered session đã capture và read-onlyprofile/inventory preflightPASS;
+stockrỗng, actual5browserjourneys chỉ saufinalD1. Các phần trăm áp dụng catalog
+routing, không phải percentageT20. Report hiện hành:
+`T20_ROLLOUT_CERTIFICATION_20261009.md`.

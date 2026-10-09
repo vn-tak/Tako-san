@@ -79,3 +79,12 @@ Sau reviewer approval collect artifact/live proof, tiếp tục1/5/25/D1 lần l
 với approval mỗi run; normal registered production smoke còn phải chạy.
 Hai cửa sổ Chromium login đã timeout, chưa có private production session.
 Không replay fixtures/journeys certified hoặc reapply0039/failed AI scan.
+
+## Production shadow continuation — 2026-10-09 JST
+
+Source27d47b05/main vẫn pin. Shadow37858608953 đã normalapproved/release/artifact/
+liveproofPASS,pairedT20/plannertrue,ledger39/catalog500/hydration0/media500/binding
+match. Run1%37922994678 đã approved riêng bởi vn-taphoanhatung và đang chạy.
+Registered normal session đã capture; actualproduction5journeys0executed,
+chỉ chạy sauchain1/5/25/D1proofPASS. Xem report hiện hành và ignoredactive-turn;
+không replaycertifiedstaging/0039/failedscan hoặc mergePR63 giữarollout.

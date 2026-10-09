@@ -110,3 +110,14 @@ Chưa deploy hoặc certify production T20. Private production browser session
 chưa capture; hai cửa sổ login10/20min đã hết hạn. Sau protected rollout phải
 normal-login smoke5journeys và inventory HTTP snapshot comparison; production
 inventory event ledger chưa được query. Không dùng staging PASS thay production.
+
+## Production shadow đã đạt — continuation 2026-10-09 JST
+
+Staging certification45/45 và4stock/event audits vẫn PASS trên source27d47b05.
+Production shadow37858608953 đã approved bởi vn-taphoanhatung, workflow/artifact/
+live3proofPASS; Worker eb6a181f-e4d7-4697-8737-bb9db292714c,ledger39,D1500,
+hydration0/media500/binding/FK/quickcheckmatch. PairedT20/plannertrue đã bật ở
+shadow; production canary1run37922994678 đã approved và đang chạy.
+Registered normal browser session đã capture ở attempt3; read-onlypreflightPASS.
+Actual production5browserjourneys chưa chạy; báo cáo hiện hành trong
+`T20_ROLLOUT_CERTIFICATION_20261009.md` thay các nhãn pending/login cũ.

@@ -1,5 +1,35 @@
 # T20 — Release và rollback packet cho operator review
 
+## Trạng thái hiện hành — 2026-10-09 JST
+
+`T20_PRODUCTION_ROLLOUT_COMPLETE_FUNCTIONAL_SMOKE_PASS`; source `27d47b056455a57df811199cd7e9c32a84cbffe5`.
+Staging năm stage/45 hosted journeys/bốn stock-event audits PASS;
+production shadow → 1% → 5% → 25% → D1 đều PASS với normal Environment review.
+T20/planner paired true, catalog toàn bộ D1, ledger 39; không replay migration.
+
+Production smoke verified năm journeys: initial bốn PASS + một local observer
+recursion failure trước concurrency race, sau đó targeted concurrency 1/1 PASS
+trên đúng plan chưa sửa. Original evidence/checksums giữ nguyên, helper đã có
+regression RED/GREEN; automatic retries 0, không replay bốn PASS.
+Năm HTTP windows không có unexplained Worker 5xx; stock HTTP snapshots khớp
+với item count 0. Production event ledger không được query.
+
+Readiness window 6 observations/301,536s PASS, HTTP 200 và source/D1/no fallback
+khớp; `degraded` chỉ bởi `CONFIG_RECIPE_CATALOG_D1_AUTHORITY` hiện hữu.
+Đây là public readiness evidence, không phải full Worker log/error-rate audit.
+Whole-week V2 Auto và optional extensions giữ phân loại trong takeover audit.
+
+Báo cáo hiện hành: [rollout certification](T20_ROLLOUT_CERTIFICATION_20261009.md)
+và [public aggregate](T20_PRODUCTION_EVIDENCE_20261009.json).
+PR #63 dành cho documentation/evidence, chưa merge; kiểm tra CI đúng final head.
+Không dispatch production thêm hoặc replay certified journeys/0039/recovery/scan.
+Rollback paired flags theo workflow/reviewer chuẩn, giữ source/catalog state
+được transition guard chấp nhận, schema 0039 và composition records.
+
+---
+
+## Hồ sơ trước rollout — giữ làm lịch sử
+
 Trạng thái: `T20_STAGING_CERTIFICATION_REQUIRED` / `T20_PRODUCTION_READINESS_BLOCKED`.
 Ngày: 2026-10-09 JST. Implementation và final-head CI được ghi trong checkpoint
 cuối `T20_TAKEOVER_AUDIT.md` và PR. Packet này không cấp quyền deploy.
@@ -140,3 +170,46 @@ restart shadow rồi1/5/25/D1; input d1 trực tiếp trong packet cũ sẽ bị
 Không sửa/weaken guard để bỏ bước này. Kế hoạch chứng nhận và staging-only fixture
 được mô tả tại `T20_STAGING_CERTIFICATION.md`. SHA mới sau tooling phải có CI main
 riêng và toàn bộ artifact/hosted journeys gắn với SHA đó trước production.
+
+## Gate staging đã đạt; production chờ reviewer — 2026-10-09 JST
+
+Source cuối `27d47b056455a57df811199cd7e9c32a84cbffe5`, approved hardening
+`8b7b254ddcc9e0a36989a2c8c3add6ad3d776ee9`; main-push CI37853046693 SUCCESS
+259files/6365tests. Operator đã cho phép merge PR62 và tiếp tục rollout theo
+các gate chuẩn. Đây là authorization thay giới hạn takeover, không phải GitHub
+review hoặc approval Environment. Không xin lại authorization PR62.
+
+Staging final-source readiness, năm stage artifact/live proofs,45hosted journeys
+và bốn policy stock/event audits đều PASS; xem `T20_STAGING_CERTIFICATION.md`
+và `T20_ROLLOUT_CERTIFICATION_20261009.md`. Source/schema/catalog/fingerprint
+không đổi trong lúc rollout. CODE_COMPLETE/TEST_VERIFIED/STAGING_CERTIFIED đạt;
+PRODUCTION_READY theo evidence staging đạt, PRODUCTION_ENABLED chưa đạt.
+
+Run [37858608953](https://github.com/vn-tak/Tako-san/actions/runs/37858608953)
+đã qua release gate, đang waiting tại production Environment. Reviewer bắt buộc
+vn-taphoanhatung; APIcurrent_user_can_approve=false cho CLIvn-tak. Không bypass.
+Lượt đầu shadow0/T20true/plannertrue, sau đó1/5/25/D1 chỉ sau verified proof
+mỗi stage. Không reapply0039, recovery/import catalog hoặc failed scan replay.
+
+Rollback dự kiến trên chính source đã pin: pairedT20false/plannerfalse,
+recipe_catalog_mode=d1/percent0/cutovertrue; giữ schema39/composition records.
+Dispatch qua Deploy và reviewer chuẩn. Không tự xóa records/stock hoặc đổi
+secrets/bindings. Nếu phát hiện tenant/hard-policy/lost-update/inventory defect,
+dừng promotion và thu thập evidence trước repair hoặc operator rollback.
+
+Production functional smoke chưa chạy: cần registered normal browser session,
+5journeys mobile390, no cooking consumption/provider scan, inventory HTTP
+snapshots trước/sau và bounded HTTP5xx windows. Phiên login kiểm thử chưa capture;
+không sao chép cookie Chrome hoặc bypass auth để thay normal session.
+
+## Production shadow đã verified — continuation 2026-10-09 JST
+
+Run37858608953 normalapproved vn-taphoanhatung và SUCCESS; artifact/live3proof,
+source27d47b05,Workerbinding,ledger39,D1500/hydration0/media500/FK/quickcheck
+match. PairedT20/planner đã bật ở shadow; PRODUCTION_ENABLED=true(stage shadow),
+PRODUCTION_ROLLOUT_COMPLETE=false,PRODUCTION_FUNCTIONAL_SMOKE=false.
+Canary 1% run37922994678 đã approved và đang chạy; sau proof1 mới5/25/D1.
+Normal registered session đã capture và read-onlyprofile/inventory preflightPASS;
+stockrỗng, actual5browserjourneys chỉ saufinalD1. Các phần trăm áp dụng catalog
+routing, không phải percentageT20. Report hiện hành:
+`T20_ROLLOUT_CERTIFICATION_20261009.md`.

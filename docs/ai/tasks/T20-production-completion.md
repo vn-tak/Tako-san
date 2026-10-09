@@ -1,5 +1,35 @@
 # T20 — Hoàn thiện Meal Composition V2
 
+## Trạng thái hiện hành — 2026-10-09 JST
+
+`T20_PRODUCTION_ROLLOUT_COMPLETE_FUNCTIONAL_SMOKE_PASS`; source `27d47b056455a57df811199cd7e9c32a84cbffe5`.
+Staging năm stage/45 hosted journeys/bốn stock-event audits PASS;
+production shadow → 1% → 5% → 25% → D1 đều PASS với normal Environment review.
+T20/planner paired true, catalog toàn bộ D1, ledger 39; không replay migration.
+
+Production smoke verified năm journeys: initial bốn PASS + một local observer
+recursion failure trước concurrency race, sau đó targeted concurrency 1/1 PASS
+trên đúng plan chưa sửa. Original evidence/checksums giữ nguyên, helper đã có
+regression RED/GREEN; automatic retries 0, không replay bốn PASS.
+Năm HTTP windows không có unexplained Worker 5xx; stock HTTP snapshots khớp
+với item count 0. Production event ledger không được query.
+
+Readiness window 6 observations/301,536s PASS, HTTP 200 và source/D1/no fallback
+khớp; `degraded` chỉ bởi `CONFIG_RECIPE_CATALOG_D1_AUTHORITY` hiện hữu.
+Đây là public readiness evidence, không phải full Worker log/error-rate audit.
+Whole-week V2 Auto và optional extensions giữ phân loại trong takeover audit.
+
+Báo cáo hiện hành: [rollout certification](../T20_ROLLOUT_CERTIFICATION_20261009.md)
+và [public aggregate](../T20_PRODUCTION_EVIDENCE_20261009.json).
+PR #63 dành cho documentation/evidence, chưa merge; kiểm tra CI đúng final head.
+Không dispatch production thêm hoặc replay certified journeys/0039/recovery/scan.
+Rollback paired flags theo workflow/reviewer chuẩn, giữ source/catalog state
+được transition guard chấp nhận, schema 0039 và composition records.
+
+---
+
+## Hồ sơ trước rollout — giữ làm lịch sử
+
 Trạng thái: `T20_CODE_COMPLETE_REVIEW_REQUIRED` / `T20_TEST_VERIFIED` (local),
 `T20_STAGING_CERTIFICATION_REQUIRED` / `T20_PRODUCTION_READINESS_BLOCKED`.
 Checkpoint 2026-10-09 JST. Chỉ thị takeover thay kế hoạch merge/deploy tự động cũ.
@@ -61,3 +91,30 @@ chứa identity/schema/fingerprint/flags và rollback giữ composition records.
 Own-review bổ sung đã sửa cached404 rollback: week warm V2 cache trở về V1 khi
 backend tắt; unit regression FAIL trước/PASS23/23 sau, browser3widths PASS.
 PR review: https://github.com/vn-tak/Tako-san/pull/60.
+
+## Checkpoint vận hành hiện hành — 2026-10-09 JST
+
+Các nhãn pending local/review/staging phía trên là lịch sử. Operator đã duyệt
+merge/rollout PR60 và PR62 theo gates chuẩn. Source final
+`27d47b056455a57df811199cd7e9c32a84cbffe5`, approved head8b7b254d;
+CI main37853046693 SUCCESS259files/6365tests. Staging readiness37853983168,
+shadow→1→5→25→D1,45/45hosted browser và bốnstock/event audits đều PASS;
+`STAGING_CERTIFIED`. Chi tiết và rollout table trong
+`../T20_ROLLOUT_CERTIFICATION_20261009.md`.
+
+Production shadow37858608953 đã dispatch, waiting Environment reviewer
+vn-taphoanhatung; CLIvn-tak không được duyệt. Chưa bật/certify T20 production;
+source vẫn pin, không merge documentation checkpoint làm đổi main giữa chuỗi.
+Sau reviewer approval collect artifact/live proof, tiếp tục1/5/25/D1 lần lượt
+với approval mỗi run; normal registered production smoke còn phải chạy.
+Hai cửa sổ Chromium login đã timeout, chưa có private production session.
+Không replay fixtures/journeys certified hoặc reapply0039/failed AI scan.
+
+## Production shadow continuation — 2026-10-09 JST
+
+Source27d47b05/main vẫn pin. Shadow37858608953 đã normalapproved/release/artifact/
+liveproofPASS,pairedT20/plannertrue,ledger39/catalog500/hydration0/media500/binding
+match. Run1%37922994678 đã approved riêng bởi vn-taphoanhatung và đang chạy.
+Registered normal session đã capture; actualproduction5journeys0executed,
+chỉ chạy sauchain1/5/25/D1proofPASS. Xem report hiện hành và ignoredactive-turn;
+không replaycertifiedstaging/0039/failedscan hoặc mergePR63 giữarollout.

@@ -1,0 +1,450 @@
+{
+  "schemaVersion": 1,
+  "status": "T20_PRODUCTION_ROLLOUT_COMPLETE_FUNCTIONAL_SMOKE_PASS",
+  "repository": "vn-tak/Tako-san",
+  "repositoryId": 1385308553,
+  "source": "27d47b056455a57df811199cd7e9c32a84cbffe5",
+  "hardenedSha": "8b7b254ddcc9e0a36989a2c8c3add6ad3d776ee9",
+  "generatedAt": "2026-10-09T12:39:31.587Z",
+  "exactMainCi": {
+    "runId": 37853046693,
+    "status": "SUCCESS",
+    "testFiles": 259,
+    "tests": 6365
+  },
+  "staging": {
+    "status": "STAGING_CERTIFIED",
+    "source": "27d47b056455a57df811199cd7e9c32a84cbffe5",
+    "deployments": {
+      "shadow-0": {
+        "status": "PASS",
+        "runId": 37854154953,
+        "checkedAt": "2026-10-08T22:34:57.198Z",
+        "source": "27d47b056455a57df811199cd7e9c32a84cbffe5"
+      },
+      "canary-1": {
+        "status": "PASS",
+        "runId": 37854379595,
+        "checkedAt": "2026-10-08T22:37:07.534Z",
+        "source": "27d47b056455a57df811199cd7e9c32a84cbffe5"
+      },
+      "canary-5": {
+        "status": "PASS",
+        "runId": 37854606958,
+        "checkedAt": "2026-10-08T22:38:57.034Z",
+        "source": "27d47b056455a57df811199cd7e9c32a84cbffe5"
+      },
+      "canary-25": {
+        "status": "PASS",
+        "runId": 37854792161,
+        "checkedAt": "2026-10-08T22:41:08.570Z",
+        "source": "27d47b056455a57df811199cd7e9c32a84cbffe5"
+      },
+      "d1-0": {
+        "status": "PASS",
+        "runId": 37855017250,
+        "checkedAt": "2026-10-08T22:43:19.805Z",
+        "source": "27d47b056455a57df811199cd7e9c32a84cbffe5"
+      }
+    },
+    "browser": {
+      "passed": 45,
+      "failed": 0,
+      "skipped": 0,
+      "widths": [
+        390,
+        768,
+        1280
+      ]
+    },
+    "fixtureAuditCount": 4,
+    "inventoryAndEventSnapshotsUnchanged": true,
+    "unexplainedWorker5xx": 0,
+    "syntheticFailureEvidence": "Browser interception; flags-off/no-schema validation remains local"
+  },
+  "production": {
+    "deployments": [
+      {
+        "stage": "shadow-0",
+        "runId": 37858608953,
+        "url": "https://github.com/vn-tak/Tako-san/actions/runs/37858608953",
+        "status": "PASS",
+        "source": "27d47b056455a57df811199cd7e9c32a84cbffe5",
+        "approvedBy": "vn-taphoanhatung",
+        "normalEnvironmentApproval": true,
+        "t20Enabled": true,
+        "workerVersion": "eb6a181f-e4d7-4697-8737-bb9db292714c",
+        "previousWorkerVersion": "f92df570-6cb0-43de-bfa6-a4c7bd7f07d8",
+        "migrationLedgerCount": 39,
+        "hydratedRecipes": 500,
+        "hydrationFailures": 0,
+        "readyMedia": 500,
+        "foreignKeyCheck": "[]",
+        "quickCheck": "ok",
+        "authority": {
+          "configuredMode": "shadow",
+          "cutoverEnabled": false,
+          "canaryPercent": 0,
+          "actualSource": "d1",
+          "globalSource": "static",
+          "servedRecipeCount": 500,
+          "servedFingerprint": "f8cf8c7ff59df9fe29e246b9e3c9aad0fd155fa8df35bf671ac4d03fa2b5ab37",
+          "releaseId": "rel-bd00a4f53fcaeee4",
+          "d1Readiness": "ready",
+          "fallbackReason": null,
+          "checkedAt": "2026-10-09T11:18:00.650Z"
+        },
+        "verifiedAt": "2026-10-09T11:18:45.323Z",
+        "artifactDigests": [
+          {
+            "name": "release-candidate-37858608953-1",
+            "zipSha256": "083d0b6d5bdb01d49f1a809fd7ca8a2c27d15f5bb1770335b0fed10c75b75553",
+            "jsonSha256": "8a4ec28b512beb1676a0ae8c4575e5e0e6d4d29060aaadfc558d453bac34e10b"
+          },
+          {
+            "name": "release-production-37858608953-1",
+            "zipSha256": "fed6d091af111ef3dba8a8394a8376431413182e237c1fb1322466a5606d588b",
+            "jsonSha256": "0aab58683abc4572a2ef47c2baec91736915586dc69c9f58f78125cf60c1ac9f"
+          }
+        ],
+        "consecutiveLiveSourceAssetObservations": 3
+      },
+      {
+        "stage": "canary-1",
+        "runId": 37922994678,
+        "url": "https://github.com/vn-tak/Tako-san/actions/runs/37922994678",
+        "status": "PASS",
+        "source": "27d47b056455a57df811199cd7e9c32a84cbffe5",
+        "approvedBy": "vn-taphoanhatung",
+        "normalEnvironmentApproval": true,
+        "t20Enabled": true,
+        "workerVersion": "eeffc11b-313f-418a-a21b-2615f5918376",
+        "previousWorkerVersion": "eb6a181f-e4d7-4697-8737-bb9db292714c",
+        "migrationLedgerCount": 39,
+        "hydratedRecipes": 500,
+        "hydrationFailures": 0,
+        "readyMedia": 500,
+        "foreignKeyCheck": "[]",
+        "quickCheck": "ok",
+        "authority": {
+          "configuredMode": "canary",
+          "cutoverEnabled": true,
+          "canaryPercent": 1,
+          "actualSource": "d1",
+          "globalSource": "mixed",
+          "servedRecipeCount": 500,
+          "servedFingerprint": "f8cf8c7ff59df9fe29e246b9e3c9aad0fd155fa8df35bf671ac4d03fa2b5ab37",
+          "releaseId": "rel-bd00a4f53fcaeee4",
+          "d1Readiness": "ready",
+          "fallbackReason": null,
+          "checkedAt": "2026-10-09T11:38:40.056Z"
+        },
+        "verifiedAt": "2026-10-09T11:39:24.461Z",
+        "artifactDigests": [
+          {
+            "name": "release-candidate-37922994678-1",
+            "zipSha256": "68976cb7bc40d11df8580725fae5b97e69c017b1b6c02f2a436ef5af0b752f21",
+            "jsonSha256": "043659c968e490f19476110e35b8035fef2e385ce017f2fc8fac67a355f6eedb"
+          },
+          {
+            "name": "release-production-37922994678-1",
+            "zipSha256": "81c66f8cf4b02eac747a0a9a5d9f826d085a4f424291c94e1a7c990cd5c7ba5a",
+            "jsonSha256": "91a21c36e4e7454a238c16ce63d24580c727231088131981354095561450c183"
+          }
+        ],
+        "consecutiveLiveSourceAssetObservations": 3
+      },
+      {
+        "stage": "canary-5",
+        "runId": 37925128348,
+        "url": "https://github.com/vn-tak/Tako-san/actions/runs/37925128348",
+        "status": "PASS",
+        "source": "27d47b056455a57df811199cd7e9c32a84cbffe5",
+        "approvedBy": "vn-taphoanhatung",
+        "normalEnvironmentApproval": true,
+        "t20Enabled": true,
+        "workerVersion": "411b09eb-6eee-49f3-95cc-1f79570502b0",
+        "previousWorkerVersion": "eeffc11b-313f-418a-a21b-2615f5918376",
+        "migrationLedgerCount": 39,
+        "hydratedRecipes": 500,
+        "hydrationFailures": 0,
+        "readyMedia": 500,
+        "foreignKeyCheck": "[]",
+        "quickCheck": "ok",
+        "authority": {
+          "configuredMode": "canary",
+          "cutoverEnabled": true,
+          "canaryPercent": 5,
+          "actualSource": "d1",
+          "globalSource": "mixed",
+          "servedRecipeCount": 500,
+          "servedFingerprint": "f8cf8c7ff59df9fe29e246b9e3c9aad0fd155fa8df35bf671ac4d03fa2b5ab37",
+          "releaseId": "rel-bd00a4f53fcaeee4",
+          "d1Readiness": "ready",
+          "fallbackReason": null,
+          "checkedAt": "2026-10-09T11:50:32.835Z"
+        },
+        "verifiedAt": "2026-10-09T11:51:26.908Z",
+        "artifactDigests": [
+          {
+            "name": "release-candidate-37925128348-1",
+            "zipSha256": "30ae8bc14ace7e006df9a2effbac08d4e783232b778a3efc879c4d84c295cb9d",
+            "jsonSha256": "df29242544494da50e3498b4be042ea066968314301aaf8b0231408b48da1146"
+          },
+          {
+            "name": "release-production-37925128348-1",
+            "zipSha256": "f72941ac7263377322ddb23a83d05ceea5705e3c3d6aadc738a2bb314787e0a9",
+            "jsonSha256": "784fa2b06af4c390b55046951ca9f53d96e6b6079251ecc70f731a21e6da173c"
+          }
+        ],
+        "consecutiveLiveSourceAssetObservations": 3
+      },
+      {
+        "stage": "canary-25",
+        "runId": 37926336793,
+        "url": "https://github.com/vn-tak/Tako-san/actions/runs/37926336793",
+        "status": "PASS",
+        "source": "27d47b056455a57df811199cd7e9c32a84cbffe5",
+        "approvedBy": "vn-taphoanhatung",
+        "normalEnvironmentApproval": true,
+        "t20Enabled": true,
+        "workerVersion": "91d38980-61c1-44f8-af0e-cb4dd55b5848",
+        "previousWorkerVersion": "411b09eb-6eee-49f3-95cc-1f79570502b0",
+        "migrationLedgerCount": 39,
+        "hydratedRecipes": 500,
+        "hydrationFailures": 0,
+        "readyMedia": 500,
+        "foreignKeyCheck": "[]",
+        "quickCheck": "ok",
+        "authority": {
+          "configuredMode": "canary",
+          "cutoverEnabled": true,
+          "canaryPercent": 25,
+          "actualSource": "d1",
+          "globalSource": "mixed",
+          "servedRecipeCount": 500,
+          "servedFingerprint": "f8cf8c7ff59df9fe29e246b9e3c9aad0fd155fa8df35bf671ac4d03fa2b5ab37",
+          "releaseId": "rel-bd00a4f53fcaeee4",
+          "d1Readiness": "ready",
+          "fallbackReason": null,
+          "checkedAt": "2026-10-09T12:00:31.785Z"
+        },
+        "verifiedAt": "2026-10-09T12:01:17.703Z",
+        "artifactDigests": [
+          {
+            "name": "release-candidate-37926336793-1",
+            "zipSha256": "90b954a4541e5bd898c2b1d184bf0c6339b67483edb16473831da3c9fb5d28a6",
+            "jsonSha256": "816b0979e8728a17aa6eb1b4f93b84f018291fbb11b841d9c388f0b3f4a6c65a"
+          },
+          {
+            "name": "release-production-37926336793-1",
+            "zipSha256": "ae1aaa2c933fb0e33b70513168434813c076894415ee13c56ad777bdfa7c0e6f",
+            "jsonSha256": "6832adf24ba35a318b3104aecf77ba245e591cb48422106e9cfed4860cd7bdfa"
+          }
+        ],
+        "consecutiveLiveSourceAssetObservations": 3
+      },
+      {
+        "stage": "d1-0",
+        "runId": 37927374014,
+        "url": "https://github.com/vn-tak/Tako-san/actions/runs/37927374014",
+        "status": "PASS",
+        "source": "27d47b056455a57df811199cd7e9c32a84cbffe5",
+        "approvedBy": "vn-taphoanhatung",
+        "normalEnvironmentApproval": true,
+        "t20Enabled": true,
+        "workerVersion": "8626c077-b424-4b1f-b484-068216a9de8a",
+        "previousWorkerVersion": "91d38980-61c1-44f8-af0e-cb4dd55b5848",
+        "migrationLedgerCount": 39,
+        "hydratedRecipes": 500,
+        "hydrationFailures": 0,
+        "readyMedia": 500,
+        "foreignKeyCheck": "[]",
+        "quickCheck": "ok",
+        "authority": {
+          "configuredMode": "d1",
+          "cutoverEnabled": true,
+          "canaryPercent": 0,
+          "actualSource": "d1",
+          "globalSource": "d1",
+          "servedRecipeCount": 500,
+          "servedFingerprint": "f8cf8c7ff59df9fe29e246b9e3c9aad0fd155fa8df35bf671ac4d03fa2b5ab37",
+          "releaseId": "rel-bd00a4f53fcaeee4",
+          "d1Readiness": "ready",
+          "fallbackReason": null,
+          "checkedAt": "2026-10-09T12:16:30.078Z"
+        },
+        "verifiedAt": "2026-10-09T12:17:13.876Z",
+        "artifactDigests": [
+          {
+            "name": "release-candidate-37927374014-1",
+            "zipSha256": "53cf476c60bbe60ebe5389586898f497667a565c1f1bf44db8f5b650da90a7a0",
+            "jsonSha256": "ced056477d88add1e9ddbb670931127f920cfcc1a40a1d334024816349b7690d"
+          },
+          {
+            "name": "release-production-37927374014-1",
+            "zipSha256": "157b17cbde580a6a7170b5e02ddc500cb576b94d61f363f0b0ed529113c62be5",
+            "jsonSha256": "af0e225ac74be3425f0e2660a76d353ba9f35995f34d92ab7d355e841e2e4b47"
+          }
+        ],
+        "consecutiveLiveSourceAssetObservations": 3
+      }
+    ],
+    "functionalSmoke": {
+      "status": "PRODUCTION_FUNCTIONAL_SMOKE_PASS",
+      "checkedAt": "2026-10-09T12:29:31.996Z",
+      "browser": {
+        "passed": 5,
+        "failed": 0,
+        "skipped": 0,
+        "widths": [
+          390
+        ],
+        "retries": 0,
+        "durationMs": 331202.762,
+        "initialRun": {
+          "passed": 4,
+          "failed": 1,
+          "reason": "Local observer recursion before concurrency edits"
+        },
+        "targetedHarnessContinuations": 1,
+        "continuation": {
+          "passed": 1,
+          "failed": 0,
+          "originalPlanReused": true
+        },
+        "originalPassedJourneysReplayed": 0
+      },
+      "journeys": [
+        "A/I: Manual four dishes, autosave/reload, keyboard picker, reorder, role, swap/remove, responsive and axe",
+        "B/I: Assisted complete and regenerate preview/apply preserve locked main and other days",
+        "C/I: Auto returns three bounded deterministic explainable options, writes only after accept",
+        "F: D1-only recipe resolves consistently through planner, detail, cooking and shopping reads",
+        "G: two sessions submit competing edits; stale write conflicts and canonical winner survives"
+      ],
+      "unexplainedWorker5xx": 0,
+      "inventoryHttpSnapshotUnchanged": true,
+      "inventoryHttpSnapshotItemCounts": [
+        0
+      ],
+      "inventoryEventLedgerQueried": false,
+      "reportHashes": {
+        "production-report.private.json": "9624d32e304c456959f9ec50920153d93488d9f313c645d961f0f342aaa93e82",
+        "production-api-window.private.json": "552724ed174d9edee834d0bb6a1e93775cba1c2005b2705f8b77041fc766f91a",
+        "production-stock-window.private.json": "284c661127522bf37b36973ec030e45215aa8d7f003b9096af67b90f0f22422e",
+        "production-concurrency-report.private.json": "a44c5e16e4d87bf455abbc2210987254d9345183c5c2b4828d181c6828cb8ffb",
+        "production-concurrency-api-window.private.json": "f3a9e53eb1c547b27a9cc7a0ff34c0b821a2d7ac48ce9a8781d1967022b14d65",
+        "production-concurrency-stock-window.private.json": "7b44f11e453591bae2887a9e3a725161210bafa50e42bd37c4f5ea3b86e667a8"
+      },
+      "scope": "Normal registered account; both concurrency tabs at390px; no restricted fixture or second household; stock is empty"
+    },
+    "readinessStability": {
+      "status": "PRODUCTION_READINESS_STABILITY_WINDOW_PASS",
+      "sha": "27d47b056455a57df811199cd7e9c32a84cbffe5",
+      "startedAt": "2026-10-09T12:30:12.667Z",
+      "completedAt": "2026-10-09T12:35:14.203Z",
+      "durationMs": 301536,
+      "observationCount": 6,
+      "observations": [
+        {
+          "checkedAt": "2026-10-09T12:30:14.161Z",
+          "httpStatus": 200,
+          "status": "degraded",
+          "sha": "27d47b056455a57df811199cd7e9c32a84cbffe5",
+          "environment": "production",
+          "mode": "d1",
+          "globalSource": "d1",
+          "fallbackReason": null,
+          "configIssueCodes": [
+            "CONFIG_RECIPE_CATALOG_D1_AUTHORITY"
+          ]
+        },
+        {
+          "checkedAt": "2026-10-09T12:31:14.838Z",
+          "httpStatus": 200,
+          "status": "degraded",
+          "sha": "27d47b056455a57df811199cd7e9c32a84cbffe5",
+          "environment": "production",
+          "mode": "d1",
+          "globalSource": "d1",
+          "fallbackReason": null,
+          "configIssueCodes": [
+            "CONFIG_RECIPE_CATALOG_D1_AUTHORITY"
+          ]
+        },
+        {
+          "checkedAt": "2026-10-09T12:32:14.128Z",
+          "httpStatus": 200,
+          "status": "degraded",
+          "sha": "27d47b056455a57df811199cd7e9c32a84cbffe5",
+          "environment": "production",
+          "mode": "d1",
+          "globalSource": "d1",
+          "fallbackReason": null,
+          "configIssueCodes": [
+            "CONFIG_RECIPE_CATALOG_D1_AUTHORITY"
+          ]
+        },
+        {
+          "checkedAt": "2026-10-09T12:33:13.978Z",
+          "httpStatus": 200,
+          "status": "degraded",
+          "sha": "27d47b056455a57df811199cd7e9c32a84cbffe5",
+          "environment": "production",
+          "mode": "d1",
+          "globalSource": "d1",
+          "fallbackReason": null,
+          "configIssueCodes": [
+            "CONFIG_RECIPE_CATALOG_D1_AUTHORITY"
+          ]
+        },
+        {
+          "checkedAt": "2026-10-09T12:34:13.880Z",
+          "httpStatus": 200,
+          "status": "degraded",
+          "sha": "27d47b056455a57df811199cd7e9c32a84cbffe5",
+          "environment": "production",
+          "mode": "d1",
+          "globalSource": "d1",
+          "fallbackReason": null,
+          "configIssueCodes": [
+            "CONFIG_RECIPE_CATALOG_D1_AUTHORITY"
+          ]
+        },
+        {
+          "checkedAt": "2026-10-09T12:35:14.201Z",
+          "httpStatus": 200,
+          "status": "degraded",
+          "sha": "27d47b056455a57df811199cd7e9c32a84cbffe5",
+          "environment": "production",
+          "mode": "d1",
+          "globalSource": "d1",
+          "fallbackReason": null,
+          "configIssueCodes": [
+            "CONFIG_RECIPE_CATALOG_D1_AUTHORITY"
+          ]
+        }
+      ],
+      "scope": "Six public readiness observations across five minutes; not a complete Worker log/error-rate audit",
+      "remoteMutation": false,
+      "receiptSha256": "f7d851701de91ee1c80cce3554b528a028776010fa78f7ccc1df194e2d17224f",
+      "readinessStatus": "degraded",
+      "knownIssueCode": "CONFIG_RECIPE_CATALOG_D1_AUTHORITY",
+      "interpretation": "Existing intentional configuration warning for user-visible D1 authority; no other issue code observed"
+    }
+  },
+  "flagsScope": "T20/planner paired true from shadow; catalog routing gates1/5/25% then D1",
+  "remoteMigrationReplay": false,
+  "cookingConsumptionSubmissions": 0,
+  "providerScanSubmissions": 0,
+  "environmentBypass": false,
+  "optionalOrDeferred": [
+    "Whole-week V2 Auto",
+    "Leftovers",
+    "Per-component servings",
+    "Offline role curation",
+    "Real-price scoring",
+    "Drag-and-drop"
+  ],
+  "report": "T20_ROLLOUT_CERTIFICATION_20261009.md"
+}

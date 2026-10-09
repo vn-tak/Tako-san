@@ -43,13 +43,14 @@ const plan = (slots = [slot('breakfast'), slot('lunch'), slot('dinner')]): MealP
 
 async function loadUi() {
   const { QueryClientProvider } = await import('@tanstack/react-query');
+  const { MemoryRouter } = await import('react-router-dom');
   const { queryClient } = await import('../../src/web/lib/query-client');
   const { queryKeys } = await import('../../src/web/lib/queryKeys');
   const { ApiError } = await import('../../src/web/services/http');
   queryClient.setDefaultOptions({ queries: { retry: false, retryOnMount: false, staleTime: Infinity, gcTime: Infinity } });
   return {
     queryClient, queryKeys, ApiError,
-    render: (page: ReactElement) => renderToStaticMarkup(<QueryClientProvider client={queryClient}>{page}</QueryClientProvider>),
+    render: (page: ReactElement) => renderToStaticMarkup(<QueryClientProvider client={queryClient}><MemoryRouter>{page}</MemoryRouter></QueryClientProvider>),
     failQuery: async (queryKey: readonly unknown[], error: Error) => {
       await expect(queryClient.fetchQuery({ queryKey, queryFn: () => Promise.reject(error) })).rejects.toBe(error);
     },
@@ -59,6 +60,8 @@ async function loadUi() {
 beforeEach(() => {
   route.params = { slug: 'test-recipe' };
   vi.resetModules();
+  vi.stubEnv('VITE_MEAL_PLANNER_ENABLED', 'false');
+  vi.stubEnv('VITE_MEAL_COMPOSITION_V2_ENABLED', 'false');
   vi.useFakeTimers();
   vi.setSystemTime(new Date(2026, 8, 8, 8));
   vi.stubGlobal('localStorage', new MemoryStorage());
@@ -72,6 +75,7 @@ afterEach(() => {
   vi.useRealTimers();
   vi.restoreAllMocks();
   vi.unstubAllGlobals();
+  vi.unstubAllEnvs();
 });
 
 describe('time-aware Home meal selection', () => {
@@ -112,11 +116,11 @@ describe('real Home data rendered through the shared QueryClient', () => {
     ui.queryClient.setQueryData(ui.queryKeys.recommendations({ noBuy: false, cuisine: null }), []);
     const html = ui.render(<HomePage />);
     expect(html).toContain('Tủ lạnh đang trống');
-    expect(html).toContain('Chưa tìm thấy món phù hợp');
+    expect(html).toContain('Chưa có món phù hợp để gợi ý.');
     for (const fake of ['Thịt kho trứng', '560k', '800k', '5/7', '71%', 'Cà chua']) expect(html).not.toContain(fake);
     expect(html).not.toContain('role="progressbar"');
     expect(html).not.toContain('ngân sách');
-    const bell = html.match(/<button[^>]*aria-label="Thông báo"[^>]*>([\s\S]*?)<\/button>/)?.[1];
+    const bell = html.match(/<a[^>]*aria-label="Thông báo"[^>]*>([\s\S]*?)<\/a>/)?.[1];
     expect(bell).toBeTruthy();
     expect(bell).not.toMatch(/<span|bg-rose|bg-red/);
   });
@@ -133,9 +137,9 @@ describe('real Home data rendered through the shared QueryClient', () => {
     const html = ui.render(<HomePage />);
     expect(html).toContain('REAL_breakfast_FROM_WEEK');
     expect(html).not.toContain('REAL_dinner_FROM_WEEK');
-    expect(html).toContain('3/3 bữa đã lên thực đơn');
-    expect(html).toContain('aria-valuenow="100"');
-    expect(html).toContain('321k / 900k ngân sách');
+    expect(html).toContain('3/3 bữa đã xếp');
+    expect(html).toContain('href="/week/plan-1/meal/breakfast"');
+    expect(html).toContain('Ước tính 321k / 900k ngân sách');
     expect(html).toContain('REAL_EXPIRING_FROM_INVENTORY');
     expect(html).not.toContain('FRESH_ITEM_NOT_IN_USE_SOON');
   });
@@ -158,7 +162,7 @@ describe('real Home data rendered through the shared QueryClient', () => {
       .map((match) => [match[1], match[2].trim()]);
     expect(chips).toEqual(expect.arrayContaining([
       ['ESTIMATED', 'Ước tính còn 2 ngày'],
-      ['KNOWN', '⏳ 2 ngày'],
+      ['KNOWN', 'Còn 2 ngày'],
       ['UNKNOWN', 'Chưa rõ hạn dùng'],
     ]));
     expect(chips).toHaveLength(3);
@@ -191,7 +195,7 @@ describe('real Home data rendered through the shared QueryClient', () => {
     ]);
     const html = ui.render(<HomePage />);
     expect(html).toContain(recipe.title);
-    expect(html).not.toContain('Chưa tìm thấy món phù hợp');
+    expect(html).not.toContain('Chưa có món phù hợp để gợi ý.');
   });
 });
 
@@ -252,9 +256,8 @@ describe('notification honesty', () => {
   it('renders no fabricated alerts or global unread dot when the server list is empty', async () => {
     const ui = await loadUi();
     const { NotificationsPage } = await import('../../src/web/pages/NotificationsPage');
-    const { MemoryRouter } = await import('react-router-dom');
     ui.queryClient.setQueryData(ui.queryKeys.notifications(), []);
-    const html = ui.render(<MemoryRouter><NotificationsPage /></MemoryRouter>);
+    const html = ui.render(<NotificationsPage />);
     expect(html).toContain('Chưa có thông báo mới');
     const bell = html.match(/<button[^>]*aria-label="Thông báo"[^>]*>([\s\S]*?)<\/button>/)?.[1];
     expect(bell).toBeTruthy();
@@ -264,11 +267,10 @@ describe('notification honesty', () => {
   it('renders notification content only when returned by the real query contract', async () => {
     const ui = await loadUi();
     const { NotificationsPage } = await import('../../src/web/pages/NotificationsPage');
-    const { MemoryRouter } = await import('react-router-dom');
     ui.queryClient.setQueryData(ui.queryKeys.notifications(), [{
       id: 'notification-a', type: 'expiring_soon', title: 'REAL_NOTIFICATION', message: 'REAL_MESSAGE', createdAt: `${TODAY}T07:00:00`,
     }]);
-    const html = ui.render(<MemoryRouter><NotificationsPage /></MemoryRouter>);
+    const html = ui.render(<NotificationsPage />);
     expect(html).toContain('REAL_NOTIFICATION');
     expect(html).toContain('REAL_MESSAGE');
     expect(html).not.toContain('Chưa có thông báo mới');
@@ -277,9 +279,8 @@ describe('notification honesty', () => {
   it('surfaces notification errors rather than pretending the list is empty', async () => {
     const ui = await loadUi();
     const { NotificationsPage } = await import('../../src/web/pages/NotificationsPage');
-    const { MemoryRouter } = await import('react-router-dom');
     await ui.failQuery(ui.queryKeys.notifications(), new ui.ApiError('http', 'failure', 500));
-    const html = ui.render(<MemoryRouter><NotificationsPage /></MemoryRouter>);
+    const html = ui.render(<NotificationsPage />);
     expect(html).toContain('role="alert"');
     expect(html).toContain('Thử lại');
     expect(html).not.toContain('Chưa có thông báo mới');

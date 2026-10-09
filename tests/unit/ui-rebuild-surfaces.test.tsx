@@ -177,7 +177,7 @@ describe('Rebuilt recipe preparation', () => {
       }
       await act(async () => button('Món tiếp theo').click());
       await until(() =>
-        expect(container.querySelector('.recipe-intro h2')?.textContent).toBe('other-eggs'),
+        expect(container.querySelector('.recipe-intro h1')?.textContent).toBe('other-eggs'),
       );
       if (resolution === 'after navigation') {
         await act(async () => resolveShopping({ id: 'shopping' }));

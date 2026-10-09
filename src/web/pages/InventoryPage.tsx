@@ -1,7 +1,7 @@
 import React, { useRef, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useQuery, useMutation } from '@tanstack/react-query';
-import { TAKOSAN_KITCHEN } from '../lib/takosan-kitchen';
+import { KitchenPageHeading } from '../components/common/KitchenHeader';
 import { TopBar } from '../components/common/TopBar';
 import { IngredientRow } from '../components/common/IngredientRow';
 import { EmptyState } from '../components/common/EmptyState';
@@ -155,23 +155,19 @@ export const InventoryPage: React.FC = () => {
 
   return (
     <div className="takosan-rebuild min-h-screen bg-semantic-background pb-36 relative">
-      <TopBar brandLogo={TAKOSAN_KITCHEN.logo} />
+      <TopBar kitchen />
 
       <div className="px-4 pt-3 space-y-4 animate-fade-in">
         {/* Title & Add Action */}
-        <div className="flex items-center justify-between">
-          <div>
-            <h1 className="font-heading font-bold text-[28px] leading-tight sm:text-[32px] text-semantic-text-primary tracking-tight">
-              Tủ lạnh của tôi
-            </h1>
-            <p className="text-xs text-semantic-text-muted mt-1 font-medium">
-              <span className="inline-flex items-center gap-1 text-takosan-green font-bold">
-                {items.length} nguyên liệu
-              </span>{' '}
-              đang có trong tủ
-            </p>
-          </div>
-        </div>
+        <KitchenPageHeading
+          title="Tủ lạnh của tôi"
+          eyebrow="Nguyên liệu của bạn"
+          description={
+            inventoryQuery.isSuccess
+              ? `${items.length} nguyên liệu đang có trong tủ`
+              : 'Theo dõi nguyên liệu và kiểm tra lượng trước khi nấu.'
+          }
+        />
 
         {/* T13: entry point to the reconciliation surface for evidence that
             needs a human decision. */}

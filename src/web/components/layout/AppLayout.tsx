@@ -2,16 +2,10 @@ import React from 'react';
 import { Outlet, useLocation } from 'react-router-dom';
 import { BottomNavigationBar, RailSidebar } from '../../design-system/navigation';
 import { OfflineBanner } from '../common/OfflineBanner';
+import { TAKOSAN_KITCHEN } from '../../lib/takosan-kitchen';
 
-/**
- * AppShell V2 (layout/app-shell.md): sole owner of viewport composition.
- * Mobile = edge-to-edge canvas + bottom nav; tablet = rail; desktop = sidebar.
- * Navigation hides only in immersive surfaces (scan camera, cooking, auth,
- * onboarding, fullscreen states) — never on planner/settings pages.
- */
+// Review routes keep navigation; only the scan camera and full-screen workflows hide it.
 const IMMERSIVE_PATTERNS = [
-  // Camera only; /scan/:id/review and /scan/receipt-review are standard
-  // review workspaces (screen 09) with navigation.
   /^\/scan\/?$/,
   /^\/cook(\/.*)?$/,
   /^\/cooking(\/.*)?$/,
@@ -19,20 +13,46 @@ const IMMERSIVE_PATTERNS = [
   /^\/onboarding(\/.*)?$/,
 ];
 
+/** Scope the prototype shell to migrated screens; other routes retain the current kit. */
+export function isKitchenSurface(pathname: string) {
+  return (
+    pathname === '/' ||
+    /^\/(fridge|inventory)\/?$/.test(pathname) ||
+    /^\/recipes(?:\/|$)/.test(pathname)
+  );
+}
+
 export const AppLayout: React.FC = () => {
   const { pathname } = useLocation();
   const immersive = IMMERSIVE_PATTERNS.some((re) => re.test(pathname));
-
+  const kitchen = isKitchenSurface(pathname);
   return (
-    <div className="min-h-dvh bg-semantic-background text-semantic-text-primary antialiased selection:bg-takosan-mint">
-      {!immersive && <RailSidebar />}
-      {/* Content canvas: rail 80px from 640px, sidebar 256px on lg; AppShell owns
-          gutters so pages must not re-emulate a phone width. */}
+    <div
+      className={`${kitchen ? 'takosan-rebuild ' : ''}min-h-dvh bg-semantic-background text-semantic-text-primary antialiased selection:bg-takosan-mint`}
+    >
+      {kitchen && (
+        <a href="#kitchen-main" className="kitchen-skip-link">
+          Đến nội dung chính
+        </a>
+      )}
+      {!immersive && (
+        <RailSidebar
+          brandLogo={kitchen ? TAKOSAN_KITCHEN.logo : undefined}
+          brandSymbol={kitchen ? TAKOSAN_KITCHEN.symbol : undefined}
+        />
+      )}
+      {/* The shell owns rail/sidebar offsets and the maximum content width. */}
       <div className={immersive ? '' : 'sm:pl-20 lg:pl-64'}>
         {!immersive && <OfflineBanner />}
-        {/* Canvas caps at the kit's wide content width so ultra-wide viewports
-            never stretch reading lines; pages request narrower widths via Page. */}
-        <main className={immersive ? '' : 'min-h-dvh pb-[calc(68px+env(safe-area-inset-bottom,0px))] sm:pb-0 mx-auto w-full max-w-[var(--content-wide)]'}>
+        <main
+          id={kitchen ? 'kitchen-main' : undefined}
+          tabIndex={kitchen ? -1 : undefined}
+          className={
+            immersive
+              ? ''
+              : 'min-h-dvh pb-[calc(68px+env(safe-area-inset-bottom,0px))] sm:pb-0 mx-auto w-full max-w-[var(--content-wide)]'
+          }
+        >
           <Outlet />
         </main>
         {!immersive && <BottomNavigationBar />}

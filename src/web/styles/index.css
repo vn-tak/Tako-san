@@ -1,6 +1,7 @@
 @import "./frigo-tokens.css";
 @import "./kitchen-fonts.css";
 @import "./kitchen-foundation.css";
+@import "./kitchen-daily.css";
 @tailwind base;
 @tailwind components;
 @tailwind utilities;

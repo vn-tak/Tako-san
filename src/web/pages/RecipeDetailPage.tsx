@@ -1,5 +1,5 @@
 import React, { useRef, useState } from 'react';
-import { useParams, useNavigate } from 'react-router-dom';
+import { useParams, useNavigate, useLocation } from 'react-router-dom';
 import { useQuery, useMutation, useQueryClient } from '@tanstack/react-query';
 import { evaluateRecipeAvailability, type RecipeIngredientAvailability } from '@frigo/recipes';
 import { TopBar } from '../components/common/TopBar';
@@ -55,6 +55,12 @@ export const RecipeDetailPage: React.FC = () => {
   const { slug, id } = useParams<{ slug?: string; id?: string }>();
   const recipeKey = slug || id || '';
   const navigate = useNavigate();
+  const { state } = useLocation();
+  const returnTo =
+    typeof state?.discoveryReturn === 'string' &&
+    (state.discoveryReturn === '/' || state.discoveryReturn.startsWith('/recipes?'))
+      ? state.discoveryReturn
+      : '/recipes';
   const queryClient = useQueryClient();
   const shoppingKey = queryKeys.shoppingList();
   const startCooking = useCookingStore((s) => s.startCooking);
@@ -109,7 +115,8 @@ export const RecipeDetailPage: React.FC = () => {
   if (recipeKey && recipeQuery.isPending) {
     return (
       <div className="takosan-rebuild min-h-screen bg-semantic-background">
-        <TopBar showBack title="Chi tiết món ăn" />
+        <TopBar kitchen showBack backTo={returnTo} title="Chi tiết món ăn" />
+        <h1 className="sr-only">Chi tiết món ăn</h1>
         <div className="p-4 space-y-4" role="status" aria-live="polite">
           <SkeletonCard className="h-56 rounded-2xl" />
           <SkeletonCard className="h-10" />
@@ -124,7 +131,8 @@ export const RecipeDetailPage: React.FC = () => {
   if (recipeQuery.isError && !notFound) {
     return (
       <div className="takosan-rebuild min-h-screen bg-semantic-background">
-        <TopBar showBack title="Chi tiết món ăn" />
+        <TopBar kitchen showBack backTo={returnTo} title="Chi tiết món ăn" />
+        <h1 className="sr-only">Chi tiết món ăn</h1>
         <div className="p-4">
           <InlineError error={recipeQuery.error} onRetry={() => recipeQuery.refetch()} />
         </div>
@@ -135,12 +143,12 @@ export const RecipeDetailPage: React.FC = () => {
   if (notFound || !recipe) {
     return (
       <div className="takosan-rebuild min-h-screen bg-semantic-background">
-        <TopBar showBack title="Chi tiết món ăn" />
+        <TopBar kitchen showBack backTo={returnTo} title="Chi tiết món ăn" />
         <div className="p-8 text-center space-y-3">
           <SearchX className="w-10 h-10 text-semantic-border-strong mx-auto" aria-hidden="true" />
-          <h2 className="font-heading font-bold text-base text-semantic-text-primary">
+          <h1 className="font-heading font-bold text-base text-semantic-text-primary">
             Không tìm thấy công thức này
-          </h2>
+          </h1>
           <p className="text-xs text-semantic-text-muted">
             Món ăn có thể đã bị gỡ hoặc đường dẫn không đúng.
           </p>
@@ -169,7 +177,7 @@ export const RecipeDetailPage: React.FC = () => {
 
   return (
     <div className="takosan-rebuild min-h-screen bg-semantic-background pb-32">
-      <TopBar showBack title={recipe.title} />
+      <TopBar kitchen showBack backTo={returnTo} title={recipe.title} />
       {inventoryQuery.isError && (
         <InlineError error={inventoryQuery.error} onRetry={() => inventoryQuery.refetch()} />
       )}
@@ -197,9 +205,9 @@ export const RecipeDetailPage: React.FC = () => {
                 </span>
               )}
             </div>
-            <h2 className="font-heading font-bold text-[28px] leading-tight text-semantic-text-primary sm:text-[32px]">
+            <h1 className="font-heading font-bold text-[28px] leading-tight text-semantic-text-primary sm:text-[32px]">
               {recipe.title}
-            </h2>
+            </h1>
             <div className="flex items-center gap-4 text-sm mt-3 text-semantic-text-secondary">
               <span className="flex items-center gap-1">
                 <Clock aria-hidden="true" className="w-4 h-4 text-takosan-green" />

@@ -1,0 +1,284 @@
+{
+  "base": "http://127.0.0.1:5197",
+  "syntheticLocalOnly": true,
+  "observations": [
+    {
+      "name": "home-no-plan-390",
+      "url": "http://127.0.0.1:5197/",
+      "viewport": 390,
+      "documentWidth": 390,
+      "font": "\"Be Vietnam Pro\", sans-serif",
+      "revealAnimations": [
+        "none"
+      ],
+      "brokenImages": [],
+      "violations": []
+    },
+    {
+      "name": "home-320",
+      "url": "http://127.0.0.1:5197/",
+      "viewport": 320,
+      "documentWidth": 320,
+      "font": "\"Be Vietnam Pro\", sans-serif",
+      "revealAnimations": [
+        "none"
+      ],
+      "brokenImages": [],
+      "violations": []
+    },
+    {
+      "name": "discovery-320",
+      "url": "http://127.0.0.1:5197/recipes",
+      "viewport": 320,
+      "documentWidth": 320,
+      "font": "\"Be Vietnam Pro\", sans-serif",
+      "revealAnimations": [
+        "none"
+      ],
+      "brokenImages": [],
+      "violations": []
+    },
+    {
+      "name": "home-390",
+      "url": "http://127.0.0.1:5197/",
+      "viewport": 390,
+      "documentWidth": 390,
+      "font": "\"Be Vietnam Pro\", sans-serif",
+      "revealAnimations": [
+        "none"
+      ],
+      "brokenImages": [],
+      "violations": []
+    },
+    {
+      "name": "discovery-390",
+      "url": "http://127.0.0.1:5197/recipes",
+      "viewport": 390,
+      "documentWidth": 390,
+      "font": "\"Be Vietnam Pro\", sans-serif",
+      "revealAnimations": [
+        "none"
+      ],
+      "brokenImages": [],
+      "violations": []
+    },
+    {
+      "name": "home-768",
+      "url": "http://127.0.0.1:5197/",
+      "viewport": 768,
+      "documentWidth": 768,
+      "font": "\"Be Vietnam Pro\", sans-serif",
+      "revealAnimations": [
+        "none"
+      ],
+      "brokenImages": [],
+      "violations": []
+    },
+    {
+      "name": "discovery-768",
+      "url": "http://127.0.0.1:5197/recipes",
+      "viewport": 768,
+      "documentWidth": 768,
+      "font": "\"Be Vietnam Pro\", sans-serif",
+      "revealAnimations": [
+        "none"
+      ],
+      "brokenImages": [],
+      "violations": []
+    },
+    {
+      "name": "home-1024",
+      "url": "http://127.0.0.1:5197/",
+      "viewport": 1024,
+      "documentWidth": 1024,
+      "font": "\"Be Vietnam Pro\", sans-serif",
+      "revealAnimations": [
+        "none"
+      ],
+      "brokenImages": [],
+      "violations": []
+    },
+    {
+      "name": "discovery-1024",
+      "url": "http://127.0.0.1:5197/recipes",
+      "viewport": 1024,
+      "documentWidth": 1024,
+      "font": "\"Be Vietnam Pro\", sans-serif",
+      "revealAnimations": [
+        "none"
+      ],
+      "brokenImages": [],
+      "violations": []
+    },
+    {
+      "name": "home-1440",
+      "url": "http://127.0.0.1:5197/",
+      "viewport": 1440,
+      "documentWidth": 1440,
+      "font": "\"Be Vietnam Pro\", sans-serif",
+      "revealAnimations": [
+        "none"
+      ],
+      "brokenImages": [],
+      "violations": []
+    },
+    {
+      "name": "discovery-1440",
+      "url": "http://127.0.0.1:5197/recipes",
+      "viewport": 1440,
+      "documentWidth": 1440,
+      "font": "\"Be Vietnam Pro\", sans-serif",
+      "revealAnimations": [
+        "none"
+      ],
+      "brokenImages": [],
+      "violations": []
+    },
+    {
+      "name": "home-planner-authority",
+      "planId": "0648c4f5-cd3c-4a84-85bb-07b42c62926a",
+      "planRevision": 3,
+      "titles": [
+        "Cơm chiên kim chi Hàn Quốc",
+        "Cơm trắng",
+        "Trứng luộc"
+      ],
+      "localWorker": true
+    },
+    {
+      "name": "home-recipe-return",
+      "returnTo": "/",
+      "nativeBackLink": true
+    },
+    {
+      "name": "discovery-url-journey",
+      "clientPageSize": 24,
+      "reload": true,
+      "detailReturn": true,
+      "searchLaterPage": true,
+      "resetFocus": true,
+      "categoricalHistory": true
+    },
+    {
+      "name": "home-composition-pending-390",
+      "url": "http://127.0.0.1:5197/",
+      "viewport": 390,
+      "documentWidth": 390,
+      "font": "\"Be Vietnam Pro\", sans-serif",
+      "revealAnimations": [
+        "none"
+      ],
+      "brokenImages": [],
+      "violations": []
+    },
+    {
+      "name": "home-composition-500-390",
+      "url": "http://127.0.0.1:5197/",
+      "viewport": 390,
+      "documentWidth": 390,
+      "font": "\"Be Vietnam Pro\", sans-serif",
+      "revealAnimations": [
+        "none"
+      ],
+      "brokenImages": [],
+      "violations": []
+    },
+    {
+      "name": "home-composition-missing-390",
+      "url": "http://127.0.0.1:5197/",
+      "viewport": 390,
+      "documentWidth": 390,
+      "font": "\"Be Vietnam Pro\", sans-serif",
+      "revealAnimations": [
+        "none"
+      ],
+      "brokenImages": [],
+      "violations": []
+    },
+    {
+      "name": "home-composition-mismatch-390",
+      "url": "http://127.0.0.1:5197/",
+      "viewport": 390,
+      "documentWidth": 390,
+      "font": "\"Be Vietnam Pro\", sans-serif",
+      "revealAnimations": [
+        "none"
+      ],
+      "brokenImages": [],
+      "violations": []
+    },
+    {
+      "name": "home-composition-404-390",
+      "url": "http://127.0.0.1:5197/",
+      "viewport": 390,
+      "documentWidth": 390,
+      "font": "\"Be Vietnam Pro\", sans-serif",
+      "revealAnimations": [
+        "none"
+      ],
+      "brokenImages": [],
+      "violations": []
+    },
+    {
+      "name": "inventory-header-320",
+      "url": "http://127.0.0.1:5197/fridge",
+      "viewport": 320,
+      "documentWidth": 320,
+      "font": "\"Be Vietnam Pro\", sans-serif",
+      "revealAnimations": [
+        "none"
+      ],
+      "brokenImages": [],
+      "violations": []
+    },
+    {
+      "name": "detail-header-320",
+      "url": "http://127.0.0.1:5197/recipes/thit-kho-trung",
+      "viewport": 320,
+      "documentWidth": 320,
+      "font": "\"Be Vietnam Pro\", sans-serif",
+      "revealAnimations": [
+        "none"
+      ],
+      "brokenImages": [],
+      "violations": []
+    },
+    {
+      "name": "home-long-title-320",
+      "url": "http://127.0.0.1:5197/",
+      "viewport": 320,
+      "documentWidth": 320,
+      "font": "\"Be Vietnam Pro\", sans-serif",
+      "revealAnimations": [
+        "none"
+      ],
+      "brokenImages": [],
+      "violations": []
+    },
+    {
+      "name": "home-today-320",
+      "url": "http://127.0.0.1:5197/",
+      "viewport": 320,
+      "documentWidth": 320,
+      "font": "\"Be Vietnam Pro\", sans-serif",
+      "revealAnimations": [
+        "none"
+      ],
+      "brokenImages": [],
+      "violations": []
+    },
+    {
+      "name": "discovery-empty-320",
+      "url": "http://127.0.0.1:5197/recipes?q=khongcomonnaokhopmotchuoidayratdai",
+      "viewport": 320,
+      "documentWidth": 320,
+      "font": "\"Be Vietnam Pro\", sans-serif",
+      "revealAnimations": [
+        "none"
+      ],
+      "brokenImages": [],
+      "violations": []
+    }
+  ],
+  "errors": []
+}

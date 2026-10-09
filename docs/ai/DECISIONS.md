@@ -1,5 +1,43 @@
 # Architecture Decisions
 
+## ADR-045 - Home plan authority and scoped daily discovery
+
+**Status:** Accepted for local UI02 implementation on 2026-10-10 under the user's
+request to continue one milestone; release remains a separate activity.
+
+**Problem:** Home reads legacy Week even when Planner uses canonical meal-planning.
+Home can therefore claim no plan for a household with an active future plan.
+Composition may supersede a V1 anchor. Header/identity differ between rebuilt pages
+and navigation; discovery loses filters on reload and renders500 rows at once.
+
+**Decision:** Select the current-plan query using the existing planner UI flag and
+reuse its household-scoped key. Read canonical DTOs through the existing validated
+client; keep the legacy Week path when the flag is off. A pure presentation adapter
+uses canonical fixed-offset dates and intent slots, with distinct upcoming/past/
+no-today states. Home links to meal detail for authoritative composition handling.
+Use shared composition reads when enabled. Never show V1 titles on pending/error/
+missing/revision-mismatched composition; only UI-off or explicit404 permits V1.
+V2 components can fill originally unplanned slots. An explicit server V1 projection
+retains a family-variant anchor, matching existing Planner compatibility; it does
+not permit fallback on uncertain reads or an empty V2. Explicit future slot times
+remain eligible beyond the default meal window. Do not derive current-stock or
+food-safety claims from the planning projection or manufacture budget data.
+
+A shared header/page heading and prototype shell apply only to the four migrated
+route families. Navigation keeps its current IA/Scan and defaults elsewhere;
+payment/auth presentation and commands remain protected. Store validated recipe
+filters and page in URL, preserving unrelated parameters. Client pagination shows
+24 results and searches the entire returned set. Native filter disclosure collapses
+on smaller devices and defaults open from1280px; active count remains visible.
+Recipe detail returns to its accepted originating Home/catalog context.
+This is a DOM/UX improvement,
+not a smaller API response: server list DTO/cursor design remains UI03.
+
+**Compatibility:** No schema, migration, flag, dependency, server contract or
+payment/auth/infrastructure changes. Existing Week and canonical planner keys are
+retained. No stock/cooking/planning mutations are introduced. Rollback is source
+only; there is no persisted-data conversion. Browser tests are synthetic/local.
+
 ## ADR-044 - Quantity evidence and a scoped interface rebuild foundation
 
 **Status:** Accepted for local implementation on 2026-10-09 under the user's

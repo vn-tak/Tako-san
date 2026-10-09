@@ -24,13 +24,7 @@ export const RecipeCard: React.FC<RecipeCardProps> = ({
   const href = `/recipes/${recipe.slug}`;
 
   const handleClick = (event: React.MouseEvent<HTMLAnchorElement>) => {
-    if (
-      event.button !== 0 ||
-      event.metaKey ||
-      event.ctrlKey ||
-      event.shiftKey ||
-      event.altKey
-    ) {
+    if (event.button !== 0 || event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) {
       return;
     }
 
@@ -60,15 +54,15 @@ export const RecipeCard: React.FC<RecipeCardProps> = ({
             src={image.src}
             alt={recipe.title}
             className="w-full h-full object-cover"
+            width={480}
+            height={360}
             loading="lazy"
             onError={recipeImageErrorHandler(image.fallbackSrc)}
           />
           {/* Match badge — gradient, nổi bật hơn */}
           <span
             className={`absolute top-2 left-2 px-2.5 py-1 rounded-full text-[11px] font-heading font-bold text-white shadow-sm ${
-              matchPercentage >= 80
-                ? 'bg-takosan-green'
-                : 'bg-semantic-overlay/80 backdrop-blur-sm'
+              matchPercentage >= 80 ? 'bg-takosan-green' : 'bg-semantic-overlay/80 backdrop-blur-sm'
             }`}
           >
             {cuisineFlags[recipe.cuisine] || '🌍'} {matchPercentage}%
@@ -92,7 +86,9 @@ export const RecipeCard: React.FC<RecipeCardProps> = ({
             {canCookWithoutBuying ? (
               <span className="text-takosan-green font-heading font-bold">Đủ lượng để nấu</span>
             ) : (
-              <span className="text-semantic-warning-strong font-bold">Cần kiểm tra {missingRequiredIngredients.length}</span>
+              <span className="text-semantic-warning-strong font-bold">
+                Cần kiểm tra {missingRequiredIngredients.length}
+              </span>
             )}
           </div>
         </div>
@@ -113,6 +109,8 @@ export const RecipeCard: React.FC<RecipeCardProps> = ({
             src={image.src}
             alt={recipe.title}
             className="w-full h-full object-cover"
+            width={480}
+            height={360}
             loading="lazy"
             onError={recipeImageErrorHandler(image.fallbackSrc)}
           />
@@ -177,6 +175,8 @@ export const RecipeCard: React.FC<RecipeCardProps> = ({
             src={image.src}
             alt={recipe.title}
             className="w-full h-full object-cover"
+            width={480}
+            height={360}
             loading="lazy"
             onError={recipeImageErrorHandler(image.fallbackSrc)}
           />
@@ -239,6 +239,8 @@ export const RecipeCard: React.FC<RecipeCardProps> = ({
           src={image.src}
           alt={recipe.title}
           className="w-full h-full object-cover"
+          width={480}
+          height={360}
           loading="lazy"
           onError={recipeImageErrorHandler(image.fallbackSrc)}
         />

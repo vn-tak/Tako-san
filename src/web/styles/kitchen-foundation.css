@@ -10,6 +10,12 @@
   --semantic-text-secondary-rgb: 75 86 79;
   --semantic-text-muted-rgb: 96 105 99;
   --semantic-border-rgb: 221 220 211;
+  --semantic-action-primary-rgb: 36 93 73;
+  --semantic-action-primary-hover-rgb: 28 75 58;
+  --semantic-action-primary-pressed-rgb: 25 65 50;
+  --semantic-success-rgb: 36 93 73;
+  --semantic-success-soft-rgb: 233 241 234;
+  --semantic-focus-rgb: 36 93 73;
   --takosan-green-color-rgb: 36 93 73;
   --takosan-green-hover-color-rgb: 28 75 58;
   --takosan-green-deep-color-rgb: 25 65 50;

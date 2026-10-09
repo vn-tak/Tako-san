@@ -1,10 +1,13 @@
 import React from 'react';
+import { KitchenHeader } from './KitchenHeader';
 import { Link, useNavigate, useLocation } from 'react-router-dom';
 import { TAKOSAN_BRAND } from '../../lib/takosan-brand';
 import { useAuthStore } from '../../stores/useAuthStore';
 import { Bell, User, ArrowLeft, Settings } from 'lucide-react';
 
 interface TopBarProps {
+  kitchen?: boolean;
+  backTo?: string;
   brandLogo?: string;
   showBack?: boolean;
   title?: string;
@@ -12,12 +15,21 @@ interface TopBarProps {
   onBack?: () => void;
 }
 
-export const TopBar: React.FC<TopBarProps> = ({ brandLogo = TAKOSAN_BRAND.logos.horizontal, showBack = false, title, subtitle, onBack }) => {
+export const TopBar: React.FC<TopBarProps> = ({
+  kitchen = false,
+  backTo,
+  brandLogo = TAKOSAN_BRAND.logos.horizontal,
+  showBack = false,
+  title,
+  subtitle,
+  onBack,
+}) => {
   const navigate = useNavigate();
   const location = useLocation();
   const { avatarUrl, displayName } = useAuthStore();
   // /me is the account hub (T17); /profile only redirects there.
   const isProfilePage = location.pathname === '/me' || location.pathname === '/profile';
+  if (kitchen) return <KitchenHeader backTo={backTo ?? (showBack ? '/recipes' : undefined)} />;
 
   return (
     <header className="sticky top-0 z-30 bg-takosan-cream/95 backdrop-blur-md px-4 py-3 border-b border-takosan-cream-line transition-colors shadow-xs">
@@ -48,12 +60,11 @@ export const TopBar: React.FC<TopBarProps> = ({ brandLogo = TAKOSAN_BRAND.logos.
             {subtitle && <p className="text-xs text-semantic-text-muted mt-0.5">{subtitle}</p>}
           </div>
         ) : (
-          <Link to="/" className="tap-target flex items-center gap-2 active:opacity-80 transition-opacity">
-            <img
-              src={brandLogo}
-              alt="Takosan"
-              className="h-8 w-auto object-contain"
-            />
+          <Link
+            to="/"
+            className="tap-target flex items-center gap-2 active:opacity-80 transition-opacity"
+          >
+            <img src={brandLogo} alt="Takosan" className="h-8 w-auto object-contain" />
           </Link>
         )}
 

@@ -1,3 +1,36 @@
+# UI02 — Đợt Home và discovery hoàn tất local — 2026-10-10 JST
+
+**Task/status:** `UI02_LOCAL_VERIFIED_REVIEW_REQUIRED`; tiếp tục một milestone theo
+chỉ thị người dùng. Canonical `vn-tak/Tako-san`; checkout
+`/Users/tunbee27/Documents/Tako-san-ui-rebuild`, nhánh `codex/ui-rebuild-foundation`.
+Base UI01 `1533d98`; implementation verified
+`11080d8a7a05614b37e85cf12f6f888addd15df0`. Không push/deploy.
+
+| Hạng mục | Trạng thái / bằng chứng |
+| --- | --- |
+| Home canonical/Week authority theo flag | Local PASS; household keys, future/current/past/error/no-plan |
+| T20 titles/revision/family/unplanned | Local PASS; pending/500/missing/mismatch không dùng V1,404/UI-off compatibility |
+| Shared scoped shell/header/heading | Local PASS; Home/tủ/catalog/detail, nav/Scan/default routes giữ contract |
+| URL filters + client24paging | Local PASS; whole-result accent search, reload/back/reset/page/detail-return focus |
+| Mobile filter disclosure + desktop layout | Local PASS;21axe/layout checks320–1440,23screens,0violation/overflow/pageerror |
+| Repository gates |264files/6429tests PASS; lint/typecheck/migrations/build PASS |
+| Lightweight API + server pagination | NEXT:UI03; API hiện vẫn tải full recommendation |
+| Photo mapping/provenance + finalbrand/motion/remaining screens | TODO; ảnh legacy dùng chung, prototype chưa phủ PWA/OG/email/etc. |
+| Independent review/hosted CI/device/usability/release | Chưa thực hiện; local verification không chứng nhận release |
+
+**Checks/failures:** Focused6files/157tests PASS; final bounded2worker `pnpm check`
+exit0,326.64s. Full đầu12FAIL do Router/test fixture, đã sửa setup/expectations
+đúng giao diện, giữ actual-data/security assertions. Không tăng timeout/giảm test.
+Commands/evidence/failures: `docs/ui-rebuild/round-2/VERIFICATION.md`;
+implementation/next slice: `docs/ui-rebuild/round-2/FOUNDATION.md`.
+
+**Boundary/next:** Không đổi schema/dependencies/payment/auth/infrastructure/remote
+state. Local preview đã dừng. UI03 cần packet/ADR cho list DTO/cursor, tiếp đó audit
+và thay ảnh lệch món. T20 rollout/certification và các checkpoint phía sau giữ
+trạng thái riêng; full UI rebuild chưa hoàn thành.
+
+---
+
 # UI01 — Đợt đầu rebuild Tako-san đã kiểm chứng local — 2026-10-10 JST
 
 **Task/status:** `UI01_LOCAL_VERIFIED_REVIEW_REQUIRED`. Người dùng đã yêu cầu bắt

@@ -1,3 +1,65 @@
+# UI02 — Home và discovery đã kiểm chứng local — 2026-10-10 JST
+
+**Task/status:** `UI02_LOCAL_VERIFIED_REVIEW_REQUIRED`. Người dùng yêu cầu tiếp tục
+một đợt rebuild. UI02 hoàn tất phạm vi local; toàn hệ thống/brand final vẫn trong roadmap.
+
+**Repository/source:** Canonical `vn-tak/Tako-san`, ID1385308553; base UI01
+checkpoint `1533d98`, canonical base `27d47b056455a57df811199cd7e9c32a84cbffe5`.
+Checkout `/Users/tunbee27/Documents/Tako-san-ui-rebuild`, nhánh
+`codex/ui-rebuild-foundation`. Implementation đã kiểm chứng và commit
+`11080d8a7a05614b37e85cf12f6f888addd15df0`; documentation checkpoint theo sau.
+Không push/PR/merge/deploy; checkout Frigo cũ vẫn giữ nguyên.
+
+**Actual changes:** ADR-045 và packet `tasks/UI02-home-discovery.md`. Home chọn
+canonical current-plan khi Planner UI bật, Week khi tắt; cùng household query keys
+và clients đã validate. Ngày theo fixed UTC offset; today/tomorrow/past/no-plan/
+loading/error riêng. T20 component có thẩm quyền, gồm edited unplanned slot;
+pending/500/missing/revision mismatch không hiển thị title V1. UI-off/API404 giữ
+V1, explicit family V1 projection giữ anchor; empty V2 vẫn rỗng. Retry theo plan/
+revision mới. Home mở meal detail, không cook trực tiếp anchor hoặc khẳng định
+stock/safety/budget chưa biết. Expiry estimate/known/unknown giữ qualifier/tone.
+
+Shared kitchen header/heading, scoped shell/rail/logo/font/palette trên Home,
+inventory list, catalog/detail; navigation/Scan giữ mô hình hiện hữu, các route
+khác giữ kit mặc định. Catalog URL filters/page, native links, search toàn tập
+kết quả có/không dấu, client 24-item paging/clamp, reset/page focus, detail return
+về Home hoặc đúng filtered catalog. Mobile native filter panel thu gọn, desktop
+mở sẵn từ1280px. Search/select16px, card image dimensions, detail h1, skip link.
+
+**Verification:** Final full command:
+`PATH=/opt/homebrew/opt/node@24/bin:$PATH CI=true TMPDIR=/private/tmp WRANGLER_SEND_METRICS=false VITEST_MAX_THREADS=2 VITEST_MIN_THREADS=1 VITEST_MAX_FORKS=2 VITEST_MIN_FORKS=1 pnpm check`
+exit0;264files/6429tests PASS,0FAIL,326.64s; typecheck/lint/migration-smoke/build
+PASS. Focused6files/157tests PASS. Targeted Prettier18files và diffcheck PASS.
+Final browser21axe/layout checks ở320/390/768/1024/1440,23PNG,
+0violation/overflow/pageerror; Be Vietnam Pro, reduced-motion, native filters,
+skip/pager/resetfocus, reload/history/detail return, local Home↔Planner PASS.
+Evidence/manifest và commands tại `../ui-rebuild/round-2/VERIFICATION.md`.
+Log final `.artifacts/ui02/full-check-final.log`, `browser-final.log`.
+Preview local đã dừng trước full gate; không claim hosted/Safari/device/usability QA.
+
+**Failures/recovery:** Full đầu6417PASS/12FAIL:11static-render cases thiếu Router
+khi thêm Link,1fixture canonical ingredient ID sai. Thêm đúng Router, explicit
+Week flags và presentation/link expectations, giữ actual-data/budget/expiry/error/
+security assertions; sửa fixture theo validator. Focused157PASS rồi full final
+PASS. Các lỗi invocation, wait/href, fixture fields, heading closing tag và harness
+unroute đều ghi trong VERIFICATION; không xóa test, tăng timeout hoặc đổi config.
+
+**Database/operational state:** Chỉ synthetic local Worker/SQLite fixture và
+migration smoke. Không schema/migrations/dependencies/auth/payment/infrastructure/
+production flags hoặc remote D1/R2 writes. Remote schema/Week gates skipped.
+T20 deployment/certification status/authorization bên dưới không được UI02 thay thế.
+
+**Next action:** Review source cuối/hosted CI theo quy trình repo. UI03 packet+ADR
+cho lightweight recipe list DTO và server cursor/ranking/filter cùng catalog
+identity/household inventory; detail tải riêng, page24 có stable ordering và
+no-duplicate/reload/search tests. Audit recipe→image URL/hash/provenance; xử lý ảnh
+legacy dùng chung sai món trước media batch. Sau đó scan/review/editor/cooking/
+planner/shopping, brand export/motion; device/Safari/screen-reader/usability QA.
+Cụ thể tại `../ui-rebuild/round-2/FOUNDATION.md`; API vẫn tải fullrecommendation,
+logo prototype và fullbrand/remaining-screen migration chưa hoàn tất.
+
+---
+
 # UI01 — Handoff đợt đầu rebuild Tako-san — 2026-10-10 JST
 
 **Task/status:** `UI01_LOCAL_VERIFIED_REVIEW_REQUIRED`, người dùng đã yêu cầu bắt

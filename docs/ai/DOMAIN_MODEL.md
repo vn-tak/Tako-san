@@ -1,3 +1,21 @@
+# UI04 review draft semantics (2026-10-10)
+
+Web editable review quantity is number or empty string; empty remains incomplete
+and cannot enter accepted confirmation. Positive finite quantity<=10000 and valid
+optional date are checked before submit. Rejected persisted lines submit ID and
+rejection only, letting existing server evidence hydration retain the original
+line. Raw extraction/confidence/price/purchase facts remain separate from edits.
+
+Expiry estimate flags survive synthetic offline commands/projection; unknown
+continues UNKNOWN. All-rejected synthetic imports create no operation and report
+pendingSync false. PendingSync proves an operation was queued locally, not that
+the server did or did not commit (a response can be lost after commit). Matching
+in-memory source previews require explicit scan ID binding and ready/confirmed
+review state; reset clears image and binding. No durable/schema/canonical mapping
+change. See ADR-047 and UI04 evidence; backend normalizer limitations remain.
+
+---
+
 # UI03 discovery presentation contract (ADR-046)
 
 Discovery summaries are read-only projections of the existing recipe authority and

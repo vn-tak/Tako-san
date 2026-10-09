@@ -1,6 +1,14 @@
 import { findCanonicalIngredient, computeFreshness } from '@frigo/domain';
 import { privateCacheKey } from '../lib/private-session';
-import { fetchJson, isOffline, queueWrite, getHouseholdId, readCachedInventory, guardPrivateSession } from './http';
+import {
+  ApiError,
+  fetchJson,
+  isOffline,
+  queueWrite,
+  getHouseholdId,
+  readCachedInventory,
+  guardPrivateSession,
+} from './http';
 
 export function isOfflineScanId(scanId: string): boolean {
   return scanId.startsWith('scan_offline_') || scanId.startsWith('receipt_offline_');
@@ -13,11 +21,20 @@ function queueOfflineScanConfirmation(scanId: string, items: any[]) {
   const current = readCachedInventory(householdId);
   const imported: any[] = [];
 
-  items.forEach((item: any, index: number) => {
+  const acceptedItems = items.filter((item: any) => !item.rejected);
+  if (
+    acceptedItems.some((item: any) => {
+      const quantity = Number(item.estimatedQuantity ?? item.quantity);
+      return !Number.isFinite(quantity) || quantity <= 0 || quantity > 10000;
+    })
+  ) {
+    throw new ApiError('http', 'HTTP 400: {"code":"INVALID_QUANTITY"}', 400);
+  }
+  acceptedItems.forEach((item: any, index: number) => {
     const name = String(item.rawName || item.name || 'Nguyên liệu mới').trim();
     const canonical = findCanonicalIngredient(name);
     const rawQuantity = Number(item.estimatedQuantity ?? item.quantity);
-    const quantity = Number.isFinite(rawQuantity) && rawQuantity > 0 ? rawQuantity : 1;
+    const quantity = rawQuantity;
     const unit = item.unit || canonical?.defaultUnit || 'piece';
     const storage = item.storage || 'fridge';
     const stablePart = String(item.id || index).replace(/[^a-zA-Z0-9_-]/g, '_');
@@ -30,6 +47,7 @@ function queueOfflineScanConfirmation(scanId: string, items: any[]) {
       category: item.category || canonical?.category || 'other',
       storage,
       expiryDate: item.expiryDate,
+      expiryEstimated: Boolean(item.expiryDate && item.expiryEstimated),
       dataSource: source,
     };
 
@@ -38,7 +56,7 @@ function queueOfflineScanConfirmation(scanId: string, items: any[]) {
       'POST',
       JSON.stringify(body),
       `Lưu ${name} từ ${source === 'receipt' ? 'hóa đơn' : 'bản quét'}`,
-      `inventory:${id}`
+      `inventory:${id}`,
     );
     imported.push({
       ...body,
@@ -49,6 +67,9 @@ function queueOfflineScanConfirmation(scanId: string, items: any[]) {
       addedDate: now,
       updatedAt: now,
       pendingSync: true,
+      expiryKind: body.expiryDate ? (body.expiryEstimated ? 'ESTIMATED' : 'KNOWN') : 'UNKNOWN',
+      expiryAt: body.expiryDate && !body.expiryEstimated ? body.expiryDate : null,
+      estimatedExpiryAt: body.expiryDate && body.expiryEstimated ? body.expiryDate : null,
     });
   });
 
@@ -58,7 +79,7 @@ function queueOfflineScanConfirmation(scanId: string, items: any[]) {
   return {
     success: true,
     items: updated,
-    pendingSync: true,
+    pendingSync: imported.length > 0,
     importedItemsCount: imported.length,
   };
 }
@@ -135,10 +156,17 @@ export const scansApi = {
       res = await fetchJson<Record<string, unknown> | null>(path, init);
     } catch (err) {
       assertCurrent();
-      const bodyTransportFailure = err instanceof TypeError || (err instanceof Error && err.name === 'AbortError');
+      const bodyTransportFailure =
+        err instanceof TypeError || (err instanceof Error && err.name === 'AbortError');
       if (!isOffline(err) && !bodyTransportFailure) throw err;
       // Confirmation may commit before fetch or its response body fails.
-      queueWrite(path, init.method, init.body, 'Xác nhận bản quét khi có kết nối', `scan-confirm:${scanId}`);
+      queueWrite(
+        path,
+        init.method,
+        init.body,
+        'Xác nhận bản quét khi có kết nối',
+        `scan-confirm:${scanId}`,
+      );
       return {
         success: true,
         pendingSync: true,

@@ -2,6 +2,7 @@
 @import "./kitchen-fonts.css";
 @import "./kitchen-foundation.css";
 @import "./kitchen-daily.css";
+@import "./kitchen-scan.css";
 @tailwind base;
 @tailwind components;
 @tailwind utilities;

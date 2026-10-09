@@ -1,3 +1,25 @@
+# UI04 scan review presentation (ADR-047, 2026-10-10)
+
+`components/scan/{ReviewHeading,ReviewFields,ReviewSource}.tsx` share presentation
+across photo/receipt reviews; existing route/session/poll/command handlers remain
+separate. Shared values carry blank quantity without inventing0/1. `useScanStore`
+adds explicit in-memory imageScanId binding; server hydration cannot bind an old
+image. `kitchen-scan.css` and scoped AppLayout include `/scan` family; immersive
+camera and non-immersive review route/navigation compatibility remain.
+
+`ScanPage` no longer invents processing stages from timers. Existing server
+pending/processing DTOs own queued/analyzing status. Camera effects own/stop the
+opened stream; scan mode changes cancel unfinished image reads and reset the file
+input, so a stale callback cannot submit the prior mode and the same file can be
+selected again. Photo confirm surfaces pendingSync before inventory navigation and clears the
+queued ready draft on leaving review; SPA return must hydrate server state.
+Synthetic offline confirmation skips rejected rows, validates accepted quantities
+before mutation and carries estimate qualifiers into existing outbox/projection.
+An all-rejected synthetic import reports zero items and no pending synchronization.
+No scan API/schema/catalog or inventory authority change. See UI04 FOUNDATION.
+
+---
+
 # UI03 discovery read path (ADR-046, 2026-10-10)
 
 `GET /api/v1/recipe-discovery` is additive under recipe routes and existing auth/

@@ -1,3 +1,48 @@
+# ADR-047 - Shared scan review presentation and truthful lifecycle (2026-10-10)
+
+Status: accepted and locally verified for UI04; independent/hosted review and
+release/device/usability validation remain. Full268files/6490tests PASS; focused188;
+browser29checks/51PNG/8journeys. Evidence: `../ui-rebuild/round-4/VERIFICATION.md`.
+
+## Problem and decision
+
+Photo and receipt reviews duplicate fields and diverge in typography, unit labels,
+expiry status and action layout. ScanPage claims timed processing milestones with
+no server evidence. Adopt shared typed review fields and a scoped review header,
+summary and responsive action region within the existing prototype shell. Retain
+all route IDs, server ownership, extraction evidence and explicit confirmation.
+Keep canonical resolution on the existing server; display mapping limitations
+without a new static/catalog picker or implied confirmed remapping.
+
+Uploading is an in-flight request, not a claimed completed queue/AI stage. Pending
+and processing DTOs alone determine queued/analyzing presentation. No artificial
+percentage or timer-based completion. Elapsed time remains visible but not live
+announced every second; reduced motion is respected.
+
+Accepted fields must be valid independently of native form submission. Rejected
+photo rows disable fields and submit ID+rejection so invalid discarded edits do
+not block durable rejection. Synthetic offline confirmation skips rejected rows,
+validates accepted quantity rather than inventing 1, and reports pendingSync
+only when synthetic imports enqueue at least one item. All-rejected imports
+produce no command and no claimed pending operation.
+Photo review retains that state until the user leaves review; it then clears the
+queued ready draft so returning must hydrate server state rather than editing
+the locally queued command; receipt retains
+its existing explicit pending toast. Camera effects own and stop their stream.
+
+## Compatibility and limits
+
+No endpoint/schema/migration or inventory command change; eight wire units,
+expiry flags, server extraction/price facts, quota, session fences, conflict
+refetch and Week link remain. No review draft persistence or new image read path.
+Only an explicitly bound in-memory image for a ready/confirmed matching scan
+may show a source preview (photo or authorized receipt); new reads cannot adopt
+an old preview merely by hydrating their scan ID. Review remains
+explicit: AI never writes stock before confirmation. Validation includes T13
+round trips, offline/rejection/invalid edits and local browser/full repository gates.
+
+---
+
 # ADR-046 - Additive discovery summaries and snapshot-fenced pagination (UI03)
 
 Status: accepted for local implementation, 2026-10-10 JST. Packet:

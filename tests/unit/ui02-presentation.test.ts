@@ -189,22 +189,20 @@ describe('discovery URL and whole-result paging', () => {
     filters.cuisine = 'japanese';
     expect(filterDiscoveryResults(discoveryRecipes(), filters)).toEqual([]);
   });
+  it.each(['/plus', '/me', '/settings', '/auth/login', '/planner', '/recipes-old', '/inventory/x'])(
+    'does not scope the new shell onto %s',
+    (route) => expect(isKitchenSurface(route)).toBe(false),
+  );
   it.each([
-    '/plus',
-    '/me',
-    '/settings',
-    '/auth/login',
+    '/',
+    '/fridge',
+    '/inventory/',
+    '/recipes',
+    '/recipes/thit-kho',
     '/scan',
-    '/planner',
-    '/recipes-old',
-    '/inventory/x',
-  ])('does not scope the new shell onto %s', (route) =>
-    expect(isKitchenSurface(route)).toBe(false),
-  );
-  it.each(['/', '/fridge', '/inventory/', '/recipes', '/recipes/thit-kho'])(
-    'scopes the migrated route %s',
-    (route) => expect(isKitchenSurface(route)).toBe(true),
-  );
+    '/scan/x/review',
+    '/scan/receipt-review',
+  ])('scopes the migrated route %s', (route) => expect(isKitchenSurface(route)).toBe(true));
 });
 
 describe('Home Week compatibility', () => {

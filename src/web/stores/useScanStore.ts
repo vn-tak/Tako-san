@@ -7,7 +7,7 @@ export interface ScanDraftItem {
   sourceItemId?: string;
   rawName: string;
   canonicalId?: string | null;
-  estimatedQuantity: number;
+  estimatedQuantity: number | '';
   unit: StandardUnit;
   confidence?: number | null;
   storage: 'fridge' | 'freezer' | 'pantry';
@@ -22,11 +22,20 @@ export interface ScanDraftItem {
   }>;
 }
 
-type ScanItemEdits = Pick<ScanDraftItem,
-  'rawName' | 'estimatedQuantity' | 'unit' | 'storage' | 'expiryDate' | 'expiryEstimated' | 'rejected'>;
+type ScanItemEdits = Pick<
+  ScanDraftItem,
+  | 'rawName'
+  | 'estimatedQuantity'
+  | 'unit'
+  | 'storage'
+  | 'expiryDate'
+  | 'expiryEstimated'
+  | 'rejected'
+>;
 
 interface ScanState {
   imagePreviewUrl: string | null;
+  imageScanId: string | null;
   imageBase64: string | null;
   scanType: 'fridge' | 'food' | 'receipt';
   isProcessing: boolean;
@@ -34,10 +43,15 @@ interface ScanState {
   scanId: string | null;
   reviewStatus: 'ready' | 'confirmed' | null;
   items: ScanDraftItem[];
+  bindImageToScan: (scanId: string) => void;
   setImage: (url: string, base64?: string) => void;
   setScanType: (type: 'fridge' | 'food' | 'receipt') => void;
   setProcessing: (processing: boolean, status?: string) => void;
-  setScanResults: (scanId: string, items: ScanDraftItem[], reviewStatus?: 'ready' | 'confirmed' | null) => void;
+  setScanResults: (
+    scanId: string,
+    items: ScanDraftItem[],
+    reviewStatus?: 'ready' | 'confirmed' | null,
+  ) => void;
   updateItem: (id: string, updates: Partial<ScanItemEdits>) => void;
   addItem: (item: Omit<ScanItemEdits, 'rejected'>) => void;
   removeItem: (id: string) => void;
@@ -46,6 +60,7 @@ interface ScanState {
 
 export const useScanStore = create<ScanState>((set) => ({
   imagePreviewUrl: null,
+  imageScanId: null,
   imageBase64: null,
   scanType: 'fridge',
   isProcessing: false,
@@ -54,50 +69,58 @@ export const useScanStore = create<ScanState>((set) => ({
   reviewStatus: null,
   items: [],
 
-  setImage: (url, base64) => set({ imagePreviewUrl: url, imageBase64: base64 || null }),
+  bindImageToScan: (imageScanId) => set({ imageScanId }),
+  setImage: (url, base64) =>
+    set({ imagePreviewUrl: url, imageBase64: base64 || null, imageScanId: null }),
   setScanType: (type) => set({ scanType: type }),
   setProcessing: (isProcessing, statusText = '') => set({ isProcessing, statusText }),
-  setScanResults: (scanId, items, reviewStatus = null) => set({
-    scanId,
-    reviewStatus,
-    items: items.map((item) => ({
-      ...item,
-      // Server membership, not an ID prefix, distinguishes predictions from local drafts.
-      sourceItemId: item.id,
-      rejected: item.rejected ?? item.reviewState === 'REJECTED',
-      rawEvidence: item.rawEvidence ? { ...item.rawEvidence } : undefined,
-    })),
-    isProcessing: false,
-  }),
-
-  updateItem: (id, updates) => set((state) => ({
-    items: state.items.map((item) => item.id === id ? { ...item, ...updates } : item),
-  })),
-
-  addItem: (item) => set((state) => ({
-    items: [
-      ...state.items,
-      {
+  setScanResults: (scanId, items, reviewStatus = null) =>
+    set({
+      scanId,
+      reviewStatus,
+      items: items.map((item) => ({
         ...item,
-        id: `draft_${Date.now()}_${Math.random()}`,
-      },
-    ],
-  })),
+        // Server membership, not an ID prefix, distinguishes predictions from local drafts.
+        sourceItemId: item.id,
+        rejected: item.rejected ?? item.reviewState === 'REJECTED',
+        rawEvidence: item.rawEvidence ? { ...item.rawEvidence } : undefined,
+      })),
+      isProcessing: false,
+    }),
 
-  removeItem: (id) => set((state) => ({
-    items: state.items.filter((item) => item.id !== id || item.sourceItemId !== undefined),
-  })),
+  updateItem: (id, updates) =>
+    set((state) => ({
+      items: state.items.map((item) => (item.id === id ? { ...item, ...updates } : item)),
+    })),
 
-  reset: () => set({
-    imagePreviewUrl: null,
-    imageBase64: null,
-    scanType: 'fridge',
-    isProcessing: false,
-    statusText: '',
-    scanId: null,
-    reviewStatus: null,
-    items: [],
-  }),
+  addItem: (item) =>
+    set((state) => ({
+      items: [
+        ...state.items,
+        {
+          ...item,
+          id: `draft_${Date.now()}_${Math.random()}`,
+        },
+      ],
+    })),
+
+  removeItem: (id) =>
+    set((state) => ({
+      items: state.items.filter((item) => item.id !== id || item.sourceItemId !== undefined),
+    })),
+
+  reset: () =>
+    set({
+      imagePreviewUrl: null,
+      imageScanId: null,
+      imageBase64: null,
+      scanType: 'fridge',
+      isProcessing: false,
+      statusText: '',
+      scanId: null,
+      reviewStatus: null,
+      items: [],
+    }),
 }));
 
 onPrivateSessionReset(() => useScanStore.getState().reset());

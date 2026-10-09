@@ -1,3 +1,81 @@
+# UI03 — Discovery API và media đã kiểm chứng local — 2026-10-10 JST
+
+**Task/status:** `UI03_LOCAL_VERIFIED_REVIEW_REQUIRED`. Người dùng yêu cầu tiếp tục
+một đợt rebuild Tako-san. UI03 hoàn tất phạm vi local; toàn hệ thống và brand final
+còn theo roadmap. Packet `docs/ai/tasks/UI03-discovery-api-media.md`, ADR-046.
+
+**Repository/source:** Canonical `vn-tak/Tako-san`, ID1385308553; UI02 base
+`87cfbdf1b2e1164f3cb9a122d8613ed52d140c3b`, canonical base
+`27d47b056455a57df811199cd7e9c32a84cbffe5`. Checkout
+`/Users/tunbee27/Documents/Tako-san-ui-rebuild`, nhánh `codex/ui-rebuild-foundation`.
+Implementation đã kiểm chứng và commit `dbba0535f66b585ff3bdedb27894ee72b57872d1`.
+Documentation checkpoint theo sau; checkout Frigo cũ giữ nguyên. Không push/PR/merge/deploy.
+
+**Actual changes:** Additive authenticated `/recipe-discovery`: strict household
+stock, một routed recipe authority, shared Zod card/page contract, search có/không
+dấu + ingredient/tag/description, hard cuisine/category/region/time/no-buy trước
+ranking/page. Stable ID tie-break;24catalog/3Home summaries, detail tải riêng.
+Cursor ràng page/filter/pageSize/user/household/catalog source+fingerprint/stock;
+changed409 có explicit restart giữ filter, invalid400 có recovery, unfenced URL
+clamp dữ liệu hiện tại. Scoped invalidation/session fence, labelled device/static71
+offline và source witness; HTTP503/contract failure không fallback. URL/history/
+detail-return/pager/resetfocus; pending/refetch không lộ rows cũ; debounce250ms.
+T14D static-reader audit bổ sung đúng offline client dưới ADR-046; guard unknown0
+và Worker authority constraints giữ nguyên. Architecture/domain docs đã cập nhật.
+
+Media presentation quarantine429generic “Delicious!”,59unreviewed Unsplash,
+6wrong-dish/missing paths;6matching local global mappings giữ compatibility.
+Rawcatalog/migrations/release fingerprints giữ nguyên, ready canonical hero ưu tiên,
+failure không trở về ảnh đã quarantine. Placeholder grid80px sau visual review,
+alt trung thực. Report500D1/71static/46URL/21reusegroups;8mapped local hashes/bytes/
+dimensions,13physical files contact-sheet review,500fresh hero rows pending. Không
+claim photo provenance/license hoặc production R2 coverage.3/6allowed files vượt
+60KiB và436px masters chưa cóvariants/DPR2quality; còn content media workstream.
+
+**Verification:** Final full command:
+`PATH=/opt/homebrew/opt/node@24/bin:$PATH CI=true TMPDIR=/private/tmp WRANGLER_SEND_METRICS=false VITEST_MAX_THREADS=2 VITEST_MIN_THREADS=1 VITEST_MAX_FORKS=2 VITEST_MIN_FORKS=1 pnpm check`
+exit0;266files/6468tests PASS,0FAIL,321.24s; lint/typecheck/migration-smoke/build PASS.
+Focused7files/163tests PASS; authority+client2files/20tests PASS. Final browser15axe/
+layout checks ở320/390/768/1024/1440,17PNG,0violations/overflow/brokenimages/pageerrors;
+12journeys, full21page/500unique cover. Evidence20files manifest hashes verified.
+Runtime/test/script23file SHA256 unchanged after final gate. Build main454.93kB/
+gzip126.63; Home11.74/4.28; Recipes9.72/3.84; không claim JS bundle reduction.
+Local same fixture legacy500full1.081.667bytes→24summary14.194bytes (-98,69%raw),
+gzip tính local130.990→3.010 (-97,70%); không phải latency/CWV/production transfer.
+Logs `.artifacts/ui03/full-check-first.log`, `full-check-final.log`, `focused-final.log`,
+`authority-focused.log`, `browser-final.log`; report `docs/ui-rebuild/round-3/VERIFICATION.md`.
+Preview ownPID34259 đã dừng trước full gate; không còn preview do task này giữ.
+
+**Failures/recovery:** Full đầu6467PASS/1FAIL do offline client mới chưa khai báo
+trong static-reader allowlist; thêm đúng reader + audit addendum, giữ unknown0
+assertion. Focused ban đầu25FAIL/25PASS do fixture secret ngắn22APIcases và3schema
+cases có no-buy/missing mâu thuẫn; sửa đúng fixture. Tiếp2FAIL vì test dùng sai bảng
+category và route mount; tiếp1FAIL vì nhầm coverage100% với đủ lượng (2of4eggs).
+Sửa expectation đúng contract, vẫn no-buyfalse/missing1 và quantity regressions.
+Typecheck nutrition legacy và fixture KV type sửa; browser selector Home gồm nav
+và PATCH version field sửa đúng existing contract. Không bỏ test/giảm assertion,
+nới timeout/config hoặc suppression để đạt gate. Chi tiết trong VERIFICATION.
+
+**Database/operational state:** Chỉ synthetic local Worker/SQLite, local inventory
+PATCH và fresh migration replay. Không schema/dependencies/payment/unrelated auth/
+infrastructure/production flags/remote D1/R2/credentials changes. Remote schema/Week
+gates skipped; UI03 không thay thế T20 certification/deployment status bên dưới.
+Server còn hydrate/evaluate fullcatalog; cursor không lưu historical snapshot;
+canonical media/catalog TTL giữ behavior hiện hành. Chưa hosted CI/device/Safari/
+screen-reader/usability QA; nhận diện hiện tại vẫn là prototype.
+
+**Next action:** Review verified branch/source và hosted CI theo quy trình repo.
+UI04: packet+ADR cho scan/review/editor vertical slice: upload→draft→sửa canonical
+mapping/quantity/unit/expiry/source→explicit confirm→inventory, giữ session/offline/
+revision/idempotency và dữ liệu uncertainty. Adopt shared controls/state/header/
+brand prototype; browser/test matrix trước completion. Sau đó cooking/planner/
+shopping/remaining routes, brand final/PWA/OG/avatar/icons/motion. Media batch ưu
+tiên30–50 món cần source/license/subject QA, thumbnails/hero variants và canonical
+promotion; không dùng illustration để giả photo coverage. Roadmap cụ thể tại
+`docs/ui-rebuild/round-3/FOUNDATION.md`. Không deploy trong continuation UI này.
+
+---
+
 # UI02 — Home và discovery đã kiểm chứng local — 2026-10-10 JST
 
 **Task/status:** `UI02_LOCAL_VERIFIED_REVIEW_REQUIRED`. Người dùng yêu cầu tiếp tục

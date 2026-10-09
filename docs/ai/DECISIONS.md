@@ -64,7 +64,9 @@ No payment/auth/command/Week/flag/infrastructure or remote operations.
 
 Validation: API all-page coverage/filter/no-buy/source/stock/session fixtures;
 mounted URL/loading/recovery tests; real local Worker/browser/network/axe checks;
-full pnpm check. Exact results and implementation hash recorded at completion.
+full pnpm check exit0,266files/6468tests;15browser axe/layout checks,0violations.
+Verified implementation `dbba0535f66b585ff3bdedb27894ee72b57872d1`; exact commands,
+failures/repairs and limitations in `../ui-rebuild/round-3/VERIFICATION.md`.
 
 ---
 

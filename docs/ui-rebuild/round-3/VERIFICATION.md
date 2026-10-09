@@ -97,3 +97,6 @@ is fresh migration replay, not current production coverage. Six allowed legacy
 mappings are not license/provenance certification. No hosted CI, physical device,
 Safari/VoiceOver/NVDA or usability run. Raw catalog/payment/auth/commands/schema/
 flags/infra unchanged. Review/CI/release and full brand/remaining routes remain open.
+
+Verified implementation: `dbba0535f66b585ff3bdedb27894ee72b57872d1`.
+Only documentation follows the final full gate and this implementation commit.

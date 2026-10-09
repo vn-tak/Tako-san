@@ -1,3 +1,24 @@
+# Checkpoint triển khai — UI03, 2026-10-10 JST
+
+Canonical `vn-tak/Tako-san`; nhánh local `codex/ui-rebuild-foundation`.
+Implementation UI03 `dbba0535f66b585ff3bdedb27894ee72b57872d1` đã kiểm chứng.
+
+- UI01: quantity/no-buy/shortfall, inventory/detail và hướng nhận diện prototype.
+- UI02: Home canonical/Week compatibility, shared shell/header và URL discovery.
+- UI03: API summary24/Home3, server filter/pagination có cursor witness, media
+  quarantine và audit mapping500 món. B03 hoàn tất phạm vi local; B15 mới audit/
+  xử lý presentation, chưa có batch ảnh mới. Full266files/6468tests PASS; browser
+  15states/17PNG,0axe/overflow/brokenimage/pageerror trong ma trận local.
+- UI04 tiếp theo: scan/review/editor→explicit confirm→inventory. Cooking/planner/
+  shopping/remaining routes, brand final/PWA/OG/avatar/icon/motion, media variants,
+  device/Safari/screen-reader/usability và review/hosted CI/release còn mở.
+
+Bằng chứng, giới hạn hiệu năng/ảnh và next slice: [UI03](round-3/FOUNDATION.md),
+[verification](round-3/VERIFICATION.md). Local milestones không hoàn tất roadmap
+6–9tuần bên dưới và không chứng nhận production. Chưa push/PR/merge/deploy.
+
+---
+
 # Kế hoạch xây lại hệ thống giao diện Tako-san
 
 Cơ sở: [AUDIT.md](AUDIT_BASELINE.md), source chuẩn `vn-tak/Tako-san` tại `27d47b056455a57df811199cd7e9c32a84cbffe5`, đối chiếu production ngày 09/10/2026.

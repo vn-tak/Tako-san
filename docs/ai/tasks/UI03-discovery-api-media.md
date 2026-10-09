@@ -92,3 +92,6 @@ migration-smoke/build PASS. Runtime/test/script manifest23files unchanged after
 final check. First full6467PASS/1FAIL and all focused/browser repairs documented
 in VERIFICATION; no assertion removed or timeout/config relaxed. Implementation
 hash follows in the documentation checkpoint. No push/PR/merge/deploy.
+
+Verified implementation: `dbba0535f66b585ff3bdedb27894ee72b57872d1`.
+Only documentation follows the final full gate and this implementation commit.

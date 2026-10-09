@@ -3,6 +3,7 @@
 Status: accepted and locally verified for UI04; independent/hosted review and
 release/device/usability validation remain. Full268files/6490tests PASS; focused188;
 browser29checks/51PNG/8journeys. Evidence: `../ui-rebuild/round-4/VERIFICATION.md`.
+Verified implementation: `85b86442257ae9573701c2df6107cd5e509cdade`.
 
 ## Problem and decision
 

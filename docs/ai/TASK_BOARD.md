@@ -1,3 +1,86 @@
+# UI04 — Luồng quét và review đã kiểm chứng local — 2026-10-10 JST
+
+**Task/status:** `UI04_LOCAL_VERIFIED_REVIEW_REQUIRED`. Tiếp tục rebuild Tako-san
+trong phạm vi packet `docs/ai/tasks/UI04-scan-review.md`, ADR-047. Milestone local
+hoàn tất; toàn bộ hệ thống và bộ nhận diện cuối vẫn còn các hạng mục trong roadmap.
+
+**Repository/source:** Canonical `vn-tak/Tako-san`, ID1385308553, base
+`cf607e4f402aecd0964b2f730bb2c9e1c6b17b0d`; checkout
+`/Users/tunbee27/Documents/Tako-san-ui-rebuild`, nhánh `codex/ui-rebuild-foundation`.
+Implementation đã kiểm chứng và commit `85b86442257ae9573701c2df6107cd5e509cdade`.
+Documentation checkpoint theo sau; checkout Frigo cũ giữ nguyên.
+
+**Actual changes:** Scan → review → sửa → explicit confirm → inventory dùng cùng
+ReviewHeading/Summary, ReviewFields, source preview gắn đúng scan ID và responsive
+kitchen-scan CSS. Pine/coral/warm canvas và Be Vietnam Pro giữ identity prototype;
+camera workspace riêng, review có navigation. Desktop hai cột, mobile một cột,
+input16px/48px, 8 đơn vị, short viewport dùng action trong document flow. Camera
+fallback thư viện, tips details và chọn ảnh khác sau lỗi. Không còn timer giả
+queue/AI/validation; upload đang gửi, pending/processing theo DTO. Reduced motion
+và status announcement không đọc elapsed mỗi giây.
+
+Accepted fields kiểm tra tên/lượng hữu hạn >0≤10000/ngày trước programmatic submit;
+blank không thành0/1. Dòng photo rejected disabled và gửi ID+rejected để server giữ
+evidence gốc. Offline synthetic import bỏ rejected, validate toàn bộ accepted
+quantity trước mutation, import0 không báo pendingSync, giữ expiryEstimated và
+UNKNOWN/KNOWN/ESTIMATED projection.
+Photo pendingSync có feedback, khóa sửa/confirm; rời review xóa queued ready draft
+trong đúng session/scan, quay lại hydrate trạng thái máy chủ. Camera effect dừng
+đúng stream và late response; đổi mode/new image hủy image read, reset input cho
+chọn lại cùng file. Source ảnh chỉ memory và bind đúng ID từ upload response;
+không tự nhận ảnh cũ khi hydrate. Receipt ingredient lookup đúng rawName/canonical.
+Raw AI/OCR, confidence0/unknown, giá/ngày mua, quota/retry, ownership/session,
+conflict/refetch, inventory revisions/idempotency và Week shortcut giữ contract.
+
+**Verification:** Final full command:
+`PATH=/opt/homebrew/opt/node@24/bin:$PATH CI=true TMPDIR=/private/tmp WRANGLER_SEND_METRICS=false VITEST_MAX_THREADS=2 VITEST_MIN_THREADS=1 VITEST_MAX_FORKS=2 VITEST_MIN_FORKS=1 pnpm check`
+exit0; 268files/6490tests PASS,0FAIL,Vitest 324.11s;
+lint/typecheck/migration smoke/build PASS. Focused13files/188tests PASS,3.48s.
+Final Chromium local29axe/layout checks tại320/390/768/1024/1440,51PNG,8journey
+groups;0axe/overflow/brokenimages/pageerrors. Worker local confirm/reopen kiểm tra
+fractional edit, rejection, expiry, OCR evidence; mocked pending/failed/mismatch/
+empty/lost response và SPA return tải server. Source images synthetic64px, gallery
+same-file reselection, sheet Escape/focus, reduced motion,390×420 và320px text
+phóng đôi.52evidence payloads/manifest SHA256+bytes verified;19runtime/test/script
+hashes unchanged after final full gate. Logs `.artifacts/ui04/focused-final.log`,
+`browser-final.log`, `full-check-final.log`; report
+`docs/ui-rebuild/round-4/VERIFICATION.md` và `FOUNDATION.md`.
+
+**Failures/recovery:** ReviewValues blank type/confirmed heading/empty-ready state
+và select accessible names sửa đúng UI contract; scripted JSX typo sửa. Synthetic
+200% inherited text test nhân font nhiều lần, đổi sang gấp đôi từng computed size;
+layout wrapping/height sửa và browser PASS. Native0validation dùng Number.MIN_VALUE.
+Full đầu TS18047 test nullable union sửa assertion; sau full6489PASS phát hiện
+mode image-read race và thêm regression, full6490PASS. Reread tiếp queued draft
+còn editable khi rời review, thêm session-fenced cleanup. SPA browser failure do
+quay lại sau URL change trước khi lazy inventory screen commit; harness chờ heading
+thực rồi vẫn assert fresh server read/read-only. Bỏ duplicate receipt error alert;
+import0 không có lệnh nhưng vẫn báo pendingSync sửa đúng false, bổ sung assertion
+ở regression all-rejected. Focused/browser/full cuối chạy sau tất cả source changes.
+Static UX skill audit
+126files/28issues/834warnings/68checks printsFAIL dù exit0; heuristic/legacy/tests
+và protected scope, không claim UX/usability pass. Không bỏ test, nới assertion,
+config hoặc timeout để qua gate; chi tiết failures trong VERIFICATION.
+
+**Database/operational state:** Chỉ synthetic local Worker/SQLite, confirm/inventory
+commands và migration replay local. Không schema/migrations/dependencies/config/
+production flags/Worker/payment/unrelated auth/infrastructure/remote D1/R2/provider/
+credential changes. Remote gates skipped; không push/PR/merge/deploy. Own preview
+PID92179 đã dừng trước full gate cuối; không còn preview do milestone này giữ.
+Canonical remap picker chưa xây: normalizer có thể giữ mapping scan cũ nếu tên mới
+không khớp, giới hạn này ghi rõ; source image chưa persist. Chưa physical camera,
+Safari/OS keyboard/actual zoom/screen-reader/usability/CWV/provider accuracy QA.
+Brand kit và media content chưa final; local gates không chứng nhận production.
+
+**Next action:** UI05: đọc cooking/preparation/complete source, lập packet+ADR và
+rebuild chuẩn bị → từng bước/timer → sửa lượng thực dùng → explicit complete →
+inventory. Giữ multi-compatible-lot allocation, revision/idempotency/session/offline
+và quantity arithmetic UI01, browser/contract/full gates trước checkpoint. Sau đó
+planner/composer/shopping/remaining routes, canonical remap editor, brand final/
+PWA/OG/icon/mascot, media variants/content và device/usability/release review.
+
+---
+
 # UI03 — Discovery API và media đã kiểm chứng local — 2026-10-10 JST
 
 **Task/status:** `UI03_LOCAL_VERIFIED_REVIEW_REQUIRED`. Người dùng yêu cầu tiếp tục

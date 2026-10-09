@@ -3,6 +3,7 @@
 Authorization: continue the Tako-san UI rebuild, 2026-10-10 JST.
 Canonical vn-tak/Tako-san; local branch codex/ui-rebuild-foundation.
 Base cf607e4. See ADR-047 before implementation.
+Status: UI04_LOCAL_VERIFIED_REVIEW_REQUIRED. Implementation `85b86442257ae9573701c2df6107cd5e509cdade`.
 
 ## Outcome and scope
 

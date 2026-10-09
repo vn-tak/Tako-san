@@ -1,5 +1,7 @@
 # UI04 verification - local evidence
 
+Verified local implementation: `85b86442257ae9573701c2df6107cd5e509cdade`.
+
 Repository: canonical `vn-tak/Tako-san` (ID1385308553).
 Checkout `/Users/tunbee27/Documents/Tako-san-ui-rebuild`.
 Branch `codex/ui-rebuild-foundation`; base `cf607e4f402aecd0964b2f730bb2c9e1c6b17b0d`.

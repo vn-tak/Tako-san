@@ -1,3 +1,27 @@
+# Checkpoint triển khai — UI04, 2026-10-10 JST
+
+Canonical `vn-tak/Tako-san`; nhánh local `codex/ui-rebuild-foundation`.
+Implementation UI04 `85b86442257ae9573701c2df6107cd5e509cdade` đã kiểm chứng.
+
+- UI01: quantity/no-buy/shortfall, inventory/detail và nhận diện prototype.
+- UI02: Home/discovery và shared shell; UI03: summary API/pagination/media audit.
+- UI04: scan/review photo+receipt, fields/source/explicit confirm, truthful upload/
+  pendingSync, offline rejection/quantity/expiry, camera/image-read lifecycle;
+  responsive320–1440, enlarged text/short viewport/reduced motion. Full268files/
+  6490tests PASS; focused188; browser29checks/51PNG/8journeys,0axe/overflow/ảnh hỏng/
+  pageerrors trong ma trận local. B08 scan/review hoàn tất phạm vi packet; canonical
+  remap editor và image persistence còn riêng.
+- UI05/B09 tiếp theo: preparation → cooking steps/timer → actual-use edit → explicit
+  complete → inventory; giữ lot/revision/idempotency/session/offline và arithmetic.
+  Planner/composer/shopping/remaining routes, brand final/PWA/OG/icon/mascot, media
+  content/variants, device/usability/hosted review và release vẫn còn mở.
+
+Báo cáo: [UI04](round-4/FOUNDATION.md), [verification](round-4/VERIFICATION.md).
+Nhận diện vẫn là prototype; milestone local không hoàn tất toàn roadmap hoặc chứng
+nhận production. Checkpoint local; chưa push/PR/merge/deploy.
+
+---
+
 # Checkpoint triển khai — UI03, 2026-10-10 JST
 
 Canonical `vn-tak/Tako-san`; nhánh local `codex/ui-rebuild-foundation`.

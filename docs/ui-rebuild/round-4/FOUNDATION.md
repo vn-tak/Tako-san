@@ -1,5 +1,7 @@
 # UI04 - Quét, kiểm tra và xác nhận vào tủ
 
+Verified local implementation: `85b86442257ae9573701c2df6107cd5e509cdade`.
+
 Canonical `vn-tak/Tako-san`, nhánh local `codex/ui-rebuild-foundation`, base
 `cf607e4f402aecd0964b2f730bb2c9e1c6b17b0d`. Packet
 `docs/ai/tasks/UI04-scan-review.md`; ADR-047. Đợt này tiếp nối UI01–UI03.

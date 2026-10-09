@@ -6800,3 +6800,14 @@ certification. Only recipe ID set and V1 ingredient tuples are compared.
 exact current-main SHA. Review the sanitized V1 receipt and unresolved rows
 before a distinct protected row-evidence path. Do not infer repair from counts;
 0039 and production deploy stay stopped.
+
+## Continuation T20: xác minh gate hiện hành — 2026-10-09 JST
+
+PR63 documentation head `825d5a48af231452948af603010f532a23719eed` CI validate
+SUCCESS; chưa merge, main vẫn pin `27d47b056455a57df811199cd7e9c32a84cbffe5`.
+Run production37858608953 vẫn waiting, approvals rỗng và CLIvn-tak không được
+approve. Bộ observer chỉ theo dõi run này, collect/mark proof khi SUCCESS,
+không tự promotion. Cửa sổ Chromium normal-login thứ ba đã mở, chờ20min;
+chưa capture session tại checkpoint. Reviewer vn-taphoanhatung và registered
+production browser session vẫn là hai đầu vào cần thiết. Không redispatch,
+replay staging certification, migration0039 hoặc failed scan.

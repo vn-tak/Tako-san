@@ -1,50 +1,60 @@
-# T20 production shadow đã xác minh; canary 1% đang chạy — 2026-10-09 JST
+# T20 production rollout và smoke đã đạt — 2026-10-09 JST
 
-**Task/status:** `T20_PRODUCTION_SHADOW_VERIFIED_CANARY_1_RUNNING`.
-Checkpoint này thay trạng thái pending shadow/login trước đó; các mục sau giữ lịch sử.
+**Task/status:** `T20_PRODUCTION_ROLLOUT_COMPLETE_FUNCTIONAL_SMOKE_PASS`.
+Checkpoint 2026-10-09T12:39:31.596Z; các mục sau dấu phân cách giữ lịch sử.
 
-**Repository/source:** `vn-tak/Tako-san`, ID `1385308553`, source/main vẫn pin
-`27d47b056455a57df811199cd7e9c32a84cbffe5`; hardening head được operator cho phép
-`8b7b254ddcc9e0a36989a2c8c3add6ad3d776ee9`. PR #63 chỉ cập nhật documentation
-và phải giữ chưa merge trong chuỗi rollout. CI của head docs cũ `825d5a4` không
-chứng nhận checkpoint docs mới; kiểm tra CI trên head mới sau push.
+**Repository/source:** `vn-tak/Tako-san`, ID `1385308553`; source/main
+`27d47b056455a57df811199cd7e9c32a84cbffe5`, hardening `8b7b254ddcc9e0a36989a2c8c3add6ad3d776ee9`.
+Operator đã cho phép merge PR #62 và rollout theo các gate chuẩn.
+PR #63 cập nhật documentation/evidence, chưa merge; CI phải kiểm tra đúng head mới.
 
-**Verification:** CI main `37853046693` PASS: 259 files / 6.365 tests. Staging
-readiness, năm stage proofs, 45/45 hosted journeys và bốn audit stock/events PASS.
-Production shadow `37858608953` được `vn-taphoanhatung` approve bình thường,
-workflow SUCCESS. Artifact digests/manifests/source/exact-main CI khớp; live
-readiness/service-worker assets 3/3 PASS. Worker `eb6a181f-e4d7-4697-8737-bb9db292714c`,
-previous `f92df570-6cb0-43de-bfa6-a4c7bd7f07d8`; D1 binding khớp, ledger 39,
-500 hydrated recipes, hydration failures 0, media ready 500, FK sạch, quick_check ok.
+**Verification:** CI exact-main [37853046693](https://github.com/vn-tak/Tako-san/actions/runs/37853046693)
+PASS: 259 files / 6.365 tests, lint/typecheck/migration smoke/build.
+Staging: năm stage proofs, 45/45 hosted journeys ở 390/768/1280px,
+bốn stock/event audits PASS. Production: năm stage proofs PASS, normal reviewer
+`vn-taphoanhatung` cho từng run; artifact digests/manifests/source,
+ledger 39, 500 hydrated recipes, hydration failures 0, ready media 500,
+FK/quick_check và ba live source/assets observations đều khớp mỗi stage.
+Worker cuối `8626c077-b424-4b1f-b484-068216a9de8a`.
 
-**Flags/authority:** T20/planner paired `true` đã bật ở shadow production. Catalog
-shadow có global source static, canary 0%, cutover false; protected D1 probe
-chứng nhận đủ 500 recipes và fingerprint. Các mức 1/5/25% áp dụng catalog routing,
-không phải phần trăm enablement T20. Chuỗi production D1 chưa hoàn tất.
+| Production stage | Kết quả | Run |
+| --- | --- | --- |
+| shadow-0 | PASS | [37858608953](https://github.com/vn-tak/Tako-san/actions/runs/37858608953) |
+| canary-1 | PASS | [37922994678](https://github.com/vn-tak/Tako-san/actions/runs/37922994678) |
+| canary-5 | PASS | [37925128348](https://github.com/vn-tak/Tako-san/actions/runs/37925128348) |
+| canary-25 | PASS | [37926336793](https://github.com/vn-tak/Tako-san/actions/runs/37926336793) |
+| d1-0 | PASS | [37927374014](https://github.com/vn-tak/Tako-san/actions/runs/37927374014) |
 
-**Normal session/smoke:** Chromium attempt 3 đã capture registered normal UI session
-private 0600; GET profile/inventory preflight PASS, tồn kho 0 item. GET plans/current
-và picker trả JSON 200 trên source mới. Probe GET plans ban đầu trả SPA HTML vì
-không có GET route đó; đã sửa probe sau khi đối chiếu source, không đổi API.
-Discovery chọn đúng năm journeys, chưa thực thi; report từ `--list` được giữ riêng
-và không tính là test PASS. Smoke production chỉ chạy sau năm stage proofs PASS.
-Stock production hiện rỗng; HTTP equality không chứng nhận nonempty stock hoặc
-inventory event ledger. Staging 220g/events invariance có receipt riêng.
+**Flags/authority:** T20/planner paired true từ shadow. Các mức 1/5/25%
+kiểm soát catalog routing. Hiện toàn bộ catalog dùng D1, cutover true, no fallback;
+release `rel-bd00a4f53fcaeee4` và fingerprint giữ nguyên.
+
+**Normal session/smoke:** Năm journeys đã verified trên production mobile 390px:
+Manual/A11y, Assisted, Auto, D1-only reads và concurrency. Initial run có bốn PASS
+và một lỗi local observer recursion trước race. Đã giữ nguyên reports/checksums,
+regression RED/GREEN rồi tiếp tục riêng concurrency trên plan nguyên revision 1:
+1/1 PASS, race 200/409 và canonical winner được giữ. Tổng browser time 331,2s;
+automatic retries 0, một targeted harness continuation, không replay bốn PASS.
+Hai tab concurrency đều được observe/guard; inventory/cooking/scan mutation bị chặn.
+Năm HTTP windows không có unexplained Worker 5xx; stock snapshots khớp, item count 0.
+Production event ledger chưa query; nonempty stock/event invariance có staging
+receipt riêng, không suy ra từ stock production rỗng.
 
 **Readiness:** CODE_COMPLETE=true; TEST_VERIFIED=true; STAGING_CERTIFIED=true;
-PRODUCTION_READY=true; PRODUCTION_ENABLED=true ở shadow;
-PRODUCTION_ROLLOUT_COMPLETE=false; PRODUCTION_FUNCTIONAL_SMOKE=false.
-Chưa claim T20_COMPLETE; optional extensions giữ phân loại theo takeover audit.
+PRODUCTION_READY=true; PRODUCTION_ENABLED=true;
+PRODUCTION_ROLLOUT_COMPLETE=true; PRODUCTION_FUNCTIONAL_SMOKE=true.
+Sáu readiness observations trong 301,536s (12:30–12:35 UTC) đều HTTP 200,
+đúng source/D1/no fallback. Status `degraded` chỉ có cảnh báo hiện hữu
+`CONFIG_RECIPE_CATALOG_D1_AUTHORITY` cho user-visible D1 authority.
+Cửa sổ này không chứng nhận toàn bộ Worker logs/error rate hoặc SLA.
+Whole-week V2 Auto và các optional extensions giữ phân loại trong takeover audit.
 
-**Next action:** Canary 1% run `37922994678` đã qua release/main/CI;
-Environment approval đã được `vn-taphoanhatung` hoàn tất; job production đang chạy.
-Duyệt tại https://github.com/vn-tak/Tako-san/actions/runs/37922994678.
-Observer hiện có chỉ theo dõi run này, collect/mark proof khi SUCCESS. Sau proof
-PASS mới dispatch 5% → 25% → D1, từng run có review riêng; sau D1 chạy smoke một lần.
-Checkpoint ignored đã sửa session/observer và trạng thái shadow cũ; syntax của
-ba script dispatch/observer/smoke và JSON checkpoint PASS. `git diff --check` PASS.
-Không redispatch run hiện có, replay staging đã certified, 0039, recovery/import
-hoặc AI scan. Rollback theo workflow chuẩn và catalog transition guard.
+**Next action:** Review hồ sơ PR #63 và CI của chính head documentation cuối.
+Rollout core T20 đã hoàn tất; không cần dispatch thêm hoặc replay journeys,
+0039/recovery/import/failed scan. Rollback theo workflow/reviewer chuẩn,
+giữ source/catalog stage được transition guard chấp nhận và composition records.
+Chi tiết: [rollout report](T20_ROLLOUT_CERTIFICATION_20261009.md),
+[aggregate evidence](T20_PRODUCTION_EVIDENCE_20261009.json).
 
 ---
 

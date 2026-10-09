@@ -1,5 +1,35 @@
 # T20 — Release và rollback packet cho operator review
 
+## Trạng thái hiện hành — 2026-10-09 JST
+
+`T20_PRODUCTION_ROLLOUT_COMPLETE_FUNCTIONAL_SMOKE_PASS`; source `27d47b056455a57df811199cd7e9c32a84cbffe5`.
+Staging năm stage/45 hosted journeys/bốn stock-event audits PASS;
+production shadow → 1% → 5% → 25% → D1 đều PASS với normal Environment review.
+T20/planner paired true, catalog toàn bộ D1, ledger 39; không replay migration.
+
+Production smoke verified năm journeys: initial bốn PASS + một local observer
+recursion failure trước concurrency race, sau đó targeted concurrency 1/1 PASS
+trên đúng plan chưa sửa. Original evidence/checksums giữ nguyên, helper đã có
+regression RED/GREEN; automatic retries 0, không replay bốn PASS.
+Năm HTTP windows không có unexplained Worker 5xx; stock HTTP snapshots khớp
+với item count 0. Production event ledger không được query.
+
+Readiness window 6 observations/301,536s PASS, HTTP 200 và source/D1/no fallback
+khớp; `degraded` chỉ bởi `CONFIG_RECIPE_CATALOG_D1_AUTHORITY` hiện hữu.
+Đây là public readiness evidence, không phải full Worker log/error-rate audit.
+Whole-week V2 Auto và optional extensions giữ phân loại trong takeover audit.
+
+Báo cáo hiện hành: [rollout certification](T20_ROLLOUT_CERTIFICATION_20261009.md)
+và [public aggregate](T20_PRODUCTION_EVIDENCE_20261009.json).
+PR #63 dành cho documentation/evidence, chưa merge; kiểm tra CI đúng final head.
+Không dispatch production thêm hoặc replay certified journeys/0039/recovery/scan.
+Rollback paired flags theo workflow/reviewer chuẩn, giữ source/catalog state
+được transition guard chấp nhận, schema 0039 và composition records.
+
+---
+
+## Hồ sơ trước rollout — giữ làm lịch sử
+
 Trạng thái: `T20_STAGING_CERTIFICATION_REQUIRED` / `T20_PRODUCTION_READINESS_BLOCKED`.
 Ngày: 2026-10-09 JST. Implementation và final-head CI được ghi trong checkpoint
 cuối `T20_TAKEOVER_AUDIT.md` và PR. Packet này không cấp quyền deploy.

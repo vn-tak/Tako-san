@@ -1,0 +1,17 @@
+{
+  "localOnly": true,
+  "observations": [
+    {
+      "viewport": 1100,
+      "documentWidth": 1100,
+      "brokenImages": 0,
+      "loadedFonts": 4
+    },
+    {
+      "viewport": 390,
+      "documentWidth": 390,
+      "brokenImages": 0,
+      "loadedFonts": 4
+    }
+  ]
+}

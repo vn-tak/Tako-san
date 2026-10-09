@@ -5,13 +5,14 @@ import { useAuthStore } from '../../stores/useAuthStore';
 import { Bell, User, ArrowLeft, Settings } from 'lucide-react';
 
 interface TopBarProps {
+  brandLogo?: string;
   showBack?: boolean;
   title?: string;
   subtitle?: string;
   onBack?: () => void;
 }
 
-export const TopBar: React.FC<TopBarProps> = ({ showBack = false, title, subtitle, onBack }) => {
+export const TopBar: React.FC<TopBarProps> = ({ brandLogo = TAKOSAN_BRAND.logos.horizontal, showBack = false, title, subtitle, onBack }) => {
   const navigate = useNavigate();
   const location = useLocation();
   const { avatarUrl, displayName } = useAuthStore();
@@ -49,7 +50,7 @@ export const TopBar: React.FC<TopBarProps> = ({ showBack = false, title, subtitl
         ) : (
           <Link to="/" className="tap-target flex items-center gap-2 active:opacity-80 transition-opacity">
             <img
-              src={TAKOSAN_BRAND.logos.horizontal}
+              src={brandLogo}
               alt="Takosan"
               className="h-8 w-auto object-contain"
             />

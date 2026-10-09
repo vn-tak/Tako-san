@@ -1,0 +1,157 @@
+{
+  "base": "http://127.0.0.1:5197",
+  "syntheticLocalOnly": true,
+  "observations": [
+    {
+      "name": "inventory-320",
+      "url": "http://127.0.0.1:5197/fridge",
+      "viewport": 320,
+      "documentWidth": 320,
+      "font": "\"Be Vietnam Pro\", sans-serif",
+      "noMotion": true,
+      "revealAnimations": [
+        "none"
+      ],
+      "violations": []
+    },
+    {
+      "name": "recipe-320",
+      "url": "http://127.0.0.1:5197/recipes/thit-kho-trung",
+      "viewport": 320,
+      "documentWidth": 320,
+      "font": "\"Be Vietnam Pro\", sans-serif",
+      "noMotion": true,
+      "revealAnimations": [
+        "none"
+      ],
+      "violations": []
+    },
+    {
+      "name": "inventory-390",
+      "url": "http://127.0.0.1:5197/fridge",
+      "viewport": 390,
+      "documentWidth": 390,
+      "font": "\"Be Vietnam Pro\", sans-serif",
+      "noMotion": true,
+      "revealAnimations": [
+        "none"
+      ],
+      "violations": []
+    },
+    {
+      "name": "recipe-390",
+      "url": "http://127.0.0.1:5197/recipes/thit-kho-trung",
+      "viewport": 390,
+      "documentWidth": 390,
+      "font": "\"Be Vietnam Pro\", sans-serif",
+      "noMotion": true,
+      "revealAnimations": [
+        "none"
+      ],
+      "violations": []
+    },
+    {
+      "name": "inventory-768",
+      "url": "http://127.0.0.1:5197/fridge",
+      "viewport": 768,
+      "documentWidth": 768,
+      "font": "\"Be Vietnam Pro\", sans-serif",
+      "noMotion": true,
+      "revealAnimations": [
+        "none"
+      ],
+      "violations": []
+    },
+    {
+      "name": "recipe-768",
+      "url": "http://127.0.0.1:5197/recipes/thit-kho-trung",
+      "viewport": 768,
+      "documentWidth": 768,
+      "font": "\"Be Vietnam Pro\", sans-serif",
+      "noMotion": true,
+      "revealAnimations": [
+        "none"
+      ],
+      "violations": []
+    },
+    {
+      "name": "inventory-1024",
+      "url": "http://127.0.0.1:5197/fridge",
+      "viewport": 1024,
+      "documentWidth": 1024,
+      "font": "\"Be Vietnam Pro\", sans-serif",
+      "noMotion": true,
+      "revealAnimations": [
+        "none"
+      ],
+      "violations": []
+    },
+    {
+      "name": "recipe-1024",
+      "url": "http://127.0.0.1:5197/recipes/thit-kho-trung",
+      "viewport": 1024,
+      "documentWidth": 1024,
+      "font": "\"Be Vietnam Pro\", sans-serif",
+      "noMotion": true,
+      "revealAnimations": [
+        "none"
+      ],
+      "violations": []
+    },
+    {
+      "name": "inventory-1440",
+      "url": "http://127.0.0.1:5197/fridge",
+      "viewport": 1440,
+      "documentWidth": 1440,
+      "font": "\"Be Vietnam Pro\", sans-serif",
+      "noMotion": true,
+      "revealAnimations": [
+        "none"
+      ],
+      "violations": []
+    },
+    {
+      "name": "recipe-1440",
+      "url": "http://127.0.0.1:5197/recipes/thit-kho-trung",
+      "viewport": 1440,
+      "documentWidth": 1440,
+      "font": "\"Be Vietnam Pro\", sans-serif",
+      "noMotion": true,
+      "revealAnimations": [
+        "none"
+      ],
+      "violations": []
+    },
+    {
+      "name": "inventory-no-results-390",
+      "url": "http://127.0.0.1:5197/fridge",
+      "viewport": 390,
+      "documentWidth": 390,
+      "font": "\"Be Vietnam Pro\", sans-serif",
+      "noMotion": true,
+      "revealAnimations": [
+        "none"
+      ],
+      "violations": []
+    },
+    {
+      "name": "egg-shortfall-shopping",
+      "quantity": 2,
+      "unit": "piece",
+      "status": 201
+    },
+    {
+      "name": "recipe-neutral-fallback-390",
+      "url": "http://127.0.0.1:5197/recipes/thit-kho-trung",
+      "viewport": 390,
+      "documentWidth": 390,
+      "font": "\"Be Vietnam Pro\", sans-serif",
+      "noMotion": true,
+      "revealAnimations": [
+        "none"
+      ],
+      "violations": []
+    }
+  ],
+  "errors": []
+}

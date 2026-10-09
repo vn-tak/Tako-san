@@ -237,7 +237,11 @@ describe('Palette hardening (P2-BRAND-1)', () => {
     const takosan = theme.colors.takosan as Record<string, string | Record<string, string>>;
     const value = (c: string | Record<string, string>) => (typeof c === 'string' ? c : c.DEFAULT);
     for (const [name, hex] of Object.entries(TAKOSAN_BRAND.colors)) {
-      expect(value(takosan[name])).toBe(hex);
+      const actual = value(takosan[name]);
+      if (actual.startsWith('rgb(var(')) {
+        const rgb = [1, 3, 5].map(index => Number.parseInt(hex.slice(index, index + 2), 16)).join(' ');
+        expect(actual).toContain(`, ${rgb}) / <alpha-value>)`);
+      } else expect(actual).toBe(hex);
     }
     for (const name of ['float', 'glow']) {
       expect(theme.boxShadow[name]).toContain('rgba(46, 125, 91');

@@ -36,15 +36,17 @@ describe('T14C — frontend recipe image resolution (single fallback point)', ()
     expect(resolved.filter((image) => image.source === 'legacy_external')).toHaveLength(59);
   });
 
-  it('onError handler steps to the fallback exactly once and never loops', () => {
+  it('onError tries the legacy fallback, then a neutral image, and stops on placeholder failure', () => {
     const image = document.createElement('img');
     image.src = 'https://broken.example/x.webp';
     const handler = recipeImageErrorHandler('/fallback.webp');
     handler({ currentTarget: image });
     expect(image.getAttribute('src')).toBe('/fallback.webp');
-    image.src = 'https://broken-again.example/y.webp';
     handler({ currentTarget: image });
-    expect(image.getAttribute('src')).toBe('https://broken-again.example/y.webp');
+    expect(image.getAttribute('src')).toBe(RECIPE_IMAGE_PLACEHOLDER);
+    expect(image.alt).toBe('Chưa có ảnh món ăn');
+    handler({ currentTarget: image });
+    expect(image.getAttribute('src')).toBe(RECIPE_IMAGE_PLACEHOLDER);
   });
 
   it('all recipe image surfaces use the central resolver instead of raw imageUrl', () => {

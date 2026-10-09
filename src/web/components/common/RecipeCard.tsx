@@ -90,9 +90,9 @@ export const RecipeCard: React.FC<RecipeCardProps> = ({
               {recipe.cookTimeMinutes}p
             </span>
             {canCookWithoutBuying ? (
-              <span className="text-takosan-green font-heading font-bold">Đủ 100%</span>
+              <span className="text-takosan-green font-heading font-bold">Đủ lượng để nấu</span>
             ) : (
-              <span className="text-semantic-warning-strong font-bold">Thiếu {missingRequiredIngredients.length}</span>
+              <span className="text-semantic-warning-strong font-bold">Cần kiểm tra {missingRequiredIngredients.length}</span>
             )}
           </div>
         </div>
@@ -130,11 +130,11 @@ export const RecipeCard: React.FC<RecipeCardProps> = ({
           <div className="flex items-center gap-1.5 flex-wrap">
             {canCookWithoutBuying ? (
               <span className="text-[11px] font-bold px-2 py-1 rounded-full bg-takosan-mint text-takosan-green-deep border border-takosan-mint-deep/80">
-                Đủ 100%
+                Đủ lượng để nấu
               </span>
             ) : (
               <span className="text-[11px] font-bold px-2 py-1 rounded-full bg-semantic-warning-soft text-semantic-warning-strong border border-semantic-warning/30">
-                Thiếu {missingRequiredIngredients.length} món
+                Cần kiểm tra {missingRequiredIngredients.length} nguyên liệu
               </span>
             )}
             <span className="inline-flex items-center gap-1 text-[11px] font-heading font-extrabold text-takosan-green">
@@ -194,11 +194,11 @@ export const RecipeCard: React.FC<RecipeCardProps> = ({
           <div className="flex items-center gap-1.5 flex-wrap">
             {canCookWithoutBuying ? (
               <span className="text-[11px] font-bold px-2 py-1 rounded-full bg-takosan-mint text-takosan-green-deep border border-takosan-mint-deep/80">
-                Đủ 100%
+                Đủ lượng để nấu
               </span>
             ) : (
               <span className="text-[11px] font-bold px-2 py-1 rounded-full bg-semantic-warning-soft text-semantic-warning-strong border border-semantic-warning/30">
-                Thiếu {missingRequiredIngredients.length} món
+                Cần kiểm tra {missingRequiredIngredients.length} nguyên liệu
               </span>
             )}
             <span className="inline-flex items-center gap-1 text-[11px] font-heading font-extrabold text-takosan-green">
@@ -251,11 +251,11 @@ export const RecipeCard: React.FC<RecipeCardProps> = ({
         <div className="flex items-center gap-1.5 mb-1.5 flex-wrap">
           {canCookWithoutBuying ? (
             <span className="text-[11px] font-bold px-2.5 py-1 rounded-full bg-takosan-mint text-takosan-green-deep border border-takosan-mint-deep/80 flex items-center gap-1">
-              <CheckCircle className="w-3.5 h-3.5 text-takosan-green" /> Đủ 100%
+              <CheckCircle className="w-3.5 h-3.5 text-takosan-green" /> Đủ lượng để nấu
             </span>
           ) : (
             <span className="text-[11px] font-bold px-2.5 py-1 rounded-full bg-semantic-warning-soft text-semantic-warning-strong border border-semantic-warning/30">
-              Thiếu {missingRequiredIngredients.length} món
+              Cần kiểm tra {missingRequiredIngredients.length} nguyên liệu
             </span>
           )}
           <span className="inline-flex items-center gap-1 text-[11px] font-heading font-extrabold text-takosan-green">

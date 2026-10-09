@@ -1,5 +1,44 @@
 # Architecture Decisions
 
+## ADR-044 - Quantity evidence and a scoped interface rebuild foundation
+
+**Status:** Accepted for local implementation on 2026-10-09 under the user's
+instruction to start the Tako-san UI rebuild; remote release requires separate work.
+
+**Problem:** The legacy matcher treats compatible but insufficient stock as
+no-buy. Detail checks only positive stock and shopping posts the whole demand.
+The generic image fallback depicts a different dish. Filter emptiness is presented
+as an empty fridge. The accepted audit roadmap calls for a more mature visual system.
+
+**Decision:** Reuse T02's lot index/reservation arithmetic in an explicit
+quantity-only adapter for the legacy matcher, detail and cooking drafts. Preserve
+existing type-match percentage and ranking weights; no-buy requires satisfied
+required demands. Add optional `ingredientAvailability` evidence to the result;
+keep existing fields and full required lines in `missingRequiredIngredients` for
+compatibility. Only a known positive `missingQuantity` may be posted to shopping.
+Unknown/contextual conversion requires review, never a guessed shortage.
+
+This adapter projects quantity, identity, unit and freshness, with no expiry dates:
+the fixed index date is inert. It does not certify expiry/allergen safety, replace
+planner eligibility or authorize stock consumption. Existing authenticated inventory
+readers own household scope. Real lot IDs retain duplicate detection; legacy inputs
+without IDs receive deterministic per-row IDs. Required lines reserve before optional
+lines, so repeated demands cannot double-spend stock. Cooking commands/FEFO/session
+and revision fencing remain server-owned and unchanged.
+
+Use a neutral SVG image fallback. Keep valid canonical/legacy media resolution.
+Distinguish true empty inventory from empty search/filter results. Apply the prototype
+palette/Be Vietnam Pro and responsive typography only within rebuilt inventory/detail
+surfaces. Existing global brand and protected payment presentation remain intact until
+subsequent component migration. The name remains Takosan per current identity contract.
+
+**Compatibility:** No schema, migration, catalog, flag, dependency, auth, payment or
+production-infrastructure change. The additive evidence is optional for old clients
+and mocks; rebuilt detail recomputes against its inventory query. No-buy semantics
+become stricter as intended. Legacy contextual stock may now require checking.
+Rollback source/UI together; no data or composition records need removal.
+
+
 ## ADR-043 — T20 hiển thị composition có thẩm quyền và kiểm tra prerequisite trên cả hai môi trường
 
 **Trạng thái:** Đề xuất implementation ngày 2026-10-09, chờ reviewer độc lập

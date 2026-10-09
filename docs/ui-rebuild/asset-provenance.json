@@ -1,0 +1,77 @@
+{
+  "source": "@fontsource/be-vietnam-pro@5.2.6",
+  "license": "SIL OFL 1.1; public/takosan/fonts/OFL.txt",
+  "fonts": [
+    {
+      "path": "public/takosan/fonts/be-vietnam-pro-latin-400-normal.woff2",
+      "bytes": 21276,
+      "sha256": "cefd95a324be2eaf3e23aff008a33cb029872f266d785204fd2f2eaac2abb0d3"
+    },
+    {
+      "path": "public/takosan/fonts/be-vietnam-pro-latin-600-normal.woff2",
+      "bytes": 22052,
+      "sha256": "136998431df364d059b40ec4ed821fd193437096011f88c8676b5a27274a34ed"
+    },
+    {
+      "path": "public/takosan/fonts/be-vietnam-pro-latin-700-normal.woff2",
+      "bytes": 22216,
+      "sha256": "6ed20761ae0472f8f1ce186f64739c41787db04c881d5ba0530027dc4eddf4b6"
+    },
+    {
+      "path": "public/takosan/fonts/be-vietnam-pro-latin-ext-400-normal.woff2",
+      "bytes": 12928,
+      "sha256": "c481d1798fd5d657632f9e32c5489b729653d141f33570e4bbc2cfcb7c4cf5ea"
+    },
+    {
+      "path": "public/takosan/fonts/be-vietnam-pro-latin-ext-600-normal.woff2",
+      "bytes": 13612,
+      "sha256": "1d37ca4a523cdd1e35b14adbaa0b0d238dc6a057ac3c4aa77ecb9ce534bae475"
+    },
+    {
+      "path": "public/takosan/fonts/be-vietnam-pro-latin-ext-700-normal.woff2",
+      "bytes": 13776,
+      "sha256": "2a11d0d40a69fb7d3865463ad254fa393840b7d25c8207d60af3dc61f2235304"
+    },
+    {
+      "path": "public/takosan/fonts/be-vietnam-pro-vietnamese-400-normal.woff2",
+      "bytes": 11484,
+      "sha256": "a1a7de622e4266ff7d5fdef40712c3aa9fa0a7b1213219b4b172b41c62e9fd5a"
+    },
+    {
+      "path": "public/takosan/fonts/be-vietnam-pro-vietnamese-600-normal.woff2",
+      "bytes": 12160,
+      "sha256": "86dbbb4b20a5ae31c479f1aff09532034340c87239ac2bb183b152c697755227"
+    },
+    {
+      "path": "public/takosan/fonts/be-vietnam-pro-vietnamese-700-normal.woff2",
+      "bytes": 12428,
+      "sha256": "390d020c9aa37584d7b389dde664d6d8e202013d0d5b13ba6d2297d6f1865f6b"
+    }
+  ],
+  "totalFontBytes": 141932,
+  "vietnameseCoverage": [
+    {
+      "weight": 400,
+      "sample": "Tủ lạnh, bữa cơm, nguyên liệu, đủ lượng, Ắ Ề Ỗ Ữ Ỳ đ",
+      "missingGlyphs": []
+    },
+    {
+      "weight": 600,
+      "sample": "Tủ lạnh, bữa cơm, nguyên liệu, đủ lượng, Ắ Ề Ỗ Ữ Ỳ đ",
+      "missingGlyphs": []
+    },
+    {
+      "weight": 700,
+      "sample": "Tủ lạnh, bữa cơm, nguyên liệu, đủ lượng, Ắ Ề Ỗ Ữ Ỳ đ",
+      "missingGlyphs": []
+    }
+  ],
+  "wordmarkOutlineSource": "Google Fonts Be Vietnam Pro Bold v12, https://fonts.gstatic.com/s/bevietnampro/v12/QdVMSTAyLFyeg_IDWvOJmVES_HSMIF8y.ttf",
+  "contrast": {
+    "white_on_pine": 7.67,
+    "ink_on_canvas": 13.07,
+    "muted_on_canvas": 5.13,
+    "ink_on_coral": 4.9
+  },
+  "status": "Prototype; not user-recognition certification"
+}

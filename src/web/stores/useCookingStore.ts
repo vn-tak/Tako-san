@@ -1,6 +1,5 @@
 import { create } from 'zustand';
-import { Recipe } from '@frigo/recipes';
-import { areUnitsCompatible, convertUnit, StandardUnit } from '@frigo/domain';
+import { evaluateRecipeAvailability, type Recipe, type RecipeScoringContext } from '@frigo/recipes';
 import { onPrivateSessionReset } from '../lib/private-session';
 
 export interface DeductionDraft {
@@ -18,7 +17,7 @@ interface CookingState {
   timerSecondsRemaining: number | null;
   isTimerRunning: boolean;
   deductions: DeductionDraft[];
-  startCooking: (recipe: Recipe, currentInventory: any[]) => void;
+  startCooking: (recipe: Recipe, currentInventory: RecipeScoringContext['inventory']) => void;
   nextStep: () => void;
   prevStep: () => void;
   setTimer: (seconds: number) => void;
@@ -36,15 +35,9 @@ export const useCookingStore = create<CookingState>((set, get) => ({
   deductions: [],
 
   startCooking: (recipe, currentInventory) => {
-    // Generate draft deductions
-    const deductions: DeductionDraft[] = recipe.ingredients.map(ing => {
-      const invItem = currentInventory.find(i => i.ingredientId === ing.ingredientId);
-      const inventoryUnit = invItem?.unit as StandardUnit | undefined;
-      const recipeUnit = ing.unit as StandardUnit;
-      const currentQty =
-        invItem && inventoryUnit && areUnitsCompatible(inventoryUnit, recipeUnit)
-          ? convertUnit(Number(invItem.quantity) || 0, inventoryUnit, recipeUnit)
-          : 0;
+    const availability = evaluateRecipeAvailability(recipe, currentInventory);
+    const deductions: DeductionDraft[] = recipe.ingredients.map((ing, index) => {
+      const currentQty = availability[index].availableQuantity;
       const deductQty = Math.min(currentQty, ing.requiredQuantity);
       return {
         ingredientId: ing.ingredientId,

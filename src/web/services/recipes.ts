@@ -1,5 +1,5 @@
 import { ALL_RECIPES, rankRecipes, evaluateRecipeMatch, type Recipe, type RecipeMatchResult } from '@frigo/recipes';
-import { tryConvertUnit } from '@frigo/domain';
+import { projectCookingInventory } from '../lib/cooking-projection';
 import { privateCacheKey } from '../lib/private-session';
 import { fetchJson, isOffline, queueWrite, getHouseholdId, createClientItemId, guardPrivateSession } from './http';
 import { inventoryApi } from './inventory';
@@ -86,26 +86,7 @@ export const recipesApi = {
       );
       const inventory = await inventoryApi.getInventory();
       assertCurrent();
-      const updated = inventory
-        .map((item: any) => {
-          const matches = deductions.filter((dec: any) => {
-            const itemKey = String(item.ingredientId || item.name || '').toUpperCase();
-            const deductionKey = String(dec.ingredientId || dec.name || '').toUpperCase();
-            return deductionKey === itemKey;
-          });
-          const convertedDeductions = matches.map((dec: any) =>
-            tryConvertUnit(Number(dec.quantityDeducted || 0), dec.unit, item.unit)
-          );
-          const deduction = convertedDeductions.length > 0 && convertedDeductions.every((value) => value !== null)
-            ? convertedDeductions.reduce((sum, value) => sum + (value || 0), 0)
-            : null;
-          if (deduction !== null) {
-            const remaining = Math.max(0, Number(item.quantity || 0) - deduction);
-            return { ...item, quantity: remaining, pendingSync: true };
-          }
-          return item;
-        })
-        .filter((i: any) => i.quantity > 0);
+      const updated = projectCookingInventory(inventory, deductions);
       localStorage.setItem(privateCacheKey('inventory', hhId), JSON.stringify(updated));
       return { success: true, inventory: updated, pendingSync: true };
     }

@@ -1,0 +1,88 @@
+/* Scoped rollout: rebuilt surfaces adopt these tokens without changing payment UI. */
+.takosan-rebuild {
+  --takosan-font-ui: 'Be Vietnam Pro', sans-serif;
+  --kitchen-pine: #245d49;
+  --kitchen-coral: #ee705e;
+  --kitchen-canvas: #f7f3ec;
+  --semantic-background-rgb: 247 243 236;
+  --semantic-background-subtle-rgb: 239 238 231;
+  --semantic-text-primary-rgb: 32 44 40;
+  --semantic-text-secondary-rgb: 75 86 79;
+  --semantic-text-muted-rgb: 96 105 99;
+  --semantic-border-rgb: 221 220 211;
+  --takosan-green-color-rgb: 36 93 73;
+  --takosan-green-hover-color-rgb: 28 75 58;
+  --takosan-green-deep-color-rgb: 25 65 50;
+  --takosan-mint-color-rgb: 233 241 234;
+  --takosan-mint-deep-color-rgb: 199 219 203;
+  --takosan-cream-color-rgb: 247 243 236;
+  --takosan-cream-line-color-rgb: 221 220 211;
+  --takosan-navy-color-rgb: 32 44 40;
+  background: var(--kitchen-canvas);
+  color: rgb(var(--semantic-text-primary-rgb));
+  font-family: var(--takosan-font-ui);
+  font-size: 16px;
+  line-height: 1.5;
+}
+
+.takosan-rebuild h1,
+.takosan-rebuild h2,
+.takosan-rebuild h3,
+.takosan-rebuild h4,
+.takosan-rebuild h5,
+.takosan-rebuild h6 {
+  color: rgb(var(--semantic-text-primary-rgb));
+}
+
+.takosan-rebuild :focus-visible {
+  outline: 2px solid var(--kitchen-pine);
+  outline-offset: 3px;
+}
+
+.recipe-workspace {
+  padding: 24px 16px;
+}
+.recipe-cover {
+  aspect-ratio: 4 / 3;
+  border-radius: 16px;
+}
+.recipe-intro {
+  padding: 24px 0;
+}
+.recipe-availability {
+  padding: 16px;
+  background: white;
+  border: 1px solid rgb(var(--semantic-border-rgb));
+  border-left: 4px solid var(--kitchen-coral);
+  border-radius: 0 10px 10px 0;
+}
+.recipe-preparation {
+  min-width: 0;
+}
+.ingredient-availability-row {
+  flex-wrap: wrap;
+}
+.ingredient-availability-row > button {
+  flex-shrink: 0;
+  margin-left: auto;
+}
+.takosan-rebuild [role='tab'] {
+  font-size: 14px;
+}
+.takosan-rebuild [role='tabpanel'] {
+  scroll-margin-top: 96px;
+}
+
+@media (min-width: 1100px) {
+  .recipe-workspace {
+    display: grid;
+    grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
+    align-items: start;
+    gap: 32px;
+    padding: 32px;
+  }
+  .recipe-overview {
+    position: sticky;
+    top: 100px;
+  }
+}

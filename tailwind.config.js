@@ -11,15 +11,15 @@ export default {
         // (Takosan Redesign OS v2.0.0 design-tokens.json). rgb channels keep
         // alpha modifiers (bg-semantic-action-primary/10) working.
         semantic: {
-          "background": "rgb(255 248 243 / <alpha-value>)",
-          "background-subtle": "rgb(252 251 248 / <alpha-value>)",
+          "background": "rgb(var(--semantic-background-rgb, 255 248 243) / <alpha-value>)",
+          "background-subtle": "rgb(var(--semantic-background-subtle-rgb, 252 251 248) / <alpha-value>)",
           "surface": "rgb(255 255 255 / <alpha-value>)",
           "surface-raised": "rgb(255 255 255 / <alpha-value>)",
-          "text-primary": "rgb(31 41 55 / <alpha-value>)",
-          "text-secondary": "rgb(74 71 65 / <alpha-value>)",
+          "text-primary": "rgb(var(--semantic-text-primary-rgb, 31 41 55) / <alpha-value>)",
+          "text-secondary": "rgb(var(--semantic-text-secondary-rgb, 74 71 65) / <alpha-value>)",
           // Kit value #7B776F measures 4.24:1 on --semantic-background (fails
           // WCAG AA body text); darkened to #6F6B64 (5.04:1) — see T17 report.
-          "text-muted": "rgb(111 107 100 / <alpha-value>)",
+          "text-muted": "rgb(var(--semantic-text-muted-rgb, 111 107 100) / <alpha-value>)",
           "text-inverse": "rgb(255 255 255 / <alpha-value>)",
           "action-primary": "rgb(46 125 91 / <alpha-value>)",
           "action-primary-hover": "rgb(36 102 72 / <alpha-value>)",
@@ -39,7 +39,7 @@ export default {
           "danger-strong": "rgb(181 52 52 / <alpha-value>)",
           "info": "rgb(47 111 159 / <alpha-value>)",
           "info-soft": "rgb(234 244 251 / <alpha-value>)",
-          "border": "rgb(231 227 218 / <alpha-value>)",
+          "border": "rgb(var(--semantic-border-rgb, 231 227 218) / <alpha-value>)",
           "border-strong": "rgb(201 194 182 / <alpha-value>)",
           "focus": "rgb(46 125 91 / <alpha-value>)",
           // Scrim colour from design-tokens.json (--semantic-overlay); alpha
@@ -50,10 +50,10 @@ export default {
         // derived shades for hover/depth/borders so runtime UI never falls back to emerald.
         takosan: {
           coral: { DEFAULT: "#FF7B6B", deep: "#E8624F", soft: "#FFE6E1" },
-          green: { DEFAULT: "#2E7D5B", hover: "#26694C", deep: "#1F563E" },
-          navy: "#1F2937",
-          cream: { DEFAULT: "#FFF8F3", deep: "#FFF1E8", line: "#F3E4DA", shade: "#F6EEE8" },
-          mint: { DEFAULT: "#DFF4E6", hover: "#CFEDDA", deep: "#BFE3CC" },
+          green: { DEFAULT: "rgb(var(--takosan-green-color-rgb, 46 125 91) / <alpha-value>)", hover: "rgb(var(--takosan-green-hover-color-rgb, 38 105 76) / <alpha-value>)", deep: "rgb(var(--takosan-green-deep-color-rgb, 31 86 62) / <alpha-value>)" },
+          navy: "rgb(var(--takosan-navy-color-rgb, 31 41 55) / <alpha-value>)",
+          cream: { DEFAULT: "rgb(var(--takosan-cream-color-rgb, 255 248 243) / <alpha-value>)", deep: "#FFF1E8", line: "rgb(var(--takosan-cream-line-color-rgb, 243 228 218) / <alpha-value>)", shade: "#F6EEE8" },
+          mint: { DEFAULT: "rgb(var(--takosan-mint-color-rgb, 223 244 230) / <alpha-value>)", hover: "#CFEDDA", deep: "rgb(var(--takosan-mint-deep-color-rgb, 191 227 204) / <alpha-value>)" },
           yellow: "#FFC857",
         },
         // Legacy Frigo palette names kept as aliases onto Takosan values (no runtime
@@ -104,9 +104,9 @@ export default {
         },
       },
       fontFamily: {
-        heading: ["Nunito", "system-ui", "sans-serif"],
-        body: ["Nunito", "system-ui", "sans-serif"],
-        sans: ["Nunito", "system-ui", "sans-serif"],
+        heading: ["var(--takosan-font-ui)", "sans-serif"],
+        body: ["var(--takosan-font-ui)", "sans-serif"],
+        sans: ["var(--takosan-font-ui)", "sans-serif"],
       },
       // T17 type scale (design-system/typography.json) — size/line-height/weight triples.
       fontSize: {

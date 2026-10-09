@@ -1,46 +1,41 @@
 import { Recipe, RecipeScoringContext, RecipeMatchResult, RecipeIngredient } from './types';
-import { tryConvertUnit } from '@frigo/domain';
+import { tryConvertUnit, type InventoryAvailabilityIndex } from '@frigo/domain';
+import { createRecipeAvailabilityIndex, evaluateRecipeAvailability } from './legacy-availability';
 
-export function evaluateRecipeMatch(recipe: Recipe, context: RecipeScoringContext): RecipeMatchResult {
-  const inventoryMap = new Map<string, { quantity: number; unit: string; freshness: string }>();
-  for (const item of context.inventory) {
-    inventoryMap.set(item.ingredientId, item);
-  }
-
-  const requiredIngredients = recipe.ingredients.filter(i => !i.isOptional);
-  const totalRequired = requiredIngredients.length > 0 ? requiredIngredients.length : recipe.ingredients.length;
-
-  let matchedRequired = 0;
-  let sufficientQtyCount = 0;
-  const missingRequiredIngredients: RecipeIngredient[] = [];
-  const expiringIngredientsUsed: string[] = [];
-
-  for (const ing of requiredIngredients) {
-    const inv = inventoryMap.get(ing.ingredientId);
-    if (inv && inv.quantity > 0) {
-      const userQtyConverted = tryConvertUnit(inv.quantity, inv.unit as any, ing.unit);
-      if (userQtyConverted === null) {
-        missingRequiredIngredients.push(ing);
-        continue;
-      }
-      matchedRequired++;
-      if (userQtyConverted >= ing.requiredQuantity) {
-        sufficientQtyCount++;
-      }
-      if (inv.freshness === 'expiring') {
-        expiringIngredientsUsed.push(ing.name);
-      } else if (inv.freshness === 'use_soon') {
-        expiringIngredientsUsed.push(ing.name);
-      }
-    } else {
-      missingRequiredIngredients.push(ing);
-    }
-  }
+export function evaluateRecipeMatch(
+  recipe: Recipe,
+  context: RecipeScoringContext,
+  index?: InventoryAvailabilityIndex,
+): RecipeMatchResult {
+  const ingredientAvailability = evaluateRecipeAvailability(recipe, context.inventory, index);
+  const requiredIngredients = recipe.ingredients.filter((i) => !i.isOptional);
+  const totalRequired = requiredIngredients.length;
+  const requiredAvailability = ingredientAvailability.filter((item) => !item.isOptional);
+  // Type coverage remains distinct from proof of enough stock for this dish.
+  const matchedRequired = requiredIngredients.filter((ingredient) =>
+    context.inventory.some(
+      (item) =>
+        item.ingredientId === ingredient.ingredientId &&
+        item.quantity > 0 &&
+        item.freshness !== 'out_of_stock' &&
+        tryConvertUnit(item.quantity, item.unit, ingredient.unit) !== null,
+    ),
+  ).length;
+  const sufficientQtyCount = requiredAvailability.filter(
+    (item) => item.status === 'satisfied',
+  ).length;
+  const missingRequiredIngredients: RecipeIngredient[] = requiredIngredients.filter(
+    (_item, index) => requiredAvailability[index].status !== 'satisfied',
+  );
+  const expiringIngredientsUsed = requiredAvailability
+    .filter((item) =>
+      item.lotsUsed.some((lot) => lot.freshness === 'expiring' || lot.freshness === 'use_soon'),
+    )
+    .map((item) => item.name);
 
   // Calculate Match %
-  const matchPercentage = totalRequired > 0 
-    ? Math.round((matchedRequired / totalRequired) * 100) 
-    : 100;
+  const matchPercentage =
+    totalRequired > 0 ? Math.round((matchedRequired / totalRequired) * 100) : 100;
 
   // 1. Availability Score (35%)
   const availabilityScore = (matchedRequired / (totalRequired || 1)) * 35;
@@ -67,7 +62,10 @@ export function evaluateRecipeMatch(recipe: Recipe, context: RecipeScoringContex
   // 4. Cooking Time Score (10%)
   let timeScore = 0;
   if (context.maxCookTimeMinutes) {
-    timeScore = recipe.cookTimeMinutes <= context.maxCookTimeMinutes ? 10 : Math.max(0, 10 - (recipe.cookTimeMinutes - context.maxCookTimeMinutes));
+    timeScore =
+      recipe.cookTimeMinutes <= context.maxCookTimeMinutes
+        ? 10
+        : Math.max(0, 10 - (recipe.cookTimeMinutes - context.maxCookTimeMinutes));
   } else {
     timeScore = recipe.cookTimeMinutes <= 25 ? 10 : 7;
   }
@@ -81,9 +79,12 @@ export function evaluateRecipeMatch(recipe: Recipe, context: RecipeScoringContex
     historyScore = 1; // Minor penalty to encourage recipe variety
   }
 
-  const totalScore = Math.min(100, Math.round(
-    availabilityScore + expiryScore + cuisineScore + timeScore + quantityScore + historyScore
-  ));
+  const totalScore = Math.min(
+    100,
+    Math.round(
+      availabilityScore + expiryScore + cuisineScore + timeScore + quantityScore + historyScore,
+    ),
+  );
 
   const canCookWithoutBuying = missingRequiredIngredients.length === 0;
 
@@ -95,15 +96,25 @@ export function evaluateRecipeMatch(recipe: Recipe, context: RecipeScoringContex
     missingRequiredIngredients,
     expiringIngredientsUsed,
     canCookWithoutBuying,
+    ingredientAvailability,
   };
 }
 
 export function rankRecipes(recipes: Recipe[], context: RecipeScoringContext): RecipeMatchResult[] {
-  const evaluated = recipes.map(recipe => evaluateRecipeMatch(recipe, context));
+  const index = createRecipeAvailabilityIndex(recipes, context.inventory);
+  const evaluated = recipes.map((recipe) => {
+    // List responses keep the existing summary payload; detail owns per-lot evidence.
+    const { ingredientAvailability: _availability, ...summary } = evaluateRecipeMatch(
+      recipe,
+      context,
+      index,
+    );
+    return summary;
+  });
 
   let filtered = evaluated;
   if (context.onlyNoBuyNeeded) {
-    filtered = filtered.filter(item => item.canCookWithoutBuying);
+    filtered = filtered.filter((item) => item.canCookWithoutBuying);
   }
 
   // Sort descending by score, then by matchPercentage, then by cookTime asc

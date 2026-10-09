@@ -39,3 +39,4 @@ export { createShoppingContext, PurchaseOptionSchema, ShoppingBudgetSchema, Shop
 export * from './shopping-policy';
 export { aggregateShoppingDemand, type PurchaseRequirement, type PurchaseRequirementSource } from './shopping-demand';
 export { optimizeShopping, type OptimizedShoppingPlan, type ShoppingPurchaseLine, type SelectedPurchasePackage } from './shopping-optimizer';
+export * from './legacy-availability';

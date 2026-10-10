@@ -1,0 +1,7 @@
+
+> frigo@0.1.0 typecheck /Users/tunbee27/Documents/Tako-san-ui-rebuild
+> tsc -p tsconfig.json --noEmit && tsc -p tsconfig.worker.json --noEmit
+
+src/web/features/week/WeekExportModal.tsx(125,134): error TS2774: This condition will always return true since this function is always defined. Did you mean to call it instead?
+src/web/pages/MealDetailPage.tsx(51,261): error TS2339: Property 'title' does not exist on type 'RecipeStep'.
+ ELIFECYCLE  Command failed with exit code 2.

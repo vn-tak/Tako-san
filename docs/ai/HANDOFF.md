@@ -1,3 +1,77 @@
+# UI10 - Thực đơn tuần đã kiểm chứng local - 2026-10-10 JST
+
+**Task/status:** `UI10_LOCAL_VERIFIED_REVIEW_REQUIRED`, packet UI10, ADR-053.
+Sáu trang Week, bốn component và workspace/choices/CSS chung hoàn tất trong phạm vi
+local. Toàn hệ thống, navigation, owner/devices và hosted release chưa hoàn tất.
+
+**Repository/source:** Canonical `vn-tak/Tako-san`; checkout
+`/Users/tunbee27/Documents/Tako-san-ui-rebuild`, branch `codex/ui-rebuild-foundation`,
+base `3c018d7778a780f5759d967e62d58440e4e08c2d`. 143 source hashes verified
+sau full; 51 public asset/font files sau build byte-identical. Protected-path diff
+rỗng; store chỉ hai replacement receipt. 40 logs có raw/archive SHA256 receipts.
+Implementation checkpoint chưa tạo; documentation checkpoint sẽ ghi hash sau
+khi Git objects và worktree đã được đối chiếu. Checkout Frigo cũ không được sửa.
+
+**Actual changes:** WeekWorkspace dùng nhận diện UI07; board hai cột/stacked,
+thumbnail nhỏ, body 14px/nhãn chính 16px, controls 48px, một h1 và back link rõ.
+Setup bốn bước thực sự, 1-3 priorities, quay lại giữ chọn, review/generate tường
+minh; bỏ lịch từng ngày không vào payload. Settings chỉ sửa bản nháp lần tạo tiếp
+theo trong phiên, không hứa lưu bền vững hay thay plan hiện tại; bỏ timer.
+Dashboard đưa về setup để xem lại; generation giữ null unlimited/undefined default.
+Generation effect AST giữ ngoài mapping ngân sách; App.tsx byte-identical.
+Meal/summary ghi rõ projection, unknown và empty. Swap/export có native controls,
+focus trap/Escape/return, scroll/safe areas và reduced motion. Clipboard chờ kết
+quả thật, phản hồi an toàn, xử lý share cancel và bỏ receipt đã rời dialog; giữ
+hai export generator AST. Shopping check là lựa chọn, import explicit selected-only,
+khóa lúc gửi, giữ snapshot và route/session fence. Optional pendingSync hiện có
+đi từ store đến completion; copy thận trọng, chưa chứng minh durable outbox.
+
+**Verification:** 11 files / 192 focused tests PASS 7.18s (34 mới, 158 hiện có).
+Recovery route-scope: 5 files / 128 tests PASS 5.55s. Type/lint/script syntax PASS.
+Browser 61 snapshots / 11 nhóm hành trình, 0 unexpected pageerror, applicable axe,
+overflow và ảnh lỗi. 320/390/768/1024/1440px, short 390x420, computed text x2 tại
+320px, chuỗi dài synthetic, normal/reduced motion. Worker local flag-off tạo/đọc/
+swap giữ toàn inventory JSON; import một selected ingredient, đúng quantity/unit,
+giữ mọi field của năm row cũ và reload readback nhất quán. Synthetic faults/pending
+receipt ghi riêng, không claim offline durability. Planner-on bảy aliases thật,
+không Week write/pageerror; actual App unit tests kiểm cả hai flags. T18C keyboard
+sáu projects PASS 15.1s, config local riêng giữ timeout/projects của repo.
+Full command:
+`PATH=/opt/homebrew/opt/node@24/bin:$PATH CI=true TMPDIR=/private/tmp WRANGLER_SEND_METRICS=false VITEST_MAX_THREADS=2 VITEST_MIN_THREADS=1 VITEST_MAX_FORKS=2 VITEST_MIN_FORKS=1 pnpm check`
+Exit 0: 283 files / 6653 tests PASS, 0 FAIL; Vitest 393.63s; type/lint/migration
+smoke/Vite 3.12s + Worker TypeScript build PASS. Remote schema/Week parity không chạy.
+Round-10 FOUNDATION/VERIFICATION, final-validation và contact sheets lưu bằng chứng.
+
+**Failures/recovery:** Initial type/script errors, DOMException cancellation,
+alias expectations/mocks và T18C controls được sửa theo contract thật. Browser
+wait nhầm generating, lazy image chờ ngoài viewport, dl semantics và memory/pending
+fixtures được sửa; eager image chỉ trong screenshot harness. Visual text x2 dẫn
+đến sửa line-height, step label wrap và heading CTA. Preliminary full bị dừng vì
+finding cuối ở CSS. Lượt full kế tiếp exit 1: 283 files, 6642 PASS / 7 FAIL, 525.94s;
+sáu assertion cũ coi Week chưa migrate và một Wrangler timeout 5000ms. Reproduction
+riêng xác nhận sáu assertion; Wrangler nguyên trạng đạt. Bốn file test sửa đúng
+route mới, giữ negative coverage và thêm bốn positive cases; recovery 128 PASS.
+Không đổi timeout/config. Final generic UX: 151 files / 29 issues / 968 warnings /
+82 checks, STATUS FAIL (lượt trước 970 warnings). Dependency audit exit 1:
+41 advisories (4 low, 19 moderate, 16 high, 2 critical), lockfile nguyên.
+
+**Database/operational state:** Worker synthetic local/in-memory SQLite. Owned
+previews 68530/68905/11489 dừng; ports 5204/8904/5205/8905 đóng. No backend/packages/
+schema/migrations/services/public/payments/auth protocol/dependencies/production
+flags/config/remote DB/R2/provider credentials/push/PR/merge/deploy. Local build là
+verification, không phải release artifact. Week queueWrite durability/repeated
+projection và inventory fallback-any-error/queued metadata receipts còn riêng.
+Catalog còn thiếu ảnh/placeholder; export giữ domain lịch sử; global nav chật: UI11.
+Owner/device/Safari/native zoom/screen reader/usability/CWV/hosted chưa kiểm chứng.
+
+**Next action:** `docs/ai/tasks/UI11-navigation-responsive.md`: audit shared nav,
+header, shell và fixed offsets; đo overlap/focus occlusion; ADR-054 trước runtime.
+Giữ năm root destinations, Scan, flags, immersive và protected semantics. Kiểm
+browser local/meaningful tests/full gates và source/evidence/Git checkpoints.
+Domain offline, dependencies, media, owner/device và hosted follow-ups vẫn riêng.
+
+---
+
 # UI09 — Chi tiết tồn kho và trạng thái hệ thống đã kiểm chứng local — 2026-10-10 JST
 
 **Task/status:** `UI09_LOCAL_VERIFIED_REVIEW_REQUIRED`. Packet

@@ -1,3 +1,27 @@
+# UI10 Week compatibility presentation (ADR-053, 2026-10-10)
+
+The six existing Week pages and four meal/summary/swap/export components share
+`WeekWorkspace`, `WeekSetupChoices` and `kitchen-week.css`. AppLayout adopts only
+the explicit Week route families. App.tsx routes, guards and planner-on aliases
+remain byte-identical; generating redirects to /planner and settings to
+/settings/planning when the planner flag is on. Flag-off keeps the Week workspace.
+
+Setup exposes four supported stages and commits its existing memory draft only
+on explicit generation. Settings edits that same next-generation session draft,
+without a server preferences command or current-plan mutation. The generation
+effect preserves request reuse, StrictMode and private-session fencing; only the
+null-versus-undefined budget mapping changes. Export text generators retain their
+AST, while awaited clipboard/share feedback is fenced against abandoned dialogs.
+
+Shopping completion captures selected items and fences abandoned page/session
+receipts. The sole store allowance passes through the existing optional pendingSync
+signal; no service, outbox, projection, command or schema authority is changed.
+See DOMAIN_MODEL for the signal's durability limitation. UI07 assets/fonts/tokens
+are reused; no new public asset or dependency. Evidence: round-10 reports. Shared
+navigation density is the next UI11 packet, with ADR-054 required before runtime.
+
+---
+
 # UI09 stock detail and system presentation (ADR-052, 2026-10-10)
 
 KitchenDetailPage reuses KitchenHeader/heading for exact detail aliases and

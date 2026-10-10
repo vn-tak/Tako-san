@@ -1,0 +1,18 @@
+src/web/features/week/WeekWorkspace.tsx 48ms (unchanged)
+src/web/features/week/WeekSetupChoices.tsx 17ms (unchanged)
+src/web/features/week/MealCard.tsx 12ms (unchanged)
+src/web/features/week/MealSwapSheet.tsx 12ms (unchanged)
+src/web/features/week/WeekSummaryCards.tsx 8ms
+src/web/features/week/WeekExportModal.tsx 31ms
+src/web/pages/WeekDashboardPage.tsx 14ms (unchanged)
+src/web/pages/WeekSetupPage.tsx 18ms (unchanged)
+src/web/pages/WeekSettingsPage.tsx 5ms (unchanged)
+src/web/pages/WeekGeneratingPage.tsx 10ms (unchanged)
+src/web/pages/MealDetailPage.tsx 18ms (unchanged)
+src/web/pages/WeekShoppingPage.tsx 21ms (unchanged)
+src/web/styles/kitchen-week.css 64ms
+tests/unit/ui10-week-presentation.test.tsx 32ms (unchanged)
+tests/unit/ui10-week-routes.test.tsx 11ms
+scripts/ui10-browser-check.mjs 60ms
+scripts/ui10-planner-alias-check.mjs 6ms
+tests/e2e/t17-ui/t18c-week-compatibility.e2e.ts 4ms

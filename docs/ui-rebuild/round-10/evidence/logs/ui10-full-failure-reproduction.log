@@ -1,0 +1,186 @@
+
+ RUN  v3.2.7 /Users/tunbee27/Documents/Tako-san-ui-rebuild
+
+ ❯ tests/unit/ui08-route-scope.test.tsx (20 tests | 2 failed) 34ms
+   ✓ UI08 adoption boundary > adopts the actual account route /me 10ms
+   ✓ UI08 adoption boundary > adopts the actual account route /profile 4ms
+   ✓ UI08 adoption boundary > adopts the actual account route /me/preferences 2ms
+   ✓ UI08 adoption boundary > adopts the actual account route /me/household 1ms
+   ✓ UI08 adoption boundary > adopts the actual account route /notifications 2ms
+   ✓ UI08 adoption boundary > adopts the actual account route /settings/app 3ms
+   ✓ UI08 adoption boundary > adopts the actual account route /settings/privacy 1ms
+   ✓ UI08 adoption boundary > adopts the actual account route /settings/planning 1ms
+   ✓ UI08 adoption boundary > adopts the actual account route /settings/notifications 1ms
+   ✓ UI08 adoption boundary > keeps unmigrated/protected /plus outside the new route scope 0ms
+   ✓ UI08 adoption boundary > keeps unmigrated/protected /checkout outside the new route scope 0ms
+   × UI08 adoption boundary > keeps unmigrated/protected /week outside the new route scope 5ms
+     → expected true to be false // Object.is equality
+   × UI08 adoption boundary > keeps unmigrated/protected /week/setup outside the new route scope 0ms
+     → expected true to be false // Object.is equality
+   ✓ UI08 adoption boundary > keeps unmigrated/protected /settings outside the new route scope 0ms
+   ✓ UI08 adoption boundary > keeps unmigrated/protected /me/unrelated outside the new route scope 0ms
+   ✓ UI08 adoption boundary > keeps unmigrated/protected /settings/billing outside the new route scope 0ms
+   ✓ UI08 adoption boundary > keeps unmigrated/protected /fridge/item/other outside the new route scope 0ms
+   ✓ UI08 adoption boundary > keeps unmigrated/protected /inventory-reconciliation/other outside the new route scope 0ms
+   ✓ UI08 adoption boundary > uses one page heading, explicit account return and existing header actions 1ms
+   ✓ UI08 adoption boundary > keeps route loading as a real live status with the new decorative symbol 0ms
+ ❯ tests/unit/ui07-brand-shell.test.tsx (13 tests | 1 failed) 32ms
+   ✓ UI07 shell ownership and accessible brand > keeps a named home link, decorative logo, explicit aspect and back/actions 6ms
+   ✓ UI07 shell ownership and accessible brand > persistent / owns the desktop brand 5ms
+   ✓ UI07 shell ownership and accessible brand > persistent /recipes owns the desktop brand 2ms
+   ✓ UI07 shell ownership and accessible brand > persistent /fridge owns the desktop brand 2ms
+   ✓ UI07 shell ownership and accessible brand > persistent /scan/review/example owns the desktop brand 2ms
+   ✓ UI07 shell ownership and accessible brand > persistent /planner owns the desktop brand 1ms
+   ✓ UI07 shell ownership and accessible brand > persistent /shopping owns the desktop brand 1ms
+   ✓ UI07 shell ownership and accessible brand > immersive /scan preserves the header identity 0ms
+   ✓ UI07 shell ownership and accessible brand > immersive /cook/recipe preserves the header identity 0ms
+   ✓ UI07 shell ownership and accessible brand > immersive /cooking/complete preserves the header identity 0ms
+   ✓ UI07 shell ownership and accessible brand > legacy /plus retains the supplied shell contract 1ms
+   ✓ UI07 shell ownership and accessible brand > legacy /settings retains the supplied shell contract 1ms
+   × UI07 shell ownership and accessible brand > legacy /week retains the supplied shell contract 9ms
+     → expected '<div data-kitchen-navigation="persist…' not to contain 'data-kitchen-navigation="persistent"'
+ ❯ tests/unit/ui02-presentation.test.ts (45 tests | 1 failed) 33ms
+   ✓ Home canonical presentation > keeps tomorrow distinct and links to canonical slot detail 5ms
+   ✓ Home canonical presentation > uses the plan fixed offset across midnight, rather than the device date 0ms
+   ✓ Home canonical presentation > withholds V1 during pending 0ms
+   ✓ Home canonical presentation > withholds V1 during error 0ms
+   ✓ Home canonical presentation > withholds V1 during mismatch 0ms
+   ✓ Home canonical presentation > rejects composition from another revision (-1) 0ms
+   ✓ Home canonical presentation > rejects composition from another revision (1) 0ms
+   ✓ Home canonical presentation > rejects missing slots or another plan even with the same revision 0ms
+   ✓ Home canonical presentation > an edited originally unplanned slot uses V2 while an empty V2 stays empty 1ms
+   ✓ Home canonical presentation > uses family anchors only with explicit V1 projection, never an empty V2 2ms
+   ✓ Home canonical presentation > retains legacy compatibility when composition is explicitly unavailable 1ms
+   ✓ Home canonical presentation > does not mistake a past plan for no plan 0ms
+   ✓ Home canonical presentation > selects current windows and preserves explicitly late breakfast appointments 10ms
+   ✓ Home canonical presentation > keeps stock freshness review separate from meal titles 0ms
+   ✓ discovery URL and whole-result paging > rejects unsupported enums, unsafe page values and bounds search text 1ms
+   ✓ discovery URL and whole-result paging > restores deep-linked filters and resets page while preserving unrelated params 1ms
+   ✓ discovery URL and whole-result paging > caps every page at24 and clamps out-of-range after filters 1ms
+   ✓ discovery URL and whole-result paging > searches accent-insensitive ingredients outside the firstpage 1ms
+   ✓ discovery URL and whole-result paging > combines filters, accepts national regions and retains no-buy quantity evidence 0ms
+   ✓ discovery URL and whole-result paging > does not scope the new shell onto /plus 0ms
+   ✓ discovery URL and whole-result paging > does not scope the new shell onto /me/unrelated 0ms
+   ✓ discovery URL and whole-result paging > does not scope the new shell onto /settings 0ms
+   ✓ discovery URL and whole-result paging > does not scope the new shell onto /auth/login 0ms
+   ✓ discovery URL and whole-result paging > does not scope the new shell onto /planner-old 0ms
+   ✓ discovery URL and whole-result paging > does not scope the new shell onto /shopping-old 0ms
+   × discovery URL and whole-result paging > does not scope the new shell onto /week 4ms
+     → expected true to be false // Object.is equality
+   ✓ discovery URL and whole-result paging > does not scope the new shell onto /recipes-old 0ms
+   ✓ discovery URL and whole-result paging > does not scope the new shell onto /inventory/x/other 0ms
+   ✓ discovery URL and whole-result paging > scopes the migrated route / 0ms
+   ✓ discovery URL and whole-result paging > scopes the migrated route /fridge 0ms
+   ✓ discovery URL and whole-result paging > scopes the migrated route /inventory/ 0ms
+   ✓ discovery URL and whole-result paging > scopes the migrated route /recipes 0ms
+   ✓ discovery URL and whole-result paging > scopes the migrated route /recipes/thit-kho 0ms
+   ✓ discovery URL and whole-result paging > scopes the migrated route /scan 0ms
+   ✓ discovery URL and whole-result paging > scopes the migrated route /scan/x/review 0ms
+   ✓ discovery URL and whole-result paging > scopes the migrated route /scan/receipt-review 0ms
+   ✓ discovery URL and whole-result paging > scopes the migrated route /planner 0ms
+   ✓ discovery URL and whole-result paging > scopes the migrated route /planner/new 0ms
+   ✓ discovery URL and whole-result paging > scopes the migrated route /planner/plan-id 0ms
+   ✓ discovery URL and whole-result paging > scopes the migrated route /planner/plan-id/meal/slot-id 0ms
+   ✓ discovery URL and whole-result paging > scopes the migrated route /planner/plan-id/shopping 0ms
+   ✓ discovery URL and whole-result paging > scopes the migrated route /shopping 0ms
+   ✓ Home Week compatibility > keeps future Week, exact meal destination and estimated budget 1ms
+   ✓ Home Week compatibility > does not promote a completed COOKED meal as upcoming 0ms
+   ✓ Home Week compatibility > does not promote a completed SKIPPED meal as upcoming 0ms
+ ✓ tests/unit/staging-d1-catchup-check.test.mjs (32 tests) 5330ms
+   ✓ ephemeral staging D1-only catch-up config > is readable by Wrangler locally and lists only the prefix through the target  3443ms
+   ✓ candidate SHA and hosted CI gates > requires the catch-up ref to equal current origin/main  792ms
+ ❯ tests/unit/ui09-route-scope.test.tsx (14 tests | 2 failed) 15ms
+   ✓ UI09 scope preserves protected and legacy boundaries > adopts /fridge/lot-1 1ms
+   ✓ UI09 scope preserves protected and legacy boundaries > adopts /fridge/lot-1/ 0ms
+   ✓ UI09 scope preserves protected and legacy boundaries > adopts /inventory/lot-1 0ms
+   ✓ UI09 scope preserves protected and legacy boundaries > adopts /ingredients/lot-1 0ms
+   ✓ UI09 scope preserves protected and legacy boundaries > adopts /inventory-reconciliation 0ms
+   ✓ UI09 scope preserves protected and legacy boundaries > retains the unmigrated/protected /plus scope 0ms
+   ✓ UI09 scope preserves protected and legacy boundaries > retains the unmigrated/protected /checkout scope 0ms
+   × UI09 scope preserves protected and legacy boundaries > retains the unmigrated/protected /week scope 5ms
+     → expected true to be false // Object.is equality
+   × UI09 scope preserves protected and legacy boundaries > retains the unmigrated/protected /week/setup scope 1ms
+     → expected true to be false // Object.is equality
+   ✓ UI09 scope preserves protected and legacy boundaries > retains the unmigrated/protected /settings/billing scope 0ms
+   ✓ UI09 scope preserves protected and legacy boundaries > retains the unmigrated/protected /inventory-reconciliation/other scope 0ms
+   ✓ UI09 scope preserves protected and legacy boundaries > retains the unmigrated/protected /fridge/lot-1/other scope 0ms
+   ✓ UI09 scope preserves protected and legacy boundaries > retains the unmigrated/protected /ingredients scope 0ms
+   ✓ UI09 scope preserves protected and legacy boundaries > uses one heading and an explicit fridge return destination for deep links 6ms
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 6 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  tests/unit/ui02-presentation.test.ts > discovery URL and whole-result paging > does not scope the new shell onto /week
+AssertionError: expected true to be false // Object.is equality
+
+- Expected
++ Received
+
+- false
++ true
+
+ ❯ tests/unit/ui02-presentation.test.ts:194:48
+    192|   it.each(['/plus', '/me/unrelated', '/settings', '/auth/login', '/pla…
+    193|     'does not scope the new shell onto %s',
+    194|     (route) => expect(isKitchenSurface(route)).toBe(false),
+       |                                                ^
+    195|   );
+    196|   it.each([
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/6]⎯
+
+ FAIL  tests/unit/ui07-brand-shell.test.tsx > UI07 shell ownership and accessible brand > legacy /week retains the supplied shell contract
+AssertionError: expected '<div data-kitchen-navigation="persist…' not to contain 'data-kitchen-navigation="persistent"'
+
+Expected: "data-kitchen-navigation="persistent""
+Received: "<div data-kitchen-navigation="persistent" class="takosan-rebuild min-h-dvh bg-semantic-background text-semantic-text-primary antialiased selection:bg-takosan-mint"><a href="#kitchen-main" class="kitchen-skip-link">Đến nội dung chính</a><nav aria-label="Điều hướng chính" class="hidden sm:flex lg:hidden fixed left-0 top-0 bottom-0 w-20 flex-col items-center gap-2 py-4 bg-semantic-surface border-r border-semantic-border z-30"><a class="mb-2 tap-target flex items-center justify-center rounded-card focus-visible:outline-none focus-visible:shadow-t17-focus" aria-label="Takosan — Trang chủ" translate="no" href="/"><img src="/takosan/rebuild/symbol.svg" alt="" width="32" height="32" class="w-8 h-8"/></a><a aria-label="Trang chủ" class="flex w-full flex-col items-center gap-1 px-1 py-1.5 rounded-feature tap-target focus-visible:outline-none focus-visible:shadow-t17-focus" href="/"><span class="relative flex w-11 h-11 max-w-full items-center justify-center rounded-card transition-colors text-semantic-text-muted"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" class="relative w-6 h-6" data-takosan-icon="home"><path d="M2 11 L12 2 L22 11 M5 9 V22 H19 V9 M10 22 V15 H14 V22"></path></svg></span><span class="max-w-full truncate text-center text-[10px] leading-none text-semantic-text-muted">Trang chủ</span></a><a aria-label="Tủ lạnh" class="flex w-full flex-col items-center gap-1 px-1 py-1.5 rounded-feature tap-target focus-visible:outline-none focus-visible:shadow-t17-focus" href="/fridge"><span class="relative flex w-11 h-11 max-w-full items-center justify-center rounded-card transition-colors text-semantic-text-muted"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" class="relative w-6 h-6" data-takosan-icon="fridge"><path d="M6 3 H18 V21 H6Z M6 10 H18 M9 6 V8 M9 13 V17"></path></svg></span><span class="max-w-full truncate text-center text-[10px] leading-none text-semantic-text-muted">Tủ lạnh</span></a><a aria-label="Công thức" class="flex w-full flex-col items-center gap-1 px-1 py-1.5 rounded-feature tap-target focus-visible:outline-none focus-visible:shadow-t17-focus" href="/recipes"><span class="relative flex w-11 h-11 max-w-full items-center justify-center rounded-card transition-colors text-semantic-text-muted"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" class="relative w-6 h-6" data-takosan-icon="recipe"><path d="M3 5 Q7 2 12 5 Q17 2 21 5 V20 Q17 17 12 20 Q7 17 3 20Z M12 5 V20 M6 9 H9 M15 9 H18"></path></svg></span><span class="max-w-full truncate text-center text-[10px] leading-none text-semantic-text-muted">Công thức</span></a><a aria-label="Thực đơn" aria-current="page" class="flex w-full flex-col items-center gap-1 px-1 py-1.5 rounded-feature tap-target focus-visible:outline-none focus-visible:shadow-t17-focus" href="/week"><span class="relative flex w-11 h-11 max-w-full items-center justify-center rounded-card transition-colors bg-semantic-success-soft text-semantic-action-primary"><span aria-hidden="true" class="absolute inset-0 rounded-card bg-semantic-success-soft"></span><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" class="relative w-6 h-6 text-semantic-action-primary" data-takosan-icon="mealPlan"><path d="M4 5 H20 V21 H4Z M8 3 V7 M16 3 V7 M4 10 H20 M8 16 L11 19 L17 13"></path></svg></span><span class="max-w-full truncate text-center text-[10px] leading-none font-bold text-semantic-action-primary">Thực đơn</span></a><a aria-label="Tôi" class="flex w-full flex-col items-center gap-1 px-1 py-1.5 rounded-feature tap-target focus-visible:outline-none focus-visible:shadow-t17-focus" href="/me"><span class="relative flex w-11 h-11 max-w-full items-center justify-center rounded-card transition-colors text-semantic-text-muted"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" class="relative w-6 h-6" data-takosan-icon="profile"><path d="M16 7 A4 4 0 1 1 8 7 A4 4 0 1 1 16 7 M4 22 V19 C4 10 20 10 20 19 V22"></path></svg></span><span class="max-w-full truncate text-center text-[10px] leading-none text-semantic-text-muted">Tôi</span></a><a aria-label="Quét AI" class="mt-auto flex flex-col items-center gap-1 px-3 py-1.5 rounded-feature tap-target focus-visible:outline-none focus-visible:shadow-t17-focus" href="/scan"><span class="flex w-11 h-11 items-center justify-center rounded-card bg-semantic-action-primary text-white"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" class="w-6 h-6" data-takosan-icon="scan"><path d="M3 8 V3 H8 M16 3 H21 V8 M21 16 V21 H16 M8 21 H3 V16 M2 12 H22 M8 7 H16 M8 17 H16"></path></svg></span><span class="text-[10px] font-medium text-semantic-text-muted">Quét</span></a></nav><nav aria-label="Điều hướng chính" class="hidden lg:flex fixed left-0 top-0 bottom-0 w-64 flex-col px-4 py-5 bg-semantic-surface border-r border-semantic-border z-30"><a class="flex min-h-11 items-center gap-2.5 mb-6 px-2 rounded-card focus-visible:outline-none focus-visible:shadow-t17-focus" aria-label="Takosan — Trang chủ" translate="no" href="/"><img src="/takosan/rebuild/lockup.svg" alt="" width="300" height="72" class="h-9 w-auto"/></a><ul class="flex flex-col gap-1"><li><a class="flex items-center gap-3 px-3 py-2.5 rounded-feature tap-target focus-visible:outline-none focus-visible:shadow-t17-focus" href="/"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" class="w-6 h-6 text-semantic-text-muted" data-takosan-icon="home"><path d="M2 11 L12 2 L22 11 M5 9 V22 H19 V9 M10 22 V15 H14 V22"></path></svg><span class="text-sm font-medium text-semantic-text-secondary">Trang chủ</span></a></li><li><a class="flex items-center gap-3 px-3 py-2.5 rounded-feature tap-target focus-visible:outline-none focus-visible:shadow-t17-focus" href="/fridge"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" class="w-6 h-6 text-semantic-text-muted" data-takosan-icon="fridge"><path d="M6 3 H18 V21 H6Z M6 10 H18 M9 6 V8 M9 13 V17"></path></svg><span class="text-sm font-medium text-semantic-text-secondary">Tủ lạnh</span></a></li><li><a class="flex items-center gap-3 px-3 py-2.5 rounded-feature tap-target focus-visible:outline-none focus-visible:shadow-t17-focus" href="/recipes"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" class="w-6 h-6 text-semantic-text-muted" data-takosan-icon="recipe"><path d="M3 5 Q7 2 12 5 Q17 2 21 5 V20 Q17 17 12 20 Q7 17 3 20Z M12 5 V20 M6 9 H9 M15 9 H18"></path></svg><span class="text-sm font-medium text-semantic-text-secondary">Công thức</span></a></li><li><a aria-current="page" class="flex items-center gap-3 px-3 py-2.5 rounded-feature tap-target focus-visible:outline-none focus-visible:shadow-t17-focus" href="/week"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" class="w-6 h-6 text-semantic-action-primary" data-takosan-icon="mealPlan"><path d="M4 5 H20 V21 H4Z M8 3 V7 M16 3 V7 M4 10 H20 M8 16 L11 19 L17 13"></path></svg><span class="text-sm font-bold text-semantic-action-primary">Thực đơn</span></a></li><li><a class="flex items-center gap-3 px-3 py-2.5 rounded-feature tap-target focus-visible:outline-none focus-visible:shadow-t17-focus" href="/me"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" class="w-6 h-6 text-semantic-text-muted" data-takosan-icon="profile"><path d="M16 7 A4 4 0 1 1 8 7 A4 4 0 1 1 16 7 M4 22 V19 C4 10 20 10 20 19 V22"></path></svg><span class="text-sm font-medium text-semantic-text-secondary">Tôi</span></a></li></ul><a class="mt-auto flex items-center justify-center gap-2 h-12 rounded-card bg-semantic-action-primary text-white text-sm font-bold shadow-t17-md focus-visible:outline-none focus-visible:shadow-t17-focus" href="/scan"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" class="w-5 h-5" data-takosan-icon="scan"><path d="M3 8 V3 H8 M16 3 H21 V8 M21 16 V21 H16 M8 21 H3 V16 M2 12 H22 M8 7 H16 M8 17 H16"></path></svg>Quét nguyên liệu</a></nav><div class="sm:pl-20 lg:pl-64"><div class="bg-takosan-navy text-white px-4 py-2 text-xs flex items-center justify-between gap-2 sticky top-0 z-50 animate-slide-up shadow-md"><span class="font-medium flex items-center gap-2 min-w-0"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-wifi-off w-3.5 h-3.5 text-takosan-yellow shrink-0" aria-hidden="true"><path d="M12 20h.01"></path><path d="M8.5 16.429a5 5 0 0 1 7 0"></path><path d="M5 12.859a10 10 0 0 1 5.17-2.69"></path><path d="M19 12.859a10 10 0 0 0-2.007-1.523"></path><path d="M2 8.82a15 15 0 0 1 4.177-2.643"></path><path d="M22 8.82a15 15 0 0 0-11.288-3.764"></path><path d="m2 2 20 20"></path></svg>Đang ở chế độ Ngoại tuyến. Thay đổi sẽ được tự đồng bộ khi có mạng.</span></div><main id="kitchen-main" tabindex="-1" class="min-h-dvh pb-[calc(68px+env(safe-area-inset-bottom,0px))] sm:pb-0 mx-auto w-full max-w-[var(--content-wide)]"></main><nav aria-label="Điều hướng chính" class="fixed inset-x-0 bottom-0 z-30 border-t border-semantic-border bg-semantic-surface/95 backdrop-blur-xl safe-bottom sm:hidden"><ul class="flex items-stretch justify-around h-[68px] px-1.5"><li class="flex-1 min-w-0"><a class="flex flex-col items-center justify-center gap-1 h-[68px] w-full py-1.5 rounded-card focus-visible:outline-none focus-visible:shadow-t17-focus" href="/"><span class="relative flex w-11 h-11 max-w-full items-center justify-center rounded-card transition-colors text-semantic-text-muted"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" class="relative w-6 h-6" data-takosan-icon="home"><path d="M2 11 L12 2 L22 11 M5 9 V22 H19 V9 M10 22 V15 H14 V22"></path></svg></span><span class="text-[11px] leading-none font-medium text-semantic-text-muted">Trang chủ</span></a></li><li class="flex-1 min-w-0"><a class="flex flex-col items-center justify-center gap-1 h-[68px] w-full py-1.5 rounded-card focus-visible:outline-none focus-visible:shadow-t17-focus" href="/fridge"><span class="relative flex w-11 h-11 max-w-full items-center justify-center rounded-card transition-colors text-semantic-text-muted"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" class="relative w-6 h-6" data-takosan-icon="fridge"><path d="M6 3 H18 V21 H6Z M6 10 H18 M9 6 V8 M9 13 V17"></path></svg></span><span class="text-[11px] leading-none font-medium text-semantic-text-muted">Tủ lạnh</span></a></li><li class="flex-1 min-w-0 flex items-start justify-center"><a aria-label="Quét AI" class="relative -top-4 flex flex-col items-center rounded-feature tap-target focus-visible:outline-none focus-visible:shadow-t17-focus" href="/scan"><span class="w-[58px] h-[58px] rounded-[20px] bg-semantic-action-primary shadow-t17-md ring-2 ring-white flex items-center justify-center text-white"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" class="w-7 h-7" data-takosan-icon="scan"><path d="M3 8 V3 H8 M16 3 H21 V8 M21 16 V21 H16 M8 21 H3 V16 M2 12 H22 M8 7 H16 M8 17 H16"></path></svg></span><span class="text-[11px] font-bold text-semantic-text-primary mt-1 tracking-tight">Quét</span></a></li><li class="flex-1 min-w-0"><a class="flex flex-col items-center justify-center gap-1 h-[68px] w-full py-1.5 rounded-card focus-visible:outline-none focus-visible:shadow-t17-focus" href="/recipes"><span class="relative flex w-11 h-11 max-w-full items-center justify-center rounded-card transition-colors text-semantic-text-muted"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" class="relative w-6 h-6" data-takosan-icon="recipe"><path d="M3 5 Q7 2 12 5 Q17 2 21 5 V20 Q17 17 12 20 Q7 17 3 20Z M12 5 V20 M6 9 H9 M15 9 H18"></path></svg></span><span class="text-[11px] leading-none font-medium text-semantic-text-muted">Công thức</span></a></li><li class="flex-1 min-w-0"><a aria-current="page" class="flex flex-col items-center justify-center gap-1 h-[68px] w-full py-1.5 rounded-card focus-visible:outline-none focus-visible:shadow-t17-focus" href="/week"><span class="relative flex w-11 h-11 max-w-full items-center justify-center rounded-card transition-colors bg-semantic-success-soft text-semantic-action-primary"><span aria-hidden="true" class="absolute inset-0 rounded-card bg-semantic-success-soft"></span><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" class="relative w-6 h-6 text-semantic-action-primary" data-takosan-icon="mealPlan"><path d="M4 5 H20 V21 H4Z M8 3 V7 M16 3 V7 M4 10 H20 M8 16 L11 19 L17 13"></path></svg></span><span class="text-[11px] leading-none font-bold text-semantic-action-primary">Thực đơn</span></a></li><li class="flex-1 min-w-0"><a class="flex flex-col items-center justify-center gap-1 h-[68px] w-full py-1.5 rounded-card focus-visible:outline-none focus-visible:shadow-t17-focus" href="/me"><span class="relative flex w-11 h-11 max-w-full items-center justify-center rounded-card transition-colors text-semantic-text-muted"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" class="relative w-6 h-6" data-takosan-icon="profile"><path d="M16 7 A4 4 0 1 1 8 7 A4 4 0 1 1 16 7 M4 22 V19 C4 10 20 10 20 19 V22"></path></svg></span><span class="text-[11px] leading-none font-medium text-semantic-text-muted">Tôi</span></a></li></ul></nav></div></div>"
+
+ ❯ tests/unit/ui07-brand-shell.test.tsx:32:22
+     30|   it.each(['/plus', '/settings', '/week'])('legacy %s retains the supp…
+     31|     const html = render(<AppLayout />, route);
+     32|     expect(html).not.toContain('data-kitchen-navigation="persistent"');
+       |                      ^
+     33|     expect(html).toContain('/takosan/brand/takosan-logo-horizontal-pri…
+     34|   });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/6]⎯
+
+ FAIL  tests/unit/ui08-route-scope.test.tsx > UI08 adoption boundary > keeps unmigrated/protected /week outside the new route scope
+ FAIL  tests/unit/ui08-route-scope.test.tsx > UI08 adoption boundary > keeps unmigrated/protected /week/setup outside the new route scope
+AssertionError: expected true to be false // Object.is equality
+
+- Expected
++ Received
+
+- false
++ true
+
+ ❯ tests/unit/ui08-route-scope.test.tsx:17:37
+
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[3/6]⎯
+
+ FAIL  tests/unit/ui09-route-scope.test.tsx > UI09 scope preserves protected and legacy boundaries > retains the unmigrated/protected /week scope
+ FAIL  tests/unit/ui09-route-scope.test.tsx > UI09 scope preserves protected and legacy boundaries > retains the unmigrated/protected /week/setup scope
+AssertionError: expected true to be false // Object.is equality
+
+- Expected
++ Received
+
+- false
++ true
+
+ ❯ tests/unit/ui09-route-scope.test.tsx:25:37
+     23|     '/ingredients',
+     24|   ])('retains the unmigrated/protected %s scope', (route) =>
+     25|     expect(isKitchenSurface(route)).toBe(false),
+       |                                     ^
+     26|   );
+     27|   it('uses one heading and an explicit fridge return destination for d…
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[4/6]⎯
+
+
+ Test Files  4 failed | 1 passed (5)
+      Tests  6 failed | 118 passed (124)
+   Start at  22:37:21
+   Duration  6.89s (transform 599ms, setup 54ms, collect 2.55s, tests 5.44s, environment 0ms, prepare 266ms)

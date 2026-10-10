@@ -1,0 +1,15 @@
+src/web/features/week/WeekWorkspace.tsx 63ms
+src/web/features/week/WeekSetupChoices.tsx 18ms
+src/web/features/week/MealCard.tsx 13ms
+src/web/features/week/MealSwapSheet.tsx 17ms
+src/web/features/week/WeekSummaryCards.tsx 8ms
+src/web/features/week/WeekExportModal.tsx 33ms
+src/web/pages/WeekDashboardPage.tsx 17ms
+src/web/pages/WeekSetupPage.tsx 26ms
+src/web/pages/WeekSettingsPage.tsx 3ms
+src/web/pages/WeekGeneratingPage.tsx 8ms
+src/web/pages/MealDetailPage.tsx 22ms
+src/web/pages/WeekShoppingPage.tsx 25ms
+src/web/styles/kitchen-week.css 92ms
+tests/unit/ui10-week-presentation.test.tsx 36ms
+tests/unit/ui10-week-routes.test.tsx 10ms

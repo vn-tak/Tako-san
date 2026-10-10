@@ -1,0 +1,10 @@
+import { defineConfig } from '@playwright/test';
+import baseline from '../../playwright.t18c.config';
+export default defineConfig({
+  ...baseline,
+  testDir: '/Users/tunbee27/Documents/Tako-san-ui-rebuild/tests/e2e/t17-ui',
+  outputDir: '/Users/tunbee27/Documents/Tako-san-ui-rebuild/.artifacts/ui10/e2e/results',
+  reporter: [['list'], ['json', { outputFile: '/Users/tunbee27/Documents/Tako-san-ui-rebuild/.artifacts/ui10/e2e/report.json' }]],
+  use: { ...baseline.use, baseURL: 'http://127.0.0.1:5205', launchOptions: { executablePath: '/Users/tunbee27/Library/Caches/ms-playwright/chromium_headless_shell-1243/chrome-headless-shell-mac-arm64/chrome-headless-shell' } },
+  webServer: { ...baseline.webServer, url: 'http://127.0.0.1:5205/__preview', reuseExistingServer: true },
+});

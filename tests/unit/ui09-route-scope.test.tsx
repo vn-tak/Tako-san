@@ -15,8 +15,8 @@ describe('UI09 scope preserves protected and legacy boundaries', () => {
   it.each([
     '/plus',
     '/checkout',
-    '/week',
-    '/week/setup',
+    '/week-old',
+    '/week/plan/other',
     '/settings/billing',
     '/inventory-reconciliation/other',
     '/fridge/lot-1/other',

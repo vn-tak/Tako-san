@@ -1,0 +1,25 @@
+empty-320: overflow=0; axe=0; broken=0
+setup-320: overflow=0; axe=0; broken=0
+empty-390: overflow=0; axe=0; broken=0
+setup-390: overflow=0; axe=0; broken=0
+empty-768: overflow=0; axe=0; broken=0
+setup-768: overflow=0; axe=0; broken=0
+empty-1024: overflow=0; axe=0; broken=0
+setup-1024: overflow=0; axe=0; broken=0
+empty-1440: overflow=0; axe=0; broken=0
+setup-1440: overflow=0; axe=0; broken=0
+budget-unlimited-320: overflow=0; axe=0; broken=0
+priorities-320: overflow=0; axe=0; broken=0
+frequency-review-320: overflow=0; axe=0; broken=0
+generating-320: overflow=0; axe=0; broken=0
+node:internal/modules/run_main:107
+    triggerUncaughtException(
+    ^
+
+page.evaluate: Target page, context or browser has been closed
+    at shot (/Users/tunbee27/Documents/Tako-san-ui-rebuild/scripts/ui10-browser-check.mjs:21:14)
+    at async file:///Users/tunbee27/Documents/Tako-san-ui-rebuild/scripts/ui10-browser-check.mjs:60:149 {
+  log: []
+}
+
+Node.js v24.16.0

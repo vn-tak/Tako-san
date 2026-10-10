@@ -1,0 +1,8 @@
+{
+  "base": "3c018d7778a780f5759d967e62d58440e4e08c2d",
+  "exactByteEquivalentExceptApprovedTwoReplacements": true,
+  "changes": [
+    "optional pendingSync return type",
+    "existing receipt conditional spread"
+  ]
+}

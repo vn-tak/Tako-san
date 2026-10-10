@@ -24,6 +24,7 @@ export function isKitchenSurface(pathname: string) {
     /^\/recipes(?:\/|$)/.test(pathname) ||
     /^\/(cook|cooking)(?:\/|$)/.test(pathname) ||
     /^\/(planner|shopping)(?:\/|$)/.test(pathname) ||
+    /^\/week(?:\/(?:setup|generating|[^/]+(?:\/(?:shopping|settings|meal\/[^/]+))?))?\/?$/.test(pathname) ||
     /^\/(me|profile|notifications)\/?$/.test(pathname) ||
     /^\/me\/(preferences|household)\/?$/.test(pathname) ||
     /^\/settings\/(app|planning|notifications|privacy)\/?$/.test(pathname)

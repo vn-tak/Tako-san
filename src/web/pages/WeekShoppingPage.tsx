@@ -1,367 +1,286 @@
-import React, { useEffect, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { useQuery } from '@tanstack/react-query';
-import { useParams, useNavigate } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
+import { Check, Refrigerator } from 'lucide-react';
+import { mapCategoryToShoppingSection, type AggregatedShoppingItem } from '@frigo/domain';
 import { useWeekStore } from '../stores/useWeekStore';
-import { TopBar } from '../components/common/TopBar';
-import { Button } from '../components/common/Button';
+import { WeekWorkspace, weekCurrency } from '../features/week/WeekWorkspace';
 import { InlineError, InlineLoading } from '../components/common/AsyncState';
 import { getIngredientImage } from '../lib/ingredient-images';
 import { capturePrivateSession } from '../lib/private-session';
 import { queryKeys } from '../lib/queryKeys';
 import { api } from '../services/api';
-import { TAKOSAN_BRAND } from '../lib/takosan-brand';
-import { mapCategoryToShoppingSection, type AggregatedShoppingItem } from '@frigo/domain';
-import { ArrowRight, Refrigerator, Check } from 'lucide-react';
-import { clsx } from 'clsx';
 
-export const WeekShoppingPage: React.FC = () => {
+type Completion = { items: AggregatedShoppingItem[]; count: number; pendingSync?: boolean };
+export function WeekShoppingPage() {
   const { planId } = useParams<{ planId: string }>();
-  const navigate = useNavigate();
-
-  const {
-    error: workflowError,
-    toggleShoppingItem,
-    completeShopping,
-  } = useWeekStore();
-
-  // Mode:
-  // 'list': 6.1 Shopping list
-  // 'active': 6.2 Shopping mode (in supermarket)
-  // 'complete': 6.3 Hoàn tất đi chợ
+  const { error: workflowError, toggleShoppingItem, completeShopping } = useWeekStore();
   const [shoppingMode, setShoppingMode] = useState<'list' | 'active' | 'complete'>('list');
-  const [selectedSection, setSelectedSection] = useState<string>('all');
+  const [selectedSection, setSelectedSection] = useState('all');
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [completionError, setCompletionError] = useState<string | null>(null);
-  const [completedShopping, setCompletedShopping] = useState<{
-    items: AggregatedShoppingItem[];
-    count: number;
-  } | null>(null);
+  const [completedShopping, setCompletedShopping] = useState<Completion | null>(null);
+  const lifecycle = useRef(0);
+  const submitting = useRef(false);
+  const errorRef = useRef<HTMLParagraphElement>(null);
+  const completionRef = useRef<HTMLDivElement>(null);
   const planQuery = useQuery({
     queryKey: queryKeys.weekPlan(planId || ''),
     queryFn: () => api.getWeekPlan(planId!),
     enabled: Boolean(planId),
   });
   const currentPlan = planQuery.data ?? null;
-
   useEffect(() => {
     if (currentPlan) useWeekStore.setState({ currentPlan });
   }, [currentPlan]);
+  useEffect(() => {
+    lifecycle.current += 1;
+    submitting.current = false;
+    setShoppingMode('list');
+    setSelectedSection('all');
+    setIsSubmitting(false);
+    setCompletionError(null);
+    setCompletedShopping(null);
+    return () => {
+      lifecycle.current += 1;
+    };
+  }, [planId]);
+  useEffect(() => {
+    if (completionError) errorRef.current?.focus();
+  }, [completionError]);
+  useEffect(() => {
+    if (completedShopping) completionRef.current?.focus();
+  }, [completedShopping]);
+  const items = currentPlan?.shoppingItems ?? [];
+  const checkedItems = items.filter((item) => item.checked);
+  const sections = [...new Set(items.map((item) => mapCategoryToShoppingSection(item.category)))];
+  const filteredItems =
+    selectedSection === 'all'
+      ? items
+      : items.filter((item) => mapCategoryToShoppingSection(item.category) === selectedSection);
+  const backTo = planId ? `/week/${planId}` : '/week';
 
-  if (planQuery.isError || !currentPlan) {
-    return (
-      <div className="min-h-screen bg-takosan-cream pb-24">
-        <TopBar showBack title="Danh sách đi chợ" />
-        <div className="p-4">
-          {planQuery.isError ? (
-            <InlineError error={planQuery.error} onRetry={() => planQuery.refetch()} />
-          ) : planId && planQuery.isPending ? (
-            <InlineLoading label="Đang tải danh sách đi chợ…" />
-          ) : (
-            <p role="status" className="py-12 text-center text-sm text-semantic-text-secondary">Không tìm thấy thực đơn này.</p>
-          )}
-        </div>
-      </div>
-    );
-  }
-
-  const items = currentPlan.shoppingItems;
-  const checkedItems = items.filter((i) => i.checked);
-  const checkedCount = checkedItems.length;
-  const totalCount = items.length;
-  const progressPercent = totalCount > 0 ? Math.round((checkedCount / totalCount) * 100) : 100;
-
-  // Group items by category section
-  const sections: Record<string, typeof items> = {};
-  for (const item of items) {
-    const sectionName = mapCategoryToShoppingSection(item.category);
-    if (!sections[sectionName]) sections[sectionName] = [];
-    sections[sectionName].push(item);
-  }
-
-  const sectionKeys = Object.keys(sections);
-
-  const filteredItems = selectedSection === 'all'
-    ? items
-    : items.filter((i) => mapCategoryToShoppingSection(i.category) === selectedSection);
-
-  const handleFinishShopping = async () => {
-    if (isSubmitting || checkedItems.length === 0) return;
-    const isCurrent = capturePrivateSession();
+  async function finishShopping() {
+    if (submitting.current || !checkedItems.length) return;
+    const isCurrentSession = capturePrivateSession();
+    const owner = lifecycle.current;
+    const isCurrent = () => isCurrentSession() && lifecycle.current === owner;
     const submittedItems = checkedItems.map((item) => ({ ...item }));
+    submitting.current = true;
     setCompletionError(null);
     setIsSubmitting(true);
     try {
       const result = await completeShopping();
       if (!isCurrent()) return;
       if (!result.success) throw new Error('Shopping not completed');
-      setCompletedShopping({ items: submittedItems, count: result.count });
+      setCompletedShopping({
+        items: submittedItems,
+        count: result.count,
+        pendingSync: result.pendingSync,
+      });
       setShoppingMode('complete');
     } catch {
-      if (isCurrent()) setCompletionError('Chưa nhập được nguyên liệu vào tủ lạnh. Vui lòng thử lại.');
+      if (isCurrent())
+        setCompletionError('Chưa nhập được nguyên liệu vào tủ lạnh. Vui lòng thử lại.');
     } finally {
-      if (isCurrent()) setIsSubmitting(false);
+      if (isCurrent()) {
+        submitting.current = false;
+        setIsSubmitting(false);
+      }
     }
-  };
-
-  // 6.3 HOÀN TẤT ĐI CHỢ
-  if (shoppingMode === 'complete' && completedShopping) {
-    return (
-      <div className="min-h-screen bg-takosan-cream flex flex-col justify-between p-6 animate-fade-in">
-        <div className="text-center pt-8 space-y-2">
-          <h2 className="font-heading font-extrabold text-2xl text-semantic-text-primary tracking-tight">
-            Tuyệt vời! 🎉
-          </h2>
-          <p className="text-xs text-semantic-text-muted max-w-xs mx-auto">
-            Hãy giải trí xem việc tràn ngập niềm vui. Thực phẩm đã sẵn sàng trong tủ lạnh!
-          </p>
-        </div>
-
-        {/* Mascot */}
-        <div className="my-auto py-6 text-center">
-          <div className="w-52 h-52 mx-auto flex items-center justify-center">
-            <img
-              src={TAKOSAN_BRAND.mascot.celebrate}
-              alt="Takosan ăn mừng"
-              className="w-full h-full object-contain animate-bounce-slow"
-            />
-          </div>
-        </div>
-
-        {/* Bought Summary List */}
-        <div className="bg-white rounded-2xl p-4 border border-semantic-border shadow-card space-y-2.5 mb-6">
-          <div className="flex items-center justify-between border-b border-semantic-border/70 pb-2">
-            <span className="font-heading font-bold text-xs text-semantic-text-primary uppercase tracking-wider">
-              Đã chọn ({completedShopping.items.length} món)
-            </span>
-            <span className="text-xs font-bold text-takosan-green">Đã nhập {completedShopping.count} món</span>
-          </div>
-
-          <div className="space-y-1.5 max-h-48 overflow-y-auto pr-1">
-            {completedShopping.items.map((item) => (
-              <div
-                key={item.ingredientId}
-                className="flex items-center justify-between text-xs py-1"
-              >
-                <div className="flex items-center gap-2 text-semantic-text-primary">
-                  <Check className="w-3.5 h-3.5 text-takosan-green stroke-[3]" />
-                  <span>{item.name}</span>
-                </div>
-                <span className="font-heading font-semibold text-semantic-text-secondary">
-                  {item.recommendedPurchaseQuantity} {item.unit}
-                </span>
-              </div>
-            ))}
-          </div>
-        </div>
-
-        {/* Dual Actions */}
-        <div className="space-y-2.5 pb-4">
-          <Button
-            fullWidth
-            size="lg"
-            onClick={() => navigate('/fridge')}
-            className="bg-takosan-green hover:bg-takosan-green-hover text-white font-heading font-bold text-base py-3.5 rounded-2xl shadow-md flex items-center justify-center gap-2"
-          >
-            <Refrigerator className="w-5 h-5" />
-            <span>Xem tủ lạnh</span>
-          </Button>
-
-          <Button
-            fullWidth
-            size="md"
-            variant="outline"
-            onClick={() => navigate('/')}
-            className="rounded-2xl text-semantic-text-secondary"
-          >
-            Về trang chủ
-          </Button>
-        </div>
-      </div>
-    );
   }
 
-  // 6.1 (LIST) & 6.2 (ACTIVE SHOPPING MODE)
-  return (
-    <div className="min-h-screen bg-takosan-cream pb-32">
-      <TopBar
-        showBack
-        title={shoppingMode === 'active' ? 'Đang đi chợ' : 'Danh sách đi chợ'}
-        subtitle={`${items.length} món • ${currentPlan.budget.displayText}`}
-      />
-      {(completionError || workflowError) && (
-        <div className="px-4 pt-3"><InlineError message={completionError || workflowError || undefined} /></div>
-      )}
-
-      <div className="px-4 pt-3 space-y-4 animate-fade-in">
-        {/* Header Progress (Active mode 6.2) */}
-        {shoppingMode === 'active' ? (
-          <div className="bg-white rounded-2xl p-4 border border-semantic-border shadow-xs space-y-2">
-            <div className="flex items-center justify-between text-xs">
-              <span className="font-heading font-bold text-semantic-text-primary">
-                Đang đi chợ — {checkedCount}/{totalCount} món
-              </span>
-              <span className="font-bold text-takosan-green">
-                {progressPercent}%
-              </span>
-            </div>
-
-            <div className="w-full bg-semantic-border/60 h-2.5 rounded-full overflow-hidden">
-              <div
-                className="bg-takosan-green h-full transition-tap duration-300 rounded-full"
-                style={{ width: `${progressPercent}%` }}
-              />
-            </div>
+  if (shoppingMode === 'complete' && completedShopping) {
+    const pending = completedShopping.pendingSync === true;
+    return (
+      <WeekWorkspace
+        title={pending ? 'Yêu cầu nhập đang chờ đồng bộ.' : 'Đã nhập nguyên liệu vào tủ.'}
+        backTo={backTo}
+        narrow
+        description={
+          pending
+            ? 'Máy chủ chưa xác nhận nhập hàng. Kiểm tra lại tủ và trạng thái đồng bộ khi có kết nối.'
+            : `Đã nhận xác nhận nhập ${completedShopping.count} nguyên liệu. Bạn có thể xem lại số lượng trong tủ.`
+        }
+      >
+        <div className="week-paper week-completion" ref={completionRef} tabIndex={-1} role="status">
+          <h2>{pending ? 'Nguyên liệu trong yêu cầu' : 'Nguyên liệu đã chọn'}</h2>
+          <ul className="week-completion-list">
+            {completedShopping.items.map((item) => (
+              <li key={item.ingredientId}>
+                <span>{item.name}</span>
+                <strong>
+                  {item.recommendedPurchaseQuantity} {item.unit}
+                </strong>
+              </li>
+            ))}
+          </ul>
+          <p className="week-muted">
+            Chỉ những nguyên liệu bạn đã chọn được gửi trong lần xác nhận này.
+          </p>
+          <div className="week-actions">
+            <Link to="/fridge" className="week-button">
+              <Refrigerator size={18} aria-hidden="true" />
+              Xem tủ lạnh
+            </Link>
+            <Link to={backTo} className="week-button week-button-secondary">
+              Về thực đơn tuần
+            </Link>
           </div>
+        </div>
+      </WeekWorkspace>
+    );
+  }
+  return (
+    <WeekWorkspace
+      title={
+        shoppingMode === 'active' ? 'Đi chợ, từng nguyên liệu một.' : 'Mua thêm vừa đủ cho tuần.'
+      }
+      backTo={backTo}
+      description="Đánh dấu nguyên liệu đã mua. Chỉ khi xác nhận nhập, các nguyên liệu được chọn mới được gửi vào tủ."
+    >
+      {planQuery.isError ? (
+        <InlineError error={planQuery.error} onRetry={() => planQuery.refetch()} />
+      ) : !currentPlan ? (
+        planQuery.isPending ? (
+          <InlineLoading label="Đang tải danh sách đi chợ…" />
         ) : (
-          /* Header Info (List mode 6.1) */
-          <div className="flex items-center justify-between">
+          <p role="status">Không tìm thấy thực đơn này.</p>
+        )
+      ) : (
+        <>
+          {(completionError || workflowError) && (
+            <p role="alert" tabIndex={-1} ref={errorRef} className="week-error">
+              {completionError || workflowError}
+            </p>
+          )}
+          <div className="week-shopping-summary week-paper">
             <div>
-              <h2 className="font-heading font-bold text-lg text-semantic-text-primary">
-                Danh sách đi chợ
-              </h2>
-              <p className="text-xs text-semantic-text-muted mt-0.5">
-                {items.length} món · {currentPlan.budget.displayText}
+              <p className="week-eyebrow">MUA THÊM · ƯỚC TÍNH</p>
+              <h2>{currentPlan.budget.displayText || 'Chưa có ước tính giá'}</h2>
+              <p className="week-muted">
+                Giá thực tế có thể khác; giá bằng 0 trong kế hoạch có thể do thiếu dữ liệu.
               </p>
             </div>
-
-            <span className="px-3 py-1 rounded-full bg-takosan-mint text-takosan-green-deep border border-takosan-mint-deep text-xs font-bold">
-              1 chuyến
-            </span>
+            <p role="status">
+              Đã chọn{' '}
+              <strong>
+                {checkedItems.length}/{items.length}
+              </strong>{' '}
+              nguyên liệu
+            </p>
           </div>
-        )}
-
-        {/* Category Pills (Screen 6.1) */}
-        <div className="flex gap-1.5 overflow-x-auto no-scrollbar py-0.5">
-          <button
-            onClick={() => setSelectedSection('all')}
-            className={clsx(
-              'px-3.5 py-1.5 rounded-full text-xs font-heading font-semibold whitespace-nowrap transition-tap tap-target',
-              selectedSection === 'all'
-                ? 'bg-takosan-green text-white shadow-xs'
-                : 'bg-white text-semantic-text-secondary border border-semantic-border hover:bg-semantic-background-subtle'
-            )}
-          >
-            Tất cả ({items.length})
-          </button>
-
-          {sectionKeys.map((sec) => (
-            <button
-              key={sec}
-              onClick={() => setSelectedSection(sec)}
-              className={clsx(
-                'px-3.5 py-1.5 rounded-full text-xs font-heading font-semibold whitespace-nowrap transition-tap tap-target',
-                selectedSection === sec
-                  ? 'bg-takosan-green text-white shadow-xs'
-                  : 'bg-white text-semantic-text-secondary border border-semantic-border hover:bg-semantic-background-subtle'
-              )}
-            >
-              {sec} ({sections[sec].length})
-            </button>
-          ))}
-        </div>
-
-        {/* Items List */}
-        <div className="space-y-2">
-          {filteredItems.map((item) => {
-            const imgSrc = getIngredientImage(item.ingredientId, item.name);
-            const isChecked = item.checked;
-
-            return (
-              <button
-                key={item.ingredientId}
-                type="button"
-                aria-pressed={isChecked}
-                disabled={isSubmitting}
-                onClick={() => toggleShoppingItem(item.ingredientId, !isChecked)}
-                className={clsx(
-                  'w-full text-left p-3.5 rounded-2xl flex items-center justify-between cursor-pointer transition-tap border shadow-xs active:scale-99',
-                  isChecked
-                    ? 'bg-semantic-background-subtle/80 border-semantic-border/60 opacity-60'
-                    : 'bg-white border-semantic-border hover:border-semantic-border-strong'
-                )}
-              >
-                <div className="flex items-center gap-3.5 min-w-0">
-                  {/* Checkbox */}
-                  <div
-                    className={clsx(
-                      'w-5 h-5 rounded-lg flex items-center justify-center transition-tap border shrink-0',
-                      isChecked
-                        ? 'bg-takosan-green border-takosan-green text-white'
-                        : 'border-semantic-border-strong bg-white'
-                    )}
-                  >
-                    {isChecked && <Check className="w-3.5 h-3.5 stroke-[3]" />}
-                  </div>
-
-                  {/* Thumbnail */}
-                  <div className="w-10 h-10 rounded-xl bg-semantic-background-subtle border border-semantic-border/70 p-1 flex items-center justify-center shrink-0">
-                    <img
-                      src={imgSrc}
-                      alt={item.name}
-                      className="w-full h-full object-contain"
-                    />
-                  </div>
-
-                  {/* Details */}
-                  <div className="min-w-0">
-                    <h4
-                      className={clsx(
-                        'font-heading font-bold text-sm text-semantic-text-primary truncate',
-                        isChecked && 'line-through text-semantic-text-muted'
-                      )}
-                    >
-                      {item.name}
-                    </h4>
-                    <p className="text-xs text-semantic-text-muted truncate mt-0.5">
-                      <span className="font-semibold text-semantic-text-primary">
-                        {item.recommendedPurchaseQuantity} {item.unit}
-                      </span>
-                      {item.sourceRecipes.length > 1 ? (
-                        <span className="text-takosan-green font-medium"> • Dùng cho {item.sourceRecipes.length} món</span>
-                      ) : null}
-                    </p>
-                  </div>
-                </div>
-
-                {/* Estimated Price */}
-                <div className="text-right shrink-0 ml-2">
-                  <span className="font-heading font-bold text-xs text-semantic-text-secondary">
-                    ~{Math.round(item.estimatedPriceMin / 1000)}–{Math.round(item.estimatedPriceMax / 1000)}k
-                  </span>
-                </div>
-              </button>
-            );
-          })}
-        </div>
-      </div>
-
-      {/* Sticky Bottom Actions */}
-      <div className="fixed bottom-[calc(68px+env(safe-area-inset-bottom,0px))] sm:bottom-0 left-0 right-0 sm:left-20 lg:left-64 p-4 bg-white/95 backdrop-blur-md border-t border-semantic-border z-40 shadow-lg">
-        <div className="mx-auto w-full max-w-[var(--content-wide)]">
-          {shoppingMode === 'list' ? (
-            <Button
-              fullWidth
-              size="lg"
-              onClick={() => setShoppingMode('active')}
-              className="bg-takosan-green hover:bg-takosan-green-hover text-white font-heading font-bold text-base py-3.5 rounded-2xl shadow-md"
-            >
-              Bắt đầu đi chợ
-            </Button>
+          {!items.length ? (
+            <section className="week-paper week-empty">
+              <h2>Chưa có nguyên liệu cần mua thêm</h2>
+              <p className="week-muted">Kiểm tra lại tủ và nguyên liệu từng bữa trước khi nấu.</p>
+              <Link to={backTo} className="week-button week-button-secondary">
+                Về thực đơn tuần
+              </Link>
+            </section>
           ) : (
-            <Button
-              fullWidth
-              size="lg"
-              onClick={handleFinishShopping}
-              isLoading={isSubmitting}
-              disabled={checkedCount === 0}
-              className="bg-takosan-green hover:bg-takosan-green-hover text-white font-heading font-bold text-base py-3.5 rounded-2xl shadow-md flex items-center justify-center gap-2"
-            >
-              <span>Hoàn tất đi chợ</span>
-              <ArrowRight className="w-5 h-5" />
-            </Button>
+            <>
+              <div className="week-shopping-filters" role="group" aria-label="Nhóm nguyên liệu">
+                {['all', ...sections].map((section) => (
+                  <button
+                    key={section}
+                    type="button"
+                    className="week-button week-button-secondary"
+                    aria-pressed={selectedSection === section}
+                    onClick={() => setSelectedSection(section)}
+                  >
+                    {section === 'all' ? 'Tất cả' : section} (
+                    {section === 'all'
+                      ? items.length
+                      : items.filter(
+                          (item) => mapCategoryToShoppingSection(item.category) === section,
+                        ).length}
+                    )
+                  </button>
+                ))}
+              </div>
+              <ul className="week-shopping-list">
+                {filteredItems.map((item) => (
+                  <li key={item.ingredientId}>
+                    <button
+                      type="button"
+                      aria-pressed={item.checked}
+                      disabled={isSubmitting}
+                      onClick={() => toggleShoppingItem(item.ingredientId, !item.checked)}
+                      className="week-shopping-item"
+                    >
+                      <span className="week-shopping-check" aria-hidden="true">
+                        {item.checked && <Check size={18} />}
+                      </span>
+                      <img
+                        src={getIngredientImage(item.ingredientId, item.name)}
+                        alt=""
+                        width={48}
+                        height={48}
+                        loading="lazy"
+                      />
+                      <span className="week-shopping-item-copy">
+                        <strong>{item.name}</strong>
+                        <span>
+                          {item.recommendedPurchaseQuantity} {item.unit} · dùng cho{' '}
+                          {item.sourceRecipes.length} món
+                        </span>
+                        {item.cannotBuy && (
+                          <span className="week-muted">Kế hoạch ghi nhận chưa thể mua đủ.</span>
+                        )}
+                      </span>
+                      <span className="week-shopping-price">
+                        ~{weekCurrency(item.estimatedPriceMin)} –{' '}
+                        {weekCurrency(item.estimatedPriceMax)}
+                      </span>
+                    </button>
+                  </li>
+                ))}
+              </ul>
+              <div className="week-note week-shopping-confirm">
+                <p>
+                  {shoppingMode === 'list'
+                    ? 'Bạn có thể đánh dấu khi chuẩn bị danh sách hoặc trong lúc đi chợ.'
+                    : `Xác nhận nhập ${checkedItems.length} nguyên liệu đã chọn. Các nguyên liệu chưa chọn sẽ không được nhập.`}
+                </p>
+                <div className="week-actions">
+                  {shoppingMode === 'list' ? (
+                    <button
+                      type="button"
+                      className="week-button"
+                      onClick={() => setShoppingMode('active')}
+                    >
+                      Bắt đầu đi chợ
+                    </button>
+                  ) : (
+                    <button
+                      type="button"
+                      className="week-button"
+                      disabled={isSubmitting || !checkedItems.length}
+                      aria-busy={isSubmitting}
+                      onClick={finishShopping}
+                    >
+                      {isSubmitting
+                        ? 'Đang gửi yêu cầu nhập…'
+                        : `Nhập ${checkedItems.length} nguyên liệu đã chọn vào tủ`}
+                    </button>
+                  )}
+                  {shoppingMode === 'active' && (
+                    <button
+                      type="button"
+                      className="week-button week-button-secondary"
+                      disabled={isSubmitting}
+                      onClick={() => setShoppingMode('list')}
+                    >
+                      Về danh sách
+                    </button>
+                  )}
+                </div>
+              </div>
+            </>
           )}
-        </div>
-      </div>
-    </div>
+        </>
+      )}
+    </WeekWorkspace>
   );
-};
+}

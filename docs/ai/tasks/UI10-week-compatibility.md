@@ -1,6 +1,6 @@
 # UI10 - Truthful Week compatibility and identity adoption
 
-Status: UI10_READY_FOR_IMPLEMENTATION_PACKET; runtime not implemented.
+Status: UI10_LOCAL_VERIFIED_REVIEW_REQUIRED; ADR-053 accepted and locally verified.
 Authorization: continued Tako-san UI rebuild. Canonical vn-tak/Tako-san,
 checkout /Users/tunbee27/Documents/Tako-san-ui-rebuild,
 branch codex/ui-rebuild-foundation. UI09 implementation `251e42ad9efd5b84e87171c69f9fc1bfb3e9b463` is verified;
@@ -112,3 +112,27 @@ inventory authority packet. Week service durable queuing/optimistic replay needs
 its own domain packet. Owner brand review, devices/Safari/native zoom/screen-reader,
 usability/CWV/hosted release and dependency advisories remain unverified/unresolved.
 No push, PR, merge, production migrations or deployment in this local packet.
+
+## Executed local result (2026-10-10 JST)
+
+Six Week pages, four components and shared workspace/choices/CSS are implemented.
+Focused: 11 files / 192 tests PASS 7.18s. Full failure recovery: 5 files / 128 PASS
+5.55s; four earlier scope files updated to accepted Week adoption, negative
+coverage retained, four positive cases added. Final pnpm check exit0: 283 files /
+6653 tests PASS, Vitest393.63s; type/lint/migration smoke/Vite3.12s/WorkerTS PASS.
+No timeout/config weakened. The failed full run (7 failures), narrow reproduction
+and preliminary interrupted gate remain in round-10 evidence.
+
+Browser: 61 snapshots / 11 journey groups, applicable axe/overflow/broken images/
+unexpected page errors0, seven planner-on aliases and six keyboard E2E projects
+PASS. Real local Worker generation/read/swap/checks keep whole inventory JSON.
+Explicit import adds one selected row with exact quantity/unit, preserves all
+fields of five existing rows and reads back after reload. PendingSync is synthetic
+presentation evidence only; no durable offline guarantee. Source143 and built
+public assets51 verified; services/protected paths unchanged, store exact two
+authorized replacements only. Generic UX remains FAIL151/29/968/82; dependency
+audit41 advisories with unchanged lockfile. Owner/devices/hosted remain unverified.
+
+Implementation checkpoint pending Git-object verification; documentation checkpoint
+will record the verified hash. Next packet: UI11-navigation-responsive.md; UI11
+runtime has not started. Reports and two contact sheets: docs/ui-rebuild/round-10.

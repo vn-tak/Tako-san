@@ -1,21 +1,18 @@
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { useQuery } from '@tanstack/react-query';
-import { useParams, useNavigate } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
+import { ChefHat, ArrowRightLeft } from 'lucide-react';
 import { useWeekStore } from '../stores/useWeekStore';
-import { TopBar } from '../components/common/TopBar';
+import { WeekWorkspace, weekCurrency, mealLabels } from '../features/week/WeekWorkspace';
 import { InlineError, InlineLoading } from '../components/common/AsyncState';
 import { MealSwapSheet } from '../features/week/MealSwapSheet';
 import { getIngredientImage } from '../lib/ingredient-images';
 import { queryKeys } from '../lib/queryKeys';
 import { api } from '../services/api';
-import { Clock, Users, ChefHat, ArrowRightLeft, Check, Sparkles } from 'lucide-react';
-import { clsx } from 'clsx';
 import { resolveRecipeImage, recipeImageErrorHandler } from '../lib/recipe-media';
 
-export const MealDetailPage: React.FC = () => {
+export function MealDetailPage() {
   const { planId, mealId } = useParams<{ planId: string; mealId: string }>();
-  const navigate = useNavigate();
-
   const { openSwap, error: workflowError } = useWeekStore();
   const [activeTab, setActiveTab] = useState<'ingredients' | 'steps' | 'nutrition'>('ingredients');
   const planQuery = useQuery({
@@ -24,300 +21,201 @@ export const MealDetailPage: React.FC = () => {
     enabled: Boolean(planId),
   });
   const currentPlan = planQuery.data ?? null;
-
   useEffect(() => {
     if (currentPlan) useWeekStore.setState({ currentPlan });
   }, [currentPlan]);
-
-  if (planQuery.isError || !currentPlan) {
-    return (
-      <div className="min-h-screen bg-takosan-cream pb-24">
-        <TopBar showBack title="Chi tiết món ăn" />
-        <div className="p-4">
-          {planQuery.isError ? (
-            <InlineError error={planQuery.error} onRetry={() => planQuery.refetch()} />
-          ) : planId && planQuery.isPending ? (
-            <InlineLoading label="Đang tải thực đơn…" />
-          ) : (
-            <p role="status" className="py-12 text-center text-sm text-semantic-text-secondary">Không tìm thấy thực đơn này.</p>
-          )}
-        </div>
-      </div>
-    );
-  }
-
-  // Find slot
-  let targetSlot: any;
-  let targetDay: any;
-  for (const day of currentPlan.days) {
-    const s = day.slots.find((slot: any) => slot.id === mealId);
-    if (s) {
-      targetSlot = s;
-      targetDay = day;
-      break;
-    }
-  }
-
-  if (!targetSlot || !targetSlot.recipe) {
-    return (
-      <div className="min-h-screen bg-takosan-cream pb-24">
-        <TopBar showBack title="Chi tiết món ăn" />
-        <div className="p-6 text-center text-xs text-semantic-text-muted font-medium">
-          Không tìm thấy thông tin món ăn này.
-          <button
-            className="mt-4 px-4 py-2 rounded-xl bg-takosan-green text-white font-bold"
-            onClick={() => navigate(-1)}
-          >
-            Quay lại
-          </button>
-        </div>
-      </div>
-    );
-  }
-
-  const recipe = targetSlot.recipe;
-
+  const day = currentPlan?.days.find((entry) => entry.slots.some((slot) => slot.id === mealId));
+  const slot = day?.slots.find((entry) => entry.id === mealId);
+  const recipe = slot?.recipe;
+  const media = recipe ? resolveRecipeImage(recipe) : null;
+  const backTo = planId ? `/week/${planId}` : '/week';
   return (
-    <div className="min-h-screen bg-takosan-cream pb-32">
-      <TopBar
-        showBack
-        title={targetSlot.recipe.title}
-        subtitle={`${targetDay.dayNameVi} • ${targetSlot.slotType === 'breakfast' ? 'Bữa sáng' : targetSlot.slotType === 'lunch' ? 'Bữa trưa' : 'Bữa tối'}`}
-      />
-
-      <div className="px-4 pt-3 space-y-4">
-        {workflowError && <InlineError message={workflowError} />}
-        {/* Hero Recipe Photo & Quick Specs */}
-        <div className="relative w-full h-56 rounded-2xl overflow-hidden bg-semantic-border/60 shadow-xs border border-semantic-border/60">
-          <img
-            src={resolveRecipeImage(recipe).src}
-            alt={recipe.title}
-            className="w-full h-full object-cover"
-            onError={recipeImageErrorHandler(resolveRecipeImage(recipe).fallbackSrc)}
-          />
-          <div className="absolute inset-0 bg-gradient-to-t from-semantic-overlay/85 via-semantic-overlay/20 to-transparent" />
-
-          <div className="absolute bottom-3.5 left-4 right-4 text-white">
-            <div className="flex items-center gap-2 mb-1.5 flex-wrap">
-              <span className="text-[10px] font-heading font-semibold uppercase px-2 py-0.5 rounded-full bg-white/20 backdrop-blur-md border border-white/20">
-                {recipe.cuisine === 'vietnamese' ? 'Việt Nam' : recipe.cuisine}
-              </span>
-              {recipe.nutrition?.calories != null && (
-                <span className="text-[10px] font-heading font-semibold px-2 py-0.5 rounded-full bg-takosan-green text-white shadow-xs">
-                  {recipe.nutrition.calories} cal/phần
-                </span>
-              )}
-              <span className="text-[10px] font-heading font-semibold px-2 py-0.5 rounded-full bg-semantic-warning text-white shadow-xs">
-                {targetSlot.incrementalCostVnd === 0 ? '0đ có sẵn' : `~${Math.round(targetSlot.incrementalCostVnd / 1000)}k`}
-              </span>
-            </div>
-
-            <h2 className="font-heading font-bold text-2xl leading-tight text-white">
-              {recipe.title}
-            </h2>
-
-            <div className="flex items-center gap-4 text-xs mt-1 text-white">
-              <span className="flex items-center gap-1">
-                <Clock className="w-3.5 h-3.5 text-takosan-mint" />
-                <span>{recipe.cookTimeMinutes} phút</span>
-              </span>
-              <span className="flex items-center gap-1">
-                <Users className="w-3.5 h-3.5 text-takosan-mint" />
-                <span>{targetSlot.servings} người ăn</span>
-              </span>
-            </div>
-          </div>
+    <WeekWorkspace
+      title={recipe?.title || 'Chi tiết món ăn'}
+      backTo={backTo}
+      description={
+        day && slot
+          ? `${day.dayNameVi} · ${mealLabels[slot.slotType]} · ${slot.servings} phần ăn`
+          : 'Món ăn trong thực đơn tuần của bạn.'
+      }
+    >
+      {planQuery.isError ? (
+        <InlineError error={planQuery.error} onRetry={() => planQuery.refetch()} />
+      ) : planQuery.isPending ? (
+        <InlineLoading label="Đang tải món trong thực đơn…" />
+      ) : !recipe || !slot || !media ? (
+        <div className="week-paper">
+          <p role="status">Không tìm thấy thông tin món ăn này.</p>
+          <Link to={backTo} className="week-text-link">
+            Về thực đơn tuần
+          </Link>
         </div>
-
-        {/* Smart Expiry Optimization Banner matching screen 5.2 */}
-        {targetSlot.rescuedExpiringIngredients.length > 0 && <div className="bg-semantic-warning-soft border border-semantic-warning/30 rounded-2xl p-3.5 flex items-center gap-3 text-xs text-semantic-warning-strong shadow-xs">
-          <div className="w-8 h-8 rounded-xl bg-semantic-warning/20 flex items-center justify-center shrink-0 text-semantic-warning-strong">
-            <Sparkles className="w-4 h-4" />
-          </div>
-          <div>
-            <p className="font-heading font-bold text-xs text-semantic-warning-strong">
-              Tối ưu tủ lạnh
-            </p>
-            <p className="text-[11px] text-semantic-warning-strong/90 mt-0.5">
-              Ưu tiên nguyên liệu sắp hết hạn: {targetSlot.rescuedExpiringIngredients.join(', ')}
-            </p>
-          </div>
-        </div>}
-
-        {/* Segmented 3 Tabs: Nguyên liệu | Cách nấu | Dinh dưỡng */}
-        <div className="flex bg-semantic-border/70 p-1 rounded-xl">
-          {[
-            { id: 'ingredients' as const, label: 'Nguyên liệu' },
-            { id: 'steps' as const, label: 'Cách nấu' },
-            { id: 'nutrition' as const, label: 'Dinh dưỡng' },
-          ].map((tab) => (
-            <button
-              key={tab.id}
-              onClick={() => setActiveTab(tab.id)}
-              aria-pressed={activeTab === tab.id}
-              className={clsx(
-                'flex-1 py-2 rounded-lg text-xs font-heading font-bold transition-tap tap-target',
-                activeTab === tab.id
-                  ? 'bg-white text-takosan-green shadow-xs'
-                  : 'text-semantic-text-secondary hover:text-semantic-text-primary'
-              )}
-            >
-              {tab.label}
-            </button>
-          ))}
-        </div>
-
-        {/* Tab 1: Nguyên liệu (Have vs Need) */}
-        {activeTab === 'ingredients' && (
-          <div className="bg-white rounded-2xl p-4 border border-semantic-border shadow-xs space-y-3 animate-fade-in">
-            <div className="flex items-center justify-between border-b border-semantic-border/70 pb-2.5">
-              <h3 className="font-heading font-bold text-sm text-semantic-text-primary">
-                Nguyên liệu ({targetSlot.ingredients.length} món)
-              </h3>
-              <span className="text-xs font-bold text-takosan-green-deep bg-takosan-mint px-2.5 py-0.5 rounded-full border border-takosan-mint-deep/60">
-                Có sẵn {targetSlot.availabilityPercent}%
-              </span>
-            </div>
-
-            <div className="space-y-2">
-              {targetSlot.ingredients.map((ing: any) => {
-                const imgSrc = getIngredientImage(ing.ingredientId, ing.name);
-                const isMissing = ing.missingQuantity > 0;
-
-                return (
-                  <div
-                    key={ing.ingredientId}
-                    className="flex items-center justify-between p-2.5 rounded-xl hover:bg-semantic-background-subtle transition-colors border border-semantic-border/70"
-                  >
-                    <div className="flex items-center gap-3 min-w-0">
-                      <div className="w-10 h-10 rounded-xl bg-semantic-background-subtle border border-semantic-border/70 flex items-center justify-center shrink-0 p-1.5">
-                        <img
-                          src={imgSrc}
-                          alt={ing.name}
-                          className="w-full h-full object-contain"
-                        />
-                      </div>
-                      <div className="min-w-0">
-                        <p className="font-heading font-bold text-xs text-semantic-text-primary truncate">
-                          {ing.name}
-                        </p>
-                        <p className="text-[11px] text-semantic-text-muted mt-0.5">
-                          Cần: <span className="font-semibold text-semantic-text-primary">{ing.requiredQuantity} {ing.unit}</span>
-                          {ing.availableQuantity > 0 && (
-                            <span> • Có sẵn: {ing.availableQuantity} {ing.unit}</span>
-                          )}
-                        </p>
-                      </div>
-                    </div>
-
-                    <div className="text-right shrink-0 ml-2">
-                      {isMissing ? (
-                        <div className="text-xs">
-                          <span className="font-bold text-semantic-warning-strong bg-semantic-warning-soft px-2 py-0.5 rounded-md border border-semantic-warning/30">
-                            Cần mua {ing.missingQuantity} {ing.unit}
-                          </span>
-                        </div>
-                      ) : (
-                        <span className="inline-flex items-center gap-1 text-[11px] font-bold text-takosan-green-deep bg-takosan-mint px-2.5 py-0.5 rounded-md border border-takosan-mint-deep/60">
-                          <Check className="w-3.5 h-3.5 stroke-[3]" /> Có sẵn
-                        </span>
-                      )}
-                    </div>
-                  </div>
-                );
-              })}
-            </div>
-          </div>
-        )}
-
-        {/* Tab 2: Cách nấu */}
-        {activeTab === 'steps' && (
-          <div className="bg-white rounded-2xl p-4 border border-semantic-border shadow-xs space-y-3.5 animate-fade-in">
-            <h3 className="font-heading font-bold text-sm text-semantic-text-primary mb-2">
-              Các bước chế biến
-            </h3>
-            <div className="space-y-3">
-              {recipe.steps?.map((step: any, idx: number) => (
-                <div key={idx} className="flex gap-3">
-                  <div className="w-6 h-6 rounded-full bg-takosan-mint text-takosan-green-deep font-bold text-xs flex items-center justify-center shrink-0 mt-0.5">
-                    {idx + 1}
-                  </div>
-                  <div className="flex-1 text-xs text-semantic-text-secondary leading-relaxed">
-                    <p className="font-heading font-bold text-semantic-text-primary mb-0.5">
-                      {step.title || `Bước ${idx + 1}`}
-                    </p>
-                    <p>{step.instruction}</p>
-                  </div>
+      ) : (
+        <>
+          {workflowError && <InlineError message={workflowError} />}
+          <div className="week-meal-overview">
+            <img
+              className="week-recipe-cover"
+              src={media.src}
+              alt={recipe.title}
+              width={720}
+              height={480}
+              onError={recipeImageErrorHandler(media.fallbackSrc)}
+            />
+            <div className="week-paper week-recipe-facts">
+              <h2>Chuẩn bị bữa ăn</h2>
+              <dl>
+                <div>
+                  <dt>Thời gian theo công thức</dt>
+                  <dd>{recipe.cookTimeMinutes} phút</dd>
                 </div>
-              )) || (
-                <p className="text-xs text-semantic-text-muted">Mở chế độ nấu để xem chi tiết từng bước.</p>
-              )}
-            </div>
-          </div>
-        )}
-
-        {/* Tab 3: Dinh dưỡng */}
-        {activeTab === 'nutrition' && (
-          <div className="bg-white rounded-2xl p-4 border border-semantic-border shadow-xs space-y-3 animate-fade-in">
-            <h3 className="font-heading font-bold text-sm text-semantic-text-primary">
-              Giá trị dinh dưỡng (mỗi phần ăn)
-            </h3>
-            <div className="grid grid-cols-4 gap-2 pt-1 text-center">
-              <div className="bg-semantic-background-subtle p-2.5 rounded-xl border border-semantic-border/70">
-                <p className="text-[10px] text-semantic-text-muted uppercase font-semibold">Calories</p>
-                <p className="font-heading font-bold text-base text-semantic-text-primary mt-1">
-                  {recipe.nutrition?.calories ?? '—'}
-                </p>
-                <p className="text-[10px] text-semantic-text-muted">kcal</p>
-              </div>
-              <div className="bg-semantic-background-subtle p-2.5 rounded-xl border border-semantic-border/70">
-                <p className="text-[10px] text-semantic-text-muted uppercase font-semibold">Đạm</p>
-                <p className="font-heading font-bold text-base text-semantic-text-primary mt-1">
-                  {recipe.nutrition?.proteinG ?? '—'}
-                </p>
-                <p className="text-[10px] text-semantic-text-muted">g</p>
-              </div>
-              <div className="bg-semantic-background-subtle p-2.5 rounded-xl border border-semantic-border/70">
-                <p className="text-[10px] text-semantic-text-muted uppercase font-semibold">Béo</p>
-                <p className="font-heading font-bold text-base text-semantic-text-primary mt-1">
-                  {recipe.nutrition?.fatG ?? '—'}
-                </p>
-                <p className="text-[10px] text-semantic-text-muted">g</p>
-              </div>
-              <div className="bg-semantic-background-subtle p-2.5 rounded-xl border border-semantic-border/70">
-                <p className="text-[10px] text-semantic-text-muted uppercase font-semibold">Carb</p>
-                <p className="font-heading font-bold text-base text-semantic-text-primary mt-1">
-                  {recipe.nutrition?.carbG ?? '—'}
-                </p>
-                <p className="text-[10px] text-semantic-text-muted">g</p>
+                <div>
+                  <dt>Theo kế hoạch · có sẵn</dt>
+                  <dd>{slot.availabilityPercent}%</dd>
+                </div>
+                <div>
+                  <dt>Mua thêm · ước tính</dt>
+                  <dd>~{weekCurrency(slot.incrementalCostVnd)}</dd>
+                </div>
+              </dl>
+              <p className="week-muted">
+                Kiểm tra lại số lượng và hạn dùng thực tế trước khi nấu. Chi phí dự kiến có thể
+                thiếu dữ liệu giá.
+              </p>
+              <div className="week-actions">
+                <button
+                  type="button"
+                  className="week-button week-button-secondary"
+                  onClick={() => openSwap(mealId!)}
+                >
+                  <ArrowRightLeft size={18} aria-hidden="true" />
+                  Đổi món
+                </button>
+                <Link to={`/cook/${recipe.slug}`} className="week-button">
+                  <ChefHat size={18} aria-hidden="true" />
+                  Bắt đầu nấu
+                </Link>
               </div>
             </div>
           </div>
-        )}
-      </div>
-
-      {/* Sticky Bottom Dual Action Buttons matching Screen 5.2 */}
-      <div className="fixed bottom-[calc(68px+env(safe-area-inset-bottom,0px))] sm:bottom-0 left-0 right-0 sm:left-20 lg:left-64 p-4 bg-white/95 backdrop-blur-md border-t border-semantic-border z-30 shadow-lg">
-        <div className="mx-auto w-full max-w-[var(--content-wide)] flex gap-3">
-          <button
-            onClick={() => openSwap(mealId!)}
-            className="flex-1 py-3.5 px-4 rounded-2xl bg-white border-2 border-takosan-green text-takosan-green-deep font-heading font-bold text-sm hover:bg-takosan-mint active:scale-98 transition-tap flex items-center justify-center gap-1.5"
+          {slot.rescuedExpiringIngredients.length > 0 && (
+            <aside className="week-note">
+              <h2>Ưu tiên nguyên liệu sắp hết hạn</h2>
+              <p>{slot.rescuedExpiringIngredients.join(', ')}</p>
+              <p className="week-muted">Được xếp vào kế hoạch; chưa phải nguyên liệu đã sử dụng.</p>
+            </aside>
+          )}
+          <div className="week-tabs" role="group" aria-label="Nội dung công thức">
+            {(
+              [
+                { id: 'ingredients', label: 'Nguyên liệu' },
+                { id: 'steps', label: 'Cách nấu' },
+                { id: 'nutrition', label: 'Dinh dưỡng' },
+              ] as const
+            ).map((tab) => (
+              <button
+                type="button"
+                key={tab.id}
+                className="week-button week-button-secondary"
+                aria-pressed={activeTab === tab.id}
+                aria-controls="week-recipe-content"
+                onClick={() => setActiveTab(tab.id)}
+              >
+                {tab.label}
+              </button>
+            ))}
+          </div>
+          <section
+            id="week-recipe-content"
+            className="week-paper week-recipe-content"
+            aria-live="polite"
           >
-            <ArrowRightLeft className="w-4 h-4 text-takosan-green" />
-            <span>Đổi món</span>
-          </button>
-
-          <button
-            onClick={() => navigate(`/cook/${recipe.slug}`)}
-            className="flex-1 py-3.5 px-4 rounded-2xl bg-takosan-green hover:bg-takosan-green-hover text-white font-heading font-bold text-sm shadow-md active:scale-98 transition-tap flex items-center justify-center gap-2"
-          >
-            <ChefHat className="w-5 h-5" />
-            <span>Bắt đầu nấu</span>
-          </button>
-        </div>
-      </div>
-
-      <MealSwapSheet />
-    </div>
+            {activeTab === 'ingredients' && (
+              <>
+                <h2>Nguyên liệu ({slot.ingredients.length})</h2>
+                <p className="week-muted">
+                  Số lượng dự kiến cho {slot.servings} phần ăn, theo dữ liệu của thực đơn.
+                </p>
+                <ul className="week-ingredient-list">
+                  {slot.ingredients.map((ingredient) => (
+                    <li key={ingredient.ingredientId}>
+                      <img
+                        src={getIngredientImage(ingredient.ingredientId, ingredient.name)}
+                        alt=""
+                        width={48}
+                        height={48}
+                        loading="lazy"
+                      />
+                      <div>
+                        <h3>{ingredient.name}</h3>
+                        <p>
+                          Cần {ingredient.requiredQuantity} {ingredient.unit} · dự kiến có{' '}
+                          {ingredient.availableQuantity} {ingredient.unit}
+                        </p>
+                      </div>
+                      <p className="week-badge">
+                        {ingredient.missingQuantity > 0
+                          ? `Cần mua ${ingredient.missingQuantity} ${ingredient.unit}`
+                          : 'Dự kiến đủ'}
+                      </p>
+                    </li>
+                  ))}
+                </ul>
+                {!slot.ingredients.length && (
+                  <p className="week-note">Chưa có dữ liệu nguyên liệu trong bữa này.</p>
+                )}
+              </>
+            )}
+            {activeTab === 'steps' && (
+              <>
+                <h2>Các bước chế biến</h2>
+                {recipe.steps?.length ? (
+                  <ol className="week-recipe-steps">
+                    {recipe.steps.map((step, index) => (
+                      <li key={index}>
+                        <span className="week-step-number" aria-hidden="true">
+                          {index + 1}
+                        </span>
+                        <div>
+                          <h3>{`Bước ${index + 1}`}</h3>
+                          <p>{step.instruction}</p>
+                        </div>
+                      </li>
+                    ))}
+                  </ol>
+                ) : (
+                  <p className="week-note">Chưa có hướng dẫn chế biến cho công thức này.</p>
+                )}
+              </>
+            )}
+            {activeTab === 'nutrition' && (
+              <>
+                <h2>Dinh dưỡng theo công thức · mỗi phần</h2>
+                <p className="week-muted">
+                  Số liệu tham khảo của công thức, có thể khác nguyên liệu thực tế. Dấu — là chưa có
+                  dữ liệu, không phải bằng 0.
+                </p>
+                <dl className="week-nutrition">
+                  {[
+                    ['Năng lượng', recipe.nutrition?.calories, 'kcal'],
+                    ['Đạm', recipe.nutrition?.proteinG, 'g'],
+                    ['Chất béo', recipe.nutrition?.fatG, 'g'],
+                    ['Tinh bột', recipe.nutrition?.carbG, 'g'],
+                  ].map(([label, value, unit]) => (
+                    <div key={label}>
+                      <dt>{label}</dt>
+                      <dd>
+                        {value ?? '—'} <span>{unit}</span>
+                      </dd>
+                    </div>
+                  ))}
+                </dl>
+              </>
+            )}
+          </section>
+          <MealSwapSheet />
+        </>
+      )}
+    </WeekWorkspace>
   );
-};
+}

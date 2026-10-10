@@ -1,8 +1,7 @@
-import React, { useId, useRef, useState } from 'react';
+import { useEffect, useId, useRef, useState } from 'react';
+import { X, Copy, Share2 } from 'lucide-react';
+import type { MealPlan, AggregatedShoppingItem } from '@frigo/domain';
 import { useModalFocus } from '../../design-system/use-modal-focus';
-import { MealPlan, AggregatedShoppingItem } from '@frigo/domain';
-import { Button } from '../../components/common/Button';
-import { X, Copy, Check, Share2, Calendar, ShoppingBag, Send } from 'lucide-react';
 
 interface WeekExportModalProps {
   isOpen: boolean;
@@ -10,23 +9,35 @@ interface WeekExportModalProps {
   plan: MealPlan;
   shoppingItems?: AggregatedShoppingItem[];
 }
-
-export const WeekExportModal: React.FC<WeekExportModalProps> = ({
+export function WeekExportModal({
   isOpen,
   onClose,
   plan,
   shoppingItems = [],
-}) => {
-  const [copiedType, setCopiedType] = useState<'menu' | 'shopping' | null>(null);
+}: WeekExportModalProps) {
+  const [feedback, setFeedback] = useState<{ message: string; error: boolean } | null>(null);
+  const [pending, setPending] = useState(false);
   const panelRef = useRef<HTMLDivElement>(null);
   const closeRef = useRef<HTMLButtonElement>(null);
+  const feedbackRef = useRef<HTMLParagraphElement>(null);
+  const epoch = useRef(0);
+  const busy = useRef(false);
   const titleId = useId();
-  // Dialog contract: focus trap, Escape closes, focus returns to the invoker.
   useModalFocus(isOpen, panelRef, onClose, closeRef);
-
+  useEffect(() => {
+    epoch.current += 1;
+    busy.current = false;
+    setPending(false);
+    setFeedback(null);
+    return () => {
+      epoch.current += 1;
+    };
+  }, [isOpen, plan.id]);
+  useEffect(() => {
+    if (feedback?.error) feedbackRef.current?.focus();
+  }, [feedback]);
   if (!isOpen) return null;
-
-  const totalMeals = plan.days.reduce((acc, d) => acc + d.slots.length, 0);
+  const totalMeals = plan.days.reduce((count, day) => count + day.slots.length, 0);
 
   // Generate Menu text
   const generateMenuText = () => {
@@ -39,7 +50,14 @@ export const WeekExportModal: React.FC<WeekExportModalProps> = ({
     plan.days.forEach((day) => {
       const mealNames = day.slots
         .map((s) => {
-          const slotLabel = s.slotType === 'dinner' ? 'Tối' : s.slotType === 'lunch' ? 'Trưa' : s.slotType === 'breakfast' ? 'Sáng' : 'Phụ';
+          const slotLabel =
+            s.slotType === 'dinner'
+              ? 'Tối'
+              : s.slotType === 'lunch'
+                ? 'Trưa'
+                : s.slotType === 'breakfast'
+                  ? 'Sáng'
+                  : 'Phụ';
           return `${slotLabel}: ${s.recipe?.title || 'Tự chọn'}`;
         })
         .join(' | ');
@@ -89,156 +107,161 @@ export const WeekExportModal: React.FC<WeekExportModalProps> = ({
     return lines.join('\n');
   };
 
-  const handleCopyMenu = () => {
-    const text = generateMenuText();
-    navigator.clipboard.writeText(text);
-    setCopiedType('menu');
-    setTimeout(() => setCopiedType(null), 2000);
-  };
-
-  const handleCopyShopping = () => {
-    const text = generateShoppingText();
-    navigator.clipboard.writeText(text);
-    setCopiedType('shopping');
-    setTimeout(() => setCopiedType(null), 2000);
-  };
-
-  const handleNativeShare = () => {
-    const text = `${generateMenuText()}\n\n${generateShoppingText()}`;
-    if (navigator.share) {
-      navigator.share({
-        title: 'Thực đơn & Danh sách đi chợ tuần Takosan',
-        text,
-      }).catch(() => {});
-    } else {
-      handleCopyShopping();
+  async function copy(kind: 'menu' | 'shopping') {
+    if (busy.current) return;
+    const owner = epoch.current;
+    busy.current = true;
+    setPending(true);
+    setFeedback(null);
+    try {
+      if (!navigator.clipboard?.writeText) throw new Error('Clipboard unavailable');
+      await navigator.clipboard.writeText(
+        kind === 'menu' ? generateMenuText() : generateShoppingText(),
+      );
+      if (epoch.current === owner)
+        setFeedback({
+          message: kind === 'menu' ? 'Đã sao chép thực đơn.' : 'Đã sao chép danh sách đi chợ.',
+          error: false,
+        });
+    } catch {
+      if (epoch.current === owner)
+        setFeedback({
+          message: 'Chưa sao chép được. Hãy kiểm tra quyền sao chép của trình duyệt rồi thử lại.',
+          error: true,
+        });
+    } finally {
+      if (epoch.current === owner) {
+        busy.current = false;
+        setPending(false);
+      }
     }
-  };
-
+  }
+  async function share() {
+    if (busy.current) return;
+    if (!navigator.share) {
+      await copy('shopping');
+      return;
+    }
+    const owner = epoch.current;
+    busy.current = true;
+    setPending(true);
+    setFeedback(null);
+    try {
+      await navigator.share({
+        title: 'Thực đơn & Danh sách đi chợ tuần Takosan',
+        text: `${generateMenuText()}\n\n${generateShoppingText()}`,
+      });
+      if (epoch.current === owner)
+        setFeedback({ message: 'Đã hoàn tất thao tác chia sẻ trên thiết bị.', error: false });
+    } catch (error) {
+      if (epoch.current === owner)
+        setFeedback({
+          message:
+            (error instanceof Error || error instanceof DOMException) && error.name === 'AbortError'
+              ? 'Bạn đã đóng bảng chia sẻ.'
+              : 'Chưa chia sẻ được. Bạn có thể sao chép nội dung để gửi.',
+          error: !(
+            (error instanceof Error || error instanceof DOMException) &&
+            error.name === 'AbortError'
+          ),
+        });
+    } finally {
+      if (epoch.current === owner) {
+        busy.current = false;
+        setPending(false);
+      }
+    }
+  }
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-semantic-overlay/50 backdrop-blur-sm animate-fade-in text-semantic-text-primary" onClick={onClose} role="presentation">
+    <div className="week-modal-backdrop" onClick={onClose} role="presentation">
       <div
         ref={panelRef}
         role="dialog"
         aria-modal="true"
         aria-labelledby={titleId}
-        onClick={(e) => e.stopPropagation()}
-        className="bg-white w-full max-w-sm rounded-2xl overflow-hidden shadow-2xl border border-semantic-border flex flex-col max-h-[90vh] animate-fade-in"
+        onClick={(event) => event.stopPropagation()}
+        className="week-dialog"
       >
-        {/* Header */}
-        <div className="p-4 bg-takosan-green text-white flex items-center justify-between">
-          <div className="flex items-center gap-2">
-            <div className="w-8 h-8 rounded-lg bg-takosan-green flex items-center justify-center text-white">
-              <Share2 className="w-4 h-4" />
-            </div>
-            <div>
-              <h2 id={titleId} className="font-heading font-bold text-sm leading-tight text-white">Chia sẻ Kế hoạch Tuần</h2>
-              <p className="text-[11px] text-white">Gửi qua Zalo, Messenger hoặc Tin nhắn</p>
-            </div>
+        <div className="week-dialog-heading">
+          <div>
+            <p className="week-eyebrow">CÙNG XEM, CÙNG CHUẨN BỊ</p>
+            <h2 id={titleId}>Chia sẻ thực đơn tuần</h2>
           </div>
           <button
             ref={closeRef}
             type="button"
+            className="week-icon-button"
             onClick={onClose}
-            className="w-8 h-8 rounded-lg bg-white/10 hover:bg-white/20 text-white flex items-center justify-center tap-target transition-colors"
-            aria-label="Đóng"
+            aria-label="Đóng chia sẻ"
           >
-            <X className="w-4 h-4" />
+            <X size={20} aria-hidden="true" />
           </button>
         </div>
-
-        {/* Content Preview */}
-        <div className="p-4 overflow-y-auto space-y-3.5 bg-semantic-background-subtle/50">
-          {/* Card Preview */}
-          <div className="bg-white p-3.5 rounded-xl border border-semantic-border shadow-xs space-y-2">
-            <div className="flex items-center justify-between">
-              <span className="font-heading font-semibold text-sm text-semantic-text-primary">Thực đơn tuần này</span>
-              <span className="text-[10px] font-semibold px-2 py-0.5 rounded bg-takosan-mint text-takosan-green-deep border border-takosan-mint-deep/60">
-                {totalMeals} bữa
-              </span>
-            </div>
-
-            <div className="grid grid-cols-2 gap-2 text-xs py-1">
-              <div>
-                <span className="text-semantic-text-muted block text-[11px]">Ngân sách:</span>
-                <span className="font-semibold text-takosan-green">
-                  {plan.budget.displayText}
-                </span>
-              </div>
-              <div>
-                <span className="text-semantic-text-muted block text-[11px]">Tận dụng tủ lạnh:</span>
-                <span className="font-semibold text-semantic-text-primary">
-                  {plan.utilization.utilizationPercent}%
-                </span>
-              </div>
-            </div>
-
-            <p className="text-xs text-semantic-text-secondary line-clamp-3 pt-1 border-t border-semantic-border/70 leading-relaxed">
-              {plan.days.map((d) => `${d.dayNameVi}: ${d.slots[0]?.recipe?.title || 'Tự do'}`).join(' • ')}
+        <div className="week-dialog-body">
+          <p className="week-muted">
+            Sao chép nội dung rồi gửi qua ứng dụng bạn chọn. Giá và mức tận dụng tủ trong bản chia
+            sẻ là dự kiến.
+          </p>
+          <div className="week-export-preview">
+            <h3>
+              {totalMeals} bữa · {shoppingItems.length} nguyên liệu cần mua
+            </h3>
+            <p>{plan.budget.displayText}</p>
+            <ul>
+              {plan.days.map((day) => (
+                <li key={day.id}>
+                  <strong>{day.dayNameVi}</strong>
+                  <span>
+                    {day.slots.map((slot) => slot.recipe?.title || 'Tự chọn').join(' · ') ||
+                      'Tự do'}
+                  </span>
+                </li>
+              ))}
+            </ul>
+          </div>
+          <div className="week-actions week-export-actions">
+            <button
+              type="button"
+              className="week-button week-button-secondary"
+              disabled={pending}
+              onClick={() => copy('shopping')}
+            >
+              <Copy size={18} aria-hidden="true" />
+              Sao chép danh sách đi chợ
+            </button>
+            <button
+              type="button"
+              className="week-button week-button-secondary"
+              disabled={pending}
+              onClick={() => copy('menu')}
+            >
+              <Copy size={18} aria-hidden="true" />
+              Sao chép thực đơn
+            </button>
+            <button type="button" className="week-button" disabled={pending} onClick={share}>
+              <Share2 size={18} aria-hidden="true" />
+              {typeof navigator.share === 'function'
+                ? 'Chia sẻ trên thiết bị'
+                : 'Sao chép danh sách để gửi'}
+            </button>
+          </div>
+          {pending && (
+            <p role="status" className="week-muted">
+              Đang chờ kết quả từ thiết bị…
             </p>
-          </div>
-
-          {/* Quick Share Buttons */}
-          <div className="space-y-2">
-            <button
-              onClick={handleCopyShopping}
-              className="w-full p-3 rounded-xl bg-white border border-semantic-border hover:border-takosan-green/50 flex items-center justify-between transition-tap tap-target text-left shadow-xs active:scale-[0.99]"
+          )}
+          {feedback && (
+            <p
+              ref={feedbackRef}
+              tabIndex={feedback.error ? -1 : undefined}
+              role={feedback.error ? 'alert' : 'status'}
+              className={feedback.error ? 'week-error' : 'week-note'}
             >
-              <div className="flex items-center gap-3">
-                <div className="w-9 h-9 rounded-lg bg-takosan-mint border border-takosan-mint-deep flex items-center justify-center text-takosan-green-deep">
-                  <ShoppingBag className="w-4 h-4" />
-                </div>
-                <div>
-                  <p className="font-heading font-semibold text-xs text-semantic-text-primary">Sao chép Danh sách đi chợ</p>
-                  <p className="text-[11px] text-semantic-text-muted">Định dạng gạch đầu dòng tiện đi chợ</p>
-                </div>
-              </div>
-              {copiedType === 'shopping' ? (
-                <span className="text-xs font-semibold text-takosan-green flex items-center gap-1">
-                  <Check className="w-3.5 h-3.5" /> Đã chép
-                </span>
-              ) : (
-                <Copy className="w-4 h-4 text-semantic-text-muted" />
-              )}
-            </button>
-
-            <button
-              onClick={handleCopyMenu}
-              className="w-full p-3 rounded-xl bg-white border border-semantic-border hover:border-takosan-green/50 flex items-center justify-between transition-tap tap-target text-left shadow-xs active:scale-[0.99]"
-            >
-              <div className="flex items-center gap-3">
-                <div className="w-9 h-9 rounded-lg bg-takosan-mint border border-takosan-mint-deep flex items-center justify-center text-takosan-green-deep">
-                  <Calendar className="w-4 h-4" />
-                </div>
-                <div>
-                  <p className="font-heading font-semibold text-xs text-semantic-text-primary">Sao chép Thực đơn 7 ngày</p>
-                  <p className="text-[11px] text-semantic-text-muted">Gửi cho cả nhà cùng xem</p>
-                </div>
-              </div>
-              {copiedType === 'menu' ? (
-                <span className="text-xs font-semibold text-takosan-green flex items-center gap-1">
-                  <Check className="w-3.5 h-3.5" /> Đã chép
-                </span>
-              ) : (
-                <Copy className="w-4 h-4 text-semantic-text-muted" />
-              )}
-            </button>
-          </div>
-        </div>
-
-        {/* Footer Actions */}
-        <div className="p-4 bg-white border-t border-semantic-border/70">
-          <Button
-            fullWidth
-            size="lg"
-            onClick={handleNativeShare}
-            className="flex items-center justify-center gap-2"
-          >
-            <Send className="w-4 h-4" />
-            <span>Gửi qua Zalo / Tin nhắn</span>
-          </Button>
+              {feedback.message}
+            </p>
+          )}
         </div>
       </div>
     </div>
   );
-};
+}

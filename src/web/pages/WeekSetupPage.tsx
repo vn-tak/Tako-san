@@ -1,497 +1,216 @@
-import React, { useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import type { MealPlanSetupInput, WeeklyPriority, ShoppingFrequency } from '@frigo/domain';
+import { ArrowLeft, ArrowRight } from 'lucide-react';
 import { useWeekStore } from '../stores/useWeekStore';
-import { TopBar } from '../components/common/TopBar';
-import { Button } from '../components/common/Button';
-import { WeeklyPriority, ShoppingFrequency, DayType } from '@frigo/domain';
-import { Check, ChevronRight } from 'lucide-react';
-import { clsx } from 'clsx';
+import { WeekWorkspace, weekCurrency } from '../features/week/WeekWorkspace';
+import {
+  WeekBudgetChoices,
+  WeekFrequencyChoices,
+  frequencyOptions,
+} from '../features/week/WeekSetupChoices';
 
-export const WeekSetupPage: React.FC = () => {
+const presets: { id: MealPlanSetupInput['mealSlotsPreset']; title: string; description: string }[] =
+  [
+    {
+      id: 'dinner_only',
+      title: 'Chỉ bữa tối',
+      description: 'Bữa tối tại nhà từ thứ 2 đến chủ nhật.',
+    },
+    {
+      id: 'working_people',
+      title: 'Người đi làm bận rộn',
+      description: 'Bữa tối ngày thường; bữa trưa và tối cuối tuần.',
+    },
+    { id: 'all', title: 'Sáng, trưa và tối', description: 'Lên kế hoạch cho cả ba bữa mỗi ngày.' },
+  ];
+const prioritiesOptions: { id: WeeklyPriority; label: string }[] = [
+  { id: 'use_fridge', label: 'Dùng đồ trong tủ' },
+  { id: 'budget', label: 'Tiết kiệm chi phí' },
+  { id: 'quick', label: 'Ưu tiên nấu nhanh' },
+  { id: 'variety', label: 'Ăn đa dạng, đổi món' },
+  { id: 'more_veggies', label: 'Nhiều rau xanh hơn' },
+  { id: 'high_protein', label: 'Giàu đạm hơn' },
+  { id: 'low_oil', label: 'Ít dầu mỡ hơn' },
+  { id: 'less_shopping', label: 'Ít mua thêm' },
+  { id: 'meal_prep', label: 'Ưu tiên chuẩn bị sẵn' },
+  { id: 'new_recipes', label: 'Thử món mới' },
+];
+const steps = ['Bữa ăn', 'Ngân sách', 'Ưu tiên', 'Đi chợ'];
+
+export function WeekSetupPage() {
   const navigate = useNavigate();
   const { setupDraft, updateSetupDraft } = useWeekStore();
-
   const [currentStep, setCurrentStep] = useState(1);
-
-  // Step 1: Meal slots preset
-  const [mealPreset, setMealPreset] = useState<'dinner_only' | 'working_people' | 'all'>(
-    (setupDraft.mealSlotsPreset as any) || 'dinner_only'
+  const [mealPreset, setMealPreset] = useState(setupDraft.mealSlotsPreset || 'dinner_only');
+  const [budget, setBudget] = useState<number | null>(
+    setupDraft.budgetTargetVnd !== undefined ? setupDraft.budgetTargetVnd : 750000,
   );
-
-  // Step 2: Budget
-  const [budgetVnd, setBudgetVnd] = useState<number | null>(
-    setupDraft.budgetTargetVnd !== undefined ? setupDraft.budgetTargetVnd : 750000
-  );
-  const [isUnlimitedBudget, setIsUnlimitedBudget] = useState(setupDraft.budgetTargetVnd === null);
-
-  // Step 3: Schedule (T2 to CN)
-  const DAY_LABELS = ['Thứ 2', 'Thứ 3', 'Thứ 4', 'Thứ 5', 'Thứ 6', 'Thứ 7', 'Chủ nhật'];
-  const [daySchedules, setDaySchedules] = useState<DayType[]>([
-    'cooking',
-    'cooking',
-    'cooking',
-    'cooking',
-    'flexible',
-    'cooking',
-    'cooking',
-  ]);
-  const [skipDetailedSchedule, setSkipDetailedSchedule] = useState(false);
-
-  // Step 4: Priorities (Max 3, default: use_fridge)
   const [priorities, setPriorities] = useState<WeeklyPriority[]>(
-    setupDraft.priorities || ['use_fridge']
+    setupDraft.priorities || ['use_fridge'],
   );
-
-  // Step 5: Shopping frequency
   const [frequency, setFrequency] = useState<ShoppingFrequency>(
-    setupDraft.shoppingFrequency || 'once'
+    setupDraft.shoppingFrequency || 'once',
   );
-
-  const PRIORITY_OPTIONS: { id: WeeklyPriority; label: string; icon: string }[] = [
-    { id: 'use_fridge', label: 'Dùng hết đồ trong tủ', icon: '🧊' },
-    { id: 'budget', label: 'Tiết kiệm chi phí', icon: '💰' },
-    { id: 'quick', label: 'Nấu nhanh dưới 25p', icon: '⚡' },
-    { id: 'variety', label: 'Ăn đa dạng, đổi món', icon: '🌈' },
-    { id: 'more_veggies', label: 'Nhiều rau xanh hơn', icon: '🥬' },
-    { id: 'high_protein', label: 'Giàu đạm (Protein cao)', icon: '🥩' },
-    { id: 'low_oil', label: 'Thanh đạm, ít dầu mỡ', icon: '🥗' },
-    { id: 'less_shopping', label: 'Ít phải mua thêm', icon: '🛒' },
-    { id: 'meal_prep', label: 'Nấu 1 lần ăn 2 bữa (Meal prep)', icon: '🍱' },
-    { id: 'new_recipes', label: 'Thử món mới lạ', icon: '✨' },
-  ];
-
-  const togglePriority = (p: WeeklyPriority) => {
-    if (priorities.includes(p)) {
-      if (priorities.length > 1) {
-        setPriorities(priorities.filter((item) => item !== p));
-      }
-    } else {
-      if (priorities.length < 3) {
-        setPriorities([...priorities, p]);
-      }
+  const stepHeading = useRef<HTMLHeadingElement>(null);
+  const firstRender = useRef(true);
+  useEffect(() => {
+    if (firstRender.current) {
+      firstRender.current = false;
+      return;
     }
-  };
+    stepHeading.current?.focus();
+  }, [currentStep]);
 
-  const handleNext = () => {
-    if (currentStep < 5) {
+  function togglePriority(priority: WeeklyPriority) {
+    setPriorities((selected) =>
+      selected.includes(priority)
+        ? selected.length > 1
+          ? selected.filter((value) => value !== priority)
+          : selected
+        : selected.length < 3
+          ? [...selected, priority]
+          : selected,
+    );
+  }
+  function next() {
+    if (currentStep < 4) {
       setCurrentStep(currentStep + 1);
-    } else {
-      // Save to draft and navigate to generating screen
-      updateSetupDraft({
-        mealSlotsPreset: mealPreset,
-        budgetTargetVnd: isUnlimitedBudget ? null : budgetVnd,
-        priorities,
-        shoppingFrequency: frequency,
-      });
-      navigate('/week/generating');
+      return;
     }
-  };
-
-  const handleBack = () => {
-    if (currentStep > 1) {
-      setCurrentStep(currentStep - 1);
-    } else {
-      navigate('/week');
-    }
-  };
+    updateSetupDraft({
+      mealSlotsPreset: mealPreset,
+      budgetTargetVnd: budget,
+      priorities,
+      shoppingFrequency: frequency,
+    });
+    navigate('/week/generating');
+  }
 
   return (
-    <div className="min-h-screen bg-takosan-cream pb-28">
-      <TopBar
-        showBack
-        onBack={handleBack}
-        title="Thiết lập thực đơn tuần"
-        subtitle={`Bước ${currentStep} / 5`}
-      />
-
-      <div className="px-4 pt-4 space-y-5">
-        {/* Step Progress Bar */}
-        <div className="w-full bg-semantic-border/80 h-1.5 rounded-full overflow-hidden">
-          <div
-            className="bg-takosan-green h-full transition-tap duration-300 rounded-full"
-            style={{ width: `${(currentStep / 5) * 100}%` }}
-          />
-        </div>
-
-        {/* STEP 1: Meal Slots */}
-        {currentStep === 1 && (
-          <div className="space-y-4 animate-fade-in">
-            <div>
-              <span className="text-[11px] font-semibold uppercase px-2.5 py-0.5 rounded-md bg-takosan-mint text-takosan-green-deep border border-takosan-mint-deep/60">
-                Bước 1 / 5
-              </span>
-              <h2 className="font-heading font-bold text-xl text-semantic-text-primary mt-2">
-                Bạn muốn Takosan lên kế hoạch cho những bữa nào?
-              </h2>
-              <p className="text-xs text-semantic-text-muted mt-1">
-                Chọn tần suất bữa ăn gia đình bạn cần nấu tại nhà
-              </p>
-            </div>
-
-            <div className="space-y-2.5">
-              {[
-                {
-                  id: 'dinner_only',
-                  title: 'Chỉ bữa tối (Khuyên dùng)',
-                  desc: 'T2 đến CN: Nấu bữa tối tại nhà',
-                  badge: 'Phổ biến nhất',
-                },
-                {
-                  id: 'working_people',
-                  title: 'Người đi làm bận rộn',
-                  desc: 'T2–T6: Bữa tối • T7–CN: Trưa & Tối',
-                  badge: 'Tiện lợi',
-                },
-                {
-                  id: 'all',
-                  title: 'Toàn bộ các bữa',
-                  desc: 'Sáng, Trưa và Tối cả tuần',
-                  badge: 'Chi tiết',
-                },
-              ].map((opt) => (
-                <div
-                  key={opt.id}
-                  className={clsx(
-                    'relative p-4 rounded-xl border cursor-pointer transition-tap active:scale-[0.99] flex items-center justify-between',
-                    mealPreset === opt.id
-                      ? 'bg-white border-takosan-green shadow-xs ring-1 ring-takosan-green'
-                      : 'bg-white border-semantic-border hover:border-semantic-border-strong'
-                  )}
-                >
-                  <div>
-                    <div className="flex items-center gap-2 mb-0.5">
-                      <h4 className="font-heading font-semibold text-sm text-semantic-text-primary">
-                        {opt.title}
-                      </h4>
-                      <span className="text-[10px] font-medium px-1.5 py-0.2 rounded bg-semantic-border/60 text-semantic-text-secondary">
-                        {opt.badge}
-                      </span>
-                    </div>
-                    <p className="text-xs text-semantic-text-muted">{opt.desc}</p>
-                  </div>
-
-                  <button
-                    type="button"
-                    aria-label={`Chọn ${opt.title}`}
-                    aria-pressed={mealPreset === opt.id}
-                    onClick={() => setMealPreset(opt.id as any)}
-                    className={clsx(
-                      'w-5 h-5 rounded-full flex items-center justify-center border shrink-0',
-                      'after:absolute after:inset-0 after:rounded-xl',
-                      mealPreset === opt.id
-                        ? 'bg-takosan-green border-takosan-green text-white'
-                        : 'border-semantic-border-strong'
-                    )}
-                  >
-                    {mealPreset === opt.id && <Check className="w-3.5 h-3.5 stroke-[2.5]" />}
-                  </button>
-                </div>
-              ))}
-            </div>
-          </div>
-        )}
-
-        {/* STEP 2: Budget */}
-        {currentStep === 2 && (
-          <div className="space-y-4 animate-fade-in">
-            <div>
-              <span className="text-[11px] font-semibold uppercase px-2.5 py-0.5 rounded-md bg-takosan-mint text-takosan-green-deep border border-takosan-mint-deep/60">
-                Bước 2 / 5
-              </span>
-              <h2 className="font-heading font-bold text-xl text-semantic-text-primary mt-2">
-                Ngân sách thực phẩm tuần này
-              </h2>
-              <p className="text-xs text-semantic-text-muted mt-1">
-                Takosan sẽ tối ưu mua nguyên liệu vừa vặn trong hạn mức
-              </p>
-            </div>
-
-            {/* Quick Presets */}
-            <div className="grid grid-cols-2 gap-2.5">
-              {[
-                { label: '500.000đ', value: 500000 },
-                { label: '750.000đ', value: 750000 },
-                { label: '1.000.000đ', value: 1000000 },
-                { label: '1.500.000đ', value: 1500000 },
-              ].map((p) => (
-                <button
-                  key={p.value}
-                  type="button"
-                  onClick={() => {
-                    setBudgetVnd(p.value);
-                    setIsUnlimitedBudget(false);
-                  }}
-                  className={clsx(
-                    'p-3.5 rounded-xl border text-sm font-heading font-semibold transition-tap tap-target active:scale-[0.98]',
-                    !isUnlimitedBudget && budgetVnd === p.value
-                      ? 'bg-takosan-green text-white shadow-xs border-takosan-green'
-                      : 'bg-white text-semantic-text-primary border-semantic-border hover:border-semantic-border-strong'
-                  )}
-                >
-                  {p.label}
-                </button>
-              ))}
-            </div>
-
-            {/* Unlimited Option */}
-            <div
-              className={clsx(
-                'relative p-4 rounded-xl border cursor-pointer transition-tap flex items-center justify-between',
-                isUnlimitedBudget
-                  ? 'bg-white border-takosan-green ring-1 ring-takosan-green shadow-xs'
-                  : 'bg-white border-semantic-border hover:border-semantic-border-strong'
-              )}
-            >
-              <div>
-                <h4 className="font-heading font-semibold text-sm text-semantic-text-primary">
-                  Không giới hạn ngân sách
-                </h4>
-                <p className="text-xs text-semantic-text-muted mt-0.5">
-                  Tập trung tối đa vào độ ngon và chất lượng món ăn
-                </p>
-              </div>
-
-              <button
-                type="button"
-                role="checkbox"
-                aria-checked={isUnlimitedBudget}
-                aria-label="Không giới hạn ngân sách"
-                onClick={() => {
-                  setIsUnlimitedBudget(!isUnlimitedBudget);
-                  if (!isUnlimitedBudget) setBudgetVnd(null);
-                  else setBudgetVnd(750000);
-                }}
-                className={clsx(
-                  'w-5 h-5 rounded-full flex items-center justify-center border shrink-0',
-                  'after:absolute after:inset-0 after:rounded-xl',
-                  isUnlimitedBudget
-                    ? 'bg-takosan-green border-takosan-green text-white'
-                    : 'border-semantic-border-strong'
-                )}
-              >
-                {isUnlimitedBudget && <Check className="w-3.5 h-3.5 stroke-[2.5]" />}
-              </button>
-            </div>
-          </div>
-        )}
-
-        {/* STEP 3: Cooking Schedule */}
-        {currentStep === 3 && (
-          <div className="space-y-4 animate-fade-in">
-            <div className="flex items-center justify-between">
-              <div>
-                <span className="text-[11px] font-semibold uppercase px-2.5 py-0.5 rounded-md bg-takosan-mint text-takosan-green-deep border border-takosan-mint-deep/60">
-                  Bước 3 / 5
-                </span>
-                <h2 className="font-heading font-bold text-xl text-semantic-text-primary mt-2">
-                  Lịch nấu ăn trong tuần
-                </h2>
-              </div>
-
-              <button
-                type="button"
-                onClick={() => setSkipDetailedSchedule(!skipDetailedSchedule)}
-                className="text-xs font-semibold text-takosan-green hover:underline"
-              >
-                {skipDetailedSchedule ? 'Cấu hình chi tiết' : 'Nấu cả tuần'}
-              </button>
-            </div>
-
-            {!skipDetailedSchedule ? (
-              <div className="space-y-2">
-                {DAY_LABELS.map((dayName, idx) => (
-                  <div
-                    key={dayName}
-                    className="p-3 bg-white rounded-xl border border-semantic-border flex items-center justify-between shadow-xs"
-                  >
-                    <span className="font-heading font-semibold text-xs text-semantic-text-primary w-16">
-                      {dayName}
-                    </span>
-
-                    <div className="flex gap-1.5">
-                      {[
-                        { id: 'cooking', label: 'Nấu' },
-                        { id: 'eat_out', label: 'Ăn ngoài' },
-                        { id: 'flexible', label: 'Linh hoạt' },
-                      ].map((t) => (
-                        <button
-                          key={t.id}
-                          type="button"
-                          onClick={() => {
-                            const updated = [...daySchedules];
-                            updated[idx] = t.id as DayType;
-                            setDaySchedules(updated);
-                          }}
-                          className={clsx(
-                            'px-2.5 py-1 rounded-lg text-xs font-semibold transition-tap tap-target',
-                            daySchedules[idx] === t.id
-                              ? 'bg-takosan-green text-white shadow-xs'
-                              : 'bg-semantic-border/60 text-semantic-text-secondary hover:bg-semantic-border'
-                          )}
-                        >
-                          {t.label}
-                        </button>
-                      ))}
-                    </div>
-                  </div>
-                ))}
-              </div>
-            ) : (
-              <div className="p-6 bg-white rounded-xl border border-semantic-border text-center">
-                <p className="text-xs text-semantic-text-muted">
-                  Takosan sẽ lên kế hoạch nấu ăn cho tất cả các ngày trong tuần.
-                </p>
-              </div>
-            )}
-          </div>
-        )}
-
-        {/* STEP 4: Weekly Priorities */}
-        {currentStep === 4 && (
-          <div className="space-y-4 animate-fade-in">
-            <div>
-              <span className="text-[11px] font-semibold uppercase px-2.5 py-0.5 rounded-md bg-takosan-mint text-takosan-green-deep border border-takosan-mint-deep/60">
-                Bước 4 / 5
-              </span>
-              <h2 className="font-heading font-bold text-xl text-semantic-text-primary mt-2">
-                Tuần này bạn ưu tiên điều gì?
-              </h2>
-              <p className="text-xs text-semantic-text-muted mt-1">
-                Chọn tối đa 3 ưu tiên (Đang chọn: {priorities.length}/3)
-              </p>
-            </div>
-
-            <div className="grid grid-cols-2 gap-2.5">
-              {PRIORITY_OPTIONS.map((opt) => {
-                const isSelected = priorities.includes(opt.id);
-                return (
-                  <div
-                    key={opt.id}
-                    className={clsx(
-                      'relative p-3.5 rounded-xl border cursor-pointer transition-tap flex flex-col justify-between h-24 select-none active:scale-[0.98]',
-                      isSelected
-                        ? 'bg-white border-takosan-green shadow-xs ring-1 ring-takosan-green'
-                        : 'bg-white border-semantic-border hover:border-semantic-border-strong'
-                    )}
-                  >
-                    <div className="flex items-center justify-between">
-                      <span className="text-xl">{opt.icon}</span>
-                      <button
-                        type="button"
-                        aria-label={`Ưu tiên: ${opt.label}`}
-                        aria-pressed={isSelected}
-                        onClick={() => togglePriority(opt.id)}
-                        className={clsx(
-                          'w-4 h-4 rounded-full flex items-center justify-center border',
-                          'after:absolute after:inset-0 after:rounded-xl',
-                          isSelected
-                            ? 'bg-takosan-green border-takosan-green text-white'
-                            : 'border-semantic-border-strong'
-                        )}
-                      >
-                        {isSelected && <Check className="w-2.5 h-2.5 stroke-[2.5]" />}
-                      </button>
-                    </div>
-                    <span className="font-heading font-semibold text-xs text-semantic-text-primary leading-snug">
-                      {opt.label}
-                    </span>
-                  </div>
-                );
-              })}
-            </div>
-          </div>
-        )}
-
-        {/* STEP 5: Shopping Frequency */}
-        {currentStep === 5 && (
-          <div className="space-y-4 animate-fade-in">
-            <div>
-              <span className="text-[11px] font-semibold uppercase px-2.5 py-0.5 rounded-md bg-takosan-mint text-takosan-green-deep border border-takosan-mint-deep/60">
-                Bước 5 / 5
-              </span>
-              <h2 className="font-heading font-bold text-xl text-semantic-text-primary mt-2">
-                Bạn muốn đi chợ mấy lần?
-              </h2>
-              <p className="text-xs text-semantic-text-muted mt-1">
-                Giúp Takosan sắp xếp nguyên liệu dễ hỏng và tính toán chuyến mua sắm
-              </p>
-            </div>
-
-            <div className="space-y-2.5">
-              {[
-                {
-                  id: 'once',
-                  title: '1 lần duy nhất đầu tuần (Khuyên dùng)',
-                  desc: 'Đi chợ 1 chuyến, ưu tiên đồ dễ hỏng ăn trước',
-                },
-                {
-                  id: 'twice',
-                  title: '2 lần / tuần',
-                  desc: 'Đi chợ đầu tuần và giữa tuần để rau củ luôn tươi',
-                },
-                {
-                  id: 'three_plus',
-                  title: '3 lần trở lên',
-                  desc: 'Thích mua thực phẩm tươi sống mỗi ngày',
-                },
-                {
-                  id: 'flexible',
-                  title: 'Không cố định',
-                  desc: 'Tùy theo nhu cầu từng bữa',
-                },
-              ].map((opt) => (
-                <div
-                  key={opt.id}
-                  className={clsx(
-                    'relative p-4 rounded-xl border cursor-pointer transition-tap active:scale-[0.99] flex items-center justify-between',
-                    frequency === opt.id
-                      ? 'bg-white border-takosan-green shadow-xs ring-1 ring-takosan-green'
-                      : 'bg-white border-semantic-border hover:border-semantic-border-strong'
-                  )}
-                >
-                  <div>
-                    <h4 className="font-heading font-semibold text-sm text-semantic-text-primary">
-                      {opt.title}
-                    </h4>
-                    <p className="text-xs text-semantic-text-muted mt-0.5">{opt.desc}</p>
-                  </div>
-
-                  <button
-                    type="button"
-                    aria-label={`Chọn ${opt.title}`}
-                    aria-pressed={frequency === opt.id}
-                    onClick={() => setFrequency(opt.id as ShoppingFrequency)}
-                    className={clsx(
-                      'w-5 h-5 rounded-full flex items-center justify-center border shrink-0',
-                      'after:absolute after:inset-0 after:rounded-xl',
-                      frequency === opt.id
-                        ? 'bg-takosan-green border-takosan-green text-white'
-                        : 'border-semantic-border-strong'
-                    )}
-                  >
-                    {frequency === opt.id && <Check className="w-3.5 h-3.5 stroke-[2.5]" />}
-                  </button>
-                </div>
-              ))}
-            </div>
-          </div>
-        )}
-      </div>
-
-      {/* Fixed Next / Complete CTA */}
-      <div className="fixed bottom-[calc(68px+env(safe-area-inset-bottom,0px))] sm:bottom-0 left-0 right-0 sm:left-20 lg:left-64 p-4 sm:pb-[calc(1rem+env(safe-area-inset-bottom,0px))] bg-white/95 backdrop-blur-md border-t border-semantic-border z-40 shadow-lg">
-        <div className="mx-auto w-full max-w-[var(--content-wide)]">
-          <Button
-            fullWidth
-            size="lg"
-            onClick={handleNext}
-            className="flex items-center justify-center gap-2"
+    <WeekWorkspace
+      title="Một tuần ăn uống, có kế hoạch."
+      narrow
+      description="Chọn bữa ăn và các ưu tiên của bạn. Bạn sẽ xem lại thực đơn trước khi đi chợ hoặc nấu."
+    >
+      <ol className="week-step-list" aria-label="Các bước thiết lập">
+        {steps.map((label, index) => (
+          <li
+            key={label}
+            aria-current={currentStep === index + 1 ? 'step' : undefined}
+            data-complete={currentStep > index + 1}
           >
-            <span>{currentStep === 5 ? 'Tạo thực đơn tuần ngay' : 'Tiếp tục'}</span>
-            <ChevronRight className="w-4 h-4" />
-          </Button>
+            <span aria-hidden="true">0{index + 1}</span>
+            {label}
+          </li>
+        ))}
+      </ol>
+      <section className="week-paper week-setup-stage" aria-labelledby="week-step-heading">
+        <p className="week-eyebrow">Bước {currentStep} / 4</p>
+        <h2 id="week-step-heading" ref={stepHeading} tabIndex={-1}>
+          {
+            [
+              'Bạn muốn lên kế hoạch cho những bữa nào?',
+              'Bạn muốn dành bao nhiêu cho việc mua thêm?',
+              'Tuần này bạn ưu tiên điều gì?',
+              'Bạn muốn đi chợ mấy lần?',
+            ][currentStep - 1]
+          }
+        </h2>
+        {currentStep === 1 && (
+          <fieldset className="week-choices">
+            <legend className="sr-only">Bữa ăn cần lên kế hoạch</legend>
+            {presets.map((option) => (
+              <label
+                key={option.id}
+                className="week-choice"
+                data-selected={mealPreset === option.id}
+              >
+                <input
+                  type="radio"
+                  name="week-preset"
+                  value={option.id}
+                  checked={mealPreset === option.id}
+                  onChange={() => setMealPreset(option.id)}
+                />
+                <span>
+                  <strong>{option.title}</strong>
+                  <span className="week-muted week-choice-description">{option.description}</span>
+                </span>
+              </label>
+            ))}
+          </fieldset>
+        )}
+        {currentStep === 2 && (
+          <>
+            <p className="week-muted">
+              Chi phí trong thực đơn là ước tính, có thể khác giá thực tế khi mua.
+            </p>
+            <WeekBudgetChoices value={budget} onChange={setBudget} />
+          </>
+        )}
+        {currentStep === 3 && (
+          <>
+            <p className="week-muted" aria-live="polite">
+              Chọn từ 1 đến 3 ưu tiên. Đang chọn {priorities.length}/3.
+            </p>
+            <fieldset className="week-choices">
+              <legend className="sr-only">Ưu tiên cho thực đơn</legend>
+              <div className="week-choice-grid">
+                {prioritiesOptions.map((option) => {
+                  const selected = priorities.includes(option.id);
+                  return (
+                    <label key={option.id} className="week-choice" data-selected={selected}>
+                      <input
+                        type="checkbox"
+                        name="week-priority"
+                        value={option.id}
+                        checked={selected}
+                        disabled={selected ? priorities.length === 1 : priorities.length === 3}
+                        onChange={() => togglePriority(option.id)}
+                      />
+                      <span>{option.label}</span>
+                    </label>
+                  );
+                })}
+              </div>
+            </fieldset>
+          </>
+        )}
+        {currentStep === 4 && (
+          <>
+            <WeekFrequencyChoices value={frequency} onChange={setFrequency} />
+            <div className="week-note">
+              <h3>Kiểm tra trước khi tạo</h3>
+              <p>
+                {presets.find((p) => p.id === mealPreset)?.title} ·{' '}
+                {budget === null ? 'Không giới hạn ngân sách' : weekCurrency(budget)} ·{' '}
+                {frequencyOptions.find((f) => f.id === frequency)?.label}
+              </p>
+              <p>
+                {priorities
+                  .map((priority) => prioritiesOptions.find((p) => p.id === priority)?.label)
+                  .join(' · ')}
+              </p>
+              <p className="week-muted">Tạo thực đơn chưa mua thêm hay trừ nguyên liệu trong tủ.</p>
+            </div>
+          </>
+        )}
+        <div className="week-actions week-setup-actions">
+          <button
+            type="button"
+            className="week-button week-button-secondary"
+            onClick={() => (currentStep > 1 ? setCurrentStep(currentStep - 1) : navigate('/week'))}
+          >
+            <ArrowLeft size={18} aria-hidden="true" />
+            {currentStep === 1 ? 'Về thực đơn' : 'Bước trước'}
+          </button>
+          <button type="button" className="week-button" onClick={next}>
+            {currentStep === 4 ? 'Tạo thực đơn tuần' : 'Tiếp tục'}
+            <ArrowRight size={18} aria-hidden="true" />
+          </button>
         </div>
-      </div>
-    </div>
+      </section>
+    </WeekWorkspace>
   );
-};
+}

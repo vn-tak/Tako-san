@@ -1,263 +1,160 @@
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { useQuery } from '@tanstack/react-query';
-import { useParams, useNavigate } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
+import { ShoppingBag, Share2, ArrowRight } from 'lucide-react';
 import { useWeekStore } from '../stores/useWeekStore';
-import { TopBar } from '../components/common/TopBar';
+import { WeekWorkspace, weekDate, mealLabels } from '../features/week/WeekWorkspace';
 import { WeekSummaryCards } from '../features/week/WeekSummaryCards';
 import { MealCard } from '../features/week/MealCard';
 import { MealSwapSheet } from '../features/week/MealSwapSheet';
 import { WeekExportModal } from '../features/week/WeekExportModal';
-import { EmptyState } from '../components/common/EmptyState';
-import { InlineError } from '../components/common/AsyncState';
+import { InlineError, InlineLoading } from '../components/common/AsyncState';
 import { api } from '../services/api';
 import { queryKeys } from '../lib/queryKeys';
-import { ShoppingBag, RefreshCw, CalendarDays, Plus, Sparkles, Share2 } from 'lucide-react';
 
-export const WeekDashboardPage: React.FC = () => {
+const statusLabels = {
+  DRAFT: 'Bản nháp',
+  GENERATING: 'Đang tạo',
+  READY: 'Đã lên kế hoạch',
+  ACTIVE: 'Đang thực hiện',
+  COMPLETED: 'Đã hoàn tất',
+  ARCHIVED: 'Đã lưu trữ',
+  FAILED: 'Chưa tạo được',
+};
+export function WeekDashboardPage() {
   const { planId } = useParams<{ planId?: string }>();
-  const navigate = useNavigate();
-
-  const {
-    openSwap,
-    error: workflowError,
-  } = useWeekStore();
-
+  const { openSwap, error: workflowError } = useWeekStore();
   const planQuery = useQuery({
     queryKey: planId ? queryKeys.weekPlan(planId) : queryKeys.currentWeekPlan(),
-    queryFn: () => planId ? api.getWeekPlan(planId) : api.getCurrentWeekPlan(),
+    queryFn: () => (planId ? api.getWeekPlan(planId) : api.getCurrentWeekPlan()),
   });
   const currentPlan = planQuery.data ?? null;
-  const isLoading = planQuery.isPending;
-
-  const [isRegeneratingOpen, setIsRegeneratingOpen] = useState(false);
   const [isExportOpen, setIsExportOpen] = useState(false);
-
   useEffect(() => {
-    // Week editing sheets use this projection; Query owns the fetched plan.
     useWeekStore.setState({ currentPlan });
   }, [currentPlan]);
 
-  const handleQuickRegenerate = (_priorityFocus: any) => {
-    setIsRegeneratingOpen(false);
-    navigate('/week/generating');
-  };
-
-  const formatDateRange = (start?: string, end?: string) => {
-    if (!start || !end) return 'Tuần này';
-    const s = new Date(start);
-    const e = new Date(end);
-    return `${s.getDate()} – ${e.getDate()} tháng ${s.getMonth() + 1}`;
-  };
-
-  if (isLoading) {
-    return (
-      <div className="min-h-screen bg-takosan-cream pb-24">
-        <TopBar title="Thực đơn tuần" />
-        <div className="py-20 text-center">
-          <div className="animate-spin w-8 h-8 border-2 border-takosan-green border-t-transparent rounded-full mx-auto mb-3" />
-          <p className="text-xs text-semantic-text-muted font-medium">Đang tải thực đơn...</p>
-        </div>
-      </div>
-    );
-  }
-
-  if (planQuery.isError) {
-    return (
-      <div className="min-h-screen bg-takosan-cream pb-24">
-        <TopBar title="Thực đơn tuần" />
-        <div className="p-4"><InlineError error={planQuery.error} onRetry={() => planQuery.refetch()} /></div>
-      </div>
-    );
-  }
-
-  if (!currentPlan) {
-    return (
-      <div className="min-h-screen bg-takosan-cream pb-24">
-        <TopBar title="Thực đơn tuần" />
-        <div className="px-4 pt-10 text-center space-y-4">
-          <EmptyState
-            type="no-recipes"
-            title="Chưa có thực đơn tuần"
-            description="Takosan sẽ dựa vào thực phẩm trong tủ lạnh, khẩu vị gia đình và ngân sách để lên thực đơn tối ưu cho cả tuần."
-            actionText="Lên thực đơn tuần ngay"
-            onAction={() => navigate('/week/setup')}
-          />
-        </div>
-      </div>
-    );
-  }
-
   return (
-    <div className="min-h-screen bg-takosan-cream pb-28">
-      <TopBar title="Thực đơn tuần" subtitle={formatDateRange(currentPlan.startDate, currentPlan.endDate)} />
-
-      <div className="px-4 pt-3 space-y-5 animate-fade-in">
-        {workflowError && <InlineError message={workflowError} />}
-        {/* Header Bar & Quick Actions */}
-        <div className="flex items-center justify-between">
-          <div>
-            <div className="flex items-center gap-1.5 mb-0.5">
-              <span className="text-[10px] font-semibold px-2 py-0.5 rounded-full bg-takosan-mint text-takosan-green-deep border border-takosan-mint-deep/80 uppercase">
-                {currentPlan.status === 'READY' ? 'Sẵn sàng nấu' : 'Đang thực hiện'}
-              </span>
-              <span className="text-[11px] font-medium text-semantic-text-muted">
-                {formatDateRange(currentPlan.startDate, currentPlan.endDate)}
-              </span>
-            </div>
-            <h2 className="font-heading font-bold text-xl text-semantic-text-primary tracking-tight">
-              Kế hoạch tuần này
-            </h2>
-          </div>
-
-          <div className="flex items-center gap-1.5">
-            {/* Quick action: Đi chợ */}
-            <button
-              onClick={() => navigate(`/week/${currentPlan.id}/shopping`)}
-              className="px-3 py-2 rounded-xl bg-takosan-green text-white font-heading font-semibold text-xs shadow-xs hover:bg-takosan-green-hover active:scale-95 transition-tap tap-target flex items-center gap-1.5 cursor-pointer"
-              aria-label="Đi chợ theo thực đơn tuần"
-            >
-              <ShoppingBag className="w-3.5 h-3.5" />
-              <span>Đi chợ ({currentPlan.shoppingItems.length})</span>
-            </button>
-
-            {/* Quick action: Share */}
-            <button
-              onClick={() => setIsExportOpen(true)}
-              className="p-2 rounded-xl bg-white border border-semantic-border text-semantic-text-secondary hover:bg-semantic-background-subtle active:scale-95 transition-tap tap-target flex items-center justify-center shadow-xs cursor-pointer"
-              aria-label="Chia sẻ thực đơn"
-              title="Chia sẻ thực đơn"
-            >
-              <Share2 className="w-4 h-4" />
-            </button>
-
-            {/* Quick action: Regenerate dropdown */}
-            <button
-              onClick={() => setIsRegeneratingOpen(!isRegeneratingOpen)}
-              className="p-2 rounded-xl bg-white border border-semantic-border text-semantic-text-secondary hover:bg-semantic-background-subtle active:scale-95 transition-tap tap-target flex items-center justify-center shadow-xs cursor-pointer"
-              aria-label="Tùy chọn tạo lại"
-            >
-              <RefreshCw className="w-4 h-4" />
-            </button>
-          </div>
-        </div>
-
-        {/* Regenerate Dropdown Options */}
-        {isRegeneratingOpen && (
-          <div className="bg-white rounded-2xl p-2.5 border border-semantic-border shadow-card space-y-1 animate-slide-up">
-            <p className="text-[11px] font-semibold text-semantic-text-muted px-2 pb-1 border-b border-semantic-border/70">
-              Tạo lại thực đơn theo hướng:
+    <WeekWorkspace
+      title="Tuần này, mình ăn gì?"
+      backTo="/"
+      description={
+        currentPlan
+          ? `${weekDate(currentPlan.startDate)} – ${weekDate(currentPlan.endDate)} · ${statusLabels[currentPlan.status]}`
+          : 'Từ nguyên liệu trong tủ đến những bữa ăn trong tuần.'
+      }
+      action={
+        currentPlan && (
+          <Link to={`/week/${currentPlan.id}/shopping`} className="week-button">
+            <ShoppingBag size={18} aria-hidden="true" />
+            Đi chợ ({currentPlan.shoppingItems.length})
+          </Link>
+        )
+      }
+    >
+      {planQuery.isPending ? (
+        <InlineLoading label="Đang tải thực đơn tuần…" />
+      ) : planQuery.isError ? (
+        <InlineError error={planQuery.error} onRetry={() => planQuery.refetch()} />
+      ) : !currentPlan ? (
+        <section className="week-paper week-empty">
+          <p className="week-eyebrow">BẮT ĐẦU TỪ BẾP NHÀ</p>
+          <h2>Chưa có thực đơn tuần</h2>
+          <p className="week-muted">
+            Chọn bữa cần nấu, ngân sách và ưu tiên. Takosan sẽ đề xuất thực đơn để bạn xem lại.
+          </p>
+          <Link to="/week/setup" className="week-button">
+            Lên thực đơn tuần
+            <ArrowRight size={18} aria-hidden="true" />
+          </Link>
+        </section>
+      ) : (
+        <>
+          {workflowError && <InlineError message={workflowError} />}
+          <WeekSummaryCards plan={currentPlan} />
+          <div className="week-toolbar">
+            <p className="week-muted">
+              Kế hoạch dự kiến theo dữ liệu lúc tạo. Kiểm tra lại tủ trước khi nấu; giá mua thực tế
+              có thể khác.
             </p>
-            {[
-              { label: '💰 Tiết kiệm chi phí hơn', priority: 'budget' },
-              { label: '⚡ Nấu nhanh hơn (<25p)', priority: 'quick' },
-              { label: '🧊 Dùng nhiều đồ trong tủ lạnh hơn', priority: 'use_fridge' },
-              { label: '🇻🇳 Nhiều món Việt hơn', priority: 'vietnamese' },
-              { label: '🥗 Nhiều rau xanh, thanh đạm hơn', priority: 'more_veggies' },
-              { label: '🔄 Tạo lại hoàn toàn ngẫu nhiên', priority: 'random' },
-            ].map((opt) => (
+            <div className="week-actions">
               <button
-                key={opt.label}
-                onClick={() => handleQuickRegenerate(opt.priority)}
-                className="w-full text-left px-3 py-1.5 rounded-lg hover:bg-semantic-background-subtle text-xs font-medium text-semantic-text-primary transition-colors cursor-pointer"
+                type="button"
+                className="week-button week-button-secondary"
+                onClick={() => setIsExportOpen(true)}
               >
-                {opt.label}
+                <Share2 size={18} aria-hidden="true" />
+                Chia sẻ thực đơn
               </button>
-            ))}
+              <Link className="week-text-link" to={`/week/${currentPlan.id}/settings`}>
+                Thiết lập lần tiếp theo
+              </Link>
+              <Link className="week-text-link" to="/week/setup">
+                Xem lại để tạo mới
+              </Link>
+            </div>
           </div>
-        )}
-
-        {/* Summary Stat Cards */}
-        <WeekSummaryCards plan={currentPlan} />
-
-        {/* AI Insight banner if available */}
-        {currentPlan.aiExplanation && (
-          <div className="bg-takosan-mint/70 rounded-xl p-3 border border-takosan-mint-deep/80 flex items-start gap-2 text-xs text-takosan-green-deep">
-            <Sparkles className="w-4 h-4 text-takosan-green shrink-0 mt-0.5" />
-            <p className="leading-relaxed font-medium">{currentPlan.aiExplanation}</p>
-          </div>
-        )}
-
-        {/* Vertical Feed of Days */}
-        <div className="space-y-4 pt-1">
-          <div className="flex items-center justify-between">
-            <h3 className="font-heading font-bold text-base text-semantic-text-primary flex items-center gap-1.5">
-              <CalendarDays className="w-4 h-4 text-takosan-green" />
-              <span>Lịch ăn 7 ngày</span>
-            </h3>
-
-            <button
-              onClick={() => navigate('/week/setup')}
-              className="text-xs font-semibold text-takosan-green hover:text-takosan-green-deep flex items-center gap-0.5"
-            >
-              <Plus className="w-3.5 h-3.5" />
-              <span>Cài đặt lại</span>
-            </button>
-          </div>
-
-          <div className="space-y-4">
-            {currentPlan.days.map((day) => {
-              const dayDateObj = new Date(day.date);
-              const formattedDate = `${dayDateObj.getDate()}/${dayDateObj.getMonth() + 1}`;
-
-              return (
-                <div key={day.id} className="space-y-2">
-                  {/* Day Header */}
-                  <div className="flex items-center justify-between px-1">
-                    <div className="flex items-center gap-2">
-                      <span className="font-heading font-bold text-sm text-semantic-text-primary">
-                        {day.dayNameVi}
-                      </span>
-                      <span className="text-[11px] font-medium text-semantic-text-muted">
-                        {formattedDate}
-                      </span>
-                    </div>
-
-                    {day.dayType === 'eat_out' && (
-                      <span className="text-[10px] font-semibold px-2 py-0.5 rounded-full bg-semantic-warning-soft text-semantic-warning-strong border border-semantic-warning/30">
-                        Ăn ngoài
-                      </span>
-                    )}
-                    {day.dayType === 'flexible' && (
-                      <span className="text-[10px] font-semibold px-2 py-0.5 rounded-full bg-takosan-mint text-takosan-green-deep border border-takosan-mint-deep/80">
-                        Linh hoạt
-                      </span>
-                    )}
+          {currentPlan.aiExplanation && (
+            <aside className="week-note">
+              <h2>Gợi ý cho tuần</h2>
+              <p>{currentPlan.aiExplanation}</p>
+            </aside>
+          )}
+          <section aria-labelledby="week-days-title" className="week-days-section">
+            <h2 id="week-days-title">Bữa ăn từng ngày</h2>
+            <div className="week-day-board">
+              {currentPlan.days.map((day) => (
+                <section key={day.id} className="week-day">
+                  <div className="week-day-heading">
+                    <h3>{day.dayNameVi}</h3>
+                    <time dateTime={day.date}>{weekDate(day.date)}</time>
                   </div>
-
-                  {/* Day Meal Cards */}
-                  <div className="space-y-2">
-                    {day.slots.map((slot) => (
-                      <MealCard
-                        key={slot.id}
-                        slot={slot}
-                        onClick={() => {
-                          if (slot.recipe) {
-                            navigate(`/week/${currentPlan.id}/meal/${slot.id}`);
-                          }
-                        }}
-                        onSwapClick={() => {
-                          openSwap(slot.id);
-                        }}
-                      />
-                    ))}
-                  </div>
-                </div>
-              );
-            })}
-          </div>
-        </div>
-      </div>
-
-      {/* Interactive Bottom Sheet for Meal Swapping */}
-      <MealSwapSheet />
-
-      {/* Week Export & Share Modal */}
-      <WeekExportModal
-        isOpen={isExportOpen}
-        onClose={() => setIsExportOpen(false)}
-        plan={currentPlan}
-        shoppingItems={currentPlan.shoppingItems}
-      />
-    </div>
+                  {day.dayType !== 'cooking' && (
+                    <p className="week-muted">
+                      {
+                        {
+                          eat_out: 'Ăn ngoài',
+                          flexible: 'Linh hoạt',
+                          away: 'Vắng nhà',
+                          leftover: 'Dùng món còn lại',
+                        }[day.dayType]
+                      }
+                    </p>
+                  )}
+                  {day.slots.length ? (
+                    day.slots.map((slot) => (
+                      <div key={slot.id} className="week-day-slot">
+                        <p className="week-slot-label">{mealLabels[slot.slotType]}</p>
+                        <MealCard
+                          slot={slot}
+                          to={`/week/${currentPlan.id}/meal/${slot.id}`}
+                          onSwapClick={() => {
+                            void openSwap(slot.id);
+                          }}
+                        />
+                      </div>
+                    ))
+                  ) : (
+                    <p className="week-muted">Chưa có bữa nào trong ngày này.</p>
+                  )}
+                </section>
+              ))}
+            </div>
+            {!currentPlan.days.length && (
+              <p className="week-note">
+                Thực đơn này chưa có bữa ăn. Bạn có thể xem lại thiết lập để tạo kế hoạch mới.
+              </p>
+            )}
+          </section>
+          <MealSwapSheet />
+          <WeekExportModal
+            isOpen={isExportOpen}
+            onClose={() => setIsExportOpen(false)}
+            plan={currentPlan}
+            shoppingItems={currentPlan.shoppingItems}
+          />
+        </>
+      )}
+    </WeekWorkspace>
   );
-};
+}

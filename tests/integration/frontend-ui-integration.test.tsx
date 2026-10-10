@@ -289,7 +289,7 @@ describe('notification honesty', () => {
 });
 
 describe('Week shopping data honesty', () => {
-  it('uses the loaded plan estimate in both summaries instead of a demo budget', async () => {
+  it('uses the loaded plan estimate in its summary instead of a demo budget', async () => {
     const ui = await loadUi();
     const { WeekShoppingPage } = await import('../../src/web/pages/WeekShoppingPage');
     route.params = { planId: 'plan-1' };
@@ -297,7 +297,7 @@ describe('Week shopping data honesty', () => {
     current.budget.displayText = 'SERVER_ESTIMATE';
     ui.queryClient.setQueryData(ui.queryKeys.weekPlan(current.id), current);
     const html = ui.render(<WeekShoppingPage />);
-    expect(html.match(/SERVER_ESTIMATE/g)).toHaveLength(2);
+    expect(html.match(/SERVER_ESTIMATE/g)).toHaveLength(1);
     expect(html).not.toContain('650k');
     expect(html).not.toContain('720k');
   });

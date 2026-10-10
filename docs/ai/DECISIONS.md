@@ -2117,3 +2117,43 @@ Plus. New explicit checkout attempts create independent intents; single-flight
 browser requests prevent double-click duplication. No cancel/refund automation
 or claim of live-provider certification is introduced. Operators must separately
 verify PayOS configuration/webhook delivery and approve deployment.
+
+## ADR-053 - Truthful Week compatibility and UI07 identity
+
+**Status:** Accepted and locally verified 2026-10-10; UI10 implemented from
+`3c018d7778a780f5759d967e62d58440e4e08c2d`.
+
+**Decision:** Remove the unsupported, unsent day-schedule step and expose four
+real setup stages. Week settings explicitly edit the next-generation in-memory
+session draft; no durable/current-plan save claim or delayed navigation. Replace
+ignored priority regeneration with review in setup. Preserve unlimited null budget,
+defaulting only undefined. Await clipboard/share receipts, report failures inside
+the existing focus-trapped dialog and fence abandoned completions. Pass through
+the service's existing optional pendingSync in completeShopping only; queued copy
+cannot claim server-confirmed import or durable offline persistence.
+
+Six Week pages and four components adopt UI07 typography, assets and tokens through
+a shared scoped workspace, exact route boundaries, responsive day board and modal
+scroll/safe areas. Availability, budget and waste remain plan projections; recipe
+nutrition absence remains unknown. Existing queries, services, StrictMode command
+reuse, private-session fencing, selected-item snapshots, import/cook authorities,
+Week dual-write and planner-on redirect aliases remain authoritative.
+
+**Boundary:** No backend/packages/schema/migrations/dependencies/auth protocol/
+payment/production configuration or remote writes. Only store change is optional
+pendingSync pass-through. Durable Week outbox receipt/projection replay, inventory
+fallback authority and global mobile navigation are separate packets. Local QA
+cannot establish brand owner approval, device/Safari/usability/CWV or hosted release.
+
+**Verification:** Runtime and 11 files / 192 focused tests PASS; 61 browser
+snapshots / 11 journeys, seven planner-on aliases and six native-keyboard E2E
+projects PASS. A full run exposed six stale earlier route assertions and one
+Wrangler timeout. The route assertions now match accepted Week adoption, retain
+negative boundaries and add four positive cases; recovery 5 files / 128 PASS.
+Wrangler passes unchanged in reproduction/recovery and the final full run.
+Final pnpm check exit0: 283 files / 6653 tests PASS, Vitest393.63s;
+type/lint/migration smoke/Vite3.12s/WorkerTS PASS. Source143 and public build assets51
+verified after full. Git-object verification follows the implementation checkpoint;
+no timeout/config was weakened. Round-10 reports retain failed runs, generic UX
+FAIL151/29/968/82 and dependency41 advisories, and distinguish synthetic receipts
+from real Worker commands. UI11 navigation packet is ready; runtime not started.

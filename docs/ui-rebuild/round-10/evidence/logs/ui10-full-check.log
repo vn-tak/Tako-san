@@ -1,0 +1,506 @@
+
+> frigo@0.1.0 check /Users/tunbee27/Documents/Tako-san-ui-rebuild
+> bash scripts/deploy-check.sh
+
+=== Frigo Pre-Deployment Verification ===
+1. Checking TypeScript Types...
+
+> frigo@0.1.0 typecheck /Users/tunbee27/Documents/Tako-san-ui-rebuild
+> tsc -p tsconfig.json --noEmit && tsc -p tsconfig.worker.json --noEmit
+
+2. Running ESLint...
+
+> frigo@0.1.0 lint /Users/tunbee27/Documents/Tako-san-ui-rebuild
+> eslint .
+
+3. Running Vitest Suite...
+
+> frigo@0.1.0 test /Users/tunbee27/Documents/Tako-san-ui-rebuild
+> vitest run
+
+
+ RUN  v3.2.7 /Users/tunbee27/Documents/Tako-san-ui-rebuild
+
+ ✓ tests/integration/inventory-lot-authority.test.ts (306 tests) 53377ms
+   ✓ T09D exhaustive validated intent fingerprints > conflicts on 'USE.reason' without rewriting any stock or evidence  303ms
+   ✓ T09D exhaustive validated intent fingerprints > conflicts on 'DISCARD.reason.omitted' without rewriting any stock or evidence  315ms
+   ✓ T09D exhaustive validated intent fingerprints > conflicts on 'OPEN.openedAt' without rewriting any stock or evidence  310ms
+   ✓ T09D exhaustive validated intent fingerprints > conflicts on 'CORRECT.changes.openedAt' without rewriting any stock or evidence  301ms
+   ✓ T09D exhaustive validated intent fingerprints > conflicts on 'CORRECT.changes.openedAt.null' without rewriting any stock or evidence  312ms
+   ✓ T09D exhaustive validated intent fingerprints > conflicts on 'CORRECT.changes.purchasePrice.currency' without rewriting any stock or evidence  332ms
+   ✓ T09D exhaustive validated intent fingerprints > conflicts on 'CORRECT.revive' without rewriting any stock or evidence  328ms
+   ✓ T09D exhaustive validated intent fingerprints > conflicts on 'OPEN.expectedVersion' without rewriting any stock or evidence  353ms
+   ✓ T09D exhaustive validated intent fingerprints > conflicts on 'MOVE.lotId' without rewriting any stock or evidence  356ms
+   ✓ T09D exhaustive validated intent fingerprints > conflicts on 'MOVE.expectedVersion' without rewriting any stock or evidence  380ms
+   ✓ T09D exhaustive validated intent fingerprints > conflicts on 'CORRECT.lotId' without rewriting any stock or evidence  344ms
+ ✓ tests/unit/production-catalog-import-inspection.test.mjs (163 tests) 55393ms
+   ✓ fixed production import incident SELECT-only inspection > observes an exact applied marker and shape-safe archive/target/live counts without certifying a release  508ms
+   ✓ fixed production import incident SELECT-only inspection > rejects an extra recovery-prefix object despite the complete 58 known objects  515ms
+   ✓ fixed production import incident SELECT-only inspection > rejects modified evidence-trigger SQL even with exact object names and types  525ms
+   ✓ fixed production import incident SELECT-only inspection > does not trust an applied status row with a different source identity  482ms
+   ✓ current recovery SELECT-only guarded preflight > requires the catalog bound guard to match  300ms
+   ✓ current recovery SELECT-only guarded preflight > requires the temporary slug guard to match  303ms
+   ✓ current recovery SELECT-only guarded preflight > requires linked nutrition to match the observed recipe version  331ms
+   ✓ sealed latest V2 import incident SELECT-only inspection > queries only application FKs with the real SQLite authorizer rejecting reserved names  550ms
+   ✓ sealed latest V2 import incident SELECT-only inspection > still scans an unknown application table and reports its incoming uppercase catalog FK  505ms
+   ✓ sealed latest V2 import incident SELECT-only inspection > blocks unknown table before any schema PRAGMA  489ms
+   ✓ sealed latest V2 import incident SELECT-only inspection > blocks case-variant reserved view before any schema PRAGMA  546ms
+   ✓ sealed latest V2 import incident SELECT-only inspection > blocks malformed documented table before any schema PRAGMA  490ms
+   ✓ sealed latest V2 import incident SELECT-only inspection > blocks attached reserved index before any schema PRAGMA  498ms
+   ✓ sealed latest V2 import incident SELECT-only inspection > requires strict primary inventory metadata null before schema PRAGMAs  334ms
+   ✓ sealed latest V2 import incident SELECT-only inspection > observes exact applied V2 evidence and target counts despite the expected old-catalog bound mismatch  508ms
+   ✓ sealed latest V2 import incident SELECT-only inspection > observes a real complete rollback with the optional canonical 59th guard object  814ms
+   ✓ sealed latest V2 import incident SELECT-only inspection > does not trust an applied marker with a changed repair ID or digest  508ms
+   ✓ sealed latest V2 import incident SELECT-only inspection > does not claim applied observation when live target counts drift  488ms
+   ✓ sealed latest V2 import incident SELECT-only inspection > rejects a compatible-shape rollback guard with different DDL  786ms
+   ✓ sealed latest V2 import incident SELECT-only inspection > rejects incomplete rollback guard rows despite an exact rolled-back marker  737ms
+   ✓ sealed latest V2 import incident SELECT-only inspection > keeps final observation blocked when namespace read is not primary  491ms
+   ✓ sealed latest V2 import incident SELECT-only inspection > keeps final observation blocked when schema read is not primary  490ms
+   ✓ sealed latest V2 import incident SELECT-only inspection > keeps final observation blocked when aggregate read is not primary  486ms
+   ✓ sealed latest V2 import incident SELECT-only inspection > keeps final observation blocked when status read is not primary  510ms
+   ✓ sealed latest V2 import incident SELECT-only inspection > sanitizes auth-scope errors from a latest aggregate and blocks final observation  474ms
+   ✓ sealed fixed V2 import incident 37536969564 SELECT-only inspection > observes complete applied evidence with a marker unique to this run  563ms
+   ✓ sealed fixed V2 import incident 37536969564 SELECT-only inspection > observes real rollback evidence and all canonical rollback guard rows  836ms
+   ✓ sealed fixed V2 import incident 37536969564 SELECT-only inspection > rejects substituted status identity even when all applied objects exist  478ms
+   ✓ sealed fixed V2 import incident 37536969564 SELECT-only inspection > blocks applied count drift  485ms
+   ✓ sealed fixed V2 import incident 37536969564 SELECT-only inspection > blocks incomplete rollback evidence  713ms
+   ✓ sealed fixed V2 import incident 37536969564 SELECT-only inspection > uses the approved reserved inventory before scanning application FK metadata  510ms
+   ✓ sealed fixed V2 import incident 37536969564 SELECT-only inspection > blocks unknown reserved table before any schema PRAGMA, as confirmed by a real authorizer  521ms
+   ✓ sealed fixed V2 import incident 37536969564 SELECT-only inspection > blocks case-variant reserved view before any schema PRAGMA, as confirmed by a real authorizer  470ms
+   ✓ sealed fixed V2 import incident 37536969564 SELECT-only inspection > blocks malformed reserved table before any schema PRAGMA, as confirmed by a real authorizer  490ms
+   ✓ sealed fixed V2 import incident 37536969564 SELECT-only inspection > blocks reserved index before any schema PRAGMA, as confirmed by a real authorizer  473ms
+   ✓ sealed fixed V2 import incident 37536969564 SELECT-only inspection > requires strict primary metadata for each namespace read  478ms
+   ✓ sealed fixed V2 import incident 37536969564 SELECT-only inspection > requires strict primary metadata for each schema read  538ms
+   ✓ sealed fixed V2 import incident 37536969564 SELECT-only inspection > requires strict primary metadata for each aggregate read  475ms
+   ✓ sealed fixed V2 import incident 37536969564 SELECT-only inspection > requires strict primary metadata for each status read  479ms
+ ✓ tests/unit/production-catalog-recovery-runner.test.mjs (75 tests) 36085ms
+   ✓ bounded production recovery orchestration > pins static and captures a bookmark before one import, then certifies real V1 hydration  869ms
+   ✓ bounded production recovery orchestration > rejects exactly 100 MiB before Worker inspection, pinning or import without a fallback  328ms
+   ✓ bounded production recovery orchestration > accepts the last integer below the 100 MiB bound  884ms
+   ✓ bounded production recovery orchestration > rejects D1 routing becoming active after the bookmark, before import  536ms
+   ✓ bounded production recovery orchestration > restores the catalog archive if independent verification fails and keeps static routing  1031ms
+   ✓ bounded production recovery orchestration > records an unknown outcome when import committed but the provider response was lost  762ms
+   ✓ bounded production recovery orchestration > inspects the exact failed import twice between identical static pin and ledger proofs  444ms
+   ✓ bounded production recovery orchestration > executes the real compiler-derived helper through the readonly runner without changing catalog rows  497ms
+   ✓ bounded production recovery orchestration > loads the latest failed batch from its fixed historical source and repeats its inspection  387ms
+   ✓ bounded production recovery orchestration > loads the third incident from immutable a8fa and saves two stable SELECT-only observations  378ms
+   ✓ bounded production recovery orchestration > persists the first third-incident capture and stops if the repeat changes  312ms
+   ✓ bounded production recovery orchestration > rejects stale main or approval at the final authorization check  475ms
+   ✓ bounded production recovery orchestration > rejects a changed final Worker pin after readonly inspection  440ms
+   ✓ bounded production recovery orchestration > stops new recovery when old catalog no longer matches  303ms
+   ✓ bounded production recovery orchestration > stops a new recovery when inspection observes latest recovery objects  306ms
+   ✓ bounded production recovery orchestration > stops a new recovery when inspection observes latest unproved primary availability  310ms
+   ✓ bounded production recovery orchestration > stops a new recovery when latest incident observations change  365ms
+   ✓ bounded production recovery orchestration > blocks a new import before pin/bookmark when the third incident has objects  444ms
+   ✓ bounded production recovery orchestration > blocks a new import before pin/bookmark when the third incident has applied marker  444ms
+   ✓ bounded production recovery orchestration > blocks a new import before pin/bookmark when the third incident has rolled-back marker  442ms
+   ✓ bounded production recovery orchestration > blocks a new import before pin/bookmark when the third incident has primary unavailable  444ms
+   ✓ bounded production recovery orchestration > blocks a new import before pin/bookmark when the third incident has failed read  453ms
+   ✓ bounded production recovery orchestration > blocks a new import before pin/bookmark when the third incident has non-primary read  464ms
+   ✓ bounded production recovery orchestration > blocks a new import before pin/bookmark when the third incident has missing guard evidence  499ms
+   ✓ bounded production recovery orchestration > blocks a new import before pin/bookmark when the third incident has guard mismatch  449ms
+   ✓ bounded production recovery orchestration > blocks new recovery when third-incident captures drift and retains unknown terminal state  447ms
+   ✓ bounded production recovery orchestration > sees uppercase original recovery objects and refuses a new import  316ms
+   ✓ bounded production recovery orchestration > protects populated child references with an uppercase SQLite target name  471ms
+   ✓ bounded production recovery orchestration > detects an added trigger attached to an uppercase catalog table name  461ms
+   ✓ bounded production recovery orchestration > rejects an unknown D1 internal object before any pin or import  369ms
+   ✓ bounded production recovery orchestration > retains detection of incoming recipe references from an unknown application table  499ms
+   ✓ bounded production recovery orchestration > rejects corrected preflight without strict primary metadata: false  525ms
+   ✓ bounded production recovery orchestration > rejects corrected preflight without strict primary metadata: undefined  509ms
+   ✓ bounded production recovery orchestration > rejects changing corrected preflights before any mutation  509ms
+   ✓ bounded production recovery orchestration > rechecks the original Worker immediately before pinning  531ms
+   ✓ bounded production recovery orchestration > rechecks main and normal approval after the corrected preflight  517ms
+   ✓ bounded production recovery orchestration > records only numeric provider codes and bounded exit status on file import failure  518ms
+   ✓ bounded production recovery orchestration > certifies a successful import despite pinned Wrangler cached progress on stdout  852ms
+   ✓ bounded production recovery orchestration > certifies a successful import despite pinned Wrangler uploaded progress on stdout  827ms
+   ✓ bounded production recovery orchestration > confirms guarded archive rollback with vendor progress after independent certification fails  1003ms
+   ✓ bounded production recovery orchestration > does not claim success or rollback on an unproved file response: malformed json  745ms
+   ✓ bounded production recovery orchestration > does not claim success or rollback on an unproved file response: []  787ms
+   ✓ bounded production recovery orchestration > does not claim success or rollback on an unproved file response: [{"success":false}]  777ms
+   ✓ bounded production recovery orchestration > keeps a timed-out import outcome unknown without inventing an exit status  533ms
+   ✓ bounded production recovery orchestration > rejects changing corrected preflight observations in read-only inspect mode  468ms
+ ✓ tests/unit/t21rc2-production-approval.test.mjs (148 tests) 43432ms
+   ✓ T21R-C2 reviewed execution closure (real Git objects) > allows the protected merge and later unrelated docs commit with its own exact-main CI  501ms
+   ✓ T21R-C2 reviewed execution closure (real Git objects) > rejects unreviewed changes to .github/workflows/production-d1-t21rc-row-reconciliation.yml despite ancestry and green exact-main CI  438ms
+   ✓ T21R-C2 reviewed execution closure (real Git objects) > rejects unreviewed changes to scripts/t21rc2-production-approval.mjs despite ancestry and green exact-main CI  417ms
+   ✓ T21R-C2 reviewed execution closure (real Git objects) > rejects unreviewed changes to scripts/t21rc2-production-capture.mjs despite ancestry and green exact-main CI  478ms
+   ✓ T21R-C2 reviewed execution closure (real Git objects) > rejects unreviewed changes to scripts/t21rc2-production-files.mjs despite ancestry and green exact-main CI  445ms
+   ✓ T21R-C2 reviewed execution closure (real Git objects) > rejects unreviewed changes to scripts/t21rc2-production-receipt.mjs despite ancestry and green exact-main CI  419ms
+   ✓ T21R-C2 reviewed execution closure (real Git objects) > rejects unreviewed changes to scripts/t21rc-row-reconciliation.mjs despite ancestry and green exact-main CI  449ms
+   ✓ T21R-C2 reviewed execution closure (real Git objects) > rejects unreviewed changes to scripts/t21r-v1-authority.mjs despite ancestry and green exact-main CI  482ms
+   ✓ T21R-C2 reviewed execution closure (real Git objects) > rejects unreviewed changes to scripts/release-check.mjs despite ancestry and green exact-main CI  430ms
+   ✓ T21R-C2 reviewed execution closure (real Git objects) > rejects unreviewed changes to scripts/d1-migration-check.mjs despite ancestry and green exact-main CI  446ms
+   ✓ T21R-C2 reviewed execution closure (real Git objects) > rejects unreviewed changes to docs/ai/recipe-catalog/T21RC_ROW_RECONCILIATION_SCHEMA.json despite ancestry and green exact-main CI  451ms
+   ✓ T21R-C2 reviewed execution closure (real Git objects) > rejects unreviewed changes to docs/ai/recipe-catalog/T21RA_RUNTIME_CANONICAL_TARGET.json despite ancestry and green exact-main CI  435ms
+   ✓ T21R-C2 reviewed execution closure (real Git objects) > rejects unreviewed changes to wrangler.jsonc despite ancestry and green exact-main CI  442ms
+   ✓ T21R-C2 reviewed execution closure (real Git objects) > rejects unreviewed changes to package.json despite ancestry and green exact-main CI  428ms
+   ✓ T21R-C2 reviewed execution closure (real Git objects) > rejects unreviewed changes to pnpm-lock.yaml despite ancestry and green exact-main CI  445ms
+   ✓ T21R-C2 reviewed execution closure (real Git objects) > rejects unreviewed changes to .github/workflows/ci.yml despite ancestry and green exact-main CI  450ms
+   ✓ T21R-C2 reviewed execution closure (real Git objects) > rejects unreviewed changes to scripts/t21rb-v1-semantic.mjs despite ancestry and green exact-main CI  431ms
+   ✓ T21R-C2 reviewed execution closure (real Git objects) > rejects unreviewed changes to vite.config.ts despite ancestry and green exact-main CI  439ms
+   ✓ T21R-C2 reviewed execution closure (real Git objects) > rejects unreviewed changes to tsconfig.json despite ancestry and green exact-main CI  538ms
+   ✓ T21R-C2 reviewed execution closure (real Git objects) > rejects unreviewed changes to data/recipe-import/approved-batches.json despite ancestry and green exact-main CI  443ms
+   ✓ T21R-C2 reviewed execution closure (real Git objects) > rejects unreviewed changes to data/recipe-import/t14f/pilot-30.jsonl despite ancestry and green exact-main CI  497ms
+   ✓ T21R-C2 reviewed execution closure (real Git objects) > rejects unreviewed changes to data/recipe-import/t14f/scale-399.jsonl despite ancestry and green exact-main CI  438ms
+   ✓ T21R-C2 reviewed execution closure (real Git objects) > rejects unreviewed changes to data/recipe-refresh/v2/ingredient-reconciliation.json despite ancestry and green exact-main CI  463ms
+   ✓ T21R-C2 reviewed execution closure (real Git objects) > rejects unreviewed changes to packages/recipes/src/import/catalog-release.current.json despite ancestry and green exact-main CI  444ms
+   ✓ T21R-C2 reviewed execution closure (real Git objects) > rejects unreviewed changes to migrations despite ancestry and green exact-main CI  495ms
+   ✓ T21R-C2 reviewed execution closure (real Git objects) > rejects unreviewed changes to packages/domain/src/availability.ts despite ancestry and green exact-main CI  474ms
+   ✓ T21R-C2 reviewed execution closure (real Git objects) > rejects unreviewed changes to packages/domain/src/foundation.ts despite ancestry and green exact-main CI  436ms
+   ✓ T21R-C2 reviewed execution closure (real Git objects) > rejects unreviewed changes to packages/domain/src/index.ts despite ancestry and green exact-main CI  455ms
+   ✓ T21R-C2 reviewed execution closure (real Git objects) > rejects unreviewed changes to packages/domain/src/inventory-read-authority.ts despite ancestry and green exact-main CI  430ms
+   ✓ T21R-C2 reviewed execution closure (real Git objects) > rejects unreviewed changes to packages/domain/src/inventory-truth.ts despite ancestry and green exact-main CI  440ms
+   ✓ T21R-C2 reviewed execution closure (real Git objects) > rejects unreviewed changes to packages/domain/src/meal-planning-api.ts despite ancestry and green exact-main CI  424ms
+   ✓ T21R-C2 reviewed execution closure (real Git objects) > rejects unreviewed changes to packages/domain/src/meal-shopping-api.ts despite ancestry and green exact-main CI  443ms
+   ✓ T21R-C2 reviewed execution closure (real Git objects) > rejects unreviewed changes to packages/domain/src/quantity.ts despite ancestry and green exact-main CI  411ms
+   ✓ T21R-C2 reviewed execution closure (real Git objects) > rejects unreviewed changes to packages/domain/src/units.ts despite ancestry and green exact-main CI  436ms
+   ✓ T21R-C2 reviewed execution closure (real Git objects) > rejects unreviewed changes to packages/domain/src/week/index.ts despite ancestry and green exact-main CI  432ms
+   ✓ T21R-C2 reviewed execution closure (real Git objects) > rejects unreviewed changes to packages/domain/src/week/leftover.ts despite ancestry and green exact-main CI  443ms
+   ✓ T21R-C2 reviewed execution closure (real Git objects) > rejects unreviewed changes to packages/domain/src/week/packages.ts despite ancestry and green exact-main CI  451ms
+   ✓ T21R-C2 reviewed execution closure (real Git objects) > rejects unreviewed changes to packages/domain/src/week/planner.ts despite ancestry and green exact-main CI  467ms
+   ✓ T21R-C2 reviewed execution closure (real Git objects) > rejects unreviewed changes to packages/domain/src/week/portion.ts despite ancestry and green exact-main CI  439ms
+   ✓ T21R-C2 reviewed execution closure (real Git objects) > rejects unreviewed changes to packages/domain/src/week/pricing.ts despite ancestry and green exact-main CI  437ms
+   ✓ T21R-C2 reviewed execution closure (real Git objects) > rejects unreviewed changes to packages/domain/src/week/score.ts despite ancestry and green exact-main CI  432ms
+   ✓ T21R-C2 reviewed execution closure (real Git objects) > rejects unreviewed changes to packages/domain/src/week/shopping.ts despite ancestry and green exact-main CI  443ms
+   ✓ T21R-C2 reviewed execution closure (real Git objects) > rejects unreviewed changes to packages/domain/src/week/types.ts despite ancestry and green exact-main CI  457ms
+   ✓ T21R-C2 reviewed execution closure (real Git objects) > rejects unreviewed changes to packages/domain/src/week/utilization.ts despite ancestry and green exact-main CI  432ms
+   ✓ T21R-C2 reviewed execution closure (real Git objects) > rejects unreviewed changes to packages/recipes/src/catalog-fingerprint.ts despite ancestry and green exact-main CI  503ms
+   ✓ T21R-C2 reviewed execution closure (real Git objects) > rejects unreviewed changes to packages/recipes/src/data.ts despite ancestry and green exact-main CI  457ms
+   ✓ T21R-C2 reviewed execution closure (real Git objects) > rejects unreviewed changes to packages/recipes/src/import/compiler.ts despite ancestry and green exact-main CI  434ms
+   ✓ T21R-C2 reviewed execution closure (real Git objects) > rejects unreviewed changes to packages/recipes/src/import/duplicates.ts despite ancestry and green exact-main CI  433ms
+   ✓ T21R-C2 reviewed execution closure (real Git objects) > rejects unreviewed changes to packages/recipes/src/import/identity.ts despite ancestry and green exact-main CI  446ms
+   ✓ T21R-C2 reviewed execution closure (real Git objects) > rejects unreviewed changes to packages/recipes/src/import/ingredients.ts despite ancestry and green exact-main CI  444ms
+   ✓ T21R-C2 reviewed execution closure (real Git objects) > rejects unreviewed changes to packages/recipes/src/import/index.ts despite ancestry and green exact-main CI  442ms
+   ✓ T21R-C2 reviewed execution closure (real Git objects) > rejects unreviewed changes to packages/recipes/src/import/normalize.ts despite ancestry and green exact-main CI  505ms
+   ✓ T21R-C2 reviewed execution closure (real Git objects) > rejects unreviewed changes to packages/recipes/src/import/parse.ts despite ancestry and green exact-main CI  449ms
+   ✓ T21R-C2 reviewed execution closure (real Git objects) > rejects unreviewed changes to packages/recipes/src/import/release-manifest.ts despite ancestry and green exact-main CI  447ms
+   ✓ T21R-C2 reviewed execution closure (real Git objects) > rejects unreviewed changes to packages/recipes/src/import/schema.ts despite ancestry and green exact-main CI  439ms
+   ✓ T21R-C2 reviewed execution closure (real Git objects) > rejects unreviewed changes to packages/recipes/src/import/sql-render.ts despite ancestry and green exact-main CI  453ms
+   ✓ T21R-C2 reviewed execution closure (real Git objects) > rejects unreviewed changes to packages/recipes/src/import/types.ts despite ancestry and green exact-main CI  433ms
+   ✓ T21R-C2 reviewed execution closure (real Git objects) > rejects unreviewed changes to packages/recipes/src/runtime-recipe.ts despite ancestry and green exact-main CI  455ms
+   ✓ T21R-C2 reviewed execution closure (real Git objects) > rejects unreviewed changes to packages/recipes/src/seed-render.ts despite ancestry and green exact-main CI  435ms
+   ✓ T21R-C2 reviewed execution closure (real Git objects) > rejects unreviewed changes to packages/recipes/src/vietnamese-bank.ts despite ancestry and green exact-main CI  479ms
+   ✓ T21R-C2 reviewed execution closure (real Git objects) > rejects unreviewed changes to packages/recipes/src/vietnamese-images.ts despite ancestry and green exact-main CI  429ms
+   ✓ T21R-C2 reviewed execution closure (real Git objects) > rejects unreviewed changes to .npmrc despite ancestry and green exact-main CI  443ms
+   ✓ T21R-C2 reviewed execution closure (real Git objects) > rejects unreviewed changes to .pnpmfile.cjs despite ancestry and green exact-main CI  462ms
+   ✓ T21R-C2 reviewed execution closure (real Git objects) > rejects unreviewed changes to pnpm-workspace.yaml despite ancestry and green exact-main CI  437ms
+   ✓ T21R-C2 reviewed execution closure (real Git objects) > rejects unreviewed changes to .gitattributes despite ancestry and green exact-main CI  447ms
+   ✓ T21R-C2 reviewed execution closure (real Git objects) > rejects unreviewed changes to vite.config.js despite ancestry and green exact-main CI  438ms
+   ✓ T21R-C2 reviewed execution closure (real Git objects) > rejects unreviewed changes to vite.config.mjs despite ancestry and green exact-main CI  443ms
+   ✓ T21R-C2 reviewed execution closure (real Git objects) > rejects unreviewed changes to vite.config.cjs despite ancestry and green exact-main CI  486ms
+   ✓ T21R-C2 reviewed execution closure (real Git objects) > rejects unreviewed changes to vite.config.mts despite ancestry and green exact-main CI  456ms
+   ✓ T21R-C2 reviewed execution closure (real Git objects) > rejects unreviewed changes to vite.config.cts despite ancestry and green exact-main CI  429ms
+   ✓ T21R-C2 reviewed execution closure (real Git objects) > rejects unreviewed changes to .env despite ancestry and green exact-main CI  442ms
+   ✓ T21R-C2 reviewed execution closure (real Git objects) > rejects unreviewed changes to .env.local despite ancestry and green exact-main CI  436ms
+   ✓ T21R-C2 reviewed execution closure (real Git objects) > rejects unreviewed changes to .env.development despite ancestry and green exact-main CI  491ms
+   ✓ T21R-C2 reviewed execution closure (real Git objects) > rejects unreviewed changes to .env.development.local despite ancestry and green exact-main CI  435ms
+   ✓ T21R-C2 reviewed execution closure (real Git objects) > allows an absent optional config but rejects introducing an unreviewed auto-loaded config  423ms
+   ✓ T21R-C2 reviewed execution closure (real Git objects) > rejects adding a later migration anywhere in the reviewed migration tree  347ms
+   ✓ T21R-C2 reviewed execution closure (real Git objects) > blocks the gate before production approval and before emitting a candidate output  390ms
+   ✓ T21R-C2 reviewed execution closure (real Git objects) > blocks capture reauthorization before any Cloudflare subprocess when reviewed bytes changed  550ms
+   ✓ T21R-C2 reviewed execution closure (real Git objects) > rechecks byte binding again before producing final authorization for aggregate publication  557ms
+   ✓ runner-local approval CLI lifecycle > writes only candidate_sha for gate and keeps authorization private to approve/recheck  975ms
+   ✓ runner-local approval CLI lifecycle > blocks recheck if review history is skipped  390ms
+   ✓ runner-local approval CLI lifecycle > blocks recheck when environment reviewer policy changes  465ms
+   ✓ runner-local approval CLI lifecycle > detects admin-bypass availability changes through the policy digest  487ms
+ ✓ tests/integration/inventory-event-authority.test.ts (205 tests) 43565ms
+   ✓ T09D SQL event authority and atomic injection rejection > accepts native USE evidence with reordered and whitespace-formatted metadata  458ms
+   ✓ T09D SQL event authority and atomic injection rejection > accepts native DISCARD evidence with reordered and whitespace-formatted metadata  577ms
+   ✓ T09D SQL event authority and atomic injection rejection > rejects an event column mismatch inventory_item_id=null and rolls back every preceding write  395ms
+   ✓ T09D SQL event authority and atomic injection rejection > rejects an event column mismatch command_id="missing-command" and rolls back every preceding write  348ms
+   ✓ T09D SQL event authority and atomic injection rejection > rejects an event column mismatch quantity_delta=2 and rolls back every preceding write  502ms
+   ✓ T09D SQL event authority and atomic injection rejection > rejects an event column mismatch quantity_delta=-2.0001 and rolls back every preceding write  309ms
+   ✓ T09D SQL event authority and atomic injection rejection > rejects an event column mismatch quantity_delta=null and rolls back every preceding write  578ms
+   ✓ T09D SQL event authority and atomic injection rejection > rejects an event column mismatch unit=null and rolls back every preceding write  371ms
+   ✓ T09D SQL event authority and atomic injection rejection > rejects an event column mismatch event_type=null and rolls back every preceding write  608ms
+   ✓ T09D SQL event authority and atomic injection rejection > rejects an event column mismatch created_at=null and rolls back every preceding write  466ms
+   ✓ T09D SQL event authority and atomic injection rejection > does not let INSERT OR IGNORE suppress an authority rejection  394ms
+   ✓ T09D SQL event authority and atomic injection rejection > does not let INSERT OR REPLACE suppress an authority rejection  448ms
+   ✓ T09D SQL event authority and atomic injection rejection > rejects malformed or non-evidence metadata null with the stable guard message  434ms
+   ✓ T09D SQL event authority and atomic injection rejection > rejects malformed or non-evidence metadata "" with the stable guard message  645ms
+   ✓ T09D SQL event authority and atomic injection rejection > rejects malformed or non-evidence metadata "{" with the stable guard message  408ms
+   ✓ T09D SQL event authority and atomic injection rejection > rejects malformed or non-evidence metadata "null" with the stable guard message  371ms
+   ✓ T09D SQL event authority and atomic injection rejection > rejects malformed or non-evidence metadata "true" with the stable guard message  694ms
+   ✓ T09D SQL event authority and atomic injection rejection > rejects malformed or non-evidence metadata "7" with the stable guard message  435ms
+   ✓ T09D SQL event authority and atomic injection rejection > rejects malformed or non-evidence metadata "\"metadata\"" with the stable guard message  741ms
+   ✓ T09D SQL event authority and atomic injection rejection > rejects malformed or non-evidence metadata "[]" with the stable guard message  500ms
+   ✓ T09D SQL event authority and atomic injection rejection > rejects malformed or non-evidence metadata "{}" with the stable guard message  624ms
+   ✓ T09D SQL event authority and atomic injection rejection > rejects metadata divergence at schemaVersion  306ms
+   ✓ T09D SQL event authority and atomic injection rejection > rejects metadata divergence at schemaVersion  383ms
+   ✓ T09D SQL event authority and atomic injection rejection > rejects corrupt result evidence at effects.0.before.quantityMilli  505ms
+ ✓ tests/unit/production-catalog-preflight-diagnostics.test.mjs (45 tests) 54463ms
+   ✓ production catalog preflight diagnostics using the real 0038 catalog > proves both existing gates at 0038 without applying 0039 or changing database content  1139ms
+   ✓ production catalog preflight diagnostics using the real 0038 catalog > accepts 500 already-ready heroes while keeping the receipt aggregate-only  1459ms
+   ✓ production catalog preflight diagnostics using the real 0038 catalog > rejects missing operational aggregate media_total without fallback to the stale policy  1122ms
+   ✓ production catalog preflight diagnostics using the real 0038 catalog > rejects missing operational aggregate recipes_without_active_hero without fallback to the stale policy  1106ms
+   ✓ production catalog preflight diagnostics using the real 0038 catalog > rejects missing operational aggregate media_orphan_rows without fallback to the stale policy  1316ms
+   ✓ production catalog preflight diagnostics using the real 0038 catalog > rejects missing operational aggregate media_duplicate_ready_roles without fallback to the stale policy  2010ms
+   ✓ production catalog preflight diagnostics using the real 0038 catalog > rejects missing operational aggregate media_invalid_metadata without fallback to the stale policy  2353ms
+   ✓ production catalog preflight diagnostics using the real 0038 catalog > rejects missing operational aggregate media_invalid_ready_metadata without fallback to the stale policy  2620ms
+   ✓ production catalog preflight diagnostics using the real 0038 catalog > rejects a missing pending hero even though all recipes hydrate and the runtime fingerprint matches  4861ms
+   ✓ production catalog preflight diagnostics using the real 0038 catalog > rejects gapped recipe order despite complete hydration and an unchanged ordered runtime payload  2349ms
+   ✓ production catalog preflight diagnostics using the real 0038 catalog > rejects semantic step drift that leaves ingredient lineage, counts and hydration valid  1340ms
+   ✓ production catalog preflight diagnostics using the real 0038 catalog > rejects missing ingredient positions and never emits hydration row identifiers  1264ms
+   ✓ production catalog preflight diagnostics using the real 0038 catalog > rejects changed aggregate and identity snapshots before certifying the catalog  1186ms
+   ✓ production catalog preflight diagnostics using the real 0038 catalog > rejects changed runtime reads even if each read individually remains hydratable  1234ms
+   ✓ production catalog preflight diagnostics using the real 0038 catalog > blocks ledger advancement and does not evaluate either catalog gate  1133ms
+   ✓ production catalog preflight diagnostics using the real 0038 catalog > blocks missing historical migration and does not evaluate either catalog gate  1200ms
+   ✓ production catalog preflight diagnostics using the real 0038 catalog > blocks duplicate migration and does not evaluate either catalog gate  1082ms
+   ✓ production catalog preflight diagnostics using the real 0038 catalog > blocks unexpected migration and does not evaluate either catalog gate  1181ms
+   ✓ production catalog preflight diagnostics using the real 0038 catalog > rejects an unchanged 0039 ledger because this diagnostic is scoped to the pre-migration 0038 state  1196ms
+   ✓ production catalog preflight diagnostics using the real 0038 catalog > retains a sanitized blocked receipt for catalog missing  1262ms
+   ✓ production catalog preflight diagnostics using the real 0038 catalog > retains a sanitized blocked receipt for catalog statement missing  1150ms
+   ✓ production catalog preflight diagnostics using the real 0038 catalog > retains a sanitized blocked receipt for catalog failed statement  1185ms
+   ✓ production catalog preflight diagnostics using the real 0038 catalog > retains a sanitized blocked receipt for multiple aggregate rows  1227ms
+   ✓ production catalog preflight diagnostics using the real 0038 catalog > retains a sanitized blocked receipt for runtime missing  1527ms
+   ✓ production catalog preflight diagnostics using the real 0038 catalog > retains a sanitized blocked receipt for runtime statement missing  1073ms
+   ✓ production catalog preflight diagnostics using the real 0038 catalog > retains a sanitized blocked receipt for runtime failed statement  1088ms
+   ✓ production catalog preflight diagnostics using the real 0038 catalog > rejects a malformed known aggregate value 0 without coercing it  1132ms
+   ✓ production catalog preflight diagnostics using the real 0038 catalog > rejects a malformed known aggregate value 9007199254740992 without coercing it  1369ms
+   ✓ production catalog preflight diagnostics using the real 0038 catalog > rejects a malformed known aggregate value NaN without coercing it  1346ms
+   ✓ production catalog preflight diagnostics using the real 0038 catalog > rejects a malformed known aggregate value Infinity without coercing it  1319ms
+   ✓ production catalog preflight diagnostics using the real 0038 catalog > retains null order extrema while rejecting an empty runtime order range  1189ms
+   ✓ production catalog preflight diagnostics using the real 0038 catalog > retains negative order bounds as evidence while rejecting the invalid recipe order range  1184ms
+   ✓ production catalog preflight diagnostics using the real 0038 catalog > rejects negative count fields instead of exposing an impossible aggregate  1222ms
+   ✓ production catalog preflight diagnostics using the real 0038 catalog > rejects unreviewed migration tip before issuing a receipt  980ms
+   ✓ production catalog preflight diagnostics using the real 0038 catalog > rejects migration content hash drift before issuing a receipt  950ms
+   ✓ production catalog preflight diagnostics using the real 0038 catalog > drops unknown row, provider and manifest fields from a successful diagnostic receipt  1010ms
+   ✓ production catalog preflight diagnostics using the real 0038 catalog > ignores provider timing metadata when comparing otherwise identical read snapshots  1004ms
+   ✓ production catalog preflight diagnostics using the real 0038 catalog > keeps provider or pipeline exception messages out of blocked receipts  999ms
+ ✓ tests/integration/inventory-fefo.test.ts (34 tests) 25891ms
+   ✓ T09E multi-effect FEFO authority > enforces the 32-effect boundary before partial writes  714ms
+   ✓ T09E multi-effect FEFO authority > enforces the 33-effect boundary before partial writes  426ms
+   ✓ T09E multi-effect FEFO authority > permits a 1,000-lot FEFO snapshot and rejects the 1,001st lot before allocation  19567ms
+ ✓ tests/integration/t20-legacy-family-and-safety.test.ts (15 tests) 22533ms
+   ✓ T20 Manual enforces the same T03 hard contract as Auto > reviewed dietary tag required (safety unknown): Auto adds nothing and Manual cannot persist the dish  1710ms
+   ✓ T20 Manual enforces the same T03 hard contract as Auto > allergen requested (safety unknown): Auto adds nothing and Manual cannot persist the dish  1452ms
+   ✓ T20 Manual enforces the same T03 hard contract as Auto > hard nutrition target without reviewed nutrition: Auto adds nothing and Manual cannot persist the dish  1479ms
+   ✓ T20 Manual enforces the same T03 hard contract as Auto > rejects a substitution that becomes forbidden after an earlier component consumes direct stock  1171ms
+   ✓ T20 Manual enforces the same T03 hard contract as Auto > rejects a swap that makes an existing downstream dish fall back to forbidden shrimp  1533ms
+   ✓ T20 Manual enforces the same T03 hard contract as Auto > rejects an upstream-slot swap that makes a later slot use forbidden shrimp  1843ms
+   ✓ T20 Manual enforces the same T03 hard contract as Auto > does not rejudge a later dish when an earlier edit changes unrelated inventory  1696ms
+   ✓ T20 Manual enforces the same T03 hard contract as Auto > does not rejudge a later dish for stock quantity changes that leave its safety facts unchanged  1398ms
+   ✓ T20 Manual enforces the same T03 hard contract as Auto > PATCH reorder rejects an unsafe inventory-prefix change  1517ms
+   ✓ T20 Manual enforces the same T03 hard contract as Auto > PUT replace rejects an unsafe inventory-prefix change  1346ms
+   ✓ T20 Manual enforces the same T03 hard contract as Auto > allows a safe reorder of existing components after a stable inventory prefix  1046ms
+   ✓ T20 Manual enforces the same T03 hard contract as Auto > does not rejudge a stable prefix when only later components move  1174ms
+   ✓ T20 Manual enforces the same T03 hard contract as Auto > hard max time: a dish over (or without) a known total time is rejected; the existing V1 anchor may stay  829ms
+   ✓ T20 V1 family-variant meals > refuses a Manual swap that makes a later legacy-family variant substitute forbidden shrimp  1921ms
+   ✓ T20 V1 family-variant meals > keeps V1 swap, refuses composition, and stays in composed-plan shopping (single projection)  2415ms
+ ✓ tests/unit/recipe-catalog-recovery.test.mjs (48 tests) 20183ms
+   ✓ offline certified V1 recovery compiler > restores all 500 certified recipes from 6720 unreviewed lines and keeps a lossless immutable archive  666ms
+   ✓ offline certified V1 recovery compiler > preserves the approved internal table during complete restore and rollback: documented spelling  830ms
+   ✓ offline certified V1 recovery compiler > preserves the approved internal table during complete restore and rollback: ASCII whitespace and keyword case  762ms
+   ✓ offline certified V1 recovery compiler > preserves the approved internal table during complete restore and rollback: long whitespace runs  767ms
+   ✓ offline certified V1 recovery compiler > reproduces the original D1 authorization failure and visits every application table with the corrected restore and rollback  1361ms
+   ✓ offline certified V1 recovery compiler > keeps unknown application foreign keys to recipe_ingredients visible under the same D1 authorization policy  466ms
+   ✓ offline certified V1 recovery compiler > keeps unknown application foreign keys to RECIPE_INGREDIENTS visible under the same D1 authorization policy  452ms
+   ✓ offline certified V1 recovery compiler > rejects extra internal constraint before evaluating any foreign-key PRAGMA or changing catalog data  312ms
+   ✓ offline certified V1 recovery compiler > stops unknown protected objects before FK calls with the D1 authorizer enabled  459ms
+   ✓ offline certified V1 recovery compiler > clears versioned enrichment so shared ingredient profiles and stale versions cannot authorize nutrition  392ms
+   ✓ offline certified V1 recovery compiler > rolls every archive and catalog change back when a later statement fails  497ms
+   ✓ offline certified V1 recovery compiler > restores the complete original archive atomically without changing shared profiles  796ms
+   ✓ offline certified V1 recovery compiler > refuses rollback after an unknown reserved object appears and keeps the applied catalog and archive intact  539ms
+   ✓ offline certified V1 recovery compiler > refuses rollback after a catalog edit and preserves that edit  471ms
+   ✓ offline certified V1 recovery compiler > handles a live slug permutation through temporary unique slugs and reverses it exactly  725ms
+   ✓ offline certified V1 recovery compiler > refuses a repeat restore and keeps the first successful archive intact  521ms
+ ✓ tests/integration/inventory-lot-commands.test.ts (146 tests) 18250ms
+ ✓ tests/unit/recipe-import-output-policy.test.mjs (25 tests) 19035ms
+   ✓ recipe-import CLI (real script, git-ignored artifact directory) > validate / compile / verify / check succeed on the fixture and never touch migrations/ or recipe source  12082ms
+   ✓ recipe-import CLI (real script, git-ignored artifact directory) > a failing batch exits non-zero, writes diagnostics only (no migration.sql); traversal and symlink outputs are refused before any write  6939ms
+ ✓ tests/integration/t20-meal-composition-flows.test.ts (16 tests) 16935ms
+   ✓ T20 assisted composition > "complete" proposes without mutating, retains every existing component, and applies only on explicit accept  1310ms
+   ✓ T20 assisted composition > a forged or stale proposal ID is rejected and nothing changes  859ms
+   ✓ T20 auto composition > keeps locked components identical, replaces only unlocked ones, is deterministic and explainable  1698ms
+   ✓ T20 auto composition > respects household hard restrictions in Auto and rejects them in Manual  948ms
+   ✓ T20 optimistic concurrency and idempotency > competing add/add and swap/swap: exactly one wins, the stale one is a typed conflict  1167ms
+   ✓ T20 optimistic concurrency and idempotency > competing add/remove: either winner is valid and the final composition reflects only the winner  1292ms
+   ✓ T20 optimistic concurrency and idempotency > competing lock/regenerate on a composed slot: the loser is a typed conflict and is not applied  1519ms
+   ✓ T20 optimistic concurrency and idempotency > competing manual-save/auto-apply: the final composition is exactly the winner's  1474ms
+   ✓ T20 optimistic concurrency and idempotency > a retried add (same revision) never duplicates a component  1181ms
+   ✓ T20 security > cross-household plan/component access fails without leaking existence or writing  490ms
+   ✓ T20 security > clients cannot inject authority, household, provenance, role source, confidence, inventory, prices, weights or lock bypass  995ms
+   ✓ T20 × T19 recipe authority > d1: a D1-only recipe added to a meal resolves in Recipe API detail, cooking and shopping  1066ms
+   ✓ T20 × T19 recipe authority > static: a D1-only recipe is TARGET_NOT_FOUND exactly as the Recipe API 404s it, and Auto proposes only static recipes  383ms
+   ✓ T20 × T19 recipe authority > an invisible D1-only edit does not stale a static plan (historical T19 stale-plan regression)  349ms
+   ✓ T20 × T19 recipe authority > an authority source change is a typed revalidation for composition edits and generation  729ms
+   ✓ T20 V1 operations on composed plans > V1 swap on a composed slot is a typed 409; regenerate preserves locked components and replaces unlocked ones  1473ms
+stderr | tests/integration/t20-meal-composition-stale-read.test.ts > T20 torn-read revision classification > stale PATCH on a concurrently added slot is a revision conflict
+{"level":"warn","limiter":"planner-compute","reason":"kv-unbound","message":"Rate limiter degraded to isolate-local counters; enforcement is not globally reliable."}
+{"level":"warn","limiter":"meal-planning-expensive","reason":"kv-unbound","message":"Rate limiter degraded to isolate-local counters; enforcement is not globally reliable."}
+
+stderr | tests/integration/t20-meal-composition-stale-read.test.ts > T20 torn-read revision classification > stale PATCH on a concurrently added slot is a revision conflict
+{"level":"warn","limiter":"meal-composition-write","reason":"kv-unbound","message":"Rate limiter degraded to isolate-local counters; enforcement is not globally reliable."}
+
+stderr | tests/integration/t20-meal-composition-stale-read.test.ts > T20 torn-read revision classification > stale PATCH on a concurrently added slot is a revision conflict
+{"level":"warn","limiter":"meal-planning-read","reason":"kv-unbound","message":"Rate limiter degraded to isolate-local counters; enforcement is not globally reliable."}
+
+ ✓ tests/integration/t20-meal-composition-stale-read.test.ts (9 tests) 13967ms
+   ✓ T20 torn-read revision classification > stale PATCH on a concurrently added slot is a revision conflict  1912ms
+   ✓ T20 torn-read revision classification > stale AUTO on a concurrently added slot is a revision conflict  1571ms
+   ✓ T20 torn-read revision classification > stale PATCH after regenerate returns 409 even when the edited component was replaced  1655ms
+   ✓ T20 torn-read revision classification > stale DELETE after a concurrent DELETE does not erase the winner  1820ms
+   ✓ T20 torn-read revision classification > stale swap after a concurrent removal returns a revision conflict, not component missing  1433ms
+   ✓ T20 torn-read revision classification > stale replace/save cannot overwrite the winning mutation  1350ms
+   ✓ T20 torn-read revision classification > stale Auto apply returns a revision conflict before checking its option ID  1596ms
+   ✓ T20 torn-read revision classification > a genuinely absent component at the current revision stays 404; an absent slot stays SLOT_NOT_FOUND  1016ms
+   ✓ T20 torn-read revision classification > a nonexistent slot wins over stale revision without weakening existing-slot revision checks  1613ms
+ ✓ tests/integration/t19-recipe-authority-split.test.ts (11 tests) 14713ms
+   ✓ T19 — planner universe must equal Recipe API universe under every authority mode > static: generated plan, alternatives and swap only expose recipes the Recipe API and cooking resolve  1000ms
+   ✓ T19 — planner universe must equal Recipe API universe under every authority mode > shadow: generated plan, alternatives and swap only expose recipes the Recipe API and cooking resolve  868ms
+   ✓ T19 — planner universe must equal Recipe API universe under every authority mode > canary (outside cohort): generated plan, alternatives and swap only expose recipes the Recipe API and cooking resolve  789ms
+   ✓ T19 — planner universe must equal Recipe API universe under every authority mode > canary (inside cohort): generated plan, alternatives and swap only expose recipes the Recipe API and cooking resolve  2768ms
+   ✓ T19 — planner universe must equal Recipe API universe under every authority mode > d1: generated plan, alternatives and swap only expose recipes the Recipe API and cooking resolve  3116ms
+   ✓ T19 — planner universe must equal Recipe API universe under every authority mode > static: the planned universe is exactly the legacy 71 and a static plan is not staled by an invisible D1-only change  693ms
+   ✓ T19 — planner universe must equal Recipe API universe under every authority mode > d1 readiness failure: Recipe API and Planner fall back to static TOGETHER (no split authority)  1867ms
+   ✓ T19 — planner universe must equal Recipe API universe under every authority mode > d1 catalog read failure: Recipe API and Planner both serve the static fallback without a 500  697ms
+   ✓ T19 — planner universe must equal Recipe API universe under every authority mode > security: no request parameter, header or body field can choose the recipe authority  761ms
+   ✓ T19 — planner universe must equal Recipe API universe under every authority mode > d1: shopping and cooking accept a D1-only recipe the planner chose  2028ms
+stderr | tests/integration/auth-hardening.test.ts > cookie authentication and production CSRF > issues a production HttpOnly opaque cookie, persists only its hash, and authenticates against D1
+{"level":"warn","limiter":"rl_auth","reason":"kv-unbound","message":"Rate limiter degraded to isolate-local counters; enforcement is not globally reliable."}
+
+stderr | tests/integration/auth-hardening.test.ts > expected-owner fencing across cookie changes > rejects an A replay when /me authenticates A but another tab installs B cookie before the mutation, retaining the owned outbox
+{"level":"warn","limiter":"rl_inv_w","reason":"kv-unbound","message":"Rate limiter degraded to isolate-local counters; enforcement is not globally reliable."}
+
+stderr | tests/integration/auth-hardening.test.ts > D1-authoritative OTP verification > fails registration honestly and invalidates the challenge when no provider accepts the OTP
+{"event":"otp_delivery_failed","provider":"workers-email","category":"sender_not_verified","purpose":"register","environment":"production"}
+
+stderr | tests/integration/auth-hardening.test.ts > D1-authoritative OTP verification > recovers from initial registration delivery failure through a secured resend
+{"event":"otp_delivery_failed","provider":"workers-email","category":"provider_unavailable","purpose":"register","environment":"production"}
+
+stderr | tests/integration/auth-hardening.test.ts > D1-authoritative OTP verification > fails resend honestly and leaves the newly generated challenge unusable
+{"event":"otp_delivery_failed","provider":"workers-email","category":"provider_unavailable","purpose":"register","environment":"production"}
+
+stderr | tests/integration/auth-hardening.test.ts > D1-authoritative OTP verification > keeps resend available when the optional KV cooldown store is unavailable
+{"level":"warn","limiter":"rl_auth","reason":"kv-error","message":"Rate limiter degraded to isolate-local counters; enforcement is not globally reliable."}
+
+ ✓ tests/integration/inventory-fefo-schema.test.ts (78 tests) 11312ms
+   ✓ T09E SQLite FEFO authority guards > accepts a captured synthetic FEFO batch only with authoritative adoption evidence  396ms
+ ✓ tests/integration/auth-hardening.test.ts (92 tests) 12326ms
+   ✓ expected-owner fencing across cookie changes > rejects an A replay when /me authenticates A but another tab installs B cookie before the mutation, retaining the owned outbox  390ms
+stderr | tests/integration/inventory-adoption-operator.test.ts > AC13 actual operator CLI → authenticated Hono → SQLite adoption > adopts one legacy household, preserves all stock and safely replays through the executable
+{"level":"warn","limiter":"rl_inv_w","reason":"kv-unbound","message":"Rate limiter degraded to isolate-local counters; enforcement is not globally reliable."}
+
+ ✓ tests/integration/inventory-adoption-operator.test.ts (26 tests) 8710ms
+   ✓ AC13 actual operator CLI → authenticated Hono → SQLite adoption > adopts one legacy household, preserves all stock and safely replays through the executable  594ms
+   ✓ AC13 actual operator CLI → authenticated Hono → SQLite adoption > refuses a different explicit household before sending adoption  374ms
+   ✓ AC13 actual operator CLI → authenticated Hono → SQLite adoption > activates only the explicitly requested empty household with durable receipt evidence  351ms
+   ✓ AC13 actual operator CLI → authenticated Hono → SQLite adoption > fences a session-owner change between identity verification and adoption  349ms
+   ✓ AC13 actual operator CLI → authenticated Hono → SQLite adoption > rejects an revoked session without activating authority  309ms
+   ✓ AC13 actual operator CLI → authenticated Hono → SQLite adoption > uses existing CSRF policy rather than bypassing the trusted origin check  334ms
+   ✓ AC13 actual operator CLI → authenticated Hono → SQLite adoption > preserves tenancy rejection when membership is removed after identity verification  345ms
+   ✓ AC13 actual operator CLI → authenticated Hono → SQLite adoption > reports missing terminal evidence, accepts explicit facts, and rejects changed replay intent  1011ms
+   ✓ AC13 actual operator CLI → authenticated Hono → SQLite adoption > preserves route validation/version failures for request body {"expectedInventoryVersion":9999}  333ms
+   ✓ AC13 actual operator CLI → authenticated Hono → SQLite adoption > preserves route validation/version failures for request body {"householdId":"other-household"}  338ms
+   ✓ AC13 actual operator CLI → authenticated Hono → SQLite adoption > recovers from a lost committed response only by explicitly rerunning the same tool intent  534ms
+   ✓ AC13 actual operator CLI → authenticated Hono → SQLite adoption > refuses missing credentials and ambiguous env/stdin credential sources  323ms
+   ✓ AC13 actual operator CLI → authenticated Hono → SQLite adoption > rejects non-loopback HTTP and credential-bearing URLs before network access  323ms
+ ✓ tests/integration/t20-performance.test.ts (1 test) 8300ms
+   ✓ 500-recipe Worker generation/picker stay bounded in SQL, payload and search; generation never writes  8300ms
+stderr | tests/integration/t13-receipt-vision-truth.test.ts > T13B-A receipt lot truth and authoritative correction evidence > preserves the entire manual lot, creates a receipt purchase lot, and reads total 5 through T11
+{"level":"warn","limiter":"rl_inv_w","reason":"kv-unbound","message":"Rate limiter degraded to isolate-local counters; enforcement is not globally reliable."}
+
+stderr | tests/integration/t13-receipt-vision-truth.test.ts > T13B-A receipt lot truth and authoritative correction evidence > receipt atomic failure recovery > rolls back the entire confirmation when a later stock statement fails
+Adopted scan confirmation failed: Error: T13B-A injected late stock failure
+    at SqliteD1.execute (/Users/tunbee27/Documents/Tako-san-ui-rebuild/tests/helpers/sqlite-d1.ts:119:33)
+    at /Users/tunbee27/Documents/Tako-san-ui-rebuild/tests/helpers/sqlite-d1.ts:97:50
+    at Array.map (<anonymous>)
+    at SqliteD1.batch (/Users/tunbee27/Documents/Tako-san-ui-rebuild/tests/helpers/sqlite-d1.ts:97:26)
+    at confirmAdoptedScan (/Users/tunbee27/Documents/Tako-san-ui-rebuild/src/worker/routes/scans.ts:194:21)
+    at dispatch (file:///Users/tunbee27/Documents/Tako-san-ui-rebuild/node_modules/.pnpm/hono@4.13.7/node_modules/hono/dist/compose.js:22:17)
+    at tenancyGuard (/Users/tunbee27/Documents/Tako-san-ui-rebuild/src/worker/middleware/tenancy.ts:69:3)
+    at dispatch (file:///Users/tunbee27/Documents/Tako-san-ui-rebuild/node_modules/.pnpm/hono@4.13.7/node_modules/hono/dist/compose.js:22:17)
+    at authMiddleware (/Users/tunbee27/Documents/Tako-san-ui-rebuild/src/worker/middleware/auth.ts:150:12)
+    at dispatch (file:///Users/tunbee27/Documents/Tako-san-ui-rebuild/node_modules/.pnpm/hono@4.13.7/node_modules/hono/dist/compose.js:22:17) {
+  code: 'ERR_SQLITE_ERROR',
+  errcode: 1811,
+  errstr: 'constraint failed'
+}
+
+stderr | tests/integration/t13-receipt-vision-truth.test.ts > T13B-A receipt lot truth and authoritative correction evidence > receipt atomic failure recovery > rolls back the entire confirmation when a later observation statement fails
+Adopted scan confirmation failed: Error: T13B-A injected late observation failure
+    at SqliteD1.execute (/Users/tunbee27/Documents/Tako-san-ui-rebuild/tests/helpers/sqlite-d1.ts:130:30)
+    at /Users/tunbee27/Documents/Tako-san-ui-rebuild/tests/helpers/sqlite-d1.ts:97:50
+    at Array.map (<anonymous>)
+    at SqliteD1.batch (/Users/tunbee27/Documents/Tako-san-ui-rebuild/tests/helpers/sqlite-d1.ts:97:26)
+    at confirmAdoptedScan (/Users/tunbee27/Documents/Tako-san-ui-rebuild/src/worker/routes/scans.ts:194:21)
+    at dispatch (file:///Users/tunbee27/Documents/Tako-san-ui-rebuild/node_modules/.pnpm/hono@4.13.7/node_modules/hono/dist/compose.js:22:17)
+    at tenancyGuard (/Users/tunbee27/Documents/Tako-san-ui-rebuild/src/worker/middleware/tenancy.ts:69:3)
+    at dispatch (file:///Users/tunbee27/Documents/Tako-san-ui-rebuild/node_modules/.pnpm/hono@4.13.7/node_modules/hono/dist/compose.js:22:17)
+    at authMiddleware (/Users/tunbee27/Documents/Tako-san-ui-rebuild/src/worker/middleware/auth.ts:150:12)
+    at dispatch (file:///Users/tunbee27/Documents/Tako-san-ui-rebuild/node_modules/.pnpm/hono@4.13.7/node_modules/hono/dist/compose.js:22:17) {
+  code: 'ERR_SQLITE_ERROR',
+  errcode: 1811,
+  errstr: 'constraint failed'
+}
+
+stderr | tests/integration/t13-receipt-vision-truth.test.ts > T13B-A receipt lot truth and authoritative correction evidence > receipt atomic failure recovery > rolls back the entire confirmation when a later status statement fails
+Adopted scan confirmation failed: Error: T13B-A injected late status failure
+    at SqliteD1.execute (/Users/tunbee27/Documents/Tako-san-ui-rebuild/tests/helpers/sqlite-d1.ts:130:30)
+    at /Users/tunbee27/Documents/Tako-san-ui-rebuild/tests/helpers/sqlite-d1.ts:97:50
+    at Array.map (<anonymous>)
+    at SqliteD1.batch (/Users/tunbee27/Documents/Tako-san-ui-rebuild/tests/helpers/sqlite-d1.ts:97:26)
+    at confirmAdoptedScan (/Users/tunbee27/Documents/Tako-san-ui-rebuild/src/worker/routes/scans.ts:194:21)
+    at dispatch (file:///Users/tunbee27/Documents/Tako-san-ui-rebuild/node_modules/.pnpm/hono@4.13.7/node_modules/hono/dist/compose.js:22:17)
+    at tenancyGuard (/Users/tunbee27/Documents/Tako-san-ui-rebuild/src/worker/middleware/tenancy.ts:69:3)
+    at dispatch (file:///Users/tunbee27/Documents/Tako-san-ui-rebuild/node_modules/.pnpm/hono@4.13.7/node_modules/hono/dist/compose.js:22:17)
+    at authMiddleware (/Users/tunbee27/Documents/Tako-san-ui-rebuild/src/worker/middleware/auth.ts:150:12)
+    at dispatch (file:///Users/tunbee27/Documents/Tako-san-ui-rebuild/node_modules/.pnpm/hono@4.13.7/node_modules/hono/dist/compose.js:22:17) {
+  code: 'ERR_SQLITE_ERROR',
+  errcode: 1811,
+  errstr: 'constraint failed'
+}
+
+stderr | tests/integration/t13-receipt-vision-truth.test.ts > T13B-A receipt lot truth and authoritative correction evidence > fridge atomic failure recovery > rolls back the entire confirmation when a later stock statement fails
+Adopted scan confirmation failed: Error: T13B-A injected late stock failure
+    at SqliteD1.execute (/Users/tunbee27/Documents/Tako-san-ui-rebuild/tests/helpers/sqlite-d1.ts:119:33)
+    at /Users/tunbee27/Documents/Tako-san-ui-rebuild/tests/helpers/sqlite-d1.ts:97:50
+    at Array.map (<anonymous>)
+    at SqliteD1.batch (/Users/tunbee27/Documents/Tako-san-ui-rebuild/tests/helpers/sqlite-d1.ts:97:26)
+    at confirmAdoptedScan (/Users/tunbee27/Documents/Tako-san-ui-rebuild/src/worker/routes/scans.ts:194:21)
+    at dispatch (file:///Users/tunbee27/Documents/Tako-san-ui-rebuild/node_modules/.pnpm/hono@4.13.7/node_modules/hono/dist/compose.js:22:17)
+    at tenancyGuard (/Users/tunbee27/Documents/Tako-san-ui-rebuild/src/worker/middleware/tenancy.ts:69:3)
+    at dispatch (file:///Users/tunbee27/Documents/Tako-san-ui-rebuild/node_modules/.pnpm/hono@4.13.7/node_modules/hono/dist/compose.js:22:17)
+    at authMiddleware (/Users/tunbee27/Documents/Tako-san-ui-rebuild/src/worker/middleware/auth.ts:150:12)
+    at dispatch (file:///Users/tunbee27/Documents/Tako-san-ui-rebuild/node_modules/.pnpm/hono@4.13.7/node_modules/hono/dist/compose.js:22:17) {
+  code: 'ERR_SQLITE_ERROR',
+  errcode: 1811,
+  errstr: 'constraint failed'
+}
+
+stderr | tests/integration/t13-receipt-vision-truth.test.ts > T13B-A receipt lot truth and authoritative correction evidence > fridge atomic failure recovery > rolls back the entire confirmation when a later observation statement fails
+Adopted scan confirmation failed: Error: T13B-A injected late observation failure
+    at SqliteD1.execute (/Users/tunbee27/Documents/Tako-san-ui-rebuild/tests/helpers/sqlite-d1.ts:130:30)
+    at /Users/tunbee27/Documents/Tako-san-ui-rebuild/tests/helpers/sqlite-d1.ts:97:50
+    at Array.map (<anonymous>)
+    at SqliteD1.batch (/Users/tunbee27/Documents/Tako-san-ui-rebuild/tests/helpers/sqlite-d1.ts:97:26)
+    at confirmAdoptedScan (/Users/tunbee27/Documents/Tako-san-ui-rebuild/src/worker/routes/scans.ts:194:21)
+    at dispatch (file:///Users/tunbee27/Documents/Tako-san-ui-rebuild/node_modules/.pnpm/hono@4.13.7/node_modules/hono/dist/compose.js:22:17)
+    at tenancyGuard (/Users/tunbee27/Documents/Tako-san-ui-rebuild/src/worker/middleware/tenancy.ts:69:3)
+    at dispatch (file:///Users/tunbee27/Documents/Tako-san-ui-rebuild/node_modules/.pnpm/hono@4.13.7/node_modules/hono/dist/compose.js:22:17)
+    at authMiddleware (/Users/tunbee27/Documents/Tako-san-ui-rebuild/src/worker/middleware/auth.ts:150:12)
+    at dispatch (file:///Users/tunbee27/Documents/Tako-san-ui-rebuild/node_modules/.pnpm/hono@4.13.7/node_modules/hono/dist/compose.js:22:17) {
+  code: 'ERR_SQLITE_ERROR',
+  errcode: 1811,
+  errstr: 'constraint failed'
+}
+
+stderr | tests/integration/t13-receipt-vision-truth.test.ts > T13B-A receipt lot truth and authoritative correction evidence > fridge atomic failure recovery > rolls back the entire confirmation when a later status statement fails
+Adopted scan confirmation failed: Error: T13B-A injected late status failure
+    at SqliteD1.execute (/Users/tunbee27/Documents/Tako-san-ui-rebuild/tests/helpers/sqlite-d1.ts:130:30)
+    at /Users/tunbee27/Documents/Tako-san-ui-rebuild/tests/helpers/sqlite-d1.ts:97:50
+    at Array.map (<anonymous>)
+    at SqliteD1.batch (/Users/tunbee27/Documents/Tako-san-ui-rebuild/tests/helpers/sqlite-d1.ts:97:26)
+    at confirmAdoptedScan (/Users/tunbee27/Documents/Tako-san-ui-rebuild/src/worker/routes/scans.ts:194:21)
+    at dispatch (file:///Users/tunbee27/Documents/Tako-san-ui-rebuild/node_modules/.pnpm/hono@4.13.7/node_modules/hono/dist/compose.js:22:17)
+    at tenancyGuard (/Users/tunbee27/Documents/Tako-san-ui-rebuild/src/worker/middleware/tenancy.ts:69:3)
+    at dispatch (file:///Users/tunbee27/Documents/Tako-san-ui-rebuild/node_modules/.pnpm/hono@4.13.7/node_modules/hono/dist/compose.js:22:17)
+    at authMiddleware (/Users/tunbee27/Documents/Tako-san-ui-rebuild/src/worker/middleware/auth.ts:150:12)
+    at dispatch (file:///Users/tunbee27/Documents/Tako-san-ui-rebuild/node_modules/.pnpm/hono@4.13.7/node_modules/hono/dist/compose.js:22:17) {
+  code: 'ERR_SQLITE_ERROR',
+  errcode: 1811,
+  errstr: 'constraint failed'
+}
+
+ ELIFECYCLE  Command failed.
+ ELIFECYCLE  Test failed. See above for more details.

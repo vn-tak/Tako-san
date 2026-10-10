@@ -1,3 +1,27 @@
+# UI10 Week view and completion semantics (ADR-053)
+
+Week setup contains meal preset, budget, one to three priorities and shopping
+frequency. Unsupported day-schedule inputs are removed because they never reached
+the existing generation command. Null means unlimited budget; only undefined uses
+the 750000 default. Setup and settings use the existing in-memory session draft;
+settings does not save preferences durably or modify the current plan. Document
+reload resets the draft. Stage, meal-tab and shopping-filter/mode state is ephemeral.
+
+Availability, utilization, budget and waste are plan projections, not evidence of
+stock consumption. Unknown recipe nutrition remains unknown. Generating, reading,
+swapping or checking shopping items must not import or consume inventory. Stock
+import remains an explicit selected-item command; cooking keeps /cook/:slug.
+
+Week completion pendingSync is an existing service signal passed through the store.
+Unlike the durable receipt validated for saved Shopping in UI06, this Week signal
+alone does not prove a matching command persisted in the outbox. UI10 conservatively
+says the server has not confirmed import; it does not promise durable offline
+completion or replay safety. The existing Week queueWrite receipt handling and
+repeated optimistic projection need a separate domain packet. UI10 introduces no
+new wire DTO, persistence, stock command or server authority.
+
+---
+
 # UI06 planner and shopping view semantics (ADR-049)
 
 A planner remains a projected household plan, not actual stock consumption.

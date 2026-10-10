@@ -1,0 +1,48 @@
+empty-320: overflow=0; axe=0; broken=0
+setup-320: overflow=0; axe=0; broken=0
+empty-390: overflow=0; axe=0; broken=0
+setup-390: overflow=0; axe=0; broken=0
+empty-768: overflow=0; axe=0; broken=0
+setup-768: overflow=0; axe=0; broken=0
+empty-1024: overflow=0; axe=0; broken=0
+setup-1024: overflow=0; axe=0; broken=0
+empty-1440: overflow=0; axe=0; broken=0
+setup-1440: overflow=0; axe=0; broken=0
+budget-unlimited-320: overflow=0; axe=0; broken=0
+priorities-320: overflow=0; axe=0; broken=0
+frequency-review-320: overflow=0; axe=0; broken=0
+generating-320: overflow=0; axe=0; broken=0
+board-320: overflow=0; axe=1; broken=0
+node:internal/modules/run_main:107
+    triggerUncaughtException(
+    ^
+
+AssertionError [ERR_ASSERTION]: Expected values to be strictly deep-equal:
++ actual - expected
+
++ [
++   {
++     id: 'definition-list',
++     impact: 'serious',
++     targets: [
++       [
++         'dl'
++       ]
++     ]
++   }
++ ]
+- []
+
+    at shot (file:///Users/tunbee27/Documents/Tako-san-ui-rebuild/scripts/ui10-browser-check.mjs:29:134)
+    at async file:///Users/tunbee27/Documents/Tako-san-ui-rebuild/scripts/ui10-browser-check.mjs:61:149 {
+  generatedMessage: true,
+  code: 'ERR_ASSERTION',
+  actual: [
+    { id: 'definition-list', impact: 'serious', targets: [ [ 'dl' ] ] }
+  ],
+  expected: [],
+  operator: 'deepStrictEqual',
+  diff: 'simple'
+}
+
+Node.js v24.16.0

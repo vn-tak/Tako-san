@@ -1,0 +1,216 @@
+empty-320: overflow=0; axe=0; broken=0
+setup-320: overflow=0; axe=0; broken=0
+empty-390: overflow=0; axe=0; broken=0
+setup-390: overflow=0; axe=0; broken=0
+empty-768: overflow=0; axe=0; broken=0
+setup-768: overflow=0; axe=0; broken=0
+empty-1024: overflow=0; axe=0; broken=0
+setup-1024: overflow=0; axe=0; broken=0
+empty-1440: overflow=0; axe=0; broken=0
+setup-1440: overflow=0; axe=0; broken=0
+budget-unlimited-320: overflow=0; axe=0; broken=0
+priorities-320: overflow=0; axe=0; broken=0
+frequency-review-320: overflow=0; axe=0; broken=0
+generating-320: overflow=0; axe=0; broken=0
+board-320: overflow=0; axe=0; broken=0
+board-390: overflow=0; axe=0; broken=0
+board-768: overflow=0; axe=0; broken=0
+board-1024: overflow=0; axe=0; broken=0
+board-1440: overflow=0; axe=0; broken=0
+meal-320: overflow=0; axe=0; broken=0
+meal-390: overflow=0; axe=0; broken=0
+meal-768: overflow=0; axe=0; broken=0
+meal-1024: overflow=0; axe=0; broken=0
+meal-1440: overflow=0; axe=0; broken=0
+meal-steps-320: overflow=0; axe=0; broken=0
+meal-nutrition-320: overflow=0; axe=0; broken=0
+swap-error-320: overflow=0; axe=0; broken=0
+swap-options-320: overflow=0; axe=0; broken=0
+swap-short-390: overflow=0; axe=0; broken=0
+export-390: overflow=0; axe=0; broken=0
+export-copy-pending-390: overflow=0; axe=0; broken=0
+export-copy-error-390: overflow=0; axe=0; broken=0
+export-copy-success-390: overflow=0; axe=0; broken=0
+export-share-cancel-390: overflow=0; axe=0; broken=0
+settings-session-draft-390: overflow=0; axe=0; broken=0
+shopping-320: overflow=0; axe=0; broken=0
+shopping-390: overflow=0; axe=0; broken=0
+shopping-768: overflow=0; axe=0; broken=0
+shopping-1024: overflow=0; axe=0; broken=0
+shopping-1440: overflow=0; axe=0; broken=0
+shopping-active-one-390: overflow=0; axe=0; broken=0
+shopping-import-error-390: overflow=0; axe=0; broken=0
+shopping-import-confirmed-390: overflow=0; axe=0; broken=0
+shopping-import-readback-390: overflow=0; axe=0; broken=0
+node:internal/modules/run_main:107
+    triggerUncaughtException(
+    ^
+
+ExpectError: expect(locator).toBeEnabled() failed
+
+Locator: getByRole('button', { name: 'Nhập 1 nguyên liệu đã chọn vào tủ', exact: true })
+Expected: enabled
+Timeout: 5000ms
+Error: element(s) not found
+
+Call log:
+  - Expect "toBeEnabled" getByRole('button', { name: 'Nhập 1 nguyên liệu đã chọn vào tủ', exact: true }) with timeout 5000ms
+  - waiting for getByRole('button', { name: 'Nhập 1 nguyên liệu đã chọn vào tủ', exact: true })
+
+    at captureRawStack (/Users/tunbee27/Documents/Tako-san-ui-rebuild/node_modules/.pnpm/playwright-core@1.63.0/node_modules/playwright-core/lib/coreBundle.js:8588:17)
+    at callMatcherAsStep (/Users/tunbee27/Documents/Tako-san-ui-rebuild/node_modules/.pnpm/playwright@1.63.0/node_modules/playwright/lib/matchers/expect.js:13310:57)
+    at Object.toBeEnabled (/Users/tunbee27/Documents/Tako-san-ui-rebuild/node_modules/.pnpm/playwright@1.63.0/node_modules/playwright/lib/matchers/expect.js:13302:23)
+    at /Users/tunbee27/Documents/Tako-san-ui-rebuild/scripts/ui10-browser-check.mjs:103:242 {
+  matcherResult: {
+    message: 'expect(locator).toBeEnabled() failed\n' +
+      '\n' +
+      "Locator: getByRole('button', { name: 'Nhập 1 nguyên liệu đã chọn vào tủ', exact: true })\n" +
+      'Expected: enabled\n' +
+      'Timeout: 5000ms\n' +
+      'Error: element(s) not found\n' +
+      '\n' +
+      'Call log:\n' +
+      `  - Expect "toBeEnabled" getByRole('button', { name: 'Nhập 1 nguyên liệu đã chọn vào tủ', exact: true }) with timeout 5000ms\n` +
+      "  - waiting for getByRole('button', { name: 'Nhập 1 nguyên liệu đã chọn vào tủ', exact: true })\n",
+    pass: false,
+    actual: undefined,
+    name: 'toBeEnabled',
+    expected: 'enabled',
+    log: [
+      `  - Expect "toBeEnabled" getByRole('button', { name: 'Nhập 1 nguyên liệu đã chọn vào tủ', exact: true }) with timeout 5000ms`,
+      "  - waiting for getByRole('button', { name: 'Nhập 1 nguyên liệu đã chọn vào tủ', exact: true })"
+    ],
+    timeout: 5000,
+    ariaSnapshot: '- link "Đến nội dung chính":\n' +
+      '  - /url: "#kitchen-main"\n' +
+      '- main:\n' +
+      '  - link "Quay lại thực đơn tuần":\n' +
+      '    - /url: /week/plan_week_plan_1791637608588_obziap\n' +
+      '  - link "Takosan — Trang chủ":\n' +
+      '    - /url: /\n' +
+      '  - link "Thông báo":\n' +
+      '    - /url: /notifications\n' +
+      '  - link "Tài khoản cá nhân":\n' +
+      '    - /url: /me\n' +
+      '  - paragraph: BẾP NHÀ / THỰC ĐƠN TUẦN\n' +
+      '  - heading "Đi chợ, từng nguyên liệu một." [level=1]\n' +
+      '  - text: Đánh dấu nguyên liệu đã mua. Chỉ khi xác nhận nhập, các nguyên liệu được chọn mới được gửi vào tủ.\n' +
+      '  - paragraph: MUA THÊM · ƯỚC TÍNH\n' +
+      '  - heading "~466k–650kđ" [level=2]\n' +
+      '  - paragraph: Giá thực tế có thể khác; giá bằng 0 trong kế hoạch có thể do thiếu dữ liệu.\n' +
+      '  - status:\n' +
+      '    - text: Đã chọn\n' +
+      '    - strong: 0/20\n' +
+      '    - text: nguyên liệu\n' +
+      '  - group "Nhóm nguyên liệu":\n' +
+      '    - button "Tất cả (20)" [pressed]\n' +
+      '    - button "Khác (20)"\n' +
+      '  - list:\n' +
+      '    - listitem:\n' +
+      '      - button "Cá lóc tươi (cắt khúc) 1000 g · dùng cho 3 món ~65.000 ₫ – 95.000 ₫":\n' +
+      '        - strong: Cá lóc tươi (cắt khúc)\n' +
+      '        - text: 1000 g · dùng cho 3 món ~65.000 ₫ – 95.000 ₫\n' +
+      '    - listitem:\n' +
+      '      - button "Cà chua 7 piece · dùng cho 3 món ~17.500 ₫ – 24.500 ₫":\n' +
+      '        - strong: Cà chua\n' +
+      '        - text: 7 piece · dùng cho 3 món ~17.500 ₫ – 24.500 ₫\n' +
+      '    - listitem:\n' +
+      '      - button "Dứa / Thơm (thái lát) 2 piece · dùng cho 2 món ~24.000 ₫ – 36.000 ₫":\n' +
+      '        - strong: Dứa / Thơm (thái lát)\n' +
+      '        - text: 2 piece · dùng cho 2 món ~24.000 ₫ – 36.000 ₫\n' +
+      '    - listitem:\n' +
+      '      - button "Giá đỗ sống 350 g · dùng cho 3 món ~7.000 ₫ – 10.500 ₫":\n' +
+      '        - strong: Giá đỗ sống\n' +
+      '        - text: 350 g · dùng cho 3 món ~7.000 ₫ – 10.500 ₫\n' +
+      '    - listitem:\n' +
+      '      - button "Ngò gai & ngò ôm 6 bunch · dùng cho 6 món ~24.000 ₫ – 36.000 ₫":\n' +
+      '        - strong: Ngò gai & ngò ôm\n' +
+      '        - text: 6 bunch · dùng cho 6 món ~24.000 ₫ – 36.000 ₫\n' +
+      '    - listitem:\n' +
+      '      - button "Ớt sừng cay 7 piece · dùng cho 5 món ~3.500 ₫ – 7.000 ₫":\n' +
+      '        - strong: Ớt sừng cay\n' +
+      '        - text: 7 piece · dùng cho 5 món ~3.500 ₫ – 7.000 ₫\n' +
+      '    - listitem:\n' +
+      '      - button "Nước mắm ngon 500 ml · dùng cho 9 món ~25.000 ₫ – 40.000 ₫":\n' +
+      '        - strong: Nước mắm ngon\n' +
+      '        - text: 500 ml · dùng cho 9 món ~25.000 ₫ – 40.000 ₫\n' +
+      '    - listitem:\n' +
+      '      - button "Tỏi phi & dầu ăn 500 ml · dùng cho 5 món ~22.500 ₫ – 30.000 ₫":\n' +
+      '        - strong: Tỏi phi & dầu ăn\n' +
+      '        - text: 500 ml · dùng cho 5 món ~22.500 ₫ – 30.000 ₫\n' +
+      '    - listitem:\n' +
+      '      - button "Thịt heo xay 1000 g · dùng cho 2 món ~110.000 ₫ – 135.000 ₫":\n' +
+      '        - strong: Thịt heo xay\n' +
+      '        - text: 1000 g · dùng cho 2 món ~110.000 ₫ – 135.000 ₫\n' +
+      '    - listitem:\n' +
+      '      - button "Tỏi 4 piece · dùng cho 3 món ~8.000 ₫ – 12.000 ₫":\n' +
+      '        - strong: Tỏi\n' +
+      '        - text: 4 piece · dùng cho 3 món ~8.000 ₫ – 12.000 ₫\n' +
+      '    - listitem:\n' +
+      '      - button "Trứng gà 6 piece · dùng cho 2 món ~16.800 ₫ – 21.000 ₫":\n' +
+      '        - strong: Trứng gà\n' +
+      '        - text: 6 piece · dùng cho 2 món ~16.800 ₫ – 21.000 ₫\n' +
+      '    - listitem:\n' +
+      '      - button "Ức gà ta luộc xé sợi nhỏ 500 g · dùng cho 2 món ~35.000 ₫ – 45.000 ₫":\n' +
+      '        - strong: Ức gà ta luộc xé sợi nhỏ\n' +
+      '        - text: 500 g · dùng cho 2 món ~35.000 ₫ – 45.000 ₫\n' +
+      '    - listitem:\n' +
+      '      - button "Nấm hương ngâm nở thái chỉ 50 g · dùng cho 1 món ~15.000 ₫ – 25.000 ₫":\n' +
+      '        - strong: Nấm hương ngâm nở thái chỉ\n' +
+      '        - text: 50 g · dùng cho 1 món ~15.000 ₫ – 25.000 ₫\n' +
+      '    - listitem:\n' +
+      '      - button "Bí đỏ gọt vỏ cắt quân cờ 1 piece · dùng cho 1 món ~12.000 ₫ – 20.000 ₫":\n' +
+      '        - strong: Bí đỏ gọt vỏ cắt quân cờ\n' +
+      '        - text: 1 piece · dùng cho 1 món ~12.000 ₫ – 20.000 ₫\n' +
+      '    - listitem:\n' +
+      '      - button "Đậu phụ trắng Mơ 3 piece · dùng cho 1 món ~12.000 ₫ – 18.000 ₫":\n' +
+      '        - strong: Đậu phụ trắng Mơ\n' +
+      '        - text: 3 piece · dùng cho 1 món ~12.000 ₫ – 18.000 ₫\n' +
+      '    - listitem:\n' +
+      '      - button "Bắp cải bào sợi mỏng 1 piece · dùng cho 1 món ~15.000 ₫ – 22.000 ₫":\n' +
+      '        - strong: Bắp cải bào sợi mỏng\n' +
+      '        - text: 1 piece · dùng cho 1 món ~15.000 ₫ – 22.000 ₫\n' +
+      '    - listitem:\n' +
+      '      - button "Hành tây thái mỏng ngâm giấm đá 1 piece · dùng cho 1 món ~3.000 ₫ – 5.000 ₫":\n' +
+      '        - strong: Hành tây thái mỏng ngâm giấm đá\n' +
+      '        - text: 1 piece · dùng cho 1 món ~3.000 ₫ – 5.000 ₫\n' +
+      '    - listitem:\n' +
+      '      - button "Nước cốt chanh tươi 4 piece · dùng cho 2 món ~6.000 ₫ – 12.000 ₫":\n' +
+      '        - strong: Nước cốt chanh tươi\n' +
+      '        - text: 4 piece · dùng cho 2 món ~6.000 ₫ – 12.000 ₫\n' +
+      '    - listitem:\n' +
+      '      - button "Mỡ heo hạt lựu (tạo độ mọng) 300 g · dùng cho 2 món ~42.000 ₫ – 51.000 ₫":\n' +
+      '        - strong: Mỡ heo hạt lựu (tạo độ mọng)\n' +
+      '        - text: 300 g · dùng cho 2 món ~42.000 ₫ – 51.000 ₫\n' +
+      '    - listitem:\n' +
+      '      - button "Cà rốt nạo sợi 1 piece · dùng cho 1 món ~3.000 ₫ – 5.000 ₫":\n' +
+      '        - strong: Cà rốt nạo sợi\n' +
+      '        - text: 1 piece · dùng cho 1 món ~3.000 ₫ – 5.000 ₫\n' +
+      '  - paragraph: Xác nhận nhập 0 nguyên liệu đã chọn. Các nguyên liệu chưa chọn sẽ không được nhập.\n' +
+      '  - button "Nhập 0 nguyên liệu đã chọn vào tủ" [disabled]\n' +
+      '  - button "Về danh sách"\n' +
+      '- navigation "Điều hướng chính":\n' +
+      '  - list:\n' +
+      '    - listitem:\n' +
+      '      - link "Trang chủ":\n' +
+      '        - /url: /\n' +
+      '    - listitem:\n' +
+      '      - link "Tủ lạnh":\n' +
+      '        - /url: /fridge\n' +
+      '    - listitem:\n' +
+      '      - link "Quét AI":\n' +
+      '        - /url: /scan\n' +
+      '        - text: Quét\n' +
+      '    - listitem:\n' +
+      '      - link "Công thức":\n' +
+      '        - /url: /recipes\n' +
+      '    - listitem:\n' +
+      '      - link "Thực đơn":\n' +
+      '        - /url: /week\n' +
+      '    - listitem:\n' +
+      '      - link "Tôi":\n' +
+      '        - /url: /me'
+  }
+}
+
+Node.js v24.16.0

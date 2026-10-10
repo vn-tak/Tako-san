@@ -19,7 +19,7 @@ describe('UI07 shell ownership and accessible brand', () => {
     expect(html).toContain('aria-label="Tài khoản cá nhân"');
     expect(html).toContain(`aria-hidden="true">${TAKOSAN_KITCHEN.motto}`);
   });
-  it.each(['/', '/recipes', '/fridge', '/scan/review/example', '/planner', '/shopping'])('persistent %s owns the desktop brand', (route) => {
+  it.each(['/', '/recipes', '/fridge', '/scan/review/example', '/planner', '/shopping', '/week', '/week/setup'])('persistent %s owns the desktop brand', (route) => {
     expect(render(<AppLayout />, route)).toContain('data-kitchen-navigation="persistent"');
   });
   it.each(['/scan', '/cook/recipe', '/cooking/complete'])('immersive %s preserves the header identity', (route) => {
@@ -27,7 +27,7 @@ describe('UI07 shell ownership and accessible brand', () => {
     expect(html).not.toContain('data-kitchen-navigation="persistent"');
     expect(html).not.toContain('<nav');
   });
-  it.each(['/plus', '/settings', '/week'])('legacy %s retains the supplied shell contract', (route) => {
+  it.each(['/plus', '/settings', '/week-old'])('legacy %s retains the supplied shell contract', (route) => {
     const html = render(<AppLayout />, route);
     expect(html).not.toContain('data-kitchen-navigation="persistent"');
     expect(html).toContain('/takosan/brand/takosan-logo-horizontal-primary.svg');

@@ -42,7 +42,7 @@ interface WeekStoreState {
   executeSwap: (recipeId: string) => Promise<void>;
   markMealCooked: (mealId: string) => Promise<void>;
   toggleShoppingItem: (itemId: string, checked: boolean) => Promise<void>;
-  completeShopping: () => Promise<{ success: boolean; count: number }>;
+  completeShopping: () => Promise<{ success: boolean; count: number; pendingSync?: boolean }>;
 }
 
 export const useWeekStore = create<WeekStoreState>((set, get) => ({
@@ -278,7 +278,7 @@ export const useWeekStore = create<WeekStoreState>((set, get) => ({
       if (!res.success) throw new Error('Shopping not completed');
       void invalidateWeekDependents();
       void queryClient.invalidateQueries({ queryKey: queryKeys.shoppingList() });
-      return { success: true, count: res.importedItemsCount ?? checkedItems.length };
+      return { success: true, count: res.importedItemsCount ?? checkedItems.length, ...(res.pendingSync !== undefined ? { pendingSync: res.pendingSync } : {}) };
     } catch {
       if (!isCurrent()) return { success: false, count: 0 };
       const error = 'Không thể nhập nguyên liệu vào tủ lạnh. Vui lòng thử lại.';

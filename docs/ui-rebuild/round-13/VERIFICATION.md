@@ -1,7 +1,7 @@
 # UI13 - Verification and evidence
 
 2026-10-11 JST. Base `5da802735c318c56505bed85a133b049728afb39`.
-Implementation: `UI13_IMPLEMENTATION_PENDING_VERIFICATION`.
+Implementation: `021220bbcb883360ba79b8101ff9586a67ebc4ae`.
 Scope: standalone local review artifact/tooling; production application code unchanged.
 
 ## Executed gates
@@ -9,7 +9,7 @@ Scope: standalone local review artifact/tooling; production application code unc
 First full configured check exited 0: 287 files / 6,736 tests PASS, Vitest 348.77s,
 typecheck, full ESLint, migration smoke, Vite 2.87s and Worker TypeScript build PASS.
 After the concrete import-cap defect was fixed, final full result:
-`PASS exit 0: 287 files / 6,737 tests, Vitest 357.58s; typecheck/full lint/local migration smoke/Vite 3.06s/Worker TypeScript PASS; remote gates skipped`.
+PASS exit 0: 287 files / 6,737 tests, Vitest 357.58s; typecheck/full lint/local migration smoke/Vite 3.06s/Worker TypeScript PASS; remote gates skipped.
 Exact full command, used for both runs:
 
 ```sh
@@ -22,7 +22,7 @@ whole-app browser matrix is claimed by UI13; UI12 app evidence remains historica
 
 Focused: initial and pre-cap final 3 files / 59 tests PASS (1.08s / 1.17s), including
 34 new validator cases, 17 UI12 cases and eight existing media-policy cases.
-Final focused after cap correction: `PASS 3 files / 60 tests in 1.15s (35 new validator cases)`.
+Final focused after cap correction: PASS 3 files / 60 tests in 1.15s (35 new validator cases).
 
 ```sh
 pnpm exec vitest run tests/unit/ui13-media-review.test.mjs tests/unit/ui12-recipe-media.test.tsx tests/unit/recipe-media-presentation.test.ts
@@ -32,15 +32,15 @@ node scripts/ui13-media-review.mjs check
 node scripts/ui13-media-review.mjs validate
 ```
 
-Final lint/format/deterministic/draft results: `PASS final targeted ESLint, Prettier, deterministic generation and initial draft validation`.
+Final lint/format/deterministic/draft results: PASS final targeted ESLint, Prettier, deterministic generation and initial draft validation.
 New roundtrip test uses a full maximum-length draft whose JSON escaping expands
 past the old 256 KB bound. Structural validation never asserts license or promotion.
 
 ## Actual browser verification
 
 Earlier accepted `browser-final`: 33 snapshots / 10 journey groups PASS. Final
-`browser-import-cap`: `PASS 33 snapshots / 11 journey groups`. Supplemental final:
-`PASS seven supplemental checks (four visual, two async races, one direct-file/export)`. Accepted earlier supplemental had seven checks:
+`browser-import-cap`: PASS 33 snapshots / 11 journey groups. Supplemental final:
+PASS seven supplemental checks (four visual, two async races, one direct-file/export). Accepted earlier supplemental had seven checks:
 four visual, two delayed-import races and one direct-file/export check.
 
 ```sh
@@ -81,7 +81,7 @@ No new production-demand, photography-method, source or rights inference.
 against base are empty. All 257 public source files unchanged. Built public assets:
 256 exact byte copies; `sw.js` matches the existing Vite build-ID replacement
 `__TAKOSAN_BUILD_ID__`→`local`. This is not a claim of 257 byte-identical build copies.
-Final integrity after the corrected full run: `PASS 383 frozen records, entire src/protected unchanged, public 256 exact + one expected SW transform, seven ports closed`.
+Final integrity after the corrected full run: PASS 383 frozen records, entire src/protected unchanged, public 256 exact + one expected SW transform, seven ports closed.
 No backend/packages/schema/migrations/services/stores/dependency/payment/auth/
 production config change. No remote DB/R2/media fetch/upload/write, push/PR/merge/deploy.
 
@@ -132,3 +132,14 @@ performance/motion audit; UI13 does not authorize catalog promotion or release.
 ## Archived evidence
 
 Manifest covers 263 payloads (44,149,618 bytes); 57 logs have raw/archive byte and SHA256 receipts, 5 normalized text logs also retain exact raw gzip. Manifest excludes itself, mutable prose and the following Git-object receipt.
+
+## Git-object receipt
+
+Implementation `021220bbcb883360ba79b8101ff9586a67ebc4ae` has parent equal to the stated base. A single sequential
+cat-file process verified 383 source records, 263 evidence payloads and manifest
+against 494 unique Git blobs and worktree bytes. All 57 log receipts/five raw gzip
+archives matched. Entire src/protected diff empty, implementation whitespace check
+passed and tree clean immediately after implementation. Seven task ports closed.
+Manifest 53069 bytes, SHA256 `b9e55a2eca7c2f61afefd0ec657703d460797c7660fac4313bcfb75ffdbd7f81`.
+[GIT_VERIFICATION.md](GIT_VERIFICATION.md) and JSON preserve the receipt outside
+the evidence manifest; this documentation checkpoint does not name itself.

@@ -3,7 +3,7 @@
 2026-10-11 JST. Canonical `vn-tak/Tako-san`, checkout
 `/Users/tunbee27/Documents/Tako-san-ui-rebuild`, branch `codex/ui-rebuild-foundation`.
 Base `5da802735c318c56505bed85a133b049728afb39`. ADR-056 ghi trước triển khai.
-Implementation: `UI13_IMPLEMENTATION_PENDING_VERIFICATION`.
+Implementation: `021220bbcb883360ba79b8101ff9586a67ebc4ae`.
 
 ## Kết quả và mục đích
 
@@ -50,9 +50,9 @@ trong bộ nhớ của phiên; tải JSON mới giữ được ngoài phiên, re
 ## Kiểm chứng và giới hạn
 
 Chi tiết lệnh, kết quả thật, ảnh và các lượt lỗi ở [VERIFICATION.md](VERIFICATION.md).
-Source/protected/public được đối chiếu SHA256; Git-object receipt được lập sau
-implementation commit. Documentation checkpoint sẽ ghi verified implementation,
-không ghi hash của chính nó. UI14 chỉ là packet audit hiệu năng/motion đã chuẩn bị.
+Source/protected/public được đối chiếu SHA256; Đã đối chiếu 494 unique Git blobs với 383 source records, 263 evidence
+payloads và manifest; [Git receipt](GIT_VERIFICATION.md). Documentation checkpoint
+ghi verified implementation, không ghi hash của chính nó. UI14 chỉ là packet audit hiệu năng/motion đã chuẩn bị.
 
 Đợt này hoàn tất công cụ duyệt local, không hoàn tất toàn bộ hệ thống hoặc phê
 chuẩn thương hiệu. Thiết bị thật, Safari, native zoom, screen reader, usability,

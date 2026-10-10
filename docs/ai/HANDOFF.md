@@ -5,11 +5,11 @@ Bảng duyệt ảnh local hoàn tất; nguồn/quyền và quyết định thư
 
 **Repository/source:** Canonical `vn-tak/Tako-san`, checkout
 `/Users/tunbee27/Documents/Tako-san-ui-rebuild`, branch `codex/ui-rebuild-foundation`.
-Base `5da802735c318c56505bed85a133b049728afb39`. Implementation: `UI13_IMPLEMENTATION_PENDING_VERIFICATION`.
+Base `5da802735c318c56505bed85a133b049728afb39`. Implementation: `021220bbcb883360ba79b8101ff9586a67ebc4ae`.
 383 source/test/script/config/public/generated records được frozen; 374 records
 UI12 giữ nguyên và chín records mới. Entire src/protected diff rỗng. 257 public
 originals giữ nguyên; build 256 exact copies + một expected SW build-ID transform.
-Git-object receipt: `UI13_GIT_RECEIPT_PENDING`. Documentation checkpoint theo sau
+Git-object receipt: `VERIFIED: 383 source / 263 evidence / 257 public records, 494 unique blobs; 57 logs / 5 exact raw gzip. Manifest 53069 bytes, SHA256 b9e55a2eca7c2f61afefd0ec657703d460797c7660fac4313bcfb75ffdbd7f81; round-13/GIT_VERIFICATION.md`. Documentation checkpoint theo sau
 chỉ ghi verified implementation, không ghi hash của chính nó.
 
 **Actual changes:** Generator/check/validate và preview GET/HEAD allowlist bind
@@ -22,10 +22,10 @@ fence. Giới hạn nhập 3 MiB bảo đảm full valid draft roundtrip, kể c
 24 initial records pending, all asset rights unknown, promotionAuthorized=false.
 Owner-reviewed là claim của con người, không phải hệ thống xác minh hoặc quyền publish.
 
-**Verification:** `PASS exit 0: 287 files / 6,737 tests, Vitest 357.58s; typecheck/full lint/local migration smoke/Vite 3.06s/Worker TypeScript PASS; remote gates skipped`. Final focused
-`PASS 3 files / 60 tests in 1.15s (35 new validator cases)`; lint/format/generated/draft
-`PASS final targeted ESLint, Prettier, deterministic generation and initial draft validation`. Browser final `PASS 33 snapshots / 11 journey groups`,
-supplemental `PASS seven supplemental checks (four visual, two async races, one direct-file/export)`. Seven widths 320..1440, computed
+**Verification:** PASS exit 0: 287 files / 6,737 tests, Vitest 357.58s; typecheck/full lint/local migration smoke/Vite 3.06s/Worker TypeScript PASS; remote gates skipped. Final focused
+PASS 3 files / 60 tests in 1.15s (35 new validator cases); lint/format/generated/draft
+PASS final targeted ESLint, Prettier, deterministic generation and initial draft validation. Browser final PASS 33 snapshots / 11 journey groups,
+supplemental PASS seven supplemental checks (four visual, two async races, one direct-file/export). Seven widths 320..1440, computed
 text x2 320/768, short 390x420/768x420 và combined 320x420x2; applicable axe/overflow/
 broken images/checked clipping/unexpected pageerrors zero. Filter/reset/deep link,
 Tab/Shift+Tab/Escape/focus-return, malformed/cross-dataset/path import atomicity,

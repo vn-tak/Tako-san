@@ -24,8 +24,9 @@ license proof found; all rights remain unknown until a human supplies evidence.
 4. Run configured local gates and fresh guideline review. Verify runtime/public
    bytes unchanged, archive accepted/failed logs/screens and evidence manifest. DONE;
    final full check passed after the cap correction, all 383 frozen records match.
-5. Update state/ADR/board/handoff; local implementation commit, Git blobs/source/
-   evidence verify, documentation checkpoint. No remote operation.
+5. Update state/ADR/board/handoff; DONE: local implementation `021220bbcb883360ba79b8101ff9586a67ebc4ae`,
+   383 source / 263 evidence / 494 unique blobs verified, documentation checkpoint.
+   No remote operation.
 
 ## Observable acceptance and limits
 
@@ -48,5 +49,6 @@ could export beyond the 256 KB import cap. The bound is now 3 MiB, enough for
 maximum field lengths with JSON escape expansion. Meaningful maximum-length
 roundtrip/oversized atomicity checks added; final full/local/browser gates rerun.
 
-All final local gates passed. Implementation commit/Git-object verification and
-documentation checkpoint are the remaining closing steps.
+All final local gates passed. Implementation `021220bbcb883360ba79b8101ff9586a67ebc4ae`
+verified against 383 source records / 263 evidence payloads / 494 unique blobs.
+Documentation checkpoint records the verified implementation, not its own hash.

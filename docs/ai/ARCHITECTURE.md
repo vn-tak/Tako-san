@@ -18,7 +18,7 @@ recipe deep link. Direct-file History is best effort. Crop is CSS only. Preview
 binds 127.0.0.1, serves a GET/HEAD allowlist and exact-script-hash CSP; no domain API
 or credential/network writer. Original public bytes and entire src are unchanged.
 
-Implementation `UI13_IMPLEMENTATION_PENDING_VERIFICATION`; receipt round-13/GIT_VERIFICATION.md.
+Implementation `021220bbcb883360ba79b8101ff9586a67ebc4ae`; receipt round-13/GIT_VERIFICATION.md.
 UI14 performance/motion packet is ready; no UI14 runtime. Owner image/brand/device/
 hosted approval remains separate from local artifact/gate completion.
 

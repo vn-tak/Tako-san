@@ -1,7 +1,7 @@
 # UI14 - Frontend delivery and motion audit
 
 Status: READY_FOR_LOCAL_AUDIT. No UI14 runtime in UI13.
-Previous UI13 implementation: `UI13_IMPLEMENTATION_PENDING_VERIFICATION`.
+Previous UI13 implementation: `021220bbcb883360ba79b8101ff9586a67ebc4ae`.
 Canonical vn-tak/Tako-san, Tako-san-ui-rebuild, codex/ui-rebuild-foundation.
 Read current state, UI13 receipt, UI12 recipe/shell contracts and UI07 brand kit.
 

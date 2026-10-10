@@ -1,7 +1,7 @@
 # UI13 - Tako-san media review và provenance
 
 Status: UI13_LOCAL_VERIFIED_REVIEW_REQUIRED. Standalone local board/tooling completed.
-Implementation: `UI13_IMPLEMENTATION_PENDING_VERIFICATION`.
+Implementation: `021220bbcb883360ba79b8101ff9586a67ebc4ae`.
 Read round-13 FOUNDATION/VERIFICATION/GIT_VERIFICATION for final evidence.
 Previous implementation: `03e16c78850b061784dc2e9a01323bd7e74b65f3`.
 Read round-12 FOUNDATION/VERIFICATION/GIT_VERIFICATION and evidence/media-plan.json.
@@ -53,6 +53,6 @@ ADR-056 precedes implementation. Fresh mapping matches UI12, all eight originals
 byte-verified. 24 initial reviews pending; four current photos and 20 missing
 remain separate from candidates. All source/rights unknown. Shared validator,
 atomic import/export, 3 MiB maximum valid-draft roundtrip, late-event fencing and
-actual responsive/keyboard/direct-file checks complete. `PASS exit 0: 287 files / 6,737 tests, Vitest 357.58s; typecheck/full lint/local migration smoke/Vite 3.06s/Worker TypeScript PASS; remote gates skipped`.
+actual responsive/keyboard/direct-file checks complete. PASS exit 0: 287 files / 6,737 tests, Vitest 357.58s; typecheck/full lint/local migration smoke/Vite 3.06s/Worker TypeScript PASS; remote gates skipped.
 No production app/domain/public/remote operation. Next UI14 local performance and
 motion audit; human image/brand/device approval remains an independent input.

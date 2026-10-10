@@ -4,10 +4,10 @@
 UI07 identity được dùng trong standalone board; resolver/app runtime UI12 giữ nguyên.
 Current photos và đề xuất tách rõ, CSS crop, source/rights/subject/crop records,
 JSON roundtrip và keyboard/responsive/error handling đã được kiểm local.
-Implementation: `UI13_IMPLEMENTATION_PENDING_VERIFICATION`.
+Implementation: `021220bbcb883360ba79b8101ff9586a67ebc4ae`.
 
-`PASS exit 0: 287 files / 6,737 tests, Vitest 357.58s; typecheck/full lint/local migration smoke/Vite 3.06s/Worker TypeScript PASS; remote gates skipped`. Browser `PASS 33 snapshots / 11 journey groups`, supplemental
-`PASS seven supplemental checks (four visual, two async races, one direct-file/export)`. Source frozen 383 records, entire src/protected
+PASS exit 0: 287 files / 6,737 tests, Vitest 357.58s; typecheck/full lint/local migration smoke/Vite 3.06s/Worker TypeScript PASS; remote gates skipped. Browser PASS 33 snapshots / 11 journey groups, supplemental
+PASS seven supplemental checks (four visual, two async races, one direct-file/export). Source frozen 383 records, entire src/protected
 unchanged. Reports: [UI13 foundation](round-13/FOUNDATION.md),
 [verification](round-13/VERIFICATION.md), [asset assessment](round-13/ASSET_REVIEW.md),
 [review board](round-13/media-review.html), [Git receipt](round-13/GIT_VERIFICATION.md).

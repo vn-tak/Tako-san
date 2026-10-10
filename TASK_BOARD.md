@@ -7,7 +7,7 @@ và toàn hệ thống vẫn theo roadmap.
 **Repository/source:** Canonical `vn-tak/Tako-san`, ID1385308553, checkout
 `/Users/tunbee27/Documents/Tako-san-ui-rebuild`, nhánh `codex/ui-rebuild-foundation`,
 base `edf2e9a7978c04fc62443e7b3e52d2ae2d895756`. Implementation checkpoint:
-`IMPLEMENTATION_HASH_PENDING`. Documentation checkpoint theo sau; Frigo cũ giữ nguyên.
+`cef5acb5a21964fb58d4886fb58ffd098e54fe89`. Hash implementation được đối chiếu trong checkpoint tài liệu này; Frigo cũ giữ nguyên.
 
 **Actual changes:** Preparation UI01 giữ quantity/no-buy/shortfall; cooking/mobile-
 desktop dùng pine/coral/warm canvas, Be Vietnam Pro và prototype wordmark đúng bộ.

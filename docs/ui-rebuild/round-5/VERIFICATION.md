@@ -2,8 +2,11 @@
 
 Source: canonical vn-tak/Tako-san; branch codex/ui-rebuild-foundation; base edf2e9a.
 Packet UI05-cooking.md and ADR-048. Status UI05_LOCAL_VERIFIED_REVIEW_REQUIRED.
-Implementation checkpoint: `IMPLEMENTATION_HASH_PENDING`; verified hash recorded
-in the documentation checkpoint after the coherent implementation commit.
+Implementation checkpoint: `cef5acb5a21964fb58d4886fb58ffd098e54fe89`; verified hash recorded
+in this documentation checkpoint after the coherent implementation commit.
+Post-commit verification compared all 16 frozen source hashes and all 57 evidence
+payloads (bytes/SHA256) with both `git show` at that implementation and the working
+tree; every comparison passed. This checkpoint changes documentation only.
 
 ## Executed focused and browser checks
 

@@ -3,7 +3,7 @@
 Authorization: continue Tako-san rebuild, 2026-10-10 JST.
 Canonical vn-tak/Tako-san; branch codex/ui-rebuild-foundation; base edf2e9a.
 Status: UI05_LOCAL_VERIFIED_REVIEW_REQUIRED.
-Implementation `IMPLEMENTATION_HASH_PENDING`. Read ADR-048 before runtime edits.
+Implementation `cef5acb5a21964fb58d4886fb58ffd098e54fe89`. Read ADR-048 before runtime edits.
 
 ## Outcome and scope
 

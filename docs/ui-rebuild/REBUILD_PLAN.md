@@ -1,7 +1,7 @@
 # Checkpoint triển khai — UI05, 2026-10-10 JST
 
 Canonical `vn-tak/Tako-san`; nhánh local `codex/ui-rebuild-foundation`.
-Implementation UI05 `IMPLEMENTATION_HASH_PENDING` đã kiểm chứng local.
+Implementation UI05 `cef5acb5a21964fb58d4886fb58ffd098e54fe89` đã kiểm chứng local.
 
 - UI01 quantity/detail/inventory/identity, UI02 Home/discovery/shell, UI03 summary
   API/pagination/media audit và UI04 scan/review vẫn giữ acceptance đã kiểm chứng.

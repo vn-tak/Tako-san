@@ -3,7 +3,7 @@
 Canonical `vn-tak/Tako-san`, checkout `/Users/tunbee27/Documents/Tako-san-ui-rebuild`,
 nhánh `codex/ui-rebuild-foundation`; bắt đầu từ `edf2e9a7978c04fc62443e7b3e52d2ae2d895756`.
 Packet `docs/ai/tasks/UI05-cooking.md`, ADR-048; đợt local 2026-10-10 JST.
-UI05_LOCAL_VERIFIED_REVIEW_REQUIRED. Implementation `IMPLEMENTATION_HASH_PENDING`;
+UI05_LOCAL_VERIFIED_REVIEW_REQUIRED. Implementation `cef5acb5a21964fb58d4886fb58ffd098e54fe89`;
 full270files/6514tests PASS. Chi tiết tại [VERIFICATION](VERIFICATION.md).
 
 ## Đánh giá thẳng thắn trước khi sửa

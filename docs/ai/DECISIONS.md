@@ -1,7 +1,7 @@
 # ADR-048 - One cooking review and immutable completion attempt (UI05)
 
 Status: accepted and locally verified for UI05, 2026-10-10 JST.
-Implementation `IMPLEMENTATION_HASH_PENDING`. Full270files/6514tests PASS;
+Implementation `cef5acb5a21964fb58d4886fb58ffd098e54fe89`. Full270files/6514tests PASS;
 focused70; browser32checks/55PNG/12journeys. Independent/hosted/device/release
 review remains; evidence `../ui-rebuild/round-5/VERIFICATION.md`.
 Packet: `tasks/UI05-cooking.md`; builds on ADR-044/045/047.

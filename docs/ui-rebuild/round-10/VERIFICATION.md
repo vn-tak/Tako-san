@@ -3,7 +3,7 @@
 Repository: `vn-tak/Tako-san`; checkout
 `/Users/tunbee27/Documents/Tako-san-ui-rebuild`, branch
 `codex/ui-rebuild-foundation`; base `3c018d7778a780f5759d967e62d58440e4e08c2d`.
-Implementation checkpoint chưa tạo; chỉ ghi hash sau khi đã đối chiếu Git objects.
+Implementation checkpoint `89bddf821ea4f74d639f0779febd78606bdf617f` đã xác minh Git objects/worktree.
 Không có push, PR, merge, deploy hay remote migration.
 
 ## Kiểm tra tập trung
@@ -179,7 +179,17 @@ Safari/native zoom/screen reader/usability/CWV và hosted release chưa kiểm c
 143 source/test/script/asset/font/config hashes frozen; bốn test route sau recovery
 đã cập nhật hash, không đổi runtime snapshot. Evidence giữ ảnh gốc, hai contact
 sheets, reports, source/protected/lifecycle/store receipts và logs có raw/archive
-SHA256 (40 log receipts). Build assets và source đã đối chiếu sau full. Manifest
-sẽ giữ payload bytes/SHA256, không tự chứa hash; phải đối chiếu Git blobs với source
-và payload rồi mới ghi implementation hash trong documentation checkpoint.
+SHA256 (40 log receipts). Build assets và source đã đối chiếu sau full. Logs archive
+bỏ ANSI, trailing whitespace/blank EOF lines và escape NUL; raw hash giữ nguyên.
+Staged diff check từng phát hiện 11 logs có blank EOF lines, đã chuẩn hóa và cập
+nhật archive receipts/manifest trước implementation commit.
+
+Manifest giữ 144 payloads, không tự chứa hash và không hash mutable prose docs.
+Sau implementation commit, Git cat-file --batch đã đối chiếu toàn bộ 143 source
+hashes, 144 payloads và manifest với worktree: bytes/SHA256 khớp. Manifest
+29760 bytes, SHA256
+`7ac94d4590e8c449ca4a1046e330871db4ce650bfda80329625595ac4d5618ab`.
+Protected diff từ base đến implementation rỗng; git diff --check PASS,
+tree sạch ngay sau implementation. Documentation
+checkpoint chỉ ghi hash implementation đã xác minh, không ghi hash của chính nó.
 Local QA không phải release artifact hoặc chứng nhận production.

@@ -9,8 +9,14 @@ local. Toàn hệ thống, navigation, owner/devices và hosted release chưa ho
 base `3c018d7778a780f5759d967e62d58440e4e08c2d`. 143 source hashes verified
 sau full; 51 public asset/font files sau build byte-identical. Protected-path diff
 rỗng; store chỉ hai replacement receipt. 40 logs có raw/archive SHA256 receipts.
-Implementation checkpoint chưa tạo; documentation checkpoint sẽ ghi hash sau
-khi Git objects và worktree đã được đối chiếu. Checkout Frigo cũ không được sửa.
+Implementation checkpoint:
+`89bddf821ea4f74d639f0779febd78606bdf617f`.
+Đã đối chiếu Git objects/worktree: 143 source hashes và 144 evidence payloads
+khớp bytes/SHA256. Manifest: 29760 bytes, SHA256
+`7ac94d4590e8c449ca4a1046e330871db4ce650bfda80329625595ac4d5618ab`.
+Protected-path diff từ base đến implementation rỗng; tree sạch ngay sau commit;
+`git diff --check` PASS. Documentation checkpoint theo sau, không ghi hash của chính nó.
+Checkout Frigo cũ không được sửa.
 
 **Actual changes:** WeekWorkspace dùng nhận diện UI07; board hai cột/stacked,
 thumbnail nhỏ, body 14px/nhãn chính 16px, controls 48px, một h1 và back link rõ.

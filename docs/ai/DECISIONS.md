@@ -2153,7 +2153,10 @@ negative boundaries and add four positive cases; recovery 5 files / 128 PASS.
 Wrangler passes unchanged in reproduction/recovery and the final full run.
 Final pnpm check exit0: 283 files / 6653 tests PASS, Vitest393.63s;
 type/lint/migration smoke/Vite3.12s/WorkerTS PASS. Source143 and public build assets51
-verified after full. Git-object verification follows the implementation checkpoint;
-no timeout/config was weakened. Round-10 reports retain failed runs, generic UX
+verified after full. Implementation `89bddf821ea4f74d639f0779febd78606bdf617f` verified: all 143 source hashes,
+144 evidence payloads and manifest 29760 bytes/SHA256
+`7ac94d4590e8c449ca4a1046e330871db4ce650bfda80329625595ac4d5618ab` match Git blobs/worktree.
+Protected diff empty and tree clean after implementation; documentation checkpoint
+follows. No timeout/config was weakened. Round-10 reports retain failed runs, generic UX
 FAIL151/29/968/82 and dependency41 advisories, and distinguish synthetic receipts
 from real Worker commands. UI11 navigation packet is ready; runtime not started.

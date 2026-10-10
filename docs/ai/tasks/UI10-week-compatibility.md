@@ -133,6 +133,12 @@ public assets51 verified; services/protected paths unchanged, store exact two
 authorized replacements only. Generic UX remains FAIL151/29/968/82; dependency
 audit41 advisories with unchanged lockfile. Owner/devices/hosted remain unverified.
 
-Implementation checkpoint pending Git-object verification; documentation checkpoint
-will record the verified hash. Next packet: UI11-navigation-responsive.md; UI11
-runtime has not started. Reports and two contact sheets: docs/ui-rebuild/round-10.
+Implementation checkpoint:
+`89bddf821ea4f74d639f0779febd78606bdf617f`.
+Đã đối chiếu Git objects/worktree: 143 source hashes và 144 evidence payloads
+khớp bytes/SHA256. Manifest: 29760 bytes, SHA256
+`7ac94d4590e8c449ca4a1046e330871db4ce650bfda80329625595ac4d5618ab`.
+Protected-path diff từ base đến implementation rỗng; tree sạch ngay sau commit;
+`git diff --check` PASS. Documentation checkpoint theo sau, không ghi hash của chính nó.
+Next packet: UI11-navigation-responsive.md; UI11 runtime has not started. Reports
+and two contact sheets: docs/ui-rebuild/round-10.

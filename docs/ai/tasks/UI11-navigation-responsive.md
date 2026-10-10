@@ -3,8 +3,10 @@
 Status: UI11_READY_FOR_AUDIT_AND_ADR; runtime not implemented.
 Authorization: continued Tako-san UI rebuild; canonical vn-tak/Tako-san,
 checkout /Users/tunbee27/Documents/Tako-san-ui-rebuild,
-branch codex/ui-rebuild-foundation. Start at verified UI10 implementation plus
-its documentation checkpoint. Read protocol/source first; add ADR-054 before
+branch codex/ui-rebuild-foundation. Start at verified UI10 implementation
+`89bddf821ea4f74d639f0779febd78606bdf617f` plus its documentation checkpoint.
+UI10 source143/evidence144/manifest were verified against Git objects; full gate
+283 files / 6653 tests PASS. Read protocol/source first; add ADR-054 before
 runtime. No new visual direction: retain UI07 identity.
 
 ## Verified starting evidence

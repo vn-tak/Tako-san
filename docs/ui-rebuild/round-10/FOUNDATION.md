@@ -115,3 +115,13 @@ cộng lượng lặp; inventory fallback-any-error/queued metadata receipt còn
 follow-up. Owner brand approval, thiết bị thật/Safari/native zoom/screen reader/
 usability/CWV và hosted release chưa được kiểm chứng. VERIFICATION.md giữ số liệu
 thực thi, failures/recovery, source/evidence và các checkpoint đã xác minh.
+
+## Checkpoint local đã xác minh
+
+Implementation checkpoint:
+`89bddf821ea4f74d639f0779febd78606bdf617f`.
+Đã đối chiếu Git objects/worktree: 143 source hashes và 144 evidence payloads
+khớp bytes/SHA256. Manifest: 29760 bytes, SHA256
+`7ac94d4590e8c449ca4a1046e330871db4ce650bfda80329625595ac4d5618ab`.
+Protected-path diff từ base đến implementation rỗng; tree sạch ngay sau commit;
+`git diff --check` PASS. Documentation checkpoint theo sau, không ghi hash của chính nó.

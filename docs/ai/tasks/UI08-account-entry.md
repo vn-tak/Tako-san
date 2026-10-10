@@ -6,7 +6,9 @@ Base 7f82edca63353a10b4f7b2919026c12b65d44963. ADR-051.
 Status: UI08_LOCAL_VERIFIED_REVIEW_REQUIRED.
 Full277files/6588tests PASS; focused121; recovery130; browser106checks/107PNG/
 13journeys.95frozen hashes, runtime92unchanged across recovery. Reports round-8
-FOUNDATION/VERIFICATION; implementation hash follows after Git-object verification.
+FOUNDATION/VERIFICATION. Implementation `5ad78191295fabe4a8b2accd14e134452e203788`
+verified against Git objects: 95 source hashes / 137 evidence payloads and manifest
+match worktree. This documentation checkpoint follows it.
 Owner/device/remaining screens/hosted/release remain.
 
 ## Outcome and scope

@@ -2,8 +2,9 @@
 
 Canonical `vn-tak/Tako-san`, branch `codex/ui-rebuild-foundation`, base
 `7f82edca63353a10b4f7b2919026c12b65d44963`. Packet UI08-account-entry, ADR-051.
-Status: UI08_LOCAL_VERIFIED_REVIEW_REQUIRED. Implementation checkpoint sẽ
-được đối chiếu Git objects trong documentation checkpoint.
+Status: UI08_LOCAL_VERIFIED_REVIEW_REQUIRED. Implementation checkpoint
+`5ad78191295fabe4a8b2accd14e134452e203788` đã được đối chiếu Git objects và worktree.
+Tài liệu này ghi hash implementation đã kiểm chứng, không ghi hash của chính nó.
 
 ## Kiểm thử tập trung
 
@@ -116,8 +117,13 @@ config/dependencies và authprotocol modules không đổi. App đúng hai repla
 cho completed-onboarding intent; Plus link JSX/target cùng bytes khi bỏ indentation.
 Onboarding chỉ asset/classes đổi; logic completion vẫn server-authoritative.
 Full diff gồm untracked được đọc, diff-check sạch trước full. Build trước commit
-dùng base releaseID, không phải artifactrelease. Git objects sẽ được đối chiếu sau implementation commit trong documentation
-checkpoint. Dist51publicassets/font files cùng byte với nguồn đã khóa; không
+dùng base releaseID, không phải artifactrelease. Git objects tại implementation
+`5ad78191295fabe4a8b2accd14e134452e203788` khớp 95 source hashes và 137 evidence payloads
+cả bytes/SHA256; worktree cũng khớp. Manifest 27451 bytes có SHA256
+`ed8d92de9d00fc901b76f338ab145f98365f1deed7754407344b6ad5b4b831b7`, cùng bytes trong
+Git. Protected-path diff từ base tới implementation rỗng; App đúng hai replacements,
+Plus link giữ JSX/target; staged diff-check PASS và tree sạch sau commit.
+Dist 51 public asset/font files cùng byte với nguồn đã khóa; không
 đổi export hay preload/font policy ở UI08.
 
 Brand owner/device/Safari/OS install/real Google/OTP/zoom/screenreader/usability/CWV/

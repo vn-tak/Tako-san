@@ -3,7 +3,8 @@
 Status: accepted and locally verified for UI08, 2026-10-10 JST.
 Full277files/6588tests PASS;focused121;recovery130;browser106checks/107PNG/13journeys.
 Evidence: `../ui-rebuild/round-8/VERIFICATION.md`; owner/device/remaining/hosted
-release remain. Implementation hash recorded after Git-object verification.
+release remain. Implementation `5ad78191295fabe4a8b2accd14e134452e203788` verified against
+Git objects: 95 source hashes / 137 evidence payloads and the manifest match worktree.
 Packet: `tasks/UI08-account-entry.md`; extends ADR-044 through ADR-050.
 
 Remaining account and entry screens mix the supplied kit, very small copy and

@@ -6,9 +6,12 @@ settings/inbox và entry/onboarding; toàn hệ thống/owner/device/release ch�
 
 **Repository/source:** Canonical `vn-tak/Tako-san`, ID1385308553; checkout
 `/Users/tunbee27/Documents/Tako-san-ui-rebuild`, branch `codex/ui-rebuild-foundation`,
-base `7f82edca63353a10b4f7b2919026c12b65d44963`. Implementation checkpoint pending
-Git-object verification in the subsequent documentation checkpoint. Checkout
-Frigo cũ giữ nguyên.
+base `7f82edca63353a10b4f7b2919026c12b65d44963`. Implementation checkpoint
+`5ad78191295fabe4a8b2accd14e134452e203788` verified against Git objects: 95 source hashes and
+137 evidence payloads match the committed tree and worktree. Manifest SHA256
+`ed8d92de9d00fc901b76f338ab145f98365f1deed7754407344b6ad5b4b831b7` matches too.
+This documentation checkpoint follows the implementation; it does not contain
+its own commit hash. Checkout Frigo cũ giữ nguyên.
 
 **Actual changes:** AccountPage ghép kitchen header/heading vào một cột800px.
 Hồ sơ chia bữa ăn–gia đình/ứng dụng–dữ liệu; chữ wrap, descriptions14/actions16,

@@ -6,8 +6,8 @@ Base 3c593d941fb6ffa1fefffb7c4c5050c6be4e34b7. ADR-050.
 Status: UI07_LOCAL_VERIFIED_REVIEW_REQUIRED.
 Local scope complete:274files/6551tests full PASS,82focused,41browserchecks/45PNG/
 6journeys.71frozen hashes; reports round-7 FOUNDATION/VERIFICATION. Implementation
-checkpoint recorded after Git-object verification in subsequent documentation
-checkpoint. Owner/device/remaining routes/hosted/release review remains.
+checkpoint `94b9ae3f889781e58999c3fe3a21a0f265d3a5cb` verified against Git objects
+and working tree in the subsequent documentation checkpoint. Owner/device/remaining routes/hosted/release review remains.
 
 ## Outcome and scope
 

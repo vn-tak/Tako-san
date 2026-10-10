@@ -2,7 +2,8 @@
 
 Canonical `vn-tak/Tako-san`; checkout `/Users/tunbee27/Documents/Tako-san-ui-rebuild`,
 branch `codex/ui-rebuild-foundation`, base `3c593d941fb6ffa1fefffb7c4c5050c6be4e34b7`.
-Packet `docs/ai/tasks/UI07-brand-kit.md`, ADR-050. Hướng số cần chủ dự án review;
+Packet `docs/ai/tasks/UI07-brand-kit.md`, ADR-050.
+Verified implementation `94b9ae3f889781e58999c3fe3a21a0f265d3a5cb`. Hướng số cần chủ dự án review;
 không suy ra phê duyệt thương hiệu cuối từ kiểm tra local.
 
 ## Đánh giá thẳng thắn và thay đổi

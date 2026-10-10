@@ -1,6 +1,7 @@
 # ADR-050 - Scoped digital identity from the kitchen direction (UI07)
 
 Status: accepted and locally verified for UI07, 2026-10-10 JST.
+Implementation `94b9ae3f889781e58999c3fe3a21a0f265d3a5cb` verified against Git objects.
 Full274files/6551tests PASS;focused82;browser41checks/45PNG/6journeys. Owner/device/
 remaining routes/hosted/release remain; evidence `../ui-rebuild/round-7/VERIFICATION.md`.
 Packet: `tasks/UI07-brand-kit.md`; builds on ADR-044 through ADR-049.

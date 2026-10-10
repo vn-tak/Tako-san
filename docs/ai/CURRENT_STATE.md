@@ -6,8 +6,9 @@ thành; chủ dự án review, remaining surfaces/device/hosted/release vẫn m�
 
 **Repository/source:** Canonical `vn-tak/Tako-san`, ID1385308553; checkout
 `/Users/tunbee27/Documents/Tako-san-ui-rebuild`, branch `codex/ui-rebuild-foundation`,
-base `3c593d941fb6ffa1fefffb7c4c5050c6be4e34b7`. Implementation checkpoint sẽ được
-đối chiếu và ghi trong documentation checkpoint theo sau; Frigo cũ giữ nguyên.
+base `3c593d941fb6ffa1fefffb7c4c5050c6be4e34b7`. Implementation checkpoint:
+`94b9ae3f889781e58999c3fe3a21a0f265d3a5cb`.71sourcehashes và66evidencepayloads+manifest
+đã đối chiếu Git objects và working tree; documentation checkpoint theo sau; Frigo cũ giữ nguyên.
 
 **Actual changes:** Hoàn thiện kitchen direction pine/coral/ink/canvas và Be
 Vietnam Pro: simple octopus/symbol, micro16/24, standard32+, outlined lowercase

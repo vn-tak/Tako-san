@@ -2,8 +2,9 @@
 
 Canonical `vn-tak/Tako-san`, branch `codex/ui-rebuild-foundation`, base
 `3c593d941fb6ffa1fefffb7c4c5050c6be4e34b7`. Packet UI07-brand-kit, ADR-050.
-Status `UI07_LOCAL_VERIFIED_REVIEW_REQUIRED`. Implementation checkpoint được
-ghi ở documentation checkpoint sau khi đối chiếu Git objects.
+Status `UI07_LOCAL_VERIFIED_REVIEW_REQUIRED`. Implementation checkpoint:
+`94b9ae3f889781e58999c3fe3a21a0f265d3a5cb`;71frozenhashes và66evidencepayloads+manifest
+đã đối chiếu Git objects và working tree. Documentation checkpoint theo sau.
 
 ## Focused / export / source
 
@@ -130,8 +131,9 @@ khớp source; SW build-ID token đã thay và precache mới nằm trong built 
 Read toàn source/test/script diff và new masters/preview, allowlist paths giữ
 protected paths. Source hashes/inventory và evidence manifest đối chiếu sau gate;
 Git diff-check source/docs/evidence PASS với logs normalization được ghi rõ.
-Implementation commit rồi documentation checkpoint để ghi hash đã verified;
-không amend hoặc thay source sau full PASS.
+Implementation `94b9ae3f889781e58999c3fe3a21a0f265d3a5cb` đã verified; documentation
+checkpoint chỉ đổi Markdown để ghi hash, không thay runtime/tests/evidence.
+Không amend hoặc thay source sau full PASS.
 
 Protected paths: không Worker/packages/schema/migrations/payment/auth protocol/
 production flags/dependencies/config/infra/remoteDB/R2/provider/credentials. SW

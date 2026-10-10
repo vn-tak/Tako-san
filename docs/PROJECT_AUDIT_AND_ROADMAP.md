@@ -1,3 +1,21 @@
+# UI14 frontend delivery / motion checkpoint - 2026-10-11 JST
+
+Canonical vn-tak/Tako-san; UI07identity preserved. UI14 defers optional legacy motion
+and retains static active feedback, user policy, routes/guards and public bytes.
+Entry raw463601→336308; cold transferred JS falls17.3–18.4% in three repeated local
+cold/warm pairs per route. Full288files/6742testsPASS;50settled snapshots/5journeys,
+4legacy journeys,2baseline probes and combined-short focus supplemental.
+Implementation `IMPLEMENTATION_PENDING_GIT_VERIFICATION`; Git-object receipt follows.
+
+This advances frontend delivery, not whole-rebuild/brand/production approval.
+Remaining priorities: cramped320×420textx2 reading area, transient fade contrast,
+eager offline catalog/domain imports, fonts/images/hosted caching, photo rights and
+actual device/usability checks. Next UI15-short-viewport-motion-readability packet
+READY only; no UI15 runtime. See docs/ui-rebuild/round-14/PERFORMANCE.md.
+No protected/public/domain/remote operation, no push/PR/merge/deploy.
+
+---
+
 # Frigo - Audit hien trang va roadmap hoan thien
 
 > Ngay audit: 2026-09-05  

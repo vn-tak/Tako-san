@@ -1,0 +1,20 @@
+{
+  "records": [
+    {
+      "rawPath": ".artifacts/ui14/after-build/client/assets/index-3tMGmj4W.js",
+      "archivePath": "docs/ui-rebuild/round-14/evidence/after-build/index-3tMGmj4W.js.gz",
+      "rawBytes": 336308,
+      "rawSha256": "37389953eac1038c3cb61c6a729011fa6cb61ceecef37dd8b8ee83fc614467f0",
+      "archiveBytes": 87344,
+      "archiveSha256": "a824f4978eab0de05a23e987e679e81134076102573e1ace0517b8fc4bf793c8"
+    },
+    {
+      "rawPath": ".artifacts/ui14/after-build/client/assets/index-3tMGmj4W.js.map",
+      "archivePath": "docs/ui-rebuild/round-14/evidence/after-build/index-3tMGmj4W.js.map.gz",
+      "rawBytes": 1039657,
+      "rawSha256": "0744fd5b1a80b17c49788787e4b842e3bab88f27096275a746e5298c037063a1",
+      "archiveBytes": 230608,
+      "archiveSha256": "df4a8503432572045e9cadb48d5e920f1ab481d85d035580010f55a66c5cf384"
+    }
+  ]
+}

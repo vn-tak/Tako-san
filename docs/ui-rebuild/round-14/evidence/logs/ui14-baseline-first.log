@@ -1,0 +1,19 @@
+node:internal/modules/run_main:107
+    triggerUncaughtException(
+    ^
+
+AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
+
+401 !== 200
+
+    at prepare (file:///Users/tunbee27/Documents/Tako-san-ui-rebuild/scripts/ui14-performance-check.mjs:45:10)
+    at async file:///Users/tunbee27/Documents/Tako-san-ui-rebuild/scripts/ui14-performance-check.mjs:221:22 {
+  generatedMessage: true,
+  code: 'ERR_ASSERTION',
+  actual: 401,
+  expected: 200,
+  operator: 'strictEqual',
+  diff: 'simple'
+}
+
+Node.js v24.16.0

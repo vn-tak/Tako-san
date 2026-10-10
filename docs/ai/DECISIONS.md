@@ -2353,3 +2353,53 @@ FAIL31 issues/1,006 warnings and 41 dependency advisories retained. Entire src/
 protected/public source unchanged; no remote operation. Implementation:
 `021220bbcb883360ba79b8101ff9586a67ebc4ae`. Git-object receipt follows; docs
 checkpoint names verified implementation, not itself. UI14 ready only.
+
+## ADR-057 - Defer the optional navigation motion engine (UI14)
+
+**Status:** Accepted before runtime change, 2026-10-11 JST.
+Base `f3a09f2a7beb548fbd4bc9ef8ae932a092dd3827`, canonical vn-tak/Tako-san.
+
+**Evidence:** Fixed-timestamp production build entry is 463,601 raw / 128,900 gzip
+bytes. Source map places full motion projection/drag features in the entry through
+MotionProvider/helpers sharing one module and eager legacy navigation motion.span.
+The kitchen shell has static indicators and does not use this engine. First local
+Chromium/CDP smoke, CPU4/60ms/200KBps: 226,429–240,255 JS transfer bytes on these
+three routes; no domain writes and inventory unchanged. Cold/warm repeated
+baseline is now running; no field CWV claim. Offline catalog/domain modules and
+public font cache policy are also observed, but protected in this packet.
+
+**Decision:** One bounded delivery optimization: separate the lightweight
+MotionConfig provider from motion helper/engine modules, and defer the optional
+legacy navigation indicator until that branch is actually mounted. Preserve the
+existing shared layoutId, classes and transition in the loaded indicator. While
+loading or if importing fails, keep the same static active highlight; navigation
+links/content remain immediate and never depend on animation success. Fence late
+module receipts on unmount; share the import promise across active indicators.
+
+App.tsx changes only the provider import source; name, ancestry, routes, guards,
+callbacks and flag behavior must otherwise be byte-equivalent. Existing motion
+module continues re-exporting MotionProvider for caller compatibility. Kitchen
+navigation markup/selection authority is unchanged. No global CSS motion redesign,
+new library/asset/font, public/cache/production config or services/stores change.
+
+**Acceptance:** Same fixed build flags/timestamp, fixture and CDP conditions before
+and after; repeated local measurements demonstrate initial JS transfer reduction.
+Verify engine not requested on kitchen Home/discovery/detail, loads on actual
+legacy indicator use, and static fallback survives import error/abandoned mount.
+Normal/reduced motion and navigation/focus/recipe tabs/back/media/read-only flows
+work; responsive/short/text x2/axe checks and configured gates. Source/build/map
+receipts and protected proof, logged failures, local implementation commit,
+sequential Git verification and documentation checkpoint. No hosted/device/photo
+approval or production deployment follows from this local optimization.
+
+**UI14 local result:** Exact production entry463601→336308raw; gzip6
+129276→87619. Repeated cold route JS saves41650/41650/41652bytes (17.3–18.4%);
+warm JS0, timings bounded lab only. No optional engine requested by kitchen routes.
+PASS288files/6742tests/370.67s,type/lint/migrations/build;50settled snapshots/5journeys,
+4actual legacy journeys,2baseline probes,short focus supplemental. Static links
+survive delayed/rejected chunks. Reduced first-frame projection equals baseline;
+no claim of zero spatial frames. Axe mid-fadecontrast remains a measured residual,
+final stable snapshots clean. UI15 short-screen/readability next, not started.
+396source frozen,protected/App/helpers/public proofPASS;four previewports closed.
+Failures/helperUXFAIL/41dependency advisories archived. Implementation
+`IMPLEMENTATION_PENDING_GIT_VERIFICATION`; Git-object receipt follows.

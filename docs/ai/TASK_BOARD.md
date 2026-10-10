@@ -1,3 +1,29 @@
+# UI14 - Frontend delivery and motion local checkpoint - 2026-10-11 JST
+
+Status: `UI14_LOCAL_VERIFIED_REVIEW_REQUIRED`. ADR-057; base
+`f3a09f2a7beb548fbd4bc9ef8ae932a092dd3827`.
+Implementation: `IMPLEMENTATION_PENDING_GIT_VERIFICATION`.
+
+| Work item | Outcome / evidence |
+| --- | --- |
+| Actual production build graph / map | DONE; full engine moved out of kitchen entry |
+| Cold/warm resource measurements | DONE; 18 samples per stage + 2 exploratory SPA transitions |
+| One bounded delivery optimization | DONE; entry raw -27.5%, route transferred JS -17.3–18.4% |
+| Navigation/provider/failure behavior | PASS 5 new unit cases, 4 actual legacy journeys, 2 baseline frame probes |
+| Responsive / normal/reduced / keyboard | PASS 50 settled snapshots / 5 journeys + short-focus supplemental |
+| Focused / required full gates | PASS 3 files / 56 tests; full 288 files / 6,742 tests, 370.67s; type/lint/migrations/build PASS |
+| Source / public / protected | 396 frozen; only App provider import; 257 public, 256 exact build + 1 SW transform |
+| Failures / guidelines / audits | Retained; generic UX FAIL, 41 dependency advisories, Lighthouse unavailable |
+| Implementation Git checkpoint | Pending sequential blob verification after local implementation commit |
+| UI15 short-screen / readability | READY_FOR_LOCAL_AUDIT; no UI15 runtime |
+| Owner / rights / devices / hosted | OPEN; no media promotion or production certification |
+
+Four owned preview ports5216..5219 closed. No protected/public/domain/remote change.
+Measurements use local isolated gzip/cache/fixtures; not field CWV/INP. Detailed
+method, raw evidence, residuals and failure recovery in round-14.
+
+---
+
 # UI13 - Media review local checkpoint - 2026-10-11 JST
 
 Status: `UI13_LOCAL_VERIFIED_REVIEW_REQUIRED`. ADR-056; base `5da802735c318c56505bed85a133b049728afb39`.

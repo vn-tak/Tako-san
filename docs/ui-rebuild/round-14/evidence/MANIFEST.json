@@ -1,0 +1,2673 @@
+{
+  "base": "f3a09f2a7beb548fbd4bc9ef8ae932a092dd3827",
+  "source": [
+    {
+      "path": "docs/ui-rebuild/round-13/media-review.html",
+      "bytes": 81877,
+      "sha256": "64d633955741a09011182bd5f440a8cb72f1429a1ab696494560e5b37bc01cc0"
+    },
+    {
+      "path": "docs/ui-rebuild/round-13/review-data.json",
+      "bytes": 34852,
+      "sha256": "316c3e1f086eb565cba8ae9c3bf043bf2ddc42453a85d27ed718066a183b3e52"
+    },
+    {
+      "path": "docs/ui-rebuild/round-13/review-draft.json",
+      "bytes": 6875,
+      "sha256": "f5d51118867c515596f210395e8b0d96c1224e331c410ac7fb22cd8e995c8a35"
+    },
+    {
+      "path": "docs/ui-rebuild/round-14/evidence/analyze-performance.mjs",
+      "bytes": 4827,
+      "sha256": "ce0144b4cc9658be0b904ae55acd542c54c010cbf4a52cc94d25417a886d32f3"
+    },
+    {
+      "path": "package.json",
+      "bytes": 3023,
+      "sha256": "8255751d5a8f61bdc218b21e7822073afcaa509f62a097a97858ff8896da610b"
+    },
+    {
+      "path": "packages/db/src/inventory-read-authority.ts",
+      "bytes": 12504,
+      "sha256": "11f33a8d59be66e0d85efa30e605b985a1e734865d42b4c449241c0bb2706df4"
+    },
+    {
+      "path": "packages/domain/src/week/types.ts",
+      "bytes": 6145,
+      "sha256": "57bd4e736f85d9cf69746a8c81edc3f2c5b0810f5d7ed3fb988c2b2085629deb"
+    },
+    {
+      "path": "playwright.t17.config.ts",
+      "bytes": 2288,
+      "sha256": "6a108e172e79a3a47921cf51ef6c31242678848e3ab12d81c6013254463ca98b"
+    },
+    {
+      "path": "playwright.t18c.config.ts",
+      "bytes": 851,
+      "sha256": "9c8c0c307b34f2334f2062a2d1aefdefedf015086eaa95247d6a2029d151c785"
+    },
+    {
+      "path": "pnpm-lock.yaml",
+      "bytes": 236266,
+      "sha256": "b9f5c384b33f25a1ccfb05bb10258ea95182a32434678d5087b2f62be8d26867"
+    },
+    {
+      "path": "public/_headers",
+      "bytes": 1343,
+      "sha256": "be8fb26bff871f30e29b8d6aa9fe2551c6d322d7140afd3e1fd202322ac6a880"
+    },
+    {
+      "path": "public/assets/frigo-app-icon.jpg",
+      "bytes": 315121,
+      "sha256": "ee5aa8deb52480766d37e8914271e27583e775b6c331cf4872e413983bf49d0e"
+    },
+    {
+      "path": "public/assets/frigo-logo.svg",
+      "bytes": 1239,
+      "sha256": "4f4679d46b2d9c0780b5a896e85898dbaccde833aedf80fe06ef0bf0cecf5b74"
+    },
+    {
+      "path": "public/assets/hero-banner.jpg",
+      "bytes": 765259,
+      "sha256": "de27b2335f085c644a8b327c6cd295a65188a85b448d4bd817f29f7e0f505f55"
+    },
+    {
+      "path": "public/assets/scan-mockup.jpg",
+      "bytes": 688347,
+      "sha256": "ab41fc18f69dc7421fd2eb00c477f6d700c4a648cebf16767df7d362be9419b6"
+    },
+    {
+      "path": "public/frigo/app-icons/icon-128.png",
+      "bytes": 12596,
+      "sha256": "66363a9e18d660f42059b5582058abdf23917a9ddf20db675d199ae02a6c1343"
+    },
+    {
+      "path": "public/frigo/app-icons/icon-16.png",
+      "bytes": 717,
+      "sha256": "539f58c744476c26a6bf27436d74c74e9303a99a6ff0c101d216560203135e26"
+    },
+    {
+      "path": "public/frigo/app-icons/icon-180.png",
+      "bytes": 21615,
+      "sha256": "90f692efd32e6137d8b1abd98b2025501b940f111d84185dac2824b9a6111363"
+    },
+    {
+      "path": "public/frigo/app-icons/icon-192.png",
+      "bytes": 24003,
+      "sha256": "2bb20af08591d9d55c6e4b0e03786b0a502eb548bb81c38c89d68a18c147b724"
+    },
+    {
+      "path": "public/frigo/app-icons/icon-256.png",
+      "bytes": 38551,
+      "sha256": "84fa4be4f1e575865d023e9b09067b98fff4b8a4e1d90c04f6cd1f57dc32aea3"
+    },
+    {
+      "path": "public/frigo/app-icons/icon-32.png",
+      "bytes": 1794,
+      "sha256": "a06703f3daa007d67419f5b58256e26314944052e35a7a926b0efda3a524aa83"
+    },
+    {
+      "path": "public/frigo/app-icons/icon-48.png",
+      "bytes": 3020,
+      "sha256": "a11d3024299a321758603d09aecbe50b6f068d4004740c172fda549c544b04bd"
+    },
+    {
+      "path": "public/frigo/app-icons/icon-512.png",
+      "bytes": 112671,
+      "sha256": "449182ba3b28406f7dcc60194bf334f437a6829eac913e8fda376ba3f71e53c1"
+    },
+    {
+      "path": "public/frigo/app-icons/icon-64.png",
+      "bytes": 4520,
+      "sha256": "e8bc8307629ea5b1098cd90fe0854cbe79377921e5d68614ecfb29e8aa9257e6"
+    },
+    {
+      "path": "public/frigo/app-icons/icon-maskable-512.png",
+      "bytes": 75324,
+      "sha256": "dc1f97d10742888810ab33da999b1bd335776f7b53614f45591df8b235070ac8"
+    },
+    {
+      "path": "public/frigo/brand/logo-compact.png",
+      "bytes": 108175,
+      "sha256": "b82c0b0d017f6b9de86192702d8b536182ac11fe7937a49f03b43e03305ef4cc"
+    },
+    {
+      "path": "public/frigo/brand/logo-primary.png",
+      "bytes": 169046,
+      "sha256": "15ae681604ac1593885077946b3f6cdc006dcaae0f2faa7ea7d73b72b0e83eb3"
+    },
+    {
+      "path": "public/frigo/brand/mark.png",
+      "bytes": 65262,
+      "sha256": "dac102217412baed55d88d0a1c2539c5d25be1fb1fe4061c7d4b2de789546cad"
+    },
+    {
+      "path": "public/frigo/brand/wordmark.png",
+      "bytes": 101566,
+      "sha256": "b20fd6254cf3332997901674bde7c449ceb06681caad49fd5f4a4042e15c8115"
+    },
+    {
+      "path": "public/frigo/illustrations/delicious-meal.png",
+      "bytes": 216750,
+      "sha256": "fc8cd3b94aa6d192f36dd735e13228c9e1ca1ceafdc36ada72caf5580a3c04b4"
+    },
+    {
+      "path": "public/frigo/illustrations/empty-fridge.png",
+      "bytes": 156537,
+      "sha256": "0e6bec2dd3e79648b16b8d7b8aa1b3abf970d67bce3a181281256bfe507b260d"
+    },
+    {
+      "path": "public/frigo/illustrations/frigo-plus.png",
+      "bytes": 191307,
+      "sha256": "26ad044323808275220921c06efe4a3a80e02609071f40411f7b5c678c3c11ff"
+    },
+    {
+      "path": "public/frigo/illustrations/no-recipes.png",
+      "bytes": 185524,
+      "sha256": "cd378b36df3a72513f3dea756c89b6c4d6aa9756faa2ca028f0c9e1405151d5f"
+    },
+    {
+      "path": "public/frigo/illustrations/scan-fridge.png",
+      "bytes": 214297,
+      "sha256": "436ecb188c081f40f3643b32bee90439fc606b73781ae0c7665fc6ca0361f0fd"
+    },
+    {
+      "path": "public/frigo/illustrations/shopping-ready.png",
+      "bytes": 204435,
+      "sha256": "a295fcf29a254f563b6269c8e3cd8b056e26350b85976d27b940977c3aced8dd"
+    },
+    {
+      "path": "public/frigo/illustrations/use-soon.png",
+      "bytes": 188030,
+      "sha256": "77567c646ecc0c450490c95d9a7f3b02beb972f7629c64e2a4867652435a25e6"
+    },
+    {
+      "path": "public/frigo/illustrations/world-cuisines.png",
+      "bytes": 256733,
+      "sha256": "a438f177f403b9404e71dae7898032b4ace6e0a65846fe696369926a47f3ea0d"
+    },
+    {
+      "path": "public/frigo/ingredients/generic/category-dairy.png",
+      "bytes": 130577,
+      "sha256": "e43205db6490ff053fe28bf39eabcbfbf81aab128f6d496e3d2e58a66a09dba7"
+    },
+    {
+      "path": "public/frigo/ingredients/generic/category-fruit.png",
+      "bytes": 313358,
+      "sha256": "d04a83b669b18895cec59aeb973b08c1622daa7860c79c84ac9866bf4744a5ad"
+    },
+    {
+      "path": "public/frigo/ingredients/generic/category-grain.png",
+      "bytes": 284781,
+      "sha256": "0b2fdb86dc9ef193abd96eef2171624061170ca2e8d04532f8f35de0b78f2e2b"
+    },
+    {
+      "path": "public/frigo/ingredients/generic/category-meat.png",
+      "bytes": 409568,
+      "sha256": "a1e780b315ef147e7025e8780f5b391462efef603c8ddd56dfeefe14ff7c2e5d"
+    },
+    {
+      "path": "public/frigo/ingredients/generic/category-other.png",
+      "bytes": 259503,
+      "sha256": "01d369251e0796971011192b21c017ff8ec28910f8c0c75265810463acaec403"
+    },
+    {
+      "path": "public/frigo/ingredients/generic/category-seafood.png",
+      "bytes": 124000,
+      "sha256": "7ccde04bf84660c6d102d284b4f9d2de69b9cdfb7b3de9665d913e2c653f13dc"
+    },
+    {
+      "path": "public/frigo/ingredients/generic/category-spice.png",
+      "bytes": 401217,
+      "sha256": "2d1f3b21ef22dcd7c83a405fc6256aa9188958a1f252db4d2beecc57fbde00ef"
+    },
+    {
+      "path": "public/frigo/ingredients/generic/category-vegetable.png",
+      "bytes": 402549,
+      "sha256": "1b1ab145ada06c447e460bbaca55b1f8a3e5c09a47ad853030d120fbe16faf61"
+    },
+    {
+      "path": "public/frigo/ingredients/pantry/beans.png",
+      "bytes": 76490,
+      "sha256": "5b4b570245a3e17d16f147a7d4b003591d6f6afcea8d3639f0d3a0b5acfc5f26"
+    },
+    {
+      "path": "public/frigo/ingredients/pantry/beef.png",
+      "bytes": 90794,
+      "sha256": "f5173cf6518180e94c327adda827dcc80a93b6ee41d71e9c0dad81cd425fda08"
+    },
+    {
+      "path": "public/frigo/ingredients/pantry/bread.png",
+      "bytes": 74800,
+      "sha256": "ec4ab05160fa73ef8262a69efbf28a82a382435d7e9976471c6a436e5e4bb14f"
+    },
+    {
+      "path": "public/frigo/ingredients/pantry/butter.png",
+      "bytes": 52514,
+      "sha256": "fd6c40c421a022191de29a22a8a5d00deaa6dbfe741edabd11832e7ee3e91136"
+    },
+    {
+      "path": "public/frigo/ingredients/pantry/cheese.png",
+      "bytes": 45103,
+      "sha256": "cfd463e4a368d7b531dfe277d05884cca1755441707932165240c0d0a5187a85"
+    },
+    {
+      "path": "public/frigo/ingredients/pantry/chicken-breast.png",
+      "bytes": 63814,
+      "sha256": "50ca7a72fdf223eadadd65060a6dcfe6e9977accc4b6ec66b531be6d67ea5c44"
+    },
+    {
+      "path": "public/frigo/ingredients/pantry/cooked-rice.png",
+      "bytes": 60535,
+      "sha256": "6e6da51c420a3db283ab4e81684e2aac0b16a67c5897fb795f5d8b404d204e68"
+    },
+    {
+      "path": "public/frigo/ingredients/pantry/cooking-oil.png",
+      "bytes": 63565,
+      "sha256": "11de55598ba1f1d2489ed5c69ee8c3dd4133a415bb639ae448a8927661be20ba"
+    },
+    {
+      "path": "public/frigo/ingredients/pantry/cooking-wine.png",
+      "bytes": 81405,
+      "sha256": "74ea2722fef845843cec2a74695fa1534291130ff412b8a449fee9b9404073ee"
+    },
+    {
+      "path": "public/frigo/ingredients/pantry/crab.png",
+      "bytes": 267954,
+      "sha256": "d88fa31f43eb56f65aa6e24b1d438da1438b0b066d96db1bfb82a832d746d1f0"
+    },
+    {
+      "path": "public/frigo/ingredients/pantry/egg.png",
+      "bytes": 48121,
+      "sha256": "6b4ad3fc2ac1b71e933674dffa532a8a52c0dd4b8f74773b08c147a490e2e9ff"
+    },
+    {
+      "path": "public/frigo/ingredients/pantry/fish-sauce.png",
+      "bytes": 48170,
+      "sha256": "3d3a4d59573efb2909cb12009c7d7fada994edd61f14b90c7021eb00773b3081"
+    },
+    {
+      "path": "public/frigo/ingredients/pantry/flour.png",
+      "bytes": 405315,
+      "sha256": "69f49a756296976d2d91e095aa621a16e1554504e8dfd2aff0c2ebd56c63ced4"
+    },
+    {
+      "path": "public/frigo/ingredients/pantry/honey.png",
+      "bytes": 256851,
+      "sha256": "6b9e12734fd8c5df0380620a17fc36c52fd5a721cb6abed8654c771d25e4996a"
+    },
+    {
+      "path": "public/frigo/ingredients/pantry/kimchi.png",
+      "bytes": 93306,
+      "sha256": "d16805ef90e60d2804e9d43451b32394885f14bd305204dac36a3133728d8d33"
+    },
+    {
+      "path": "public/frigo/ingredients/pantry/milk.png",
+      "bytes": 38593,
+      "sha256": "21e929e10ddce8e551cda6aa65c3593897dcdc328e07e74940d0837dea0fd416"
+    },
+    {
+      "path": "public/frigo/ingredients/pantry/noodles.png",
+      "bytes": 76898,
+      "sha256": "4446ef3bd477a4fdc94864bff19f8df1cb75fac27cb75c09bbe19c520b58f3ed"
+    },
+    {
+      "path": "public/frigo/ingredients/pantry/oyster-sauce.png",
+      "bytes": 300690,
+      "sha256": "382778679d4b684eaf4c32f7e0dd4ef89be96f20726fa67d868108c2b01ddace"
+    },
+    {
+      "path": "public/frigo/ingredients/pantry/pasta.png",
+      "bytes": 70295,
+      "sha256": "eded980a59e75cb6fe992ab76c5eb9ffa301e7808c7e0f558473bb322f51a05e"
+    },
+    {
+      "path": "public/frigo/ingredients/pantry/peanut.png",
+      "bytes": 242020,
+      "sha256": "2dcb36d6b1483727ada0e5e0f56811d953d914017ba67ae107072705efac9578"
+    },
+    {
+      "path": "public/frigo/ingredients/pantry/pepper.png",
+      "bytes": 275362,
+      "sha256": "263b5435ceb65fdb0f0e927875e51c482fa3833b76fdd0995e6e73730e85cff6"
+    },
+    {
+      "path": "public/frigo/ingredients/pantry/pork-belly.png",
+      "bytes": 64777,
+      "sha256": "bf18441aa6e85736c1f63805864bda061f4316e1aacdb6969df8b8e02f888340"
+    },
+    {
+      "path": "public/frigo/ingredients/pantry/rice-paper.png",
+      "bytes": 276020,
+      "sha256": "f4f20f2a7f93eccd5f6941b5a4391fa451e03b220d6741ce12a1b0762ae7b844"
+    },
+    {
+      "path": "public/frigo/ingredients/pantry/rice.png",
+      "bytes": 76998,
+      "sha256": "7bb53b24c1c65321b76c1d399dbfdc3ff461cd1c30bb19df18acab168be71448"
+    },
+    {
+      "path": "public/frigo/ingredients/pantry/salmon.png",
+      "bytes": 79383,
+      "sha256": "4c79f3f0f8689ac830a177817ba558f64fb0cde8e0508f4ba3c9f292fd27ec2c"
+    },
+    {
+      "path": "public/frigo/ingredients/pantry/salt.png",
+      "bytes": 384760,
+      "sha256": "e5167a142ac68becb8640ac90832a2232e79082946ca02fd7dae499342ce24a3"
+    },
+    {
+      "path": "public/frigo/ingredients/pantry/sausage.png",
+      "bytes": 61595,
+      "sha256": "2be93a7847595cb75031356eb52484d6c7a0d044a529bd9dbd9307e3ad17222f"
+    },
+    {
+      "path": "public/frigo/ingredients/pantry/seasoning-powder.png",
+      "bytes": 327770,
+      "sha256": "e47306b0be0c80bf3f8989d9d7e4a4721ed1c99ac13c3d5ca01dc74d9d261932"
+    },
+    {
+      "path": "public/frigo/ingredients/pantry/sesame-oil.png",
+      "bytes": 224505,
+      "sha256": "d40232d4d0a1cebd368841b4ec3c91714c5bd8263667efd667bcb96e7671c84e"
+    },
+    {
+      "path": "public/frigo/ingredients/pantry/sesame.png",
+      "bytes": 482424,
+      "sha256": "2c0a7230137483872ab18caa3d4d63ae9ad3ca0621327e43f2c772549ba66db1"
+    },
+    {
+      "path": "public/frigo/ingredients/pantry/shrimp.png",
+      "bytes": 76369,
+      "sha256": "651d6fe2403c5cb2e0c87b84d29dbafd051767d4834c8f47f9474263b99f2b29"
+    },
+    {
+      "path": "public/frigo/ingredients/pantry/soy-sauce.png",
+      "bytes": 52927,
+      "sha256": "5e5e4c32aded610aaa4d84b59cfef1ca951c038a023f947811d960178a576fa3"
+    },
+    {
+      "path": "public/frigo/ingredients/pantry/spare-ribs.png",
+      "bytes": 347408,
+      "sha256": "fc619ac6b41ced42ad801d8486023d239e13cff6bb9717fd2575344c224dc992"
+    },
+    {
+      "path": "public/frigo/ingredients/pantry/squid.png",
+      "bytes": 218942,
+      "sha256": "0eff4b5ec2f7bd97485bf2fc39f3d160fcc68d996993c1a7ba22b9251a4398da"
+    },
+    {
+      "path": "public/frigo/ingredients/pantry/sugar.png",
+      "bytes": 76341,
+      "sha256": "c2b50df02f0635948c1eb2751fb642a3d2a560272aaf546e136a5bdbc65743d5"
+    },
+    {
+      "path": "public/frigo/ingredients/pantry/tofu.png",
+      "bytes": 52576,
+      "sha256": "046c55a00f2a37d8c239dbb3d7cc8a7d1c63cf4bd4bf811a3964af332e4ecee3"
+    },
+    {
+      "path": "public/frigo/ingredients/pantry/vinegar.png",
+      "bytes": 162033,
+      "sha256": "610060f5c098a5ae4c7dfa8023384780821c8bdcfcec01aa59283ecfea746fa4"
+    },
+    {
+      "path": "public/frigo/ingredients/pantry/water.png",
+      "bytes": 259780,
+      "sha256": "8ff3eef54625b8f77f3e765ecb70782abdb014b5860db48f1a96dca5843dc6ad"
+    },
+    {
+      "path": "public/frigo/ingredients/pantry/white-fish.png",
+      "bytes": 68815,
+      "sha256": "5bda454d8bf02deab27e5580d29f454b316efea4dfa4a269dc216f95f08d2ae3"
+    },
+    {
+      "path": "public/frigo/ingredients/pantry/yogurt.png",
+      "bytes": 55181,
+      "sha256": "89b90976be4b4af1fc92ea51cdae365d4d2816965c1b04db4b2859387260b76d"
+    },
+    {
+      "path": "public/frigo/ingredients/vegetables/avocado.png",
+      "bytes": 83656,
+      "sha256": "698913f861b5b4a8790fa74ad9ebe72096c2215d11fcadf2c2eb6733201e5390"
+    },
+    {
+      "path": "public/frigo/ingredients/vegetables/basil.png",
+      "bytes": 72498,
+      "sha256": "767edc4105de2caa3fd7ae33d1b917bd596f334a047760b5bf8cb4b2cfd8a248"
+    },
+    {
+      "path": "public/frigo/ingredients/vegetables/bean-sprouts.png",
+      "bytes": 242668,
+      "sha256": "6754b75adb20ae5013bb3271b3f326cc6595e24a492c9acc9d74eb146ae17042"
+    },
+    {
+      "path": "public/frigo/ingredients/vegetables/bitter-melon.png",
+      "bytes": 168607,
+      "sha256": "34a3cd4d468887d4b8d956cc1c4aea446b6b667e0a1c6a6a20a7e9759f4240c5"
+    },
+    {
+      "path": "public/frigo/ingredients/vegetables/bok-choy.png",
+      "bytes": 78398,
+      "sha256": "42e7c10f5b92a79c690ca424853c67d06804b1c9d19ae602033ac2b13885bb4d"
+    },
+    {
+      "path": "public/frigo/ingredients/vegetables/broccoli.png",
+      "bytes": 97911,
+      "sha256": "154376c68b241895eb5f04e921efe2e6a6458fc4272c8719f89a63d899ee37f8"
+    },
+    {
+      "path": "public/frigo/ingredients/vegetables/cabbage.png",
+      "bytes": 82223,
+      "sha256": "5cf1a4858fd6e07066b6f97eb4d41d6795fc91966cb0ca45e2bad82beda9172f"
+    },
+    {
+      "path": "public/frigo/ingredients/vegetables/carrot.png",
+      "bytes": 83810,
+      "sha256": "93c493f1a192eeb255696fe60ab80319b3b34ea80051979d8dc3927e45707845"
+    },
+    {
+      "path": "public/frigo/ingredients/vegetables/chili.png",
+      "bytes": 66939,
+      "sha256": "acea092e9807ac981af752a66a9fdf5cfab155393b9f7268797fd83bf3972aa6"
+    },
+    {
+      "path": "public/frigo/ingredients/vegetables/cilantro.png",
+      "bytes": 332556,
+      "sha256": "139f18693d286be18c5f2a1c790f53b9395a7184421981a7e83e06af7535918e"
+    },
+    {
+      "path": "public/frigo/ingredients/vegetables/corn.png",
+      "bytes": 96308,
+      "sha256": "fe3640eb4fcb8cb8db09d6078d1573282bfd0705e0a43ebabb078703c475858b"
+    },
+    {
+      "path": "public/frigo/ingredients/vegetables/cucumber.png",
+      "bytes": 91910,
+      "sha256": "574b54336980c59a4bf37fd07cd2fb807b1a1072d1f0d2045bdd571b1fd7eace"
+    },
+    {
+      "path": "public/frigo/ingredients/vegetables/eggplant.png",
+      "bytes": 67784,
+      "sha256": "3895b87ba4715dbb269f31a6a1d4322d4291a7049de67d4717390b819a9aa40e"
+    },
+    {
+      "path": "public/frigo/ingredients/vegetables/galangal.png",
+      "bytes": 208133,
+      "sha256": "aeb9a9f42cd4fea48e5ff6417432b1d3147c0ca9304727ef5a906dd52e91f2ba"
+    },
+    {
+      "path": "public/frigo/ingredients/vegetables/garlic.png",
+      "bytes": 51465,
+      "sha256": "7cbb78428d65d37a0ede71b4c852c4330beaa8ba64ea19d76f8dd4fc313a31ec"
+    },
+    {
+      "path": "public/frigo/ingredients/vegetables/ginger.png",
+      "bytes": 95014,
+      "sha256": "7908231b3779de7be40624be48a1f6157899962396d5203c1625e6a898ebace5"
+    },
+    {
+      "path": "public/frigo/ingredients/vegetables/leek.png",
+      "bytes": 202325,
+      "sha256": "2a567a87fefb03fe10b3eed9b1cae73cd3f44f3c990babc97809c0cdb27b1f62"
+    },
+    {
+      "path": "public/frigo/ingredients/vegetables/lemon.png",
+      "bytes": 75168,
+      "sha256": "2b8f7fb168b7bcb73056e97e640c6bbe9a568cb67a7681e466e39a8765da2966"
+    },
+    {
+      "path": "public/frigo/ingredients/vegetables/lemongrass.png",
+      "bytes": 170305,
+      "sha256": "8c2f6ae00bc022d8968710c66ae14358e2a9d8f6a5a973f3830e4d21037d184b"
+    },
+    {
+      "path": "public/frigo/ingredients/vegetables/lettuce.png",
+      "bytes": 107518,
+      "sha256": "3209cc0a9ecacd40d003169a807a432aa0f29c386c4d0e67be6a4a85f392a04b"
+    },
+    {
+      "path": "public/frigo/ingredients/vegetables/lime.png",
+      "bytes": 84322,
+      "sha256": "a5552f6822a4007e169239515df77589af04071226a5b87df0123067b983c873"
+    },
+    {
+      "path": "public/frigo/ingredients/vegetables/luffa.png",
+      "bytes": 224651,
+      "sha256": "5f9918776e247fdbcbd6704590cae15a6fc0e73c2d9822ceeab026c996d9fa51"
+    },
+    {
+      "path": "public/frigo/ingredients/vegetables/mint.png",
+      "bytes": 322159,
+      "sha256": "aba90e1e2e2ad2aba9e9ac85019d7663b6fab53a4b1d221bf77456705c25ddd1"
+    },
+    {
+      "path": "public/frigo/ingredients/vegetables/mushroom.png",
+      "bytes": 84127,
+      "sha256": "e4d7b2ea3449dada2a378648f1592f0e2f9f38c0990fe76e57201f58eb56a477"
+    },
+    {
+      "path": "public/frigo/ingredients/vegetables/onion.png",
+      "bytes": 55640,
+      "sha256": "42cfa6f193b4e4424fa744d63145e1bb4e6a167042adf173100ac34c67794f03"
+    },
+    {
+      "path": "public/frigo/ingredients/vegetables/pineapple.png",
+      "bytes": 248364,
+      "sha256": "478eba7be4fea35e1b6bccfedf7a3df8237b739cab76fcdf8f369f1180c24d3b"
+    },
+    {
+      "path": "public/frigo/ingredients/vegetables/potato.png",
+      "bytes": 74084,
+      "sha256": "d4270aa6334a15b577673ef1fa0af2862212bb90a2e3198d51dac42757556da5"
+    },
+    {
+      "path": "public/frigo/ingredients/vegetables/pumpkin.png",
+      "bytes": 101797,
+      "sha256": "16a519996ddddde8002cf3fbb170eb0e20d417fd7519e0fc541a4d50e29ed0e1"
+    },
+    {
+      "path": "public/frigo/ingredients/vegetables/red-bell-pepper.png",
+      "bytes": 77603,
+      "sha256": "3aeecade8d8cfe0db2fad0b76679c03797bc51243cc97ff7b983ee35810de1b4"
+    },
+    {
+      "path": "public/frigo/ingredients/vegetables/scallion.png",
+      "bytes": 56524,
+      "sha256": "7338fd177e2f1cd2876ee32a7b56663d969697d0d5864843b28e9619139b52b0"
+    },
+    {
+      "path": "public/frigo/ingredients/vegetables/shallot.png",
+      "bytes": 349980,
+      "sha256": "34106317f94bcd56e296dd0f8d113902493717606861fdf68c90bcc83d77d1de"
+    },
+    {
+      "path": "public/frigo/ingredients/vegetables/spinach.png",
+      "bytes": 79957,
+      "sha256": "56036c1a1b191ac63fe780d005e53765634a1eb51556ca8c6a4f754a17a9df65"
+    },
+    {
+      "path": "public/frigo/ingredients/vegetables/tomato.png",
+      "bytes": 58890,
+      "sha256": "95878907ce88f26315fb5153d97732dd1e5e7feec1a9adeda17953c97c9154c0"
+    },
+    {
+      "path": "public/frigo/ingredients/vegetables/turmeric.png",
+      "bytes": 338638,
+      "sha256": "a19acf518b649b2d8baed41f47e318ae2cccb9bfbe2318f79a3b1d8308da41b5"
+    },
+    {
+      "path": "public/frigo/ingredients/vegetables/vietnamese-coriander.png",
+      "bytes": 244274,
+      "sha256": "c82f1a65ba3e83ed3937ac58b139706469dc2b856e71e741001dfe3af2c3ef62"
+    },
+    {
+      "path": "public/frigo/ingredients/vegetables/water-spinach.png",
+      "bytes": 105008,
+      "sha256": "ef51912cb7d205fd7598209e6d77ccc10e24b3d89b16a3a239caa70e23f89cbe"
+    },
+    {
+      "path": "public/frigo/ingredients/vegetables/white-radish.png",
+      "bytes": 82806,
+      "sha256": "76b5bf082b59ae21fc19f1255cec749057ec6249979872b704f2ec4cc64b89d5"
+    },
+    {
+      "path": "public/frigo/ingredients/vegetables/winter-melon.png",
+      "bytes": 271038,
+      "sha256": "6a9523678705cbe601db380abd0322c195ae07ed0d16a75fccb17b27b82eaa0c"
+    },
+    {
+      "path": "public/frigo/ingredients/vegetables/zucchini.png",
+      "bytes": 161780,
+      "sha256": "e432a9ee4adf349f6aa4ab379a96c0549e0f285d2eda22feb2b61dbbd72e7608"
+    },
+    {
+      "path": "public/frigo/recipes/global/kimchi-fried-rice.webp",
+      "bytes": 63902,
+      "sha256": "b4ed63ff715c6eb3b183e49a0c15f30e32a2522c288184b6353482bef612ca8d"
+    },
+    {
+      "path": "public/frigo/recipes/global/mapo-tofu.webp",
+      "bytes": 65846,
+      "sha256": "bfa6e099a8c3c289e248a3f19d36bc96d6e47f195277239a481603bb24bfbd4a"
+    },
+    {
+      "path": "public/frigo/recipes/global/oyakodon.webp",
+      "bytes": 55662,
+      "sha256": "f6fa1e79ed329871c6461a7bacafe35d594d05a00f1ff7a7b06c458d7013735b"
+    },
+    {
+      "path": "public/frigo/recipes/global/pad-krapow.webp",
+      "bytes": 61312,
+      "sha256": "518d62f283dbae4959e04d06dd8a9b9e2a195388aeb57e8da39e2114eebd6b2e"
+    },
+    {
+      "path": "public/frigo/recipes/global/pasta-pomodoro.webp",
+      "bytes": 65518,
+      "sha256": "82a23e835f15733dee11df7061364b53a7f94fb75014fd1f703c25668448b842"
+    },
+    {
+      "path": "public/frigo/recipes/global/tomato-egg-stir-fry.webp",
+      "bytes": 52622,
+      "sha256": "2f1889cec34e84000cfb2f9c826f9927c738ec62ac776a81ed2a8f83b5786743"
+    },
+    {
+      "path": "public/frigo/recipes/vietnam/canh-chua-ca.webp",
+      "bytes": 66390,
+      "sha256": "72e90eb0479f0a7983a68b54a069f2798bd714eaf68b8333afc9d856f82ee82d"
+    },
+    {
+      "path": "public/frigo/recipes/vietnam/com-chien-trung.webp",
+      "bytes": 58848,
+      "sha256": "2267ff4ed1181ea870ed27d45c7b418f0dfcb443a0b4f38d9b8c85eccd9e0fba"
+    },
+    {
+      "path": "public/frigo/recipes/vietnam/dau-phu-sot-ca-chua.webp",
+      "bytes": 68598,
+      "sha256": "8bbe363b887201473cc660e3f0be7f2ea56136b412bd7009e93511d5d1f4f3fc"
+    },
+    {
+      "path": "public/frigo/recipes/vietnam/ga-kho-gung.webp",
+      "bytes": 65934,
+      "sha256": "f28da1bbc42ae2371601d1386c5a4c6157962f27fc21e3afd3870ca6d7448c8f"
+    },
+    {
+      "path": "public/frigo/recipes/vietnam/rau-muong-xao-toi.webp",
+      "bytes": 65824,
+      "sha256": "763373595603fe577c9621467e3c45fbb3c46712a58e3fb5febff34abc0dcce0"
+    },
+    {
+      "path": "public/frigo/recipes/vietnam/thit-kho-trung.webp",
+      "bytes": 65130,
+      "sha256": "04b9811468b01a81e504085341c3ddd2c9eb77afbebe51790c42be624acf6569"
+    },
+    {
+      "path": "public/frigo/reference/brand_board.png",
+      "bytes": 1598233,
+      "sha256": "8e388b64bad2e09110de20798079993ee4a6c21e2ad944e5f85535bb0d7152d0"
+    },
+    {
+      "path": "public/frigo/reference/frontend_assets_board.png",
+      "bytes": 1742964,
+      "sha256": "ff8790f6f372d058f69764e8529e112d17c593d36d0b727844e1bfed9439e381"
+    },
+    {
+      "path": "public/frigo/reference/screen_reference.png",
+      "bytes": 1769701,
+      "sha256": "a9cd65e314525b90976051377fec0df6ae39962130f2068cafe422b5b85da15a"
+    },
+    {
+      "path": "public/frigo/reference/ui_components_board.png",
+      "bytes": 1588966,
+      "sha256": "eef30b588621c4b2ed544d16aa96edda2f54b57ad0a5f6f701057e8448bda064"
+    },
+    {
+      "path": "public/frigo/ui-icons/calendar.png",
+      "bytes": 20220,
+      "sha256": "4c13fe93e538b6e8fd4cbfff459afadedc8338b4f519c93219820d891959fa69"
+    },
+    {
+      "path": "public/frigo/ui-icons/camera.png",
+      "bytes": 24879,
+      "sha256": "074b461856def20c892cecfd880a7b0f873bd5a890ebf2ff360fb4d13ea64f9e"
+    },
+    {
+      "path": "public/frigo/ui-icons/cart.png",
+      "bytes": 16646,
+      "sha256": "5ff6dbd5796073a34055d713c551cd942c2ed5a18bc605c905f0eadd33beedce"
+    },
+    {
+      "path": "public/frigo/ui-icons/check.png",
+      "bytes": 19972,
+      "sha256": "d5ba06d3f9c5544180c52ddafb50c4a5efbfcc9a98d83beecd4a302cd5e6566a"
+    },
+    {
+      "path": "public/frigo/ui-icons/chef.png",
+      "bytes": 22041,
+      "sha256": "4ad235f58e012a7a2555f0e41255b2de6455fa5949a72b8a6c662a8809ca0a6d"
+    },
+    {
+      "path": "public/frigo/ui-icons/clock.png",
+      "bytes": 21277,
+      "sha256": "a6919e93c61089b187832783f213c4e3d65009225e0639c2757d9c3334b07c66"
+    },
+    {
+      "path": "public/frigo/ui-icons/delete.png",
+      "bytes": 17265,
+      "sha256": "83d7370aac2af87856763253a44efc773a7a14188a9c7dca4c718bf05cad8253"
+    },
+    {
+      "path": "public/frigo/ui-icons/edit.png",
+      "bytes": 15799,
+      "sha256": "d9cd68553ecddd6a17c551c9b4d0c21168c57854af58ef4360b33c5ff3d5ca45"
+    },
+    {
+      "path": "public/frigo/ui-icons/favorite.png",
+      "bytes": 17195,
+      "sha256": "c8a0f557c57661599780c6571075474f7182c4508edfbee178ccb518549a4f51"
+    },
+    {
+      "path": "public/frigo/ui-icons/filter.png",
+      "bytes": 14942,
+      "sha256": "63930dab4a6f99e6b0047add64cd317a8a08aa1f2860af5dd1e72e336c1c5f98"
+    },
+    {
+      "path": "public/frigo/ui-icons/fridge.png",
+      "bytes": 20073,
+      "sha256": "cab32707a6a36830de18876cef82908c0d477e8d3eb7bd9d1e19ab6e70ace0ac"
+    },
+    {
+      "path": "public/frigo/ui-icons/gallery.png",
+      "bytes": 19102,
+      "sha256": "fbc24704fc04c929da1090491b179008dbbc1d939ff88cce406e8bb9493353a5"
+    },
+    {
+      "path": "public/frigo/ui-icons/globe.png",
+      "bytes": 28599,
+      "sha256": "47dc7ec8f058bca9a89e5fcb0f76befe4419358d9970f218f174323fb534ac7b"
+    },
+    {
+      "path": "public/frigo/ui-icons/home.png",
+      "bytes": 15963,
+      "sha256": "7720fadd8fa6f1e61e6000a62b47a296cd57921638c0d65c5494558ed84436e5"
+    },
+    {
+      "path": "public/frigo/ui-icons/hot.png",
+      "bytes": 18520,
+      "sha256": "54ae210ba718f2802a70fa09526d96d0476b085f157cf620118dff7fd64e8efe"
+    },
+    {
+      "path": "public/frigo/ui-icons/list.png",
+      "bytes": 18157,
+      "sha256": "48142e7e863cd8fe5b13b482faeaed6dd843e70a344397959118cf4c3711dfa3"
+    },
+    {
+      "path": "public/frigo/ui-icons/minus.png",
+      "bytes": 16797,
+      "sha256": "479a0fceb56021428b8702c62e512e47f3adce07353ebc1b3675915a4e9e46f5"
+    },
+    {
+      "path": "public/frigo/ui-icons/notification.png",
+      "bytes": 17437,
+      "sha256": "2b71df37e954b8b08a5ea8bb22221616d02fb26b48f8043d305fb265dabd0f3b"
+    },
+    {
+      "path": "public/frigo/ui-icons/plus.png",
+      "bytes": 19024,
+      "sha256": "b2d6c4cc27ad9627f1e97147fef2c637453bcfabc1db0d36d57e72f1b78ecdb7"
+    },
+    {
+      "path": "public/frigo/ui-icons/profile.png",
+      "bytes": 20459,
+      "sha256": "11af76d89ca5a5f91d6b8b8af677e19c24c0a41d3ec45f82c31f553f48cd457c"
+    },
+    {
+      "path": "public/frigo/ui-icons/refresh.png",
+      "bytes": 24623,
+      "sha256": "2c4d03d0115d3b0b39fa28a922a0e9fedbedf4b5b6841b7f08b36d830199f43d"
+    },
+    {
+      "path": "public/frigo/ui-icons/search.png",
+      "bytes": 17303,
+      "sha256": "74cc55e6b9b09c7476247eb570e26d929f9ccb04d68f1f4906a642cc87f6427a"
+    },
+    {
+      "path": "public/frigo/ui-icons/settings.png",
+      "bytes": 24623,
+      "sha256": "fcbbe9d09a93e4a2de4664126cd099c683204fb4bdefa525f017c93136892505"
+    },
+    {
+      "path": "public/frigo/ui-icons/sparkles.png",
+      "bytes": 16249,
+      "sha256": "3ac5d19805ea3904fa4f4b817db3d6a9c43430642593a000dbf7634f42ff3762"
+    },
+    {
+      "path": "public/icons/favicon.svg",
+      "bytes": 563,
+      "sha256": "418535820ef5e142fc20d33805fb1fb421ec6d0b63da194f8de6d97a87922d91"
+    },
+    {
+      "path": "public/icons/icon-512.png",
+      "bytes": 315121,
+      "sha256": "ee5aa8deb52480766d37e8914271e27583e775b6c331cf4872e413983bf49d0e"
+    },
+    {
+      "path": "public/manifest.json",
+      "bytes": 719,
+      "sha256": "c705c3bf71f8e72185486d536d9381273eb548946df13a7919982c541502e47c"
+    },
+    {
+      "path": "public/sw.js",
+      "bytes": 4069,
+      "sha256": "b7613458f313de8da654284fdc923f5c93344f2f3856787ae8b8c52e2c298fd4"
+    },
+    {
+      "path": "public/takosan/app-icons/favicon.svg",
+      "bytes": 1251,
+      "sha256": "30125b83cb2e0abb727c6ebea54445e1ef2c52985321e63db7df2325753404fc"
+    },
+    {
+      "path": "public/takosan/app-icons/icon-128.png",
+      "bytes": 4342,
+      "sha256": "42de0cfeae3cfe213a87ab51f7e5149de6fd267869100cdc7c60af08fda93e1f"
+    },
+    {
+      "path": "public/takosan/app-icons/icon-16.png",
+      "bytes": 498,
+      "sha256": "0708125e926cc522c99741e73308af3d522f83395696e31361f99cb12bf09a88"
+    },
+    {
+      "path": "public/takosan/app-icons/icon-180.png",
+      "bytes": 6139,
+      "sha256": "f6e4d88d26701fc761454d6a6baf36e5e44be44eb524873deb4b4d3d2dc04b44"
+    },
+    {
+      "path": "public/takosan/app-icons/icon-192.png",
+      "bytes": 6590,
+      "sha256": "560be6c412b3befbe14455a125e4e761647dd8b5b9bb82c1548961b05737c883"
+    },
+    {
+      "path": "public/takosan/app-icons/icon-256.png",
+      "bytes": 9077,
+      "sha256": "9ccddb0946b6e140f5139400d14648268377c7e2a84d29b744fcafb12ca0a9e1"
+    },
+    {
+      "path": "public/takosan/app-icons/icon-32.png",
+      "bytes": 1015,
+      "sha256": "7297944df18f44b10f26a9001f65ffb5b1174b86551f3a0d7788a962c16ca406"
+    },
+    {
+      "path": "public/takosan/app-icons/icon-48.png",
+      "bytes": 1554,
+      "sha256": "fde9af178f4d87590d42ac705e78fbc19187575bfe50c535b662ac77ad9d978a"
+    },
+    {
+      "path": "public/takosan/app-icons/icon-512.png",
+      "bytes": 19625,
+      "sha256": "dd98b391fe8a8e76ef242c40e69cd46edcfff684eb7d6d6f068ccd920bd09434"
+    },
+    {
+      "path": "public/takosan/app-icons/icon-64.png",
+      "bytes": 2143,
+      "sha256": "fb8f55df5ad85ced062b36401eec31b93d3db2731a28d324a28ddb51958b08b8"
+    },
+    {
+      "path": "public/takosan/app-icons/icon-maskable-512.png",
+      "bytes": 13982,
+      "sha256": "a3eecd5ca5d3607f3ec4311ee234bfd86ae1887da6af3439723cd95686eac579"
+    },
+    {
+      "path": "public/takosan/app-icons/takosan-adaptive-background.svg",
+      "bytes": 165,
+      "sha256": "6d22eb7b5d83d01306a17a4eee254c7e26e8bc45cd6b125316d4531298455124"
+    },
+    {
+      "path": "public/takosan/app-icons/takosan-adaptive-foreground.svg",
+      "bytes": 1304,
+      "sha256": "01f032320fc64f0e796eb359d7d60a462e0229fade9dd3d49d684a3368fe53c0"
+    },
+    {
+      "path": "public/takosan/app-icons/takosan-app-icon-light-512.png",
+      "bytes": 19625,
+      "sha256": "dd98b391fe8a8e76ef242c40e69cd46edcfff684eb7d6d6f068ccd920bd09434"
+    },
+    {
+      "path": "public/takosan/app-icons/takosan-app-icon-mint-512.png",
+      "bytes": 21664,
+      "sha256": "59d7870adb69e975f169c60c3cb6cc9d96d37ad4a185ccbb8cc80fa522be6163"
+    },
+    {
+      "path": "public/takosan/brand/takosan-logo-horizontal-primary.svg",
+      "bytes": 2786,
+      "sha256": "a45642051372f5cddf9d84978ca786f2848bbf8b94b22f41a5d1bd80507051ed"
+    },
+    {
+      "path": "public/takosan/brand/takosan-logo-horizontal-white.svg",
+      "bytes": 2587,
+      "sha256": "14b2b9558ae104d52f6e8ef15cdc4b51749754db7c6a79a032edf3ee9f14391c"
+    },
+    {
+      "path": "public/takosan/brand/takosan-logo-primary.svg",
+      "bytes": 2776,
+      "sha256": "fb1623e2df93fc904da2b58e398a0355e9a5325c8bdb799d756805d2a0e3d934"
+    },
+    {
+      "path": "public/takosan/brand/takosan-logo-white.svg",
+      "bytes": 2577,
+      "sha256": "3d3691f889eceb160ac60d0cdb92b53b6b80c41f2914441bc9cc2acb27c62b84"
+    },
+    {
+      "path": "public/takosan/brand/takosan-og.png",
+      "bytes": 23028,
+      "sha256": "2165f5dc11bcf5711aa407c68a6bd3ad8041955d677f132908c95ae6f2eb47dd"
+    },
+    {
+      "path": "public/takosan/brand/takosan-symbol-micro.svg",
+      "bytes": 1251,
+      "sha256": "30125b83cb2e0abb727c6ebea54445e1ef2c52985321e63db7df2325753404fc"
+    },
+    {
+      "path": "public/takosan/brand/takosan-symbol.svg",
+      "bytes": 1449,
+      "sha256": "a8940affca0a96b29492e039c78c5fae8eb3d461d23ef2fc74087478e67abfe8"
+    },
+    {
+      "path": "public/takosan/brand/takosan-wordmark.svg",
+      "bytes": 1381,
+      "sha256": "a1c80888d2fa840a25aa03a26f9249ce73b3dc8c803fae6a77445c4f9e588a84"
+    },
+    {
+      "path": "public/takosan/fonts/OFL.txt",
+      "bytes": 4397,
+      "sha256": "6b7f8f73609a25ea78c891e34cf37b06f8a676b7ea986e941e43b009110f2a85"
+    },
+    {
+      "path": "public/takosan/fonts/be-vietnam-pro-latin-400-normal.woff2",
+      "bytes": 21276,
+      "sha256": "cefd95a324be2eaf3e23aff008a33cb029872f266d785204fd2f2eaac2abb0d3"
+    },
+    {
+      "path": "public/takosan/fonts/be-vietnam-pro-latin-600-normal.woff2",
+      "bytes": 22052,
+      "sha256": "136998431df364d059b40ec4ed821fd193437096011f88c8676b5a27274a34ed"
+    },
+    {
+      "path": "public/takosan/fonts/be-vietnam-pro-latin-700-normal.woff2",
+      "bytes": 22216,
+      "sha256": "6ed20761ae0472f8f1ce186f64739c41787db04c881d5ba0530027dc4eddf4b6"
+    },
+    {
+      "path": "public/takosan/fonts/be-vietnam-pro-latin-ext-400-normal.woff2",
+      "bytes": 12928,
+      "sha256": "c481d1798fd5d657632f9e32c5489b729653d141f33570e4bbc2cfcb7c4cf5ea"
+    },
+    {
+      "path": "public/takosan/fonts/be-vietnam-pro-latin-ext-600-normal.woff2",
+      "bytes": 13612,
+      "sha256": "1d37ca4a523cdd1e35b14adbaa0b0d238dc6a057ac3c4aa77ecb9ce534bae475"
+    },
+    {
+      "path": "public/takosan/fonts/be-vietnam-pro-latin-ext-700-normal.woff2",
+      "bytes": 13776,
+      "sha256": "2a11d0d40a69fb7d3865463ad254fa393840b7d25c8207d60af3dc61f2235304"
+    },
+    {
+      "path": "public/takosan/fonts/be-vietnam-pro-vietnamese-400-normal.woff2",
+      "bytes": 11484,
+      "sha256": "a1a7de622e4266ff7d5fdef40712c3aa9fa0a7b1213219b4b172b41c62e9fd5a"
+    },
+    {
+      "path": "public/takosan/fonts/be-vietnam-pro-vietnamese-600-normal.woff2",
+      "bytes": 12160,
+      "sha256": "86dbbb4b20a5ae31c479f1aff09532034340c87239ac2bb183b152c697755227"
+    },
+    {
+      "path": "public/takosan/fonts/be-vietnam-pro-vietnamese-700-normal.woff2",
+      "bytes": 12428,
+      "sha256": "390d020c9aa37584d7b389dde664d6d8e202013d0d5b13ba6d2297d6f1865f6b"
+    },
+    {
+      "path": "public/takosan/mascot/takosan-calendar.svg",
+      "bytes": 1915,
+      "sha256": "5e4815a0e39a7239616670da51aeb705d7e5100f3e408566e4a4349057035669"
+    },
+    {
+      "path": "public/takosan/mascot/takosan-celebrate.svg",
+      "bytes": 1552,
+      "sha256": "92871a573b7adc72251da9b858e8fd0978f46438e56de0daed5ee12930064804"
+    },
+    {
+      "path": "public/takosan/mascot/takosan-cooking.svg",
+      "bytes": 1869,
+      "sha256": "d258a0fa56acb6a8c7d19cedf4bf809425bf252d25d4c960b9f6f3301503f2f5"
+    },
+    {
+      "path": "public/takosan/mascot/takosan-fridge.svg",
+      "bytes": 1888,
+      "sha256": "da70f23d44ede3982a373d1043bd850fe495904ed9fc39c8322742b3ebe49747"
+    },
+    {
+      "path": "public/takosan/mascot/takosan-leaf.svg",
+      "bytes": 1582,
+      "sha256": "546973489b115f6cff1c88883b76fe22bda98108c76619e1b55edabdc08bc58f"
+    },
+    {
+      "path": "public/takosan/mascot/takosan-neutral.svg",
+      "bytes": 1449,
+      "sha256": "a8940affca0a96b29492e039c78c5fae8eb3d461d23ef2fc74087478e67abfe8"
+    },
+    {
+      "path": "public/takosan/mascot/takosan-recipe.svg",
+      "bytes": 1827,
+      "sha256": "ff4ace2648f0ed8996b4d6b0ed8cacab76d0f7a6aa8e9f6b0aef577d997eae11"
+    },
+    {
+      "path": "public/takosan/mascot/takosan-shopping.svg",
+      "bytes": 1909,
+      "sha256": "bafa4369d6bd535ffa7f4503eb43f206a4a4b2776a3cb080cf7b5b873ed786a0"
+    },
+    {
+      "path": "public/takosan/mascot/takosan-thinking.svg",
+      "bytes": 1595,
+      "sha256": "a7f1f5167c580eea4688d3e0fb42e37724ac48f92a1f3df8ab3086c518b6636a"
+    },
+    {
+      "path": "public/takosan/mascot/takosan-wave.svg",
+      "bytes": 1576,
+      "sha256": "7b3493ec28ea7e0917bf32680b09b57c09fa239cc4450415e1cb694a1e2b5524"
+    },
+    {
+      "path": "public/takosan/rebuild/app-icons/favicon.svg",
+      "bytes": 452,
+      "sha256": "a511e345a4c64dbb2ab051ee396c8f791662874338e39d71dd027bca11c4931c"
+    },
+    {
+      "path": "public/takosan/rebuild/app-icons/icon-128.png",
+      "bytes": 2330,
+      "sha256": "d8989eb4a45bfa106460114cf056530102420280b0fffa91993e0cc6e17d6ad3"
+    },
+    {
+      "path": "public/takosan/rebuild/app-icons/icon-16.png",
+      "bytes": 313,
+      "sha256": "c68e5926a770d805402b63c5d601437582ea467a324ad5b578484d356f87bb5b"
+    },
+    {
+      "path": "public/takosan/rebuild/app-icons/icon-180.png",
+      "bytes": 3392,
+      "sha256": "2922faef7b791863350d41738cf247a8965ca01c4f62609e4f2517e3a4823ec3"
+    },
+    {
+      "path": "public/takosan/rebuild/app-icons/icon-192.png",
+      "bytes": 3639,
+      "sha256": "11b008b59538de18a979a10893a1dbe5e1f3231615777d627939dd83d81fea3d"
+    },
+    {
+      "path": "public/takosan/rebuild/app-icons/icon-24.png",
+      "bytes": 443,
+      "sha256": "d058502945ba029a4156f64b519e5ffbe47f2d2fd8c4e1de547bbfe970fcd6a8"
+    },
+    {
+      "path": "public/takosan/rebuild/app-icons/icon-256.png",
+      "bytes": 5028,
+      "sha256": "912d2132737d01ec8e690eebc02accb754c1b1d4222b4b111b6d512cb96e0d34"
+    },
+    {
+      "path": "public/takosan/rebuild/app-icons/icon-32.png",
+      "bytes": 612,
+      "sha256": "8947392a309e994bdbc3b6625e0fdc4793208e80f8f47754b404fdca9b1bfdc3"
+    },
+    {
+      "path": "public/takosan/rebuild/app-icons/icon-48.png",
+      "bytes": 889,
+      "sha256": "07525fc54e472c3746660e9b01b23b8d3ada40c28b5baef548a1efb3b92d2c55"
+    },
+    {
+      "path": "public/takosan/rebuild/app-icons/icon-512.png",
+      "bytes": 10717,
+      "sha256": "88c971380b59199ef4f8ec5825d254a34403b638668d4f2c3167b1faf7dc0cdd"
+    },
+    {
+      "path": "public/takosan/rebuild/app-icons/icon-64.png",
+      "bytes": 1185,
+      "sha256": "96bc767559d3e7e67ef7aa56d5a4cdb5e009d65a47b6a6e06f0ac0559e5ca0b0"
+    },
+    {
+      "path": "public/takosan/rebuild/app-icons/icon-maskable-512.png",
+      "bytes": 9882,
+      "sha256": "c06c65c876b5f48322dcae5cb65b85902d278e18080499e3d6ea0bdc1f19e1f0"
+    },
+    {
+      "path": "public/takosan/rebuild/app-icons/icon-master.svg",
+      "bytes": 763,
+      "sha256": "e070158527d5a745428246c6cbb9d6840e0c2c45db9c321ab0d9dd94b2e58f09"
+    },
+    {
+      "path": "public/takosan/rebuild/app-icons/maskable-master.svg",
+      "bytes": 761,
+      "sha256": "a675c913fbd94c3aeaa13d28b6de5aaf226fee801c9853c5bb254b1af87a3f1e"
+    },
+    {
+      "path": "public/takosan/rebuild/lockup-mono-reverse.svg",
+      "bytes": 3663,
+      "sha256": "2c9c0983c25416cb91636cedc6a13b745af75c344031b91570509882ab930378"
+    },
+    {
+      "path": "public/takosan/rebuild/lockup-mono.svg",
+      "bytes": 3663,
+      "sha256": "ebfb0effffb04894e7f26267b1278b6533e5462191607c751888111844db7e94"
+    },
+    {
+      "path": "public/takosan/rebuild/lockup-reverse.svg",
+      "bytes": 3814,
+      "sha256": "72ff05076bea48bfa721c47494405ac4ed5b4cf8a91d182d83f91faf3b5a29b9"
+    },
+    {
+      "path": "public/takosan/rebuild/lockup.svg",
+      "bytes": 3814,
+      "sha256": "069d6444f3d6a1da6a9fb6461f829ca5c7559ec74b8d8fed32f46315a986ee4c"
+    },
+    {
+      "path": "public/takosan/rebuild/masters/motto.svg",
+      "bytes": 7889,
+      "sha256": "cbb0e306c687a6daa108e13673f1c9f75203befd3e2e6b0c9955e1cd8b109564"
+    },
+    {
+      "path": "public/takosan/rebuild/masters/symbol-micro.svg",
+      "bytes": 452,
+      "sha256": "a511e345a4c64dbb2ab051ee396c8f791662874338e39d71dd027bca11c4931c"
+    },
+    {
+      "path": "public/takosan/rebuild/masters/symbol.svg",
+      "bytes": 665,
+      "sha256": "3542fde9816dbf6626005f784318d3df3e24703fc5336d7ca316e1f47ef1125a"
+    },
+    {
+      "path": "public/takosan/rebuild/masters/tagline.svg",
+      "bytes": 11716,
+      "sha256": "0c8560142f284327b99eda9a8a0dd5d83e704d86cfe2843ccc457b86d1af8da9"
+    },
+    {
+      "path": "public/takosan/rebuild/masters/wordmark.svg",
+      "bytes": 3177,
+      "sha256": "03258dae13d75e15ea3a1cfae192e9e798009343b231fc4f12abe6985b33c35f"
+    },
+    {
+      "path": "public/takosan/rebuild/og.png",
+      "bytes": 36373,
+      "sha256": "45a1ab4c033ec2a730c551736fda2d3bb369a52aac31acde42b2429aab8f7701"
+    },
+    {
+      "path": "public/takosan/rebuild/og.svg",
+      "bytes": 24123,
+      "sha256": "6e91eaa8fd3230923f913541b897cba841e5f4baa84028974aeab6cadb802215"
+    },
+    {
+      "path": "public/takosan/rebuild/stacked-mono-reverse.svg",
+      "bytes": 3679,
+      "sha256": "30a67293fe3ac3b340dc3e11ffc66f6caa74f2fc0e1d51532a7625eaae3470ba"
+    },
+    {
+      "path": "public/takosan/rebuild/stacked-mono.svg",
+      "bytes": 3679,
+      "sha256": "03305ee2d78e687ab2a988a3cfc862edfd10ecd449e56c105cbb9f533a87a6c0"
+    },
+    {
+      "path": "public/takosan/rebuild/stacked-reverse.svg",
+      "bytes": 3830,
+      "sha256": "ed17ee5b5a66a536d09bdb61739293f5cef7e28c830458e5f78343f2d9c16940"
+    },
+    {
+      "path": "public/takosan/rebuild/stacked.svg",
+      "bytes": 3830,
+      "sha256": "7dd9da977a3eaaf30103240c0aadd13143aa24a512c83ed1e02c5e8f09cc0f76"
+    },
+    {
+      "path": "public/takosan/rebuild/symbol-micro-mono-reverse.svg",
+      "bytes": 416,
+      "sha256": "570ecd1fa95ccb4c0de23fe63cfb35e701c664ecc4a114c80241e8928b0cdf3c"
+    },
+    {
+      "path": "public/takosan/rebuild/symbol-micro-mono.svg",
+      "bytes": 416,
+      "sha256": "739a81adc5152447f3cf5b07235c7bf001799c76238c6d57b1c7967a334645fc"
+    },
+    {
+      "path": "public/takosan/rebuild/symbol-micro-reverse.svg",
+      "bytes": 452,
+      "sha256": "a511e345a4c64dbb2ab051ee396c8f791662874338e39d71dd027bca11c4931c"
+    },
+    {
+      "path": "public/takosan/rebuild/symbol-micro.svg",
+      "bytes": 452,
+      "sha256": "a511e345a4c64dbb2ab051ee396c8f791662874338e39d71dd027bca11c4931c"
+    },
+    {
+      "path": "public/takosan/rebuild/symbol-mono-reverse.svg",
+      "bytes": 514,
+      "sha256": "17cd1cd70607d7f469abbccb5556f828a5557e11afac3751b3d75039695eb276"
+    },
+    {
+      "path": "public/takosan/rebuild/symbol-mono.svg",
+      "bytes": 514,
+      "sha256": "86284d4edd0eedd12844ed014cfe6597e8ebeb149adf05f28c3a6fa8422467cc"
+    },
+    {
+      "path": "public/takosan/rebuild/symbol-reverse.svg",
+      "bytes": 665,
+      "sha256": "3542fde9816dbf6626005f784318d3df3e24703fc5336d7ca316e1f47ef1125a"
+    },
+    {
+      "path": "public/takosan/rebuild/symbol.svg",
+      "bytes": 665,
+      "sha256": "3542fde9816dbf6626005f784318d3df3e24703fc5336d7ca316e1f47ef1125a"
+    },
+    {
+      "path": "public/takosan/rebuild/wordmark-mono-reverse.svg",
+      "bytes": 3169,
+      "sha256": "71f550bbbcf2987e765693839489933df17878ee3d054bcddff0bf8375b1b2e8"
+    },
+    {
+      "path": "public/takosan/rebuild/wordmark-mono.svg",
+      "bytes": 3169,
+      "sha256": "be3e553dc8887a6f64b0a6590578c9b1827e6974d51af6127cf605a9b315a2d0"
+    },
+    {
+      "path": "public/takosan/rebuild/wordmark-reverse.svg",
+      "bytes": 3169,
+      "sha256": "71f550bbbcf2987e765693839489933df17878ee3d054bcddff0bf8375b1b2e8"
+    },
+    {
+      "path": "public/takosan/rebuild/wordmark.svg",
+      "bytes": 3169,
+      "sha256": "12231a5d9abc4b336f3f06e34a93766d282aeb3769ac64b744726946da2eb732"
+    },
+    {
+      "path": "public/takosan/recipe-placeholder.svg",
+      "bytes": 757,
+      "sha256": "6dbfe1d7f4cba9f8ec8638456a1783827f002fc9931fbdc87681385c91c1e668"
+    },
+    {
+      "path": "public/takosan/ui-icons/takosan-icon-budget.svg",
+      "bytes": 249,
+      "sha256": "55443da124c0cc8fe66f844ba32d532d375f93cbf011277aec873540d09ee72f"
+    },
+    {
+      "path": "public/takosan/ui-icons/takosan-icon-calendar.svg",
+      "bytes": 275,
+      "sha256": "a956362d45e2fcea028a013d20b06b0d11901802bc6cfe55beb9385ee3d0c90c"
+    },
+    {
+      "path": "public/takosan/ui-icons/takosan-icon-expiry.svg",
+      "bytes": 265,
+      "sha256": "958a29d0a119bef31f4cff4c6af4d72ed815cf1cc54b9d7902abd57273e4294c"
+    },
+    {
+      "path": "public/takosan/ui-icons/takosan-icon-fridge.svg",
+      "bytes": 245,
+      "sha256": "41195d17fb463108fd43351742b9058dd2c5ac6d41aed088d8bc76558753d729"
+    },
+    {
+      "path": "public/takosan/ui-icons/takosan-icon-home.svg",
+      "bytes": 254,
+      "sha256": "c40dcde4bf1684e66535eba23061cfcf49f0341c0412035063cb47cd6006e6c2"
+    },
+    {
+      "path": "public/takosan/ui-icons/takosan-icon-meal-plan.svg",
+      "bytes": 264,
+      "sha256": "d2a6a73a7cf12c18e9f179aaf51a56afd2be2c48be1bc622a079da0afbd423ca"
+    },
+    {
+      "path": "public/takosan/ui-icons/takosan-icon-notification.svg",
+      "bytes": 269,
+      "sha256": "4970ad136ed55cadc843d1745537bc70e0f5a5f92e85fb1ecccd3af70c101a23"
+    },
+    {
+      "path": "public/takosan/ui-icons/takosan-icon-nutrition.svg",
+      "bytes": 298,
+      "sha256": "9d8a239ceebea63eb94ea278e1bac4d735d01245d6ade2eb87f2ebde7613b44b"
+    },
+    {
+      "path": "public/takosan/ui-icons/takosan-icon-profile.svg",
+      "bytes": 269,
+      "sha256": "472d1f78ef7136b9fd22c239eb8a7dc8136d743ccb83a64285311b3493e0bceb"
+    },
+    {
+      "path": "public/takosan/ui-icons/takosan-icon-recipe.svg",
+      "bytes": 283,
+      "sha256": "be6878586e5f48af16059c781424e9e3f6ab2e93e1a7017886071a5543733aae"
+    },
+    {
+      "path": "public/takosan/ui-icons/takosan-icon-scan.svg",
+      "bytes": 281,
+      "sha256": "7b75288b1790a419b0732f516f7427e4cc30303f96d8006264e282eb444eb444"
+    },
+    {
+      "path": "public/takosan/ui-icons/takosan-icon-search.svg",
+      "bytes": 254,
+      "sha256": "5dda5e35b9e00ba49f1c1c4bd9192d0c5181479db2f3cabf134ec32f89145ec0"
+    },
+    {
+      "path": "public/takosan/ui-icons/takosan-icon-settings.svg",
+      "bytes": 258,
+      "sha256": "79dea36a7277b40348b072356af23e3c47199ccf898233fc7db2421c840f66e6"
+    },
+    {
+      "path": "public/takosan/ui-icons/takosan-icon-shopping-list.svg",
+      "bytes": 299,
+      "sha256": "168628d2ef5717a39964e9b1e06b0c7d71b0745e169d38dcf364ecef04da4d40"
+    },
+    {
+      "path": "scripts/security-preview.mjs",
+      "bytes": 6466,
+      "sha256": "a94681507089253650fc6e5371e9188edf459b6a5fcd69e085ca179cc659b528"
+    },
+    {
+      "path": "scripts/ui08-browser-check.mjs",
+      "bytes": 19332,
+      "sha256": "e865a9ce6edcdcc533df6560148467699cf3b5d1338fed605f47099e7fb1fceb"
+    },
+    {
+      "path": "scripts/ui09-browser-check.mjs",
+      "bytes": 23126,
+      "sha256": "642b2ed702d48c23fc24005847bc5b68c8937f57ae0a0849d747e7b2ffa6a9e2"
+    },
+    {
+      "path": "scripts/ui09-week-audit.mjs",
+      "bytes": 7117,
+      "sha256": "a6b4fc1ac9c4cd2ac049d6f4a538b983feb912f3a1d1216c9cf880cf2bf77a25"
+    },
+    {
+      "path": "scripts/ui10-browser-check.mjs",
+      "bytes": 25517,
+      "sha256": "a18ba05060cffb29d07a33c215cffba9de69077ac12520c8c3ee571710c3cb22"
+    },
+    {
+      "path": "scripts/ui10-planner-alias-check.mjs",
+      "bytes": 2789,
+      "sha256": "5c23f9134b653df92945c6443107af50a8a8536a27924618489fc751f58a70ad"
+    },
+    {
+      "path": "scripts/ui11-browser-check.mjs",
+      "bytes": 17115,
+      "sha256": "11e8f5173d505874f828d11c2ffe46742d37af44a554dc516c32d207276b8c04"
+    },
+    {
+      "path": "scripts/ui11-shell-audit.mjs",
+      "bytes": 4151,
+      "sha256": "b00d1eab2f64009ac704140929a30503d96501f8e0e329ed4d9acf434aa84eab"
+    },
+    {
+      "path": "scripts/ui12-browser-check.mjs",
+      "bytes": 20175,
+      "sha256": "61743eec70d87c2a0bd60f6d2c32e6057437c4e926245b0867058aeb393e51a1"
+    },
+    {
+      "path": "scripts/ui12-state-check.mjs",
+      "bytes": 10692,
+      "sha256": "0fccf76d74142625e83273702b8933c32d6fb3e7ffd6346431ff78d049dce2af"
+    },
+    {
+      "path": "scripts/ui13-browser-check.mjs",
+      "bytes": 13049,
+      "sha256": "94b391f4b8e4bfe07aea02c7574bbd6df25c87c673cddbcdfee1545d43f7d0a9"
+    },
+    {
+      "path": "scripts/ui13-media-review.mjs",
+      "bytes": 9473,
+      "sha256": "591bd768ee3303c759652d9bd078eadc86739266b043e87ca99ebef0ca564f00"
+    },
+    {
+      "path": "scripts/ui13/board-client.mjs",
+      "bytes": 14213,
+      "sha256": "09fe3d5f364f420ba4c531e0b6840207baf763747535d4b5bc9e1920925955de"
+    },
+    {
+      "path": "scripts/ui13/board.html",
+      "bytes": 26116,
+      "sha256": "570525a9d2bef69fe4c9d17833d789292c82626e11b5332942862e99d2f0db7d"
+    },
+    {
+      "path": "scripts/ui13/review-contract.mjs",
+      "bytes": 7563,
+      "sha256": "a1390fc055f488c8184a3d8b340a43dae95ea10f0648595b1ab86fdd787d4e18"
+    },
+    {
+      "path": "scripts/ui14-browser-check.mjs",
+      "bytes": 17704,
+      "sha256": "39910311d7ce369c6d14009d402bf9065c681a0e457a7fa880eadcb877b6bd50"
+    },
+    {
+      "path": "scripts/ui14-legacy-check.mjs",
+      "bytes": 4683,
+      "sha256": "5343e57fe41f2512efb2899db642d405220e49e689bc9b4c47165fdaa40173dc"
+    },
+    {
+      "path": "scripts/ui14-legacy-preview.mjs",
+      "bytes": 1898,
+      "sha256": "687a6b521001e44078274b60f5d07042772011220f2cbb311fdb29be44792296"
+    },
+    {
+      "path": "scripts/ui14-local-preview.mjs",
+      "bytes": 6285,
+      "sha256": "57c1f3222aa29d76fab9fbd72db35fc75aea154cfdcf33184dc0f6a85b30e7a4"
+    },
+    {
+      "path": "scripts/ui14-motion-probe.mjs",
+      "bytes": 2470,
+      "sha256": "a083ab3763bc435577ace73908db4d7d4dc5f288d1d76c67055fd339d713f057"
+    },
+    {
+      "path": "scripts/ui14-performance-check.mjs",
+      "bytes": 12233,
+      "sha256": "af0eba35dae3b56bed790ad4e54f8f7be180611ce3532c95bc7b1026a9473377"
+    },
+    {
+      "path": "src/web/App.tsx",
+      "bytes": 15215,
+      "sha256": "c7cd839481d1a7832a35b4a5b4b46f2b2ecfc52e666cb6dc1f0de858848f31f5"
+    },
+    {
+      "path": "src/web/components/common/AccountPage.tsx",
+      "bytes": 623,
+      "sha256": "5297f51bad8c33b9bccba1b587cf63c56de621c1d264de74dd54913c5d06e544"
+    },
+    {
+      "path": "src/web/components/common/ConfirmDialog.tsx",
+      "bytes": 2501,
+      "sha256": "b212bb74bc61de1ba03a27f3b1fffc89099df2dac5d3a2224002d127f3fbf5da"
+    },
+    {
+      "path": "src/web/components/common/KitchenDetailPage.tsx",
+      "bytes": 616,
+      "sha256": "753059134dd1c6839ebe6c972cf83027d0f521d0f679a8c62c4aa3b7813d5b0c"
+    },
+    {
+      "path": "src/web/components/common/KitchenHeader.tsx",
+      "bytes": 2309,
+      "sha256": "ffca74d52680c62b187749df174d8982f2a455c2d3f7103b5dee05873f13c0f8"
+    },
+    {
+      "path": "src/web/components/common/LogoutDialog.tsx",
+      "bytes": 1829,
+      "sha256": "f8607456e3373ca4e230556f2cec71e8f255591d1a12de55edd27fbb2cce54f2"
+    },
+    {
+      "path": "src/web/components/common/RecipeCard.tsx",
+      "bytes": 15367,
+      "sha256": "2b2803b02831a8d6fa80aa5e3f0029dd484f6813b2c1be983c6c1bf24e4829ba"
+    },
+    {
+      "path": "src/web/components/common/RecipeMedia.tsx",
+      "bytes": 1798,
+      "sha256": "702725e81f6f5e79d50a6af748f2daa789b5a1df4ac7d88681c49a6301983edf"
+    },
+    {
+      "path": "src/web/components/common/RouteFallback.tsx",
+      "bytes": 710,
+      "sha256": "d3d2935302466f044185eed9fc20f7e0ce51a27271d6144c331d534c4bc86fa1"
+    },
+    {
+      "path": "src/web/components/common/SessionBoundary.tsx",
+      "bytes": 3191,
+      "sha256": "765dc3f2420c7ab5bd8eefb6bc356f6dc3937ee00904817e1d9b0d8de34679bb"
+    },
+    {
+      "path": "src/web/components/common/SystemStatusPage.tsx",
+      "bytes": 692,
+      "sha256": "73802e2c4d93687cc1662332e72695b088ede33fdfbadb56518244b0554c7e13"
+    },
+    {
+      "path": "src/web/components/layout/AppLayout.tsx",
+      "bytes": 3300,
+      "sha256": "d7f435b10ff82eb6f8dbc5b04b39899a97844919d1bac692ff70e1285cbeab40"
+    },
+    {
+      "path": "src/web/components/layout/use-kitchen-shell.ts",
+      "bytes": 4546,
+      "sha256": "35e2e0219bfff9685c14137ede665d0c567274d0a39b5c218bb8687ece83ad46"
+    },
+    {
+      "path": "src/web/design-system/deferred-nav-indicator.tsx",
+      "bytes": 1000,
+      "sha256": "3fc0de8dfe0b495a8f60a5a7d2e7529d879800e451a75e3aa134c0946bbdd9dc"
+    },
+    {
+      "path": "src/web/design-system/legacy-nav-indicator.tsx",
+      "bytes": 361,
+      "sha256": "4656ce43e2051b9c2f4f58ef7506248b496ee15db9dddc10e28b7f03de559e2a"
+    },
+    {
+      "path": "src/web/design-system/motion-provider.tsx",
+      "bytes": 318,
+      "sha256": "fcead5ce90eb7707abb1743961d52ed344e35b1a31e041d5db74d7c2fca6b82d"
+    },
+    {
+      "path": "src/web/design-system/navigation.tsx",
+      "bytes": 11808,
+      "sha256": "a00faa9da825b6fac495b746871ac678e14548ab5a8d74ea824769388e805635"
+    },
+    {
+      "path": "src/web/design-system/primitives.tsx",
+      "bytes": 13127,
+      "sha256": "849e0679d1e32dd5764c558527850e9c1fb5a99d212fb5a2739ee1aebbb2b6ab"
+    },
+    {
+      "path": "src/web/features/auth/AuthField.tsx",
+      "bytes": 2307,
+      "sha256": "59375fd7dca3120e120f93122e2a8b7b53179303b556672c5609a9497ebe407a"
+    },
+    {
+      "path": "src/web/features/auth/AuthShell.tsx",
+      "bytes": 5864,
+      "sha256": "efa1d4f5bd49578f96e1c2d66d727bd5ed40dd1a3e7cb55fd4da964408af7915"
+    },
+    {
+      "path": "src/web/features/auth/ForgotPasswordMode.tsx",
+      "bytes": 5808,
+      "sha256": "d02b14e42b67556814cbcdd2193e889e4e4328130e4256e3231b4368f96600e7"
+    },
+    {
+      "path": "src/web/features/auth/LoginMode.tsx",
+      "bytes": 3719,
+      "sha256": "dc278ee4667de82039fb29787ac88853381442c097244830026f9a36901f2f6a"
+    },
+    {
+      "path": "src/web/features/auth/OtpMode.tsx",
+      "bytes": 7290,
+      "sha256": "4708313658a7a06071177b764525b4dea88809afccad161faaf591ade71785fe"
+    },
+    {
+      "path": "src/web/features/auth/verify-context.ts",
+      "bytes": 5550,
+      "sha256": "70d9d349d03b9fc01de490ec746c468a5d1b70a27acf41cb274e3bc1f3bc532b"
+    },
+    {
+      "path": "src/web/features/week/MealCard.tsx",
+      "bytes": 2808,
+      "sha256": "817c5aaf5d0d9604fba266b6843b16439a75b5e3dc66cacbc06ff250ee057c32"
+    },
+    {
+      "path": "src/web/features/week/MealSwapSheet.tsx",
+      "bytes": 4352,
+      "sha256": "b21c29f165ecc513a215c75382b21cdc72da6438c20fd44109e8cef8487ed91f"
+    },
+    {
+      "path": "src/web/features/week/WeekExportModal.tsx",
+      "bytes": 9040,
+      "sha256": "3a6f55d3a1e32200069cad6cd5261cff01f6ba2a9f1e6e154ebdf8997b2f591d"
+    },
+    {
+      "path": "src/web/features/week/WeekSetupChoices.tsx",
+      "bytes": 2349,
+      "sha256": "922f5eb920fa7a2f756a59ab48bd607e072ca6c87b543282fa2d43463d6413fc"
+    },
+    {
+      "path": "src/web/features/week/WeekSummaryCards.tsx",
+      "bytes": 1661,
+      "sha256": "48ea6198033b9c0bf314275f41f0f0e81ebabb0b8c7acf524f9558a51a3fae9d"
+    },
+    {
+      "path": "src/web/features/week/WeekWorkspace.tsx",
+      "bytes": 1272,
+      "sha256": "7bb938efde578c50827d550497948746ed96eb02513f59ece1f852f8b3cb4095"
+    },
+    {
+      "path": "src/web/lib/inventory-truth.ts",
+      "bytes": 8487,
+      "sha256": "e859784afdcfa8b9a5595616af4aec2be673ee589fc72f175f2d237997c0979d"
+    },
+    {
+      "path": "src/web/lib/takosan-kitchen.ts",
+      "bytes": 906,
+      "sha256": "3ab069e060a51d2185835bd916683732c68b2900b9a8c012f1e989f07dec20ae"
+    },
+    {
+      "path": "src/web/pages/AuthPage.tsx",
+      "bytes": 30684,
+      "sha256": "2ae606f5f6bbc98122c341e1df27d3aa8d91f89b9b8a54ccf1db1d8c8a28b072"
+    },
+    {
+      "path": "src/web/pages/FamilySharingPage.tsx",
+      "bytes": 3381,
+      "sha256": "059768cf069071f118d88b1ba22f4fedab5914ea75caefccc06df9073a7c1694"
+    },
+    {
+      "path": "src/web/pages/HomePage.tsx",
+      "bytes": 15270,
+      "sha256": "0a88a2f907adce320823c52524163047594732e31939fcd6a63294ed6be9872d"
+    },
+    {
+      "path": "src/web/pages/IngredientDetailPage.tsx",
+      "bytes": 24642,
+      "sha256": "99867da1a2bfbc7195eb6ef9c09fc3764c7f08aa70808b2df4b58cbcf54fce4f"
+    },
+    {
+      "path": "src/web/pages/InventoryPage.tsx",
+      "bytes": 22026,
+      "sha256": "4e59bbe6d5b60c18103a687d51e0a37f56f1ff41f8ae3adfa10fbe3ab0f3b394"
+    },
+    {
+      "path": "src/web/pages/LandingPage.tsx",
+      "bytes": 3619,
+      "sha256": "89eebd395551e9ab43b623ebd1323cb3dc45432ce97001d40750688acd37b048"
+    },
+    {
+      "path": "src/web/pages/MealDetailPage.tsx",
+      "bytes": 9283,
+      "sha256": "13c422c3a7d028a1a018474285ad2b9c6d664d816ff1fbfe522653162165437a"
+    },
+    {
+      "path": "src/web/pages/NotificationsPage.tsx",
+      "bytes": 4260,
+      "sha256": "e51b1d603b06158b33d9d40f39ad42e2c6a711584f9eafedac7fd9293f3f0543"
+    },
+    {
+      "path": "src/web/pages/OnboardingPage.tsx",
+      "bytes": 23178,
+      "sha256": "d4d48ce8f4fa397c42ca935e412e5d8452ae6336b965a948560523edc7089863"
+    },
+    {
+      "path": "src/web/pages/ProfilePage.tsx",
+      "bytes": 4372,
+      "sha256": "22fc695324dfb25f2af7e2d2e6a1d868c9c172f044395cceacc1de6d65f13f88"
+    },
+    {
+      "path": "src/web/pages/ReceiptReviewPage.tsx",
+      "bytes": 27027,
+      "sha256": "d4253e0a3e785437772d8df00a8087efafaf2cc2d43f11f92aa80639bd015fa5"
+    },
+    {
+      "path": "src/web/pages/RecipeDetailPage.tsx",
+      "bytes": 24069,
+      "sha256": "2a33485bce871aa8889e504c047e93b2e567f50091036b646f2d25b28ec30705"
+    },
+    {
+      "path": "src/web/pages/RecipesPage.tsx",
+      "bytes": 15199,
+      "sha256": "b6348bc41ee3b09b42c6dfe8a10b5d1cd81afb39e9aeaf228f556e90d4f9ec1e"
+    },
+    {
+      "path": "src/web/pages/ReconciliationPage.tsx",
+      "bytes": 9530,
+      "sha256": "a968652633cc2939a69212315ebec6f1c2376e5bd3ff12c3789f68e9e5bcff82"
+    },
+    {
+      "path": "src/web/pages/ScanResultPage.tsx",
+      "bytes": 27877,
+      "sha256": "a631b7778833510b68438b6cfb029525423494ee98485c58f477113fe37c5d61"
+    },
+    {
+      "path": "src/web/pages/SettingsPage.tsx",
+      "bytes": 5075,
+      "sha256": "c1eccebde643c1c6d218c1f9b5e361b533c19e2f3ebf8beb80d06de2aba35c20"
+    },
+    {
+      "path": "src/web/pages/WeekDashboardPage.tsx",
+      "bytes": 6556,
+      "sha256": "3ca30fa71d2a6af252e40353161da65613aa5eda6ee223214a030ca0972b1e1d"
+    },
+    {
+      "path": "src/web/pages/WeekGeneratingPage.tsx",
+      "bytes": 3014,
+      "sha256": "b0c051adb047266b6b314c43cf780d9626a97e760608596e6feeb263133a5b29"
+    },
+    {
+      "path": "src/web/pages/WeekSettingsPage.tsx",
+      "bytes": 2563,
+      "sha256": "73a2c45fccefde9613ad260645c54c5a1a422c75f7edc14311dd6a15101dfe86"
+    },
+    {
+      "path": "src/web/pages/WeekSetupPage.tsx",
+      "bytes": 8437,
+      "sha256": "6fe4fd63d160e639a7e551ad1c61515ba84239370a56556e0cc807dadf9f2d54"
+    },
+    {
+      "path": "src/web/pages/WeekShoppingPage.tsx",
+      "bytes": 12141,
+      "sha256": "dd82413c31c8b64777a045095fb6692a2198462d86f4ad44689667fdcda40e52"
+    },
+    {
+      "path": "src/web/pages/settings/FoodPreferencesPage.tsx",
+      "bytes": 10617,
+      "sha256": "67d2a98b3b4939105ee4c93483cedd817bf3332da79f55aa3c365f05614eb2be"
+    },
+    {
+      "path": "src/web/pages/settings/NotificationPreferencesPage.tsx",
+      "bytes": 5752,
+      "sha256": "a1e35e8cb550391d2d247a5d89d18612cdb0bd1c1c5f850ebab28058739b740c"
+    },
+    {
+      "path": "src/web/pages/settings/PlanningSettingsPage.tsx",
+      "bytes": 11969,
+      "sha256": "c449e0f28b4726a47d0458312339c8ef533e73dcbf31478c8f0a221ac0fbaa1b"
+    },
+    {
+      "path": "src/web/pages/settings/PrivacyDataPage.tsx",
+      "bytes": 3774,
+      "sha256": "482ca6b7d7e2c37adc0d9a7b3bcfa6d9e977da1de46007dda9600e35c7a51814"
+    },
+    {
+      "path": "src/web/services/auth.ts",
+      "bytes": 8612,
+      "sha256": "d02119e7e2b727706c976d5e0ce5e46d3ab5fc2be454f7d41c552fc9446895c1"
+    },
+    {
+      "path": "src/web/services/http.ts",
+      "bytes": 7645,
+      "sha256": "79ffd6df578b4877aa386e16e9c23fc25689d1b00d2f86b219a19de4dadc5b56"
+    },
+    {
+      "path": "src/web/services/inventory.ts",
+      "bytes": 5609,
+      "sha256": "933ffc0e858c6b10c07f61efedaf78946d56a08871331af71b8080ea57c3763d"
+    },
+    {
+      "path": "src/web/services/notifications.ts",
+      "bytes": 666,
+      "sha256": "54558761ec628af6c45ea220af917c170640feaa8e5a3607ac3b8a12fee98ffd"
+    },
+    {
+      "path": "src/web/services/week.ts",
+      "bytes": 14494,
+      "sha256": "f1beee446f1266d5896e19623f5d56cbcc40605653400ddac90b11fe28baf6ec"
+    },
+    {
+      "path": "src/web/stores/useAuthStore.ts",
+      "bytes": 10932,
+      "sha256": "98c140bcafb80f439a96db21db225abc1c006f692a3dfdfd6858a0d75ed74ac1"
+    },
+    {
+      "path": "src/web/stores/useWeekStore.ts",
+      "bytes": 11042,
+      "sha256": "60cf69c080ea365700547910df3bff36095f63c41c6e8aa1f24b7341907ce131"
+    },
+    {
+      "path": "src/web/styles/index.css",
+      "bytes": 3467,
+      "sha256": "328862e9fd197391e51a4fdb6b76ba8c29a60276fc82589c335e284813dc45ba"
+    },
+    {
+      "path": "src/web/styles/kitchen-account.css",
+      "bytes": 4840,
+      "sha256": "337b4d33de2ffa660b496a005dba201b588df569efc3cd9d8d90cccd0deb9563"
+    },
+    {
+      "path": "src/web/styles/kitchen-entry.css",
+      "bytes": 6553,
+      "sha256": "6482746fe6f95939fbd718864e3c557db37db8696a3ac5be1f237fa07f2d3add"
+    },
+    {
+      "path": "src/web/styles/kitchen-foundation.css",
+      "bytes": 2431,
+      "sha256": "6b7203e90b2e7ad40d9e567ae862646a70ceec84a86cd077e158c8612d889fb9"
+    },
+    {
+      "path": "src/web/styles/kitchen-recipes.css",
+      "bytes": 6394,
+      "sha256": "ec0cbf9afab97c04167921bfe3b4c51111b8b468e0ae96c461640f9c3a7a6556"
+    },
+    {
+      "path": "src/web/styles/kitchen-shell.css",
+      "bytes": 7701,
+      "sha256": "9ed6593cb5f0c983cb73b74799b3b35de4f6898ac242a2882096ee49b5e18e95"
+    },
+    {
+      "path": "src/web/styles/kitchen-stock-detail.css",
+      "bytes": 6398,
+      "sha256": "c5451cb99fbd179b82259b9a2b122775e39a287ca3df416d2582c804b6c6e1a5"
+    },
+    {
+      "path": "src/web/styles/kitchen-week.css",
+      "bytes": 15148,
+      "sha256": "f889d9a79b67f265bfa64d5e76c7f8f48c58e8c37ae14b626cfde31fe2f692ea"
+    },
+    {
+      "path": "src/worker/routes/inventory-truth.ts",
+      "bytes": 14445,
+      "sha256": "18072ffe3a1e1647f86038df1a7c1357d878858fa3d0efe417eb033b61904dae"
+    },
+    {
+      "path": "src/worker/routes/inventory.ts",
+      "bytes": 49125,
+      "sha256": "381e31aba88e10e907aef1b395caec9f1963e0a72628db7f6c2b7d8efc880e05"
+    },
+    {
+      "path": "src/worker/routes/week.ts",
+      "bytes": 78227,
+      "sha256": "8ba4a4733c61fd897896ac6c272ab26a5a88cd4ef43df25f7537423c88e4d40b"
+    },
+    {
+      "path": "tests/e2e/t17-ui/t18c-gaps.e2e.ts",
+      "bytes": 19330,
+      "sha256": "c99f8a332644c70ea59d9c4c82f4ee1c40d32c667108793cc9e656b192fe54ba"
+    },
+    {
+      "path": "tests/e2e/t17-ui/t18c-week-compatibility.e2e.ts",
+      "bytes": 1880,
+      "sha256": "fde6e55513e32a1e0801a983831b39989ecc2929b48e0db54bbb008c51f7b17e"
+    },
+    {
+      "path": "tests/fixtures/ui14-legacy/index.html",
+      "bytes": 273,
+      "sha256": "e7d7032ca0e4db9165c23850b938fa80aed0ac2af5f67fd6269eb2436d030713"
+    },
+    {
+      "path": "tests/fixtures/ui14-legacy/main.tsx",
+      "bytes": 1148,
+      "sha256": "fb0f6cdfa55acec2769f1e5d2b212e955a4fe1064672bc30e437691f063ede14"
+    },
+    {
+      "path": "tests/integration/frontend-security-integration.test.ts",
+      "bytes": 30487,
+      "sha256": "f54f08b8d031e47861ea52da968d5c17167674881ba4c86d7d58424d1ef90b47"
+    },
+    {
+      "path": "tests/integration/frontend-ui-integration.test.tsx",
+      "bytes": 20947,
+      "sha256": "4ae9d1b3f6681e667fdf7eadf7a68c8044a2a4a81459e48048739c1c7f4b2fa2"
+    },
+    {
+      "path": "tests/unit/receipt-review-polling.test.tsx",
+      "bytes": 4140,
+      "sha256": "be8b638d726dd9c67086e50e83f7c71819f78fa3aedd28ff32eba0837eba3424"
+    },
+    {
+      "path": "tests/unit/scan-privacy.test.tsx",
+      "bytes": 7346,
+      "sha256": "983d6f5c8ddcde4e4508d428647260e1d8bfc9a40546afd745f9f5ef31ccf236"
+    },
+    {
+      "path": "tests/unit/t13b-fridge-hardening.test.tsx",
+      "bytes": 27145,
+      "sha256": "ed531de72afab28c9988c204fbe5891695a9007ab0db54e5babf9e8b08533331"
+    },
+    {
+      "path": "tests/unit/t13b-inventory-detail.test.tsx",
+      "bytes": 22105,
+      "sha256": "87058f10faa40b9c546decdc949fa1aef1ff3f190b8b637130c948ba747d8df6"
+    },
+    {
+      "path": "tests/unit/t13b-receipt-review.test.tsx",
+      "bytes": 22332,
+      "sha256": "2f0db2860d6acaf365a5e817d38daaf18566a633c328c9c8b7be12c4f3c5e02c"
+    },
+    {
+      "path": "tests/unit/t13r-a-lot-draft-ownership.test.tsx",
+      "bytes": 12864,
+      "sha256": "5daa9a5cfa08730fafd4d6cb86f7fc7a550062eab3d518fd2fdb4e1981bfdfec"
+    },
+    {
+      "path": "tests/unit/t13r-b-inventory-conflict.test.tsx",
+      "bytes": 8717,
+      "sha256": "fe773de343a02b2b0c7d0e06d800c84f79eea37c3694c655b32e4402018a35aa"
+    },
+    {
+      "path": "tests/unit/t18c-keyboard-controls.test.tsx",
+      "bytes": 4402,
+      "sha256": "d3ff4ee78b2baf313edb4ea9ee860ab63ec35df0ec0648da8f116faaf8a89e21"
+    },
+    {
+      "path": "tests/unit/takosan-brand.test.tsx",
+      "bytes": 15932,
+      "sha256": "9afbaced2e3f88ed7d8ec21d3c116c9518229c49dd721967775ad997961744e3"
+    },
+    {
+      "path": "tests/unit/ui02-presentation.test.ts",
+      "bytes": 9479,
+      "sha256": "4ab6cd3ad0a572028d4696122ac12ebddc913dce1cf5cceb40cb01d70d873067"
+    },
+    {
+      "path": "tests/unit/ui07-brand-shell.test.tsx",
+      "bytes": 2212,
+      "sha256": "8234cfcd57bcf5fd535ba28dec7bc9510789e068491eb9be167e5036eccdb8ac"
+    },
+    {
+      "path": "tests/unit/ui08-account.test.tsx",
+      "bytes": 9890,
+      "sha256": "7efb3821727bea57a02c985a34f988c487165f342f8d0748341baa3d9bc6e15e"
+    },
+    {
+      "path": "tests/unit/ui08-onboarding-navigation.test.tsx",
+      "bytes": 5190,
+      "sha256": "6aae62732d7b3e6b28fd5735b5ca9aa35cdf801017a30eb28d4294737fd63c27"
+    },
+    {
+      "path": "tests/unit/ui08-route-scope.test.tsx",
+      "bytes": 2176,
+      "sha256": "660971ce33d89e83c7d55606df5007acd9fd167090c3fe22da269ce0bf7e212c"
+    },
+    {
+      "path": "tests/unit/ui09-reconciliation.test.tsx",
+      "bytes": 5300,
+      "sha256": "2548e7ad2bc43594b27cfe98a185d9fa1f3c6aadecabf0c95236dcad7b9d7217"
+    },
+    {
+      "path": "tests/unit/ui09-route-scope.test.tsx",
+      "bytes": 1495,
+      "sha256": "ec6d845a773ed0b6267e3e56cc496c070ab8bd49cf94d8fe22201b78d18082db"
+    },
+    {
+      "path": "tests/unit/ui09-stock-detail.test.tsx",
+      "bytes": 8003,
+      "sha256": "04e05358228d6816b85c4e5a3408c9110d5db87e19aa2b291aac8653417685d2"
+    },
+    {
+      "path": "tests/unit/ui09-system-states.test.tsx",
+      "bytes": 4261,
+      "sha256": "55e44cc540b4e746fa960f1161a5d5a61d1279e63ab58688acb24ca7ff2a026d"
+    },
+    {
+      "path": "tests/unit/ui10-week-presentation.test.tsx",
+      "bytes": 15093,
+      "sha256": "e848bbab7f04ec2df5dcbd898a4da1c590bb06d7fc73e5303fc30ef68a8f7f36"
+    },
+    {
+      "path": "tests/unit/ui10-week-routes.test.tsx",
+      "bytes": 3563,
+      "sha256": "d9308cf6e8a818c0530c8134210fd5ccc7bbfc01888c675972e97614076a05c6"
+    },
+    {
+      "path": "tests/unit/ui11-navigation.test.tsx",
+      "bytes": 4078,
+      "sha256": "ee62087fbfd087cc290622e78cc682a686120ef924cbc2484d037979a110cc3b"
+    },
+    {
+      "path": "tests/unit/ui11-shell-measurement.test.tsx",
+      "bytes": 4647,
+      "sha256": "f3d1613fddd81c010cc1be9462ce971e54d300e26531248b0d7791ccfe161a7b"
+    },
+    {
+      "path": "tests/unit/ui12-recipe-media.test.tsx",
+      "bytes": 7306,
+      "sha256": "d3c3c9a1a62cac5b3ae7aef5de3f888d460b73896e4687130c448e1f80425c9f"
+    },
+    {
+      "path": "tests/unit/ui13-media-review.test.mjs",
+      "bytes": 7262,
+      "sha256": "3530626e759cfda53e553fa5995bd8b1ebb87563a5c6709757788f1db0bc83a9"
+    },
+    {
+      "path": "tests/unit/ui14-deferred-nav.test.tsx",
+      "bytes": 5153,
+      "sha256": "2908e1d587167750d15cb4edfccb342ccf6aadf0ca5af47df4ded0f589a24f00"
+    },
+    {
+      "path": "tests/unit/week-query-sync.test.ts",
+      "bytes": 23878,
+      "sha256": "70446d081d119f0cbc25e9ada8d555cc09aded60ab06acb88a466a1e03558064"
+    },
+    {
+      "path": "wrangler.jsonc",
+      "bytes": 3037,
+      "sha256": "c91126d5d08d39d2f86018226249bafef1a916f7c5783619535cfe139a156598"
+    }
+  ],
+  "payloads": [
+    {
+      "path": "docs/ui-rebuild/round-14/evidence/after/detail-390.png",
+      "bytes": 240883,
+      "sha256": "f064b86b65bdb044959bac389d940c7148b536d3097faf2248caabc730151101"
+    },
+    {
+      "path": "docs/ui-rebuild/round-14/evidence/after/performance.json",
+      "bytes": 421944,
+      "sha256": "dae25a41aa2f67a2585d78858b0ef9781ce04048597434b0f0a5c0959b3df615"
+    },
+    {
+      "path": "docs/ui-rebuild/round-14/evidence/after-build/build-receipt.json",
+      "bytes": 66307,
+      "sha256": "4588a0a9b57ff8a11fa34b893efd95ffbf4da50bf36a87d5ef8f392739242b83"
+    },
+    {
+      "path": "docs/ui-rebuild/round-14/evidence/after-build/composition-flags.json",
+      "bytes": 81,
+      "sha256": "43198c8718d5db89cd3148bb781c62579f4cc9f61c85809c7b2e6a2b28214e04"
+    },
+    {
+      "path": "docs/ui-rebuild/round-14/evidence/after-build/index-3tMGmj4W.js.gz",
+      "bytes": 87344,
+      "sha256": "a824f4978eab0de05a23e987e679e81134076102573e1ace0517b8fc4bf793c8"
+    },
+    {
+      "path": "docs/ui-rebuild/round-14/evidence/after-build/index-3tMGmj4W.js.map.gz",
+      "bytes": 230608,
+      "sha256": "df4a8503432572045e9cadb48d5e920f1ab481d85d035580010f55a66c5cf384"
+    },
+    {
+      "path": "docs/ui-rebuild/round-14/evidence/after-build/raw-archive-receipts.json",
+      "bytes": 864,
+      "sha256": "961b5e9171019a5527c061d86d4c40ea4ac016c4876757f6362ede35f9389a36"
+    },
+    {
+      "path": "docs/ui-rebuild/round-14/evidence/analysis.json",
+      "bytes": 117857,
+      "sha256": "b2c08eec5c3e5804feb1e54dfa066cb80fa59f425d02b64645b90659ec51178b"
+    },
+    {
+      "path": "docs/ui-rebuild/round-14/evidence/analyze-performance.mjs",
+      "bytes": 4827,
+      "sha256": "ce0144b4cc9658be0b904ae55acd542c54c010cbf4a52cc94d25417a886d32f3"
+    },
+    {
+      "path": "docs/ui-rebuild/round-14/evidence/baseline/detail-390.png",
+      "bytes": 240883,
+      "sha256": "f064b86b65bdb044959bac389d940c7148b536d3097faf2248caabc730151101"
+    },
+    {
+      "path": "docs/ui-rebuild/round-14/evidence/baseline/performance.json",
+      "bytes": 422695,
+      "sha256": "404d17f59e4cda3a548f9de26cc948c86b5462dcdbec89157e70bb9d4518a8e5"
+    },
+    {
+      "path": "docs/ui-rebuild/round-14/evidence/baseline-build/build-receipt.json",
+      "bytes": 79915,
+      "sha256": "7b284ca2e67209aea31a29c811de95cb66f887f58bc399d50e47557d112944de"
+    },
+    {
+      "path": "docs/ui-rebuild/round-14/evidence/baseline-build/composition-flags.json",
+      "bytes": 81,
+      "sha256": "43198c8718d5db89cd3148bb781c62579f4cc9f61c85809c7b2e6a2b28214e04"
+    },
+    {
+      "path": "docs/ui-rebuild/round-14/evidence/baseline-build/index-hOvLcnE8.js.gz",
+      "bytes": 128900,
+      "sha256": "e53ff929274af1bbf28dbbb5045058c16c0de9d30566603f07d30f4c2528fe8c"
+    },
+    {
+      "path": "docs/ui-rebuild/round-14/evidence/baseline-build/index-hOvLcnE8.js.map.gz",
+      "bytes": 410078,
+      "sha256": "dddc612eff9e629e19a5e2650e4120a74984a1cf0cb6b71cfa716d19161a9366"
+    },
+    {
+      "path": "docs/ui-rebuild/round-14/evidence/baseline-build/raw-archive-receipts.json",
+      "bytes": 877,
+      "sha256": "34e22016621515b6f616e8dfb4e51860906f84918dc31b68aa7457e2ac36545c"
+    },
+    {
+      "path": "docs/ui-rebuild/round-14/evidence/browser/checks.json",
+      "bytes": 236255,
+      "sha256": "6e97fad0120e3c16a548591d90792f6d183ac89c4023bbeca66c830bd4cc69da"
+    },
+    {
+      "path": "docs/ui-rebuild/round-14/evidence/browser/detail-1024.png",
+      "bytes": 679701,
+      "sha256": "2e5ad9a6e4e472c1ba8cb8cb110d662b697c4ce8ad0e72905929285b2e8f531e"
+    },
+    {
+      "path": "docs/ui-rebuild/round-14/evidence/browser/detail-1440.png",
+      "bytes": 468337,
+      "sha256": "6b8f5c4e0e63f7bd5280486146047a6f0e6b2502c49341b75ca7df69c4665e70"
+    },
+    {
+      "path": "docs/ui-rebuild/round-14/evidence/browser/detail-320-420-text2.png",
+      "bytes": 33880,
+      "sha256": "d2638d1111ebefd193dc76c25df2b4cde34f7b4ff76addd044346e3dec701f84"
+    },
+    {
+      "path": "docs/ui-rebuild/round-14/evidence/browser/detail-320-844-text2.png",
+      "bytes": 171506,
+      "sha256": "8ccb0820892d6b4aa76eab98023ee1704c196338a65416b9a5147c9d30f8c1c8"
+    },
+    {
+      "path": "docs/ui-rebuild/round-14/evidence/browser/detail-320.png",
+      "bytes": 184986,
+      "sha256": "2f6b25801e1d917bb221eff533ca063506a27c5de13a78904179f189775d2577"
+    },
+    {
+      "path": "docs/ui-rebuild/round-14/evidence/browser/detail-360.png",
+      "bytes": 219946,
+      "sha256": "17a0d341806c4b36b123e479147813f78ed1d1c6f0e3b2e24778e85e9835b360"
+    },
+    {
+      "path": "docs/ui-rebuild/round-14/evidence/browser/detail-390-420.png",
+      "bytes": 151274,
+      "sha256": "12712cdcb48056bbe1681c6afa97ddc51cc6923e0bf1ff3fb57968076baf7672"
+    },
+    {
+      "path": "docs/ui-rebuild/round-14/evidence/browser/detail-390.png",
+      "bytes": 240883,
+      "sha256": "0b8a5ab5209e9d1c89a834c2d5ad57cb71b7eeb6b63ec629d9c291584347cacb"
+    },
+    {
+      "path": "docs/ui-rebuild/round-14/evidence/browser/detail-430.png",
+      "bytes": 279713,
+      "sha256": "386a325483034d9554993215308ddfaf753274127f08aaba22371993036017b0"
+    },
+    {
+      "path": "docs/ui-rebuild/round-14/evidence/browser/detail-768-420.png",
+      "bytes": 343276,
+      "sha256": "e6a23db5d35ef897d024a63ec635aa28e25bb0435392e249c81359f684359f50"
+    },
+    {
+      "path": "docs/ui-rebuild/round-14/evidence/browser/detail-768-844-text2.png",
+      "bytes": 549239,
+      "sha256": "696783abd93d2dcfa4ad0a48df7f28ebffd5c2716678eb0f5dcc340d817d409e"
+    },
+    {
+      "path": "docs/ui-rebuild/round-14/evidence/browser/detail-768.png",
+      "bytes": 537059,
+      "sha256": "079782adfa9dd4c933885f56195e49a3a0d58aa4ab699250ef17d17a3c8fbc5a"
+    },
+    {
+      "path": "docs/ui-rebuild/round-14/evidence/browser/detail-normal-motion-390.png",
+      "bytes": 240883,
+      "sha256": "0b8a5ab5209e9d1c89a834c2d5ad57cb71b7eeb6b63ec629d9c291584347cacb"
+    },
+    {
+      "path": "docs/ui-rebuild/round-14/evidence/browser/discovery-1024.png",
+      "bytes": 105473,
+      "sha256": "ce3c7c0f43c30dd862725347963dbebe1e582a1193301a62c61fb00e1d2f8434"
+    },
+    {
+      "path": "docs/ui-rebuild/round-14/evidence/browser/discovery-1440.png",
+      "bytes": 364199,
+      "sha256": "022a5c78a267e47b849b4afc62de4c7271df91f3cb42600de5e20f625173de24"
+    },
+    {
+      "path": "docs/ui-rebuild/round-14/evidence/browser/discovery-320-420-text2.png",
+      "bytes": 24326,
+      "sha256": "6bbbf2b9f5c23321c04528aa65f736b03da5ed4297c5c0b4e567cd3499627f9b"
+    },
+    {
+      "path": "docs/ui-rebuild/round-14/evidence/browser/discovery-320-844-text2.png",
+      "bytes": 60964,
+      "sha256": "355f3069e1af1383786bf96b96732f17b9091e89955b9513c4053f4bc0fe6974"
+    },
+    {
+      "path": "docs/ui-rebuild/round-14/evidence/browser/discovery-320.png",
+      "bytes": 59940,
+      "sha256": "6a6cdaeff24cc56712216952921965d943e596044907a0503e0629bd73eb0c7d"
+    },
+    {
+      "path": "docs/ui-rebuild/round-14/evidence/browser/discovery-360.png",
+      "bytes": 60789,
+      "sha256": "d842e30b0e9775b044781f025e4515f50056d62aec44e0f818dd5edad25dded1"
+    },
+    {
+      "path": "docs/ui-rebuild/round-14/evidence/browser/discovery-390-420.png",
+      "bytes": 34521,
+      "sha256": "5f2b17b42cc63d4a91469b934aa339d4c10cfa1d4c91c10f65ed8f5d1857940e"
+    },
+    {
+      "path": "docs/ui-rebuild/round-14/evidence/browser/discovery-390.png",
+      "bytes": 61084,
+      "sha256": "12f771ad8a9e92c7c6b776c6f5ecf5b70a1c4e6973beb93f22b3853d3e50eea9"
+    },
+    {
+      "path": "docs/ui-rebuild/round-14/evidence/browser/discovery-430.png",
+      "bytes": 64752,
+      "sha256": "6ee39f596f625a77d3c8328bf365d77303ff2504e4ab4bbd4925579c72233643"
+    },
+    {
+      "path": "docs/ui-rebuild/round-14/evidence/browser/discovery-768-420.png",
+      "bytes": 44934,
+      "sha256": "ac5e98148700be2ed06d6c4f75787f7c1907310ae1f0fe66ce48096beef48016"
+    },
+    {
+      "path": "docs/ui-rebuild/round-14/evidence/browser/discovery-768-844-text2.png",
+      "bytes": 113689,
+      "sha256": "1eb6c2ed26141f8f6f67aab1f031818cd087c30ba1c062deea7a332b613393c1"
+    },
+    {
+      "path": "docs/ui-rebuild/round-14/evidence/browser/discovery-768.png",
+      "bytes": 96399,
+      "sha256": "74d1de2bfda6ba9b4f78dfb4c1e3f168389991c906acb4b2020fe0aa2d1aae7d"
+    },
+    {
+      "path": "docs/ui-rebuild/round-14/evidence/browser/discovery-normal-motion-390.png",
+      "bytes": 61011,
+      "sha256": "d5de6f4a911ed3f8fd155d8337b020c634cb2a15668457c0410673cb528c49be"
+    },
+    {
+      "path": "docs/ui-rebuild/round-14/evidence/browser/family--fridge.png",
+      "bytes": 64511,
+      "sha256": "67f95a1b222d2d593419b9266be1a3605176d3cffe1bc55035105f7d4e07cd14"
+    },
+    {
+      "path": "docs/ui-rebuild/round-14/evidence/browser/family--me.png",
+      "bytes": 55407,
+      "sha256": "a07611a4108c4a74bbff786799afaf1261f3b5bd49746907ad0ed14d00f64cbf"
+    },
+    {
+      "path": "docs/ui-rebuild/round-14/evidence/browser/family--settings-app.png",
+      "bytes": 67698,
+      "sha256": "367c4324d4184ea8b5c150e6f798395d204ae593498f0ee8286b65c6a0cf84d9"
+    },
+    {
+      "path": "docs/ui-rebuild/round-14/evidence/browser/family--shopping.png",
+      "bytes": 98254,
+      "sha256": "edc4f653367907c6dba99a9e225f3cd1392309e25258117ff907c3199401bf25"
+    },
+    {
+      "path": "docs/ui-rebuild/round-14/evidence/browser/family--week.png",
+      "bytes": 68018,
+      "sha256": "5a91a64f6a15053d706f8418eb9a715565cf4ddcdcba75ef3c4a511f43856bb2"
+    },
+    {
+      "path": "docs/ui-rebuild/round-14/evidence/browser/home-1024.png",
+      "bytes": 120429,
+      "sha256": "07f0097e66944cc1d29b252fe530236ce048eb024a3306dde3f13e20b8001bc9"
+    },
+    {
+      "path": "docs/ui-rebuild/round-14/evidence/browser/home-1440.png",
+      "bytes": 130530,
+      "sha256": "5dd00be0871259fda6fded524908f89e0c5c81baf2d4a101209bb45397f42b4e"
+    },
+    {
+      "path": "docs/ui-rebuild/round-14/evidence/browser/home-320-420-text2.png",
+      "bytes": 23596,
+      "sha256": "a43741110dd9799a5604e4e7afa3c21b67fdc0225950ca0fcf8cf68cc214c3ca"
+    },
+    {
+      "path": "docs/ui-rebuild/round-14/evidence/browser/home-320-844-text2.png",
+      "bytes": 56251,
+      "sha256": "63a7e115c57852c1b96b78129aa4c8ea31cc7b1e0ae1a9099f6b7b340fd2e7f2"
+    },
+    {
+      "path": "docs/ui-rebuild/round-14/evidence/browser/home-320.png",
+      "bytes": 62640,
+      "sha256": "8f5b5dea9af61c5985ba6dd451db982f39c2165b31e8501f43ae8cd95218c575"
+    },
+    {
+      "path": "docs/ui-rebuild/round-14/evidence/browser/home-360.png",
+      "bytes": 64804,
+      "sha256": "3de4e69c5619ce4da5ad153eb6fdb6244c1edfcef19f932292a8afb6b4612972"
+    },
+    {
+      "path": "docs/ui-rebuild/round-14/evidence/browser/home-390-420.png",
+      "bytes": 30274,
+      "sha256": "4fcf1f6e40b9432f935f28cc4f80ba1616d7f4290028b9101f16e1710de6eaef"
+    },
+    {
+      "path": "docs/ui-rebuild/round-14/evidence/browser/home-390.png",
+      "bytes": 64978,
+      "sha256": "ee97f01660195cb0e54adf124b64ed572cd8a8451ba5919ec13a7c6b582e36af"
+    },
+    {
+      "path": "docs/ui-rebuild/round-14/evidence/browser/home-430.png",
+      "bytes": 68142,
+      "sha256": "1e7d17f9de311db4d1b1139930c9594e3beb1eb1700ff0336bbf9ea326e26b35"
+    },
+    {
+      "path": "docs/ui-rebuild/round-14/evidence/browser/home-768-420.png",
+      "bytes": 49234,
+      "sha256": "8d5109a6a15faebba0dafefaea95ab1f02e999b1dc0cd5554c0c6eaf7565c538"
+    },
+    {
+      "path": "docs/ui-rebuild/round-14/evidence/browser/home-768-844-text2.png",
+      "bytes": 115468,
+      "sha256": "24c17f34205f666444208a8485aceed9e1da1e539af3ea4e2d68a01b01e611bd"
+    },
+    {
+      "path": "docs/ui-rebuild/round-14/evidence/browser/home-768.png",
+      "bytes": 81191,
+      "sha256": "1c096e24a62f08168ea4a6e974721c1801265387f19cddcf67d965bce8b983c0"
+    },
+    {
+      "path": "docs/ui-rebuild/round-14/evidence/browser/home-normal-motion-390.png",
+      "bytes": 64937,
+      "sha256": "26412b98327d855269f96e85a6bbdd79fdfca645c520b4dbba9f60b34065b718"
+    },
+    {
+      "path": "docs/ui-rebuild/round-14/evidence/browser/panel-C\u00e1ch n\u1ea5u-320-text2.png",
+      "bytes": 57051,
+      "sha256": "b61005fc36922da8f8dbed1c503a02ba72bd5cc9e13ec5546b440d0c36c6a6bb"
+    },
+    {
+      "path": "docs/ui-rebuild/round-14/evidence/browser/panel-C\u00e1ch n\u1ea5u-768-text2.png",
+      "bytes": 123749,
+      "sha256": "7f8a228b774db221bc0bf954718ce47b6dc84711875eae697ef68658820ac920"
+    },
+    {
+      "path": "docs/ui-rebuild/round-14/evidence/browser/panel-Dinh d\u01b0\u1ee1ng-320-text2.png",
+      "bytes": 57703,
+      "sha256": "dad474f2b64450f694ca64733324912cf4eb5d3e31f96faf30eb421ab9342ab4"
+    },
+    {
+      "path": "docs/ui-rebuild/round-14/evidence/browser/panel-Dinh d\u01b0\u1ee1ng-768-text2.png",
+      "bytes": 123707,
+      "sha256": "0f4542432b1ea1228c139aea655d983695ca34335d522b82c00b2ab4b389ac60"
+    },
+    {
+      "path": "docs/ui-rebuild/round-14/evidence/browser/panel-Nguy\u00ean li\u1ec7u-320-text2.png",
+      "bytes": 57566,
+      "sha256": "c17ff72e1ca0ac7e230494785dc6613a30e42cb6bc55eea0327cb6b4db926452"
+    },
+    {
+      "path": "docs/ui-rebuild/round-14/evidence/browser/panel-Nguy\u00ean li\u1ec7u-768-text2.png",
+      "bytes": 123921,
+      "sha256": "3e53ccc941a8946866bc4c15966c96ad0e437b0c2c72a095643de47724c6b9da"
+    },
+    {
+      "path": "docs/ui-rebuild/round-14/evidence/failed/baseline-first/performance.json",
+      "bytes": 786,
+      "sha256": "bd4b45c83e4bd2f0509939bcf159fd9b460d2833b25876bd0b752d0696d8bb6f"
+    },
+    {
+      "path": "docs/ui-rebuild/round-14/evidence/failed/baseline-second/detail-390.png",
+      "bytes": 240883,
+      "sha256": "f064b86b65bdb044959bac389d940c7148b536d3097faf2248caabc730151101"
+    },
+    {
+      "path": "docs/ui-rebuild/round-14/evidence/failed/baseline-second/performance.json",
+      "bytes": 169294,
+      "sha256": "3bdb264969deb55c1f610527a29aebf2bc83665ca7e669522a16fe557680f372"
+    },
+    {
+      "path": "docs/ui-rebuild/round-14/evidence/failed/browser-final/checks.json",
+      "bytes": 226435,
+      "sha256": "d45a9503f5faf82b7586edad7a9e3d6dd576d1da5aeaee4889c29098f319a40a"
+    },
+    {
+      "path": "docs/ui-rebuild/round-14/evidence/failed/browser-final/detail-390.png",
+      "bytes": 240883,
+      "sha256": "0b8a5ab5209e9d1c89a834c2d5ad57cb71b7eeb6b63ec629d9c291584347cacb"
+    },
+    {
+      "path": "docs/ui-rebuild/round-14/evidence/failed/browser-final/home-normal-motion-390.png",
+      "bytes": 64926,
+      "sha256": "2d97359dfc8c1d5372d97451df30243a09c9071b0a72d707171b4ed9d16b8d00"
+    },
+    {
+      "path": "docs/ui-rebuild/round-14/evidence/failed/browser-first/checks.json",
+      "bytes": 220858,
+      "sha256": "f1ceb2d8f359c102548908c5619247c33f9ccd99196b9766f55a05cd3ef5f496"
+    },
+    {
+      "path": "docs/ui-rebuild/round-14/evidence/failed/browser-first/detail-390.png",
+      "bytes": 240883,
+      "sha256": "0b8a5ab5209e9d1c89a834c2d5ad57cb71b7eeb6b63ec629d9c291584347cacb"
+    },
+    {
+      "path": "docs/ui-rebuild/round-14/evidence/failed/legacy/checks.json",
+      "bytes": 151,
+      "sha256": "49c4591cc1ec5919db5600494164d93eb361277944e792793b597fd7f6f8c017"
+    },
+    {
+      "path": "docs/ui-rebuild/round-14/evidence/failed/legacy-recovered/checks.json",
+      "bytes": 4166,
+      "sha256": "d4c3e1ae0071eda1db561756f6ac09f26387c6d27656455d848460067e1f13de"
+    },
+    {
+      "path": "docs/ui-rebuild/round-14/evidence/failed/short-probe/checks.json",
+      "bytes": 46,
+      "sha256": "4ac4bedf632f5f587d13349707e20b8ffe42146f25b615c03d4a3070fd2ad35c"
+    },
+    {
+      "path": "docs/ui-rebuild/round-14/evidence/final-integrity.json",
+      "bytes": 95259,
+      "sha256": "78ba7c5069bb24b4d614428d442fd94a3252ae5400ef44b34dbe96dba0eefda0"
+    },
+    {
+      "path": "docs/ui-rebuild/round-14/evidence/finalize-integrity.py",
+      "bytes": 3616,
+      "sha256": "c33ff9bb7af1591d5714a5342d2a75600d6e1473a218838f0378dd94f6b2bc9a"
+    },
+    {
+      "path": "docs/ui-rebuild/round-14/evidence/legacy/checks.json",
+      "bytes": 7565,
+      "sha256": "e260f47a311ffd3b7dff28117a013789f19e7c125ec3074e692c62229b4cc314"
+    },
+    {
+      "path": "docs/ui-rebuild/round-14/evidence/legacy/delayed-no-preference.png",
+      "bytes": 20805,
+      "sha256": "cd683a2ffe80ba57a84510d9bbef04b75b778489f61b7f7b513a700db9237ddc"
+    },
+    {
+      "path": "docs/ui-rebuild/round-14/evidence/legacy/delayed-reduce.png",
+      "bytes": 20810,
+      "sha256": "dd31a3290873b077c96c13f12903d07d192c57821f3716a24fbb295e32117272"
+    },
+    {
+      "path": "docs/ui-rebuild/round-14/evidence/legacy/failed-no-preference.png",
+      "bytes": 20803,
+      "sha256": "58e5c37ffcd7dd40418b2a660e939fde1bc9ac151b65d0f79c7d33f66ea85fbc"
+    },
+    {
+      "path": "docs/ui-rebuild/round-14/evidence/legacy/failed-reduce.png",
+      "bytes": 20803,
+      "sha256": "58e5c37ffcd7dd40418b2a660e939fde1bc9ac151b65d0f79c7d33f66ea85fbc"
+    },
+    {
+      "path": "docs/ui-rebuild/round-14/evidence/log-receipts.json",
+      "bytes": 20860,
+      "sha256": "cf97561ff9f0f2cb3b002a64c5f9223d0decc3e00b0116b8c1cb1037fede5a21"
+    },
+    {
+      "path": "docs/ui-rebuild/round-14/evidence/logs/ui14-after-accepted.log",
+      "bytes": 1245,
+      "sha256": "f22d0f242de42011b40e31258955727c0603f681fd38aa0467fc9ac4a3d31072"
+    },
+    {
+      "path": "docs/ui-rebuild/round-14/evidence/logs/ui14-after-build.log",
+      "bytes": 7477,
+      "sha256": "507b32c9a7965c7b6d63e847a5891c92d9a0894a8326ae457a952880a19470ff"
+    },
+    {
+      "path": "docs/ui-rebuild/round-14/evidence/logs/ui14-after-preview.log",
+      "bytes": 42566,
+      "sha256": "c6224ff0dfc5735e4d78759dcf2980f2b97eb6ca1c2134f204f380e1fd307e11"
+    },
+    {
+      "path": "docs/ui-rebuild/round-14/evidence/logs/ui14-analysis.log",
+      "bytes": 182,
+      "sha256": "e4a116a1ed3b65520e9e0134c862a0857c85b064e4fb14b301261580b3c7eef2"
+    },
+    {
+      "path": "docs/ui-rebuild/round-14/evidence/logs/ui14-baseline-accepted.log",
+      "bytes": 1245,
+      "sha256": "e22325dd484c55d1edbda535506083b247effee7e5113bdab2b6d95fe847027b"
+    },
+    {
+      "path": "docs/ui-rebuild/round-14/evidence/logs/ui14-baseline-build.log",
+      "bytes": 7210,
+      "sha256": "29c21f281ba5e1f2e58dce57523fb383f38c7fa243b973b76b40a3d5d0dc680d"
+    },
+    {
+      "path": "docs/ui-rebuild/round-14/evidence/logs/ui14-baseline-first.log",
+      "bytes": 524,
+      "sha256": "d5122604e1d347748d24edde6c766114f9f2ed1e50b02f321415d89d0e32de8f"
+    },
+    {
+      "path": "docs/ui-rebuild/round-14/evidence/logs/ui14-baseline-preview-recovered.log",
+      "bytes": 10684,
+      "sha256": "828e610ed48aa12a9e1d066cc41b83eb4f8c9cfe07365f953f14d5129dcfa9ae"
+    },
+    {
+      "path": "docs/ui-rebuild/round-14/evidence/logs/ui14-baseline-preview.log",
+      "bytes": 277,
+      "sha256": "d39cfe88923f4dd0153b408add43fb26845582f54bb7956b9b33b16b23068a6f"
+    },
+    {
+      "path": "docs/ui-rebuild/round-14/evidence/logs/ui14-baseline-second.log",
+      "bytes": 481,
+      "sha256": "1234eb8e949e402092895f04e2cae3586a5991de03abe34405c6938a69541a5d"
+    },
+    {
+      "path": "docs/ui-rebuild/round-14/evidence/logs/ui14-bootstrap-format.log",
+      "bytes": 76,
+      "sha256": "1d533261834001e0f501597621f339cd56cf2a93e23e8b2bd3aa51bdedc6d319"
+    },
+    {
+      "path": "docs/ui-rebuild/round-14/evidence/logs/ui14-browser-final.log",
+      "bytes": 6538,
+      "sha256": "10c7783199d9abebc3dedc8720362d6d9574b8657af223cff910dd8d898076d4"
+    },
+    {
+      "path": "docs/ui-rebuild/round-14/evidence/logs/ui14-browser-first.log",
+      "bytes": 4153,
+      "sha256": "94eda66ba48ce27fc05cf12e6be5588014601923623f46270421d59efe1d4932"
+    },
+    {
+      "path": "docs/ui-rebuild/round-14/evidence/logs/ui14-browser-settled.log",
+      "bytes": 2488,
+      "sha256": "c12ebed9870bec5d9601757cb7915e1d0718b6ff4cf7fe7372e7ea0477eea208"
+    },
+    {
+      "path": "docs/ui-rebuild/round-14/evidence/logs/ui14-dependency-audit-stderr.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "docs/ui-rebuild/round-14/evidence/logs/ui14-dependency-audit.json",
+      "bytes": 66322,
+      "sha256": "d7584267e0f6037a4221ea3682d5ffc37ad7e04e491cebf5a994fa6adf4b19bb"
+    },
+    {
+      "path": "docs/ui-rebuild/round-14/evidence/logs/ui14-final-integrity.log",
+      "bytes": 127,
+      "sha256": "f4d4ddfd9abcbebe8a7f1babe9dc473fa661a420b6dcdc65e42487e99efdde02"
+    },
+    {
+      "path": "docs/ui-rebuild/round-14/evidence/logs/ui14-focused-first.log",
+      "bytes": 176812,
+      "sha256": "be2f2091dd047b97e13060764f60f6ec41a639bd9d2fd30d540d906432a616e6"
+    },
+    {
+      "path": "docs/ui-rebuild/round-14/evidence/logs/ui14-format-final.log",
+      "bytes": 66,
+      "sha256": "17aa973d3f004560237d9a95171210b0671deff23d61628eecf7322ff5938f20"
+    },
+    {
+      "path": "docs/ui-rebuild/round-14/evidence/logs/ui14-full-check-recovered.log",
+      "bytes": 505056,
+      "sha256": "8fc8bf74ae5c6a05f5c077adbdbd93401a7a7f126d271e4381e305f5bfe738cf"
+    },
+    {
+      "path": "docs/ui-rebuild/round-14/evidence/logs/ui14-full-check.log",
+      "bytes": 593,
+      "sha256": "f93fe613200bdcf3d87cef860858966837abd5fd6bf23cd5e55ce8a182e20f1c"
+    },
+    {
+      "path": "docs/ui-rebuild/round-14/evidence/logs/ui14-harness-lint.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "docs/ui-rebuild/round-14/evidence/logs/ui14-interface-guidelines.md",
+      "bytes": 8055,
+      "sha256": "d246b026f4f29b5823a9cc857f9edf3d2507002e055e32040cadeaf3b38e0234"
+    },
+    {
+      "path": "docs/ui-rebuild/round-14/evidence/logs/ui14-legacy-baseline-preview.log",
+      "bytes": 588,
+      "sha256": "267f6b404297cb4738a9d8a389eae668aea2a264c5b34fe1a7e605e8b13c1e7f"
+    },
+    {
+      "path": "docs/ui-rebuild/round-14/evidence/logs/ui14-legacy-final.log",
+      "bytes": 125,
+      "sha256": "5a69ec8a6c62c4d9b06092f68e2604bc04cc7e978b8da2124a4cd2d010f0ed3e"
+    },
+    {
+      "path": "docs/ui-rebuild/round-14/evidence/logs/ui14-legacy-first.log",
+      "bytes": 3467,
+      "sha256": "bbb7bb2c43d42a678221e891a2194a4dd802ab59470a6dbcf05785164b097e95"
+    },
+    {
+      "path": "docs/ui-rebuild/round-14/evidence/logs/ui14-legacy-preview.log",
+      "bytes": 713,
+      "sha256": "e0d5fd4083706f1ee87e4cfa300a90891b7dc88aa5f2ad67e5cf1ba5c8c759dc"
+    },
+    {
+      "path": "docs/ui-rebuild/round-14/evidence/logs/ui14-legacy-recovered.log",
+      "bytes": 503,
+      "sha256": "340f5a2a16b23188ab798f73723406f18cc4f2baf0eeda12d0ed7b957431e157"
+    },
+    {
+      "path": "docs/ui-rebuild/round-14/evidence/logs/ui14-lighthouse.log",
+      "bytes": 83,
+      "sha256": "a8b8ccb208ca932b960c0892173533424172f03d809679901cd9db11c79ef8f7"
+    },
+    {
+      "path": "docs/ui-rebuild/round-14/evidence/logs/ui14-metric-format.log",
+      "bytes": 40,
+      "sha256": "bbdab2e9fa061619d8ca6b0dd54abefab66010767e53b30b08eb15b3cd0bdb47"
+    },
+    {
+      "path": "docs/ui-rebuild/round-14/evidence/logs/ui14-motion-baseline.log",
+      "bytes": 55,
+      "sha256": "8d57c0fe5714479b40b99bfa703c127f7b904f01f6d92a5fa45b75cb175c3b51"
+    },
+    {
+      "path": "docs/ui-rebuild/round-14/evidence/logs/ui14-performance-format.log",
+      "bytes": 40,
+      "sha256": "0c28ec4b7a167d37d3f2ce750ccd3153a8643312788a485a7c2788351372fe69"
+    },
+    {
+      "path": "docs/ui-rebuild/round-14/evidence/logs/ui14-preview-format.log",
+      "bytes": 36,
+      "sha256": "826d206cb5e6912ef0fb9a5c5c9a86b423d2142755a479c215e9012c4782b39e"
+    },
+    {
+      "path": "docs/ui-rebuild/round-14/evidence/logs/ui14-react-audit.log",
+      "bytes": 888,
+      "sha256": "7f3473c5265683418b3f2786244154c1a1609e51f9e582822f5b2076208d2b67"
+    },
+    {
+      "path": "docs/ui-rebuild/round-14/evidence/logs/ui14-runtime-format.log",
+      "bytes": 175,
+      "sha256": "fcb29294791ffce8a87c4a5c0308961e3c9d272f27cadd15b24dc28e1042b25f"
+    },
+    {
+      "path": "docs/ui-rebuild/round-14/evidence/logs/ui14-short-probe.log",
+      "bytes": 1122,
+      "sha256": "492ba2a1e3910b5a730e597d7ff419d1457bb6dffe68cf43b193c91eee8ad299"
+    },
+    {
+      "path": "docs/ui-rebuild/round-14/evidence/logs/ui14-short-recovered.log",
+      "bytes": 98,
+      "sha256": "015fda2e81725acb9e94e7740119f3fd76b662be941c7ae5fc05b2fa5df24e19"
+    },
+    {
+      "path": "docs/ui-rebuild/round-14/evidence/logs/ui14-targeted-final.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "docs/ui-rebuild/round-14/evidence/logs/ui14-targeted-lint.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "docs/ui-rebuild/round-14/evidence/logs/ui14-ux-audit.log",
+      "bytes": 2866,
+      "sha256": "4d233ae4eddca324e63156c1be95bfd4946fbf0210cad8445d83e8976cb12bac"
+    },
+    {
+      "path": "docs/ui-rebuild/round-14/evidence/logs/ui14-ux-web-audit.log",
+      "bytes": 2747,
+      "sha256": "dddda8af30cea13185579a0909430a9ba6fa4ef7f8e775cfd5403bd8fad840a3"
+    },
+    {
+      "path": "docs/ui-rebuild/round-14/evidence/motion-baseline/checks.json",
+      "bytes": 3469,
+      "sha256": "3b44ebe1891354857cdae25d9ccf2708d7cdc524dda96b6de3dd9aba2159441b"
+    },
+    {
+      "path": "docs/ui-rebuild/round-14/evidence/protected-proof.json",
+      "bytes": 597,
+      "sha256": "8bf74c125c83cafa28cfcdfa4ca26e1f17f8549824d0ba5203873a2cd1d685a1"
+    },
+    {
+      "path": "docs/ui-rebuild/round-14/evidence/short/C\u00e1ch n\u1ea5u.png",
+      "bytes": 20650,
+      "sha256": "5f6d60d2e573d4e308852f42086655ef672a7d0e02cbd4f53358c53442bfb35c"
+    },
+    {
+      "path": "docs/ui-rebuild/round-14/evidence/short/Dinh d\u01b0\u1ee1ng.png",
+      "bytes": 20787,
+      "sha256": "d45990dacfc7c0c04ec232ebeae39e179bd5bf78fa97580bd85d11ad73407afb"
+    },
+    {
+      "path": "docs/ui-rebuild/round-14/evidence/short/Nguy\u00ean li\u1ec7u.png",
+      "bytes": 19887,
+      "sha256": "0fc783ce59acabc64aab8ca1a980b1910a6d252b7517e642b75178b79568dae9"
+    },
+    {
+      "path": "docs/ui-rebuild/round-14/evidence/short/checks.json",
+      "bytes": 699,
+      "sha256": "3377192af6eabc933d5af7ceaa3a58f63903f049d1b9e95100b2aae07826fcb3"
+    },
+    {
+      "path": "docs/ui-rebuild/round-14/evidence/short/detail-full-page.png",
+      "bytes": 257756,
+      "sha256": "8dd0350d0e0eb6ece907d2e76b6b5f78f5f99526ae41b6ab0fc0625813dd9880"
+    },
+    {
+      "path": "docs/ui-rebuild/round-14/evidence/short-probe.mjs",
+      "bytes": 3074,
+      "sha256": "066fad523c7495c82b655ee05a075e0b49c5b0e02e3cbd15349509515ecc4a25"
+    },
+    {
+      "path": "docs/ui-rebuild/round-14/evidence/source-freeze.json",
+      "bytes": 69646,
+      "sha256": "4ddb870e0f47ef75a6a6c9031ad97d8b14394a34602cf62b081b42078d9d0946"
+    },
+    {
+      "path": "docs/ui-rebuild/round-14/evidence/verify-git-objects.py",
+      "bytes": 5670,
+      "sha256": "75aa487ccad6676c2f395c82a9ecfab7c88a04e88c406df3fab8a0c667b888ff"
+    }
+  ],
+  "excluded": "Mutable narrative documentation, EVIDENCE_INDEX, this manifest itself and later GIT_VERIFICATION receipts. Runtime/tooling source is frozen; every final immutable payload is included."
+}

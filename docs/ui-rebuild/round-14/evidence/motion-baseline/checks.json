@@ -1,0 +1,216 @@
+{
+  "base": "http://127.0.0.1:5219",
+  "browser": "153.0.8010.12",
+  "checks": [
+    {
+      "reducedMotion": "no-preference",
+      "frames": [
+        [
+          "none",
+          "translate3d(-189px, 0px, 0px)"
+        ],
+        [
+          "none",
+          "translate3d(-185.246px, 0px, 0px)"
+        ],
+        [
+          "none",
+          "translate3d(-118.018px, 0px, 0px)"
+        ],
+        [
+          "none",
+          "translate3d(-64.977px, 0px, 0px)"
+        ],
+        [
+          "none",
+          "translate3d(-38.6459px, 0px, 0px)"
+        ],
+        [
+          "none",
+          "translate3d(-21.4508px, 0px, 0px)"
+        ],
+        [
+          "none",
+          "translate3d(-10.8059px, 0px, 0px)"
+        ],
+        [
+          "none",
+          "translate3d(-4.3708px, 0px, 0px)"
+        ],
+        [
+          "none",
+          "translate3d(-1.12183px, 0px, 0px)"
+        ],
+        [
+          "none",
+          "translate3d(-0.0121625px, 0px, 0px)"
+        ],
+        [
+          "none",
+          "none"
+        ],
+        [
+          "none",
+          "none"
+        ],
+        [
+          "none",
+          "none"
+        ],
+        [
+          "none",
+          "none"
+        ],
+        [
+          "none",
+          "none"
+        ],
+        [
+          "none",
+          "none"
+        ],
+        [
+          "none",
+          "none"
+        ],
+        [
+          "none",
+          "none"
+        ],
+        [
+          "none",
+          "none"
+        ],
+        [
+          "none",
+          "none"
+        ],
+        [
+          "none",
+          "none"
+        ],
+        [
+          "none",
+          "none"
+        ],
+        [
+          "none",
+          "none"
+        ],
+        [
+          "none",
+          "none"
+        ]
+      ],
+      "firstFrameTransforms": [
+        "translate3d(-189px, 0px, 0px)"
+      ],
+      "settledBySecondFrame": false
+    },
+    {
+      "reducedMotion": "reduce",
+      "frames": [
+        [
+          "none",
+          "translate3d(-189px, 0px, 0px)"
+        ],
+        [
+          "none",
+          "none"
+        ],
+        [
+          "none",
+          "none"
+        ],
+        [
+          "none",
+          "none"
+        ],
+        [
+          "none",
+          "none"
+        ],
+        [
+          "none",
+          "none"
+        ],
+        [
+          "none",
+          "none"
+        ],
+        [
+          "none",
+          "none"
+        ],
+        [
+          "none",
+          "none"
+        ],
+        [
+          "none",
+          "none"
+        ],
+        [
+          "none",
+          "none"
+        ],
+        [
+          "none",
+          "none"
+        ],
+        [
+          "none",
+          "none"
+        ],
+        [
+          "none",
+          "none"
+        ],
+        [
+          "none",
+          "none"
+        ],
+        [
+          "none",
+          "none"
+        ],
+        [
+          "none",
+          "none"
+        ],
+        [
+          "none",
+          "none"
+        ],
+        [
+          "none",
+          "none"
+        ],
+        [
+          "none",
+          "none"
+        ],
+        [
+          "none",
+          "none"
+        ],
+        [
+          "none",
+          "none"
+        ],
+        [
+          "none",
+          "none"
+        ],
+        [
+          "none",
+          "none"
+        ]
+      ],
+      "firstFrameTransforms": [
+        "translate3d(-189px, 0px, 0px)"
+      ],
+      "settledBySecondFrame": true
+    }
+  ]
+}

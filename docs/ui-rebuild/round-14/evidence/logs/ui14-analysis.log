@@ -1,0 +1,1 @@
+PASS reproducible UI14 analysis: 18 samples per stage, kitchen engine absent, warm JS zero; raw entry 463601 -> 336308, three cold routes save 41650/41650/41652 transferred JS bytes

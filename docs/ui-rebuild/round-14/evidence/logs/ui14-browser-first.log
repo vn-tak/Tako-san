@@ -1,0 +1,97 @@
+home-320: roots5 overlap0 axe0 width320
+discovery-320: roots5 overlap0 axe0 width320
+detail-320: roots5 overlap0 axe0 width320
+home-360: roots5 overlap0 axe0 width360
+discovery-360: roots5 overlap0 axe0 width360
+detail-360: roots5 overlap0 axe0 width360
+home-390: roots5 overlap0 axe0 width390
+discovery-390: roots5 overlap0 axe0 width390
+detail-390: roots5 overlap0 axe0 width390
+home-430: roots5 overlap0 axe0 width430
+discovery-430: roots5 overlap0 axe0 width430
+detail-430: roots5 overlap0 axe0 width430
+home-768: roots7 overlap0 axe0 width768
+discovery-768: roots7 overlap0 axe0 width768
+detail-768: roots7 overlap0 axe0 width768
+home-1024: roots7 overlap0 axe0 width1024
+discovery-1024: roots7 overlap0 axe0 width1024
+detail-1024: roots7 overlap0 axe0 width1024
+home-1440: roots7 overlap0 axe0 width1440
+discovery-1440: roots7 overlap0 axe0 width1440
+detail-1440: roots7 overlap0 axe0 width1440
+home-320-844-text2: roots5 overlap0 axe0 width320
+discovery-320-844-text2: roots5 overlap0 axe0 width320
+detail-320-844-text2: roots5 overlap0 axe0 width320
+home-768-844-text2: roots7 overlap0 axe0 width768
+discovery-768-844-text2: roots7 overlap0 axe0 width768
+detail-768-844-text2: roots7 overlap0 axe0 width768
+home-390-420: roots5 overlap0 axe0 width390
+discovery-390-420: roots5 overlap0 axe0 width390
+detail-390-420: roots5 overlap0 axe0 width390
+home-768-420: roots7 overlap0 axe0 width768
+discovery-768-420: roots7 overlap0 axe0 width768
+detail-768-420: roots7 overlap0 axe0 width768
+home-320-420-text2: roots5 overlap0 axe0 width320
+discovery-320-420-text2: roots5 overlap0 axe0 width320
+detail-320-420-text2: roots5 overlap0 axe0 width320
+panel-Cách nấu-320-text2: roots5 overlap0 axe0 width320
+panel-Nguyên liệu-320-text2: roots5 overlap0 axe0 width320
+panel-Dinh dưỡng-320-text2: roots5 overlap0 axe0 width320
+panel-Cách nấu-768-text2: roots7 overlap0 axe0 width768
+panel-Nguyên liệu-768-text2: roots7 overlap0 axe0 width768
+panel-Dinh dưỡng-768-text2: roots7 overlap0 axe0 width768
+family--fridge: roots5 overlap0 axe0 width390
+family--week: roots5 overlap0 axe0 width390
+family--shopping: roots5 overlap0 axe0 width390
+family--me: roots5 overlap0 axe0 width390
+family--settings-app: roots5 overlap0 axe0 width390
+node:internal/modules/run_main:107
+    triggerUncaughtException(
+    ^
+
+ExpectError: expect(locator).toHaveCount(expected) failed
+
+Locator:  locator('.discovery-grid > a')
+Expected: 1
+Received: 0
+Timeout:  5000ms
+
+Call log:
+  - Expect "toHaveCount" locator('.discovery-grid > a') with timeout 5000ms
+  - waiting for locator('.discovery-grid > a')
+    14 × locator resolved to 0 elements
+       - unexpected value "0"
+
+    at captureRawStack (/Users/tunbee27/Documents/Tako-san-ui-rebuild/node_modules/.pnpm/playwright-core@1.63.0/node_modules/playwright-core/lib/coreBundle.js:8588:17)
+    at callMatcherAsStep (/Users/tunbee27/Documents/Tako-san-ui-rebuild/node_modules/.pnpm/playwright@1.63.0/node_modules/playwright/lib/matchers/expect.js:13310:57)
+    at Object.toHaveCount (/Users/tunbee27/Documents/Tako-san-ui-rebuild/node_modules/.pnpm/playwright@1.63.0/node_modules/playwright/lib/matchers/expect.js:13302:23)
+    at /Users/tunbee27/Documents/Tako-san-ui-rebuild/scripts/ui14-browser-check.mjs:380:53 {
+  matcherResult: {
+    actual: 0,
+    expected: 1,
+    message: 'expect(locator).toHaveCount(expected) failed\n' +
+      '\n' +
+      "Locator:  locator('.discovery-grid > a')\n" +
+      'Expected: 1\n' +
+      'Received: 0\n' +
+      'Timeout:  5000ms\n' +
+      '\n' +
+      'Call log:\n' +
+      `  - Expect "toHaveCount" locator('.discovery-grid > a') with timeout 5000ms\n` +
+      "  - waiting for locator('.discovery-grid > a')\n" +
+      '    14 × locator resolved to 0 elements\n' +
+      '       - unexpected value "0"\n',
+    name: 'toHaveCount',
+    pass: false,
+    log: [
+      `  - Expect "toHaveCount" locator('.discovery-grid > a') with timeout 5000ms`,
+      "  - waiting for locator('.discovery-grid > a')",
+      '    14 × locator resolved to 0 elements',
+      '       - unexpected value "0"'
+    ],
+    timeout: 5000,
+    ariaSnapshot: undefined
+  }
+}
+
+Node.js v24.16.0

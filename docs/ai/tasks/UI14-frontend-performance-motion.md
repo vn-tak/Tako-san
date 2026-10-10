@@ -1,6 +1,6 @@
 # UI14 - Frontend delivery and motion audit
 
-Status: READY_FOR_LOCAL_AUDIT. No UI14 runtime in UI13.
+Status: UI14_LOCAL_VERIFIED_REVIEW_REQUIRED. Bounded runtime/tooling complete locally.
 Previous UI13 implementation: `021220bbcb883360ba79b8101ff9586a67ebc4ae`.
 Canonical vn-tak/Tako-san, Tako-san-ui-rebuild, codex/ui-rebuild-foundation.
 Read current state, UI13 receipt, UI12 recipe/shell contracts and UI07 brand kit.
@@ -37,3 +37,15 @@ App routes/guards/navigation authority must retain exact behavior. No remote DB/
 media write, credentials, external messages, push/PR/merge/deploy. Actual photo
 variants require documented permission and a distinct promotion packet. Device/
 Safari/nativezoom/keyboard/screenreader/usability/hosted release remain separate.
+
+## Actual local result (2026-10-11)
+
+ADR-057 before runtime; provider import split + deferred legacy indicator with
+static fallback/unmount fence. Entry raw -27.5%, three cold route JS -17.3–18.4%.
+18 samples per stage; 288 files / 6,742 tests PASS; 50 settled snapshots / 5 journeys,
+4 actual legacy journeys, 2 baseline motion probes and short-focus supplemental.
+396 frozen records; protected/public unchanged, App import only, existing helper
+source exact. Four ports closed. Fresh audit failures/41 advisories and Lighthouse
+unavailability retained. Mid-fade contrast and cramped short-screen reading space
+remain explicit. Implementation `IMPLEMENTATION_PENDING_GIT_VERIFICATION`;
+sequential receipt and docs checkpoint follow. Next UI15 ready only.

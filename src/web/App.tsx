@@ -8,7 +8,7 @@ import { SystemStatusPage } from './components/common/SystemStatusPage';
 import { useAuthStore } from './stores/useAuthStore';
 import { AppLayout } from './components/layout/AppLayout';
 import { isMealPlannerEnabled } from './features/planner/feature';
-import { MotionProvider } from './design-system/motion';
+import { MotionProvider } from './design-system/motion-provider';
 import { VerifyRouteLifecycle } from './features/auth/VerifyRouteLifecycle';
 
 const PlannerPage = lazy(() =>

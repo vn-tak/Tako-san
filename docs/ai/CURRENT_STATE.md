@@ -1,3 +1,68 @@
+# UI14 - Hiệu năng frontend và motion Tako-san đã kiểm chứng local - 2026-10-11 JST
+
+**Task/status:** `UI14_LOCAL_VERIFIED_REVIEW_REQUIRED`, packet UI14, ADR-057.
+Một tối ưu delivery hoàn tất; toàn sản phẩm/brand/device/hosted chưa được chứng nhận.
+
+**Repository/source:** Canonical `vn-tak/Tako-san`, checkout
+`/Users/tunbee27/Documents/Tako-san-ui-rebuild`, branch `codex/ui-rebuild-foundation`.
+Base `f3a09f2a7beb548fbd4bc9ef8ae932a092dd3827`.
+Implementation: `IMPLEMENTATION_PENDING_GIT_VERIFICATION`.
+396 source/test/script/config/generated/public records frozen và khớp sau full gates.
+App giữ nguyên bytes ngoài import provider; helpers cũ exact; protected diff rỗng.
+257 public originals nguyên; build256 exact + một SW build-ID transform có sẵn.
+Git-object verification theo sau implementation; docs checkpoint không ghi hash chính nó.
+
+**Actual changes:** Tách MotionConfig provider, vẫn reducedMotion=user/re-export cũ;
+legacy indicator dynamic import chia sẻ promise, highlight tĩnh ngay và khi lỗi,
+fence khi unmount. Loaded layoutId/classes/transition0.14s exact. Kitchen markup,
+UI07 brand/font/assets, routes/guards/API/callback giữ. Production-build harness với
+real Worker/synthetic SQLite; fixture legacy riêng không vào payment/auth app routes.
+
+**Measured outcome:** Three cold/warm pairs per route, Chromium153/390×844/CPU4x/
+60ms/200KBps, hai flagsfalse/timestamp pin. Entry463601→336308 raw; gzip6
+129276→87619. Cold JS transfer240255→198605 Home,226429→184779 discovery,
+234569→192917 detail (17.3–18.4% reduction). Cold median ready3546→3330,
+2848→2625,4029→3813ms; warm gần như nguyên, JS0. SPA single sample không chứng
+minh nhanh hơn. Cumulative shift Home~0.01765 trước/sau. Inventory JSON bằng nhau,
+zero measured domain writes/external/pageerrors; bootstrap cookie/preferences tách rõ.
+Local gzip/cache/request serialization/external HTML exclusion khác hosted behavior;
+không gọi field CWV/INP. Fonts/assets/offline catalog vẫn bottleneck, protected.
+
+**Verification:** PASS exit0,288files/6742tests, Vitest370.67s; typecheck/full lint/
+local migration/Vite3.74s/WorkerTS PASS; remote schema/Week gates skipped.
+Focused3files/56tests/3.17s,5new cases; full reruns after test typing fix.
+Final browser50settled snapshots/5journeys: sevenwidths320..1440,textx2 at320/768,
+short390/768×420,combined320×420x2,3panels textx2,5representative families, native
+keyboard/filter/card/Back/reset; applicableaxe/overflow/brokenimages/navoverlap/
+recipeclipping/pageerrors0. Four actual legacy pending/failure×normal/reduced
+journeys,2baseline frameprobes; short supplemental3tabs focus above237.375px nav.
+Final targeted lint/Prettier/freeze/protected/public/ports PASS.41raw log/data
+receipts/4exact raw entry-map gzip archives. Git receipt follows commit.
+
+**Failures/recovery:** APIRequestContext401→actual verified browser-cookie setup;
+wrong slug/selector/search corrected fromrepo; overwritten SPA timing separated;
+new test append overload→appendChild; legacy ambiguous selector corrected; zero-frame
+reduced assertion compared with pinned baseline (same first-frame projection).
+Axe mid-fadecontrast failure retained; stable screenshots wait Animation.finished.
+Short focus first raced ResizeObserver; after measured height focusPASS. Lighthouse
+unavailable. GenericUX wholefolder167/41issues/1181warnings/90checks FAIL (artifact
+contamination), scopedweb108/23/734/54FAIL. Fresh dependency41advisories:
+4low/19moderate/16high/2critical, lockfile unchanged. No whole-repoUXPASS.
+
+**Database/operational state:** Only synthetic local/in-memory SQLite and local
+migration tests. Owned previews stopped,5216/5217/5218/5219closed. No backend/
+packages/schema/migrations/services/stores/public/dependency/payment/authprotocol/
+productionconfig/remoteDB/R2/media/push/PR/merge/deploy. UI13 photo rights/owner
+review still open; no promotion. Checkout Frigo cũ không được sửa.
+
+**Next action:** `docs/ai/tasks/UI15-short-viewport-motion-readability.md`, READY
+only. Measure/rebuild short-screen reading space and primary fade readability,
+ADR-058 before bounded presentation changes. UI15 runtime chưa bắt đầu. Large
+catalog delivery/hostedcache/device/Safari/nativezoom/screenreader/virtualkeyboard/
+usability/ownerbrand/licensed photos remain distinct. See round-14 reports/receipt.
+
+---
+
 # UI13 - Bộ duyệt ảnh Tako-san đã kiểm chứng local - 2026-10-11 JST
 
 **Task/status:** `UI13_LOCAL_VERIFIED_REVIEW_REQUIRED`, packet UI13, ADR-056.

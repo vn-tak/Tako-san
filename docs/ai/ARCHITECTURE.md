@@ -1,3 +1,25 @@
+# UI14 optional navigation motion delivery (ADR-057, 2026-10-11)
+
+MotionProvider now lives in a lightweight module with the exact user reduced-motion
+policy. Existing helpers re-export it and keep their source. App.tsx changes only
+that import; provider ancestry, route/guard authority and flags are unchanged.
+
+Legacy active indicator defers its engine with a shared promise. Static decoration
+is immediate and remains on rejection; a document reload can retry, a component
+remount after rejection retains fallback. Effect cleanup fences abandoned receipts.
+Loaded layoutId/classes/transition are original. Kitchen navigation stays static;
+its production entry no longer requests the full motion graph. Other routes can
+load their own motion features as before. No services/stores/asset/config change.
+
+Local production-build/CDP and isolated actual component fixtures are evidence
+tooling, not new app routes. Three cold/warm pairs per route reduce transferred JS
+17.3–18.4%; 288files/6742tests and 50settled snapshots pass. UI14 reports preserve
+local/hosted differences, mid-fade contrast and short-screen reading-space limits.
+Implementation `IMPLEMENTATION_PENDING_GIT_VERIFICATION`; sequential receipt follows.
+UI15 audits short-screen/motion readability only; no UI15 runtime yet.
+
+---
+
 # UI13 standalone local media review (ADR-056, 2026-10-11)
 
 A deterministic Node/Vite SSR read-only generator pins three UI12 inputs with

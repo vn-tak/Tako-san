@@ -1,0 +1,7 @@
+1 home cold ready 3622 ms; JS transfer 240255 bytes; CLS 0.0177
+1 home warm ready 1371 ms; JS transfer 0 bytes; CLS 0.0176
+1 discovery cold ready 2885 ms; JS transfer 226429 bytes; CLS 0.0000
+1 discovery warm ready 603 ms; JS transfer 0 bytes; CLS 0.0000
+1 detail cold ready 4023 ms; JS transfer 234569 bytes; CLS 0.0000
+1 detail warm ready 2017 ms; JS transfer 0 bytes; CLS 0.0000
+PASS local production-build performance journeys; inventory unchanged; measured domain writes zero

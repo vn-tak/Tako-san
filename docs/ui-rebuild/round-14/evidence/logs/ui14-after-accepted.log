@@ -1,0 +1,19 @@
+1 home cold ready 3340 ms; JS transfer 198605 bytes; CLS 0.0177
+1 home warm ready 1340 ms; JS transfer 0 bytes; CLS 0.0176
+1 discovery cold ready 2625 ms; JS transfer 184779 bytes; CLS 0.0000
+1 discovery warm ready 597 ms; JS transfer 0 bytes; CLS 0.0000
+1 detail cold ready 3813 ms; JS transfer 192917 bytes; CLS 0.0000
+1 detail warm ready 2000 ms; JS transfer 0 bytes; CLS 0.0000
+2 home cold ready 3306 ms; JS transfer 198605 bytes; CLS 0.0177
+2 home warm ready 1336 ms; JS transfer 0 bytes; CLS 0.0176
+2 discovery cold ready 2720 ms; JS transfer 184779 bytes; CLS 0.0000
+2 discovery warm ready 600 ms; JS transfer 0 bytes; CLS 0.0000
+2 detail cold ready 3831 ms; JS transfer 192917 bytes; CLS 0.0000
+2 detail warm ready 1996 ms; JS transfer 0 bytes; CLS 0.0000
+3 home cold ready 3330 ms; JS transfer 198605 bytes; CLS 0.0177
+3 home warm ready 1332 ms; JS transfer 0 bytes; CLS 0.0176
+3 discovery cold ready 2614 ms; JS transfer 184779 bytes; CLS 0.0000
+3 discovery warm ready 600 ms; JS transfer 0 bytes; CLS 0.0000
+3 detail cold ready 3813 ms; JS transfer 192917 bytes; CLS 0.0000
+3 detail warm ready 2015 ms; JS transfer 0 bytes; CLS 0.0000
+PASS local production-build performance journeys; inventory unchanged; measured domain writes zero

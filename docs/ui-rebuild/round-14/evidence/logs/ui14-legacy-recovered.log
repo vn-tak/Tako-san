@@ -1,0 +1,22 @@
+node:internal/modules/run_main:107
+    triggerUncaughtException(
+    ^
+
+AssertionError [ERR_ASSERTION]: Reduced motion must suppress layout transforms
++ actual - expected
+
++ [
++   'translate3d(-189px, 0px, 0px)'
++ ]
+- []
+
+    at file:///Users/tunbee27/Documents/Tako-san-ui-rebuild/scripts/ui14-legacy-check.mjs:77:16 {
+  generatedMessage: false,
+  code: 'ERR_ASSERTION',
+  actual: [ 'translate3d(-189px, 0px, 0px)' ],
+  expected: [],
+  operator: 'deepStrictEqual',
+  diff: 'simple'
+}
+
+Node.js v24.16.0

@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { clsx } from 'clsx';
-import { motion } from 'motion/react';
+import { DeferredNavIndicator } from './deferred-nav-indicator';
 import { isMealPlannerEnabled } from '../features/planner/feature';
 import { TakosanIcon, type TakosanIconName } from '../components/common/TakosanIcon';
 import { TAKOSAN_BRAND } from '../lib/takosan-brand';
@@ -55,12 +55,7 @@ const NavLinkContent: React.FC<{ item: NavItem; active: boolean; withLabel: bool
       )}
     >
       {active && (
-        <motion.span
-          layoutId={indicatorId}
-          aria-hidden="true"
-          className="absolute inset-0 rounded-card bg-semantic-success-soft"
-          transition={{ duration: 0.14, ease: [0.2, 0, 0, 1] }}
-        />
+        <DeferredNavIndicator indicatorId={indicatorId} />
       )}
       <TakosanIcon name={item.icon} className={clsx('relative w-6 h-6', active && 'text-semantic-action-primary')} strokeWidth={active ? 2.2 : 1.8} />
     </span>

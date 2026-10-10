@@ -1,0 +1,51 @@
+home-320: roots5 overlap0 axe0 width320
+discovery-320: roots5 overlap0 axe0 width320
+detail-320: roots5 overlap0 axe0 width320
+home-360: roots5 overlap0 axe0 width360
+discovery-360: roots5 overlap0 axe0 width360
+detail-360: roots5 overlap0 axe0 width360
+home-390: roots5 overlap0 axe0 width390
+discovery-390: roots5 overlap0 axe0 width390
+detail-390: roots5 overlap0 axe0 width390
+home-430: roots5 overlap0 axe0 width430
+discovery-430: roots5 overlap0 axe0 width430
+detail-430: roots5 overlap0 axe0 width430
+home-768: roots7 overlap0 axe0 width768
+discovery-768: roots7 overlap0 axe0 width768
+detail-768: roots7 overlap0 axe0 width768
+home-1024: roots7 overlap0 axe0 width1024
+discovery-1024: roots7 overlap0 axe0 width1024
+detail-1024: roots7 overlap0 axe0 width1024
+home-1440: roots7 overlap0 axe0 width1440
+discovery-1440: roots7 overlap0 axe0 width1440
+detail-1440: roots7 overlap0 axe0 width1440
+home-320-844-text2: roots5 overlap0 axe0 width320
+discovery-320-844-text2: roots5 overlap0 axe0 width320
+detail-320-844-text2: roots5 overlap0 axe0 width320
+home-768-844-text2: roots7 overlap0 axe0 width768
+discovery-768-844-text2: roots7 overlap0 axe0 width768
+detail-768-844-text2: roots7 overlap0 axe0 width768
+home-390-420: roots5 overlap0 axe0 width390
+discovery-390-420: roots5 overlap0 axe0 width390
+detail-390-420: roots5 overlap0 axe0 width390
+home-768-420: roots7 overlap0 axe0 width768
+discovery-768-420: roots7 overlap0 axe0 width768
+detail-768-420: roots7 overlap0 axe0 width768
+home-320-420-text2: roots5 overlap0 axe0 width320
+discovery-320-420-text2: roots5 overlap0 axe0 width320
+detail-320-420-text2: roots5 overlap0 axe0 width320
+panel-Cách nấu-320-text2: roots5 overlap0 axe0 width320
+panel-Nguyên liệu-320-text2: roots5 overlap0 axe0 width320
+panel-Dinh dưỡng-320-text2: roots5 overlap0 axe0 width320
+panel-Cách nấu-768-text2: roots7 overlap0 axe0 width768
+panel-Nguyên liệu-768-text2: roots7 overlap0 axe0 width768
+panel-Dinh dưỡng-768-text2: roots7 overlap0 axe0 width768
+family--fridge: roots5 overlap0 axe0 width390
+family--week: roots5 overlap0 axe0 width390
+family--shopping: roots5 overlap0 axe0 width390
+family--me: roots5 overlap0 axe0 width390
+family--settings-app: roots5 overlap0 axe0 width390
+home-normal-motion-390: roots5 overlap0 axe0 width390
+discovery-normal-motion-390: roots5 overlap0 axe0 width390
+detail-normal-motion-390: roots5 overlap0 axe0 width390
+PASS UI14 50 snapshots / 5 journey checks; read-only inventory unchanged

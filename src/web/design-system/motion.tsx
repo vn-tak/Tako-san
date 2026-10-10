@@ -1,6 +1,5 @@
 import React from 'react';
 import {
-  MotionConfig,
   motion,
   AnimatePresence,
   type HTMLMotionProps,
@@ -22,10 +21,7 @@ export const MOTION_TOKENS = {
   spring: { soft: { stiffness: 280, damping: 28, mass: 0.9 }, press: { stiffness: 500, damping: 32, mass: 0.6 } },
 } as const;
 
-/** Honors prefers-reduced-motion app-wide (motion/reduced-motion.md). */
-export const MotionProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => (
-  <MotionConfig reducedMotion="user">{children}</MotionConfig>
-);
+export { MotionProvider } from './motion-provider';
 
 /** Standard route transition: fade + 8px rise; shell stays stable. */
 export const PageTransition: React.FC<HTMLMotionProps<'div'>> = ({ children, ...props }) => (

@@ -1,0 +1,2335 @@
+{
+  "verifiedUTC": "2026-10-10T21:57:37.380972+00:00",
+  "base": "f3a09f2a7beb548fbd4bc9ef8ae932a092dd3827",
+  "sourceRecordsVerified": 396,
+  "publicOriginalsVerified": 257,
+  "publicBuildByteIdentical": 256,
+  "publicBuildExpectedTransform": 1,
+  "protectedDiffEmpty": true,
+  "appOnlyProviderImportChanged": true,
+  "existingMotionHelpersExact": true,
+  "navigationExceptIndicatorEquivalent": true,
+  "loadedIndicatorJSXEquivalent": true,
+  "ownedPreviewStopped": true,
+  "ownedPortsClosed": {
+    "5216": true,
+    "5217": true,
+    "5218": true,
+    "5219": true
+  },
+  "public": [
+    {
+      "path": "public/_headers",
+      "sourceBytes": 1343,
+      "sourceSha256": "be8fb26bff871f30e29b8d6aa9fe2551c6d322d7140afd3e1fd202322ac6a880",
+      "buildBytes": 1343,
+      "buildSha256": "be8fb26bff871f30e29b8d6aa9fe2551c6d322d7140afd3e1fd202322ac6a880",
+      "byteIdentical": true,
+      "expectedTransform": null
+    },
+    {
+      "path": "public/assets/frigo-app-icon.jpg",
+      "sourceBytes": 315121,
+      "sourceSha256": "ee5aa8deb52480766d37e8914271e27583e775b6c331cf4872e413983bf49d0e",
+      "buildBytes": 315121,
+      "buildSha256": "ee5aa8deb52480766d37e8914271e27583e775b6c331cf4872e413983bf49d0e",
+      "byteIdentical": true,
+      "expectedTransform": null
+    },
+    {
+      "path": "public/assets/frigo-logo.svg",
+      "sourceBytes": 1239,
+      "sourceSha256": "4f4679d46b2d9c0780b5a896e85898dbaccde833aedf80fe06ef0bf0cecf5b74",
+      "buildBytes": 1239,
+      "buildSha256": "4f4679d46b2d9c0780b5a896e85898dbaccde833aedf80fe06ef0bf0cecf5b74",
+      "byteIdentical": true,
+      "expectedTransform": null
+    },
+    {
+      "path": "public/assets/hero-banner.jpg",
+      "sourceBytes": 765259,
+      "sourceSha256": "de27b2335f085c644a8b327c6cd295a65188a85b448d4bd817f29f7e0f505f55",
+      "buildBytes": 765259,
+      "buildSha256": "de27b2335f085c644a8b327c6cd295a65188a85b448d4bd817f29f7e0f505f55",
+      "byteIdentical": true,
+      "expectedTransform": null
+    },
+    {
+      "path": "public/assets/scan-mockup.jpg",
+      "sourceBytes": 688347,
+      "sourceSha256": "ab41fc18f69dc7421fd2eb00c477f6d700c4a648cebf16767df7d362be9419b6",
+      "buildBytes": 688347,
+      "buildSha256": "ab41fc18f69dc7421fd2eb00c477f6d700c4a648cebf16767df7d362be9419b6",
+      "byteIdentical": true,
+      "expectedTransform": null
+    },
+    {
+      "path": "public/frigo/app-icons/icon-128.png",
+      "sourceBytes": 12596,
+      "sourceSha256": "66363a9e18d660f42059b5582058abdf23917a9ddf20db675d199ae02a6c1343",
+      "buildBytes": 12596,
+      "buildSha256": "66363a9e18d660f42059b5582058abdf23917a9ddf20db675d199ae02a6c1343",
+      "byteIdentical": true,
+      "expectedTransform": null
+    },
+    {
+      "path": "public/frigo/app-icons/icon-16.png",
+      "sourceBytes": 717,
+      "sourceSha256": "539f58c744476c26a6bf27436d74c74e9303a99a6ff0c101d216560203135e26",
+      "buildBytes": 717,
+      "buildSha256": "539f58c744476c26a6bf27436d74c74e9303a99a6ff0c101d216560203135e26",
+      "byteIdentical": true,
+      "expectedTransform": null
+    },
+    {
+      "path": "public/frigo/app-icons/icon-180.png",
+      "sourceBytes": 21615,
+      "sourceSha256": "90f692efd32e6137d8b1abd98b2025501b940f111d84185dac2824b9a6111363",
+      "buildBytes": 21615,
+      "buildSha256": "90f692efd32e6137d8b1abd98b2025501b940f111d84185dac2824b9a6111363",
+      "byteIdentical": true,
+      "expectedTransform": null
+    },
+    {
+      "path": "public/frigo/app-icons/icon-192.png",
+      "sourceBytes": 24003,
+      "sourceSha256": "2bb20af08591d9d55c6e4b0e03786b0a502eb548bb81c38c89d68a18c147b724",
+      "buildBytes": 24003,
+      "buildSha256": "2bb20af08591d9d55c6e4b0e03786b0a502eb548bb81c38c89d68a18c147b724",
+      "byteIdentical": true,
+      "expectedTransform": null
+    },
+    {
+      "path": "public/frigo/app-icons/icon-256.png",
+      "sourceBytes": 38551,
+      "sourceSha256": "84fa4be4f1e575865d023e9b09067b98fff4b8a4e1d90c04f6cd1f57dc32aea3",
+      "buildBytes": 38551,
+      "buildSha256": "84fa4be4f1e575865d023e9b09067b98fff4b8a4e1d90c04f6cd1f57dc32aea3",
+      "byteIdentical": true,
+      "expectedTransform": null
+    },
+    {
+      "path": "public/frigo/app-icons/icon-32.png",
+      "sourceBytes": 1794,
+      "sourceSha256": "a06703f3daa007d67419f5b58256e26314944052e35a7a926b0efda3a524aa83",
+      "buildBytes": 1794,
+      "buildSha256": "a06703f3daa007d67419f5b58256e26314944052e35a7a926b0efda3a524aa83",
+      "byteIdentical": true,
+      "expectedTransform": null
+    },
+    {
+      "path": "public/frigo/app-icons/icon-48.png",
+      "sourceBytes": 3020,
+      "sourceSha256": "a11d3024299a321758603d09aecbe50b6f068d4004740c172fda549c544b04bd",
+      "buildBytes": 3020,
+      "buildSha256": "a11d3024299a321758603d09aecbe50b6f068d4004740c172fda549c544b04bd",
+      "byteIdentical": true,
+      "expectedTransform": null
+    },
+    {
+      "path": "public/frigo/app-icons/icon-512.png",
+      "sourceBytes": 112671,
+      "sourceSha256": "449182ba3b28406f7dcc60194bf334f437a6829eac913e8fda376ba3f71e53c1",
+      "buildBytes": 112671,
+      "buildSha256": "449182ba3b28406f7dcc60194bf334f437a6829eac913e8fda376ba3f71e53c1",
+      "byteIdentical": true,
+      "expectedTransform": null
+    },
+    {
+      "path": "public/frigo/app-icons/icon-64.png",
+      "sourceBytes": 4520,
+      "sourceSha256": "e8bc8307629ea5b1098cd90fe0854cbe79377921e5d68614ecfb29e8aa9257e6",
+      "buildBytes": 4520,
+      "buildSha256": "e8bc8307629ea5b1098cd90fe0854cbe79377921e5d68614ecfb29e8aa9257e6",
+      "byteIdentical": true,
+      "expectedTransform": null
+    },
+    {
+      "path": "public/frigo/app-icons/icon-maskable-512.png",
+      "sourceBytes": 75324,
+      "sourceSha256": "dc1f97d10742888810ab33da999b1bd335776f7b53614f45591df8b235070ac8",
+      "buildBytes": 75324,
+      "buildSha256": "dc1f97d10742888810ab33da999b1bd335776f7b53614f45591df8b235070ac8",
+      "byteIdentical": true,
+      "expectedTransform": null
+    },
+    {
+      "path": "public/frigo/brand/logo-compact.png",
+      "sourceBytes": 108175,
+      "sourceSha256": "b82c0b0d017f6b9de86192702d8b536182ac11fe7937a49f03b43e03305ef4cc",
+      "buildBytes": 108175,
+      "buildSha256": "b82c0b0d017f6b9de86192702d8b536182ac11fe7937a49f03b43e03305ef4cc",
+      "byteIdentical": true,
+      "expectedTransform": null
+    },
+    {
+      "path": "public/frigo/brand/logo-primary.png",
+      "sourceBytes": 169046,
+      "sourceSha256": "15ae681604ac1593885077946b3f6cdc006dcaae0f2faa7ea7d73b72b0e83eb3",
+      "buildBytes": 169046,
+      "buildSha256": "15ae681604ac1593885077946b3f6cdc006dcaae0f2faa7ea7d73b72b0e83eb3",
+      "byteIdentical": true,
+      "expectedTransform": null
+    },
+    {
+      "path": "public/frigo/brand/mark.png",
+      "sourceBytes": 65262,
+      "sourceSha256": "dac102217412baed55d88d0a1c2539c5d25be1fb1fe4061c7d4b2de789546cad",
+      "buildBytes": 65262,
+      "buildSha256": "dac102217412baed55d88d0a1c2539c5d25be1fb1fe4061c7d4b2de789546cad",
+      "byteIdentical": true,
+      "expectedTransform": null
+    },
+    {
+      "path": "public/frigo/brand/wordmark.png",
+      "sourceBytes": 101566,
+      "sourceSha256": "b20fd6254cf3332997901674bde7c449ceb06681caad49fd5f4a4042e15c8115",
+      "buildBytes": 101566,
+      "buildSha256": "b20fd6254cf3332997901674bde7c449ceb06681caad49fd5f4a4042e15c8115",
+      "byteIdentical": true,
+      "expectedTransform": null
+    },
+    {
+      "path": "public/frigo/illustrations/delicious-meal.png",
+      "sourceBytes": 216750,
+      "sourceSha256": "fc8cd3b94aa6d192f36dd735e13228c9e1ca1ceafdc36ada72caf5580a3c04b4",
+      "buildBytes": 216750,
+      "buildSha256": "fc8cd3b94aa6d192f36dd735e13228c9e1ca1ceafdc36ada72caf5580a3c04b4",
+      "byteIdentical": true,
+      "expectedTransform": null
+    },
+    {
+      "path": "public/frigo/illustrations/empty-fridge.png",
+      "sourceBytes": 156537,
+      "sourceSha256": "0e6bec2dd3e79648b16b8d7b8aa1b3abf970d67bce3a181281256bfe507b260d",
+      "buildBytes": 156537,
+      "buildSha256": "0e6bec2dd3e79648b16b8d7b8aa1b3abf970d67bce3a181281256bfe507b260d",
+      "byteIdentical": true,
+      "expectedTransform": null
+    },
+    {
+      "path": "public/frigo/illustrations/frigo-plus.png",
+      "sourceBytes": 191307,
+      "sourceSha256": "26ad044323808275220921c06efe4a3a80e02609071f40411f7b5c678c3c11ff",
+      "buildBytes": 191307,
+      "buildSha256": "26ad044323808275220921c06efe4a3a80e02609071f40411f7b5c678c3c11ff",
+      "byteIdentical": true,
+      "expectedTransform": null
+    },
+    {
+      "path": "public/frigo/illustrations/no-recipes.png",
+      "sourceBytes": 185524,
+      "sourceSha256": "cd378b36df3a72513f3dea756c89b6c4d6aa9756faa2ca028f0c9e1405151d5f",
+      "buildBytes": 185524,
+      "buildSha256": "cd378b36df3a72513f3dea756c89b6c4d6aa9756faa2ca028f0c9e1405151d5f",
+      "byteIdentical": true,
+      "expectedTransform": null
+    },
+    {
+      "path": "public/frigo/illustrations/scan-fridge.png",
+      "sourceBytes": 214297,
+      "sourceSha256": "436ecb188c081f40f3643b32bee90439fc606b73781ae0c7665fc6ca0361f0fd",
+      "buildBytes": 214297,
+      "buildSha256": "436ecb188c081f40f3643b32bee90439fc606b73781ae0c7665fc6ca0361f0fd",
+      "byteIdentical": true,
+      "expectedTransform": null
+    },
+    {
+      "path": "public/frigo/illustrations/shopping-ready.png",
+      "sourceBytes": 204435,
+      "sourceSha256": "a295fcf29a254f563b6269c8e3cd8b056e26350b85976d27b940977c3aced8dd",
+      "buildBytes": 204435,
+      "buildSha256": "a295fcf29a254f563b6269c8e3cd8b056e26350b85976d27b940977c3aced8dd",
+      "byteIdentical": true,
+      "expectedTransform": null
+    },
+    {
+      "path": "public/frigo/illustrations/use-soon.png",
+      "sourceBytes": 188030,
+      "sourceSha256": "77567c646ecc0c450490c95d9a7f3b02beb972f7629c64e2a4867652435a25e6",
+      "buildBytes": 188030,
+      "buildSha256": "77567c646ecc0c450490c95d9a7f3b02beb972f7629c64e2a4867652435a25e6",
+      "byteIdentical": true,
+      "expectedTransform": null
+    },
+    {
+      "path": "public/frigo/illustrations/world-cuisines.png",
+      "sourceBytes": 256733,
+      "sourceSha256": "a438f177f403b9404e71dae7898032b4ace6e0a65846fe696369926a47f3ea0d",
+      "buildBytes": 256733,
+      "buildSha256": "a438f177f403b9404e71dae7898032b4ace6e0a65846fe696369926a47f3ea0d",
+      "byteIdentical": true,
+      "expectedTransform": null
+    },
+    {
+      "path": "public/frigo/ingredients/generic/category-dairy.png",
+      "sourceBytes": 130577,
+      "sourceSha256": "e43205db6490ff053fe28bf39eabcbfbf81aab128f6d496e3d2e58a66a09dba7",
+      "buildBytes": 130577,
+      "buildSha256": "e43205db6490ff053fe28bf39eabcbfbf81aab128f6d496e3d2e58a66a09dba7",
+      "byteIdentical": true,
+      "expectedTransform": null
+    },
+    {
+      "path": "public/frigo/ingredients/generic/category-fruit.png",
+      "sourceBytes": 313358,
+      "sourceSha256": "d04a83b669b18895cec59aeb973b08c1622daa7860c79c84ac9866bf4744a5ad",
+      "buildBytes": 313358,
+      "buildSha256": "d04a83b669b18895cec59aeb973b08c1622daa7860c79c84ac9866bf4744a5ad",
+      "byteIdentical": true,
+      "expectedTransform": null
+    },
+    {
+      "path": "public/frigo/ingredients/generic/category-grain.png",
+      "sourceBytes": 284781,
+      "sourceSha256": "0b2fdb86dc9ef193abd96eef2171624061170ca2e8d04532f8f35de0b78f2e2b",
+      "buildBytes": 284781,
+      "buildSha256": "0b2fdb86dc9ef193abd96eef2171624061170ca2e8d04532f8f35de0b78f2e2b",
+      "byteIdentical": true,
+      "expectedTransform": null
+    },
+    {
+      "path": "public/frigo/ingredients/generic/category-meat.png",
+      "sourceBytes": 409568,
+      "sourceSha256": "a1e780b315ef147e7025e8780f5b391462efef603c8ddd56dfeefe14ff7c2e5d",
+      "buildBytes": 409568,
+      "buildSha256": "a1e780b315ef147e7025e8780f5b391462efef603c8ddd56dfeefe14ff7c2e5d",
+      "byteIdentical": true,
+      "expectedTransform": null
+    },
+    {
+      "path": "public/frigo/ingredients/generic/category-other.png",
+      "sourceBytes": 259503,
+      "sourceSha256": "01d369251e0796971011192b21c017ff8ec28910f8c0c75265810463acaec403",
+      "buildBytes": 259503,
+      "buildSha256": "01d369251e0796971011192b21c017ff8ec28910f8c0c75265810463acaec403",
+      "byteIdentical": true,
+      "expectedTransform": null
+    },
+    {
+      "path": "public/frigo/ingredients/generic/category-seafood.png",
+      "sourceBytes": 124000,
+      "sourceSha256": "7ccde04bf84660c6d102d284b4f9d2de69b9cdfb7b3de9665d913e2c653f13dc",
+      "buildBytes": 124000,
+      "buildSha256": "7ccde04bf84660c6d102d284b4f9d2de69b9cdfb7b3de9665d913e2c653f13dc",
+      "byteIdentical": true,
+      "expectedTransform": null
+    },
+    {
+      "path": "public/frigo/ingredients/generic/category-spice.png",
+      "sourceBytes": 401217,
+      "sourceSha256": "2d1f3b21ef22dcd7c83a405fc6256aa9188958a1f252db4d2beecc57fbde00ef",
+      "buildBytes": 401217,
+      "buildSha256": "2d1f3b21ef22dcd7c83a405fc6256aa9188958a1f252db4d2beecc57fbde00ef",
+      "byteIdentical": true,
+      "expectedTransform": null
+    },
+    {
+      "path": "public/frigo/ingredients/generic/category-vegetable.png",
+      "sourceBytes": 402549,
+      "sourceSha256": "1b1ab145ada06c447e460bbaca55b1f8a3e5c09a47ad853030d120fbe16faf61",
+      "buildBytes": 402549,
+      "buildSha256": "1b1ab145ada06c447e460bbaca55b1f8a3e5c09a47ad853030d120fbe16faf61",
+      "byteIdentical": true,
+      "expectedTransform": null
+    },
+    {
+      "path": "public/frigo/ingredients/pantry/beans.png",
+      "sourceBytes": 76490,
+      "sourceSha256": "5b4b570245a3e17d16f147a7d4b003591d6f6afcea8d3639f0d3a0b5acfc5f26",
+      "buildBytes": 76490,
+      "buildSha256": "5b4b570245a3e17d16f147a7d4b003591d6f6afcea8d3639f0d3a0b5acfc5f26",
+      "byteIdentical": true,
+      "expectedTransform": null
+    },
+    {
+      "path": "public/frigo/ingredients/pantry/beef.png",
+      "sourceBytes": 90794,
+      "sourceSha256": "f5173cf6518180e94c327adda827dcc80a93b6ee41d71e9c0dad81cd425fda08",
+      "buildBytes": 90794,
+      "buildSha256": "f5173cf6518180e94c327adda827dcc80a93b6ee41d71e9c0dad81cd425fda08",
+      "byteIdentical": true,
+      "expectedTransform": null
+    },
+    {
+      "path": "public/frigo/ingredients/pantry/bread.png",
+      "sourceBytes": 74800,
+      "sourceSha256": "ec4ab05160fa73ef8262a69efbf28a82a382435d7e9976471c6a436e5e4bb14f",
+      "buildBytes": 74800,
+      "buildSha256": "ec4ab05160fa73ef8262a69efbf28a82a382435d7e9976471c6a436e5e4bb14f",
+      "byteIdentical": true,
+      "expectedTransform": null
+    },
+    {
+      "path": "public/frigo/ingredients/pantry/butter.png",
+      "sourceBytes": 52514,
+      "sourceSha256": "fd6c40c421a022191de29a22a8a5d00deaa6dbfe741edabd11832e7ee3e91136",
+      "buildBytes": 52514,
+      "buildSha256": "fd6c40c421a022191de29a22a8a5d00deaa6dbfe741edabd11832e7ee3e91136",
+      "byteIdentical": true,
+      "expectedTransform": null
+    },
+    {
+      "path": "public/frigo/ingredients/pantry/cheese.png",
+      "sourceBytes": 45103,
+      "sourceSha256": "cfd463e4a368d7b531dfe277d05884cca1755441707932165240c0d0a5187a85",
+      "buildBytes": 45103,
+      "buildSha256": "cfd463e4a368d7b531dfe277d05884cca1755441707932165240c0d0a5187a85",
+      "byteIdentical": true,
+      "expectedTransform": null
+    },
+    {
+      "path": "public/frigo/ingredients/pantry/chicken-breast.png",
+      "sourceBytes": 63814,
+      "sourceSha256": "50ca7a72fdf223eadadd65060a6dcfe6e9977accc4b6ec66b531be6d67ea5c44",
+      "buildBytes": 63814,
+      "buildSha256": "50ca7a72fdf223eadadd65060a6dcfe6e9977accc4b6ec66b531be6d67ea5c44",
+      "byteIdentical": true,
+      "expectedTransform": null
+    },
+    {
+      "path": "public/frigo/ingredients/pantry/cooked-rice.png",
+      "sourceBytes": 60535,
+      "sourceSha256": "6e6da51c420a3db283ab4e81684e2aac0b16a67c5897fb795f5d8b404d204e68",
+      "buildBytes": 60535,
+      "buildSha256": "6e6da51c420a3db283ab4e81684e2aac0b16a67c5897fb795f5d8b404d204e68",
+      "byteIdentical": true,
+      "expectedTransform": null
+    },
+    {
+      "path": "public/frigo/ingredients/pantry/cooking-oil.png",
+      "sourceBytes": 63565,
+      "sourceSha256": "11de55598ba1f1d2489ed5c69ee8c3dd4133a415bb639ae448a8927661be20ba",
+      "buildBytes": 63565,
+      "buildSha256": "11de55598ba1f1d2489ed5c69ee8c3dd4133a415bb639ae448a8927661be20ba",
+      "byteIdentical": true,
+      "expectedTransform": null
+    },
+    {
+      "path": "public/frigo/ingredients/pantry/cooking-wine.png",
+      "sourceBytes": 81405,
+      "sourceSha256": "74ea2722fef845843cec2a74695fa1534291130ff412b8a449fee9b9404073ee",
+      "buildBytes": 81405,
+      "buildSha256": "74ea2722fef845843cec2a74695fa1534291130ff412b8a449fee9b9404073ee",
+      "byteIdentical": true,
+      "expectedTransform": null
+    },
+    {
+      "path": "public/frigo/ingredients/pantry/crab.png",
+      "sourceBytes": 267954,
+      "sourceSha256": "d88fa31f43eb56f65aa6e24b1d438da1438b0b066d96db1bfb82a832d746d1f0",
+      "buildBytes": 267954,
+      "buildSha256": "d88fa31f43eb56f65aa6e24b1d438da1438b0b066d96db1bfb82a832d746d1f0",
+      "byteIdentical": true,
+      "expectedTransform": null
+    },
+    {
+      "path": "public/frigo/ingredients/pantry/egg.png",
+      "sourceBytes": 48121,
+      "sourceSha256": "6b4ad3fc2ac1b71e933674dffa532a8a52c0dd4b8f74773b08c147a490e2e9ff",
+      "buildBytes": 48121,
+      "buildSha256": "6b4ad3fc2ac1b71e933674dffa532a8a52c0dd4b8f74773b08c147a490e2e9ff",
+      "byteIdentical": true,
+      "expectedTransform": null
+    },
+    {
+      "path": "public/frigo/ingredients/pantry/fish-sauce.png",
+      "sourceBytes": 48170,
+      "sourceSha256": "3d3a4d59573efb2909cb12009c7d7fada994edd61f14b90c7021eb00773b3081",
+      "buildBytes": 48170,
+      "buildSha256": "3d3a4d59573efb2909cb12009c7d7fada994edd61f14b90c7021eb00773b3081",
+      "byteIdentical": true,
+      "expectedTransform": null
+    },
+    {
+      "path": "public/frigo/ingredients/pantry/flour.png",
+      "sourceBytes": 405315,
+      "sourceSha256": "69f49a756296976d2d91e095aa621a16e1554504e8dfd2aff0c2ebd56c63ced4",
+      "buildBytes": 405315,
+      "buildSha256": "69f49a756296976d2d91e095aa621a16e1554504e8dfd2aff0c2ebd56c63ced4",
+      "byteIdentical": true,
+      "expectedTransform": null
+    },
+    {
+      "path": "public/frigo/ingredients/pantry/honey.png",
+      "sourceBytes": 256851,
+      "sourceSha256": "6b9e12734fd8c5df0380620a17fc36c52fd5a721cb6abed8654c771d25e4996a",
+      "buildBytes": 256851,
+      "buildSha256": "6b9e12734fd8c5df0380620a17fc36c52fd5a721cb6abed8654c771d25e4996a",
+      "byteIdentical": true,
+      "expectedTransform": null
+    },
+    {
+      "path": "public/frigo/ingredients/pantry/kimchi.png",
+      "sourceBytes": 93306,
+      "sourceSha256": "d16805ef90e60d2804e9d43451b32394885f14bd305204dac36a3133728d8d33",
+      "buildBytes": 93306,
+      "buildSha256": "d16805ef90e60d2804e9d43451b32394885f14bd305204dac36a3133728d8d33",
+      "byteIdentical": true,
+      "expectedTransform": null
+    },
+    {
+      "path": "public/frigo/ingredients/pantry/milk.png",
+      "sourceBytes": 38593,
+      "sourceSha256": "21e929e10ddce8e551cda6aa65c3593897dcdc328e07e74940d0837dea0fd416",
+      "buildBytes": 38593,
+      "buildSha256": "21e929e10ddce8e551cda6aa65c3593897dcdc328e07e74940d0837dea0fd416",
+      "byteIdentical": true,
+      "expectedTransform": null
+    },
+    {
+      "path": "public/frigo/ingredients/pantry/noodles.png",
+      "sourceBytes": 76898,
+      "sourceSha256": "4446ef3bd477a4fdc94864bff19f8df1cb75fac27cb75c09bbe19c520b58f3ed",
+      "buildBytes": 76898,
+      "buildSha256": "4446ef3bd477a4fdc94864bff19f8df1cb75fac27cb75c09bbe19c520b58f3ed",
+      "byteIdentical": true,
+      "expectedTransform": null
+    },
+    {
+      "path": "public/frigo/ingredients/pantry/oyster-sauce.png",
+      "sourceBytes": 300690,
+      "sourceSha256": "382778679d4b684eaf4c32f7e0dd4ef89be96f20726fa67d868108c2b01ddace",
+      "buildBytes": 300690,
+      "buildSha256": "382778679d4b684eaf4c32f7e0dd4ef89be96f20726fa67d868108c2b01ddace",
+      "byteIdentical": true,
+      "expectedTransform": null
+    },
+    {
+      "path": "public/frigo/ingredients/pantry/pasta.png",
+      "sourceBytes": 70295,
+      "sourceSha256": "eded980a59e75cb6fe992ab76c5eb9ffa301e7808c7e0f558473bb322f51a05e",
+      "buildBytes": 70295,
+      "buildSha256": "eded980a59e75cb6fe992ab76c5eb9ffa301e7808c7e0f558473bb322f51a05e",
+      "byteIdentical": true,
+      "expectedTransform": null
+    },
+    {
+      "path": "public/frigo/ingredients/pantry/peanut.png",
+      "sourceBytes": 242020,
+      "sourceSha256": "2dcb36d6b1483727ada0e5e0f56811d953d914017ba67ae107072705efac9578",
+      "buildBytes": 242020,
+      "buildSha256": "2dcb36d6b1483727ada0e5e0f56811d953d914017ba67ae107072705efac9578",
+      "byteIdentical": true,
+      "expectedTransform": null
+    },
+    {
+      "path": "public/frigo/ingredients/pantry/pepper.png",
+      "sourceBytes": 275362,
+      "sourceSha256": "263b5435ceb65fdb0f0e927875e51c482fa3833b76fdd0995e6e73730e85cff6",
+      "buildBytes": 275362,
+      "buildSha256": "263b5435ceb65fdb0f0e927875e51c482fa3833b76fdd0995e6e73730e85cff6",
+      "byteIdentical": true,
+      "expectedTransform": null
+    },
+    {
+      "path": "public/frigo/ingredients/pantry/pork-belly.png",
+      "sourceBytes": 64777,
+      "sourceSha256": "bf18441aa6e85736c1f63805864bda061f4316e1aacdb6969df8b8e02f888340",
+      "buildBytes": 64777,
+      "buildSha256": "bf18441aa6e85736c1f63805864bda061f4316e1aacdb6969df8b8e02f888340",
+      "byteIdentical": true,
+      "expectedTransform": null
+    },
+    {
+      "path": "public/frigo/ingredients/pantry/rice-paper.png",
+      "sourceBytes": 276020,
+      "sourceSha256": "f4f20f2a7f93eccd5f6941b5a4391fa451e03b220d6741ce12a1b0762ae7b844",
+      "buildBytes": 276020,
+      "buildSha256": "f4f20f2a7f93eccd5f6941b5a4391fa451e03b220d6741ce12a1b0762ae7b844",
+      "byteIdentical": true,
+      "expectedTransform": null
+    },
+    {
+      "path": "public/frigo/ingredients/pantry/rice.png",
+      "sourceBytes": 76998,
+      "sourceSha256": "7bb53b24c1c65321b76c1d399dbfdc3ff461cd1c30bb19df18acab168be71448",
+      "buildBytes": 76998,
+      "buildSha256": "7bb53b24c1c65321b76c1d399dbfdc3ff461cd1c30bb19df18acab168be71448",
+      "byteIdentical": true,
+      "expectedTransform": null
+    },
+    {
+      "path": "public/frigo/ingredients/pantry/salmon.png",
+      "sourceBytes": 79383,
+      "sourceSha256": "4c79f3f0f8689ac830a177817ba558f64fb0cde8e0508f4ba3c9f292fd27ec2c",
+      "buildBytes": 79383,
+      "buildSha256": "4c79f3f0f8689ac830a177817ba558f64fb0cde8e0508f4ba3c9f292fd27ec2c",
+      "byteIdentical": true,
+      "expectedTransform": null
+    },
+    {
+      "path": "public/frigo/ingredients/pantry/salt.png",
+      "sourceBytes": 384760,
+      "sourceSha256": "e5167a142ac68becb8640ac90832a2232e79082946ca02fd7dae499342ce24a3",
+      "buildBytes": 384760,
+      "buildSha256": "e5167a142ac68becb8640ac90832a2232e79082946ca02fd7dae499342ce24a3",
+      "byteIdentical": true,
+      "expectedTransform": null
+    },
+    {
+      "path": "public/frigo/ingredients/pantry/sausage.png",
+      "sourceBytes": 61595,
+      "sourceSha256": "2be93a7847595cb75031356eb52484d6c7a0d044a529bd9dbd9307e3ad17222f",
+      "buildBytes": 61595,
+      "buildSha256": "2be93a7847595cb75031356eb52484d6c7a0d044a529bd9dbd9307e3ad17222f",
+      "byteIdentical": true,
+      "expectedTransform": null
+    },
+    {
+      "path": "public/frigo/ingredients/pantry/seasoning-powder.png",
+      "sourceBytes": 327770,
+      "sourceSha256": "e47306b0be0c80bf3f8989d9d7e4a4721ed1c99ac13c3d5ca01dc74d9d261932",
+      "buildBytes": 327770,
+      "buildSha256": "e47306b0be0c80bf3f8989d9d7e4a4721ed1c99ac13c3d5ca01dc74d9d261932",
+      "byteIdentical": true,
+      "expectedTransform": null
+    },
+    {
+      "path": "public/frigo/ingredients/pantry/sesame-oil.png",
+      "sourceBytes": 224505,
+      "sourceSha256": "d40232d4d0a1cebd368841b4ec3c91714c5bd8263667efd667bcb96e7671c84e",
+      "buildBytes": 224505,
+      "buildSha256": "d40232d4d0a1cebd368841b4ec3c91714c5bd8263667efd667bcb96e7671c84e",
+      "byteIdentical": true,
+      "expectedTransform": null
+    },
+    {
+      "path": "public/frigo/ingredients/pantry/sesame.png",
+      "sourceBytes": 482424,
+      "sourceSha256": "2c0a7230137483872ab18caa3d4d63ae9ad3ca0621327e43f2c772549ba66db1",
+      "buildBytes": 482424,
+      "buildSha256": "2c0a7230137483872ab18caa3d4d63ae9ad3ca0621327e43f2c772549ba66db1",
+      "byteIdentical": true,
+      "expectedTransform": null
+    },
+    {
+      "path": "public/frigo/ingredients/pantry/shrimp.png",
+      "sourceBytes": 76369,
+      "sourceSha256": "651d6fe2403c5cb2e0c87b84d29dbafd051767d4834c8f47f9474263b99f2b29",
+      "buildBytes": 76369,
+      "buildSha256": "651d6fe2403c5cb2e0c87b84d29dbafd051767d4834c8f47f9474263b99f2b29",
+      "byteIdentical": true,
+      "expectedTransform": null
+    },
+    {
+      "path": "public/frigo/ingredients/pantry/soy-sauce.png",
+      "sourceBytes": 52927,
+      "sourceSha256": "5e5e4c32aded610aaa4d84b59cfef1ca951c038a023f947811d960178a576fa3",
+      "buildBytes": 52927,
+      "buildSha256": "5e5e4c32aded610aaa4d84b59cfef1ca951c038a023f947811d960178a576fa3",
+      "byteIdentical": true,
+      "expectedTransform": null
+    },
+    {
+      "path": "public/frigo/ingredients/pantry/spare-ribs.png",
+      "sourceBytes": 347408,
+      "sourceSha256": "fc619ac6b41ced42ad801d8486023d239e13cff6bb9717fd2575344c224dc992",
+      "buildBytes": 347408,
+      "buildSha256": "fc619ac6b41ced42ad801d8486023d239e13cff6bb9717fd2575344c224dc992",
+      "byteIdentical": true,
+      "expectedTransform": null
+    },
+    {
+      "path": "public/frigo/ingredients/pantry/squid.png",
+      "sourceBytes": 218942,
+      "sourceSha256": "0eff4b5ec2f7bd97485bf2fc39f3d160fcc68d996993c1a7ba22b9251a4398da",
+      "buildBytes": 218942,
+      "buildSha256": "0eff4b5ec2f7bd97485bf2fc39f3d160fcc68d996993c1a7ba22b9251a4398da",
+      "byteIdentical": true,
+      "expectedTransform": null
+    },
+    {
+      "path": "public/frigo/ingredients/pantry/sugar.png",
+      "sourceBytes": 76341,
+      "sourceSha256": "c2b50df02f0635948c1eb2751fb642a3d2a560272aaf546e136a5bdbc65743d5",
+      "buildBytes": 76341,
+      "buildSha256": "c2b50df02f0635948c1eb2751fb642a3d2a560272aaf546e136a5bdbc65743d5",
+      "byteIdentical": true,
+      "expectedTransform": null
+    },
+    {
+      "path": "public/frigo/ingredients/pantry/tofu.png",
+      "sourceBytes": 52576,
+      "sourceSha256": "046c55a00f2a37d8c239dbb3d7cc8a7d1c63cf4bd4bf811a3964af332e4ecee3",
+      "buildBytes": 52576,
+      "buildSha256": "046c55a00f2a37d8c239dbb3d7cc8a7d1c63cf4bd4bf811a3964af332e4ecee3",
+      "byteIdentical": true,
+      "expectedTransform": null
+    },
+    {
+      "path": "public/frigo/ingredients/pantry/vinegar.png",
+      "sourceBytes": 162033,
+      "sourceSha256": "610060f5c098a5ae4c7dfa8023384780821c8bdcfcec01aa59283ecfea746fa4",
+      "buildBytes": 162033,
+      "buildSha256": "610060f5c098a5ae4c7dfa8023384780821c8bdcfcec01aa59283ecfea746fa4",
+      "byteIdentical": true,
+      "expectedTransform": null
+    },
+    {
+      "path": "public/frigo/ingredients/pantry/water.png",
+      "sourceBytes": 259780,
+      "sourceSha256": "8ff3eef54625b8f77f3e765ecb70782abdb014b5860db48f1a96dca5843dc6ad",
+      "buildBytes": 259780,
+      "buildSha256": "8ff3eef54625b8f77f3e765ecb70782abdb014b5860db48f1a96dca5843dc6ad",
+      "byteIdentical": true,
+      "expectedTransform": null
+    },
+    {
+      "path": "public/frigo/ingredients/pantry/white-fish.png",
+      "sourceBytes": 68815,
+      "sourceSha256": "5bda454d8bf02deab27e5580d29f454b316efea4dfa4a269dc216f95f08d2ae3",
+      "buildBytes": 68815,
+      "buildSha256": "5bda454d8bf02deab27e5580d29f454b316efea4dfa4a269dc216f95f08d2ae3",
+      "byteIdentical": true,
+      "expectedTransform": null
+    },
+    {
+      "path": "public/frigo/ingredients/pantry/yogurt.png",
+      "sourceBytes": 55181,
+      "sourceSha256": "89b90976be4b4af1fc92ea51cdae365d4d2816965c1b04db4b2859387260b76d",
+      "buildBytes": 55181,
+      "buildSha256": "89b90976be4b4af1fc92ea51cdae365d4d2816965c1b04db4b2859387260b76d",
+      "byteIdentical": true,
+      "expectedTransform": null
+    },
+    {
+      "path": "public/frigo/ingredients/vegetables/avocado.png",
+      "sourceBytes": 83656,
+      "sourceSha256": "698913f861b5b4a8790fa74ad9ebe72096c2215d11fcadf2c2eb6733201e5390",
+      "buildBytes": 83656,
+      "buildSha256": "698913f861b5b4a8790fa74ad9ebe72096c2215d11fcadf2c2eb6733201e5390",
+      "byteIdentical": true,
+      "expectedTransform": null
+    },
+    {
+      "path": "public/frigo/ingredients/vegetables/basil.png",
+      "sourceBytes": 72498,
+      "sourceSha256": "767edc4105de2caa3fd7ae33d1b917bd596f334a047760b5bf8cb4b2cfd8a248",
+      "buildBytes": 72498,
+      "buildSha256": "767edc4105de2caa3fd7ae33d1b917bd596f334a047760b5bf8cb4b2cfd8a248",
+      "byteIdentical": true,
+      "expectedTransform": null
+    },
+    {
+      "path": "public/frigo/ingredients/vegetables/bean-sprouts.png",
+      "sourceBytes": 242668,
+      "sourceSha256": "6754b75adb20ae5013bb3271b3f326cc6595e24a492c9acc9d74eb146ae17042",
+      "buildBytes": 242668,
+      "buildSha256": "6754b75adb20ae5013bb3271b3f326cc6595e24a492c9acc9d74eb146ae17042",
+      "byteIdentical": true,
+      "expectedTransform": null
+    },
+    {
+      "path": "public/frigo/ingredients/vegetables/bitter-melon.png",
+      "sourceBytes": 168607,
+      "sourceSha256": "34a3cd4d468887d4b8d956cc1c4aea446b6b667e0a1c6a6a20a7e9759f4240c5",
+      "buildBytes": 168607,
+      "buildSha256": "34a3cd4d468887d4b8d956cc1c4aea446b6b667e0a1c6a6a20a7e9759f4240c5",
+      "byteIdentical": true,
+      "expectedTransform": null
+    },
+    {
+      "path": "public/frigo/ingredients/vegetables/bok-choy.png",
+      "sourceBytes": 78398,
+      "sourceSha256": "42e7c10f5b92a79c690ca424853c67d06804b1c9d19ae602033ac2b13885bb4d",
+      "buildBytes": 78398,
+      "buildSha256": "42e7c10f5b92a79c690ca424853c67d06804b1c9d19ae602033ac2b13885bb4d",
+      "byteIdentical": true,
+      "expectedTransform": null
+    },
+    {
+      "path": "public/frigo/ingredients/vegetables/broccoli.png",
+      "sourceBytes": 97911,
+      "sourceSha256": "154376c68b241895eb5f04e921efe2e6a6458fc4272c8719f89a63d899ee37f8",
+      "buildBytes": 97911,
+      "buildSha256": "154376c68b241895eb5f04e921efe2e6a6458fc4272c8719f89a63d899ee37f8",
+      "byteIdentical": true,
+      "expectedTransform": null
+    },
+    {
+      "path": "public/frigo/ingredients/vegetables/cabbage.png",
+      "sourceBytes": 82223,
+      "sourceSha256": "5cf1a4858fd6e07066b6f97eb4d41d6795fc91966cb0ca45e2bad82beda9172f",
+      "buildBytes": 82223,
+      "buildSha256": "5cf1a4858fd6e07066b6f97eb4d41d6795fc91966cb0ca45e2bad82beda9172f",
+      "byteIdentical": true,
+      "expectedTransform": null
+    },
+    {
+      "path": "public/frigo/ingredients/vegetables/carrot.png",
+      "sourceBytes": 83810,
+      "sourceSha256": "93c493f1a192eeb255696fe60ab80319b3b34ea80051979d8dc3927e45707845",
+      "buildBytes": 83810,
+      "buildSha256": "93c493f1a192eeb255696fe60ab80319b3b34ea80051979d8dc3927e45707845",
+      "byteIdentical": true,
+      "expectedTransform": null
+    },
+    {
+      "path": "public/frigo/ingredients/vegetables/chili.png",
+      "sourceBytes": 66939,
+      "sourceSha256": "acea092e9807ac981af752a66a9fdf5cfab155393b9f7268797fd83bf3972aa6",
+      "buildBytes": 66939,
+      "buildSha256": "acea092e9807ac981af752a66a9fdf5cfab155393b9f7268797fd83bf3972aa6",
+      "byteIdentical": true,
+      "expectedTransform": null
+    },
+    {
+      "path": "public/frigo/ingredients/vegetables/cilantro.png",
+      "sourceBytes": 332556,
+      "sourceSha256": "139f18693d286be18c5f2a1c790f53b9395a7184421981a7e83e06af7535918e",
+      "buildBytes": 332556,
+      "buildSha256": "139f18693d286be18c5f2a1c790f53b9395a7184421981a7e83e06af7535918e",
+      "byteIdentical": true,
+      "expectedTransform": null
+    },
+    {
+      "path": "public/frigo/ingredients/vegetables/corn.png",
+      "sourceBytes": 96308,
+      "sourceSha256": "fe3640eb4fcb8cb8db09d6078d1573282bfd0705e0a43ebabb078703c475858b",
+      "buildBytes": 96308,
+      "buildSha256": "fe3640eb4fcb8cb8db09d6078d1573282bfd0705e0a43ebabb078703c475858b",
+      "byteIdentical": true,
+      "expectedTransform": null
+    },
+    {
+      "path": "public/frigo/ingredients/vegetables/cucumber.png",
+      "sourceBytes": 91910,
+      "sourceSha256": "574b54336980c59a4bf37fd07cd2fb807b1a1072d1f0d2045bdd571b1fd7eace",
+      "buildBytes": 91910,
+      "buildSha256": "574b54336980c59a4bf37fd07cd2fb807b1a1072d1f0d2045bdd571b1fd7eace",
+      "byteIdentical": true,
+      "expectedTransform": null
+    },
+    {
+      "path": "public/frigo/ingredients/vegetables/eggplant.png",
+      "sourceBytes": 67784,
+      "sourceSha256": "3895b87ba4715dbb269f31a6a1d4322d4291a7049de67d4717390b819a9aa40e",
+      "buildBytes": 67784,
+      "buildSha256": "3895b87ba4715dbb269f31a6a1d4322d4291a7049de67d4717390b819a9aa40e",
+      "byteIdentical": true,
+      "expectedTransform": null
+    },
+    {
+      "path": "public/frigo/ingredients/vegetables/galangal.png",
+      "sourceBytes": 208133,
+      "sourceSha256": "aeb9a9f42cd4fea48e5ff6417432b1d3147c0ca9304727ef5a906dd52e91f2ba",
+      "buildBytes": 208133,
+      "buildSha256": "aeb9a9f42cd4fea48e5ff6417432b1d3147c0ca9304727ef5a906dd52e91f2ba",
+      "byteIdentical": true,
+      "expectedTransform": null
+    },
+    {
+      "path": "public/frigo/ingredients/vegetables/garlic.png",
+      "sourceBytes": 51465,
+      "sourceSha256": "7cbb78428d65d37a0ede71b4c852c4330beaa8ba64ea19d76f8dd4fc313a31ec",
+      "buildBytes": 51465,
+      "buildSha256": "7cbb78428d65d37a0ede71b4c852c4330beaa8ba64ea19d76f8dd4fc313a31ec",
+      "byteIdentical": true,
+      "expectedTransform": null
+    },
+    {
+      "path": "public/frigo/ingredients/vegetables/ginger.png",
+      "sourceBytes": 95014,
+      "sourceSha256": "7908231b3779de7be40624be48a1f6157899962396d5203c1625e6a898ebace5",
+      "buildBytes": 95014,
+      "buildSha256": "7908231b3779de7be40624be48a1f6157899962396d5203c1625e6a898ebace5",
+      "byteIdentical": true,
+      "expectedTransform": null
+    },
+    {
+      "path": "public/frigo/ingredients/vegetables/leek.png",
+      "sourceBytes": 202325,
+      "sourceSha256": "2a567a87fefb03fe10b3eed9b1cae73cd3f44f3c990babc97809c0cdb27b1f62",
+      "buildBytes": 202325,
+      "buildSha256": "2a567a87fefb03fe10b3eed9b1cae73cd3f44f3c990babc97809c0cdb27b1f62",
+      "byteIdentical": true,
+      "expectedTransform": null
+    },
+    {
+      "path": "public/frigo/ingredients/vegetables/lemon.png",
+      "sourceBytes": 75168,
+      "sourceSha256": "2b8f7fb168b7bcb73056e97e640c6bbe9a568cb67a7681e466e39a8765da2966",
+      "buildBytes": 75168,
+      "buildSha256": "2b8f7fb168b7bcb73056e97e640c6bbe9a568cb67a7681e466e39a8765da2966",
+      "byteIdentical": true,
+      "expectedTransform": null
+    },
+    {
+      "path": "public/frigo/ingredients/vegetables/lemongrass.png",
+      "sourceBytes": 170305,
+      "sourceSha256": "8c2f6ae00bc022d8968710c66ae14358e2a9d8f6a5a973f3830e4d21037d184b",
+      "buildBytes": 170305,
+      "buildSha256": "8c2f6ae00bc022d8968710c66ae14358e2a9d8f6a5a973f3830e4d21037d184b",
+      "byteIdentical": true,
+      "expectedTransform": null
+    },
+    {
+      "path": "public/frigo/ingredients/vegetables/lettuce.png",
+      "sourceBytes": 107518,
+      "sourceSha256": "3209cc0a9ecacd40d003169a807a432aa0f29c386c4d0e67be6a4a85f392a04b",
+      "buildBytes": 107518,
+      "buildSha256": "3209cc0a9ecacd40d003169a807a432aa0f29c386c4d0e67be6a4a85f392a04b",
+      "byteIdentical": true,
+      "expectedTransform": null
+    },
+    {
+      "path": "public/frigo/ingredients/vegetables/lime.png",
+      "sourceBytes": 84322,
+      "sourceSha256": "a5552f6822a4007e169239515df77589af04071226a5b87df0123067b983c873",
+      "buildBytes": 84322,
+      "buildSha256": "a5552f6822a4007e169239515df77589af04071226a5b87df0123067b983c873",
+      "byteIdentical": true,
+      "expectedTransform": null
+    },
+    {
+      "path": "public/frigo/ingredients/vegetables/luffa.png",
+      "sourceBytes": 224651,
+      "sourceSha256": "5f9918776e247fdbcbd6704590cae15a6fc0e73c2d9822ceeab026c996d9fa51",
+      "buildBytes": 224651,
+      "buildSha256": "5f9918776e247fdbcbd6704590cae15a6fc0e73c2d9822ceeab026c996d9fa51",
+      "byteIdentical": true,
+      "expectedTransform": null
+    },
+    {
+      "path": "public/frigo/ingredients/vegetables/mint.png",
+      "sourceBytes": 322159,
+      "sourceSha256": "aba90e1e2e2ad2aba9e9ac85019d7663b6fab53a4b1d221bf77456705c25ddd1",
+      "buildBytes": 322159,
+      "buildSha256": "aba90e1e2e2ad2aba9e9ac85019d7663b6fab53a4b1d221bf77456705c25ddd1",
+      "byteIdentical": true,
+      "expectedTransform": null
+    },
+    {
+      "path": "public/frigo/ingredients/vegetables/mushroom.png",
+      "sourceBytes": 84127,
+      "sourceSha256": "e4d7b2ea3449dada2a378648f1592f0e2f9f38c0990fe76e57201f58eb56a477",
+      "buildBytes": 84127,
+      "buildSha256": "e4d7b2ea3449dada2a378648f1592f0e2f9f38c0990fe76e57201f58eb56a477",
+      "byteIdentical": true,
+      "expectedTransform": null
+    },
+    {
+      "path": "public/frigo/ingredients/vegetables/onion.png",
+      "sourceBytes": 55640,
+      "sourceSha256": "42cfa6f193b4e4424fa744d63145e1bb4e6a167042adf173100ac34c67794f03",
+      "buildBytes": 55640,
+      "buildSha256": "42cfa6f193b4e4424fa744d63145e1bb4e6a167042adf173100ac34c67794f03",
+      "byteIdentical": true,
+      "expectedTransform": null
+    },
+    {
+      "path": "public/frigo/ingredients/vegetables/pineapple.png",
+      "sourceBytes": 248364,
+      "sourceSha256": "478eba7be4fea35e1b6bccfedf7a3df8237b739cab76fcdf8f369f1180c24d3b",
+      "buildBytes": 248364,
+      "buildSha256": "478eba7be4fea35e1b6bccfedf7a3df8237b739cab76fcdf8f369f1180c24d3b",
+      "byteIdentical": true,
+      "expectedTransform": null
+    },
+    {
+      "path": "public/frigo/ingredients/vegetables/potato.png",
+      "sourceBytes": 74084,
+      "sourceSha256": "d4270aa6334a15b577673ef1fa0af2862212bb90a2e3198d51dac42757556da5",
+      "buildBytes": 74084,
+      "buildSha256": "d4270aa6334a15b577673ef1fa0af2862212bb90a2e3198d51dac42757556da5",
+      "byteIdentical": true,
+      "expectedTransform": null
+    },
+    {
+      "path": "public/frigo/ingredients/vegetables/pumpkin.png",
+      "sourceBytes": 101797,
+      "sourceSha256": "16a519996ddddde8002cf3fbb170eb0e20d417fd7519e0fc541a4d50e29ed0e1",
+      "buildBytes": 101797,
+      "buildSha256": "16a519996ddddde8002cf3fbb170eb0e20d417fd7519e0fc541a4d50e29ed0e1",
+      "byteIdentical": true,
+      "expectedTransform": null
+    },
+    {
+      "path": "public/frigo/ingredients/vegetables/red-bell-pepper.png",
+      "sourceBytes": 77603,
+      "sourceSha256": "3aeecade8d8cfe0db2fad0b76679c03797bc51243cc97ff7b983ee35810de1b4",
+      "buildBytes": 77603,
+      "buildSha256": "3aeecade8d8cfe0db2fad0b76679c03797bc51243cc97ff7b983ee35810de1b4",
+      "byteIdentical": true,
+      "expectedTransform": null
+    },
+    {
+      "path": "public/frigo/ingredients/vegetables/scallion.png",
+      "sourceBytes": 56524,
+      "sourceSha256": "7338fd177e2f1cd2876ee32a7b56663d969697d0d5864843b28e9619139b52b0",
+      "buildBytes": 56524,
+      "buildSha256": "7338fd177e2f1cd2876ee32a7b56663d969697d0d5864843b28e9619139b52b0",
+      "byteIdentical": true,
+      "expectedTransform": null
+    },
+    {
+      "path": "public/frigo/ingredients/vegetables/shallot.png",
+      "sourceBytes": 349980,
+      "sourceSha256": "34106317f94bcd56e296dd0f8d113902493717606861fdf68c90bcc83d77d1de",
+      "buildBytes": 349980,
+      "buildSha256": "34106317f94bcd56e296dd0f8d113902493717606861fdf68c90bcc83d77d1de",
+      "byteIdentical": true,
+      "expectedTransform": null
+    },
+    {
+      "path": "public/frigo/ingredients/vegetables/spinach.png",
+      "sourceBytes": 79957,
+      "sourceSha256": "56036c1a1b191ac63fe780d005e53765634a1eb51556ca8c6a4f754a17a9df65",
+      "buildBytes": 79957,
+      "buildSha256": "56036c1a1b191ac63fe780d005e53765634a1eb51556ca8c6a4f754a17a9df65",
+      "byteIdentical": true,
+      "expectedTransform": null
+    },
+    {
+      "path": "public/frigo/ingredients/vegetables/tomato.png",
+      "sourceBytes": 58890,
+      "sourceSha256": "95878907ce88f26315fb5153d97732dd1e5e7feec1a9adeda17953c97c9154c0",
+      "buildBytes": 58890,
+      "buildSha256": "95878907ce88f26315fb5153d97732dd1e5e7feec1a9adeda17953c97c9154c0",
+      "byteIdentical": true,
+      "expectedTransform": null
+    },
+    {
+      "path": "public/frigo/ingredients/vegetables/turmeric.png",
+      "sourceBytes": 338638,
+      "sourceSha256": "a19acf518b649b2d8baed41f47e318ae2cccb9bfbe2318f79a3b1d8308da41b5",
+      "buildBytes": 338638,
+      "buildSha256": "a19acf518b649b2d8baed41f47e318ae2cccb9bfbe2318f79a3b1d8308da41b5",
+      "byteIdentical": true,
+      "expectedTransform": null
+    },
+    {
+      "path": "public/frigo/ingredients/vegetables/vietnamese-coriander.png",
+      "sourceBytes": 244274,
+      "sourceSha256": "c82f1a65ba3e83ed3937ac58b139706469dc2b856e71e741001dfe3af2c3ef62",
+      "buildBytes": 244274,
+      "buildSha256": "c82f1a65ba3e83ed3937ac58b139706469dc2b856e71e741001dfe3af2c3ef62",
+      "byteIdentical": true,
+      "expectedTransform": null
+    },
+    {
+      "path": "public/frigo/ingredients/vegetables/water-spinach.png",
+      "sourceBytes": 105008,
+      "sourceSha256": "ef51912cb7d205fd7598209e6d77ccc10e24b3d89b16a3a239caa70e23f89cbe",
+      "buildBytes": 105008,
+      "buildSha256": "ef51912cb7d205fd7598209e6d77ccc10e24b3d89b16a3a239caa70e23f89cbe",
+      "byteIdentical": true,
+      "expectedTransform": null
+    },
+    {
+      "path": "public/frigo/ingredients/vegetables/white-radish.png",
+      "sourceBytes": 82806,
+      "sourceSha256": "76b5bf082b59ae21fc19f1255cec749057ec6249979872b704f2ec4cc64b89d5",
+      "buildBytes": 82806,
+      "buildSha256": "76b5bf082b59ae21fc19f1255cec749057ec6249979872b704f2ec4cc64b89d5",
+      "byteIdentical": true,
+      "expectedTransform": null
+    },
+    {
+      "path": "public/frigo/ingredients/vegetables/winter-melon.png",
+      "sourceBytes": 271038,
+      "sourceSha256": "6a9523678705cbe601db380abd0322c195ae07ed0d16a75fccb17b27b82eaa0c",
+      "buildBytes": 271038,
+      "buildSha256": "6a9523678705cbe601db380abd0322c195ae07ed0d16a75fccb17b27b82eaa0c",
+      "byteIdentical": true,
+      "expectedTransform": null
+    },
+    {
+      "path": "public/frigo/ingredients/vegetables/zucchini.png",
+      "sourceBytes": 161780,
+      "sourceSha256": "e432a9ee4adf349f6aa4ab379a96c0549e0f285d2eda22feb2b61dbbd72e7608",
+      "buildBytes": 161780,
+      "buildSha256": "e432a9ee4adf349f6aa4ab379a96c0549e0f285d2eda22feb2b61dbbd72e7608",
+      "byteIdentical": true,
+      "expectedTransform": null
+    },
+    {
+      "path": "public/frigo/recipes/global/kimchi-fried-rice.webp",
+      "sourceBytes": 63902,
+      "sourceSha256": "b4ed63ff715c6eb3b183e49a0c15f30e32a2522c288184b6353482bef612ca8d",
+      "buildBytes": 63902,
+      "buildSha256": "b4ed63ff715c6eb3b183e49a0c15f30e32a2522c288184b6353482bef612ca8d",
+      "byteIdentical": true,
+      "expectedTransform": null
+    },
+    {
+      "path": "public/frigo/recipes/global/mapo-tofu.webp",
+      "sourceBytes": 65846,
+      "sourceSha256": "bfa6e099a8c3c289e248a3f19d36bc96d6e47f195277239a481603bb24bfbd4a",
+      "buildBytes": 65846,
+      "buildSha256": "bfa6e099a8c3c289e248a3f19d36bc96d6e47f195277239a481603bb24bfbd4a",
+      "byteIdentical": true,
+      "expectedTransform": null
+    },
+    {
+      "path": "public/frigo/recipes/global/oyakodon.webp",
+      "sourceBytes": 55662,
+      "sourceSha256": "f6fa1e79ed329871c6461a7bacafe35d594d05a00f1ff7a7b06c458d7013735b",
+      "buildBytes": 55662,
+      "buildSha256": "f6fa1e79ed329871c6461a7bacafe35d594d05a00f1ff7a7b06c458d7013735b",
+      "byteIdentical": true,
+      "expectedTransform": null
+    },
+    {
+      "path": "public/frigo/recipes/global/pad-krapow.webp",
+      "sourceBytes": 61312,
+      "sourceSha256": "518d62f283dbae4959e04d06dd8a9b9e2a195388aeb57e8da39e2114eebd6b2e",
+      "buildBytes": 61312,
+      "buildSha256": "518d62f283dbae4959e04d06dd8a9b9e2a195388aeb57e8da39e2114eebd6b2e",
+      "byteIdentical": true,
+      "expectedTransform": null
+    },
+    {
+      "path": "public/frigo/recipes/global/pasta-pomodoro.webp",
+      "sourceBytes": 65518,
+      "sourceSha256": "82a23e835f15733dee11df7061364b53a7f94fb75014fd1f703c25668448b842",
+      "buildBytes": 65518,
+      "buildSha256": "82a23e835f15733dee11df7061364b53a7f94fb75014fd1f703c25668448b842",
+      "byteIdentical": true,
+      "expectedTransform": null
+    },
+    {
+      "path": "public/frigo/recipes/global/tomato-egg-stir-fry.webp",
+      "sourceBytes": 52622,
+      "sourceSha256": "2f1889cec34e84000cfb2f9c826f9927c738ec62ac776a81ed2a8f83b5786743",
+      "buildBytes": 52622,
+      "buildSha256": "2f1889cec34e84000cfb2f9c826f9927c738ec62ac776a81ed2a8f83b5786743",
+      "byteIdentical": true,
+      "expectedTransform": null
+    },
+    {
+      "path": "public/frigo/recipes/vietnam/canh-chua-ca.webp",
+      "sourceBytes": 66390,
+      "sourceSha256": "72e90eb0479f0a7983a68b54a069f2798bd714eaf68b8333afc9d856f82ee82d",
+      "buildBytes": 66390,
+      "buildSha256": "72e90eb0479f0a7983a68b54a069f2798bd714eaf68b8333afc9d856f82ee82d",
+      "byteIdentical": true,
+      "expectedTransform": null
+    },
+    {
+      "path": "public/frigo/recipes/vietnam/com-chien-trung.webp",
+      "sourceBytes": 58848,
+      "sourceSha256": "2267ff4ed1181ea870ed27d45c7b418f0dfcb443a0b4f38d9b8c85eccd9e0fba",
+      "buildBytes": 58848,
+      "buildSha256": "2267ff4ed1181ea870ed27d45c7b418f0dfcb443a0b4f38d9b8c85eccd9e0fba",
+      "byteIdentical": true,
+      "expectedTransform": null
+    },
+    {
+      "path": "public/frigo/recipes/vietnam/dau-phu-sot-ca-chua.webp",
+      "sourceBytes": 68598,
+      "sourceSha256": "8bbe363b887201473cc660e3f0be7f2ea56136b412bd7009e93511d5d1f4f3fc",
+      "buildBytes": 68598,
+      "buildSha256": "8bbe363b887201473cc660e3f0be7f2ea56136b412bd7009e93511d5d1f4f3fc",
+      "byteIdentical": true,
+      "expectedTransform": null
+    },
+    {
+      "path": "public/frigo/recipes/vietnam/ga-kho-gung.webp",
+      "sourceBytes": 65934,
+      "sourceSha256": "f28da1bbc42ae2371601d1386c5a4c6157962f27fc21e3afd3870ca6d7448c8f",
+      "buildBytes": 65934,
+      "buildSha256": "f28da1bbc42ae2371601d1386c5a4c6157962f27fc21e3afd3870ca6d7448c8f",
+      "byteIdentical": true,
+      "expectedTransform": null
+    },
+    {
+      "path": "public/frigo/recipes/vietnam/rau-muong-xao-toi.webp",
+      "sourceBytes": 65824,
+      "sourceSha256": "763373595603fe577c9621467e3c45fbb3c46712a58e3fb5febff34abc0dcce0",
+      "buildBytes": 65824,
+      "buildSha256": "763373595603fe577c9621467e3c45fbb3c46712a58e3fb5febff34abc0dcce0",
+      "byteIdentical": true,
+      "expectedTransform": null
+    },
+    {
+      "path": "public/frigo/recipes/vietnam/thit-kho-trung.webp",
+      "sourceBytes": 65130,
+      "sourceSha256": "04b9811468b01a81e504085341c3ddd2c9eb77afbebe51790c42be624acf6569",
+      "buildBytes": 65130,
+      "buildSha256": "04b9811468b01a81e504085341c3ddd2c9eb77afbebe51790c42be624acf6569",
+      "byteIdentical": true,
+      "expectedTransform": null
+    },
+    {
+      "path": "public/frigo/reference/brand_board.png",
+      "sourceBytes": 1598233,
+      "sourceSha256": "8e388b64bad2e09110de20798079993ee4a6c21e2ad944e5f85535bb0d7152d0",
+      "buildBytes": 1598233,
+      "buildSha256": "8e388b64bad2e09110de20798079993ee4a6c21e2ad944e5f85535bb0d7152d0",
+      "byteIdentical": true,
+      "expectedTransform": null
+    },
+    {
+      "path": "public/frigo/reference/frontend_assets_board.png",
+      "sourceBytes": 1742964,
+      "sourceSha256": "ff8790f6f372d058f69764e8529e112d17c593d36d0b727844e1bfed9439e381",
+      "buildBytes": 1742964,
+      "buildSha256": "ff8790f6f372d058f69764e8529e112d17c593d36d0b727844e1bfed9439e381",
+      "byteIdentical": true,
+      "expectedTransform": null
+    },
+    {
+      "path": "public/frigo/reference/screen_reference.png",
+      "sourceBytes": 1769701,
+      "sourceSha256": "a9cd65e314525b90976051377fec0df6ae39962130f2068cafe422b5b85da15a",
+      "buildBytes": 1769701,
+      "buildSha256": "a9cd65e314525b90976051377fec0df6ae39962130f2068cafe422b5b85da15a",
+      "byteIdentical": true,
+      "expectedTransform": null
+    },
+    {
+      "path": "public/frigo/reference/ui_components_board.png",
+      "sourceBytes": 1588966,
+      "sourceSha256": "eef30b588621c4b2ed544d16aa96edda2f54b57ad0a5f6f701057e8448bda064",
+      "buildBytes": 1588966,
+      "buildSha256": "eef30b588621c4b2ed544d16aa96edda2f54b57ad0a5f6f701057e8448bda064",
+      "byteIdentical": true,
+      "expectedTransform": null
+    },
+    {
+      "path": "public/frigo/ui-icons/calendar.png",
+      "sourceBytes": 20220,
+      "sourceSha256": "4c13fe93e538b6e8fd4cbfff459afadedc8338b4f519c93219820d891959fa69",
+      "buildBytes": 20220,
+      "buildSha256": "4c13fe93e538b6e8fd4cbfff459afadedc8338b4f519c93219820d891959fa69",
+      "byteIdentical": true,
+      "expectedTransform": null
+    },
+    {
+      "path": "public/frigo/ui-icons/camera.png",
+      "sourceBytes": 24879,
+      "sourceSha256": "074b461856def20c892cecfd880a7b0f873bd5a890ebf2ff360fb4d13ea64f9e",
+      "buildBytes": 24879,
+      "buildSha256": "074b461856def20c892cecfd880a7b0f873bd5a890ebf2ff360fb4d13ea64f9e",
+      "byteIdentical": true,
+      "expectedTransform": null
+    },
+    {
+      "path": "public/frigo/ui-icons/cart.png",
+      "sourceBytes": 16646,
+      "sourceSha256": "5ff6dbd5796073a34055d713c551cd942c2ed5a18bc605c905f0eadd33beedce",
+      "buildBytes": 16646,
+      "buildSha256": "5ff6dbd5796073a34055d713c551cd942c2ed5a18bc605c905f0eadd33beedce",
+      "byteIdentical": true,
+      "expectedTransform": null
+    },
+    {
+      "path": "public/frigo/ui-icons/check.png",
+      "sourceBytes": 19972,
+      "sourceSha256": "d5ba06d3f9c5544180c52ddafb50c4a5efbfcc9a98d83beecd4a302cd5e6566a",
+      "buildBytes": 19972,
+      "buildSha256": "d5ba06d3f9c5544180c52ddafb50c4a5efbfcc9a98d83beecd4a302cd5e6566a",
+      "byteIdentical": true,
+      "expectedTransform": null
+    },
+    {
+      "path": "public/frigo/ui-icons/chef.png",
+      "sourceBytes": 22041,
+      "sourceSha256": "4ad235f58e012a7a2555f0e41255b2de6455fa5949a72b8a6c662a8809ca0a6d",
+      "buildBytes": 22041,
+      "buildSha256": "4ad235f58e012a7a2555f0e41255b2de6455fa5949a72b8a6c662a8809ca0a6d",
+      "byteIdentical": true,
+      "expectedTransform": null
+    },
+    {
+      "path": "public/frigo/ui-icons/clock.png",
+      "sourceBytes": 21277,
+      "sourceSha256": "a6919e93c61089b187832783f213c4e3d65009225e0639c2757d9c3334b07c66",
+      "buildBytes": 21277,
+      "buildSha256": "a6919e93c61089b187832783f213c4e3d65009225e0639c2757d9c3334b07c66",
+      "byteIdentical": true,
+      "expectedTransform": null
+    },
+    {
+      "path": "public/frigo/ui-icons/delete.png",
+      "sourceBytes": 17265,
+      "sourceSha256": "83d7370aac2af87856763253a44efc773a7a14188a9c7dca4c718bf05cad8253",
+      "buildBytes": 17265,
+      "buildSha256": "83d7370aac2af87856763253a44efc773a7a14188a9c7dca4c718bf05cad8253",
+      "byteIdentical": true,
+      "expectedTransform": null
+    },
+    {
+      "path": "public/frigo/ui-icons/edit.png",
+      "sourceBytes": 15799,
+      "sourceSha256": "d9cd68553ecddd6a17c551c9b4d0c21168c57854af58ef4360b33c5ff3d5ca45",
+      "buildBytes": 15799,
+      "buildSha256": "d9cd68553ecddd6a17c551c9b4d0c21168c57854af58ef4360b33c5ff3d5ca45",
+      "byteIdentical": true,
+      "expectedTransform": null
+    },
+    {
+      "path": "public/frigo/ui-icons/favorite.png",
+      "sourceBytes": 17195,
+      "sourceSha256": "c8a0f557c57661599780c6571075474f7182c4508edfbee178ccb518549a4f51",
+      "buildBytes": 17195,
+      "buildSha256": "c8a0f557c57661599780c6571075474f7182c4508edfbee178ccb518549a4f51",
+      "byteIdentical": true,
+      "expectedTransform": null
+    },
+    {
+      "path": "public/frigo/ui-icons/filter.png",
+      "sourceBytes": 14942,
+      "sourceSha256": "63930dab4a6f99e6b0047add64cd317a8a08aa1f2860af5dd1e72e336c1c5f98",
+      "buildBytes": 14942,
+      "buildSha256": "63930dab4a6f99e6b0047add64cd317a8a08aa1f2860af5dd1e72e336c1c5f98",
+      "byteIdentical": true,
+      "expectedTransform": null
+    },
+    {
+      "path": "public/frigo/ui-icons/fridge.png",
+      "sourceBytes": 20073,
+      "sourceSha256": "cab32707a6a36830de18876cef82908c0d477e8d3eb7bd9d1e19ab6e70ace0ac",
+      "buildBytes": 20073,
+      "buildSha256": "cab32707a6a36830de18876cef82908c0d477e8d3eb7bd9d1e19ab6e70ace0ac",
+      "byteIdentical": true,
+      "expectedTransform": null
+    },
+    {
+      "path": "public/frigo/ui-icons/gallery.png",
+      "sourceBytes": 19102,
+      "sourceSha256": "fbc24704fc04c929da1090491b179008dbbc1d939ff88cce406e8bb9493353a5",
+      "buildBytes": 19102,
+      "buildSha256": "fbc24704fc04c929da1090491b179008dbbc1d939ff88cce406e8bb9493353a5",
+      "byteIdentical": true,
+      "expectedTransform": null
+    },
+    {
+      "path": "public/frigo/ui-icons/globe.png",
+      "sourceBytes": 28599,
+      "sourceSha256": "47dc7ec8f058bca9a89e5fcb0f76befe4419358d9970f218f174323fb534ac7b",
+      "buildBytes": 28599,
+      "buildSha256": "47dc7ec8f058bca9a89e5fcb0f76befe4419358d9970f218f174323fb534ac7b",
+      "byteIdentical": true,
+      "expectedTransform": null
+    },
+    {
+      "path": "public/frigo/ui-icons/home.png",
+      "sourceBytes": 15963,
+      "sourceSha256": "7720fadd8fa6f1e61e6000a62b47a296cd57921638c0d65c5494558ed84436e5",
+      "buildBytes": 15963,
+      "buildSha256": "7720fadd8fa6f1e61e6000a62b47a296cd57921638c0d65c5494558ed84436e5",
+      "byteIdentical": true,
+      "expectedTransform": null
+    },
+    {
+      "path": "public/frigo/ui-icons/hot.png",
+      "sourceBytes": 18520,
+      "sourceSha256": "54ae210ba718f2802a70fa09526d96d0476b085f157cf620118dff7fd64e8efe",
+      "buildBytes": 18520,
+      "buildSha256": "54ae210ba718f2802a70fa09526d96d0476b085f157cf620118dff7fd64e8efe",
+      "byteIdentical": true,
+      "expectedTransform": null
+    },
+    {
+      "path": "public/frigo/ui-icons/list.png",
+      "sourceBytes": 18157,
+      "sourceSha256": "48142e7e863cd8fe5b13b482faeaed6dd843e70a344397959118cf4c3711dfa3",
+      "buildBytes": 18157,
+      "buildSha256": "48142e7e863cd8fe5b13b482faeaed6dd843e70a344397959118cf4c3711dfa3",
+      "byteIdentical": true,
+      "expectedTransform": null
+    },
+    {
+      "path": "public/frigo/ui-icons/minus.png",
+      "sourceBytes": 16797,
+      "sourceSha256": "479a0fceb56021428b8702c62e512e47f3adce07353ebc1b3675915a4e9e46f5",
+      "buildBytes": 16797,
+      "buildSha256": "479a0fceb56021428b8702c62e512e47f3adce07353ebc1b3675915a4e9e46f5",
+      "byteIdentical": true,
+      "expectedTransform": null
+    },
+    {
+      "path": "public/frigo/ui-icons/notification.png",
+      "sourceBytes": 17437,
+      "sourceSha256": "2b71df37e954b8b08a5ea8bb22221616d02fb26b48f8043d305fb265dabd0f3b",
+      "buildBytes": 17437,
+      "buildSha256": "2b71df37e954b8b08a5ea8bb22221616d02fb26b48f8043d305fb265dabd0f3b",
+      "byteIdentical": true,
+      "expectedTransform": null
+    },
+    {
+      "path": "public/frigo/ui-icons/plus.png",
+      "sourceBytes": 19024,
+      "sourceSha256": "b2d6c4cc27ad9627f1e97147fef2c637453bcfabc1db0d36d57e72f1b78ecdb7",
+      "buildBytes": 19024,
+      "buildSha256": "b2d6c4cc27ad9627f1e97147fef2c637453bcfabc1db0d36d57e72f1b78ecdb7",
+      "byteIdentical": true,
+      "expectedTransform": null
+    },
+    {
+      "path": "public/frigo/ui-icons/profile.png",
+      "sourceBytes": 20459,
+      "sourceSha256": "11af76d89ca5a5f91d6b8b8af677e19c24c0a41d3ec45f82c31f553f48cd457c",
+      "buildBytes": 20459,
+      "buildSha256": "11af76d89ca5a5f91d6b8b8af677e19c24c0a41d3ec45f82c31f553f48cd457c",
+      "byteIdentical": true,
+      "expectedTransform": null
+    },
+    {
+      "path": "public/frigo/ui-icons/refresh.png",
+      "sourceBytes": 24623,
+      "sourceSha256": "2c4d03d0115d3b0b39fa28a922a0e9fedbedf4b5b6841b7f08b36d830199f43d",
+      "buildBytes": 24623,
+      "buildSha256": "2c4d03d0115d3b0b39fa28a922a0e9fedbedf4b5b6841b7f08b36d830199f43d",
+      "byteIdentical": true,
+      "expectedTransform": null
+    },
+    {
+      "path": "public/frigo/ui-icons/search.png",
+      "sourceBytes": 17303,
+      "sourceSha256": "74cc55e6b9b09c7476247eb570e26d929f9ccb04d68f1f4906a642cc87f6427a",
+      "buildBytes": 17303,
+      "buildSha256": "74cc55e6b9b09c7476247eb570e26d929f9ccb04d68f1f4906a642cc87f6427a",
+      "byteIdentical": true,
+      "expectedTransform": null
+    },
+    {
+      "path": "public/frigo/ui-icons/settings.png",
+      "sourceBytes": 24623,
+      "sourceSha256": "fcbbe9d09a93e4a2de4664126cd099c683204fb4bdefa525f017c93136892505",
+      "buildBytes": 24623,
+      "buildSha256": "fcbbe9d09a93e4a2de4664126cd099c683204fb4bdefa525f017c93136892505",
+      "byteIdentical": true,
+      "expectedTransform": null
+    },
+    {
+      "path": "public/frigo/ui-icons/sparkles.png",
+      "sourceBytes": 16249,
+      "sourceSha256": "3ac5d19805ea3904fa4f4b817db3d6a9c43430642593a000dbf7634f42ff3762",
+      "buildBytes": 16249,
+      "buildSha256": "3ac5d19805ea3904fa4f4b817db3d6a9c43430642593a000dbf7634f42ff3762",
+      "byteIdentical": true,
+      "expectedTransform": null
+    },
+    {
+      "path": "public/icons/favicon.svg",
+      "sourceBytes": 563,
+      "sourceSha256": "418535820ef5e142fc20d33805fb1fb421ec6d0b63da194f8de6d97a87922d91",
+      "buildBytes": 563,
+      "buildSha256": "418535820ef5e142fc20d33805fb1fb421ec6d0b63da194f8de6d97a87922d91",
+      "byteIdentical": true,
+      "expectedTransform": null
+    },
+    {
+      "path": "public/icons/icon-512.png",
+      "sourceBytes": 315121,
+      "sourceSha256": "ee5aa8deb52480766d37e8914271e27583e775b6c331cf4872e413983bf49d0e",
+      "buildBytes": 315121,
+      "buildSha256": "ee5aa8deb52480766d37e8914271e27583e775b6c331cf4872e413983bf49d0e",
+      "byteIdentical": true,
+      "expectedTransform": null
+    },
+    {
+      "path": "public/manifest.json",
+      "sourceBytes": 719,
+      "sourceSha256": "c705c3bf71f8e72185486d536d9381273eb548946df13a7919982c541502e47c",
+      "buildBytes": 719,
+      "buildSha256": "c705c3bf71f8e72185486d536d9381273eb548946df13a7919982c541502e47c",
+      "byteIdentical": true,
+      "expectedTransform": null
+    },
+    {
+      "path": "public/sw.js",
+      "sourceBytes": 4069,
+      "sourceSha256": "b7613458f313de8da654284fdc923f5c93344f2f3856787ae8b8c52e2c298fd4",
+      "buildBytes": 4054,
+      "buildSha256": "1be5852af3a802eed77df42c54d1b36c32211e0a3aba9d753321b04cae388fc7",
+      "byteIdentical": false,
+      "expectedTransform": "__TAKOSAN_BUILD_ID__ -> local"
+    },
+    {
+      "path": "public/takosan/app-icons/favicon.svg",
+      "sourceBytes": 1251,
+      "sourceSha256": "30125b83cb2e0abb727c6ebea54445e1ef2c52985321e63db7df2325753404fc",
+      "buildBytes": 1251,
+      "buildSha256": "30125b83cb2e0abb727c6ebea54445e1ef2c52985321e63db7df2325753404fc",
+      "byteIdentical": true,
+      "expectedTransform": null
+    },
+    {
+      "path": "public/takosan/app-icons/icon-128.png",
+      "sourceBytes": 4342,
+      "sourceSha256": "42de0cfeae3cfe213a87ab51f7e5149de6fd267869100cdc7c60af08fda93e1f",
+      "buildBytes": 4342,
+      "buildSha256": "42de0cfeae3cfe213a87ab51f7e5149de6fd267869100cdc7c60af08fda93e1f",
+      "byteIdentical": true,
+      "expectedTransform": null
+    },
+    {
+      "path": "public/takosan/app-icons/icon-16.png",
+      "sourceBytes": 498,
+      "sourceSha256": "0708125e926cc522c99741e73308af3d522f83395696e31361f99cb12bf09a88",
+      "buildBytes": 498,
+      "buildSha256": "0708125e926cc522c99741e73308af3d522f83395696e31361f99cb12bf09a88",
+      "byteIdentical": true,
+      "expectedTransform": null
+    },
+    {
+      "path": "public/takosan/app-icons/icon-180.png",
+      "sourceBytes": 6139,
+      "sourceSha256": "f6e4d88d26701fc761454d6a6baf36e5e44be44eb524873deb4b4d3d2dc04b44",
+      "buildBytes": 6139,
+      "buildSha256": "f6e4d88d26701fc761454d6a6baf36e5e44be44eb524873deb4b4d3d2dc04b44",
+      "byteIdentical": true,
+      "expectedTransform": null
+    },
+    {
+      "path": "public/takosan/app-icons/icon-192.png",
+      "sourceBytes": 6590,
+      "sourceSha256": "560be6c412b3befbe14455a125e4e761647dd8b5b9bb82c1548961b05737c883",
+      "buildBytes": 6590,
+      "buildSha256": "560be6c412b3befbe14455a125e4e761647dd8b5b9bb82c1548961b05737c883",
+      "byteIdentical": true,
+      "expectedTransform": null
+    },
+    {
+      "path": "public/takosan/app-icons/icon-256.png",
+      "sourceBytes": 9077,
+      "sourceSha256": "9ccddb0946b6e140f5139400d14648268377c7e2a84d29b744fcafb12ca0a9e1",
+      "buildBytes": 9077,
+      "buildSha256": "9ccddb0946b6e140f5139400d14648268377c7e2a84d29b744fcafb12ca0a9e1",
+      "byteIdentical": true,
+      "expectedTransform": null
+    },
+    {
+      "path": "public/takosan/app-icons/icon-32.png",
+      "sourceBytes": 1015,
+      "sourceSha256": "7297944df18f44b10f26a9001f65ffb5b1174b86551f3a0d7788a962c16ca406",
+      "buildBytes": 1015,
+      "buildSha256": "7297944df18f44b10f26a9001f65ffb5b1174b86551f3a0d7788a962c16ca406",
+      "byteIdentical": true,
+      "expectedTransform": null
+    },
+    {
+      "path": "public/takosan/app-icons/icon-48.png",
+      "sourceBytes": 1554,
+      "sourceSha256": "fde9af178f4d87590d42ac705e78fbc19187575bfe50c535b662ac77ad9d978a",
+      "buildBytes": 1554,
+      "buildSha256": "fde9af178f4d87590d42ac705e78fbc19187575bfe50c535b662ac77ad9d978a",
+      "byteIdentical": true,
+      "expectedTransform": null
+    },
+    {
+      "path": "public/takosan/app-icons/icon-512.png",
+      "sourceBytes": 19625,
+      "sourceSha256": "dd98b391fe8a8e76ef242c40e69cd46edcfff684eb7d6d6f068ccd920bd09434",
+      "buildBytes": 19625,
+      "buildSha256": "dd98b391fe8a8e76ef242c40e69cd46edcfff684eb7d6d6f068ccd920bd09434",
+      "byteIdentical": true,
+      "expectedTransform": null
+    },
+    {
+      "path": "public/takosan/app-icons/icon-64.png",
+      "sourceBytes": 2143,
+      "sourceSha256": "fb8f55df5ad85ced062b36401eec31b93d3db2731a28d324a28ddb51958b08b8",
+      "buildBytes": 2143,
+      "buildSha256": "fb8f55df5ad85ced062b36401eec31b93d3db2731a28d324a28ddb51958b08b8",
+      "byteIdentical": true,
+      "expectedTransform": null
+    },
+    {
+      "path": "public/takosan/app-icons/icon-maskable-512.png",
+      "sourceBytes": 13982,
+      "sourceSha256": "a3eecd5ca5d3607f3ec4311ee234bfd86ae1887da6af3439723cd95686eac579",
+      "buildBytes": 13982,
+      "buildSha256": "a3eecd5ca5d3607f3ec4311ee234bfd86ae1887da6af3439723cd95686eac579",
+      "byteIdentical": true,
+      "expectedTransform": null
+    },
+    {
+      "path": "public/takosan/app-icons/takosan-adaptive-background.svg",
+      "sourceBytes": 165,
+      "sourceSha256": "6d22eb7b5d83d01306a17a4eee254c7e26e8bc45cd6b125316d4531298455124",
+      "buildBytes": 165,
+      "buildSha256": "6d22eb7b5d83d01306a17a4eee254c7e26e8bc45cd6b125316d4531298455124",
+      "byteIdentical": true,
+      "expectedTransform": null
+    },
+    {
+      "path": "public/takosan/app-icons/takosan-adaptive-foreground.svg",
+      "sourceBytes": 1304,
+      "sourceSha256": "01f032320fc64f0e796eb359d7d60a462e0229fade9dd3d49d684a3368fe53c0",
+      "buildBytes": 1304,
+      "buildSha256": "01f032320fc64f0e796eb359d7d60a462e0229fade9dd3d49d684a3368fe53c0",
+      "byteIdentical": true,
+      "expectedTransform": null
+    },
+    {
+      "path": "public/takosan/app-icons/takosan-app-icon-light-512.png",
+      "sourceBytes": 19625,
+      "sourceSha256": "dd98b391fe8a8e76ef242c40e69cd46edcfff684eb7d6d6f068ccd920bd09434",
+      "buildBytes": 19625,
+      "buildSha256": "dd98b391fe8a8e76ef242c40e69cd46edcfff684eb7d6d6f068ccd920bd09434",
+      "byteIdentical": true,
+      "expectedTransform": null
+    },
+    {
+      "path": "public/takosan/app-icons/takosan-app-icon-mint-512.png",
+      "sourceBytes": 21664,
+      "sourceSha256": "59d7870adb69e975f169c60c3cb6cc9d96d37ad4a185ccbb8cc80fa522be6163",
+      "buildBytes": 21664,
+      "buildSha256": "59d7870adb69e975f169c60c3cb6cc9d96d37ad4a185ccbb8cc80fa522be6163",
+      "byteIdentical": true,
+      "expectedTransform": null
+    },
+    {
+      "path": "public/takosan/brand/takosan-logo-horizontal-primary.svg",
+      "sourceBytes": 2786,
+      "sourceSha256": "a45642051372f5cddf9d84978ca786f2848bbf8b94b22f41a5d1bd80507051ed",
+      "buildBytes": 2786,
+      "buildSha256": "a45642051372f5cddf9d84978ca786f2848bbf8b94b22f41a5d1bd80507051ed",
+      "byteIdentical": true,
+      "expectedTransform": null
+    },
+    {
+      "path": "public/takosan/brand/takosan-logo-horizontal-white.svg",
+      "sourceBytes": 2587,
+      "sourceSha256": "14b2b9558ae104d52f6e8ef15cdc4b51749754db7c6a79a032edf3ee9f14391c",
+      "buildBytes": 2587,
+      "buildSha256": "14b2b9558ae104d52f6e8ef15cdc4b51749754db7c6a79a032edf3ee9f14391c",
+      "byteIdentical": true,
+      "expectedTransform": null
+    },
+    {
+      "path": "public/takosan/brand/takosan-logo-primary.svg",
+      "sourceBytes": 2776,
+      "sourceSha256": "fb1623e2df93fc904da2b58e398a0355e9a5325c8bdb799d756805d2a0e3d934",
+      "buildBytes": 2776,
+      "buildSha256": "fb1623e2df93fc904da2b58e398a0355e9a5325c8bdb799d756805d2a0e3d934",
+      "byteIdentical": true,
+      "expectedTransform": null
+    },
+    {
+      "path": "public/takosan/brand/takosan-logo-white.svg",
+      "sourceBytes": 2577,
+      "sourceSha256": "3d3691f889eceb160ac60d0cdb92b53b6b80c41f2914441bc9cc2acb27c62b84",
+      "buildBytes": 2577,
+      "buildSha256": "3d3691f889eceb160ac60d0cdb92b53b6b80c41f2914441bc9cc2acb27c62b84",
+      "byteIdentical": true,
+      "expectedTransform": null
+    },
+    {
+      "path": "public/takosan/brand/takosan-og.png",
+      "sourceBytes": 23028,
+      "sourceSha256": "2165f5dc11bcf5711aa407c68a6bd3ad8041955d677f132908c95ae6f2eb47dd",
+      "buildBytes": 23028,
+      "buildSha256": "2165f5dc11bcf5711aa407c68a6bd3ad8041955d677f132908c95ae6f2eb47dd",
+      "byteIdentical": true,
+      "expectedTransform": null
+    },
+    {
+      "path": "public/takosan/brand/takosan-symbol-micro.svg",
+      "sourceBytes": 1251,
+      "sourceSha256": "30125b83cb2e0abb727c6ebea54445e1ef2c52985321e63db7df2325753404fc",
+      "buildBytes": 1251,
+      "buildSha256": "30125b83cb2e0abb727c6ebea54445e1ef2c52985321e63db7df2325753404fc",
+      "byteIdentical": true,
+      "expectedTransform": null
+    },
+    {
+      "path": "public/takosan/brand/takosan-symbol.svg",
+      "sourceBytes": 1449,
+      "sourceSha256": "a8940affca0a96b29492e039c78c5fae8eb3d461d23ef2fc74087478e67abfe8",
+      "buildBytes": 1449,
+      "buildSha256": "a8940affca0a96b29492e039c78c5fae8eb3d461d23ef2fc74087478e67abfe8",
+      "byteIdentical": true,
+      "expectedTransform": null
+    },
+    {
+      "path": "public/takosan/brand/takosan-wordmark.svg",
+      "sourceBytes": 1381,
+      "sourceSha256": "a1c80888d2fa840a25aa03a26f9249ce73b3dc8c803fae6a77445c4f9e588a84",
+      "buildBytes": 1381,
+      "buildSha256": "a1c80888d2fa840a25aa03a26f9249ce73b3dc8c803fae6a77445c4f9e588a84",
+      "byteIdentical": true,
+      "expectedTransform": null
+    },
+    {
+      "path": "public/takosan/fonts/OFL.txt",
+      "sourceBytes": 4397,
+      "sourceSha256": "6b7f8f73609a25ea78c891e34cf37b06f8a676b7ea986e941e43b009110f2a85",
+      "buildBytes": 4397,
+      "buildSha256": "6b7f8f73609a25ea78c891e34cf37b06f8a676b7ea986e941e43b009110f2a85",
+      "byteIdentical": true,
+      "expectedTransform": null
+    },
+    {
+      "path": "public/takosan/fonts/be-vietnam-pro-latin-400-normal.woff2",
+      "sourceBytes": 21276,
+      "sourceSha256": "cefd95a324be2eaf3e23aff008a33cb029872f266d785204fd2f2eaac2abb0d3",
+      "buildBytes": 21276,
+      "buildSha256": "cefd95a324be2eaf3e23aff008a33cb029872f266d785204fd2f2eaac2abb0d3",
+      "byteIdentical": true,
+      "expectedTransform": null
+    },
+    {
+      "path": "public/takosan/fonts/be-vietnam-pro-latin-600-normal.woff2",
+      "sourceBytes": 22052,
+      "sourceSha256": "136998431df364d059b40ec4ed821fd193437096011f88c8676b5a27274a34ed",
+      "buildBytes": 22052,
+      "buildSha256": "136998431df364d059b40ec4ed821fd193437096011f88c8676b5a27274a34ed",
+      "byteIdentical": true,
+      "expectedTransform": null
+    },
+    {
+      "path": "public/takosan/fonts/be-vietnam-pro-latin-700-normal.woff2",
+      "sourceBytes": 22216,
+      "sourceSha256": "6ed20761ae0472f8f1ce186f64739c41787db04c881d5ba0530027dc4eddf4b6",
+      "buildBytes": 22216,
+      "buildSha256": "6ed20761ae0472f8f1ce186f64739c41787db04c881d5ba0530027dc4eddf4b6",
+      "byteIdentical": true,
+      "expectedTransform": null
+    },
+    {
+      "path": "public/takosan/fonts/be-vietnam-pro-latin-ext-400-normal.woff2",
+      "sourceBytes": 12928,
+      "sourceSha256": "c481d1798fd5d657632f9e32c5489b729653d141f33570e4bbc2cfcb7c4cf5ea",
+      "buildBytes": 12928,
+      "buildSha256": "c481d1798fd5d657632f9e32c5489b729653d141f33570e4bbc2cfcb7c4cf5ea",
+      "byteIdentical": true,
+      "expectedTransform": null
+    },
+    {
+      "path": "public/takosan/fonts/be-vietnam-pro-latin-ext-600-normal.woff2",
+      "sourceBytes": 13612,
+      "sourceSha256": "1d37ca4a523cdd1e35b14adbaa0b0d238dc6a057ac3c4aa77ecb9ce534bae475",
+      "buildBytes": 13612,
+      "buildSha256": "1d37ca4a523cdd1e35b14adbaa0b0d238dc6a057ac3c4aa77ecb9ce534bae475",
+      "byteIdentical": true,
+      "expectedTransform": null
+    },
+    {
+      "path": "public/takosan/fonts/be-vietnam-pro-latin-ext-700-normal.woff2",
+      "sourceBytes": 13776,
+      "sourceSha256": "2a11d0d40a69fb7d3865463ad254fa393840b7d25c8207d60af3dc61f2235304",
+      "buildBytes": 13776,
+      "buildSha256": "2a11d0d40a69fb7d3865463ad254fa393840b7d25c8207d60af3dc61f2235304",
+      "byteIdentical": true,
+      "expectedTransform": null
+    },
+    {
+      "path": "public/takosan/fonts/be-vietnam-pro-vietnamese-400-normal.woff2",
+      "sourceBytes": 11484,
+      "sourceSha256": "a1a7de622e4266ff7d5fdef40712c3aa9fa0a7b1213219b4b172b41c62e9fd5a",
+      "buildBytes": 11484,
+      "buildSha256": "a1a7de622e4266ff7d5fdef40712c3aa9fa0a7b1213219b4b172b41c62e9fd5a",
+      "byteIdentical": true,
+      "expectedTransform": null
+    },
+    {
+      "path": "public/takosan/fonts/be-vietnam-pro-vietnamese-600-normal.woff2",
+      "sourceBytes": 12160,
+      "sourceSha256": "86dbbb4b20a5ae31c479f1aff09532034340c87239ac2bb183b152c697755227",
+      "buildBytes": 12160,
+      "buildSha256": "86dbbb4b20a5ae31c479f1aff09532034340c87239ac2bb183b152c697755227",
+      "byteIdentical": true,
+      "expectedTransform": null
+    },
+    {
+      "path": "public/takosan/fonts/be-vietnam-pro-vietnamese-700-normal.woff2",
+      "sourceBytes": 12428,
+      "sourceSha256": "390d020c9aa37584d7b389dde664d6d8e202013d0d5b13ba6d2297d6f1865f6b",
+      "buildBytes": 12428,
+      "buildSha256": "390d020c9aa37584d7b389dde664d6d8e202013d0d5b13ba6d2297d6f1865f6b",
+      "byteIdentical": true,
+      "expectedTransform": null
+    },
+    {
+      "path": "public/takosan/mascot/takosan-calendar.svg",
+      "sourceBytes": 1915,
+      "sourceSha256": "5e4815a0e39a7239616670da51aeb705d7e5100f3e408566e4a4349057035669",
+      "buildBytes": 1915,
+      "buildSha256": "5e4815a0e39a7239616670da51aeb705d7e5100f3e408566e4a4349057035669",
+      "byteIdentical": true,
+      "expectedTransform": null
+    },
+    {
+      "path": "public/takosan/mascot/takosan-celebrate.svg",
+      "sourceBytes": 1552,
+      "sourceSha256": "92871a573b7adc72251da9b858e8fd0978f46438e56de0daed5ee12930064804",
+      "buildBytes": 1552,
+      "buildSha256": "92871a573b7adc72251da9b858e8fd0978f46438e56de0daed5ee12930064804",
+      "byteIdentical": true,
+      "expectedTransform": null
+    },
+    {
+      "path": "public/takosan/mascot/takosan-cooking.svg",
+      "sourceBytes": 1869,
+      "sourceSha256": "d258a0fa56acb6a8c7d19cedf4bf809425bf252d25d4c960b9f6f3301503f2f5",
+      "buildBytes": 1869,
+      "buildSha256": "d258a0fa56acb6a8c7d19cedf4bf809425bf252d25d4c960b9f6f3301503f2f5",
+      "byteIdentical": true,
+      "expectedTransform": null
+    },
+    {
+      "path": "public/takosan/mascot/takosan-fridge.svg",
+      "sourceBytes": 1888,
+      "sourceSha256": "da70f23d44ede3982a373d1043bd850fe495904ed9fc39c8322742b3ebe49747",
+      "buildBytes": 1888,
+      "buildSha256": "da70f23d44ede3982a373d1043bd850fe495904ed9fc39c8322742b3ebe49747",
+      "byteIdentical": true,
+      "expectedTransform": null
+    },
+    {
+      "path": "public/takosan/mascot/takosan-leaf.svg",
+      "sourceBytes": 1582,
+      "sourceSha256": "546973489b115f6cff1c88883b76fe22bda98108c76619e1b55edabdc08bc58f",
+      "buildBytes": 1582,
+      "buildSha256": "546973489b115f6cff1c88883b76fe22bda98108c76619e1b55edabdc08bc58f",
+      "byteIdentical": true,
+      "expectedTransform": null
+    },
+    {
+      "path": "public/takosan/mascot/takosan-neutral.svg",
+      "sourceBytes": 1449,
+      "sourceSha256": "a8940affca0a96b29492e039c78c5fae8eb3d461d23ef2fc74087478e67abfe8",
+      "buildBytes": 1449,
+      "buildSha256": "a8940affca0a96b29492e039c78c5fae8eb3d461d23ef2fc74087478e67abfe8",
+      "byteIdentical": true,
+      "expectedTransform": null
+    },
+    {
+      "path": "public/takosan/mascot/takosan-recipe.svg",
+      "sourceBytes": 1827,
+      "sourceSha256": "ff4ace2648f0ed8996b4d6b0ed8cacab76d0f7a6aa8e9f6b0aef577d997eae11",
+      "buildBytes": 1827,
+      "buildSha256": "ff4ace2648f0ed8996b4d6b0ed8cacab76d0f7a6aa8e9f6b0aef577d997eae11",
+      "byteIdentical": true,
+      "expectedTransform": null
+    },
+    {
+      "path": "public/takosan/mascot/takosan-shopping.svg",
+      "sourceBytes": 1909,
+      "sourceSha256": "bafa4369d6bd535ffa7f4503eb43f206a4a4b2776a3cb080cf7b5b873ed786a0",
+      "buildBytes": 1909,
+      "buildSha256": "bafa4369d6bd535ffa7f4503eb43f206a4a4b2776a3cb080cf7b5b873ed786a0",
+      "byteIdentical": true,
+      "expectedTransform": null
+    },
+    {
+      "path": "public/takosan/mascot/takosan-thinking.svg",
+      "sourceBytes": 1595,
+      "sourceSha256": "a7f1f5167c580eea4688d3e0fb42e37724ac48f92a1f3df8ab3086c518b6636a",
+      "buildBytes": 1595,
+      "buildSha256": "a7f1f5167c580eea4688d3e0fb42e37724ac48f92a1f3df8ab3086c518b6636a",
+      "byteIdentical": true,
+      "expectedTransform": null
+    },
+    {
+      "path": "public/takosan/mascot/takosan-wave.svg",
+      "sourceBytes": 1576,
+      "sourceSha256": "7b3493ec28ea7e0917bf32680b09b57c09fa239cc4450415e1cb694a1e2b5524",
+      "buildBytes": 1576,
+      "buildSha256": "7b3493ec28ea7e0917bf32680b09b57c09fa239cc4450415e1cb694a1e2b5524",
+      "byteIdentical": true,
+      "expectedTransform": null
+    },
+    {
+      "path": "public/takosan/rebuild/app-icons/favicon.svg",
+      "sourceBytes": 452,
+      "sourceSha256": "a511e345a4c64dbb2ab051ee396c8f791662874338e39d71dd027bca11c4931c",
+      "buildBytes": 452,
+      "buildSha256": "a511e345a4c64dbb2ab051ee396c8f791662874338e39d71dd027bca11c4931c",
+      "byteIdentical": true,
+      "expectedTransform": null
+    },
+    {
+      "path": "public/takosan/rebuild/app-icons/icon-128.png",
+      "sourceBytes": 2330,
+      "sourceSha256": "d8989eb4a45bfa106460114cf056530102420280b0fffa91993e0cc6e17d6ad3",
+      "buildBytes": 2330,
+      "buildSha256": "d8989eb4a45bfa106460114cf056530102420280b0fffa91993e0cc6e17d6ad3",
+      "byteIdentical": true,
+      "expectedTransform": null
+    },
+    {
+      "path": "public/takosan/rebuild/app-icons/icon-16.png",
+      "sourceBytes": 313,
+      "sourceSha256": "c68e5926a770d805402b63c5d601437582ea467a324ad5b578484d356f87bb5b",
+      "buildBytes": 313,
+      "buildSha256": "c68e5926a770d805402b63c5d601437582ea467a324ad5b578484d356f87bb5b",
+      "byteIdentical": true,
+      "expectedTransform": null
+    },
+    {
+      "path": "public/takosan/rebuild/app-icons/icon-180.png",
+      "sourceBytes": 3392,
+      "sourceSha256": "2922faef7b791863350d41738cf247a8965ca01c4f62609e4f2517e3a4823ec3",
+      "buildBytes": 3392,
+      "buildSha256": "2922faef7b791863350d41738cf247a8965ca01c4f62609e4f2517e3a4823ec3",
+      "byteIdentical": true,
+      "expectedTransform": null
+    },
+    {
+      "path": "public/takosan/rebuild/app-icons/icon-192.png",
+      "sourceBytes": 3639,
+      "sourceSha256": "11b008b59538de18a979a10893a1dbe5e1f3231615777d627939dd83d81fea3d",
+      "buildBytes": 3639,
+      "buildSha256": "11b008b59538de18a979a10893a1dbe5e1f3231615777d627939dd83d81fea3d",
+      "byteIdentical": true,
+      "expectedTransform": null
+    },
+    {
+      "path": "public/takosan/rebuild/app-icons/icon-24.png",
+      "sourceBytes": 443,
+      "sourceSha256": "d058502945ba029a4156f64b519e5ffbe47f2d2fd8c4e1de547bbfe970fcd6a8",
+      "buildBytes": 443,
+      "buildSha256": "d058502945ba029a4156f64b519e5ffbe47f2d2fd8c4e1de547bbfe970fcd6a8",
+      "byteIdentical": true,
+      "expectedTransform": null
+    },
+    {
+      "path": "public/takosan/rebuild/app-icons/icon-256.png",
+      "sourceBytes": 5028,
+      "sourceSha256": "912d2132737d01ec8e690eebc02accb754c1b1d4222b4b111b6d512cb96e0d34",
+      "buildBytes": 5028,
+      "buildSha256": "912d2132737d01ec8e690eebc02accb754c1b1d4222b4b111b6d512cb96e0d34",
+      "byteIdentical": true,
+      "expectedTransform": null
+    },
+    {
+      "path": "public/takosan/rebuild/app-icons/icon-32.png",
+      "sourceBytes": 612,
+      "sourceSha256": "8947392a309e994bdbc3b6625e0fdc4793208e80f8f47754b404fdca9b1bfdc3",
+      "buildBytes": 612,
+      "buildSha256": "8947392a309e994bdbc3b6625e0fdc4793208e80f8f47754b404fdca9b1bfdc3",
+      "byteIdentical": true,
+      "expectedTransform": null
+    },
+    {
+      "path": "public/takosan/rebuild/app-icons/icon-48.png",
+      "sourceBytes": 889,
+      "sourceSha256": "07525fc54e472c3746660e9b01b23b8d3ada40c28b5baef548a1efb3b92d2c55",
+      "buildBytes": 889,
+      "buildSha256": "07525fc54e472c3746660e9b01b23b8d3ada40c28b5baef548a1efb3b92d2c55",
+      "byteIdentical": true,
+      "expectedTransform": null
+    },
+    {
+      "path": "public/takosan/rebuild/app-icons/icon-512.png",
+      "sourceBytes": 10717,
+      "sourceSha256": "88c971380b59199ef4f8ec5825d254a34403b638668d4f2c3167b1faf7dc0cdd",
+      "buildBytes": 10717,
+      "buildSha256": "88c971380b59199ef4f8ec5825d254a34403b638668d4f2c3167b1faf7dc0cdd",
+      "byteIdentical": true,
+      "expectedTransform": null
+    },
+    {
+      "path": "public/takosan/rebuild/app-icons/icon-64.png",
+      "sourceBytes": 1185,
+      "sourceSha256": "96bc767559d3e7e67ef7aa56d5a4cdb5e009d65a47b6a6e06f0ac0559e5ca0b0",
+      "buildBytes": 1185,
+      "buildSha256": "96bc767559d3e7e67ef7aa56d5a4cdb5e009d65a47b6a6e06f0ac0559e5ca0b0",
+      "byteIdentical": true,
+      "expectedTransform": null
+    },
+    {
+      "path": "public/takosan/rebuild/app-icons/icon-maskable-512.png",
+      "sourceBytes": 9882,
+      "sourceSha256": "c06c65c876b5f48322dcae5cb65b85902d278e18080499e3d6ea0bdc1f19e1f0",
+      "buildBytes": 9882,
+      "buildSha256": "c06c65c876b5f48322dcae5cb65b85902d278e18080499e3d6ea0bdc1f19e1f0",
+      "byteIdentical": true,
+      "expectedTransform": null
+    },
+    {
+      "path": "public/takosan/rebuild/app-icons/icon-master.svg",
+      "sourceBytes": 763,
+      "sourceSha256": "e070158527d5a745428246c6cbb9d6840e0c2c45db9c321ab0d9dd94b2e58f09",
+      "buildBytes": 763,
+      "buildSha256": "e070158527d5a745428246c6cbb9d6840e0c2c45db9c321ab0d9dd94b2e58f09",
+      "byteIdentical": true,
+      "expectedTransform": null
+    },
+    {
+      "path": "public/takosan/rebuild/app-icons/maskable-master.svg",
+      "sourceBytes": 761,
+      "sourceSha256": "a675c913fbd94c3aeaa13d28b6de5aaf226fee801c9853c5bb254b1af87a3f1e",
+      "buildBytes": 761,
+      "buildSha256": "a675c913fbd94c3aeaa13d28b6de5aaf226fee801c9853c5bb254b1af87a3f1e",
+      "byteIdentical": true,
+      "expectedTransform": null
+    },
+    {
+      "path": "public/takosan/rebuild/lockup-mono-reverse.svg",
+      "sourceBytes": 3663,
+      "sourceSha256": "2c9c0983c25416cb91636cedc6a13b745af75c344031b91570509882ab930378",
+      "buildBytes": 3663,
+      "buildSha256": "2c9c0983c25416cb91636cedc6a13b745af75c344031b91570509882ab930378",
+      "byteIdentical": true,
+      "expectedTransform": null
+    },
+    {
+      "path": "public/takosan/rebuild/lockup-mono.svg",
+      "sourceBytes": 3663,
+      "sourceSha256": "ebfb0effffb04894e7f26267b1278b6533e5462191607c751888111844db7e94",
+      "buildBytes": 3663,
+      "buildSha256": "ebfb0effffb04894e7f26267b1278b6533e5462191607c751888111844db7e94",
+      "byteIdentical": true,
+      "expectedTransform": null
+    },
+    {
+      "path": "public/takosan/rebuild/lockup-reverse.svg",
+      "sourceBytes": 3814,
+      "sourceSha256": "72ff05076bea48bfa721c47494405ac4ed5b4cf8a91d182d83f91faf3b5a29b9",
+      "buildBytes": 3814,
+      "buildSha256": "72ff05076bea48bfa721c47494405ac4ed5b4cf8a91d182d83f91faf3b5a29b9",
+      "byteIdentical": true,
+      "expectedTransform": null
+    },
+    {
+      "path": "public/takosan/rebuild/lockup.svg",
+      "sourceBytes": 3814,
+      "sourceSha256": "069d6444f3d6a1da6a9fb6461f829ca5c7559ec74b8d8fed32f46315a986ee4c",
+      "buildBytes": 3814,
+      "buildSha256": "069d6444f3d6a1da6a9fb6461f829ca5c7559ec74b8d8fed32f46315a986ee4c",
+      "byteIdentical": true,
+      "expectedTransform": null
+    },
+    {
+      "path": "public/takosan/rebuild/masters/motto.svg",
+      "sourceBytes": 7889,
+      "sourceSha256": "cbb0e306c687a6daa108e13673f1c9f75203befd3e2e6b0c9955e1cd8b109564",
+      "buildBytes": 7889,
+      "buildSha256": "cbb0e306c687a6daa108e13673f1c9f75203befd3e2e6b0c9955e1cd8b109564",
+      "byteIdentical": true,
+      "expectedTransform": null
+    },
+    {
+      "path": "public/takosan/rebuild/masters/symbol-micro.svg",
+      "sourceBytes": 452,
+      "sourceSha256": "a511e345a4c64dbb2ab051ee396c8f791662874338e39d71dd027bca11c4931c",
+      "buildBytes": 452,
+      "buildSha256": "a511e345a4c64dbb2ab051ee396c8f791662874338e39d71dd027bca11c4931c",
+      "byteIdentical": true,
+      "expectedTransform": null
+    },
+    {
+      "path": "public/takosan/rebuild/masters/symbol.svg",
+      "sourceBytes": 665,
+      "sourceSha256": "3542fde9816dbf6626005f784318d3df3e24703fc5336d7ca316e1f47ef1125a",
+      "buildBytes": 665,
+      "buildSha256": "3542fde9816dbf6626005f784318d3df3e24703fc5336d7ca316e1f47ef1125a",
+      "byteIdentical": true,
+      "expectedTransform": null
+    },
+    {
+      "path": "public/takosan/rebuild/masters/tagline.svg",
+      "sourceBytes": 11716,
+      "sourceSha256": "0c8560142f284327b99eda9a8a0dd5d83e704d86cfe2843ccc457b86d1af8da9",
+      "buildBytes": 11716,
+      "buildSha256": "0c8560142f284327b99eda9a8a0dd5d83e704d86cfe2843ccc457b86d1af8da9",
+      "byteIdentical": true,
+      "expectedTransform": null
+    },
+    {
+      "path": "public/takosan/rebuild/masters/wordmark.svg",
+      "sourceBytes": 3177,
+      "sourceSha256": "03258dae13d75e15ea3a1cfae192e9e798009343b231fc4f12abe6985b33c35f",
+      "buildBytes": 3177,
+      "buildSha256": "03258dae13d75e15ea3a1cfae192e9e798009343b231fc4f12abe6985b33c35f",
+      "byteIdentical": true,
+      "expectedTransform": null
+    },
+    {
+      "path": "public/takosan/rebuild/og.png",
+      "sourceBytes": 36373,
+      "sourceSha256": "45a1ab4c033ec2a730c551736fda2d3bb369a52aac31acde42b2429aab8f7701",
+      "buildBytes": 36373,
+      "buildSha256": "45a1ab4c033ec2a730c551736fda2d3bb369a52aac31acde42b2429aab8f7701",
+      "byteIdentical": true,
+      "expectedTransform": null
+    },
+    {
+      "path": "public/takosan/rebuild/og.svg",
+      "sourceBytes": 24123,
+      "sourceSha256": "6e91eaa8fd3230923f913541b897cba841e5f4baa84028974aeab6cadb802215",
+      "buildBytes": 24123,
+      "buildSha256": "6e91eaa8fd3230923f913541b897cba841e5f4baa84028974aeab6cadb802215",
+      "byteIdentical": true,
+      "expectedTransform": null
+    },
+    {
+      "path": "public/takosan/rebuild/stacked-mono-reverse.svg",
+      "sourceBytes": 3679,
+      "sourceSha256": "30a67293fe3ac3b340dc3e11ffc66f6caa74f2fc0e1d51532a7625eaae3470ba",
+      "buildBytes": 3679,
+      "buildSha256": "30a67293fe3ac3b340dc3e11ffc66f6caa74f2fc0e1d51532a7625eaae3470ba",
+      "byteIdentical": true,
+      "expectedTransform": null
+    },
+    {
+      "path": "public/takosan/rebuild/stacked-mono.svg",
+      "sourceBytes": 3679,
+      "sourceSha256": "03305ee2d78e687ab2a988a3cfc862edfd10ecd449e56c105cbb9f533a87a6c0",
+      "buildBytes": 3679,
+      "buildSha256": "03305ee2d78e687ab2a988a3cfc862edfd10ecd449e56c105cbb9f533a87a6c0",
+      "byteIdentical": true,
+      "expectedTransform": null
+    },
+    {
+      "path": "public/takosan/rebuild/stacked-reverse.svg",
+      "sourceBytes": 3830,
+      "sourceSha256": "ed17ee5b5a66a536d09bdb61739293f5cef7e28c830458e5f78343f2d9c16940",
+      "buildBytes": 3830,
+      "buildSha256": "ed17ee5b5a66a536d09bdb61739293f5cef7e28c830458e5f78343f2d9c16940",
+      "byteIdentical": true,
+      "expectedTransform": null
+    },
+    {
+      "path": "public/takosan/rebuild/stacked.svg",
+      "sourceBytes": 3830,
+      "sourceSha256": "7dd9da977a3eaaf30103240c0aadd13143aa24a512c83ed1e02c5e8f09cc0f76",
+      "buildBytes": 3830,
+      "buildSha256": "7dd9da977a3eaaf30103240c0aadd13143aa24a512c83ed1e02c5e8f09cc0f76",
+      "byteIdentical": true,
+      "expectedTransform": null
+    },
+    {
+      "path": "public/takosan/rebuild/symbol-micro-mono-reverse.svg",
+      "sourceBytes": 416,
+      "sourceSha256": "570ecd1fa95ccb4c0de23fe63cfb35e701c664ecc4a114c80241e8928b0cdf3c",
+      "buildBytes": 416,
+      "buildSha256": "570ecd1fa95ccb4c0de23fe63cfb35e701c664ecc4a114c80241e8928b0cdf3c",
+      "byteIdentical": true,
+      "expectedTransform": null
+    },
+    {
+      "path": "public/takosan/rebuild/symbol-micro-mono.svg",
+      "sourceBytes": 416,
+      "sourceSha256": "739a81adc5152447f3cf5b07235c7bf001799c76238c6d57b1c7967a334645fc",
+      "buildBytes": 416,
+      "buildSha256": "739a81adc5152447f3cf5b07235c7bf001799c76238c6d57b1c7967a334645fc",
+      "byteIdentical": true,
+      "expectedTransform": null
+    },
+    {
+      "path": "public/takosan/rebuild/symbol-micro-reverse.svg",
+      "sourceBytes": 452,
+      "sourceSha256": "a511e345a4c64dbb2ab051ee396c8f791662874338e39d71dd027bca11c4931c",
+      "buildBytes": 452,
+      "buildSha256": "a511e345a4c64dbb2ab051ee396c8f791662874338e39d71dd027bca11c4931c",
+      "byteIdentical": true,
+      "expectedTransform": null
+    },
+    {
+      "path": "public/takosan/rebuild/symbol-micro.svg",
+      "sourceBytes": 452,
+      "sourceSha256": "a511e345a4c64dbb2ab051ee396c8f791662874338e39d71dd027bca11c4931c",
+      "buildBytes": 452,
+      "buildSha256": "a511e345a4c64dbb2ab051ee396c8f791662874338e39d71dd027bca11c4931c",
+      "byteIdentical": true,
+      "expectedTransform": null
+    },
+    {
+      "path": "public/takosan/rebuild/symbol-mono-reverse.svg",
+      "sourceBytes": 514,
+      "sourceSha256": "17cd1cd70607d7f469abbccb5556f828a5557e11afac3751b3d75039695eb276",
+      "buildBytes": 514,
+      "buildSha256": "17cd1cd70607d7f469abbccb5556f828a5557e11afac3751b3d75039695eb276",
+      "byteIdentical": true,
+      "expectedTransform": null
+    },
+    {
+      "path": "public/takosan/rebuild/symbol-mono.svg",
+      "sourceBytes": 514,
+      "sourceSha256": "86284d4edd0eedd12844ed014cfe6597e8ebeb149adf05f28c3a6fa8422467cc",
+      "buildBytes": 514,
+      "buildSha256": "86284d4edd0eedd12844ed014cfe6597e8ebeb149adf05f28c3a6fa8422467cc",
+      "byteIdentical": true,
+      "expectedTransform": null
+    },
+    {
+      "path": "public/takosan/rebuild/symbol-reverse.svg",
+      "sourceBytes": 665,
+      "sourceSha256": "3542fde9816dbf6626005f784318d3df3e24703fc5336d7ca316e1f47ef1125a",
+      "buildBytes": 665,
+      "buildSha256": "3542fde9816dbf6626005f784318d3df3e24703fc5336d7ca316e1f47ef1125a",
+      "byteIdentical": true,
+      "expectedTransform": null
+    },
+    {
+      "path": "public/takosan/rebuild/symbol.svg",
+      "sourceBytes": 665,
+      "sourceSha256": "3542fde9816dbf6626005f784318d3df3e24703fc5336d7ca316e1f47ef1125a",
+      "buildBytes": 665,
+      "buildSha256": "3542fde9816dbf6626005f784318d3df3e24703fc5336d7ca316e1f47ef1125a",
+      "byteIdentical": true,
+      "expectedTransform": null
+    },
+    {
+      "path": "public/takosan/rebuild/wordmark-mono-reverse.svg",
+      "sourceBytes": 3169,
+      "sourceSha256": "71f550bbbcf2987e765693839489933df17878ee3d054bcddff0bf8375b1b2e8",
+      "buildBytes": 3169,
+      "buildSha256": "71f550bbbcf2987e765693839489933df17878ee3d054bcddff0bf8375b1b2e8",
+      "byteIdentical": true,
+      "expectedTransform": null
+    },
+    {
+      "path": "public/takosan/rebuild/wordmark-mono.svg",
+      "sourceBytes": 3169,
+      "sourceSha256": "be3e553dc8887a6f64b0a6590578c9b1827e6974d51af6127cf605a9b315a2d0",
+      "buildBytes": 3169,
+      "buildSha256": "be3e553dc8887a6f64b0a6590578c9b1827e6974d51af6127cf605a9b315a2d0",
+      "byteIdentical": true,
+      "expectedTransform": null
+    },
+    {
+      "path": "public/takosan/rebuild/wordmark-reverse.svg",
+      "sourceBytes": 3169,
+      "sourceSha256": "71f550bbbcf2987e765693839489933df17878ee3d054bcddff0bf8375b1b2e8",
+      "buildBytes": 3169,
+      "buildSha256": "71f550bbbcf2987e765693839489933df17878ee3d054bcddff0bf8375b1b2e8",
+      "byteIdentical": true,
+      "expectedTransform": null
+    },
+    {
+      "path": "public/takosan/rebuild/wordmark.svg",
+      "sourceBytes": 3169,
+      "sourceSha256": "12231a5d9abc4b336f3f06e34a93766d282aeb3769ac64b744726946da2eb732",
+      "buildBytes": 3169,
+      "buildSha256": "12231a5d9abc4b336f3f06e34a93766d282aeb3769ac64b744726946da2eb732",
+      "byteIdentical": true,
+      "expectedTransform": null
+    },
+    {
+      "path": "public/takosan/recipe-placeholder.svg",
+      "sourceBytes": 757,
+      "sourceSha256": "6dbfe1d7f4cba9f8ec8638456a1783827f002fc9931fbdc87681385c91c1e668",
+      "buildBytes": 757,
+      "buildSha256": "6dbfe1d7f4cba9f8ec8638456a1783827f002fc9931fbdc87681385c91c1e668",
+      "byteIdentical": true,
+      "expectedTransform": null
+    },
+    {
+      "path": "public/takosan/ui-icons/takosan-icon-budget.svg",
+      "sourceBytes": 249,
+      "sourceSha256": "55443da124c0cc8fe66f844ba32d532d375f93cbf011277aec873540d09ee72f",
+      "buildBytes": 249,
+      "buildSha256": "55443da124c0cc8fe66f844ba32d532d375f93cbf011277aec873540d09ee72f",
+      "byteIdentical": true,
+      "expectedTransform": null
+    },
+    {
+      "path": "public/takosan/ui-icons/takosan-icon-calendar.svg",
+      "sourceBytes": 275,
+      "sourceSha256": "a956362d45e2fcea028a013d20b06b0d11901802bc6cfe55beb9385ee3d0c90c",
+      "buildBytes": 275,
+      "buildSha256": "a956362d45e2fcea028a013d20b06b0d11901802bc6cfe55beb9385ee3d0c90c",
+      "byteIdentical": true,
+      "expectedTransform": null
+    },
+    {
+      "path": "public/takosan/ui-icons/takosan-icon-expiry.svg",
+      "sourceBytes": 265,
+      "sourceSha256": "958a29d0a119bef31f4cff4c6af4d72ed815cf1cc54b9d7902abd57273e4294c",
+      "buildBytes": 265,
+      "buildSha256": "958a29d0a119bef31f4cff4c6af4d72ed815cf1cc54b9d7902abd57273e4294c",
+      "byteIdentical": true,
+      "expectedTransform": null
+    },
+    {
+      "path": "public/takosan/ui-icons/takosan-icon-fridge.svg",
+      "sourceBytes": 245,
+      "sourceSha256": "41195d17fb463108fd43351742b9058dd2c5ac6d41aed088d8bc76558753d729",
+      "buildBytes": 245,
+      "buildSha256": "41195d17fb463108fd43351742b9058dd2c5ac6d41aed088d8bc76558753d729",
+      "byteIdentical": true,
+      "expectedTransform": null
+    },
+    {
+      "path": "public/takosan/ui-icons/takosan-icon-home.svg",
+      "sourceBytes": 254,
+      "sourceSha256": "c40dcde4bf1684e66535eba23061cfcf49f0341c0412035063cb47cd6006e6c2",
+      "buildBytes": 254,
+      "buildSha256": "c40dcde4bf1684e66535eba23061cfcf49f0341c0412035063cb47cd6006e6c2",
+      "byteIdentical": true,
+      "expectedTransform": null
+    },
+    {
+      "path": "public/takosan/ui-icons/takosan-icon-meal-plan.svg",
+      "sourceBytes": 264,
+      "sourceSha256": "d2a6a73a7cf12c18e9f179aaf51a56afd2be2c48be1bc622a079da0afbd423ca",
+      "buildBytes": 264,
+      "buildSha256": "d2a6a73a7cf12c18e9f179aaf51a56afd2be2c48be1bc622a079da0afbd423ca",
+      "byteIdentical": true,
+      "expectedTransform": null
+    },
+    {
+      "path": "public/takosan/ui-icons/takosan-icon-notification.svg",
+      "sourceBytes": 269,
+      "sourceSha256": "4970ad136ed55cadc843d1745537bc70e0f5a5f92e85fb1ecccd3af70c101a23",
+      "buildBytes": 269,
+      "buildSha256": "4970ad136ed55cadc843d1745537bc70e0f5a5f92e85fb1ecccd3af70c101a23",
+      "byteIdentical": true,
+      "expectedTransform": null
+    },
+    {
+      "path": "public/takosan/ui-icons/takosan-icon-nutrition.svg",
+      "sourceBytes": 298,
+      "sourceSha256": "9d8a239ceebea63eb94ea278e1bac4d735d01245d6ade2eb87f2ebde7613b44b",
+      "buildBytes": 298,
+      "buildSha256": "9d8a239ceebea63eb94ea278e1bac4d735d01245d6ade2eb87f2ebde7613b44b",
+      "byteIdentical": true,
+      "expectedTransform": null
+    },
+    {
+      "path": "public/takosan/ui-icons/takosan-icon-profile.svg",
+      "sourceBytes": 269,
+      "sourceSha256": "472d1f78ef7136b9fd22c239eb8a7dc8136d743ccb83a64285311b3493e0bceb",
+      "buildBytes": 269,
+      "buildSha256": "472d1f78ef7136b9fd22c239eb8a7dc8136d743ccb83a64285311b3493e0bceb",
+      "byteIdentical": true,
+      "expectedTransform": null
+    },
+    {
+      "path": "public/takosan/ui-icons/takosan-icon-recipe.svg",
+      "sourceBytes": 283,
+      "sourceSha256": "be6878586e5f48af16059c781424e9e3f6ab2e93e1a7017886071a5543733aae",
+      "buildBytes": 283,
+      "buildSha256": "be6878586e5f48af16059c781424e9e3f6ab2e93e1a7017886071a5543733aae",
+      "byteIdentical": true,
+      "expectedTransform": null
+    },
+    {
+      "path": "public/takosan/ui-icons/takosan-icon-scan.svg",
+      "sourceBytes": 281,
+      "sourceSha256": "7b75288b1790a419b0732f516f7427e4cc30303f96d8006264e282eb444eb444",
+      "buildBytes": 281,
+      "buildSha256": "7b75288b1790a419b0732f516f7427e4cc30303f96d8006264e282eb444eb444",
+      "byteIdentical": true,
+      "expectedTransform": null
+    },
+    {
+      "path": "public/takosan/ui-icons/takosan-icon-search.svg",
+      "sourceBytes": 254,
+      "sourceSha256": "5dda5e35b9e00ba49f1c1c4bd9192d0c5181479db2f3cabf134ec32f89145ec0",
+      "buildBytes": 254,
+      "buildSha256": "5dda5e35b9e00ba49f1c1c4bd9192d0c5181479db2f3cabf134ec32f89145ec0",
+      "byteIdentical": true,
+      "expectedTransform": null
+    },
+    {
+      "path": "public/takosan/ui-icons/takosan-icon-settings.svg",
+      "sourceBytes": 258,
+      "sourceSha256": "79dea36a7277b40348b072356af23e3c47199ccf898233fc7db2421c840f66e6",
+      "buildBytes": 258,
+      "buildSha256": "79dea36a7277b40348b072356af23e3c47199ccf898233fc7db2421c840f66e6",
+      "byteIdentical": true,
+      "expectedTransform": null
+    },
+    {
+      "path": "public/takosan/ui-icons/takosan-icon-shopping-list.svg",
+      "sourceBytes": 299,
+      "sourceSha256": "168628d2ef5717a39964e9b1e06b0c7d71b0745e169d38dcf364ecef04da4d40",
+      "buildBytes": 299,
+      "buildSha256": "168628d2ef5717a39964e9b1e06b0c7d71b0745e169d38dcf364ecef04da4d40",
+      "byteIdentical": true,
+      "expectedTransform": null
+    }
+  ]
+}

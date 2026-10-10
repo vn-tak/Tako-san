@@ -1,0 +1,28 @@
+{
+  "base": "f3a09f2a7beb548fbd4bc9ef8ae932a092dd3827",
+  "protectedPaths": [
+    "src/worker",
+    "packages",
+    "migrations",
+    "public",
+    "src/web/services",
+    "src/web/stores",
+    "src/web/lib",
+    "src/web/features",
+    "src/web/pages",
+    "src/web/components",
+    "src/shared",
+    "package.json",
+    "pnpm-lock.yaml",
+    "vite.config.ts",
+    "wrangler.jsonc",
+    "wrangler.staging.jsonc",
+    ".github",
+    "tailwind.config.js",
+    "postcss.config.js",
+    "index.html"
+  ],
+  "protectedDiffEmpty": true,
+  "appOnlyProviderImportChanged": true,
+  "frozenRecords": 396
+}

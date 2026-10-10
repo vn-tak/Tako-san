@@ -1,6 +1,9 @@
 # UI12 - Route visual review and media coverage
 
-Status: READY_FOR_AUDIT_AFTER_UI11_CHECKPOINT; no runtime implementation.
+Status: READY_FOR_AUDIT; no runtime implementation.
+Verified UI11 implementation: `74adf20db00f77c63ba47085362c621b56e050fc`,
+with its following documentation checkpoint. Source/evidence receipt:
+`docs/ui-rebuild/round-11/GIT_VERIFICATION.md` (2026-10-11 JST).
 Canonical vn-tak/Tako-san, checkout Tako-san-ui-rebuild,
 branch codex/ui-rebuild-foundation. Read the verified UI11 checkpoint and protocol.
 This packet prepares the next bounded review; it does not authorize a whole-repo

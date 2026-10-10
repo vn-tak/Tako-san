@@ -1,4 +1,4 @@
-# Checkpoint triển khai - UI11, 2026-10-10 JST
+# Checkpoint triển khai - UI11, 2026-10-11 JST
 
 Canonical vn-tak/Tako-san, branch codex/ui-rebuild-foundation. UI07 nhận diện được
 áp dụng xuyên các route đã migrate; UI08 account/entry,UI09 detail/system,UI10 Week
@@ -8,7 +8,13 @@ Full285files/6685PASS;focused255;browser115/16+flag-off24/1,aliases7,E2E19PASS/5
 Xem round-11 FOUNDATION/VERIFICATION và UI12-route-visual-media packet: audit
 inner-page typography/states/media,đặc biệt recipe badges và catalog thiếu ảnh.
 GenericUXFAIL154/30/977/85,41dependencyadvisories và separate offline/domain limits
-còn mở. Không push/PR/merge/deploy; checkpoint hash sẽ ghi sau Git verification.
+còn mở. Implementation `74adf20db00f77c63ba47085362c621b56e050fc` đã đối chiếu
+Git objects/worktree: source160/evidence271/publicassets99, 480 unique blobs;
+manifest55364bytes/SHA256
+`42892dfeaaa814df6203eb470ecd1f35850dbd6d3d7af69ec5a4976eec9c61bc`.
+Xem [Git verification](round-11/GIT_VERIFICATION.md). Protected diff rỗng, tree sạch
+sau implementation, diff-check PASS. Documentation checkpoint theo sau, không
+ghi hash của chính nó. Không push/PR/merge/deploy.
 
 ---
 

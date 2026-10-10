@@ -14,6 +14,8 @@ with existing owners. Inventory/recipe/settings/scan actions clear the same meas
 nav, with fixed main reserve and intrinsic action text. Short<=600px chrome/actions
 flow; rail scrolls. No domain authority/service/store/dependency/public change.
 Evidence and residuals in round-11; UI12 starts with inner-route/media audit only.
+Implementation `74adf20db00f77c63ba47085362c621b56e050fc` verified against
+source/evidence/asset Git objects on 2026-10-11 JST; see round-11/GIT_VERIFICATION.md.
 
 ---
 

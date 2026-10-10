@@ -4,6 +4,8 @@ Fresh Web Interface Guidelines retrieved into evidence/web-interface-guidelines.
 Review scope: navigation variants, KitchenHeader, AppLayout, measurement hook,
 kitchen-shell.css, action markers and review header JSX. Runtime scope follows
 ADR-054; existing page domain, legacy and protected contracts are preserved.
+Verified implementation `74adf20db00f77c63ba47085362c621b56e050fc`; source/evidence/
+asset Git-object receipt: GIT_VERIFICATION.md (2026-10-11 JST).
 
 ## Resolved findings
 

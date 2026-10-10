@@ -1,6 +1,10 @@
 # UI11 - Shared navigation and responsive shell
 
-Status: UI11_LOCAL_VERIFIED_REVIEW_REQUIRED; final full PASS, Git checkpoint pending.
+Status: UI11_LOCAL_VERIFIED_REVIEW_REQUIRED; final full and Git-object checks PASS.
+Verified implementation: `74adf20db00f77c63ba47085362c621b56e050fc` (2026-10-11 JST).
+160 source / 271 evidence / 99 public asset records and manifest match Git/worktree.
+Receipt: `docs/ui-rebuild/round-11/GIT_VERIFICATION.md`. Documentation checkpoint
+follows; next packet UI12 is ready for audit, with no runtime work started.
 Authorization: continued Tako-san UI rebuild; canonical vn-tak/Tako-san,
 checkout /Users/tunbee27/Documents/Tako-san-ui-rebuild,
 branch codex/ui-rebuild-foundation. Start at verified UI10 implementation

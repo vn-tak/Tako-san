@@ -2,7 +2,8 @@
 
 Canonical vn-tak/Tako-san, local checkout Tako-san-ui-rebuild,
 branch codex/ui-rebuild-foundation, base13cef9f8e6dc72549071426ad98df70e0d16f4a4.
-ADR-054 recorded before runtime. Implementation in progress.
+ADR-054 recorded before runtime. Local implementation and final gates verified;
+Git checkpoint verified on 2026-10-11 JST (receipt below).
 
 ## Baseline
 
@@ -77,4 +78,14 @@ UI/UX, nội dung ảnh, kiểm chứng thiết bị hay phê duyệt thương h
 Final focused14files/255PASS6.34s;full285files/6685PASS344.71s,type/lint/migration
 smoke/Vite2.97s/WorkerTS PASS. Runtime/browser unchanged through final fixture and
 Wrangler startup recovery. Source160 and expanded all99publicTakosan build assets
-verify; final-validation and log receipts retain every outcome. Git checkpoint next.
+verify; final-validation and log receipts retain every outcome.
+
+## Verified Git checkpoint
+
+Implementation `74adf20db00f77c63ba47085362c621b56e050fc` verified against Git
+objects/worktree: 160 source records, 271 evidence payloads and 99 public asset
+records, 480 unique blobs. Manifest 55364 bytes, SHA256
+`42892dfeaaa814df6203eb470ecd1f35850dbd6d3d7af69ec5a4976eec9c61bc`.
+Protected base-to-implementation diff empty; tree clean after commit; diff-check
+PASS. See GIT_VERIFICATION.md. Documentation checkpoint follows; UI12 route/state/
+media audit is prepared, with no UI12 runtime started.

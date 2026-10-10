@@ -133,4 +133,12 @@ verification expanded from prior51rebuild/font files to all99public/takosan file
 including legacy kit: every built file matches source bytes. Remote schema/Week
 parity were skipped by unchanged default gates; no release artifact is certified.
 
-Implementation commit/Git-object evidence verification pending next local step.
+Implementation `74adf20db00f77c63ba47085362c621b56e050fc` verified on
+2026-10-11 JST with one git cat-file --batch process: 160 source records, 271
+evidence payloads and 99 public asset records, 480 unique blobs, all match
+worktree bytes and recorded SHA256. Manifest 55364 bytes, SHA256
+`42892dfeaaa814df6203eb470ecd1f35850dbd6d3d7af69ec5a4976eec9c61bc`.
+All 56 archive log receipts match. Protected base-to-implementation diff empty;
+tree clean immediately after implementation; staged/implementation diff-check PASS.
+Owned ports 5206/8906/5207/8907 closed. GIT_VERIFICATION.md records the receipt;
+the following documentation checkpoint does not include its own hash.

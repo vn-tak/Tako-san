@@ -1,4 +1,4 @@
-# UI11 - Điều hướng và shell responsive đã kiểm chứng local - 2026-10-10 JST
+# UI11 - Điều hướng và shell responsive đã kiểm chứng local - 2026-10-11 JST
 
 **Task/status:** `UI11_LOCAL_VERIFIED_REVIEW_REQUIRED`, packet UI11, ADR-054.
 Phạm vi navigation/header/shell/action offsets hoàn tất local. Toàn hệ thống,
@@ -9,8 +9,15 @@ nhận diện được chủ dự án duyệt, thiết bị thật và hosted re
 base `13cef9f8e6dc72549071426ad98df70e0d16f4a4`. 160 source hashes frozen và kiểm
 sau full; 99 public Takosan assets/fonts sau build byte-identical (mở rộng từ51rebuild/font). Protected diff rỗng;
 App routes/guards, scope/immersive và năm page/primitives sau khi bỏ presentation
-patch khớp base bytes. Implementation commit chờ tạo và đối chiếu Git objects;
-documentation checkpoint sẽ ghi hash đã kiểm, không ghi hash của chính nó.
+patch khớp base bytes. Implementation checkpoint:
+`74adf20db00f77c63ba47085362c621b56e050fc`.
+Đã đối chiếu Git objects/worktree: 160 source records, 271 evidence payloads và
+99 public asset records; 480 unique blobs khớp bytes/SHA256. Manifest: 55364 bytes,
+SHA256 `42892dfeaaa814df6203eb470ecd1f35850dbd6d3d7af69ec5a4976eec9c61bc`.
+56 archived log receipts khớp; protected base-to-implementation diff rỗng; tree
+sạch ngay sau commit, staged/implementation diff-check PASS. Receipt chi tiết:
+`docs/ui-rebuild/round-11/GIT_VERIFICATION.md`. Documentation checkpoint theo sau,
+không ghi hash của chính nó. Checkout Frigo cũ không được sửa.
 
 **Actual changes:** Kitchen mobile giữ năm roots,12px labels đầy đủ, em grid tự
 chuyển hai hàng khi chữ lớn; Scan nguyên liệu ở hàng riêng44px-min trên header.
@@ -32,7 +39,7 @@ Cook immersive/field focus; read-only inventory JSON nguyên và zero domain wri
 Safe-area padding/banner events synthetic, không chứng nhận hardware/offline.
 Seven planner-on aliases PASS; E2E19PASS/5once-onlySKIP39.6s/sixprojects; boundary
 639/640/767/1024 chạy một lần. Type/lint và full details: exit0,285files/6685PASS,Vitest344.71s;type/lint/migration smoke/Vite2.97s/WorkerTS PASS.
-Remote schema/Week parity skip theo gate mặc định. Evidence/log receipts trong round-11..
+Remote schema/Week parity skip theo gate mặc định. Evidence/log receipts và Git verification trong round-11.
 
 **Failures/recovery:** Baseline6cells69px có3cặp labels chồng ở320x2; tablet10px
 truncate/short clip. First5cell break words, em-grid thay; fieldset StickyActions

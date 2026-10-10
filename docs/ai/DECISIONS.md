@@ -2163,7 +2163,10 @@ from real Worker commands. UI11 navigation packet is ready; runtime not started.
 
 ## ADR-054 - Measured kitchen navigation and shell offsets
 
-**Status:** Accepted 2026-10-10; locally verified; final full gate PASS, Git checkpoint pending.
+**Status:** Accepted 2026-10-10; locally verified; final full and Git-object checks PASS.
+Verified implementation `74adf20db00f77c63ba47085362c621b56e050fc` on 2026-10-11 JST.
+Source160/evidence271/publicassets99 and manifest verified against Git/worktree;
+receipt `../ui-rebuild/round-11/GIT_VERIFICATION.md`. Owner/device/release remain.
 
 **Problem/evidence:** Local Chromium audit from 13cef9f captures ten states.
 At320px computed text x2 the six-cell69px mobile bar has three label-overlap
@@ -2224,8 +2227,8 @@ so padding-only safe-area changes update measured offsets. Browser115checks/
 16journeys, flag-off24/1, seven aliases and E2E19PASS/5once-onlySKIP39.6s. E2E
 public assertion was stale from pre-UI08 mascot and now covers actual stacked entry;
 no runtime/timeout change. Protected patches restore base bytes exactly. Generic
-UX154/30/977/85FAIL (earlier980warnings) and dependency41advisories remain; final full/Git verification
-and implementation hash recorded at completion.
+UX154/30/977/85FAIL (earlier980warnings) and dependency41advisories remain; final
+full/Git verification and implementation hash are recorded in this ADR and receipt.
 
 
 **Final UI11 gate:**285files/6685tests PASS,Vitest344.71s,type/lint/migration
@@ -2234,4 +2237,10 @@ suites recovered without runtime/authority changes; unchanged Wrangler startup
 then exposed expired update-check cache under full-gate TMPDIR. Logs isolate delay
 before local D1; exact-env recovery32PASS3.77s/case1206ms,full suite32PASS2711ms.
 No manual cache/dependency/timeout/config edit. Source160 and all99publicTakosan
-build assets verify after full; remote gates remain skipped. Git checkpoint follows.
+build assets verify after full; remote gates remain skipped. Git checkpoint verified:
+160 source records, 271 evidence payloads, 99 public assets and manifest match
+480 unique Git blobs/worktree. Manifest55364bytes/SHA256
+`42892dfeaaa814df6203eb470ecd1f35850dbd6d3d7af69ec5a4976eec9c61bc`.
+Protected base-to-implementation diff empty; tree clean after implementation;
+diff-check PASS. Following documentation checkpoint records the verified hash
+without including its own hash. UI12 runtime not started.

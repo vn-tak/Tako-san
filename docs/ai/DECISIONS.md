@@ -2244,3 +2244,64 @@ build assets verify after full; remote gates remain skipped. Git checkpoint veri
 Protected base-to-implementation diff empty; tree clean after implementation;
 diff-check PASS. Following documentation checkpoint records the verified hash
 without including its own hash. UI12 runtime not started.
+
+## ADR-055 - Readable recipe journey and honest media states (UI12)
+
+**Status:** Accepted before runtime, 2026-10-11 JST; local gates PASS, Git verification pending.
+Base `f7a27c16ef460b19322d3a463dc74dc09fa48ade`, canonical vn-tak/Tako-san.
+
+**Evidence:** Ten real local baseline captures across Home, discovery and all
+three detail panels at320px, normal/computed text x2. Direct images show clipped
+hero badges, overlapping quantity/availability text, overlapping tabs and nutrition
+labels escaping their four-column cells even at normal text. Existing px-based
+line heights fail after font enlargement. The216px missing hero dominates mobile;
+Home row titles and card descriptions truncate. Media re-audit:500 local migrated
+recipes,71 static,6 allowed legacy mappings,494 canonical mappings needing review
+or correction; all500 local canonical media rows pending. This is not live state
+or photo-license certification. A Vite optimizer conflict during audit required a
+preview restart; no application or configuration fix is implied by that failure.
+
+**Decision/scope:** Complete one coherent recipe presentation slice: explicit
+kitchen RecipeCard variant for Home/discovery, shared RecipeMedia presentation,
+recipe detail/state/panels and responsive discovery controls. Retain UI07 identity
+and UI11 shell. Full titles, readable availability/time/servings, labels instead of
+an unexplained percentage, compact neutral missing-photo treatment, intrinsic line
+heights/controls and adaptive tab/nutrition grids. Existing default card variants
+retain their rendering. Existing resolver and legacy media policy stay unchanged;
+new media view consumes the resolved src/fallback only, updates state on load/error,
+falls through permitted legacy to an HTML missing-photo panel, stops retries and
+resets synchronously when title/src/fallback changes. No placeholder image request
+is needed, no new raster or public asset. Local photos remain compatibility media,
+not a claim of verified provenance. No source/license invention or AI food image.
+
+Detail keeps all query/404/error branches, retry handlers, availability arithmetic,
+shopping aggregation/mutation and cooking authority unchanged. JSX and scoped CSS
+may change; domain declarations/callbacks must match base. No raw imageUrl reads,
+new catalog mapping, canonical promotion, command/store/service/schema/guard or
+payment/auth change. Short-height recipe overview is in normal flow; sticky filters
+consume measured UI11 header/banner tokens. Reduced-motion CSS is scoped to the
+new recipe/card surfaces; no new decorative animation is required.
+
+**Sequence/acceptance:** Audit migrated route families/states and source media;
+implement chosen slice; test media load/error/reset and retained Link/modifier
+semantics; browser seven widths320..1440, computed x2 at320/768, short390x420 and
+768x420, three panels, long content, no nutrition and media fallback stages. Exercise
+keyboard tabs/Home/End, native card/back/filter/pagination, recipe loading/404/error
+retry and inventory failure without stock writes. Verify other migrated families
+and both Planner flags, one brand and UI11 nav/action/focus contract. Inventory JSON
+must equal before/after read journeys. Capture failed/final evidence and fresh
+interface guideline review; focused/type/lint/full pnpm check. Freeze source/public
+assets/evidence; local implementation commit, Git-object verification, documentation
+checkpoint with verified hash. No push/PR/deploy/remote writes. Owner/device/Safari/
+native zoom/virtual keyboard/screen-reader/CWV/hosted/whole-product approval and
+licensed catalog photography remain distinct follow-ups.
+
+**UI12 local result:** Full286files/6702PASS352.41s,type/lint/migrations/buildPASS;
+focused86,new17;browser218structuredcases/26main-off-statejourneys,applicableaxe/
+overflow/brokenimages/pageerrors/recipeclipping0. Source374frozen,96page lifecycle
+records/legacycard JSX unchanged;protected diffempty;public256copies+existingSW
+build-IDtransform. Baseline777Gitblobs verified;10finalcomparisonclip0. Localmedia
+500pending,24demandrecipes/8assets plan;genericUXFAIL157/31/989/86,41advisories.
+Ownedpreviews stopped/sixportsclosed. No protected/remote change or release.
+Implementation `UI12_IMPLEMENTATION_PENDING_VERIFICATION`; documentation checkpoint
+follows Git-object verification. UI13-local-media-review only next,not started.

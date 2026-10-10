@@ -1,0 +1,9 @@
+{
+  "compositionOnly": true,
+  "noGeneratedAssets": true,
+  "notes": [
+    "Mobile sheet uses real viewport screenshots; source images remain in each directory.",
+    "Comparison crops from full-page captures; sticky chrome can appear at capture positions. Use metrics plus viewport sheets to assess layout.",
+    "Text x2 is computed font enlargement, not native browser zoom or a device test."
+  ]
+}

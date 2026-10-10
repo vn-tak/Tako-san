@@ -1,0 +1,46 @@
+{
+  "base": "f7a27c16ef460b19322d3a463dc74dc09fa48ade",
+  "frozenRecordsVerified": 374,
+  "publicFilesVerified": 257,
+  "publicFilesBuildByteIdentical": 256,
+  "expectedBuildTransformations": [
+    {
+      "path": "public/sw.js",
+      "reason": "existing Vite plugin replaces __TAKOSAN_BUILD_ID__ with local",
+      "sourceSha256": "b7613458f313de8da654284fdc923f5c93344f2f3856787ae8b8c52e2c298fd4",
+      "buildSha256": "1be5852af3a802eed77df42c54d1b36c32211e0a3aba9d753321b04cae388fc7",
+      "buildBytes": 4054
+    }
+  ],
+  "protectedPaths": [
+    "src/worker",
+    "packages",
+    "migrations",
+    "public",
+    "src/web/services",
+    "src/web/stores",
+    "src/web/App.tsx",
+    "src/web/lib/recipe-media.ts",
+    "src/web/lib/sync.ts",
+    "src/web/lib/private-session.ts",
+    "src/web/pages/PaymentPage.tsx",
+    "package.json",
+    "pnpm-lock.yaml",
+    "vite.config.ts",
+    "wrangler.jsonc",
+    "wrangler.staging.jsonc",
+    ".github",
+    "tailwind.config.js",
+    "postcss.config.js"
+  ],
+  "protectedDiffEmpty": true,
+  "ownedPortsClosed": {
+    "5212": true,
+    "8912": true,
+    "5213": true,
+    "8913": true,
+    "5214": true,
+    "8914": true
+  },
+  "runtimeUntouchedSinceFreeze": true
+}

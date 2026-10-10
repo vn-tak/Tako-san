@@ -3,6 +3,7 @@ import { useParams, useNavigate, useLocation } from 'react-router-dom';
 import { useQuery, useMutation, useQueryClient } from '@tanstack/react-query';
 import { evaluateRecipeAvailability, type RecipeIngredientAvailability } from '@frigo/recipes';
 import { TopBar } from '../components/common/TopBar';
+import { RecipeMedia } from '../components/common/RecipeMedia';
 import { Button } from '../components/common/Button';
 import { InlineError, SkeletonCard } from '../components/common/AsyncState';
 import { api, ApiError } from '../services/api';
@@ -11,7 +12,7 @@ import { useCookingStore } from '../stores/useCookingStore';
 import { getIngredientImage } from '../lib/ingredient-images';
 import { Clock, Users, ChefHat, Check, ShoppingBag, ArrowRight, SearchX } from 'lucide-react';
 import { clsx } from 'clsx';
-import { resolveRecipeImage, recipeImageErrorHandler } from '../lib/recipe-media';
+import { resolveRecipeImage } from '../lib/recipe-media';
 
 type RecipeTabId = 'steps' | 'ingredients' | 'nutrition';
 
@@ -114,7 +115,7 @@ export const RecipeDetailPage: React.FC = () => {
 
   if (recipeKey && recipeQuery.isPending) {
     return (
-      <div className="takosan-rebuild min-h-screen bg-semantic-background">
+      <div className="takosan-rebuild recipe-page min-h-screen bg-semantic-background">
         <TopBar kitchen showBack backTo={returnTo} title="Chi tiết món ăn" />
         <h1 className="sr-only">Chi tiết món ăn</h1>
         <div className="p-4 space-y-4" role="status" aria-live="polite">
@@ -130,7 +131,7 @@ export const RecipeDetailPage: React.FC = () => {
 
   if (recipeQuery.isError && !notFound) {
     return (
-      <div className="takosan-rebuild min-h-screen bg-semantic-background">
+      <div className="takosan-rebuild recipe-page min-h-screen bg-semantic-background">
         <TopBar kitchen showBack backTo={returnTo} title="Chi tiết món ăn" />
         <h1 className="sr-only">Chi tiết món ăn</h1>
         <div className="p-4">
@@ -142,7 +143,7 @@ export const RecipeDetailPage: React.FC = () => {
 
   if (notFound || !recipe) {
     return (
-      <div className="takosan-rebuild min-h-screen bg-semantic-background">
+      <div className="takosan-rebuild recipe-page min-h-screen bg-semantic-background">
         <TopBar kitchen showBack backTo={returnTo} title="Chi tiết món ăn" />
         <div className="p-8 text-center space-y-3">
           <SearchX className="w-10 h-10 text-semantic-border-strong mx-auto" aria-hidden="true" />
@@ -181,7 +182,7 @@ export const RecipeDetailPage: React.FC = () => {
   };
 
   return (
-    <div className="takosan-rebuild min-h-screen bg-semantic-background pb-32">
+    <div className="takosan-rebuild recipe-page min-h-screen bg-semantic-background pb-32">
       <TopBar kitchen showBack backTo={returnTo} title={recipe.title} />
       {inventoryQuery.isError && (
         <InlineError error={inventoryQuery.error} onRetry={() => inventoryQuery.refetch()} />
@@ -189,18 +190,9 @@ export const RecipeDetailPage: React.FC = () => {
 
       <div className="recipe-workspace">
         <section className="recipe-overview" aria-label="Tổng quan món ăn">
-          <div className="recipe-cover relative w-full overflow-hidden bg-semantic-background-subtle">
-            <img
-              src={image.src}
-              alt={image.source === 'placeholder' ? 'Chưa có ảnh món ăn' : recipe.title}
-              width={600}
-              height={450}
-              className="w-full h-full object-cover"
-              onError={recipeImageErrorHandler(image.fallbackSrc)}
-            />
-          </div>
+          <RecipeMedia image={image} title={recipe.title} className="recipe-cover" priority />
           <div className="recipe-intro">
-            <div className="flex items-center gap-2 mb-1.5 flex-wrap">
+            <div className="recipe-badges flex items-center gap-2 mb-1.5 flex-wrap">
               <span className="px-2.5 py-0.5 rounded-full bg-takosan-green text-white text-xs font-bold uppercase tracking-wider">
                 {recipe.cuisine === 'vietnamese' ? 'Món Việt' : recipe.cuisine}
               </span>
@@ -213,7 +205,7 @@ export const RecipeDetailPage: React.FC = () => {
             <h1 className="font-heading font-bold text-[28px] leading-tight text-semantic-text-primary sm:text-[32px]">
               {recipe.title}
             </h1>
-            <div className="flex items-center gap-4 text-sm mt-3 text-semantic-text-secondary">
+            <div className="recipe-facts flex items-center gap-4 text-sm mt-3 text-semantic-text-secondary">
               <span className="flex items-center gap-1">
                 <Clock aria-hidden="true" className="w-4 h-4 text-takosan-green" />
                 <span>{recipe.cookTimeMinutes} phút</span>
@@ -245,7 +237,7 @@ export const RecipeDetailPage: React.FC = () => {
           {/* Tabs: Cách nấu | Nguyên liệu | Dinh dưỡng */}
           {/* Arrow-key navigation uses automatic activation and follows focus. */}
           <div
-            className="flex bg-semantic-border/70 p-1 rounded-xl"
+            className="recipe-tabs flex bg-semantic-border/70 p-1 rounded-xl"
             role="tablist"
             aria-label="Thông tin món ăn"
           >
@@ -305,7 +297,7 @@ export const RecipeDetailPage: React.FC = () => {
                     key={s.stepNumber || idx}
                     className="bg-white rounded-2xl p-4 flex gap-3.5 border border-semantic-border shadow-xs"
                   >
-                    <div className="w-7 h-7 rounded-full bg-takosan-green text-white font-heading font-bold text-xs flex items-center justify-center shrink-0 mt-0.5 shadow-xs">
+                    <div className="recipe-step-number w-7 h-7 rounded-full bg-takosan-green text-white font-heading font-bold text-xs flex items-center justify-center shrink-0 mt-0.5 shadow-xs">
                       {s.stepNumber || idx + 1}
                     </div>
                     <div className="flex-1 min-w-0">
@@ -341,7 +333,7 @@ export const RecipeDetailPage: React.FC = () => {
           >
             {activeTab === 'ingredients' && (
               <>
-                <div className="flex items-center justify-between border-b border-semantic-border/70 pb-2.5">
+                <div className="recipe-ingredients-heading flex items-center justify-between border-b border-semantic-border/70 pb-2.5">
                   <h3 className="font-heading font-bold text-sm text-semantic-text-primary">
                     Nguyên liệu ({recipe.ingredients.length})
                   </h3>
@@ -470,7 +462,7 @@ export const RecipeDetailPage: React.FC = () => {
                   Dinh dưỡng mỗi khẩu phần
                 </h3>
                 {recipe.nutrition ? (
-                  <div className="grid grid-cols-4 gap-2 pt-1 text-center">
+                  <div className="recipe-nutrition-grid grid grid-cols-4 gap-2 pt-1 text-center">
                     {[
                       { label: 'Calories', value: recipe.nutrition.calories, unit: 'kcal' },
                       { label: 'Đạm', value: recipe.nutrition.proteinG, unit: 'g' },
@@ -502,7 +494,10 @@ export const RecipeDetailPage: React.FC = () => {
         </div>
       </div>
       {/* Sticky Bottom Start Cooking Button */}
-      <div data-kitchen-action="fixed" className="kitchen-recipe-action fixed bottom-[calc(68px+env(safe-area-inset-bottom,0px))] sm:bottom-0 left-0 right-0 sm:left-20 lg:left-64 p-3.5 pb-[calc(0.875rem+env(safe-area-inset-bottom,0px))] bg-white/95 backdrop-blur-md border-t border-semantic-border z-40 shadow-lg">
+      <div
+        data-kitchen-action="fixed"
+        className="kitchen-recipe-action fixed bottom-[calc(68px+env(safe-area-inset-bottom,0px))] sm:bottom-0 left-0 right-0 sm:left-20 lg:left-64 p-3.5 pb-[calc(0.875rem+env(safe-area-inset-bottom,0px))] bg-white/95 backdrop-blur-md border-t border-semantic-border z-40 shadow-lg"
+      >
         <div className="mx-auto w-full max-w-[var(--content-wide)]">
           <Button
             fullWidth

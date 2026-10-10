@@ -1,3 +1,30 @@
+# UI12 - Recipe journey local gate checkpoint - 2026-10-11 JST
+
+Status: `UI12_LOCAL_GATES_PASSED_GIT_PENDING`. ADR-055; base
+`f7a27c16ef460b19322d3a463dc74dc09fa48ade`.
+Implementation: `UI12_IMPLEMENTATION_PENDING_VERIFICATION`.
+
+| Work item | Outcome / evidence |
+| --- | --- |
+| Baseline/source/route/media audit | DONE;777base blobs,47source route declarations,500local recipe audit |
+| Home/discovery kitchen cards + shared media | DONE; legacy JSX unchanged,terminal fallback/reset/late-event tests |
+| Recipe detail responsive panels/facts/states | DONE;10finalcomparison clipping0,missinghero82px |
+| Browser and boundaries | PASS218cases/26main-state-offjourneys,zero domain writes in read slices |
+| Focused/full gates | PASS86focused;286files/6702full,type/lint/migrations/build |
+| Source/assets/protected integrity | PASS374frozen;256buildcopies+1expectedSWtransform;96lifecycle records |
+| Logs/guidelines/media plan | DONE;raw/archive SHA256 receipts,31UXheuristicissues/41advisories retained |
+| Implementation Git checkpoint | PENDING Git-object verification; receipt round-12/GIT_VERIFICATION.md |
+| UI13 media review | READY;24recipes/8assets,source/license/subject/crop before promotion |
+| Owner/device/hosted release | OPEN;no whole-brand/release approval claimed |
+
+Failures Viteoptimizer504/selector/transienth1/archiveconfig recovered with logs;
+initialallpublicassert sw.js classified as existing buildtransform. Details in
+round-12/VERIFICATION.md and CURRENT_STATE/HANDOFF. All task previews stopped,
+sixports closed. No protected/domain/remote writes, push/PR/merge/deploy.
+Next packet UI13-media-provenance-review.md; no runtime UI13 started.
+
+---
+
 # UI11 - Điều hướng và shell responsive đã kiểm chứng local - 2026-10-11 JST
 
 **Task/status:** `UI11_LOCAL_VERIFIED_REVIEW_REQUIRED`, packet UI11, ADR-054.

@@ -5,6 +5,7 @@ import { ArrowRight, CalendarDays, Clock, Users } from 'lucide-react';
 import { useAuthStore } from '../stores/useAuthStore';
 import { TopBar } from '../components/common/TopBar';
 import { RecipeCard } from '../components/common/RecipeCard';
+import { RecipeMedia } from '../components/common/RecipeMedia';
 import { KitchenPageHeading } from '../components/common/KitchenHeader';
 import { InlineLoading, InlineError, SkeletonCard } from '../components/common/AsyncState';
 import { Button } from '../components/common/Button';
@@ -15,7 +16,7 @@ import { presentExpiry } from '../lib/inventory-truth';
 import { calendarLabel, type HomePlan } from '../lib/home-plan';
 import { useHomePlan } from '../lib/use-home-plan';
 import { getIngredientImage } from '../lib/ingredient-images';
-import { resolveRecipeImage, recipeImageErrorHandler } from '../lib/recipe-media';
+import { resolveRecipeImage } from '../lib/recipe-media';
 
 const MEAL_LABELS = { breakfast: 'Bữa sáng', lunch: 'Bữa trưa', dinner: 'Bữa tối' };
 
@@ -94,16 +95,7 @@ function PlannedMeal({ plan, onRetry }: { plan: HomePlan; onRetry: () => void })
           </p>
         )}
       </div>
-      {image && (
-        <img
-          className="home-meal-image"
-          src={image.src}
-          alt={image.source === 'placeholder' ? 'Chưa có ảnh món ăn' : meal!.dishes[0]}
-          width={320}
-          height={240}
-          onError={recipeImageErrorHandler(image.fallbackSrc)}
-        />
-      )}
+      {image && <RecipeMedia className="home-meal-media" image={image} title={meal!.dishes[0]} />}
     </section>
   );
 }
@@ -311,6 +303,7 @@ export const HomePage = () => {
               <div className="space-y-4">
                 {recommendations.map((match) => (
                   <RecipeCard
+                    kitchen
                     key={match.recipe.id}
                     matchResult={match}
                     headingLevel={3}

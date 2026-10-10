@@ -1,0 +1,80 @@
+{
+  "records": [
+    {
+      "name": "recipe",
+      "text2": false,
+      "width": 320,
+      "scrollWidth": 624,
+      "clipped": [],
+      "hero": 456
+    },
+    {
+      "name": "recipe",
+      "text2": true,
+      "width": 320,
+      "scrollWidth": 624,
+      "clipped": [],
+      "hero": 462
+    },
+    {
+      "name": "steps",
+      "text2": false,
+      "width": 320,
+      "scrollWidth": 624,
+      "clipped": [],
+      "hero": 456
+    },
+    {
+      "name": "steps",
+      "text2": true,
+      "width": 320,
+      "scrollWidth": 624,
+      "clipped": [],
+      "hero": 462
+    },
+    {
+      "name": "nutrition",
+      "text2": false,
+      "width": 320,
+      "scrollWidth": 624,
+      "clipped": [],
+      "hero": 456
+    },
+    {
+      "name": "nutrition",
+      "text2": true,
+      "width": 320,
+      "scrollWidth": 624,
+      "clipped": [],
+      "hero": 462
+    },
+    {
+      "name": "recipes",
+      "text2": false,
+      "width": 320,
+      "scrollWidth": 504,
+      "clipped": []
+    },
+    {
+      "name": "recipes",
+      "text2": true,
+      "width": 320,
+      "scrollWidth": 504,
+      "clipped": []
+    },
+    {
+      "name": "home",
+      "text2": false,
+      "width": 320,
+      "scrollWidth": 504,
+      "clipped": []
+    },
+    {
+      "name": "home",
+      "text2": true,
+      "width": 320,
+      "scrollWidth": 504,
+      "clipped": []
+    }
+  ]
+}

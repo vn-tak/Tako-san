@@ -1,0 +1,19 @@
+settings 320 PASS
+node:internal/modules/run_main:107
+    triggerUncaughtException(
+    ^
+
+AssertionError [ERR_ASSERTION]: household
+
+0 !== 1
+
+    at file:///Users/tunbee27/Documents/Tako-san-ui-rebuild/.artifacts/ui12/route-audit.mjs:23:54 {
+  generatedMessage: false,
+  code: 'ERR_ASSERTION',
+  actual: 0,
+  expected: 1,
+  operator: 'strictEqual',
+  diff: 'simple'
+}
+
+Node.js v24.16.0

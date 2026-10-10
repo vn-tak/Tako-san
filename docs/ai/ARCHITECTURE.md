@@ -1,3 +1,22 @@
+# UI12 recipe presentation and media lifecycle (ADR-055, 2026-10-11)
+
+RecipeCard has an explicit kitchen presentation opt-in for Home/discovery; its
+default legacy JSX tail is unchanged. RecipeMedia consumes existing resolved
+media authority, resets by title/src/fallback identity, renders load/photo/missing
+and terminates canonical→permittedlegacy errors at a labelled HTML missing state.
+No resolver/catalog/source-license authority, retry loop or new public asset.
+
+kitchen-recipes.css scopes unitless text, intrinsic controls, adaptive em-based
+card/tab/nutrition/filter grids and sticky offsets to UI07identity/UI11shell. Short
+viewports release recipe overview/discovery controls to flow. Queries, callbacks,
+availability/shopping/cooking/routes/guards match base96normalized page records;
+protected diff empty. No backend/service/store/schema/dependency change.
+Implementation `UI12_IMPLEMENTATION_PENDING_VERIFICATION`.
+See round-12 reports/receipt. UI13 reviews observedmedia source/license/subject/crop
+before promotion; local screenshots do not confer brand/photo/device approval.
+
+---
+
 # UI11 measured navigation and shell (ADR-054, 2026-10-10)
 
 Kitchen AppLayout selects explicit navigation variants; default navigation preserves

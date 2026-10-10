@@ -1,0 +1,6 @@
+CONSOLE Failed to load resource: the server responded with a status of 504 (Outdated Optimize Dep)
+AFTERLOGIN
+CONSOLE Failed to load resource: the server responded with a status of 504 (Outdated Optimize Dep)
+CONSOLE Failed to load resource: the server responded with a status of 504 (Outdated Optimize Dep)
+ONBOARD http://127.0.0.1:5212/onboarding
+LOCAL { primary: null, onboarded: 'false' }

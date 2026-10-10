@@ -1,0 +1,383 @@
+{
+  "receipts": [
+    {
+      "rawPath": "/private/tmp/ui12-archived-preview-configured.log",
+      "archivePath": "docs/ui-rebuild/round-12/evidence/logs/ui12-archived-preview-configured.log",
+      "rawBytes": 2669,
+      "rawSha256": "125582ae50fa0533d5f85435d7be5771e16ac36dcca0d9146a1d0a3130ce8748",
+      "archiveBytes": 2669,
+      "archiveSha256": "125582ae50fa0533d5f85435d7be5771e16ac36dcca0d9146a1d0a3130ce8748",
+      "outcome": "Captured formatting/preview diagnostic; not an independent acceptance gate"
+    },
+    {
+      "rawPath": "/private/tmp/ui12-archived-preview-recovered.log",
+      "archivePath": "docs/ui-rebuild/round-12/evidence/logs/ui12-archived-preview-recovered.log",
+      "rawBytes": 2603,
+      "rawSha256": "9f750d7094517569e8cd889b5c2c2b7c97c6207fba4378d266148f19ebb07acc",
+      "archiveBytes": 2603,
+      "archiveSha256": "9f750d7094517569e8cd889b5c2c2b7c97c6207fba4378d266148f19ebb07acc",
+      "outcome": "Captured formatting/preview diagnostic; not an independent acceptance gate"
+    },
+    {
+      "rawPath": "/private/tmp/ui12-archived-preview.log",
+      "archivePath": "docs/ui-rebuild/round-12/evidence/logs/ui12-archived-preview.log",
+      "rawBytes": 648,
+      "rawSha256": "105d6c4406d61093e62d4ccf927341385b89bcafb23d65fa52494ca9b3a64c08",
+      "archiveBytes": 648,
+      "archiveSha256": "105d6c4406d61093e62d4ccf927341385b89bcafb23d65fa52494ca9b3a64c08",
+      "outcome": "Captured formatting/preview diagnostic; not an independent acceptance gate"
+    },
+    {
+      "rawPath": "/private/tmp/ui12-base-configured.log",
+      "archivePath": "docs/ui-rebuild/round-12/evidence/logs/ui12-base-configured.log",
+      "rawBytes": 42141,
+      "rawSha256": "5b7596d1d5fa4cd834bd2ebef89e08c86b866ca01c6db66eb468a6c46c15a6f4",
+      "archiveBytes": 42141,
+      "archiveSha256": "5b7596d1d5fa4cd834bd2ebef89e08c86b866ca01c6db66eb468a6c46c15a6f4",
+      "outcome": "ACCEPTED baseline: exact base source plus complete config"
+    },
+    {
+      "rawPath": "/private/tmp/ui12-base-verified-recovered.log",
+      "archivePath": "docs/ui-rebuild/round-12/evidence/logs/ui12-base-verified-recovered.log",
+      "rawBytes": 643,
+      "rawSha256": "29786af578d48d1a7d096426b568cc770db4cee1dca31c7c32ae12b2d489c41d",
+      "archiveBytes": 643,
+      "archiveSha256": "29786af578d48d1a7d096426b568cc770db4cee1dca31c7c32ae12b2d489c41d",
+      "outcome": "INVALID baseline: missing real tailwind/postcss config"
+    },
+    {
+      "rawPath": "/private/tmp/ui12-base-verified.log",
+      "archivePath": "docs/ui-rebuild/round-12/evidence/logs/ui12-base-verified.log",
+      "rawBytes": 460,
+      "rawSha256": "12e57387b188e50ae45faead05bb3444f4f2ed0a76f9dc8cb28d6b48b62b1c00",
+      "archiveBytes": 460,
+      "archiveSha256": "12e57387b188e50ae45faead05bb3444f4f2ed0a76f9dc8cb28d6b48b62b1c00",
+      "outcome": "FAIL: incomplete isolated Git archive missing migrations"
+    },
+    {
+      "rawPath": "/private/tmp/ui12-baseline-recovered.log",
+      "archivePath": "docs/ui-rebuild/round-12/evidence/logs/ui12-baseline-recovered.log",
+      "rawBytes": 42141,
+      "rawSha256": "5b7596d1d5fa4cd834bd2ebef89e08c86b866ca01c6db66eb468a6c46c15a6f4",
+      "archiveBytes": 42141,
+      "archiveSha256": "5b7596d1d5fa4cd834bd2ebef89e08c86b866ca01c6db66eb468a6c46c15a6f4",
+      "outcome": "historical baseline log: image folder subsequently overwritten; use base-configured"
+    },
+    {
+      "rawPath": "/private/tmp/ui12-baseline.log",
+      "archivePath": "docs/ui-rebuild/round-12/evidence/logs/ui12-baseline.log",
+      "rawBytes": 436,
+      "rawSha256": "b66c36bfe674020ddc01b2020e0f79d6069f30dccc431281c30140956013f37b",
+      "archiveBytes": 436,
+      "archiveSha256": "b66c36bfe674020ddc01b2020e0f79d6069f30dccc431281c30140956013f37b",
+      "outcome": "FAIL: Vite504 optimizer cache conflict"
+    },
+    {
+      "rawPath": "/private/tmp/ui12-browser-format.log",
+      "archivePath": "docs/ui-rebuild/round-12/evidence/logs/ui12-browser-format.log",
+      "rawBytes": 70,
+      "rawSha256": "38213de4bb12c073d3ccf819fe8192f92c6bdbf62f304f592b9197ff214f58dc",
+      "archiveBytes": 70,
+      "archiveSha256": "38213de4bb12c073d3ccf819fe8192f92c6bdbf62f304f592b9197ff214f58dc",
+      "outcome": "Captured formatting/preview diagnostic; not an independent acceptance gate"
+    },
+    {
+      "rawPath": "/private/tmp/ui12-browser-off.log",
+      "archivePath": "docs/ui-rebuild/round-12/evidence/logs/ui12-browser-off.log",
+      "rawBytes": 1147,
+      "rawSha256": "22ddef999dc265960956e6d2f5838576a60e127aed2babab7f52dc1b16fff2d4",
+      "archiveBytes": 1147,
+      "archiveSha256": "22ddef999dc265960956e6d2f5838576a60e127aed2babab7f52dc1b16fff2d4",
+      "outcome": "PASS 24snapshots/1journey"
+    },
+    {
+      "rawPath": "/private/tmp/ui12-browser-on-first.log",
+      "archivePath": "docs/ui-rebuild/round-12/evidence/logs/ui12-browser-on-first.log",
+      "rawBytes": 737,
+      "rawSha256": "5902bf0f850ade3f40e1abe9c31681e17253405130b8154955be76e2c9047bd8",
+      "archiveBytes": 737,
+      "archiveSha256": "5902bf0f850ade3f40e1abe9c31681e17253405130b8154955be76e2c9047bd8",
+      "outcome": "FAIL: discovery pagination nav mistaken for primary nav; selector fixed"
+    },
+    {
+      "rawPath": "/private/tmp/ui12-browser-on-recovered.log",
+      "archivePath": "docs/ui-rebuild/round-12/evidence/logs/ui12-browser-on-recovered.log",
+      "rawBytes": 7884,
+      "rawSha256": "010d91e8d05a261def0105372ef8739d239a86e02ab8b1efdd132aaa2ad7758d",
+      "archiveBytes": 7884,
+      "archiveSha256": "010d91e8d05a261def0105372ef8739d239a86e02ab8b1efdd132aaa2ad7758d",
+      "outcome": "PASS 167snapshots/17journeys"
+    },
+    {
+      "rawPath": "/private/tmp/ui12-dependency-audit-error.log",
+      "archivePath": "docs/ui-rebuild/round-12/evidence/logs/ui12-dependency-audit-error.log",
+      "rawBytes": 0,
+      "rawSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "archiveBytes": 0,
+      "archiveSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "outcome": "Captured formatting/preview diagnostic; not an independent acceptance gate"
+    },
+    {
+      "rawPath": "/private/tmp/ui12-dependency-audit.json",
+      "archivePath": "docs/ui-rebuild/round-12/evidence/logs/ui12-dependency-audit.json",
+      "rawBytes": 146100,
+      "rawSha256": "c302bfc15f4054f45358366dc59293e488497a7a7474eb7b357b1b12fe3f18a6",
+      "archiveBytes": 146100,
+      "archiveSha256": "c302bfc15f4054f45358366dc59293e488497a7a7474eb7b357b1b12fe3f18a6",
+      "outcome": "AUDIT41advisories 4low/19moderate/16high/2critical; dependencies unchanged"
+    },
+    {
+      "rawPath": "/private/tmp/ui12-existing-focused.log",
+      "archivePath": "docs/ui-rebuild/round-12/evidence/logs/ui12-existing-focused.log",
+      "rawBytes": 1287,
+      "rawSha256": "5fbb13c07f01bab3a93573b7a2c739dd87f089ca0e95f9fafe4831ea8443d38b",
+      "archiveBytes": 1286,
+      "archiveSha256": "8fb13f08369c5b90332f7aee66b739da7ad749320e5f512b08f4e123265db571",
+      "outcome": "PASS 4files/37tests",
+      "rawArchivePath": "docs/ui-rebuild/round-12/evidence/raw-logs/ui12-existing-focused.log.gz",
+      "rawArchiveBytes": 667,
+      "rawArchiveSha256": "e948e88807bbe4fcded17e24f2091db73b175878985a62c5c40442a17fa0b6ef",
+      "archiveNormalization": "Trailing whitespace and blank EOF lines removed; exact raw retained as gzip."
+    },
+    {
+      "rawPath": "/private/tmp/ui12-final-visual.log",
+      "archivePath": "docs/ui-rebuild/round-12/evidence/logs/ui12-final-visual.log",
+      "rawBytes": 640,
+      "rawSha256": "4351ab07fb50569b93c1200df5e0c8650037a3d372c3a5f29a70934adbbcc3ba",
+      "archiveBytes": 640,
+      "archiveSha256": "4351ab07fb50569b93c1200df5e0c8650037a3d372c3a5f29a70934adbbcc3ba",
+      "outcome": "PASS10final captures clipping0"
+    },
+    {
+      "rawPath": "/private/tmp/ui12-focused.log",
+      "archivePath": "docs/ui-rebuild/round-12/evidence/logs/ui12-focused.log",
+      "rawBytes": 1466,
+      "rawSha256": "bb3bd000bb949fceeb15aaaac3eef9bd966f3e2f866f230ab267f1e265d29555",
+      "archiveBytes": 1465,
+      "archiveSha256": "4f15937b501ff9703c8f7e322ab81c31923c2a1fa20b24b358005c3e85304637",
+      "outcome": "PASS 7files/86tests",
+      "rawArchivePath": "docs/ui-rebuild/round-12/evidence/raw-logs/ui12-focused.log.gz",
+      "rawArchiveBytes": 716,
+      "rawArchiveSha256": "adfa728f777806b76028195ac9249c166f7f8f9ed311e80b4214a3bcb9b0ed9a",
+      "archiveNormalization": "Trailing whitespace and blank EOF lines removed; exact raw retained as gzip."
+    },
+    {
+      "rawPath": "/private/tmp/ui12-format-final.log",
+      "archivePath": "docs/ui-rebuild/round-12/evidence/logs/ui12-format-final.log",
+      "rawBytes": 146,
+      "rawSha256": "8a5995bed952c3fc745ab0d92e9623928f9b74fb20220514a4562ef5fecbdd7a",
+      "archiveBytes": 146,
+      "archiveSha256": "8a5995bed952c3fc745ab0d92e9623928f9b74fb20220514a4562ef5fecbdd7a",
+      "outcome": "Captured formatting/preview diagnostic; not an independent acceptance gate"
+    },
+    {
+      "rawPath": "/private/tmp/ui12-format.log",
+      "archivePath": "docs/ui-rebuild/round-12/evidence/logs/ui12-format.log",
+      "rawBytes": 264,
+      "rawSha256": "4f004a76958e90cca8da8d56708c50beb36ad86c668528bde3c2537b4b362bb3",
+      "archiveBytes": 264,
+      "archiveSha256": "4f004a76958e90cca8da8d56708c50beb36ad86c668528bde3c2537b4b362bb3",
+      "outcome": "Captured formatting/preview diagnostic; not an independent acceptance gate"
+    },
+    {
+      "rawPath": "/private/tmp/ui12-full-check.log",
+      "archivePath": "docs/ui-rebuild/round-12/evidence/logs/ui12-full-check.log",
+      "rawBytes": 502519,
+      "rawSha256": "67d541a124b3e1b0afe36f1338573fac6b5be48e0cbf062749cc652c92c13675",
+      "archiveBytes": 502518,
+      "archiveSha256": "ebae8925e5b052509e1be52e28d6b2b3cc00e758b1058341ad97a92f60202f6c",
+      "outcome": "PASS exit0: 286files/6702tests, types,lint,migrations,build",
+      "rawArchivePath": "docs/ui-rebuild/round-12/evidence/raw-logs/ui12-full-check.log.gz",
+      "rawArchiveBytes": 52066,
+      "rawArchiveSha256": "a1a28e0f4038450554a233a2f292a1b8215bef7b3ea23508bc5c3fc5f3a5fb19",
+      "archiveNormalization": "Trailing whitespace and blank EOF lines removed; exact raw retained as gzip."
+    },
+    {
+      "rawPath": "/private/tmp/ui12-iteration1.log",
+      "archivePath": "docs/ui-rebuild/round-12/evidence/logs/ui12-iteration1.log",
+      "rawBytes": 1483,
+      "rawSha256": "75100e4bdc1dc2230be747d9d9a90d0495a02adc93e51901bd450649908c6edc",
+      "archiveBytes": 1483,
+      "archiveSha256": "75100e4bdc1dc2230be747d9d9a90d0495a02adc93e51901bd450649908c6edc",
+      "outcome": "intermediate geometry: remaining counts/line-height findings fixed"
+    },
+    {
+      "rawPath": "/private/tmp/ui12-lint-frozen.log",
+      "archivePath": "docs/ui-rebuild/round-12/evidence/logs/ui12-lint-frozen.log",
+      "rawBytes": 0,
+      "rawSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "archiveBytes": 0,
+      "archiveSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "outcome": "PASS exit0 final frozen changed files"
+    },
+    {
+      "rawPath": "/private/tmp/ui12-lint-initial.log",
+      "archivePath": "docs/ui-rebuild/round-12/evidence/logs/ui12-lint-initial.log",
+      "rawBytes": 78,
+      "rawSha256": "0843d347fecf8ae8f1653d172a665366b6ab2587b42bb8c9052674f7ae192088",
+      "archiveBytes": 77,
+      "archiveSha256": "e98bbc43ec9a006b84e2f29d9062626b28ac5f935399b65e11585e42f6eaed39",
+      "outcome": "PASS exit0 full ESLint initial",
+      "rawArchivePath": "docs/ui-rebuild/round-12/evidence/raw-logs/ui12-lint-initial.log.gz",
+      "rawArchiveBytes": 95,
+      "rawArchiveSha256": "b78e1181e0dc115260f4ccee0ac6335eab2dfd5b48bfef5a66953265900d6673",
+      "archiveNormalization": "Trailing whitespace and blank EOF lines removed; exact raw retained as gzip."
+    },
+    {
+      "rawPath": "/private/tmp/ui12-media-audit.log",
+      "archivePath": "docs/ui-rebuild/round-12/evidence/logs/ui12-media-audit.log",
+      "rawBytes": 453,
+      "rawSha256": "b109d4d332c072616f83f054e7f980d014d3b55f16b558b447fb9223445018be",
+      "archiveBytes": 453,
+      "archiveSha256": "b109d4d332c072616f83f054e7f980d014d3b55f16b558b447fb9223445018be",
+      "outcome": "read-only fresh local media audit500canonical/71static"
+    },
+    {
+      "rawPath": "/private/tmp/ui12-preview-final.log",
+      "archivePath": "docs/ui-rebuild/round-12/evidence/logs/ui12-preview-final.log",
+      "rawBytes": 5586,
+      "rawSha256": "975bb8aecae1c1b1ae00231e74397c24fbb42801aa4ff13bbb153793a65a61ce",
+      "archiveBytes": 5586,
+      "archiveSha256": "975bb8aecae1c1b1ae00231e74397c24fbb42801aa4ff13bbb153793a65a61ce",
+      "outcome": "Captured formatting/preview diagnostic; not an independent acceptance gate"
+    },
+    {
+      "rawPath": "/private/tmp/ui12-preview-off.log",
+      "archivePath": "docs/ui-rebuild/round-12/evidence/logs/ui12-preview-off.log",
+      "rawBytes": 3261,
+      "rawSha256": "90c9827d5c6d66b2b1cf467c75becb5c6ebed2ee9bbe6a5feefa67c81915dbc9",
+      "archiveBytes": 3261,
+      "archiveSha256": "90c9827d5c6d66b2b1cf467c75becb5c6ebed2ee9bbe6a5feefa67c81915dbc9",
+      "outcome": "Captured formatting/preview diagnostic; not an independent acceptance gate"
+    },
+    {
+      "rawPath": "/private/tmp/ui12-preview-on-recovered.log",
+      "archivePath": "docs/ui-rebuild/round-12/evidence/logs/ui12-preview-on-recovered.log",
+      "rawBytes": 40134,
+      "rawSha256": "8e6f9f00c1bc1d722bc7bf5b3f81abd7c567f0686bdeb4055ce5c20dd92b406e",
+      "archiveBytes": 40134,
+      "archiveSha256": "8e6f9f00c1bc1d722bc7bf5b3f81abd7c567f0686bdeb4055ce5c20dd92b406e",
+      "outcome": "Captured formatting/preview diagnostic; not an independent acceptance gate"
+    },
+    {
+      "rawPath": "/private/tmp/ui12-preview-on.log",
+      "archivePath": "docs/ui-rebuild/round-12/evidence/logs/ui12-preview-on.log",
+      "rawBytes": 349,
+      "rawSha256": "2bdc4ed11cda0fb98842ab1676c7d3dbf89848afe01e5649843c8f172d2d80d2",
+      "archiveBytes": 349,
+      "archiveSha256": "2bdc4ed11cda0fb98842ab1676c7d3dbf89848afe01e5649843c8f172d2d80d2",
+      "outcome": "Captured formatting/preview diagnostic; not an independent acceptance gate"
+    },
+    {
+      "rawPath": "/private/tmp/ui12-route-audit-recovered.log",
+      "archivePath": "docs/ui-rebuild/round-12/evidence/logs/ui12-route-audit-recovered.log",
+      "rawBytes": 363,
+      "rawSha256": "de234c7782e14d4cad4d21248340c7714cd24215028d2c24f9f7a0166b6b9180",
+      "archiveBytes": 363,
+      "archiveSha256": "de234c7782e14d4cad4d21248340c7714cd24215028d2c24f9f7a0166b6b9180",
+      "outcome": "PASS 14checks/47source-declarations"
+    },
+    {
+      "rawPath": "/private/tmp/ui12-route-audit.log",
+      "archivePath": "docs/ui-rebuild/round-12/evidence/logs/ui12-route-audit.log",
+      "rawBytes": 386,
+      "rawSha256": "949aab4ae8f23b72d7b96f5ca67cd0325ff4e463ab1b51663144961d4e0422d6",
+      "archiveBytes": 386,
+      "archiveSha256": "949aab4ae8f23b72d7b96f5ca67cd0325ff4e463ab1b51663144961d4e0422d6",
+      "outcome": "FAIL: transient session h1; explicit count waits recovered"
+    },
+    {
+      "rawPath": "/private/tmp/ui12-session-probe.log",
+      "archivePath": "docs/ui-rebuild/round-12/evidence/logs/ui12-session-probe.log",
+      "rawBytes": 395,
+      "rawSha256": "e6939b4c9ed958a7b7893e945d6f25367d907d57519408ce90733210e78eafd9",
+      "archiveBytes": 393,
+      "archiveSha256": "ee31efab2f99f405b8268173ef0d46161c415e4566cec86f36f110b61cfccdc0",
+      "outcome": "diagnostic of Vite504 conflict",
+      "rawArchivePath": "docs/ui-rebuild/round-12/evidence/raw-logs/ui12-session-probe.log.gz",
+      "rawArchiveBytes": 197,
+      "rawArchiveSha256": "ccaf956b99d60405441484723806b74d1d1321ae46bb9cc3d12837e95f7f61d3",
+      "archiveNormalization": "Trailing whitespace and blank EOF lines removed; exact raw retained as gzip."
+    },
+    {
+      "rawPath": "/private/tmp/ui12-states-first.log",
+      "archivePath": "docs/ui-rebuild/round-12/evidence/logs/ui12-states-first.log",
+      "rawBytes": 319,
+      "rawSha256": "5b8c88d86415bc6a674135eb7a4e5f6ec7b12ee04cc499458d64ef451f44749a",
+      "archiveBytes": 319,
+      "archiveSha256": "5b8c88d86415bc6a674135eb7a4e5f6ec7b12ee04cc499458d64ef451f44749a",
+      "outcome": "PASS 13states/8journeys"
+    },
+    {
+      "rawPath": "/private/tmp/ui12-test-format.log",
+      "archivePath": "docs/ui-rebuild/round-12/evidence/logs/ui12-test-format.log",
+      "rawBytes": 43,
+      "rawSha256": "73ae41503f4e754c9079e56994f0fd15b88af1db3a1a80a22e08903d7ab53ab2",
+      "archiveBytes": 43,
+      "archiveSha256": "73ae41503f4e754c9079e56994f0fd15b88af1db3a1a80a22e08903d7ab53ab2",
+      "outcome": "Captured formatting/preview diagnostic; not an independent acceptance gate"
+    },
+    {
+      "rawPath": "/private/tmp/ui12-typecheck-initial.log",
+      "archivePath": "docs/ui-rebuild/round-12/evidence/logs/ui12-typecheck-initial.log",
+      "rawBytes": 144,
+      "rawSha256": "89d662e7c54d599aab310047afa9f99a853da8b357c03c6226f4e57b115b6525",
+      "archiveBytes": 143,
+      "archiveSha256": "3d4a43ec5f8927989d7eb534356d88c25d7ce71fdafef36db5be760a9b576bf9",
+      "outcome": "PASS exit0",
+      "rawArchivePath": "docs/ui-rebuild/round-12/evidence/raw-logs/ui12-typecheck-initial.log.gz",
+      "rawArchiveBytes": 129,
+      "rawArchiveSha256": "6670a8b4192fa4c5e7baf0384fd3e0f46bb92738e197eaef1076949f56717507",
+      "archiveNormalization": "Trailing whitespace and blank EOF lines removed; exact raw retained as gzip."
+    },
+    {
+      "rawPath": "/private/tmp/ui12-ux-audit.log",
+      "archivePath": "docs/ui-rebuild/round-12/evidence/logs/ui12-ux-audit.log",
+      "rawBytes": 2979,
+      "rawSha256": "8bf0eb213fc647dd20c568b769567e07b3c1cb40400ab4943d7289965a47946b",
+      "archiveBytes": 2979,
+      "archiveSha256": "8bf0eb213fc647dd20c568b769567e07b3c1cb40400ab4943d7289965a47946b",
+      "outcome": "FAIL157files/31issues/989warnings/86checks; heuristic scan"
+    },
+    {
+      "rawPath": "/private/tmp/ui12-lifecycle-final.log",
+      "archivePath": "docs/ui-rebuild/round-12/evidence/logs/ui12-lifecycle-final.log",
+      "rawBytes": 298,
+      "rawSha256": "68e51ca5470f5973858488be5fc8b66cbeef7ed12034f028936d80dea2bfd728",
+      "archiveBytes": 298,
+      "archiveSha256": "68e51ca5470f5973858488be5fc8b66cbeef7ed12034f028936d80dea2bfd728",
+      "outcome": "PASS: executed lifecycle equality proof"
+    },
+    {
+      "rawPath": "/private/tmp/ui12-contact-sheets.log",
+      "archivePath": "docs/ui-rebuild/round-12/evidence/logs/ui12-contact-sheets.log",
+      "rawBytes": 51,
+      "rawSha256": "2574bceb5454c5b060ba4d15c8819a2e23029345234197e349c8077d2e23b23e",
+      "archiveBytes": 51,
+      "archiveSha256": "2574bceb5454c5b060ba4d15c8819a2e23029345234197e349c8077d2e23b23e",
+      "outcome": "PASS: screenshot compositing only"
+    },
+    {
+      "rawPath": "/private/tmp/ui12-format-frozen.log",
+      "archivePath": "docs/ui-rebuild/round-12/evidence/logs/ui12-format-frozen.log",
+      "rawBytes": 66,
+      "rawSha256": "17aa973d3f004560237d9a95171210b0671deff23d61628eecf7322ff5938f20",
+      "archiveBytes": 66,
+      "archiveSha256": "17aa973d3f004560237d9a95171210b0671deff23d61628eecf7322ff5938f20",
+      "outcome": "PASS exit0 final frozen source/test/scripts formatting check"
+    },
+    {
+      "rawPath": "/private/tmp/ui12-lint-docs-check.log",
+      "archivePath": "docs/ui-rebuild/round-12/evidence/logs/ui12-lint-docs-check.log",
+      "rawBytes": 78,
+      "rawSha256": "0843d347fecf8ae8f1653d172a665366b6ab2587b42bb8c9052674f7ae192088",
+      "archiveBytes": 77,
+      "archiveSha256": "e98bbc43ec9a006b84e2f29d9062626b28ac5f935399b65e11585e42f6eaed39",
+      "outcome": "PASS exit0 final full ESLint including archived JS helpers",
+      "rawArchivePath": "docs/ui-rebuild/round-12/evidence/raw-logs/ui12-lint-docs-check.log.gz",
+      "rawArchiveBytes": 95,
+      "rawArchiveSha256": "b78e1181e0dc115260f4ccee0ac6335eab2dfd5b48bfef5a66953265900d6673",
+      "archiveNormalization": "Trailing whitespace and blank EOF lines removed; exact raw retained as gzip."
+    }
+  ]
+}

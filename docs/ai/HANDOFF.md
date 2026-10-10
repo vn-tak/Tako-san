@@ -1,3 +1,60 @@
+# UI12 - Luồng công thức responsive đã kiểm chứng local - 2026-10-11 JST
+
+**Task/status:** `UI12_LOCAL_GATES_PASSED_GIT_PENDING`, packet UI12, ADR-055.
+Home → discovery → detail/shared media hoàn tất trong phạm vi local.
+
+**Repository/source:** Canonical `vn-tak/Tako-san`; checkout
+`/Users/tunbee27/Documents/Tako-san-ui-rebuild`, branch `codex/ui-rebuild-foundation`,
+base `f7a27c16ef460b19322d3a463dc74dc09fa48ade`.
+Implementation: `UI12_IMPLEMENTATION_PENDING_VERIFICATION`.
+374source/test/script/config/public records frozen và khớp sau full; baseline
+777Git blobs khớp.257publicbuild checks:256byte-identical,sw.js chỉ transform
+build-ID có sẵn.96normalized page declarations/handlers và legacycard JSX tail
+khớp base. Protected diff rỗng, gồm real Wrangler/.github/Tailwind/PostCSS config.
+Git-object receipt sẽ ghi ở round-12/GIT_VERIFICATION.md sau implementation.
+
+**Actual changes:** Kitchen RecipeCard opt-in Home/discovery, full title/description,
+labelled type coverage tách amount readiness,time/servings; default legacy giữ.
+RecipeMedia dùng resolver hiện có,identity-keyed load/photo/missing,fallback được
+phép một lần rồi HTML missing;lateevents cũ không sửa ảnh mới. Detail badges/facts/
+tabs/steps/ingredients/nutrition unitless lineheight/intrinsic controls/adaptive
+emgrids. Filters sticky theo UI11header/banner;shortview về flow. Missinghero216→82px
+ở320normal. UI07identity/UI11shell giữ,không đổi queries/commands/guards/services.
+
+**Verification:** Full exit0,286files/6702PASS352.41s;type/lint/localmigration/Vite2.92s/
+WorkerTS PASS,remote schema/Weekparity skipped. Focused7files/86PASS2.43s(17new),
+earlier4/37PASS3.99s;final frozen changed-files lintPASS. Browser167ON/17journeys,
+24OFF/1,13state/8,14supplemental=218structured cases;sevenwidths320..1440,textx2
+320/768,short390x420/768x420,combined320x420x2. Applicableaxe/overflow/brokenimages/
+unexpectedpageerrors/newrecipeclipping0. Threepanels,keyboard/back/pager/focus/
+error-retry/empty/404/long/unknown/fallback tested. InventoryJSONequal before/after
+andzerodomainwrites in readjourneys;synthetic onboardingPATCH tracked separately.
+10finalcomparison captures clipping0;10validbase captures. UI12didnotrun separate
+E2Erunner;UI11historical19E2E not counted. See round-12/VERIFICATION.md.
+
+**Failures/recovery:** Vite504 sharedoptimizer conflict→restart aftermediascan;
+wrongeditmarker→exactsource;wrongprimarynavselector→precisenav;transienth1→countwait.
+InitialbaselinePNGs overwritten→independentGitarchive. Tarfilter/migrations/CSSconfig
+harness failures retained;onlybase-configured accepted. Intermediateclipping fixed.
+Allpublicbyteassert firstfailedsw.js;existingbuildtransform verified,source/config
+unchanged. GenericUXFAIL157files/31issues/989warnings/86checks;dependency41advisories
+(4low/19moderate/16high/2critical),lock unchanged. No whole-repoUXPASS claim.
+
+**Database/operational state:** Syntheticlocal/in-memorySQLite only;ownedpreview
+40438 stopped and5212/8912/5213/8913/5214/8914 closed. No backend/packages/schema/
+migrations/services/stores/public/dependencies/payments/authprotocol/production
+config/remoteDB/R2/push/PR/merge/deploy. Mediaauditlocal500canonical/71static,
+6allowed/6wrongmissing/429generic/59unreviewedphoto,all500mediarowspending;
+21URLreusegroups,8localfiles,0duplicate localhashes. Notproduction/license approval.
+
+**Next action:** `docs/ai/tasks/UI13-media-provenance-review.md`: local review board
+for24observeddiscoveryrecipes/8assets,source/license/subject/crop/pendingapproval.
+NoUI13runtime inUI12. Brandowner/device/Safari/nativezoom/screenreader/virtualkeyboard/
+usability/CWV/hostedrelease and separate Weekoutbox/inventoryreceipt domain work
+remain open. Build/test success does not certify whole roadmap or final brand.
+
+---
+
 # UI11 - Điều hướng và shell responsive đã kiểm chứng local - 2026-10-11 JST
 
 **Task/status:** `UI11_LOCAL_VERIFIED_REVIEW_REQUIRED`, packet UI11, ADR-054.

@@ -289,6 +289,7 @@ export const RecipesPage = () => {
                 <div data-testid="recipe-discovery-grid" className="discovery-grid">
                   {result.items.map((item) => (
                     <RecipeCard
+                      kitchen
                       key={item.recipe.id}
                       matchResult={item}
                       variant="grid"

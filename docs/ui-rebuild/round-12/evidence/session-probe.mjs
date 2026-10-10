@@ -1,0 +1,14 @@
+import {chromium}from'@playwright/test';
+const b=await chromium.launch(),c=await b.newContext({serviceWorkers:'block'}),p=await c.newPage();
+await c.route(url=>url.origin!=='http://127.0.0.1:5212',r=>r.abort());
+p.on('pageerror',e=>console.log('ERROR',e.message));
+p.on('console',e=>{if(e.type()==='error')console.log('CONSOLE',e.text());});
+await p.goto('http://127.0.0.1:5212/__preview');
+await p.getByRole('button',{name:'Đặt lại dữ liệu thử nghiệm và đăng nhập'}).click();
+await p.waitForURL(/planner$/);
+console.log('AFTERLOGIN',await p.locator('body').innerText());
+await p.goto('http://127.0.0.1:5212/onboarding');
+await p.screenshot({path:'.artifacts/ui12/session-probe.png'});
+console.log('ONBOARD',p.url(),await p.locator('body').innerText());
+console.log('LOCAL',await p.evaluate(()=>({primary:localStorage.getItem('frigo-primary-goal'),onboarded:localStorage.getItem('frigo_onboarded')})));
+await b.close();

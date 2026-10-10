@@ -1,0 +1,7 @@
+{
+  "reason": "Initial staged diff-check found terminal log trailing whitespace/blank EOF lines. Runtime untouched.",
+  "normalizedLogCount": 7,
+  "rawGzipRetained": true,
+  "rawGzipTimestamp": 0,
+  "receiptCount": 39
+}

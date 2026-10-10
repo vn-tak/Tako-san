@@ -1,0 +1,25 @@
+home-320: roots5 overlap0 axe0 width320
+stock-320: roots5 overlap0 axe0 width320
+detail-320: roots5 overlap0 axe0 width320
+review-320: roots5 overlap0 axe0 width320
+receipt-320: roots5 overlap0 axe0 width320
+recipe-320: roots5 overlap0 axe0 width320
+node:internal/modules/run_main:107
+    triggerUncaughtException(
+    ^
+
+AssertionError [ERR_ASSERTION]: recipes-320: roots
+
+1 !== 5
+
+    at shot (file:///Users/tunbee27/Documents/Tako-san-ui-rebuild/scripts/ui12-browser-check.mjs:179:12)
+    at async file:///Users/tunbee27/Documents/Tako-san-ui-rebuild/scripts/ui12-browser-check.mjs:256:7 {
+  generatedMessage: false,
+  code: 'ERR_ASSERTION',
+  actual: 1,
+  expected: 5,
+  operator: 'strictEqual',
+  diff: 'simple'
+}
+
+Node.js v24.16.0

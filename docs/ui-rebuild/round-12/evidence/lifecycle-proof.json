@@ -1,0 +1,42 @@
+{
+  "base": "f7a27c16ef460b19322d3a463dc74dc09fa48ade",
+  "records": [
+    {
+      "path": "src/web/pages/HomePage.tsx",
+      "executableAndHandlerRecords": 19,
+      "unchanged": true
+    },
+    {
+      "path": "src/web/pages/RecipesPage.tsx",
+      "executableAndHandlerRecords": 34,
+      "unchanged": true
+    },
+    {
+      "path": "src/web/pages/RecipeDetailPage.tsx",
+      "executableAndHandlerRecords": 43,
+      "unchanged": true
+    }
+  ],
+  "protectedPaths": [
+    "src/worker",
+    "packages",
+    "migrations",
+    "public",
+    "src/web/services",
+    "src/web/stores",
+    "src/web/App.tsx",
+    "src/web/lib/recipe-media.ts",
+    "src/web/lib/sync.ts",
+    "src/web/lib/private-session.ts",
+    "src/web/pages/PaymentPage.tsx",
+    "package.json",
+    "pnpm-lock.yaml",
+    "vite.config.ts",
+    "wrangler.jsonc",
+    "wrangler.staging.jsonc",
+    ".github",
+    "tailwind.config.js",
+    "postcss.config.js"
+  ],
+  "protectedDiff": ""
+}

@@ -1,0 +1,33 @@
+{
+  "records": [
+    {
+      "name": "settings",
+      "width": 320,
+      "path": "/settings/app",
+      "actual": "/settings/app",
+      "scrollWidth": 320,
+      "h1": [
+        "Cài đặt ứng dụng"
+      ],
+      "broken": [],
+      "violations": []
+    },
+    {
+      "name": "household",
+      "width": 320,
+      "path": "/me/household",
+      "actual": "/me/household",
+      "scrollWidth": 320,
+      "h1": [],
+      "broken": [],
+      "violations": []
+    }
+  ],
+  "errors": [],
+  "writes": [
+    {
+      "path": "/api/v1/preferences",
+      "method": "PATCH"
+    }
+  ]
+}

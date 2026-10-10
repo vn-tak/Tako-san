@@ -1,0 +1,20 @@
+
+ RUN  v3.2.7 /Users/tunbee27/Documents/Tako-san-ui-rebuild
+
+ ✓ tests/unit/recipe-media-presentation.test.ts (8 tests) 15ms
+ ✓ tests/unit/ui12-recipe-media.test.tsx (17 tests) 78ms
+ ✓ tests/unit/ui11-shell-measurement.test.tsx (3 tests) 325ms
+ ✓ tests/unit/ui11-navigation.test.tsx (29 tests) 31ms
+stderr | tests/unit/t18c-keyboard-controls.test.tsx > Week PLANNED card exposes only actionable native controls
+⚠️ React Router Future Flag Warning: React Router will begin wrapping state updates in `React.startTransition` in v7. You can use the `v7_startTransition` future flag to opt-in early. For more information, see https://reactrouter.com/v6/upgrading/future#v7_starttransition.
+⚠️ React Router Future Flag Warning: Relative route resolution within Splat routes is changing in v7. You can use the `v7_relativeSplatPath` future flag to opt-in early. For more information, see https://reactrouter.com/v6/upgrading/future#v7_relativesplatpath.
+
+ ✓ tests/unit/t18c-keyboard-controls.test.tsx (5 tests) 88ms
+ ✓ tests/unit/ui-rebuild-surfaces.test.tsx (7 tests) 261ms
+ ✓ tests/unit/ui02-surfaces.test.tsx (17 tests) 860ms
+   ✓ Discovery mounted URL interactions > deep-linked search reaches later ingredients and reset restores all results/focus  305ms
+
+ Test Files  7 passed (7)
+      Tests  86 passed (86)
+   Start at  05:07:06
+   Duration  2.43s (transform 1.74s, setup 100ms, collect 4.82s, tests 1.66s, environment 2.23s, prepare 563ms)

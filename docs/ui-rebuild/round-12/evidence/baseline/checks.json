@@ -1,0 +1,127 @@
+{
+  "records": [
+    {
+      "name": "recipe",
+      "text2": false,
+      "width": 320,
+      "scrollWidth": 320,
+      "clipped": [],
+      "hero": 82
+    },
+    {
+      "name": "recipe",
+      "text2": true,
+      "width": 320,
+      "scrollWidth": 320,
+      "clipped": [],
+      "hero": 118
+    },
+    {
+      "name": "steps",
+      "text2": false,
+      "width": 320,
+      "scrollWidth": 320,
+      "clipped": [],
+      "hero": 82
+    },
+    {
+      "name": "steps",
+      "text2": true,
+      "width": 320,
+      "scrollWidth": 320,
+      "clipped": [],
+      "hero": 118
+    },
+    {
+      "name": "nutrition",
+      "text2": false,
+      "width": 320,
+      "scrollWidth": 320,
+      "clipped": [],
+      "hero": 82
+    },
+    {
+      "name": "nutrition",
+      "text2": true,
+      "width": 320,
+      "scrollWidth": 320,
+      "clipped": [],
+      "hero": 118
+    },
+    {
+      "name": "recipes",
+      "text2": false,
+      "width": 320,
+      "scrollWidth": 320,
+      "clipped": []
+    },
+    {
+      "name": "recipes",
+      "text2": true,
+      "width": 320,
+      "scrollWidth": 320,
+      "clipped": [
+        {
+          "tag": "P",
+          "text": "71 món",
+          "className": "text-sm text-semantic-text-muted shrink-0",
+          "width": 94,
+          "height": 20,
+          "scrollWidth": 94,
+          "scrollHeight": 27
+        },
+        {
+          "tag": "P",
+          "text": "Đang xem 1–24 trong 71 món",
+          "className": "text-sm text-semantic-text-secondary",
+          "width": 288,
+          "height": 40,
+          "scrollWidth": 288,
+          "scrollHeight": 47
+        }
+      ]
+    },
+    {
+      "name": "home",
+      "text2": false,
+      "width": 320,
+      "scrollWidth": 320,
+      "clipped": []
+    },
+    {
+      "name": "home",
+      "text2": true,
+      "width": 320,
+      "scrollWidth": 320,
+      "clipped": [
+        {
+          "tag": "P",
+          "text": "Chọn ngày và số người. Takosan sẽ giúp bạn sắp xếp các bữa từ nguyên liệu đang có.",
+          "className": "mt-3 text-base text-semantic-text-secondary",
+          "width": 235,
+          "height": 168,
+          "scrollWidth": 235,
+          "scrollHeight": 176
+        },
+        {
+          "tag": "H3",
+          "text": "Rau muống",
+          "className": "text-base font-semibold",
+          "width": 190,
+          "height": 24,
+          "scrollWidth": 190,
+          "scrollHeight": 32
+        },
+        {
+          "tag": "P",
+          "text": "Chưa rõ hạn dùng",
+          "className": "mt-1 text-sm text-semantic-text-muted",
+          "width": 190,
+          "height": 40,
+          "scrollWidth": 190,
+          "scrollHeight": 47
+        }
+      ]
+    }
+  ]
+}

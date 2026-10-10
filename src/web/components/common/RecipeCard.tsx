@@ -1,4 +1,5 @@
 import React from 'react';
+import { RecipeMedia } from './RecipeMedia';
 import type { RecipeMatchResult } from '@frigo/recipes';
 import type { DiscoveryItem } from '../../../../packages/recipes/src/discovery-contract';
 import { Clock, CheckCircle, Flame, Users, Utensils } from 'lucide-react';
@@ -8,6 +9,7 @@ interface RecipeCardProps {
   matchResult: RecipeMatchResult | DiscoveryItem;
   onClick: () => void;
   compact?: boolean;
+  kitchen?: boolean;
   headingLevel?: 2 | 3;
   variant?: 'row' | 'feature' | 'grid';
 }
@@ -16,6 +18,7 @@ export const RecipeCard: React.FC<RecipeCardProps> = ({
   matchResult,
   onClick,
   compact = false,
+  kitchen = false,
   headingLevel = 2,
   variant = 'row',
 }) => {
@@ -36,6 +39,38 @@ export const RecipeCard: React.FC<RecipeCardProps> = ({
     event.preventDefault();
     onClick();
   };
+
+  if (kitchen) {
+    return (
+      <a
+        href={href}
+        aria-label={recipe.title}
+        onClick={handleClick}
+        className="kitchen-recipe-card"
+        data-variant={compact ? 'compact' : variant}
+      >
+        <RecipeMedia image={image} title={recipe.title} />
+        <div className="kitchen-recipe-card-body">
+          <p className="kitchen-recipe-readiness" data-ready={canCookWithoutBuying}>
+            {canCookWithoutBuying ? 'Đủ lượng để nấu' : `Cần kiểm tra ${missingCount} nguyên liệu`}
+          </p>
+          <Heading>{recipe.title}</Heading>
+          <p className="kitchen-recipe-description">{recipe.description}</p>
+          <div className="kitchen-recipe-facts">
+            <span>
+              <Clock size={16} aria-hidden="true" />
+              {recipe.cookTimeMinutes} phút
+            </span>
+            <span>
+              <Users size={16} aria-hidden="true" />
+              {recipe.servings} người
+            </span>
+          </div>
+          <p className="kitchen-recipe-coverage">Có {matchPercentage}% loại nguyên liệu</p>
+        </div>
+      </a>
+    );
+  }
 
   const cuisineFlags: Record<string, string> = {
     vietnamese: '🇻🇳',

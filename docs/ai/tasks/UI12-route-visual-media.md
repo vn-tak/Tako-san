@@ -1,45 +1,43 @@
-# UI12 - Route visual review and media coverage
+# UI12 - Recipe journey, route visual review and media coverage
 
-Status: READY_FOR_AUDIT; no runtime implementation.
-Verified UI11 implementation: `74adf20db00f77c63ba47085362c621b56e050fc`,
-with its following documentation checkpoint. Source/evidence receipt:
-`docs/ui-rebuild/round-11/GIT_VERIFICATION.md` (2026-10-11 JST).
-Canonical vn-tak/Tako-san, checkout Tako-san-ui-rebuild,
-branch codex/ui-rebuild-foundation. Read the verified UI11 checkpoint and protocol.
-This packet prepares the next bounded review; it does not authorize a whole-repo
-rewrite, domain changes or an unreviewed new brand direction.
+Status: UI12_LOCAL_GATES_PASSED_GIT_PENDING, 2026-10-11 JST. ADR-055 before runtime.
+Implementation: `UI12_IMPLEMENTATION_PENDING_VERIFICATION`.
+Base `f7a27c16ef460b19322d3a463dc74dc09fa48ade`.
+Canonical vn-tak/Tako-san; Tako-san-ui-rebuild; codex/ui-rebuild-foundation.
 
-## Goal and scope
+## Executed scope
 
-Audit all migrated route families together after UI11 shell. Create a route/state
-matrix and identify inner-page clipping, enlarged labels, media quality/coverage,
-brand ownership and motion inconsistencies. Explicitly inspect recipe hero badge
-geometry, loading/error/empty/success, long content, text x2 and short screens.
-Inventory commands, cooking, scan, Planner/Week flags and guards stay authoritative.
+User requested one large continuation. Baseline/source audit chose the bounded
+Home/discovery/detail presentation slice. Kitchen cards retain default legacy JSX;
+shared RecipeMedia owns loading/photo/missing and terminal permitted fallback.
+Typography/control/grid/sticky changes prevent measured clipping at enlarged text,
+short viewports and long labels. UI07 identity/UI11navigation and domain authority
+remain. Resolver, public assets, routes/guards, services/stores/config are unchanged.
 
-Start read-only: source map plus real local screenshots/interactions. Inventory
-JSON equality for read journeys, both flags, public entry, exact route boundaries,
-keyboard/Skip/Tab/Escape/return, parent-bound sticky constraints and safe-area
-classification. Preserve UI11 five roots/Scan/offset contract. Use existing UI07
-vector/font/icon masters; don't generate new media until catalog licensing,
-provenance, route demand and representative crops/placeholder quality are known.
+## Verified local acceptance
 
-## Decision and sequence
+Full286files/6702PASS352.41s;type/lint/migrations/build PASS. Focused7/86PASS2.43s,
+17new meaningful cases. Main167/17journeys,OFF24/1,state13/8,supplemental14:
+218structured browser cases across seven widths,computedx2/short/combined,three
+panels,keyboard/focus,load/error/retry/404/empty/long/unknown/fallback. Applicable
+axe/overflow/brokenimage/unexpectederrors/newrecipeclipping0. Complete inventory
+JSON equal before/after;zero domain writes in read/navigation slices (synthetic
+onboarding PATCH classified separately). Separate E2E runner not executed UI12.
 
-1. Re-read protocol/state and actual Git tree; establish source baseline. Inventory
-   real media mappings and visible missing-image cases; capture defects precisely.
-2. Rank findings by blocked action, unreadable content, inconsistent hierarchy,
-   then polish. Choose one bounded runtime slice with measurable acceptance and
-   ADR-055 before changes; no palette/identity reset without new evidence.
-3. Implement scoped presentation and meaningful behavior/geometry checks. Do not
-   mechanically fix generic heuristic suggestions or replace an honest unknown
-   with fabricated pictures, prices, inventory/nutrition/allergy claims.
-4. Verify relevant browser matrix/focus/reduced motion/assets, focused/type/lint/
-   full gates; preserve failed evidence. Update docs/ADR/boards/handoff, commit,
-   verify Git/source/evidence, then documentation checkpoint.
+374frozen source/public records intact;257public build checks:256exact copies,
+sw.js only existing build-ID transform.96page lifecycle records match base,
+legacy card JSX tail byte-identical,protected diff empty. Baseline777Git blobs
+verified. Owned previews stopped; six task ports closed. See round-12 reports,
+raw/archive log receipts,manifest and subsequent GIT_VERIFICATION.md.
 
-Protected: payments/PayOS/billing/checkout/auth protocol/backend/packages/schema/
-migrations/services/stores/dependencies/production flags/config and remote writes.
-Separate domain work owns Week durable outbox/replay and inventory read/queued
-receipt authority. Owner/device/Safari/native zoom/screen reader/usability/CWV/hosted
-release cannot be certified by local screenshots. No push/PR/merge/deploy.
+## Remaining work
+
+500canonical local media rows pending;6allowed mappings,6wrong/missing,
+429generic,59unreviewedphoto.24priority recipes and8local assets documented.
+GenericUXFAIL157/31/989/86;41dependencyadvisories unchanged. Whole brand approval,
+owner/device/Safari/nativezoom/screenreader/keyboard/usability/CWV/hostedrelease
+and separate offline/domain fixes not certified. Source inventory47declarations
+is not47independently certified pages.
+
+Next: UI13-media-provenance-review.md, concrete local review artifact before
+any media promotion. No UI13 runtime in this task. No push/PR/merge/deploy.

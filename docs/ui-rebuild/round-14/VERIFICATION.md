@@ -101,8 +101,9 @@ App bytes match base after reversing only provider import. Existing motion helpe
 source exact; all protected paths diffempty; public257 originals unchanged. Build
 256 exact copies +one existing SW build-ID transform; not257byteidentical copies.
 
-Owned previews stopped;5216/5217/5218/5219closed.41raw log/data receipts and4exact
-raw gzip containers for baseline/after entry/maps archived. Final manifest excludes
+Owned previews stopped;5216/5217/5218/5219closed.41raw log/data receipts and6exact
+raw gzip containers (4entry/maps +2raw logs) archived.39text archives match raw,
+2are normalized with explicit exact-raw-container receipts. Final manifest excludes
 mutable narrative docs, itself and later Git receipt. Source/build/evidence hashes
 and the implementation commit are checked by a single sequential git cat-file
 --batch before the documentation checkpoint. See GIT_VERIFICATION for final proof.
@@ -120,3 +121,5 @@ exact;2normalized copies have explicit normalization/raw-container hashes.41raw
 receipts and6exact raw gzip archives are verified. Final base-to-implementation
 whitespace check must pass before the Git receipt; base is an ancestor rather than
 immediate parent. The documentation checkpoint names final verified implementation.
+
+Verified implementation `7ee28bf48974e8faf52f78caa2b9a5b979953768`; VERIFIED: 396 source / 139 evidence / 257 public records, 515 unique blobs; 41 log receipts / 6 raw gzip. Manifest 97427 bytes, SHA256 1b9065bead923ee54752980cd7553a5e1812a527adb0b7f7593cc1bd7d7b9870; round-14/GIT_VERIFICATION.md.

@@ -6,11 +6,12 @@ Một tối ưu delivery hoàn tất; toàn sản phẩm/brand/device/hosted ch�
 **Repository/source:** Canonical `vn-tak/Tako-san`, checkout
 `/Users/tunbee27/Documents/Tako-san-ui-rebuild`, branch `codex/ui-rebuild-foundation`.
 Base `f3a09f2a7beb548fbd4bc9ef8ae932a092dd3827`.
-Implementation: `IMPLEMENTATION_PENDING_GIT_VERIFICATION`.
+Implementation: `7ee28bf48974e8faf52f78caa2b9a5b979953768`.
 396 source/test/script/config/generated/public records frozen và khớp sau full gates.
 App giữ nguyên bytes ngoài import provider; helpers cũ exact; protected diff rỗng.
 257 public originals nguyên; build256 exact + một SW build-ID transform có sẵn.
-Git-object verification theo sau implementation; docs checkpoint không ghi hash chính nó.
+Git-object receipt: `VERIFIED: 396 source / 139 evidence / 257 public records, 515 unique blobs; 41 log receipts / 6 raw gzip. Manifest 97427 bytes, SHA256 1b9065bead923ee54752980cd7553a5e1812a527adb0b7f7593cc1bd7d7b9870; round-14/GIT_VERIFICATION.md`. Documentation checkpoint theo sau chỉ ghi
+verified implementation, không ghi hash của chính nó.
 
 **Actual changes:** Tách MotionConfig provider, vẫn reducedMotion=user/re-export cũ;
 legacy indicator dynamic import chia sẻ promise, highlight tĩnh ngay và khi lỗi,

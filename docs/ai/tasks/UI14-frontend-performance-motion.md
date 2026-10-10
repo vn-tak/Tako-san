@@ -47,5 +47,5 @@ static fallback/unmount fence. Entry raw -27.5%, three cold route JS -17.3–18.
 396 frozen records; protected/public unchanged, App import only, existing helper
 source exact. Four ports closed. Fresh audit failures/41 advisories and Lighthouse
 unavailability retained. Mid-fade contrast and cramped short-screen reading space
-remain explicit. Implementation `IMPLEMENTATION_PENDING_GIT_VERIFICATION`;
+remain explicit. Implementation `7ee28bf48974e8faf52f78caa2b9a5b979953768`;
 sequential receipt and docs checkpoint follow. Next UI15 ready only.

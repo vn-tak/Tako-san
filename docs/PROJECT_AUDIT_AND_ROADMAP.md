@@ -5,7 +5,7 @@ and retains static active feedback, user policy, routes/guards and public bytes.
 Entry raw463601→336308; cold transferred JS falls17.3–18.4% in three repeated local
 cold/warm pairs per route. Full288files/6742testsPASS;50settled snapshots/5journeys,
 4legacy journeys,2baseline probes and combined-short focus supplemental.
-Implementation `IMPLEMENTATION_PENDING_GIT_VERIFICATION`; Git-object receipt follows.
+Implementation `7ee28bf48974e8faf52f78caa2b9a5b979953768`; Git-object receipt follows.
 
 This advances frontend delivery, not whole-rebuild/brand/production approval.
 Remaining priorities: cramped320×420textx2 reading area, transient fade contrast,

@@ -2,7 +2,7 @@
 
 Status: `UI14_LOCAL_VERIFIED_REVIEW_REQUIRED`. ADR-057; base
 `f3a09f2a7beb548fbd4bc9ef8ae932a092dd3827`.
-Implementation: `IMPLEMENTATION_PENDING_GIT_VERIFICATION`.
+Implementation: `7ee28bf48974e8faf52f78caa2b9a5b979953768`.
 
 | Work item | Outcome / evidence |
 | --- | --- |
@@ -14,7 +14,7 @@ Implementation: `IMPLEMENTATION_PENDING_GIT_VERIFICATION`.
 | Focused / required full gates | PASS 3 files / 56 tests; full 288 files / 6,742 tests, 370.67s; type/lint/migrations/build PASS |
 | Source / public / protected | 396 frozen; only App provider import; 257 public, 256 exact build + 1 SW transform |
 | Failures / guidelines / audits | Retained; generic UX FAIL, 41 dependency advisories, Lighthouse unavailable |
-| Implementation Git checkpoint | Pending sequential blob verification after local implementation commit |
+| Implementation Git checkpoint | VERIFIED: 396 source / 139 evidence / 257 public records, 515 unique blobs; 41 log receipts / 6 raw gzip. Manifest 97427 bytes, SHA256 1b9065bead923ee54752980cd7553a5e1812a527adb0b7f7593cc1bd7d7b9870; round-14/GIT_VERIFICATION.md |
 | UI15 short-screen / readability | READY_FOR_LOCAL_AUDIT; no UI15 runtime |
 | Owner / rights / devices / hosted | OPEN; no media promotion or production certification |
 

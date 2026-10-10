@@ -48,3 +48,14 @@ offline catalog/service authority may be a larger bottleneck, but is protected i
 this packet; report evidence for a distinct task instead of changing it silently.
 A performance fix must preserve meaningful visual feedback and reduced motion;
 if no safe fix improves actual measurements, finish a complete audit with that result.
+
+## Completed checkpoint
+
+Full288files/6742testsPASS; 50settled snapshots/5journeys, four actual legacy
+journeys, two baseline frame probes, short-focus supplemental. One delivery fix
+reduces cold JS transfer17.3–18.4%. Protected/App/helpers/public proof preserved.
+First commit8f486cd retained after a whitespace-check shell masking failure; fixed
+log text plus exact raw gzip in follow-up, no code changes or amend/reset.
+Verified implementation `7ee28bf48974e8faf52f78caa2b9a5b979953768`;
+VERIFIED: 396 source / 139 evidence / 257 public records, 515 unique blobs; 41 log receipts / 6 raw gzip. Manifest 97427 bytes, SHA256 1b9065bead923ee54752980cd7553a5e1812a527adb0b7f7593cc1bd7d7b9870; round-14/GIT_VERIFICATION.md. Four owned portsclosed; documentation checkpoint follows.
+UI15 ready only; remaining readability/device/hosted/photo/brand limits explicit.

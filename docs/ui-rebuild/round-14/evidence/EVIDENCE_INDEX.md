@@ -25,3 +25,5 @@
 Raw values include synthetic fixtures only. Performance collection excludes setup
 writes; failed chunk probes deliberate. Full gates are local; no hosted/device/
 license/brand approval implied by payload integrity.
+
+Final Git receipt: VERIFIED: 396 source / 139 evidence / 257 public records, 515 unique blobs; 41 log receipts / 6 raw gzip. Manifest 97427 bytes, SHA256 1b9065bead923ee54752980cd7553a5e1812a527adb0b7f7593cc1bd7d7b9870; round-14/GIT_VERIFICATION.md.

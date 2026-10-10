@@ -16,3 +16,7 @@ combined-short supplemental. No protected/public/domain/remote operation.
 Screenshots show synthetic local data. Cold/warm figures are Chromium lab values,
 not hosted CWV, field INP or brand/device/photo-rights approval. Next packet UI15
 covers short-screen reading area and motion readability; no UI15 runtime here.
+
+Verified local implementation `7ee28bf48974e8faf52f78caa2b9a5b979953768`; documentation checkpoint follows,
+without claiming its own hash. First raw-log whitespace failure and recovery are
+recorded in VERIFICATION. No source/runtime changes in documentation checkpoint.

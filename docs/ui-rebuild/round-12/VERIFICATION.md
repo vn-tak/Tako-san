@@ -1,9 +1,10 @@
 # UI12 - Kiểm chứng local
 
 2026-10-11 JST. Base `f7a27c16ef460b19322d3a463dc74dc09fa48ade`.
-Implementation: `UI12_IMPLEMENTATION_PENDING_VERIFICATION`.
-Runtime cuối và bằng chứng đã đóng băng; Git-object receipt nằm ở
-`GIT_VERIFICATION.md` sau khi có implementation checkpoint.
+Implementation: `03e16c78850b061784dc2e9a01323bd7e74b65f3`.
+Runtime cuối và bằng chứng đã đóng băng; Git-object receipt ở
+[GIT_VERIFICATION.md](GIT_VERIFICATION.md):374source/349evidence/257public records,
+724unique blobs khớp bytes/SHA256;39log receipts/7rawgzip verified.
 
 ## Gate thực thi
 

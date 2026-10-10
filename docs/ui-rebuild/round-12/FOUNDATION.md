@@ -3,7 +3,7 @@
 2026-10-11 JST. Canonical `vn-tak/Tako-san`; checkout
 `/Users/tunbee27/Documents/Tako-san-ui-rebuild`, nhánh `codex/ui-rebuild-foundation`.
 Base `f7a27c16ef460b19322d3a463dc74dc09fa48ade`. ADR-055 ghi trước runtime.
-Implementation: `UI12_IMPLEMENTATION_PENDING_VERIFICATION`.
+Implementation: `03e16c78850b061784dc2e9a01323bd7e74b65f3`.
 
 ## Kết quả
 
@@ -13,6 +13,10 @@ thức. Bộ nhận diện UI07 và shell UI11 tiếp tục được dùng chung
 để nấu. Chi tiết, tab, nguyên liệu, dinh dưỡng và bộ lọc đọc được khi chữ lớn hoặc
 màn hình thấp. Ảnh lỗi chuyển qua fallback được resolver cho phép rồi dừng ở một
 khối HTML có nhãn; không để ảnh hỏng hoặc vòng lặp tải lại.
+
+Implementation và724unique Git blobs đã đối chiếu với source/evidence; receipt
+[GIT_VERIFICATION.md](GIT_VERIFICATION.md). Documentation checkpoint ghi verified
+implementation,không ghi hash của chính nó.
 
 Phạm vi local này hoàn tất kiểm tra, chưa hoàn tất toàn bộ roadmap hay phê duyệt
 thương hiệu. Báo cáo kiểm tra và các giới hạn: [VERIFICATION.md](VERIFICATION.md).

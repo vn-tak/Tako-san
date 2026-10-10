@@ -2247,7 +2247,7 @@ without including its own hash. UI12 runtime not started.
 
 ## ADR-055 - Readable recipe journey and honest media states (UI12)
 
-**Status:** Accepted before runtime, 2026-10-11 JST; local gates PASS, Git verification pending.
+**Status:** Accepted before runtime, 2026-10-11 JST; local gates PASS, Git objects verified.
 Base `f7a27c16ef460b19322d3a463dc74dc09fa48ade`, canonical vn-tak/Tako-san.
 
 **Evidence:** Ten real local baseline captures across Home, discovery and all
@@ -2303,5 +2303,8 @@ records/legacycard JSX unchanged;protected diffempty;public256copies+existingSW
 build-IDtransform. Baseline777Gitblobs verified;10finalcomparisonclip0. Localmedia
 500pending,24demandrecipes/8assets plan;genericUXFAIL157/31/989/86,41advisories.
 Ownedpreviews stopped/sixportsclosed. No protected/remote change or release.
-Implementation `UI12_IMPLEMENTATION_PENDING_VERIFICATION`; documentation checkpoint
-follows Git-object verification. UI13-local-media-review only next,not started.
+Implementation `03e16c78850b061784dc2e9a01323bd7e74b65f3`; source374/evidence349/public257/manifest match724uniqueGitblobs;39logreceipts/7rawgzip
+match. Manifest71599bytes/SHA256
+3c7ff61129ff0d14dd9e04c1053567b3e891d438821a7c118f3cb4716bb66e02.
+Documentation checkpoint follows,does not name itself. UI13-local-media-review
+only next,not started.

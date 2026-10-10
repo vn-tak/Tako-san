@@ -1,7 +1,7 @@
 # UI12 - Recipe journey, route visual review and media coverage
 
-Status: UI12_LOCAL_GATES_PASSED_GIT_PENDING, 2026-10-11 JST. ADR-055 before runtime.
-Implementation: `UI12_IMPLEMENTATION_PENDING_VERIFICATION`.
+Status: UI12_LOCAL_VERIFIED_REVIEW_REQUIRED, 2026-10-11 JST. ADR-055 before runtime.
+Implementation: `03e16c78850b061784dc2e9a01323bd7e74b65f3`.
 Base `f7a27c16ef460b19322d3a463dc74dc09fa48ade`.
 Canonical vn-tak/Tako-san; Tako-san-ui-rebuild; codex/ui-rebuild-foundation.
 
@@ -28,7 +28,8 @@ onboarding PATCH classified separately). Separate E2E runner not executed UI12.
 sw.js only existing build-ID transform.96page lifecycle records match base,
 legacy card JSX tail byte-identical,protected diff empty. Baseline777Git blobs
 verified. Owned previews stopped; six task ports closed. See round-12 reports,
-raw/archive log receipts,manifest and subsequent GIT_VERIFICATION.md.
+raw/archive log receipts,manifest and GIT_VERIFICATION.md. Git objects verified:
+374source/349evidence/257public,724unique blobs,39logs/7rawgzip.
 
 ## Remaining work
 

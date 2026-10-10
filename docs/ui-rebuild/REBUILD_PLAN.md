@@ -1,7 +1,7 @@
 # Checkpoint triển khai - UI12, 2026-10-11 JST
 
 Canonical `vn-tak/Tako-san`, local `codex/ui-rebuild-foundation`.
-Implementation: `UI12_IMPLEMENTATION_PENDING_VERIFICATION`.
+Implementation: `03e16c78850b061784dc2e9a01323bd7e74b65f3`.
 Home/discovery/detail dùng cùng thẻ và media state; labels/facts/panels responsive
 qua enlargedtext/shortscreens;giữ UI07identity và UI11navigation. Không thay nguồn
 ảnh/callback/domain/protected authority. Full286files/6702PASS;focused86;browser
@@ -9,7 +9,7 @@ qua enlargedtext/shortscreens;giữ UI07identity và UI11navigation. Không thay
 Source374frozen;public256copies+sw.js buildtransform;baseline777Gitblobs verified.
 
 Báo cáo: [UI12 FOUNDATION](round-12/FOUNDATION.md),
-[verification](round-12/VERIFICATION.md), [media plan](round-12/MEDIA_PLAN.md).
+[verification](round-12/VERIFICATION.md), [Git receipt](round-12/GIT_VERIFICATION.md), [media plan](round-12/MEDIA_PLAN.md).
 Nhận diện vẫn cần owner review;ảnh500canonicallocal pending,494mapping cần review
 hoặc correction. GenericUXFAIL157/31/989/86,41dependencyadvisories unchanged.
 UI13-media-provenance-review packet: bộduyệt24món/8assets với nguồn/quyền/đúngmón/

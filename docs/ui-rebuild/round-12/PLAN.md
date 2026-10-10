@@ -43,6 +43,7 @@ Dependencies/provenance and separate offline/domain issues remain recorded.
 
 Steps1-4 complete: scoped implementation,86focused/6702fullPASS,218structured
 browsercases/26main-state-offjourneys,final10capturesclipping0,freshguidelines and
-media plan. GenericUXFAIL/dependency41 retained. Step5 in progress: reports/state
-updated;implementation commit,Git-object receipt and docs checkpoint remain.
-Implementation `UI12_IMPLEMENTATION_PENDING_VERIFICATION`.
+media plan. GenericUXFAIL/dependency41 retained. Step5 complete: reports/state updated;implementation commit and724Gitblobs
+verified,receipt added. Following docs checkpoint records verifiedimplementation
+without its own hash;source/evidence unchanged.
+Implementation `03e16c78850b061784dc2e9a01323bd7e74b65f3`.

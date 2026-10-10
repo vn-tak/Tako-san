@@ -1,7 +1,7 @@
 # UI13 - Tako-san media review và provenance
 
 Status: READY_FOR_LOCAL_REVIEW. Không có runtime UI13 trong UI12.
-Previous implementation: `UI12_IMPLEMENTATION_PENDING_VERIFICATION`.
+Previous implementation: `03e16c78850b061784dc2e9a01323bd7e74b65f3`.
 Read round-12 FOUNDATION/VERIFICATION/GIT_VERIFICATION and evidence/media-plan.json.
 Canonical vn-tak/Tako-san, checkout Tako-san-ui-rebuild, codex/ui-rebuild-foundation.
 

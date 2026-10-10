@@ -11,7 +11,8 @@ card/tab/nutrition/filter grids and sticky offsets to UI07identity/UI11shell. Sh
 viewports release recipe overview/discovery controls to flow. Queries, callbacks,
 availability/shopping/cooking/routes/guards match base96normalized page records;
 protected diff empty. No backend/service/store/schema/dependency change.
-Implementation `UI12_IMPLEMENTATION_PENDING_VERIFICATION`.
+Implementation `03e16c78850b061784dc2e9a01323bd7e74b65f3` verified against374source/349evidence
+records and manifest(724uniqueGitblobs);receipt round-12/GIT_VERIFICATION.md.
 See round-12 reports/receipt. UI13 reviews observedmedia source/license/subject/crop
 before promotion; local screenshots do not confer brand/photo/device approval.
 

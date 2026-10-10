@@ -1,17 +1,21 @@
 # UI12 - Luồng công thức responsive đã kiểm chứng local - 2026-10-11 JST
 
-**Task/status:** `UI12_LOCAL_GATES_PASSED_GIT_PENDING`, packet UI12, ADR-055.
+**Task/status:** `UI12_LOCAL_VERIFIED_REVIEW_REQUIRED`, packet UI12, ADR-055.
 Home → discovery → detail/shared media hoàn tất trong phạm vi local.
 
 **Repository/source:** Canonical `vn-tak/Tako-san`; checkout
 `/Users/tunbee27/Documents/Tako-san-ui-rebuild`, branch `codex/ui-rebuild-foundation`,
 base `f7a27c16ef460b19322d3a463dc74dc09fa48ade`.
-Implementation: `UI12_IMPLEMENTATION_PENDING_VERIFICATION`.
+Implementation: `03e16c78850b061784dc2e9a01323bd7e74b65f3`.
 374source/test/script/config/public records frozen và khớp sau full; baseline
 777Git blobs khớp.257publicbuild checks:256byte-identical,sw.js chỉ transform
 build-ID có sẵn.96normalized page declarations/handlers và legacycard JSX tail
 khớp base. Protected diff rỗng, gồm real Wrangler/.github/Tailwind/PostCSS config.
-Git-object receipt sẽ ghi ở round-12/GIT_VERIFICATION.md sau implementation.
+Git-object receipt round-12/GIT_VERIFICATION.md: source374/evidence349/public257,
+724unique implementation blobs khớp;39log receipts và7raw gzip khớp. Manifest
+71599bytes/SHA256 `3c7ff61129ff0d14dd9e04c1053567b3e891d438821a7c118f3cb4716bb66e02`.
+Tree sạch ngay sau implementation,diff-checkPASS;documentation checkpoint theo
+sau ghi verified implementationhash,không ghi hash của chính nó.
 
 **Actual changes:** Kitchen RecipeCard opt-in Home/discovery, full title/description,
 labelled type coverage tách amount readiness,time/servings; default legacy giữ.

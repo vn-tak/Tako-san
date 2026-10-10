@@ -1,8 +1,8 @@
 # UI12 - Recipe journey local gate checkpoint - 2026-10-11 JST
 
-Status: `UI12_LOCAL_GATES_PASSED_GIT_PENDING`. ADR-055; base
+Status: `UI12_LOCAL_VERIFIED_REVIEW_REQUIRED`. ADR-055; base
 `f7a27c16ef460b19322d3a463dc74dc09fa48ade`.
-Implementation: `UI12_IMPLEMENTATION_PENDING_VERIFICATION`.
+Implementation: `03e16c78850b061784dc2e9a01323bd7e74b65f3`.
 
 | Work item | Outcome / evidence |
 | --- | --- |
@@ -13,7 +13,7 @@ Implementation: `UI12_IMPLEMENTATION_PENDING_VERIFICATION`.
 | Focused/full gates | PASS86focused;286files/6702full,type/lint/migrations/build |
 | Source/assets/protected integrity | PASS374frozen;256buildcopies+1expectedSWtransform;96lifecycle records |
 | Logs/guidelines/media plan | DONE;raw/archive SHA256 receipts,31UXheuristicissues/41advisories retained |
-| Implementation Git checkpoint | PENDING Git-object verification; receipt round-12/GIT_VERIFICATION.md |
+| Implementation Git checkpoint | VERIFIED;374source/349evidence/257public,724unique blobs;39logs/7rawgzip |
 | UI13 media review | READY;24recipes/8assets,source/license/subject/crop before promotion |
 | Owner/device/hosted release | OPEN;no whole-brand/release approval claimed |
 

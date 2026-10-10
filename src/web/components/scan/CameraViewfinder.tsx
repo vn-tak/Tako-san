@@ -25,14 +25,12 @@ export const CameraViewfinder: React.FC<CameraViewfinderProps> = ({
   // Initialize camera stream
   useEffect(() => {
     let active = true;
+    let ownedStream: MediaStream | null = null;
+    setIsTorchOn(false);
 
     async function startCamera() {
       setIsStartingCamera(true);
       setHasCameraError(false);
-
-      if (stream) {
-        stream.getTracks().forEach((track) => track.stop());
-      }
 
       try {
         if (!navigator.mediaDevices || !navigator.mediaDevices.getUserMedia) {
@@ -53,6 +51,7 @@ export const CameraViewfinder: React.FC<CameraViewfinderProps> = ({
           return;
         }
 
+        ownedStream = mediaStream;
         setStream(mediaStream);
         if (videoRef.current) {
           videoRef.current.srcObject = mediaStream;
@@ -82,9 +81,7 @@ export const CameraViewfinder: React.FC<CameraViewfinderProps> = ({
 
     return () => {
       active = false;
-      if (stream) {
-        stream.getTracks().forEach((t) => t.stop());
-      }
+      ownedStream?.getTracks().forEach((track) => track.stop());
     };
   }, [facingMode]);
 
@@ -127,7 +124,7 @@ export const CameraViewfinder: React.FC<CameraViewfinderProps> = ({
   };
 
   return (
-    <div className="relative w-full h-[360px] sm:h-[420px] rounded-2xl overflow-hidden bg-semantic-overlay flex items-center justify-center border border-white/15 shadow-2xl">
+    <div className="relative w-full h-[clamp(300px,48dvh,520px)] rounded-2xl overflow-hidden bg-semantic-overlay flex items-center justify-center border border-white/15 shadow-2xl">
       {/* Video stream */}
       {!hasCameraError && (
         <video
@@ -137,7 +134,7 @@ export const CameraViewfinder: React.FC<CameraViewfinderProps> = ({
           muted
           className={clsx(
             'w-full h-full object-cover transition-opacity duration-300',
-            isStartingCamera ? 'opacity-0' : 'opacity-100'
+            isStartingCamera ? 'opacity-0' : 'opacity-100',
           )}
         />
       )}
@@ -152,7 +149,7 @@ export const CameraViewfinder: React.FC<CameraViewfinderProps> = ({
             <p className="font-heading font-bold text-sm text-white">
               {hasCameraError ? 'Camera không sẵn sàng' : 'Đang bật camera...'}
             </p>
-            <p className="text-xs text-white mt-1 max-w-xs leading-relaxed">
+            <p className="text-sm text-white mt-1 max-w-xs leading-relaxed">
               {hasCameraError
                 ? 'Bạn có thể chọn ảnh từ thư viện để tiếp tục'
                 : 'Vui lòng cấp quyền truy cập camera nếu được hỏi'}
@@ -161,7 +158,7 @@ export const CameraViewfinder: React.FC<CameraViewfinderProps> = ({
           {hasCameraError && (
             <button
               onClick={onSelectFromGallery}
-              className="px-4 py-2 rounded-xl bg-takosan-green hover:bg-takosan-green-hover text-white font-semibold text-xs flex items-center gap-1.5 shadow-sm tap-target transition-tap active:scale-[0.98]"
+              className="px-4 py-2 rounded-xl bg-takosan-green hover:bg-takosan-green-hover text-white font-semibold text-sm flex items-center gap-1.5 shadow-sm tap-target transition-tap active:scale-[0.98]"
             >
               <ImageIcon className="w-4 h-4" />
               <span>Tải ảnh từ thư viện</span>
@@ -179,22 +176,28 @@ export const CameraViewfinder: React.FC<CameraViewfinderProps> = ({
               onClick={toggleTorch}
               className={clsx(
                 'w-10 h-10 rounded-xl flex items-center justify-center backdrop-blur-md transition-tap tap-target border border-white/10',
-                isTorchOn ? 'bg-takosan-yellow text-takosan-navy' : 'bg-semantic-overlay/60 text-white'
+                isTorchOn
+                  ? 'bg-takosan-yellow text-takosan-navy'
+                  : 'bg-semantic-overlay/60 text-white',
               )}
               aria-label="Đèn pin"
             >
-              {isTorchOn ? <Zap className="w-4 h-4 fill-current" /> : <ZapOff className="w-4 h-4" />}
+              {isTorchOn ? (
+                <Zap className="w-4 h-4 fill-current" />
+              ) : (
+                <ZapOff className="w-4 h-4" />
+              )}
             </button>
           ) : (
             <div className="w-10" />
           )}
 
-          <div className="px-3.5 py-1.5 rounded-full bg-semantic-overlay/75 backdrop-blur-md text-[11px] font-heading font-semibold text-white border border-white/15 shadow-md">
+          <div className="min-w-0 max-w-[60%] px-2 py-1.5 rounded-lg bg-semantic-overlay/75 backdrop-blur-md text-sm font-heading font-semibold text-white border border-white/15 shadow-md">
             {scanType === 'receipt'
               ? 'Căn chỉnh toàn bộ hóa đơn vào khung'
               : scanType === 'fridge'
-              ? 'Hướng vào tủ lạnh để nhận diện thực phẩm'
-              : 'Đặt nguyên liệu vào giữa khung hình'}
+                ? 'Hướng vào tủ lạnh để nhận diện thực phẩm'
+                : 'Đặt nguyên liệu vào giữa khung hình'}
           </div>
 
           <button
@@ -211,9 +214,7 @@ export const CameraViewfinder: React.FC<CameraViewfinderProps> = ({
           <div
             className={clsx(
               'border border-white/30 transition-tap duration-300 relative overflow-hidden',
-              scanType === 'receipt'
-                ? 'w-4/5 h-[90%] rounded-xl'
-                : 'w-[85%] h-[85%] rounded-2xl'
+              scanType === 'receipt' ? 'w-4/5 h-[90%] rounded-xl' : 'w-[85%] h-[85%] rounded-2xl',
             )}
           >
             {/* 4 Corner Markers */}
@@ -236,7 +237,7 @@ export const CameraViewfinder: React.FC<CameraViewfinderProps> = ({
             aria-label="Thư viện"
           >
             <ImageIcon className="w-5 h-5" />
-            <span className="text-xs font-heading font-bold">Thư viện</span>
+            <span className="text-sm font-heading font-bold">Thư viện</span>
           </button>
 
           {/* Big Shutter Button */}

@@ -1,0 +1,236 @@
+{
+  "browser": "153.0.8010.12",
+  "isolatedComponentFixture": true,
+  "applicationPaymentAuthRoutesExercised": false,
+  "checks": [
+    {
+      "mode": "delayed",
+      "reduced": "no-preference",
+      "chunks": [
+        "http://127.0.0.1:5218/assets/legacy-nav-indicator-O7DU9fhu.js"
+      ],
+      "background": "rgb(231, 245, 236)",
+      "transforms": [
+        "translate3d(-189px, 0px, 0px)",
+        "translate3d(-164.34px, 0px, 0px)",
+        "translate3d(-88.0675px, 0px, 0px)",
+        "translate3d(-50.0904px, 0px, 0px)",
+        "translate3d(-29.5312px, 0px, 0px)",
+        "translate3d(-15.8294px, 0px, 0px)",
+        "translate3d(-7.32209px, 0px, 0px)",
+        "translate3d(-2.65369px, 0px, 0px)",
+        "translate3d(-0.339084px, 0px, 0px)"
+      ],
+      "frames": [
+        [
+          "none",
+          "translate3d(-189px, 0px, 0px)"
+        ],
+        [
+          "none",
+          "translate3d(-164.34px, 0px, 0px)"
+        ],
+        [
+          "none",
+          "translate3d(-88.0675px, 0px, 0px)"
+        ],
+        [
+          "none",
+          "translate3d(-50.0904px, 0px, 0px)"
+        ],
+        [
+          "none",
+          "translate3d(-29.5312px, 0px, 0px)"
+        ],
+        [
+          "none",
+          "translate3d(-15.8294px, 0px, 0px)"
+        ],
+        [
+          "none",
+          "translate3d(-7.32209px, 0px, 0px)"
+        ],
+        [
+          "none",
+          "translate3d(-2.65369px, 0px, 0px)"
+        ],
+        [
+          "none",
+          "translate3d(-0.339084px, 0px, 0px)"
+        ],
+        [
+          "none",
+          "none"
+        ],
+        [
+          "none",
+          "none"
+        ],
+        [
+          "none",
+          "none"
+        ],
+        [
+          "none",
+          "none"
+        ],
+        [
+          "none",
+          "none"
+        ],
+        [
+          "none",
+          "none"
+        ],
+        [
+          "none",
+          "none"
+        ],
+        [
+          "none",
+          "none"
+        ],
+        [
+          "none",
+          "none"
+        ],
+        [
+          "none",
+          "none"
+        ],
+        [
+          "none",
+          "none"
+        ],
+        [
+          "none",
+          "none"
+        ],
+        [
+          "none",
+          "none"
+        ],
+        [
+          "none",
+          "none"
+        ],
+        [
+          "none",
+          "none"
+        ]
+      ],
+      "linksWorkWhilePendingOrFailed": true,
+      "policy": "user"
+    },
+    {
+      "mode": "failed",
+      "reduced": "no-preference",
+      "chunks": [
+        "http://127.0.0.1:5218/assets/legacy-nav-indicator-O7DU9fhu.js"
+      ],
+      "background": "rgb(231, 245, 236)",
+      "transforms": [],
+      "frames": [
+        [
+          "none",
+          "none"
+        ],
+        [
+          "none",
+          "none"
+        ],
+        [
+          "none",
+          "none"
+        ],
+        [
+          "none",
+          "none"
+        ],
+        [
+          "none",
+          "none"
+        ],
+        [
+          "none",
+          "none"
+        ],
+        [
+          "none",
+          "none"
+        ],
+        [
+          "none",
+          "none"
+        ],
+        [
+          "none",
+          "none"
+        ],
+        [
+          "none",
+          "none"
+        ],
+        [
+          "none",
+          "none"
+        ],
+        [
+          "none",
+          "none"
+        ],
+        [
+          "none",
+          "none"
+        ],
+        [
+          "none",
+          "none"
+        ],
+        [
+          "none",
+          "none"
+        ],
+        [
+          "none",
+          "none"
+        ],
+        [
+          "none",
+          "none"
+        ],
+        [
+          "none",
+          "none"
+        ],
+        [
+          "none",
+          "none"
+        ],
+        [
+          "none",
+          "none"
+        ],
+        [
+          "none",
+          "none"
+        ],
+        [
+          "none",
+          "none"
+        ],
+        [
+          "none",
+          "none"
+        ],
+        [
+          "none",
+          "none"
+        ]
+      ],
+      "linksWorkWhilePendingOrFailed": true,
+      "policy": "user"
+    }
+  ],
+  "errors": []
+}

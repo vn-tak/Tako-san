@@ -1,0 +1,32 @@
+
+[UX AUDIT] 108 files checked
+--------------------------------------------------
+[!] ISSUES (23):
+  - [Cognitive Load] WeekSummaryCards.tsx: Form inputs without labels. Use <label> for accessibility and clarity.
+  - [Cognitive Load] VerifyUnavailable.tsx: Form inputs without labels. Use <label> for accessibility and clarity.
+  - [Cognitive Load] kitchen-foundation.css: Form inputs without labels. Use <label> for accessibility and clarity.
+  - [Cognitive Load] kitchen-entry.css: Form inputs without labels. Use <label> for accessibility and clarity.
+  - [Cognitive Load] frigo-tokens.css: Form inputs without labels. Use <label> for accessibility and clarity.
+  - [Cognitive Load] kitchen-scan.css: Form inputs without labels. Use <label> for accessibility and clarity.
+  - [Hick's Law] kitchen-shell.css: 8 nav items (Max 7)
+  - [Cognitive Load] kitchen-planning.css: Form inputs without labels. Use <label> for accessibility and clarity.
+  - [Cognitive Load] kitchen-week.css: Form inputs without labels. Use <label> for accessibility and clarity.
+  - [Cognitive Load] kitchen-recipes.css: Form inputs without labels. Use <label> for accessibility and clarity.
+[*] WARNINGS (734):
+  - [Behavioral] App.tsx: Interactive elements lack immediate feedback. Add hover/focus/disabled states.
+  - [Reflective] App.tsx: Long-form content without brand story/values. Add 'About' or 'Why We Exist' section.
+  - [Persuasion] App.tsx: Social proof without specific numbers. Use 'Join 10,000+' format.
+  - [Typography] App.tsx: No line length constraint (45-75ch). Use max-w-prose or max-w-[65ch].
+  - [Typography] App.tsx: Text elements found without line-height. Body: 1.4-1.6, Headings: 1.1-1.3
+  - [Visual] App.tsx: Flat design with no depth. Consider shadows or subtle gradients for hierarchy.
+  - [Animation] App.tsx: Routing detected without page transitions. Consider fade/slide for context continuity.
+  - [Trust] WeekSummaryCards.tsx: Form without security indicators. Add 'SSL Secure' or lock icon.
+  - [Von Restorff] WeekExportModal.tsx: No primary CTA
+  - [Reflective] WeekExportModal.tsx: Long-form content without brand story/values. Add 'About' or 'Why We Exist' section.
+  - [Persuasion] WeekExportModal.tsx: Social proof without specific numbers. Use 'Join 10,000+' format.
+  - [Typography] WeekExportModal.tsx: No line length constraint (45-75ch). Use max-w-prose or max-w-[65ch].
+  - [Typography] WeekExportModal.tsx: Text elements found without line-height. Body: 1.4-1.6, Headings: 1.1-1.3
+  - [Typography] WeekExportModal.tsx: No h1 found. Each page should have one primary heading.
+  - [Visual] WeekExportModal.tsx: Flat design with no depth. Consider shadows or subtle gradients for hierarchy.
+[+] PASSED CHECKS: 54
+STATUS: FAIL

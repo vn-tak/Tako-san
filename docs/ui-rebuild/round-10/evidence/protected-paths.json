@@ -1,0 +1,21 @@
+{
+  "base": "3c018d7778a780f5759d967e62d58440e4e08c2d",
+  "paths": [
+    "src/worker",
+    "packages",
+    "migrations",
+    "public",
+    "src/web/services",
+    "src/web/App.tsx",
+    "src/web/stores/useAuthStore.ts",
+    "src/web/lib/sync.ts",
+    "src/web/lib/private-session.ts",
+    "src/web/pages/PaymentPage.tsx",
+    "package.json",
+    "pnpm-lock.yaml",
+    "vite.config.ts",
+    "wrangler.toml"
+  ],
+  "diff": "",
+  "storeAllowance": "Only optional pendingSync return type and conditional pass-through from the existing completion receipt."
+}

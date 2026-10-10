@@ -1,0 +1,18 @@
+{
+  "src/web/components/layout/AppLayout.tsx": "7c0cd7cac85245e52d485e49b36bc95d9a4b4de9d234fc80c1a3644fe2d8acd2",
+  "src/web/components/cooking/CookingReview.tsx": "09dd8315a764bd28cb63aa287b7fb2dd217b2c32929de0d30df07b92331cd5df",
+  "src/web/lib/cooking-review.ts": "bb2f20003adcfd846beabae5a8f349922ff847e6aa825644184ae552fab3ae46",
+  "src/web/lib/cooking-completion.ts": "5cc0f45e465f398aabd90df087ab33562531b4ea13202573a353686e7c318089",
+  "src/web/lib/voice-chef.ts": "3633c73ec348b6fbf422de5c6bbed4c8ba78718791f333c8ccffe0996efdad69",
+  "src/web/pages/CookingModePage.tsx": "88f23028e85f09afb71e77e8a1df2ad4fd2f618586a634ddd7e2eb0fb7f5faaa",
+  "src/web/pages/CookingCompletePage.tsx": "5de22dc0d9d0f6b8db9d76d9ee02a48776a2aa002f7c77b5a8844dedcc56e667",
+  "src/web/pages/RecipeDetailPage.tsx": "c588098534434e943003ba946a88ec831d0a7169784dfcf3be068f5f84bbee24",
+  "src/web/services/recipes.ts": "317118d21ef3acdc9450d5cd7437f1d42a1e21bdc6176df3b4ca2e2ebd599144",
+  "src/web/stores/useCookingStore.ts": "18e8ed096f00d687e2f7684f565bf0be92b107a647e12268c560aaa0b9801232",
+  "src/web/styles/index.css": "d8b20984e36d1a4f3a7eca5e66e79dfaf6285f8a6320224244b6f7d2dfd44b24",
+  "src/web/styles/kitchen-cooking.css": "a4a6fb311a10548becc9f9423ae210b8b23e47087f3e9f860be586f02e48aa71",
+  "tests/unit/ui05-cooking-state.test.ts": "df5cc94cf972fe1e3788e53d143925025e6374703bec43962c362590fc244b86",
+  "tests/unit/ui05-cooking-voice.test.ts": "b65aa6cc593bfaea9418b3fc96c5b47d9540f40fcc114e81ba76ff63ec6cf049",
+  "tests/unit/ui-rebuild-cooking.test.ts": "a1689e1f774148ea22ad503b0cc0d1c53e375074b6e66a4bd8062f6aca6677c5",
+  "scripts/ui05-browser-check.mjs": "0dd88fbd50662557af42383467aef1b3b020ba34b8705c67017412ddd6f91e7a"
+}

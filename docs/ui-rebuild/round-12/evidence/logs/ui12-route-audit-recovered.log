@@ -1,0 +1,15 @@
+settings 320 PASS
+household 320 PASS
+reconciliation 320 PASS
+scan-no-id 320 PASS
+cook-entry 320 PASS
+cook-no-attempt 320 PASS
+settings 1440 PASS
+household 1440 PASS
+reconciliation 1440 PASS
+scan-no-id 1440 PASS
+cook-entry 1440 PASS
+cook-no-attempt 1440 PASS
+public-entry PASS
+registered-login PASS
+PASS 14 supplemental route checks / source 47 route declarations

@@ -1,0 +1,74 @@
+{
+  "base": "13cef9f8e6dc72549071426ad98df70e0d16f4a4",
+  "scope": "UI11 local navigation/header/shell; no hosted release or owner/device certification",
+  "focused": {
+    "files": 14,
+    "passed": 255,
+    "failed": 0,
+    "durationSeconds": 6.34,
+    "newTests": 32
+  },
+  "firstFullFailure": {
+    "files": 285,
+    "passed": 6621,
+    "failed": 53,
+    "collected": 6674,
+    "suiteNotLoaded": 1,
+    "durationSeconds": 354.73
+  },
+  "fixtureRecovery": {
+    "files": 6,
+    "passed": 115,
+    "durationSeconds": 2.28
+  },
+  "secondFullFailure": {
+    "files": 285,
+    "passed": 6684,
+    "failed": 1,
+    "total": 6685,
+    "durationSeconds": 389.92
+  },
+  "finalFullGate": {
+    "exitCode": 0,
+    "files": 285,
+    "passed": 6685,
+    "failed": 0,
+    "vitestSeconds": 344.71,
+    "viteSeconds": 2.97,
+    "typecheck": "PASS",
+    "lint": "PASS",
+    "migrationSmoke": "PASS",
+    "workerTypes": "PASS",
+    "command": "PATH=/opt/homebrew/opt/node@24/bin:$PATH CI=true TMPDIR=/private/tmp WRANGLER_SEND_METRICS=false VITEST_MAX_THREADS=2 VITEST_MIN_THREADS=1 VITEST_MAX_FORKS=2 VITEST_MIN_FORKS=1 pnpm check"
+  },
+  "browser": {
+    "onSnapshots": 115,
+    "onJourneys": 16,
+    "publicEntryPNG": 1,
+    "offSnapshots": 24,
+    "offJourneys": 1,
+    "aliases": 7,
+    "unexpectedErrors": 0,
+    "e2ePassed": 19,
+    "e2eSkipped": 5,
+    "e2eSeconds": 39.6
+  },
+  "genericUX": {
+    "files": 154,
+    "issues": 30,
+    "warnings": 977,
+    "passedChecks": 85,
+    "status": "FAIL"
+  },
+  "dependencyAdvisories": {
+    "total": 41,
+    "low": 4,
+    "moderate": 19,
+    "high": 16,
+    "critical": 2
+  },
+  "sourceHashes": 160,
+  "builtPublicAssets": 99,
+  "logReceipts": 56,
+  "ownedPreviewsClosed": true
+}

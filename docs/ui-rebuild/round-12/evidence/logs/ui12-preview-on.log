@@ -1,0 +1,4 @@
+5:00:28 AM [vite] (client) Re-optimizing dependencies because vite config has changed
+Isolated security preview: Vite 5212, in-memory SQLite API 8912, external API fetch disabled; /__preview for synthetic login/reset
+[req] GET /api/v1/me 200 3ms 4499bd3b-9c4f-4995-94ee-196b06b6dd06
+[req] GET /api/v1/me 200 0ms 5582f891-4a04-4245-bb38-e2b36a6dc986

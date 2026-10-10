@@ -1,0 +1,42 @@
+{
+  "base": "http://127.0.0.1:5205",
+  "checks": [
+    {
+      "source": "/week",
+      "destination": "/planner",
+      "actual": "/planner"
+    },
+    {
+      "source": "/week/setup",
+      "destination": "/planner/new",
+      "actual": "/planner/new"
+    },
+    {
+      "source": "/week/generating",
+      "destination": "/planner",
+      "actual": "/planner"
+    },
+    {
+      "source": "/week/plan-a",
+      "destination": "/planner/plan-a",
+      "actual": "/planner/plan-a"
+    },
+    {
+      "source": "/week/plan-a/meal/meal-a",
+      "destination": "/planner/plan-a/meal/meal-a",
+      "actual": "/planner/plan-a/meal/meal-a"
+    },
+    {
+      "source": "/week/plan-a/shopping",
+      "destination": "/planner/plan-a/shopping",
+      "actual": "/planner/plan-a/shopping"
+    },
+    {
+      "source": "/week/plan-a/settings",
+      "destination": "/settings/planning",
+      "actual": "/settings/planning"
+    }
+  ],
+  "writes": [],
+  "errors": []
+}

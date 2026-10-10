@@ -1,303 +1,358 @@
-import React, { useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { useQuery } from '@tanstack/react-query';
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate, useSearchParams } from 'react-router-dom';
+import { KitchenPageHeading } from '../components/common/KitchenHeader';
 import { TopBar } from '../components/common/TopBar';
 import { RecipeCard } from '../components/common/RecipeCard';
-import { EmptyState } from '../components/common/EmptyState';
-import { InlineError } from '../components/common/AsyncState';
-import { api } from '../services/api';
+import { InlineError, InlineLoading } from '../components/common/AsyncState';
+import { Button } from '../components/common/Button';
+import { api, ApiError } from '../services/api';
 import { queryKeys } from '../lib/queryKeys';
-import { VietnameseCategory } from '@frigo/recipes';
-import { Search, Clock, CheckCircle } from 'lucide-react';
+import {
+  readDiscoveryFilters,
+  updateDiscoveryFilters,
+  resetDiscoveryFilters,
+  discoveryRequest,
+  type DiscoveryFilters,
+} from '../lib/recipe-discovery';
+import { Search, ArrowLeft, ArrowRight, Clock, CheckCircle } from 'lucide-react';
 import { clsx } from 'clsx';
 
-export const RecipesPage: React.FC = () => {
+const CATEGORIES = [
+  ['mon_canh', 'Canh'],
+  ['mon_kho', 'Kho / rim'],
+  ['mon_xao', 'Xào'],
+  ['mon_chien', 'Chiên / rán'],
+  ['mon_hap_luoc', 'Hấp / luộc'],
+  ['mon_cuon_nom', 'Cuốn / nộm'],
+  ['mon_bun_pho', 'Bún / phở'],
+  ['mon_chay', 'Chay'],
+  ['mon_nhanh_sang', 'Ăn sáng'],
+  ['mon_lau_tiec', 'Lẩu / tiệc'],
+];
+const CUISINES = [
+  ['vietnamese', 'Món Việt'],
+  ['korean', 'Món Hàn'],
+  ['japanese', 'Món Nhật'],
+  ['chinese', 'Trung Hoa'],
+  ['thai', 'Món Thái'],
+  ['italian', 'Món Ý'],
+];
+
+export const RecipesPage = () => {
   const navigate = useNavigate();
-
-  const [search, setSearch] = useState('');
-  const [cuisineFilter, setCuisineFilter] = useState<string | null>(null);
-  const [categoryFilter, setCategoryFilter] = useState<VietnameseCategory | null>(null);
-  const [regionFilter, setRegionFilter] = useState<'bac' | 'trung' | 'nam' | null>(null);
-  const [noBuyOnly, setNoBuyOnly] = useState(false);
-  const [under20MinsOnly, setUnder20MinsOnly] = useState(false);
-
-  const recommendationsQuery = useQuery({
-    queryKey: queryKeys.recommendations({
-      noBuy: noBuyOnly,
-      cuisine: cuisineFilter,
-      category: categoryFilter,
-      region: regionFilter,
-      maxTime: under20MinsOnly ? 20 : undefined,
-    }),
-    queryFn: () => api.getRecommendations({
-      noBuy: noBuyOnly,
-      cuisine: cuisineFilter || undefined,
-      category: categoryFilter || undefined,
-      region: regionFilter || undefined,
-      maxTime: under20MinsOnly ? 20 : undefined,
-    }),
+  const [params, setParams] = useSearchParams();
+  const filters = readDiscoveryFilters(params);
+  const [filtersOpen, setFiltersOpen] = useState(
+    () => window.matchMedia?.('(min-width: 1280px)').matches ?? false,
+  );
+  useEffect(() => {
+    if (!window.matchMedia) return;
+    const media = window.matchMedia('(min-width: 1280px)');
+    const updatePanel = () => setFiltersOpen(media.matches);
+    media.addEventListener('change', updatePanel);
+    return () => media.removeEventListener('change', updatePanel);
+  }, []);
+  const filterCount = [
+    filters.cuisine,
+    filters.category,
+    filters.region,
+    filters.noBuy,
+    filters.fast,
+  ].filter(Boolean).length;
+  const inputRef = useRef<HTMLInputElement>(null);
+  const headingRef = useRef<HTMLHeadingElement>(null);
+  const focusResults = useRef(false);
+  const update = (patch: Partial<DiscoveryFilters>, replace = false) =>
+    setParams(updateDiscoveryFilters(params, patch), { replace });
+  const reset = () => {
+    setParams(resetDiscoveryFilters(params));
+    inputRef.current?.focus();
+  };
+  const [readySearch, setReadySearch] = useState(filters.q);
+  useEffect(() => {
+    const timer = window.setTimeout(() => setReadySearch(filters.q), 250);
+    return () => window.clearTimeout(timer);
+  }, [filters.q]);
+  const request = discoveryRequest(filters);
+  const query = useQuery({
+    queryKey: queryKeys.recipeDiscovery(request),
+    enabled: readySearch === filters.q,
+    queryFn: () => api.getRecipeDiscovery(request),
   });
-  const recipes = recommendationsQuery.data ?? [];
-  const loading = recommendationsQuery.isPending;
-
-  const filtered = recipes.filter((r) => {
-    if (categoryFilter && r.recipe.category !== categoryFilter) {
-      return false;
+  const result = query.data;
+  const snapshotChanged =
+    query.error instanceof ApiError && query.error.code === 'DISCOVERY_SNAPSHOT_CHANGED';
+  const invalidCursor =
+    query.error instanceof ApiError &&
+    (query.error.code === 'DISCOVERY_CURSOR_INVALID' ||
+      (!!filters.cursor && query.error.code === 'DISCOVERY_QUERY_INVALID'));
+  useEffect(() => {
+    if (query.isSuccess && result && filters.page !== result.page)
+      setParams(updateDiscoveryFilters(params, { page: result.page }), { replace: true });
+  }, [query.isSuccess, filters.page, result, params, setParams]);
+  useEffect(() => {
+    if (focusResults.current && !query.isFetching && (query.isSuccess || query.isError)) {
+      focusResults.current = false;
+      headingRef.current?.focus();
     }
-    if (regionFilter && r.recipe.region !== regionFilter && r.recipe.region !== 'toan_quoc') {
-      return false;
-    }
-    if (!search.trim()) return true;
-    const q = search.toLowerCase();
-    return (
-      r.recipe.title.toLowerCase().includes(q) ||
-      r.recipe.description.toLowerCase().includes(q) ||
-      (r.recipe.tags && r.recipe.tags.some((t) => t.toLowerCase().includes(q))) ||
-      r.recipe.ingredients.some((i) => i.name.toLowerCase().includes(q))
-    );
-  });
-  const [featuredRecipe, ...gridRecipes] = filtered;
-  const resultsHeading = search.trim()
-    ? `Kết quả tìm kiếm cho “${search.trim()}”`
-    : 'Công thức phù hợp';
-
-  const cuisines = [
-    { id: null, label: 'Tất cả ẩm thực' },
-    { id: 'vietnamese', label: '🇻🇳 Món Việt' },
-    { id: 'korean', label: '🇰🇷 Món Hàn' },
-    { id: 'japanese', label: '🇯🇵 Món Nhật' },
-    { id: 'chinese', label: '🇨🇳 Trung Hoa' },
-    { id: 'thai', label: '🇹🇭 Món Thái' },
-    { id: 'italian', label: '🇮🇹 Món Ý' },
-  ];
-
-  const vietnameseCategories: Array<{ id: VietnameseCategory | null; label: string; icon: string }> = [
-    { id: null, label: 'Tất cả danh mục', icon: '🍽️' },
-    { id: 'mon_canh', label: 'Món Canh', icon: '🍲' },
-    { id: 'mon_kho', label: 'Món Kho / Rim', icon: '🥘' },
-    { id: 'mon_xao', label: 'Món Xào', icon: '🍳' },
-    { id: 'mon_chien', label: 'Chiên / Rán', icon: '🍗' },
-    { id: 'mon_hap_luoc', label: 'Hấp / Luộc', icon: '🥬' },
-    { id: 'mon_cuon_nom', label: 'Cuốn / Nộm', icon: '🌯' },
-    { id: 'mon_bun_pho', label: 'Bún / Phở', icon: '🍜' },
-    { id: 'mon_chay', label: 'Món Chay', icon: '🥗' },
-    { id: 'mon_nhanh_sang', label: 'Ăn Sáng ≤ 20p', icon: '⚡' },
-    { id: 'mon_lau_tiec', label: 'Lẩu & Tiệc', icon: '🔥' },
-  ];
-
-  const regions: Array<{ id: 'bac' | 'trung' | 'nam' | null; label: string }> = [
-    { id: null, label: 'Toàn quốc' },
-    { id: 'bac', label: 'Miền Bắc' },
-    { id: 'trung', label: 'Miền Trung' },
-    { id: 'nam', label: 'Miền Nam' },
-  ];
+  }, [result, query.isSuccess, query.isError, query.isFetching]);
+  const restart = () => {
+    focusResults.current = true;
+    setParams(updateDiscoveryFilters(params, { page: 1 }));
+  };
+  const active = !!(
+    filters.q ||
+    filters.cuisine ||
+    filters.category ||
+    filters.region ||
+    filters.noBuy ||
+    filters.fast
+  );
+  const pagerHref = (page: number, cursor: string | null) =>
+    `?${updateDiscoveryFilters(params, { page, cursor: cursor ?? undefined })}`;
 
   return (
-    <div className="min-h-screen bg-takosan-cream pb-12">
-      <TopBar />
-
-      <div className="px-4 pt-3 space-y-3.5 animate-fade-in">
-        <div>
-          <h1 className="font-heading font-bold text-xl text-semantic-text-primary tracking-tight">
-            Gợi ý món ngon
-          </h1>
-          <p className="text-xs text-semantic-text-muted mt-0.5">
-            Ngân hàng 60+ công thức món Việt đa danh mục & tối ưu theo tủ lạnh
-          </p>
-        </div>
-
-        {/* Search Bar */}
-        <div className="relative">
-          <Search className="w-4 h-4 absolute left-3.5 top-3.5 text-semantic-text-muted" />
-          <input
-            type="text"
-            value={search}
-            onChange={(e) => setSearch(e.target.value)}
-            placeholder="Tìm món canh, thịt kho, phở, bún chả, nguyên liệu..."
-            className="w-full h-11 pl-10 pr-4 bg-white rounded-xl border border-semantic-border focus:outline-none focus:ring-2 focus:ring-takosan-green/20 focus:border-takosan-green text-sm font-medium text-semantic-text-primary placeholder:text-semantic-text-muted shadow-xs transition-tap"
-          />
-        </div>
-
-        {/* 10 Vietnamese Culinary Categories */}
-        <div className="space-y-1">
-          <div className="flex items-center justify-between">
-            <span className="text-[11px] font-bold text-semantic-text-secondary uppercase tracking-wider">
-              Danh mục món Việt
-            </span>
-            {categoryFilter && (
-              <button
-                onClick={() => setCategoryFilter(null)}
-                className="text-[11px] font-semibold text-takosan-green hover:text-takosan-green-deep"
-              >
-                Đặt lại
-              </button>
-            )}
-          </div>
-          <div className="flex items-center gap-1.5 overflow-x-auto no-scrollbar py-1 -mx-4 px-4">
-            {vietnameseCategories.map((cat) => {
-              const isActive = categoryFilter === cat.id;
-              return (
-                <button
-                  key={cat.label}
-                  onClick={() => setCategoryFilter(cat.id)}
-                  aria-pressed={isActive}
-                  className={clsx(
-                    'px-3 py-1.5 rounded-xl text-xs font-medium whitespace-nowrap transition-tap flex items-center gap-1.5 tap-target cursor-pointer border shadow-xs',
-                    isActive
-                      ? 'bg-takosan-green text-white border-takosan-green font-semibold shadow-sm'
-                      : 'bg-white text-semantic-text-secondary border-semantic-border hover:bg-semantic-background-subtle hover:border-semantic-border-strong'
-                  )}
-                >
-                  <span className="text-sm leading-none">{cat.icon}</span>
-                  <span>{cat.label}</span>
-                </button>
-              );
-            })}
-          </div>
-        </div>
-
-        {/* Quick Filters: No-Buy, Time, Cuisine & Region */}
-        <div className="flex items-center gap-1.5 overflow-x-auto no-scrollbar py-0.5 -mx-4 px-4">
-          <button
-            onClick={() => setNoBuyOnly(!noBuyOnly)}
-            aria-pressed={noBuyOnly}
-            className={clsx(
-              'px-3 py-1.5 rounded-full text-xs font-heading font-semibold transition-tap whitespace-nowrap flex items-center gap-1.5 tap-target shadow-xs cursor-pointer',
-              noBuyOnly
-                ? 'bg-takosan-green text-white border border-takosan-green'
-                : 'bg-white text-semantic-text-secondary border border-semantic-border hover:bg-semantic-background-subtle'
-            )}
-          >
-            <CheckCircle className={clsx('w-3.5 h-3.5', noBuyOnly ? 'text-takosan-mint' : 'text-takosan-green')} />
-            <span>Không mua thêm</span>
-          </button>
-
-          <button
-            onClick={() => setUnder20MinsOnly(!under20MinsOnly)}
-            aria-pressed={under20MinsOnly}
-            className={clsx(
-              'px-3 py-1.5 rounded-full text-xs font-heading font-semibold transition-tap whitespace-nowrap flex items-center gap-1.5 tap-target shadow-xs cursor-pointer',
-              under20MinsOnly
-                ? 'bg-takosan-green text-white border border-takosan-green'
-                : 'bg-white text-semantic-text-secondary border border-semantic-border hover:bg-semantic-background-subtle'
-            )}
-          >
-            <Clock className={clsx('w-3.5 h-3.5', under20MinsOnly ? 'text-takosan-mint' : 'text-takosan-green')} />
-            <span>&le; 20 phút</span>
-          </button>
-
-          {/* Region filter pills */}
-          {regions.map((reg) => (
-            <button
-              key={reg.label}
-              onClick={() => setRegionFilter(reg.id)}
-              aria-pressed={regionFilter === reg.id}
-              className={clsx(
-                'px-3 py-1.5 rounded-full text-xs font-medium whitespace-nowrap transition-tap tap-target cursor-pointer border',
-                regionFilter === reg.id
-                  ? 'bg-takosan-green text-white border-takosan-green font-semibold shadow-xs'
-                  : 'bg-white text-semantic-text-secondary border-semantic-border hover:bg-semantic-background-subtle hover:text-semantic-text-primary'
-              )}
-            >
-              {reg.label}
-            </button>
-          ))}
-
-          {/* International Cuisines */}
-          {cuisines.map((c) => (
-            <button
-              key={c.label}
-              onClick={() => setCuisineFilter(c.id)}
-              aria-pressed={cuisineFilter === c.id}
-              className={clsx(
-                'px-3 py-1.5 rounded-full text-xs font-medium whitespace-nowrap transition-tap tap-target cursor-pointer border',
-                cuisineFilter === c.id
-                  ? 'bg-semantic-text-primary text-semantic-text-inverse border-semantic-text-primary shadow-xs font-semibold'
-                  : 'bg-white text-semantic-text-secondary border-semantic-border hover:bg-semantic-background-subtle hover:text-semantic-text-primary'
-              )}
-            >
-              {c.label}
-            </button>
-          ))}
-        </div>
-
-        {/* Active Filters Summary Header */}
-        <div className="flex items-center justify-between pt-1">
-          <span className="text-xs font-semibold text-semantic-text-secondary">
-            Tìm thấy <span className="text-takosan-green font-bold">{filtered.length}</span> món ngon
-          </span>
-          {(categoryFilter || regionFilter || cuisineFilter || noBuyOnly || under20MinsOnly || search) && (
-            <button
-              onClick={() => {
-                setCategoryFilter(null);
-                setRegionFilter(null);
-                setCuisineFilter(null);
-                setNoBuyOnly(false);
-                setUnder20MinsOnly(false);
-                setSearch('');
-              }}
-              className="text-xs text-takosan-green font-medium hover:underline"
-            >
-              Xóa tất cả lọc
-            </button>
-          )}
-        </div>
-
-        {/* Recipes Results */}
-        <div className="space-y-3">
-          {loading ? (
-            <div className="text-center py-10">
-              <div className="animate-spin w-7 h-7 border-2 border-takosan-green border-t-transparent rounded-full mx-auto mb-2" />
-              <p className="text-xs text-semantic-text-muted font-medium">Đang tìm món...</p>
-            </div>
-          ) : recommendationsQuery.isError ? (
-            <InlineError error={recommendationsQuery.error} onRetry={() => recommendationsQuery.refetch()} />
-          ) : filtered.length === 0 ? (
-            <EmptyState
-              type="no-recipes"
-              title="Không tìm thấy món phù hợp"
-              description="Hãy thử nới lỏng bộ lọc hoặc tìm danh mục khác nhé."
-              actionText="Xóa bộ lọc"
-              onAction={() => {
-                setCategoryFilter(null);
-                setRegionFilter(null);
-                setNoBuyOnly(false);
-                setUnder20MinsOnly(false);
-                setCuisineFilter(null);
-                setSearch('');
-              }}
-            />
-          ) : (
-            <section aria-labelledby="recipes-results-heading" className="space-y-3.5">
-              <h2
-                id="recipes-results-heading"
-                className="font-heading font-bold text-base text-semantic-text-primary"
-              >
-                {resultsHeading}
-              </h2>
-
-              <RecipeCard
-                matchResult={featuredRecipe}
-                variant="feature"
-                headingLevel={3}
-                onClick={() => navigate(`/recipes/${featuredRecipe.recipe.slug}`)}
+    <div className="takosan-rebuild min-h-screen bg-semantic-background pb-12">
+      <TopBar kitchen />
+      <div className="kitchen-page-body animate-fade-in">
+        <KitchenPageHeading
+          eyebrow="Công thức mỗi ngày"
+          title="Chọn món cho căn bếp của bạn"
+          description="Tìm theo món, nguyên liệu hoặc cách nấu. Kiểm tra phần cần mua trước khi bắt đầu."
+        />
+        <div className="discovery-workspace">
+          <aside className="discovery-controls" aria-label="Tìm và lọc công thức">
+            <label htmlFor="recipe-search" className="block text-sm font-semibold mb-2">
+              Tìm món hoặc nguyên liệu
+            </label>
+            <div className="relative">
+              <Search
+                size={18}
+                aria-hidden="true"
+                className="absolute left-3 top-3.5 text-semantic-text-muted"
               />
-
-              {gridRecipes.length > 0 && (
-                <div data-testid="recipe-discovery-grid" className="grid grid-cols-2 gap-3 xl:grid-cols-3">
-                  {gridRecipes.map((item) => (
+              <input
+                id="recipe-search"
+                ref={inputRef}
+                type="search"
+                name="q"
+                autoComplete="off"
+                maxLength={160}
+                value={filters.q}
+                onChange={(event) => update({ q: event.target.value }, true)}
+                placeholder="Ví dụ: thịt kho, trứng, canh chua…"
+                className="kitchen-search-input"
+              />
+            </div>
+            <details
+              className="discovery-filter-panel"
+              open={filtersOpen}
+              onToggle={(event) => setFiltersOpen(event.currentTarget.open)}
+            >
+              <summary>Bộ lọc{filterCount ? ` · ${filterCount} đang dùng` : ''}</summary>
+              <div className="mt-5 grid grid-cols-2 gap-3 sm:grid-cols-3 xl:grid-cols-1">
+                <label className="discovery-select-label">
+                  Ẩm thực
+                  <select
+                    name="cuisine"
+                    autoComplete="off"
+                    value={filters.cuisine ?? ''}
+                    onChange={(event) => update({ cuisine: event.target.value || null })}
+                  >
+                    <option value="">Tất cả ẩm thực</option>
+                    {CUISINES.map(([id, label]) => (
+                      <option value={id} key={id}>
+                        {label}
+                      </option>
+                    ))}
+                  </select>
+                </label>
+                <label className="discovery-select-label">
+                  Cách nấu
+                  <select
+                    name="category"
+                    autoComplete="off"
+                    value={filters.category ?? ''}
+                    onChange={(event) =>
+                      update({
+                        category: (event.target.value as DiscoveryFilters['category']) || null,
+                      })
+                    }
+                  >
+                    <option value="">Tất cả cách nấu</option>
+                    {CATEGORIES.map(([id, label]) => (
+                      <option value={id} key={id}>
+                        {label}
+                      </option>
+                    ))}
+                  </select>
+                </label>
+                <label className="discovery-select-label">
+                  Vùng miền
+                  <select
+                    name="region"
+                    autoComplete="off"
+                    value={filters.region ?? ''}
+                    onChange={(event) =>
+                      update({ region: (event.target.value as DiscoveryFilters['region']) || null })
+                    }
+                  >
+                    <option value="">Toàn quốc</option>
+                    <option value="bac">Miền Bắc</option>
+                    <option value="trung">Miền Trung</option>
+                    <option value="nam">Miền Nam</option>
+                  </select>
+                </label>
+              </div>
+              <div className="mt-5 flex flex-wrap gap-2 xl:flex-col">
+                <button
+                  type="button"
+                  aria-pressed={filters.noBuy}
+                  onClick={() => update({ noBuy: !filters.noBuy })}
+                  className={clsx('discovery-toggle', filters.noBuy && 'discovery-toggle-active')}
+                >
+                  <CheckCircle size={17} aria-hidden="true" />
+                  Không mua thêm
+                </button>
+                <button
+                  type="button"
+                  aria-pressed={filters.fast}
+                  onClick={() => update({ fast: !filters.fast })}
+                  className={clsx('discovery-toggle', filters.fast && 'discovery-toggle-active')}
+                >
+                  <Clock size={17} aria-hidden="true" />
+                  Tối đa 20 phút
+                </button>
+              </div>
+              <p className="mt-5 text-sm text-semantic-text-muted leading-relaxed">
+                “Không mua thêm” kiểm tra lượng đã biết trong tủ. Đơn vị chưa quy đổi được vẫn cần
+                kiểm tra.
+              </p>
+            </details>
+            {active && (
+              <Button variant="outline" className="mt-5" onClick={reset}>
+                Xóa tìm kiếm và bộ lọc
+              </Button>
+            )}
+          </aside>
+          <section aria-labelledby="recipes-results-heading" className="min-w-0 space-y-4">
+            <div className="kitchen-section-heading">
+              <h2 id="recipes-results-heading" ref={headingRef} tabIndex={-1}>
+                {filters.q.trim() ? `Kết quả cho “${filters.q.trim()}”` : 'Công thức phù hợp'}
+              </h2>
+              {query.isSuccess && !query.isFetching && (
+                <p role="status" className="text-sm text-semantic-text-muted shrink-0">
+                  {result?.total} món
+                </p>
+              )}
+            </div>
+            {result?.source === 'device' && (
+              <p role="status" className="text-sm text-semantic-text-secondary">
+                Đang dùng công thức và nguyên liệu lưu trên thiết bị. Kết nối lại để xem danh sách
+                đầy đủ.
+              </p>
+            )}
+            {query.isPending || query.isFetching ? (
+              <InlineLoading label="Đang tìm món phù hợp…" />
+            ) : snapshotChanged || invalidCursor ? (
+              <div role="alert" className="kitchen-neutral-panel">
+                <h3 className="text-lg font-semibold">Danh sách món cần tải lại</h3>
+                <p className="mt-2 text-sm text-semantic-text-secondary">
+                  {snapshotChanged
+                    ? 'Nguyên liệu hoặc công thức đã thay đổi. Tải lại từ trang đầu để xem các món phù hợp hiện tại.'
+                    : 'Liên kết phân trang không còn hợp lệ. Tải lại danh sách với bộ lọc đang dùng.'}
+                </p>
+                <Button className="mt-4" onClick={restart}>
+                  Tải lại từ trang đầu
+                </Button>
+              </div>
+            ) : query.isError ? (
+              <InlineError error={query.error} onRetry={() => void query.refetch()} />
+            ) : !result?.total ? (
+              <div className="kitchen-neutral-panel" role="status">
+                <h3 className="text-lg font-semibold">Không tìm thấy món phù hợp</h3>
+                <p className="mt-2 text-sm text-semantic-text-secondary">
+                  Thử tên nguyên liệu khác hoặc xóa bộ lọc hiện tại.
+                </p>
+                <Button className="mt-4" onClick={reset}>
+                  Xóa bộ lọc
+                </Button>
+              </div>
+            ) : (
+              <>
+                <p className="text-sm text-semantic-text-secondary">
+                  Đang xem {(result.page - 1) * result.pageSize + 1}–
+                  {(result.page - 1) * result.pageSize + result.items.length} trong {result?.total}{' '}
+                  món
+                </p>
+                <div data-testid="recipe-discovery-grid" className="discovery-grid">
+                  {result.items.map((item) => (
                     <RecipeCard
+                      kitchen
                       key={item.recipe.id}
                       matchResult={item}
                       variant="grid"
                       headingLevel={3}
-                      onClick={() => navigate(`/recipes/${item.recipe.slug}`)}
+                      onClick={() =>
+                        navigate(`/recipes/${item.recipe.slug}`, {
+                          state: { discoveryReturn: `/recipes?${params}` },
+                        })
+                      }
                     />
                   ))}
                 </div>
-              )}
-            </section>
-          )}
+                {result.pages > 1 && (
+                  <nav aria-label="Phân trang công thức" className="discovery-pager">
+                    {result.page > 1 ? (
+                      <Link
+                        to={pagerHref(result.page - 1, result.previousCursor)}
+                        onClick={(event) => {
+                          if (
+                            event.button === 0 &&
+                            !event.metaKey &&
+                            !event.ctrlKey &&
+                            !event.shiftKey &&
+                            !event.altKey
+                          )
+                            focusResults.current = true;
+                        }}
+                        className="kitchen-text-link"
+                      >
+                        <ArrowLeft size={17} aria-hidden="true" />
+                        Trước
+                      </Link>
+                    ) : (
+                      <span />
+                    )}
+                    <span className="text-sm text-semantic-text-secondary">
+                      Trang {result.page}/{result.pages}
+                    </span>
+                    {result.page < result.pages ? (
+                      <Link
+                        to={pagerHref(result.page + 1, result.nextCursor)}
+                        onClick={(event) => {
+                          if (
+                            event.button === 0 &&
+                            !event.metaKey &&
+                            !event.ctrlKey &&
+                            !event.shiftKey &&
+                            !event.altKey
+                          )
+                            focusResults.current = true;
+                        }}
+                        className="kitchen-text-link"
+                      >
+                        Tiếp <ArrowRight size={17} aria-hidden="true" />
+                      </Link>
+                    ) : (
+                      <span />
+                    )}
+                  </nav>
+                )}
+              </>
+            )}
+          </section>
         </div>
       </div>
     </div>

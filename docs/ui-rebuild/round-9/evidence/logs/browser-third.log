@@ -1,0 +1,72 @@
+legacy-detail-390: axe0 / overflow0 / assets0
+canonical-detail-320: axe0 / overflow0 / assets0
+canonical-edit-320: axe0 / overflow0 / assets0
+reconciliation-empty-320: axe0 / overflow0 / assets0
+canonical-detail-390: axe0 / overflow0 / assets0
+canonical-edit-390: axe0 / overflow0 / assets0
+reconciliation-empty-390: axe0 / overflow0 / assets0
+canonical-detail-768: axe0 / overflow0 / assets0
+canonical-edit-768: axe0 / overflow0 / assets0
+reconciliation-empty-768: axe0 / overflow0 / assets0
+canonical-detail-1024: axe0 / overflow0 / assets0
+canonical-edit-1024: axe0 / overflow0 / assets0
+reconciliation-empty-1024: axe0 / overflow0 / assets0
+canonical-detail-1440: axe0 / overflow0 / assets0
+canonical-edit-1440: axe0 / overflow0 / assets0
+reconciliation-empty-1440: axe0 / overflow0 / assets0
+detail-alias-ingredients: axe0 / overflow0 / assets0
+detail-alias-inventory: axe0 / overflow0 / assets0
+detail-enlarged-320: axe0 / overflow0 / assets0
+edit-enlarged-320: axe0 / overflow0 / assets0
+detail-not-found: axe0 / overflow0 / assets0
+detail-loading: axe0 / overflow0 / assets0
+node:internal/modules/run_main:107
+    triggerUncaughtException(
+    ^
+
+ExpectError: expect(locator).toHaveValue(expected) failed
+
+Locator:  getByLabel('Tên nguyên liệu')
+Expected: "Trứng gà"
+Received: "Trứng"
+Timeout:  5000ms
+
+Call log:
+  - Expect "toHaveValue" getByLabel('Tên nguyên liệu') with timeout 5000ms
+  - waiting for getByLabel('Tên nguyên liệu')
+    14 × locator resolved to <input name="name" required="" value="Trứng" maxlength="100" autocomplete="off" id="lot-name-input" class="w-full h-11 px-3 rounded-xl border border-semantic-border text-sm font-medium text-semantic-text-primary bg-white focus:outline-none focus:ring-2 focus:ring-takosan-green/20 focus:border-takosan-green"/>
+       - unexpected value "Trứng"
+
+    at captureRawStack (/Users/tunbee27/Documents/Tako-san-ui-rebuild/node_modules/.pnpm/playwright-core@1.63.0/node_modules/playwright-core/lib/coreBundle.js:8588:17)
+    at callMatcherAsStep (/Users/tunbee27/Documents/Tako-san-ui-rebuild/node_modules/.pnpm/playwright@1.63.0/node_modules/playwright/lib/matchers/expect.js:13310:57)
+    at Object.toHaveValue (/Users/tunbee27/Documents/Tako-san-ui-rebuild/node_modules/.pnpm/playwright@1.63.0/node_modules/playwright/lib/matchers/expect.js:13302:23)
+    at /Users/tunbee27/Documents/Tako-san-ui-rebuild/scripts/ui09-browser-check.mjs:85:74 {
+  matcherResult: {
+    name: 'toHaveValue',
+    expected: 'Trứng gà',
+    message: 'expect(locator).toHaveValue(expected) failed\n' +
+      '\n' +
+      "Locator:  getByLabel('Tên nguyên liệu')\n" +
+      'Expected: "Trứng gà"\n' +
+      'Received: "Trứng"\n' +
+      'Timeout:  5000ms\n' +
+      '\n' +
+      'Call log:\n' +
+      `  - Expect "toHaveValue" getByLabel('Tên nguyên liệu') with timeout 5000ms\n` +
+      "  - waiting for getByLabel('Tên nguyên liệu')\n" +
+      '    14 × locator resolved to <input name="name" required="" value="Trứng" maxlength="100" autocomplete="off" id="lot-name-input" class="w-full h-11 px-3 rounded-xl border border-semantic-border text-sm font-medium text-semantic-text-primary bg-white focus:outline-none focus:ring-2 focus:ring-takosan-green/20 focus:border-takosan-green"/>\n' +
+      '       - unexpected value "Trứng"\n',
+    pass: false,
+    actual: 'Trứng',
+    log: [
+      `  - Expect "toHaveValue" getByLabel('Tên nguyên liệu') with timeout 5000ms`,
+      "  - waiting for getByLabel('Tên nguyên liệu')",
+      '    14 × locator resolved to <input name="name" required="" value="Trứng" maxlength="100" autocomplete="off" id="lot-name-input" class="w-full h-11 px-3 rounded-xl border border-semantic-border text-sm font-medium text-semantic-text-primary bg-white focus:outline-none focus:ring-2 focus:ring-takosan-green/20 focus:border-takosan-green"/>',
+      '       - unexpected value "Trứng"'
+    ],
+    timeout: 5000,
+    ariaSnapshot: '- textbox "Tên nguyên liệu": Trứng'
+  }
+}
+
+Node.js v24.16.0

@@ -1,0 +1,630 @@
+{
+  "schemaVersion": 1,
+  "base": "5da802735c318c56505bed85a133b049728afb39",
+  "observation": "UI12 local discovery snapshot, rechecked against current static catalog/resolver; not production analytics",
+  "promotionAuthorized": false,
+  "sources": [
+    {
+      "kind": "plan",
+      "path": "docs/ui-rebuild/round-12/evidence/media-plan.json",
+      "sha256": "d9c2c7a0c89b06b8ce768279e49d4a9ff5dc3a28d07de9a115e4c46504484a24"
+    },
+    {
+      "kind": "mapping",
+      "path": "docs/ui-rebuild/round-12/evidence/media-mapping.json",
+      "sha256": "33f0042ebcc486adddfd613dcad3b2d71274322ecb2b83096fbf40dfc5b41083"
+    },
+    {
+      "kind": "demand",
+      "path": "docs/ui-rebuild/round-12/evidence/route-audit-recovered/recipe-demand.json",
+      "sha256": "458499510fd25cdcbec01953fb8e53c359a5f07625ffaddbbced6e037565beba"
+    }
+  ],
+  "catalogSummary": {
+    "canonicalCount": 500,
+    "staticCount": 71,
+    "urls": 46,
+    "canonicalIssues": {
+      "allowed_legacy_mapping": 6,
+      "wrong_dish_or_missing_file": 6,
+      "generic_illustration": 429,
+      "unreviewed_photo": 59
+    },
+    "staticIssues": {
+      "unreviewed_photo": 59,
+      "allowed_legacy_mapping": 6,
+      "wrong_dish_or_missing_file": 6
+    },
+    "mediaStates": [
+      {
+        "status": "pending",
+        "count": 500
+      }
+    ],
+    "urlReuseGroups": 21,
+    "duplicateLocalByteHashes": 0
+  },
+  "recipes": [
+    {
+      "priority": 1,
+      "recipeId": "vn-sang-06",
+      "slug": "sup-ga-ngo-non-nam-huong",
+      "title": "Súp gà ngô non nấm hương trứng hoa",
+      "reason": "First three Home recommendations and first local discovery page",
+      "legacyMappingIssue": "unreviewed_photo",
+      "action": "Review subject/source/license and crops before retaining or replacing media",
+      "observedPreviewOnly": true,
+      "description": "Bát súp nóng hổi sánh óng ánh với những vân trứng hoa bay lượn, thịt gà xé ngọt mềm cùng hạt ngô ngọt giòn bùi.",
+      "subjectBrief": "Brief tham khảo từ tên và mô tả, cần đối chiếu công thức gốc. Chụp đúng món “Súp gà ngô non nấm hương trứng hoa”. Chi tiết cần đối chiếu: Bát súp nóng hổi sánh óng ánh với những vân trứng hoa bay lượn, thịt gà xé ngọt mềm cùng hạt ngô ngọt giòn bùi. Không thay bằng món có nguyên liệu hoặc cách nấu khác.",
+      "legacyUrl": "https://images.unsplash.com/photo-1547592166-23ac45744acd?auto=format&fit=crop&w=800&q=80",
+      "current": {
+        "source": "placeholder",
+        "assetId": null,
+        "url": null
+      }
+    },
+    {
+      "priority": 2,
+      "recipeId": "gl-09",
+      "slug": "chawanmushi",
+      "title": "Trứng hấp Chawanmushi Nhật Bản",
+      "reason": "First three Home recommendations and first local discovery page",
+      "legacyMappingIssue": "wrong_dish_or_missing_file",
+      "action": "Review subject/source/license and crops before retaining or replacing media",
+      "observedPreviewOnly": true,
+      "description": "Trứng hấp mịn màng như thạch tan trong miệng cùng tôm ngọt và nấm.",
+      "subjectBrief": "Brief tham khảo từ tên và mô tả, cần đối chiếu công thức gốc. Chụp đúng món “Trứng hấp Chawanmushi Nhật Bản”. Chi tiết cần đối chiếu: Trứng hấp mịn màng như thạch tan trong miệng cùng tôm ngọt và nấm. Không thay bằng món có nguyên liệu hoặc cách nấu khác.",
+      "legacyUrl": "/frigo/recipes/global/oyakodon.webp",
+      "current": {
+        "source": "placeholder",
+        "assetId": null,
+        "url": null
+      }
+    },
+    {
+      "priority": 3,
+      "recipeId": "gl-05",
+      "slug": "kimchi-fried-rice",
+      "title": "Cơm chiên kim chi Hàn Quốc",
+      "reason": "First three Home recommendations and first local discovery page",
+      "legacyMappingIssue": null,
+      "action": "Review subject/source/license and crops before retaining or replacing media",
+      "observedPreviewOnly": true,
+      "description": "Cơm chiên kim chi chua cay giòn sần sật phủ trứng ốp la lòng đào béo ngậy.",
+      "subjectBrief": "Brief tham khảo từ tên và mô tả, cần đối chiếu công thức gốc. Chụp đúng món “Cơm chiên kim chi Hàn Quốc”. Chi tiết cần đối chiếu: Cơm chiên kim chi chua cay giòn sần sật phủ trứng ốp la lòng đào béo ngậy. Không thay bằng món có nguyên liệu hoặc cách nấu khác.",
+      "legacyUrl": "/frigo/recipes/global/kimchi-fried-rice.webp",
+      "current": {
+        "source": "legacy_static",
+        "assetId": "asset-02",
+        "url": "/frigo/recipes/global/kimchi-fried-rice.webp"
+      }
+    },
+    {
+      "priority": 4,
+      "recipeId": "gl-03",
+      "slug": "tomato-egg-stir-fry",
+      "title": "Cà chua xào trứng Trung Hoa",
+      "reason": "First local discovery page; representative read-only preview ranking",
+      "legacyMappingIssue": null,
+      "action": "Review subject/source/license and crops before retaining or replacing media",
+      "observedPreviewOnly": true,
+      "description": "Món ăn gia đình kinh điển với trứng mềm xốp quyện sốt cà chua đỏ sánh mịn.",
+      "subjectBrief": "Brief tham khảo từ tên và mô tả, cần đối chiếu công thức gốc. Chụp đúng món “Cà chua xào trứng Trung Hoa”. Chi tiết cần đối chiếu: Món ăn gia đình kinh điển với trứng mềm xốp quyện sốt cà chua đỏ sánh mịn. Không thay bằng món có nguyên liệu hoặc cách nấu khác.",
+      "legacyUrl": "/frigo/recipes/global/tomato-egg-stir-fry.webp",
+      "current": {
+        "source": "legacy_static",
+        "assetId": "asset-07",
+        "url": "/frigo/recipes/global/tomato-egg-stir-fry.webp"
+      }
+    },
+    {
+      "priority": 5,
+      "recipeId": "vn-xao-01",
+      "slug": "rau-muong-xao-toi",
+      "title": "Rau muống xào tỏi xanh giòn",
+      "reason": "First local discovery page; representative read-only preview ranking",
+      "legacyMappingIssue": "unreviewed_photo",
+      "action": "Review subject/source/license and crops before retaining or replacing media",
+      "observedPreviewOnly": true,
+      "description": "Rau muống ngọn non xanh mướt giòn sần sật dậy mùi thơm lừng của tỏi ta phi vàng xém cạnh, linh hồn bữa cơm gia đình.",
+      "subjectBrief": "Brief tham khảo từ tên và mô tả, cần đối chiếu công thức gốc. Chụp đúng món “Rau muống xào tỏi xanh giòn”. Chi tiết cần đối chiếu: Rau muống ngọn non xanh mướt giòn sần sật dậy mùi thơm lừng của tỏi ta phi vàng xém cạnh, linh hồn bữa cơm gia đình. Không thay bằng món có nguyên liệu hoặc cách nấu khác.",
+      "legacyUrl": "https://images.unsplash.com/photo-1540420773420-3366772f4999?auto=format&fit=crop&w=800&q=80",
+      "current": {
+        "source": "placeholder",
+        "assetId": null,
+        "url": null
+      }
+    },
+    {
+      "priority": 6,
+      "recipeId": "vn-chay-06",
+      "slug": "canh-cai-nau-dau-phu-non",
+      "title": "Canh cải xanh gừng đậu phụ thanh mát",
+      "reason": "First local discovery page; representative read-only preview ranking",
+      "legacyMappingIssue": "unreviewed_photo",
+      "action": "Review subject/source/license and crops before retaining or replacing media",
+      "observedPreviewOnly": true,
+      "description": "Bát canh cải bẹ xanh tươi non nấu cùng gừng tươi đập dập cay nồng và đậu phụ béo mềm, xua tan hàn khí ấm bụng.",
+      "subjectBrief": "Brief tham khảo từ tên và mô tả, cần đối chiếu công thức gốc. Chụp đúng món “Canh cải xanh gừng đậu phụ thanh mát”. Chi tiết cần đối chiếu: Bát canh cải bẹ xanh tươi non nấu cùng gừng tươi đập dập cay nồng và đậu phụ béo mềm, xua tan hàn khí ấm bụng. Không thay bằng món có nguyên liệu hoặc cách nấu khác.",
+      "legacyUrl": "https://images.unsplash.com/photo-1547592166-23ac45744acd?auto=format&fit=crop&w=800&q=80",
+      "current": {
+        "source": "placeholder",
+        "assetId": null,
+        "url": null
+      }
+    },
+    {
+      "priority": 7,
+      "recipeId": "vn-sang-02",
+      "slug": "banh-mi-op-la-pate",
+      "title": "Bánh mì ốp la pate dưa leo",
+      "reason": "First local discovery page; representative read-only preview ranking",
+      "legacyMappingIssue": "unreviewed_photo",
+      "action": "Review subject/source/license and crops before retaining or replacing media",
+      "observedPreviewOnly": true,
+      "description": "Ổ bánh mì giòn tan kẹp quả trứng ốp la lòng đào béo ngậy, quét đẫm lớp pate Hải Phòng thơm lừng và dưa leo mát rượi.",
+      "subjectBrief": "Brief tham khảo từ tên và mô tả, cần đối chiếu công thức gốc. Chụp đúng món “Bánh mì ốp la pate dưa leo”. Chi tiết cần đối chiếu: Ổ bánh mì giòn tan kẹp quả trứng ốp la lòng đào béo ngậy, quét đẫm lớp pate Hải Phòng thơm lừng và dưa leo mát rượi. Không thay bằng món có nguyên liệu hoặc cách nấu khác.",
+      "legacyUrl": "https://images.unsplash.com/photo-1626804475297-41608ea09aeb?auto=format&fit=crop&w=800&q=80",
+      "current": {
+        "source": "placeholder",
+        "assetId": null,
+        "url": null
+      }
+    },
+    {
+      "priority": 8,
+      "recipeId": "gl-06",
+      "slug": "pad-krapow",
+      "title": "Thịt băm xào lá quế kiểu Thái (Pad Krapow)",
+      "reason": "First local discovery page; representative read-only preview ranking",
+      "legacyMappingIssue": null,
+      "action": "Review subject/source/license and crops before retaining or replacing media",
+      "observedPreviewOnly": true,
+      "description": "Món thịt heo băm xào cay thơm lừng lá quế ăn kèm cơm trắng và trứng rán giòn viền.",
+      "subjectBrief": "Brief tham khảo từ tên và mô tả, cần đối chiếu công thức gốc. Chụp đúng món “Thịt băm xào lá quế kiểu Thái (Pad Krapow)”. Chi tiết cần đối chiếu: Món thịt heo băm xào cay thơm lừng lá quế ăn kèm cơm trắng và trứng rán giòn viền. Không thay bằng món có nguyên liệu hoặc cách nấu khác.",
+      "legacyUrl": "/frigo/recipes/global/pad-krapow.webp",
+      "current": {
+        "source": "legacy_static",
+        "assetId": "asset-05",
+        "url": "/frigo/recipes/global/pad-krapow.webp"
+      }
+    },
+    {
+      "priority": 9,
+      "recipeId": "gl-04",
+      "slug": "oyakodon",
+      "title": "Cơm gà trứng Oyakodon Nhật Bản",
+      "reason": "First local discovery page; representative read-only preview ranking",
+      "legacyMappingIssue": null,
+      "action": "Review subject/source/license and crops before retaining or replacing media",
+      "observedPreviewOnly": true,
+      "description": "Món cơm donburi Nhật Bản với thịt gà mềm ngọt và trứng nấu lướt mịn mượt trên bát cơm nóng.",
+      "subjectBrief": "Brief tham khảo từ tên và mô tả, cần đối chiếu công thức gốc. Chụp đúng món “Cơm gà trứng Oyakodon Nhật Bản”. Chi tiết cần đối chiếu: Món cơm donburi Nhật Bản với thịt gà mềm ngọt và trứng nấu lướt mịn mượt trên bát cơm nóng. Không thay bằng món có nguyên liệu hoặc cách nấu khác.",
+      "legacyUrl": "/frigo/recipes/global/oyakodon.webp",
+      "current": {
+        "source": "legacy_static",
+        "assetId": "asset-04",
+        "url": "/frigo/recipes/global/oyakodon.webp"
+      }
+    },
+    {
+      "priority": 10,
+      "recipeId": "gl-08",
+      "slug": "tokbokki-cay-ngot",
+      "title": "Bánh gạo Tokbokki sốt cay ngọt",
+      "reason": "First local discovery page; representative read-only preview ranking",
+      "legacyMappingIssue": "wrong_dish_or_missing_file",
+      "action": "Review subject/source/license and crops before retaining or replacing media",
+      "observedPreviewOnly": true,
+      "description": "Bánh gạo dẻo mềm đượm sốt ớt Gochujang cay nồng cùng trứng luộc lòng đào.",
+      "subjectBrief": "Brief tham khảo từ tên và mô tả, cần đối chiếu công thức gốc. Chụp đúng món “Bánh gạo Tokbokki sốt cay ngọt”. Chi tiết cần đối chiếu: Bánh gạo dẻo mềm đượm sốt ớt Gochujang cay nồng cùng trứng luộc lòng đào. Không thay bằng món có nguyên liệu hoặc cách nấu khác.",
+      "legacyUrl": "/frigo/recipes/global/kimchi-fried-rice.webp",
+      "current": {
+        "source": "placeholder",
+        "assetId": null,
+        "url": null
+      }
+    },
+    {
+      "priority": 11,
+      "recipeId": "vn-sang-01",
+      "slug": "com-chien-trung-toi-hanh-hoa",
+      "title": "Cơm chiên trứng vàng giòn tỏi phi",
+      "reason": "First local discovery page; representative read-only preview ranking",
+      "legacyMappingIssue": "unreviewed_photo",
+      "action": "Review subject/source/license and crops before retaining or replacing media",
+      "observedPreviewOnly": true,
+      "description": "Hạt cơm nguội vàng óng bọc đều lớp trứng gà bóng bẩy, chiên giòn tơi xốp dậy mùi thơm nức của tỏi phi và hành hoa.",
+      "subjectBrief": "Brief tham khảo từ tên và mô tả, cần đối chiếu công thức gốc. Chụp đúng món “Cơm chiên trứng vàng giòn tỏi phi”. Chi tiết cần đối chiếu: Hạt cơm nguội vàng óng bọc đều lớp trứng gà bóng bẩy, chiên giòn tơi xốp dậy mùi thơm nức của tỏi phi và hành hoa. Không thay bằng món có nguyên liệu hoặc cách nấu khác.",
+      "legacyUrl": "https://images.unsplash.com/photo-1603133872878-684f208fb84b?auto=format&fit=crop&w=800&q=80",
+      "current": {
+        "source": "placeholder",
+        "assetId": null,
+        "url": null
+      }
+    },
+    {
+      "priority": 12,
+      "recipeId": "vn-xao-05",
+      "slug": "su-su-xao-trung-ga",
+      "title": "Su su xào trứng gà thanh ngọt",
+      "reason": "First local discovery page; representative read-only preview ranking",
+      "legacyMappingIssue": "unreviewed_photo",
+      "action": "Review subject/source/license and crops before retaining or replacing media",
+      "observedPreviewOnly": true,
+      "description": "Su su bào sợi giòn ngọt tự nhiên ôm lấy từng mảng trứng gà vàng ươm béo ngậy, món ăn thanh đạm dễ làm.",
+      "subjectBrief": "Brief tham khảo từ tên và mô tả, cần đối chiếu công thức gốc. Chụp đúng món “Su su xào trứng gà thanh ngọt”. Chi tiết cần đối chiếu: Su su bào sợi giòn ngọt tự nhiên ôm lấy từng mảng trứng gà vàng ươm béo ngậy, món ăn thanh đạm dễ làm. Không thay bằng món có nguyên liệu hoặc cách nấu khác.",
+      "legacyUrl": "https://images.unsplash.com/photo-1565299585323-38d6b0865b47?auto=format&fit=crop&w=800&q=80",
+      "current": {
+        "source": "placeholder",
+        "assetId": null,
+        "url": null
+      }
+    },
+    {
+      "priority": 13,
+      "recipeId": "vn-sang-04",
+      "slug": "mi-tom-xao-bo-trung-long-dao",
+      "title": "Mì gói xào bò trứng lòng đào",
+      "reason": "First local discovery page; representative read-only preview ranking",
+      "legacyMappingIssue": "unreviewed_photo",
+      "action": "Review subject/source/license and crops before retaining or replacing media",
+      "observedPreviewOnly": true,
+      "description": "Sợi mì tôm chần xào giòn dai không nát, hòa cùng thịt bò xào mềm ngọt, rau cải giòn mát và quả trứng ốp lòng đào béo ngậy.",
+      "subjectBrief": "Brief tham khảo từ tên và mô tả, cần đối chiếu công thức gốc. Chụp đúng món “Mì gói xào bò trứng lòng đào”. Chi tiết cần đối chiếu: Sợi mì tôm chần xào giòn dai không nát, hòa cùng thịt bò xào mềm ngọt, rau cải giòn mát và quả trứng ốp lòng đào béo ngậy. Không thay bằng món có nguyên liệu hoặc cách nấu khác.",
+      "legacyUrl": "https://images.unsplash.com/photo-1569718212165-3a8278d5f624?auto=format&fit=crop&w=800&q=80",
+      "current": {
+        "source": "placeholder",
+        "assetId": null,
+        "url": null
+      }
+    },
+    {
+      "priority": 14,
+      "recipeId": "gl-12",
+      "slug": "chinese-tomato-egg",
+      "title": "Trứng xào cà chua kiểu Trung Hoa",
+      "reason": "First local discovery page; representative read-only preview ranking",
+      "legacyMappingIssue": "wrong_dish_or_missing_file",
+      "action": "Review subject/source/license and crops before retaining or replacing media",
+      "observedPreviewOnly": true,
+      "description": "Món ăn gia đình kinh điển Trung Hoa với trứng mềm xốp ngập trong sốt cà chua đỏ sánh chua ngọt.",
+      "subjectBrief": "Brief tham khảo từ tên và mô tả, cần đối chiếu công thức gốc. Chụp đúng món “Trứng xào cà chua kiểu Trung Hoa”. Chi tiết cần đối chiếu: Món ăn gia đình kinh điển Trung Hoa với trứng mềm xốp ngập trong sốt cà chua đỏ sánh chua ngọt. Không thay bằng món có nguyên liệu hoặc cách nấu khác.",
+      "legacyUrl": "/frigo/recipes/vietnam/dau-phu-sot-ca-chua.webp",
+      "current": {
+        "source": "placeholder",
+        "assetId": null,
+        "url": null
+      }
+    },
+    {
+      "priority": 15,
+      "recipeId": "vn-sang-05",
+      "slug": "trung-cuon-rau-cu-han-quoc",
+      "title": "Trứng cuộn rau củ mềm mịn",
+      "reason": "First local discovery page; representative read-only preview ranking",
+      "legacyMappingIssue": "unreviewed_photo",
+      "action": "Review subject/source/license and crops before retaining or replacing media",
+      "observedPreviewOnly": true,
+      "description": "Trứng gà đánh mịn cuộn tròn nhiều lớp xen kẽ cà rốt và hành hoa thái hạt lựu xinh xắn, món ăn sáng giàu protein cho cả nhà.",
+      "subjectBrief": "Brief tham khảo từ tên và mô tả, cần đối chiếu công thức gốc. Chụp đúng món “Trứng cuộn rau củ mềm mịn”. Chi tiết cần đối chiếu: Trứng gà đánh mịn cuộn tròn nhiều lớp xen kẽ cà rốt và hành hoa thái hạt lựu xinh xắn, món ăn sáng giàu protein cho cả nhà. Không thay bằng món có nguyên liệu hoặc cách nấu khác.",
+      "legacyUrl": "https://images.unsplash.com/photo-1525351484163-7529414344d8?auto=format&fit=crop&w=800&q=80",
+      "current": {
+        "source": "placeholder",
+        "assetId": null,
+        "url": null
+      }
+    },
+    {
+      "priority": 16,
+      "recipeId": "gl-07",
+      "slug": "kimbap-han-quoc",
+      "title": "Cơm cuộn Kimbap Hàn Quốc",
+      "reason": "First local discovery page; representative read-only preview ranking",
+      "legacyMappingIssue": "wrong_dish_or_missing_file",
+      "action": "Review subject/source/license and crops before retaining or replacing media",
+      "observedPreviewOnly": true,
+      "description": "Cơm cuộn rong biển nhân trứng rán, xúc xích/thịt và dưa chuột giòn mát rượi.",
+      "subjectBrief": "Brief tham khảo từ tên và mô tả, cần đối chiếu công thức gốc. Chụp đúng món “Cơm cuộn Kimbap Hàn Quốc”. Chi tiết cần đối chiếu: Cơm cuộn rong biển nhân trứng rán, xúc xích/thịt và dưa chuột giòn mát rượi. Không thay bằng món có nguyên liệu hoặc cách nấu khác.",
+      "legacyUrl": "/frigo/recipes/global/kimchi-fried-rice.webp",
+      "current": {
+        "source": "placeholder",
+        "assetId": null,
+        "url": null
+      }
+    },
+    {
+      "priority": 17,
+      "recipeId": "vn-chien-02",
+      "slug": "trung-chien-thit-bam-nam-rom",
+      "title": "Trứng chiên thịt bằm nấm rơm",
+      "reason": "First local discovery page; representative read-only preview ranking",
+      "legacyMappingIssue": "unreviewed_photo",
+      "action": "Review subject/source/license and crops before retaining or replacing media",
+      "observedPreviewOnly": true,
+      "description": "Món trứng chiên phồng xốp vàng rực, bên trong đầy đặn thịt heo băm đậm đà và nấm ngọt giòn sần sật.",
+      "subjectBrief": "Brief tham khảo từ tên và mô tả, cần đối chiếu công thức gốc. Chụp đúng món “Trứng chiên thịt bằm nấm rơm”. Chi tiết cần đối chiếu: Món trứng chiên phồng xốp vàng rực, bên trong đầy đặn thịt heo băm đậm đà và nấm ngọt giòn sần sật. Không thay bằng món có nguyên liệu hoặc cách nấu khác.",
+      "legacyUrl": "https://images.unsplash.com/photo-1525351484163-7529414344d8?auto=format&fit=crop&w=800&q=80",
+      "current": {
+        "source": "placeholder",
+        "assetId": null,
+        "url": null
+      }
+    },
+    {
+      "priority": 18,
+      "recipeId": "vn-cuon-04",
+      "slug": "goi-ga-xe-phay-bap-cai",
+      "title": "Gỏi gà xé phay bắp cải hành tây",
+      "reason": "First local discovery page; representative read-only preview ranking",
+      "legacyMappingIssue": "unreviewed_photo",
+      "action": "Review subject/source/license and crops before retaining or replacing media",
+      "observedPreviewOnly": true,
+      "description": "Thịt gà ta luộc xé sợi dai ngọt trộn cùng bắp cải bào mỏng giòn rụm, hành tây chua ngọt dịu và rau răm thơm the the.",
+      "subjectBrief": "Brief tham khảo từ tên và mô tả, cần đối chiếu công thức gốc. Chụp đúng món “Gỏi gà xé phay bắp cải hành tây”. Chi tiết cần đối chiếu: Thịt gà ta luộc xé sợi dai ngọt trộn cùng bắp cải bào mỏng giòn rụm, hành tây chua ngọt dịu và rau răm thơm the the. Không thay bằng món có nguyên liệu hoặc cách nấu khác.",
+      "legacyUrl": "https://images.unsplash.com/photo-1512621776951-a57141f2eefd?auto=format&fit=crop&w=800&q=80",
+      "current": {
+        "source": "placeholder",
+        "assetId": null,
+        "url": null
+      }
+    },
+    {
+      "priority": 19,
+      "recipeId": "vn-chien-05",
+      "slug": "nem-ran-truyen-thong-ha-noi",
+      "title": "Nem rán truyền thống Hà Nội giòn rụm",
+      "reason": "First local discovery page; representative read-only preview ranking",
+      "legacyMappingIssue": "unreviewed_photo",
+      "action": "Review subject/source/license and crops before retaining or replacing media",
+      "observedPreviewOnly": true,
+      "description": "Vỏ nem vàng rộm giòn tan rụm, nhân thịt băm mộc nhĩ nấm hương miến dong và trứng gà thơm phức chấm mắm chua ngọt.",
+      "subjectBrief": "Brief tham khảo từ tên và mô tả, cần đối chiếu công thức gốc. Chụp đúng món “Nem rán truyền thống Hà Nội giòn rụm”. Chi tiết cần đối chiếu: Vỏ nem vàng rộm giòn tan rụm, nhân thịt băm mộc nhĩ nấm hương miến dong và trứng gà thơm phức chấm mắm chua ngọt. Không thay bằng món có nguyên liệu hoặc cách nấu khác.",
+      "legacyUrl": "https://images.unsplash.com/photo-1544025162-d76694265947?auto=format&fit=crop&w=800&q=80",
+      "current": {
+        "source": "placeholder",
+        "assetId": null,
+        "url": null
+      }
+    },
+    {
+      "priority": 20,
+      "recipeId": "vn-kho-01",
+      "slug": "thit-kho-trung",
+      "title": "Thịt kho tàu nước dừa trứng béo ngậy",
+      "reason": "First local discovery page; representative read-only preview ranking",
+      "legacyMappingIssue": "unreviewed_photo",
+      "action": "Review subject/source/license and crops before retaining or replacing media",
+      "observedPreviewOnly": true,
+      "description": "Thịt ba chỉ vuông vức óng ả màu cánh gián, ninh nhừ mềm tan trong nước dừa xiêm cùng trứng gà bùi bùi chuẩn Tết miền Nam.",
+      "subjectBrief": "Brief tham khảo từ tên và mô tả, cần đối chiếu công thức gốc. Chụp đúng món “Thịt kho tàu nước dừa trứng béo ngậy”. Chi tiết cần đối chiếu: Thịt ba chỉ vuông vức óng ả màu cánh gián, ninh nhừ mềm tan trong nước dừa xiêm cùng trứng gà bùi bùi chuẩn Tết miền Nam. Không thay bằng món có nguyên liệu hoặc cách nấu khác.",
+      "legacyUrl": "https://images.unsplash.com/photo-1544025162-d76694265947?auto=format&fit=crop&w=800&q=80",
+      "current": {
+        "source": "placeholder",
+        "assetId": null,
+        "url": null
+      }
+    },
+    {
+      "priority": 21,
+      "recipeId": "vn-lau-01",
+      "slug": "lau-rieu-cua-dong-bap-bo-suon-sun",
+      "title": "Lẩu riêu cua đồng sườn sụn bắp bò",
+      "reason": "First local discovery page; representative read-only preview ranking",
+      "legacyMappingIssue": "unreviewed_photo",
+      "action": "Review subject/source/license and crops before retaining or replacing media",
+      "observedPreviewOnly": true,
+      "description": "Nồi lẩu riêu cua bốc khói nghi ngút thơm nồng giấm bỗng, tảng riêu cua vàng ngậy nhúng bắp bò hoa giòn và sườn non sần sật.",
+      "subjectBrief": "Brief tham khảo từ tên và mô tả, cần đối chiếu công thức gốc. Chụp đúng món “Lẩu riêu cua đồng sườn sụn bắp bò”. Chi tiết cần đối chiếu: Nồi lẩu riêu cua bốc khói nghi ngút thơm nồng giấm bỗng, tảng riêu cua vàng ngậy nhúng bắp bò hoa giòn và sườn non sần sật. Không thay bằng món có nguyên liệu hoặc cách nấu khác.",
+      "legacyUrl": "https://images.unsplash.com/photo-1547928576-a4a33237cbc3?auto=format&fit=crop&w=800&q=80",
+      "current": {
+        "source": "placeholder",
+        "assetId": null,
+        "url": null
+      }
+    },
+    {
+      "priority": 22,
+      "recipeId": "vn-hap-05",
+      "slug": "muc-hap-gung-sa",
+      "title": "Mực ống hấp gừng sả giòn ngọt",
+      "reason": "First local discovery page; representative read-only preview ranking",
+      "legacyMappingIssue": "unreviewed_photo",
+      "action": "Review subject/source/license and crops before retaining or replacing media",
+      "observedPreviewOnly": true,
+      "description": "Mực ống tươi dày mình hấp cùng sả cây đập dập và gừng non, từng miếng mực giòn ngọt sần sật mọng nước.",
+      "subjectBrief": "Brief tham khảo từ tên và mô tả, cần đối chiếu công thức gốc. Chụp đúng món “Mực ống hấp gừng sả giòn ngọt”. Chi tiết cần đối chiếu: Mực ống tươi dày mình hấp cùng sả cây đập dập và gừng non, từng miếng mực giòn ngọt sần sật mọng nước. Không thay bằng món có nguyên liệu hoặc cách nấu khác.",
+      "legacyUrl": "https://images.unsplash.com/photo-1535400255456-984241443b29?auto=format&fit=crop&w=800&q=80",
+      "current": {
+        "source": "placeholder",
+        "assetId": null,
+        "url": null
+      }
+    },
+    {
+      "priority": 23,
+      "recipeId": "vn-hap-06",
+      "slug": "tom-hap-nuoc-dua-tuoi",
+      "title": "Tôm hấp nước dừa tươi ngọt lịm",
+      "reason": "First local discovery page; representative read-only preview ranking",
+      "legacyMappingIssue": "unreviewed_photo",
+      "action": "Review subject/source/license and crops before retaining or replacing media",
+      "observedPreviewOnly": true,
+      "description": "Tôm sú tươi roi rói hấp cùng nước dừa xiêm ngọt lịm, vỏ tôm đỏ au thịt tôm săn chắc ngọt ngào hương dừa thanh tao.",
+      "subjectBrief": "Brief tham khảo từ tên và mô tả, cần đối chiếu công thức gốc. Chụp đúng món “Tôm hấp nước dừa tươi ngọt lịm”. Chi tiết cần đối chiếu: Tôm sú tươi roi rói hấp cùng nước dừa xiêm ngọt lịm, vỏ tôm đỏ au thịt tôm săn chắc ngọt ngào hương dừa thanh tao. Không thay bằng món có nguyên liệu hoặc cách nấu khác.",
+      "legacyUrl": "https://images.unsplash.com/photo-1559742811-822873691df8?auto=format&fit=crop&w=800&q=80",
+      "current": {
+        "source": "placeholder",
+        "assetId": null,
+        "url": null
+      }
+    },
+    {
+      "priority": 24,
+      "recipeId": "vn-chay-03",
+      "slug": "mi-xao-chay-rau-nam",
+      "title": "Mì xào giòn chay nấm rau củ",
+      "reason": "First local discovery page; representative read-only preview ranking",
+      "legacyMappingIssue": "unreviewed_photo",
+      "action": "Review subject/source/license and crops before retaining or replacing media",
+      "observedPreviewOnly": true,
+      "description": "Sợi mì xào vàng thơm tơi sợi không bết dính, đảo cùng nấm đùi gà dai giòn, cải ngọt và cà rốt ngập tràn sốt dầu hào chay.",
+      "subjectBrief": "Brief tham khảo từ tên và mô tả, cần đối chiếu công thức gốc. Chụp đúng món “Mì xào giòn chay nấm rau củ”. Chi tiết cần đối chiếu: Sợi mì xào vàng thơm tơi sợi không bết dính, đảo cùng nấm đùi gà dai giòn, cải ngọt và cà rốt ngập tràn sốt dầu hào chay. Không thay bằng món có nguyên liệu hoặc cách nấu khác.",
+      "legacyUrl": "https://images.unsplash.com/photo-1585032226651-759b368d7246?auto=format&fit=crop&w=800&q=80",
+      "current": {
+        "source": "placeholder",
+        "assetId": null,
+        "url": null
+      }
+    }
+  ],
+  "assets": [
+    {
+      "assetId": "asset-01",
+      "url": "/frigo/illustrations/delicious-meal.png",
+      "path": "public/frigo/illustrations/delicious-meal.png",
+      "bytes": 216750,
+      "sha256": "fc8cd3b94aa6d192f36dd735e13228c9e1ca1ceafdc36ada72caf5580a3c04b4",
+      "width": 365,
+      "height": 493,
+      "format": "png",
+      "rightsStatus": "unknown",
+      "creator": null,
+      "sourceEvidence": null,
+      "licenseEvidence": null,
+      "label": "Minh họa chung",
+      "staticRecipeIds": []
+    },
+    {
+      "assetId": "asset-02",
+      "url": "/frigo/recipes/global/kimchi-fried-rice.webp",
+      "path": "public/frigo/recipes/global/kimchi-fried-rice.webp",
+      "bytes": 63902,
+      "sha256": "b4ed63ff715c6eb3b183e49a0c15f30e32a2522c288184b6353482bef612ca8d",
+      "width": 436,
+      "height": 384,
+      "format": "webp",
+      "rightsStatus": "unknown",
+      "creator": null,
+      "sourceEvidence": null,
+      "licenseEvidence": null,
+      "label": "Cơm chiên kim chi",
+      "staticRecipeIds": [
+        "gl-05",
+        "gl-07",
+        "gl-08"
+      ]
+    },
+    {
+      "assetId": "asset-03",
+      "url": "/frigo/recipes/global/mapo-tofu.webp",
+      "path": "public/frigo/recipes/global/mapo-tofu.webp",
+      "bytes": 65846,
+      "sha256": "bfa6e099a8c3c289e248a3f19d36bc96d6e47f195277239a481603bb24bfbd4a",
+      "width": 436,
+      "height": 371,
+      "format": "webp",
+      "rightsStatus": "unknown",
+      "creator": null,
+      "sourceEvidence": null,
+      "licenseEvidence": null,
+      "label": "Đậu phụ Mapo",
+      "staticRecipeIds": [
+        "gl-02"
+      ]
+    },
+    {
+      "assetId": "asset-04",
+      "url": "/frigo/recipes/global/oyakodon.webp",
+      "path": "public/frigo/recipes/global/oyakodon.webp",
+      "bytes": 55662,
+      "sha256": "f6fa1e79ed329871c6461a7bacafe35d594d05a00f1ff7a7b06c458d7013735b",
+      "width": 436,
+      "height": 384,
+      "format": "webp",
+      "rightsStatus": "unknown",
+      "creator": null,
+      "sourceEvidence": null,
+      "licenseEvidence": null,
+      "label": "Cơm gà trứng Oyakodon",
+      "staticRecipeIds": [
+        "gl-04",
+        "gl-09"
+      ]
+    },
+    {
+      "assetId": "asset-05",
+      "url": "/frigo/recipes/global/pad-krapow.webp",
+      "path": "public/frigo/recipes/global/pad-krapow.webp",
+      "bytes": 61312,
+      "sha256": "518d62f283dbae4959e04d06dd8a9b9e2a195388aeb57e8da39e2114eebd6b2e",
+      "width": 436,
+      "height": 384,
+      "format": "webp",
+      "rightsStatus": "unknown",
+      "creator": null,
+      "sourceEvidence": null,
+      "licenseEvidence": null,
+      "label": "Thịt băm xào lá quế",
+      "staticRecipeIds": [
+        "gl-06",
+        "gl-10"
+      ]
+    },
+    {
+      "assetId": "asset-06",
+      "url": "/frigo/recipes/global/pasta-pomodoro.webp",
+      "path": "public/frigo/recipes/global/pasta-pomodoro.webp",
+      "bytes": 65518,
+      "sha256": "82a23e835f15733dee11df7061364b53a7f94fb75014fd1f703c25668448b842",
+      "width": 436,
+      "height": 371,
+      "format": "webp",
+      "rightsStatus": "unknown",
+      "creator": null,
+      "sourceEvidence": null,
+      "licenseEvidence": null,
+      "label": "Mì sốt cà chua Pomodoro",
+      "staticRecipeIds": [
+        "gl-01"
+      ]
+    },
+    {
+      "assetId": "asset-07",
+      "url": "/frigo/recipes/global/tomato-egg-stir-fry.webp",
+      "path": "public/frigo/recipes/global/tomato-egg-stir-fry.webp",
+      "bytes": 52622,
+      "sha256": "2f1889cec34e84000cfb2f9c826f9927c738ec62ac776a81ed2a8f83b5786743",
+      "width": 436,
+      "height": 371,
+      "format": "webp",
+      "rightsStatus": "unknown",
+      "creator": null,
+      "sourceEvidence": null,
+      "licenseEvidence": null,
+      "label": "Cà chua xào trứng",
+      "staticRecipeIds": [
+        "gl-03"
+      ]
+    },
+    {
+      "assetId": "asset-08",
+      "url": "/frigo/recipes/vietnam/dau-phu-sot-ca-chua.webp",
+      "path": "public/frigo/recipes/vietnam/dau-phu-sot-ca-chua.webp",
+      "bytes": 68598,
+      "sha256": "8bbe363b887201473cc660e3f0be7f2ea56136b412bd7009e93511d5d1f4f3fc",
+      "width": 432,
+      "height": 386,
+      "format": "webp",
+      "rightsStatus": "unknown",
+      "creator": null,
+      "sourceEvidence": null,
+      "licenseEvidence": null,
+      "label": "Đậu phụ sốt cà chua",
+      "staticRecipeIds": [
+        "gl-12"
+      ]
+    }
+  ],
+  "datasetId": "a7049ac803bec5094eea69a98ffef5185f32945b2f1adb0d88169bb0dcb4fce6"
+}

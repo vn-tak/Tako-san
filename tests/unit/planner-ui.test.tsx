@@ -1,3 +1,4 @@
+// @vitest-environment jsdom
 import type { ReactNode } from 'react';
 import { renderToStaticMarkup } from 'react-dom/server';
 import { StaticRouter } from 'react-router-dom/server';
@@ -145,12 +146,13 @@ describe('planner shell and route states', () => {
     expect(html).not.toContain(copy.vi.loading);
   });
 
-  it.each(['vi', 'en'] as const)('labels %s navigation and separates the legacy route', (locale) => {
+  it.each(['vi', 'en'] as const)('labels %s navigation and links the saved list without a Week redirect loop', (locale) => {
     const html = render(<PlannerShell plan={planFixture()} locale={locale} setLocale={vi.fn()}>Content</PlannerShell>);
     expect(html).toContain(`lang="${locale}"`);
     expect(html).toContain(`aria-label="${copy[locale].week}"`);
     expect(html).toContain(`href="/planner/${id}/shopping"`);
-    expect(html).toContain('href="/week"');
+    expect(html).toContain('href="/shopping"');
+    expect(html).not.toContain('href="/week"');
     contains(html, copy[locale].planNote);
   });
 

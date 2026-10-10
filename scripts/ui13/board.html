@@ -1,0 +1,905 @@
+<!doctype html>
+<html lang="vi">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#f7f3ec" />
+    <title>Tako-san · Duyệt ảnh món ăn</title>
+    <style>
+      /*__FONTS_CSS__*/
+      :root {
+        --paper: #f7f3ec;
+        --ink: #202c28;
+        --pine: #245d49;
+        --coral: #ee705e;
+        --muted: #53635b;
+        --line: #d9dbd2;
+        --soft: #e8eee8;
+        --warn: #7b4810;
+        --warn-bg: #fff0d3;
+        color-scheme: light;
+      }
+      * {
+        box-sizing: border-box;
+      }
+      body {
+        margin: 0;
+        background: radial-gradient(ellipse at 100% 0, #e8eee8, transparent 40%), var(--paper);
+        color: var(--ink);
+        font:
+          16px/1.55 'Be Vietnam Pro',
+          sans-serif;
+      }
+      button,
+      input,
+      select,
+      textarea {
+        font: inherit;
+        color: inherit;
+      }
+      button,
+      select,
+      input {
+        min-height: 48px;
+      }
+      button,
+      a,
+      input,
+      select,
+      textarea,
+      summary {
+        touch-action: manipulation;
+        -webkit-tap-highlight-color: #245d4922;
+      }
+      button {
+        cursor: pointer;
+        border: 1px solid var(--line);
+        border-radius: 8px;
+        padding: 10px 16px;
+        background: white;
+        white-space: normal;
+      }
+      button:hover {
+        border-color: var(--pine);
+        background: var(--soft);
+      }
+      button.primary {
+        background: var(--pine);
+        border-color: var(--pine);
+        color: white;
+      }
+      button.primary:hover {
+        background: #194735;
+      }
+      a {
+        color: var(--pine);
+        text-underline-offset: 4px;
+      }
+      a:hover {
+        text-decoration-thickness: 2px;
+      }
+      :focus-visible {
+        outline: 3px solid var(--pine);
+        outline-offset: 4px;
+      }
+      a,
+      input,
+      button,
+      select,
+      textarea {
+        scroll-margin-block: 24px;
+      }
+      .skip {
+        position: absolute;
+        top: -200px;
+        left: 16px;
+        z-index: 5;
+        background: white;
+        padding: 12px;
+      }
+      .skip:focus {
+        top: 16px;
+      }
+      main {
+        max-width: 1440px;
+        margin: auto;
+        padding: 32px 40px 80px;
+      }
+      header {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 20px;
+        flex-wrap: wrap;
+        border-bottom: 1px solid var(--line);
+        padding-bottom: 24px;
+      }
+      header img {
+        width: 172px;
+        height: auto;
+        max-width: 100%;
+      }
+      nav {
+        display: flex;
+        gap: 24px;
+        flex-wrap: wrap;
+      }
+      .eyebrow {
+        font-size: 13px;
+        letter-spacing: 0.06em;
+        color: var(--pine);
+        font-weight: 600;
+        margin: 32px 0 12px;
+      }
+      h1 {
+        font-size: clamp(36px, 5.8vw, 76px);
+        line-height: 1.08;
+        letter-spacing: -0.045em;
+        text-wrap: balance;
+        overflow-wrap: anywhere;
+        max-width: 1000px;
+        margin: 0 0 20px;
+      }
+      h2 {
+        font-size: 28px;
+        line-height: 1.25;
+        margin: 0;
+        text-wrap: balance;
+        overflow-wrap: anywhere;
+      }
+      h3 {
+        font-size: 20px;
+        line-height: 1.35;
+        margin: 0;
+        text-wrap: balance;
+        overflow-wrap: anywhere;
+      }
+      p {
+        margin: 0 0 12px;
+      }
+      .lead {
+        font-size: 18px;
+        max-width: 780px;
+        color: var(--muted);
+      }
+      .context {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 12px 28px;
+        margin: 28px 0 0;
+        padding: 20px 0;
+        border-block: 1px solid var(--line);
+      }
+      .context span {
+        color: var(--muted);
+        max-width: 100%;
+        overflow-wrap: anywhere;
+      }
+      .context strong {
+        color: var(--ink);
+        font-variant-numeric: tabular-nums;
+      }
+      .note {
+        max-width: 960px;
+        border-left: 4px solid var(--coral);
+        padding: 16px 20px;
+        background: white;
+        margin: 24px 0;
+        color: var(--muted);
+      }
+      section {
+        margin-top: 44px;
+        scroll-margin-top: 24px;
+      }
+      .section-head {
+        display: flex;
+        align-items: baseline;
+        justify-content: space-between;
+        gap: 16px;
+        flex-wrap: wrap;
+        margin-bottom: 20px;
+      }
+      .section-head p {
+        color: var(--muted);
+        margin: 0;
+      }
+      .toolbar {
+        display: flex;
+        gap: 12px;
+        flex-wrap: wrap;
+        align-items: end;
+        padding-bottom: 24px;
+        border-bottom: 1px solid var(--line);
+        margin-bottom: 24px;
+      }
+      .field {
+        display: flex;
+        flex-direction: column;
+        gap: 6px;
+        min-width: 0;
+      }
+      .field label {
+        font-weight: 600;
+        font-size: 14px;
+      }
+      .search {
+        flex: 1 1 18em;
+      }
+      .filter {
+        flex: 1 1 12em;
+      }
+      input,
+      select,
+      textarea {
+        width: 100%;
+        border: 1px solid var(--line);
+        border-radius: 8px;
+        background: white;
+        padding: 12px;
+      }
+      input::placeholder,
+      textarea::placeholder {
+        color: #647169;
+        opacity: 1;
+      }
+      textarea {
+        min-height: 96px;
+        resize: vertical;
+      }
+      .actions {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+        align-items: center;
+      }
+      .actions button {
+        flex: 0 1 auto;
+      }
+      .file-label {
+        min-height: 48px;
+        display: inline-flex;
+        align-items: center;
+        padding: 10px 16px;
+        border: 1px solid var(--line);
+        border-radius: 8px;
+        background: white;
+        cursor: pointer;
+      }
+      .file-label:hover {
+        border-color: var(--pine);
+        background: var(--soft);
+      }
+      #import-file {
+        position: absolute;
+        width: 1px;
+        height: 1px;
+        opacity: 0;
+        min-height: 0;
+        padding: 0;
+      }
+      .file-label:has(input:focus-visible) {
+        outline: 3px solid var(--pine);
+        outline-offset: 4px;
+      }
+      .status {
+        min-height: 1.5em;
+        margin-top: 12px;
+        color: var(--pine);
+        overflow-wrap: anywhere;
+      }
+      .status[data-error='true'] {
+        color: #a42f24;
+      }
+      .recipe-grid,
+      .asset-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(min(100%, 19em), 1fr));
+        gap: 24px;
+      }
+      .card {
+        border: 1px solid var(--line);
+        border-radius: 12px;
+        overflow: hidden;
+        background: white;
+        min-width: 0;
+        display: flex;
+        flex-direction: column;
+      }
+      .card-body {
+        padding: 20px;
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+        flex: 1;
+        min-width: 0;
+      }
+      .card p {
+        margin: 0;
+        overflow-wrap: anywhere;
+      }
+      .card .description {
+        font-size: 14px;
+        color: var(--muted);
+      }
+      .meta {
+        font:
+          13px/1.5 'Be Vietnam Pro',
+          sans-serif;
+        color: var(--muted);
+        overflow-wrap: anywhere;
+      }
+      .badge {
+        display: inline-block;
+        align-self: start;
+        border-radius: 6px;
+        background: var(--soft);
+        color: var(--pine);
+        padding: 5px 9px;
+        font-size: 13px;
+        line-height: 1.5;
+        font-weight: 600;
+        overflow-wrap: anywhere;
+      }
+      .badge.warn {
+        background: var(--warn-bg);
+        color: var(--warn);
+      }
+      .badge.rejected {
+        background: #fbe7e3;
+        color: #8f3023;
+      }
+      .media {
+        background: #efeee7;
+        overflow: hidden;
+        min-width: 0;
+        position: relative;
+        aspect-ratio: 4/3;
+      }
+      .media img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        display: block;
+      }
+      .missing {
+        display: flex;
+        gap: 12px;
+        align-items: center;
+        background: #efeee7;
+        min-height: 90px;
+        padding: 20px;
+        color: var(--muted);
+        font-size: 14px;
+        line-height: 1.5;
+      }
+      .missing svg {
+        flex: none;
+        color: var(--pine);
+      }
+      .missing span {
+        min-width: 0;
+        overflow-wrap: anywhere;
+      }
+      .card button {
+        margin-top: auto;
+        width: 100%;
+      }
+      .proposed-note {
+        padding: 8px 12px;
+        background: var(--warn-bg);
+        color: var(--warn);
+        font-size: 13px;
+        line-height: 1.5;
+      }
+      .empty {
+        border: 1px dashed var(--line);
+        padding: 32px;
+        background: white;
+        max-width: 760px;
+      }
+      .hidden,
+      [hidden] {
+        display: none !important;
+      }
+      .asset-grid .media {
+        aspect-ratio: 1/1;
+      }
+      .asset-grid .media img {
+        object-fit: contain;
+      }
+      .asset-name {
+        font-size: 16px;
+      }
+      .asset-details {
+        font-size: 13px;
+        color: var(--muted);
+        overflow-wrap: anywhere;
+      }
+      .asset-details dt {
+        font-weight: 600;
+      }
+      .asset-details dd {
+        margin: 0 0 12px;
+      }
+      .asset-details code {
+        font-size: inherit;
+      }
+      .brief-list {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(min(100%, 16em), 1fr));
+        gap: 20px;
+        padding: 0;
+        list-style: none;
+        counter-reset: step;
+      }
+      .brief-list li {
+        padding: 24px;
+        background: white;
+        border-top: 3px solid var(--pine);
+        counter-increment: step;
+      }
+      .brief-list li:before {
+        content: '0' counter(step);
+        color: var(--coral);
+        font-size: 28px;
+        font-weight: 700;
+      }
+      .brief-list h3 {
+        margin: 12px 0;
+      }
+      .brief-list p {
+        font-size: 14px;
+        color: var(--muted);
+      }
+      footer {
+        border-top: 1px solid var(--line);
+        margin-top: 44px;
+        padding-top: 24px;
+        color: var(--muted);
+        font-size: 14px;
+        overflow-wrap: anywhere;
+      }
+      dialog {
+        padding: 0;
+        border: 1px solid var(--line);
+        border-radius: 12px;
+        width: min(1120px, calc(100% - 32px));
+        max-height: calc(100dvh - 32px);
+        background: var(--paper);
+        color: var(--ink);
+        overflow: auto;
+        overscroll-behavior: contain;
+      }
+      dialog::backdrop {
+        background: #142d21aa;
+      }
+      .dialog-head {
+        padding: 24px;
+        display: flex;
+        align-items: flex-start;
+        justify-content: space-between;
+        gap: 16px;
+        border-bottom: 1px solid var(--line);
+      }
+      .dialog-head h2 {
+        font-size: 26px;
+        overflow-wrap: anywhere;
+      }
+      .dialog-head button {
+        flex: none;
+        min-width: 48px;
+      }
+      .dialog-grid {
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) minmax(0, 1.1fr);
+        gap: 28px;
+        padding: 24px;
+      }
+      .dialog-grid > * {
+        min-width: 0;
+      }
+      .dialog-copy {
+        color: var(--muted);
+        font-size: 14px;
+      }
+      .crop-pair {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 16px;
+      }
+      .crop-pair figure {
+        margin: 0;
+      }
+      .crop-pair figcaption {
+        margin: 8px 0 12px;
+        font-size: 14px;
+        color: var(--muted);
+      }
+      .crop-pair .hero {
+        aspect-ratio: 16/9;
+      }
+      .crop-pair .original {
+        aspect-ratio: auto;
+      }
+      .crop-pair .original img {
+        width: 100%;
+        height: auto;
+        object-fit: contain;
+      }
+      .crop-pair .media:after {
+        content: '';
+        position: absolute;
+        inset: 8%;
+        border: 1px dashed #ffffffbb;
+        pointer-events: none;
+      }
+      .crop-pair .original:after {
+        display: none;
+      }
+      .subheading {
+        margin: 24px 0 12px;
+        font-size: 18px;
+      }
+      .review-form {
+        display: flex;
+        flex-direction: column;
+        gap: 16px;
+      }
+      .review-form .row {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(min(100%, 12em), 1fr));
+        gap: 16px;
+      }
+      .field-error {
+        font-size: 14px;
+        color: #a42f24;
+        line-height: 1.5;
+      }
+      .dialog-actions {
+        display: flex;
+        gap: 12px;
+        flex-wrap: wrap;
+      }
+      .dialog-actions button {
+        flex: 1 1 10em;
+      }
+      .small {
+        font-size: 13px;
+        color: var(--muted);
+      }
+      .sr-only {
+        position: absolute;
+        width: 1px;
+        height: 1px;
+        margin: -1px;
+        padding: 0;
+        overflow: hidden;
+        clip: rect(0, 0, 0, 0);
+        white-space: nowrap;
+        border: 0;
+      }
+      @media (max-width: 700px) {
+        main {
+          padding: 20px 16px 48px;
+        }
+        header {
+          gap: 16px;
+        }
+        nav {
+          gap: 12px 20px;
+        }
+        h1 {
+          font-size: 40px;
+        }
+        .context {
+          gap: 12px;
+        }
+        .dialog-grid {
+          grid-template-columns: minmax(0, 1fr);
+          padding: 16px;
+        }
+        .dialog-head {
+          padding: 16px;
+        }
+        .toolbar .actions {
+          width: 100%;
+        }
+        .toolbar .actions > * {
+          flex: 1 1 10em;
+        }
+        .asset-grid {
+          grid-template-columns: minmax(0, 1fr);
+        }
+      }
+      @media (prefers-reduced-motion: no-preference) {
+        .intro {
+          animation: arrive 280ms ease-out;
+        }
+        @keyframes arrive {
+          from {
+            opacity: 0;
+            transform: translateY(8px);
+          }
+          to {
+            opacity: 1;
+            transform: translateY(0);
+          }
+        }
+      }
+      nav a {
+        display: inline-flex;
+        align-items: center;
+        min-height: 48px;
+        overflow-wrap: anywhere;
+      }
+    </style>
+  </head>
+  <body>
+    <a class="skip" href="#main">Đến nội dung chính</a>
+    <main id="main" tabindex="-1">
+      <header>
+        <img
+          src="../../../public/takosan/rebuild/lockup.svg"
+          width="300"
+          height="72"
+          alt="Takosan"
+          translate="no"
+        />
+        <nav aria-label="Nội dung bản duyệt">
+          <a href="#recipes">24 món ưu tiên</a><a href="#assets">Ảnh gốc</a
+          ><a href="#brief">Tiêu chí chọn</a>
+        </nav>
+      </header>
+      <div class="intro">
+        <p class="eyebrow">NỘI DUNG HÌNH ẢNH / BẢN DUYỆT LOCAL 01</p>
+        <h1>Đúng món.<br />Rõ nguồn. Hợp khung.</h1>
+        <p class="lead">
+          Chọn ảnh có thể kể đúng câu chuyện của món ăn. Xem cách ảnh hiện trên thẻ món và phần chi
+          tiết, rồi ghi lại nguồn, quyền sử dụng và quyết định của bạn.
+        </p>
+      </div>
+      <div class="context" aria-label="Tình trạng bộ ảnh">
+        <span><strong>24</strong> món từ danh sách local</span
+        ><span><strong>4</strong> ảnh đang được phép hiển thị</span
+        ><span><strong>20</strong> món chưa có ảnh phù hợp</span
+        ><span><strong>8</strong> file ảnh gốc</span>
+      </div>
+      <p class="note">
+        Đây là bản duyệt, chưa cập nhật ứng dụng. Nguồn và quyền sử dụng của cả tám ảnh còn chưa
+        được xác nhận. Lựa chọn lưu trong phiên này; hãy tải JSON để giữ bản nháp.
+      </p>
+      <section id="recipes" aria-labelledby="recipes-title">
+        <div class="section-head">
+          <h2 id="recipes-title" tabindex="-1">24 món ưu tiên</h2>
+          <p id="result-count" role="status" aria-live="polite"></p>
+        </div>
+        <div class="toolbar">
+          <div class="field search">
+            <label for="search">Tìm món hoặc mã món</label
+            ><input
+              type="search"
+              id="search"
+              name="q"
+              autocomplete="off"
+              maxlength="160"
+              placeholder="Ví dụ: kim chi, thịt kho, gl-05…"
+            />
+          </div>
+          <div class="field filter">
+            <label for="policy">Ảnh đang hiển thị</label
+            ><select id="policy" name="policy">
+              <option value="all">Tất cả món</option>
+              <option value="photo">Có ảnh local</option>
+              <option value="missing">Chưa có ảnh</option>
+              <option value="wrong">Sai món hoặc thiếu file</option>
+            </select>
+          </div>
+          <div class="field filter">
+            <label for="decision-filter">Quyết định trong bản nháp</label
+            ><select id="decision-filter" name="decision">
+              <option value="all">Tất cả quyết định</option>
+              <option value="pending">Chờ duyệt</option>
+              <option value="candidate">Cân nhắc ảnh</option>
+              <option value="rejected">Loại khỏi vòng chọn</option>
+              <option value="owner_reviewed">Có biên bản của chủ dự án</option>
+            </select>
+          </div>
+          <div class="actions">
+            <button id="reset-filters" type="button">Xóa bộ lọc</button
+            ><button id="export-draft" class="primary" type="button">Tải bản nháp JSON</button
+            ><label class="file-label"
+              >Nhập bản nháp<input
+                id="import-file"
+                type="file"
+                accept=".json,application/json"
+                aria-label="Nhập bản nháp JSON"
+            /></label>
+          </div>
+        </div>
+        <p id="feedback" class="status" role="status" aria-live="polite"></p>
+        <div id="recipe-grid" class="recipe-grid"></div>
+        <div id="empty" class="empty" hidden>
+          <h3>Chưa có món khớp bộ lọc</h3>
+          <p>Thử tên khác hoặc xóa bộ lọc để xem lại toàn bộ danh sách.</p>
+          <button id="empty-reset" type="button">Xem tất cả 24 món</button>
+        </div>
+      </section>
+      <section id="assets" aria-labelledby="assets-title">
+        <div class="section-head">
+          <h2 id="assets-title">Tám ảnh gốc</h2>
+          <p>Ảnh để đối chiếu · quyền sử dụng chưa xác nhận</p>
+        </div>
+        <div id="asset-grid" class="asset-grid"></div>
+      </section>
+      <section id="brief" aria-labelledby="brief-title">
+        <h2 id="brief-title">Trước khi chọn một ảnh</h2>
+        <ol class="brief-list">
+          <li>
+            <h3>Đúng chủ thể</h3>
+            <p>
+              Đối chiếu nguyên liệu, cách nấu và tên món. Cơm gà trứng không thay thế được trứng
+              hấp; ảnh cùng nguyên liệu chưa chắc là cùng món.
+            </p>
+          </li>
+          <li>
+            <h3>Có nguồn rõ</h3>
+            <p>
+              Ghi tác giả hoặc đơn vị tạo ảnh, nguồn gốc và căn cứ quyền sử dụng. Nếu là ảnh tạo,
+              ghi rõ công cụ và provenance.
+            </p>
+          </li>
+          <li>
+            <h3>Crop có dụng ý</h3>
+            <p>
+              Giữ món chính trong cả khung thẻ 4:3 và khung rộng 16:9 thử nghiệm. Phần chi tiết hiện
+              dùng 4:3; khung rộng chưa được áp dụng.
+            </p>
+          </li>
+          <li>
+            <h3>Ghi biên bản</h3>
+            <p>
+              Ghi người, ngày, đúng món và crop đã xem. JSON hợp lệ chỉ xác nhận cấu trúc; quyết
+              định áp dụng ảnh vào catalog cần một bước riêng.
+            </p>
+          </li>
+        </ol>
+      </section>
+      <footer>
+        <p>
+          Bộ duyệt dựa trên 24 món đầu discovery cục bộ của UI12, không phải số liệu truy cập
+          production. Ảnh remote không được tải tại đây. Chữ phóng lớn và các bản crop xem thử không
+          thay đổi file ảnh gốc.
+        </p>
+        <p id="dataset-label" class="meta"></p>
+      </footer>
+    </main>
+    <dialog id="review-dialog" aria-labelledby="dialog-title" aria-describedby="dialog-context">
+      <div class="dialog-head">
+        <div>
+          <p class="eyebrow" style="margin-top: 0">DUYỆT TỪNG MÓN</p>
+          <h2 id="dialog-title"></h2>
+          <p id="dialog-context" class="dialog-copy"></p>
+        </div>
+        <button id="close-dialog" type="button" aria-label="Đóng bản duyệt">Đóng</button>
+      </div>
+      <div class="dialog-grid">
+        <div>
+          <h3>Ảnh đang hiển thị</h3>
+          <dl id="mapping-details" class="asset-details" style="margin-top: 16px"></dl>
+          <div id="current-preview" style="margin-top: 12px"></div>
+          <p id="subject-brief" class="dialog-copy" style="margin-top: 16px"></p>
+          <h3 class="subheading">Ảnh đề xuất · chưa áp dụng</h3>
+          <div id="candidate-previews" class="crop-pair"></div>
+        </div>
+        <form id="review-form" class="review-form" novalidate>
+          <div class="field">
+            <label for="candidateAssetId">Ảnh local đề xuất</label
+            ><select id="candidateAssetId" name="candidateAssetId">
+              <option value="">Chưa chọn ảnh</option></select
+            ><span class="small">Chọn từ ảnh gốc để xem thử. Không thay ảnh đang hiển thị.</span>
+          </div>
+          <div class="field">
+            <label for="decision">Quyết định</label
+            ><select id="decision" name="decision">
+              <option value="pending">Chờ duyệt</option>
+              <option value="candidate">Cân nhắc ảnh này</option>
+              <option value="rejected">Loại khỏi vòng chọn</option>
+              <option value="owner_reviewed">Có biên bản của chủ dự án</option>
+            </select>
+          </div>
+          <div class="field">
+            <label for="creator">Tác giả hoặc đơn vị tạo ảnh</label
+            ><input
+              id="creator"
+              name="creator"
+              autocomplete="off"
+              maxlength="2000"
+              placeholder="Ví dụ: tên nhiếp ảnh gia hoặc đơn vị…"
+            />
+          </div>
+          <div class="field">
+            <label for="source">Nguồn hoặc biên bản tạo ảnh</label
+            ><textarea
+              id="source"
+              name="source"
+              autocomplete="off"
+              maxlength="2000"
+              placeholder="URL nguồn, tài liệu hoặc thông tin tạo ảnh…"
+            ></textarea>
+          </div>
+          <div class="field">
+            <label for="rights">Căn cứ quyền sử dụng</label
+            ><textarea
+              id="rights"
+              name="rights"
+              autocomplete="off"
+              maxlength="2000"
+              placeholder="Loại giấy phép, phạm vi sử dụng và tài liệu chứng minh…"
+            ></textarea>
+          </div>
+          <div class="field">
+            <label for="subjectNotes">Đối chiếu đúng món</label
+            ><textarea
+              id="subjectNotes"
+              name="subjectNotes"
+              autocomplete="off"
+              maxlength="2000"
+              placeholder="Nguyên liệu và cách nấu đã đối chiếu; điểm cần xem lại…"
+            ></textarea>
+          </div>
+          <div class="field">
+            <label for="cropNotes">Nhận xét crop</label
+            ><textarea
+              id="cropNotes"
+              name="cropNotes"
+              autocomplete="off"
+              maxlength="2000"
+              placeholder="Khung 4:3, 16:9 và vị trí chủ thể…"
+            ></textarea>
+          </div>
+          <div class="row">
+            <div class="field">
+              <label for="reviewer">Người duyệt</label
+              ><input
+                id="reviewer"
+                name="reviewer"
+                autocomplete="off"
+                maxlength="2000"
+                placeholder="Tên người lập biên bản…"
+              />
+            </div>
+            <div class="field">
+              <label for="reviewedAt">Ngày duyệt</label
+              ><input id="reviewedAt" name="reviewedAt" type="date" autocomplete="off" />
+            </div>
+          </div>
+          <div class="field">
+            <label for="notes">Ghi chú hoặc lý do loại</label
+            ><textarea
+              id="notes"
+              name="notes"
+              autocomplete="off"
+              maxlength="2000"
+              placeholder="Điều cần bổ sung hoặc lý do loại ảnh…"
+            ></textarea>
+          </div>
+          <p id="form-error" class="field-error" role="alert"></p>
+          <p class="small">
+            Biên bản cần đủ tác giả, nguồn, quyền sử dụng, đúng món, crop, người và ngày duyệt.
+            Thông tin này là khai báo của người duyệt; chưa cấp quyền xuất bản.
+          </p>
+          <div class="dialog-actions">
+            <button id="save-review" class="primary" type="submit">Giữ trong bản nháp</button
+            ><button id="cancel-review" type="button">Đóng, bỏ sửa đang nhập</button>
+          </div>
+        </form>
+      </div>
+    </dialog>
+    <script type="application/json" id="review-data">
+      "__REVIEW_DATA__"
+    </script>
+    <script id="review-code">
+      __REVIEW_SCRIPT__;
+    </script>
+  </body>
+</html>

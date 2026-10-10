@@ -1,3 +1,249 @@
+# UI14 optional navigation motion delivery (ADR-057, 2026-10-11)
+
+MotionProvider now lives in a lightweight module with the exact user reduced-motion
+policy. Existing helpers re-export it and keep their source. App.tsx changes only
+that import; provider ancestry, route/guard authority and flags are unchanged.
+
+Legacy active indicator defers its engine with a shared promise. Static decoration
+is immediate and remains on rejection; a document reload can retry, a component
+remount after rejection retains fallback. Effect cleanup fences abandoned receipts.
+Loaded layoutId/classes/transition are original. Kitchen navigation stays static;
+its production entry no longer requests the full motion graph. Other routes can
+load their own motion features as before. No services/stores/asset/config change.
+
+Local production-build/CDP and isolated actual component fixtures are evidence
+tooling, not new app routes. Three cold/warm pairs per route reduce transferred JS
+17.3–18.4%; 288files/6742tests and 50settled snapshots pass. UI14 reports preserve
+local/hosted differences, mid-fade contrast and short-screen reading-space limits.
+Implementation `7ee28bf48974e8faf52f78caa2b9a5b979953768`; sequential receipt follows.
+UI15 audits short-screen/motion readability only; no UI15 runtime yet.
+
+---
+
+# UI13 standalone local media review (ADR-056, 2026-10-11)
+
+A deterministic Node/Vite SSR read-only generator pins three UI12 inputs with
+SHA256, rechecks actual static recipe identity/resolver output, and verifies eight
+public originals. Generated 24-record dataset, all-pending draft and standalone
+HTML live under round-13. No application route/module or media authority changes.
+
+Shared pure contract runs in Node and is embedded in the browser: full unique
+recipe set, fixed dataset, known original references, decision/date/text bounds,
+evidence fields for human owner-reviewed claims. promotionAuthorized stays false;
+structural validation does not prove source/license or grant catalog authority.
+3 MiB import bound covers every allowed field including JSON escape expansion.
+
+Browser draft is memory-only with explicit JSON download/import, atomic rejection,
+text-only notes and generation fencing against late file reads/new saved reviews.
+Native modal plus boundary Tab cycling/Escape/return focus; HTTP URL filters and
+recipe deep link. Direct-file History is best effort. Crop is CSS only. Preview
+binds 127.0.0.1, serves a GET/HEAD allowlist and exact-script-hash CSP; no domain API
+or credential/network writer. Original public bytes and entire src are unchanged.
+
+Implementation `021220bbcb883360ba79b8101ff9586a67ebc4ae`; receipt round-13/GIT_VERIFICATION.md.
+UI14 performance/motion packet is ready; no UI14 runtime. Owner image/brand/device/
+hosted approval remains separate from local artifact/gate completion.
+
+---
+
+# UI12 recipe presentation and media lifecycle (ADR-055, 2026-10-11)
+
+RecipeCard has an explicit kitchen presentation opt-in for Home/discovery; its
+default legacy JSX tail is unchanged. RecipeMedia consumes existing resolved
+media authority, resets by title/src/fallback identity, renders load/photo/missing
+and terminates canonical→permittedlegacy errors at a labelled HTML missing state.
+No resolver/catalog/source-license authority, retry loop or new public asset.
+
+kitchen-recipes.css scopes unitless text, intrinsic controls, adaptive em-based
+card/tab/nutrition/filter grids and sticky offsets to UI07identity/UI11shell. Short
+viewports release recipe overview/discovery controls to flow. Queries, callbacks,
+availability/shopping/cooking/routes/guards match base96normalized page records;
+protected diff empty. No backend/service/store/schema/dependency change.
+Implementation `03e16c78850b061784dc2e9a01323bd7e74b65f3` verified against374source/349evidence
+records and manifest(724uniqueGitblobs);receipt round-12/GIT_VERIFICATION.md.
+See round-12 reports/receipt. UI13 reviews observedmedia source/license/subject/crop
+before promotion; local screenshots do not confer brand/photo/device approval.
+
+---
+
+# UI11 measured navigation and shell (ADR-054, 2026-10-10)
+
+Kitchen AppLayout selects explicit navigation variants; default navigation preserves
+legacy kit. Five mobile roots use an intrinsic/em grid, Scan belongs to a dedicated
+mobile KitchenHeader row,112px tablet rail and256px desktop sidebar scroll. Header
+owns brand below640px; sidebar owns it above. Review pages adopt KitchenHeader;
+route/guard and immersive definitions stay unchanged. Kitchen active states use
+segment boundaries; contextual shopping/review have no selected root.
+
+useKitchenShell observes border-box chrome and lazy child mount/unmount. CSS tokens
+own nav/header/banner/action reserve/gap/rail width; the actual document receives
+scroll padding and focused main controls clear chrome. Dialog/toolbar focus stays
+with existing owners. Inventory/recipe/settings/scan actions clear the same measured
+nav, with fixed main reserve and intrinsic action text. Short<=600px chrome/actions
+flow; rail scrolls. No domain authority/service/store/dependency/public change.
+Evidence and residuals in round-11; UI12 starts with inner-route/media audit only.
+Implementation `74adf20db00f77c63ba47085362c621b56e050fc` verified against
+source/evidence/asset Git objects on 2026-10-11 JST; see round-11/GIT_VERIFICATION.md.
+
+---
+
+# UI10 Week compatibility presentation (ADR-053, 2026-10-10)
+
+The six existing Week pages and four meal/summary/swap/export components share
+`WeekWorkspace`, `WeekSetupChoices` and `kitchen-week.css`. AppLayout adopts only
+the explicit Week route families. App.tsx routes, guards and planner-on aliases
+remain byte-identical; generating redirects to /planner and settings to
+/settings/planning when the planner flag is on. Flag-off keeps the Week workspace.
+
+Setup exposes four supported stages and commits its existing memory draft only
+on explicit generation. Settings edits that same next-generation session draft,
+without a server preferences command or current-plan mutation. The generation
+effect preserves request reuse, StrictMode and private-session fencing; only the
+null-versus-undefined budget mapping changes. Export text generators retain their
+AST, while awaited clipboard/share feedback is fenced against abandoned dialogs.
+
+Shopping completion captures selected items and fences abandoned page/session
+receipts. The sole store allowance passes through the existing optional pendingSync
+signal; no service, outbox, projection, command or schema authority is changed.
+See DOMAIN_MODEL for the signal's durability limitation. UI07 assets/fonts/tokens
+are reused; no new public asset or dependency. Evidence: round-10 reports. Shared
+navigation density is the next UI11 packet, with ADR-054 required before runtime.
+
+---
+
+# UI09 stock detail and system presentation (ADR-052, 2026-10-10)
+
+KitchenDetailPage reuses KitchenHeader/heading for exact detail aliases and
+/inventory-reconciliation. kitchen-stock-detail.css scopes readable facts/forms/
+records, wrapping,48px controls,16px inputs and reduced motion. AppLayout explicit
+scope preserves unrelated/protected routes. SystemStatusPage owns standalone
+main/brand/h1/aria-busy for SessionBoundary and AppErrorBoundary JSX. Session
+verification effects, App routes/guards, queries/mutation/draft submit and server
+reconciliation intent match the base after formatting normalization. No services/
+stores/backend/schema/public assets/payment/auth protocol change.
+
+security-preview opt-in PREVIEW_MEAL_PLANNER_ENABLED=false sets local frontend
+and API together; default true. Actual Week flag-off audit reveals unsent day
+schedule, memory-only settings and misleading regenerate priority. UI10 packet
+defines bounded corrections; no Week runtime edit here. Shared nav enlarged-label
+density and inventory/Week offline authority are distinct follow-ups. Source and
+limits: UI09 packet and round-9 FOUNDATION/VERIFICATION.
+
+---
+
+# UI08 account and entry presentation (ADR-051, 2026-10-10)
+
+AccountPage reuses KitchenHeader/heading and existing primitives for explicit
+/me and settings/inbox routes; kitchen-account.css is route scoped. Public entry
+pages own their kitchen scope and kitchen-entry.css. Assets remain UI07; legacy
+and protected routes retain the old contracts. AuthShell/field presentation changes
+but AuthPage/services/session/security stay unchanged. App's completed-onboarding
+guard matches the existing client primaryGoal so it cannot override week setup
+with Home; all other guards remain. Preference requests/keys/authority remain;
+local notification toggles express saved intent only, not delivery/filter behavior.
+See UI08 packet and round-8 reports for exact evidence and remaining scope.
+
+---
+
+# UI07 scoped digital identity (ADR-050, 2026-10-10)
+
+`TAKOSAN_KITCHEN` reads /takosan/rebuild assets; supplied TAKOSAN_BRAND remains
+compatibility contract. Five vector masters feed generate-takosan-brand.mjs and
+default brand:icons; explicit-kit generator mode retains legacy exports. Outline
+masters use existing Be Vietnam Pro WOFF2/OFL; ordinary exports need pinned sharp
+only. Header/sidebar/cooking dimensions and AppLayout persistent mode prevent
+repeated desktop lockups without hiding immersive identity. Metadata/manifest/SW
+static precache adopt new paths; lifecycle/fetch policy remains. No domain/backend/
+auth/payment/dependency/flag/config change. Evidence/limits: round-7 reports.
+
+---
+
+# UI06 planner and saved shopping presentation (ADR-049, 2026-10-10)
+
+`PlannerPage` mounts `PlannerWorkspace` keyed by pathname. Existing usePlanner
+mounted/private-session checks discard abandoned screen callbacks; durable plans
+remain in server and private query cache. `/planner` family and `/shopping` use
+the scoped kitchen shell and `kitchen-planning.css`; Week flag routing/aliases,
+V1/V2/404 fallback, proposal accept/revision and inventory authority are unchanged.
+
+Planner setup/day board/meal/composer/shopping share responsive hierarchy and
+readable forms. Picker receives mutation errors inside its focus-trapped dialog;
+search error terminates pending feedback. Shopping budget error owns focus.
+
+Saved shopping uses typed `ShoppingSnapshot` under the existing query prefix plus
+`snapshot`; old facade readers retain the array contract. `shopping.ts` validates
+input/response, scopes cached reads and queued operations, overlays owned outbox
+POST/PATCH/DELETE in order, deduplicates client IDs and verifies durable queuing.
+Later same-item commands queue behind pending earlier commands. Mutation cache
+projection does not issue an extra GET. Form holds one in-memory add ID/payload
+through uncertain retry and warns on document exit; known400 allows edit. Checks
+and deletions return pendingSync receipts; no stock command or new persistence.
+See UI06 packet and round-6 FOUNDATION/VERIFICATION for evidence and limits.
+
+---
+
+# UI05 cooking presentation and lifecycle (ADR-048, 2026-10-10)
+
+RecipeDetailPage remains preparation. `/cook/:slug` and `/cooking/:id` use the
+scoped cooking workspace; `/cooking/complete` and existing attempted cook aliases
+share CookingReview. `useCookingStore` owns in-memory run, quantity strings,
+strict availability validation, deadline timer and immutable command attempt.
+`lib/cooking-review.ts` handles typed actual-use/zero/blank/error presentation;
+`lib/cooking-completion.ts` completes only its current run/session and invalidates
+Week dependents, with no async navigation. Component refresh uses fetchJson
+without offline cache fallback; unmounted/run-changed responses cannot reopen it.
+
+Recipes service retains server/outbox authority: validate success shape, verify
+queued persistence, snapshot stock before command, preserve key/body/header and
+avoid duplicate same/concurrent-key offline projection. Worker allocation/commands,
+tenancy, revisions and Week dual-write remain unchanged. Voice/step callbacks read
+current state and stop across lifecycle. See UI05 packet and round-5 evidence.
+
+---
+
+# UI04 scan review presentation (ADR-047, 2026-10-10)
+
+`components/scan/{ReviewHeading,ReviewFields,ReviewSource}.tsx` share presentation
+across photo/receipt reviews; existing route/session/poll/command handlers remain
+separate. Shared values carry blank quantity without inventing0/1. `useScanStore`
+adds explicit in-memory imageScanId binding; server hydration cannot bind an old
+image. `kitchen-scan.css` and scoped AppLayout include `/scan` family; immersive
+camera and non-immersive review route/navigation compatibility remain.
+
+`ScanPage` no longer invents processing stages from timers. Existing server
+pending/processing DTOs own queued/analyzing status. Camera effects own/stop the
+opened stream; scan mode changes cancel unfinished image reads and reset the file
+input, so a stale callback cannot submit the prior mode and the same file can be
+selected again. Photo confirm surfaces pendingSync before inventory navigation and clears the
+queued ready draft on leaving review; SPA return must hydrate server state.
+Synthetic offline confirmation skips rejected rows, validates accepted quantities
+before mutation and carries estimate qualifiers into existing outbox/projection.
+An all-rejected synthetic import reports zero items and no pending synchronization.
+No scan API/schema/catalog or inventory authority change. See UI04 FOUNDATION.
+
+---
+
+# UI03 discovery read path (ADR-046, 2026-10-10)
+
+`GET /api/v1/recipe-discovery` is additive under recipe routes and existing auth/
+tenancy guards. `src/worker/services/recipe-discovery.ts` accepts one routed
+RecipeAuthoritySnapshot, reads strict household inventory and uses
+`packages/recipes/src/discovery.ts` for whole-catalog filtering, legacy quantity
+ranking, deterministic ties and snapshot-fenced offset pagination. Shared Zod
+request/card/page contracts are in `discovery-contract.ts`. Only selected page
+IDs receive media enrichment; detail/legacy APIs and commands stay unchanged.
+
+`src/web/services/recipe-discovery.ts` validates response/session and is the
+explicitly approved offline static reader (T14D audit addendum); device results are
+labelled and source-fenced. Home requests3, Recipes24, with scoped recommendation
+cache prefix/invalidation and URL cursor/restart. `legacy-media-policy.ts` is a
+presentation quarantine used by the central web resolver; raw catalog/release
+fingerprints and canonical media serving authority are unchanged. Local evidence:
+`../ui-rebuild/round-3/FOUNDATION.md`. Full catalog ranking/hydration remains;
+this contract reduces transfer and selected-page media reads, not database CPU.
+
+---
+
 # Architecture — T01 foundation through T05 shopping optimization
 
 T20 adds `packages/recipes/src/composition/*` (roles, simple foods, profiles, pure

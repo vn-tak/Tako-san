@@ -1,0 +1,717 @@
+{
+  "base": "http://127.0.0.1:5197",
+  "syntheticLocalOnly": true,
+  "checks": [
+    {
+      "name": "cooking-320",
+      "url": "http://127.0.0.1:5197/cook/thit-kho-trung",
+      "viewport": 320,
+      "width": 320,
+      "font": "\"Be Vietnam Pro\", sans-serif",
+      "fields": [],
+      "motion": [
+        "none"
+      ],
+      "brokenImages": [],
+      "violations": []
+    },
+    {
+      "name": "timer-320",
+      "url": "http://127.0.0.1:5197/cook/thit-kho-trung",
+      "viewport": 320,
+      "width": 320,
+      "font": "\"Be Vietnam Pro\", sans-serif",
+      "fields": [],
+      "motion": [
+        "none"
+      ],
+      "brokenImages": [],
+      "violations": []
+    },
+    {
+      "name": "actual-use-320",
+      "url": "http://127.0.0.1:5197/cooking/complete",
+      "viewport": 320,
+      "width": 320,
+      "font": "\"Be Vietnam Pro\", sans-serif",
+      "fields": [
+        {
+          "font": 16,
+          "height": 48
+        },
+        {
+          "font": 16,
+          "height": 48
+        },
+        {
+          "font": 16,
+          "height": 48
+        },
+        {
+          "font": 16,
+          "height": 48
+        },
+        {
+          "font": 16,
+          "height": 48
+        }
+      ],
+      "motion": [],
+      "brokenImages": [],
+      "violations": []
+    },
+    {
+      "name": "cooking-390",
+      "url": "http://127.0.0.1:5197/cook/thit-kho-trung",
+      "viewport": 390,
+      "width": 390,
+      "font": "\"Be Vietnam Pro\", sans-serif",
+      "fields": [],
+      "motion": [
+        "none"
+      ],
+      "brokenImages": [],
+      "violations": []
+    },
+    {
+      "name": "timer-390",
+      "url": "http://127.0.0.1:5197/cook/thit-kho-trung",
+      "viewport": 390,
+      "width": 390,
+      "font": "\"Be Vietnam Pro\", sans-serif",
+      "fields": [],
+      "motion": [
+        "none"
+      ],
+      "brokenImages": [],
+      "violations": []
+    },
+    {
+      "name": "actual-use-390",
+      "url": "http://127.0.0.1:5197/cooking/complete",
+      "viewport": 390,
+      "width": 390,
+      "font": "\"Be Vietnam Pro\", sans-serif",
+      "fields": [
+        {
+          "font": 16,
+          "height": 48
+        },
+        {
+          "font": 16,
+          "height": 48
+        },
+        {
+          "font": 16,
+          "height": 48
+        },
+        {
+          "font": 16,
+          "height": 48
+        },
+        {
+          "font": 16,
+          "height": 48
+        }
+      ],
+      "motion": [],
+      "brokenImages": [],
+      "violations": []
+    },
+    {
+      "name": "cooking-768",
+      "url": "http://127.0.0.1:5197/cook/thit-kho-trung",
+      "viewport": 768,
+      "width": 768,
+      "font": "\"Be Vietnam Pro\", sans-serif",
+      "fields": [],
+      "motion": [
+        "none"
+      ],
+      "brokenImages": [],
+      "violations": []
+    },
+    {
+      "name": "timer-768",
+      "url": "http://127.0.0.1:5197/cook/thit-kho-trung",
+      "viewport": 768,
+      "width": 768,
+      "font": "\"Be Vietnam Pro\", sans-serif",
+      "fields": [],
+      "motion": [
+        "none"
+      ],
+      "brokenImages": [],
+      "violations": []
+    },
+    {
+      "name": "actual-use-768",
+      "url": "http://127.0.0.1:5197/cooking/complete",
+      "viewport": 768,
+      "width": 768,
+      "font": "\"Be Vietnam Pro\", sans-serif",
+      "fields": [
+        {
+          "font": 16,
+          "height": 48
+        },
+        {
+          "font": 16,
+          "height": 48
+        },
+        {
+          "font": 16,
+          "height": 48
+        },
+        {
+          "font": 16,
+          "height": 48
+        },
+        {
+          "font": 16,
+          "height": 48
+        }
+      ],
+      "motion": [],
+      "brokenImages": [],
+      "violations": []
+    },
+    {
+      "name": "cooking-1024",
+      "url": "http://127.0.0.1:5197/cook/thit-kho-trung",
+      "viewport": 1024,
+      "width": 1024,
+      "font": "\"Be Vietnam Pro\", sans-serif",
+      "fields": [],
+      "motion": [
+        "none"
+      ],
+      "brokenImages": [],
+      "violations": []
+    },
+    {
+      "name": "timer-1024",
+      "url": "http://127.0.0.1:5197/cook/thit-kho-trung",
+      "viewport": 1024,
+      "width": 1024,
+      "font": "\"Be Vietnam Pro\", sans-serif",
+      "fields": [],
+      "motion": [
+        "none"
+      ],
+      "brokenImages": [],
+      "violations": []
+    },
+    {
+      "name": "actual-use-1024",
+      "url": "http://127.0.0.1:5197/cooking/complete",
+      "viewport": 1024,
+      "width": 1024,
+      "font": "\"Be Vietnam Pro\", sans-serif",
+      "fields": [
+        {
+          "font": 16,
+          "height": 48
+        },
+        {
+          "font": 16,
+          "height": 48
+        },
+        {
+          "font": 16,
+          "height": 48
+        },
+        {
+          "font": 16,
+          "height": 48
+        },
+        {
+          "font": 16,
+          "height": 48
+        }
+      ],
+      "motion": [],
+      "brokenImages": [],
+      "violations": []
+    },
+    {
+      "name": "cooking-1440",
+      "url": "http://127.0.0.1:5197/cook/thit-kho-trung",
+      "viewport": 1440,
+      "width": 1440,
+      "font": "\"Be Vietnam Pro\", sans-serif",
+      "fields": [],
+      "motion": [
+        "none"
+      ],
+      "brokenImages": [],
+      "violations": []
+    },
+    {
+      "name": "timer-1440",
+      "url": "http://127.0.0.1:5197/cook/thit-kho-trung",
+      "viewport": 1440,
+      "width": 1440,
+      "font": "\"Be Vietnam Pro\", sans-serif",
+      "fields": [],
+      "motion": [
+        "none"
+      ],
+      "brokenImages": [],
+      "violations": []
+    },
+    {
+      "name": "actual-use-1440",
+      "url": "http://127.0.0.1:5197/cooking/complete",
+      "viewport": 1440,
+      "width": 1440,
+      "font": "\"Be Vietnam Pro\", sans-serif",
+      "fields": [
+        {
+          "font": 16,
+          "height": 48
+        },
+        {
+          "font": 16,
+          "height": 48
+        },
+        {
+          "font": 16,
+          "height": 48
+        },
+        {
+          "font": 16,
+          "height": 48
+        },
+        {
+          "font": 16,
+          "height": 48
+        }
+      ],
+      "motion": [],
+      "brokenImages": [],
+      "violations": []
+    },
+    {
+      "name": "voice-error-390",
+      "url": "http://127.0.0.1:5197/cook/thit-kho-trung",
+      "viewport": 390,
+      "width": 390,
+      "font": "\"Be Vietnam Pro\", sans-serif",
+      "fields": [],
+      "motion": [
+        "none"
+      ],
+      "brokenImages": [],
+      "violations": []
+    },
+    {
+      "name": "timer-expired-390",
+      "url": "http://127.0.0.1:5197/cook/thit-kho-trung",
+      "viewport": 390,
+      "width": 390,
+      "font": "\"Be Vietnam Pro\", sans-serif",
+      "fields": [],
+      "motion": [
+        "none"
+      ],
+      "brokenImages": [],
+      "violations": []
+    },
+    {
+      "name": "actual-use-fractional-390",
+      "url": "http://127.0.0.1:5197/cooking/complete",
+      "viewport": 390,
+      "width": 390,
+      "font": "\"Be Vietnam Pro\", sans-serif",
+      "fields": [
+        {
+          "font": 16,
+          "height": 48
+        },
+        {
+          "font": 16,
+          "height": 48
+        },
+        {
+          "font": 16,
+          "height": 48
+        },
+        {
+          "font": 16,
+          "height": 48
+        },
+        {
+          "font": 16,
+          "height": 48
+        }
+      ],
+      "motion": [],
+      "brokenImages": [],
+      "violations": []
+    },
+    {
+      "name": "actual-use-short-390",
+      "url": "http://127.0.0.1:5197/cooking/complete",
+      "viewport": 390,
+      "width": 390,
+      "font": "\"Be Vietnam Pro\", sans-serif",
+      "fields": [
+        {
+          "font": 16,
+          "height": 48
+        },
+        {
+          "font": 16,
+          "height": 48
+        },
+        {
+          "font": 16,
+          "height": 48
+        },
+        {
+          "font": 16,
+          "height": 48
+        },
+        {
+          "font": 16,
+          "height": 48
+        }
+      ],
+      "motion": [],
+      "brokenImages": [],
+      "violations": []
+    },
+    {
+      "name": "actual-use-text-enlarged-320",
+      "url": "http://127.0.0.1:5197/cooking/complete",
+      "viewport": 320,
+      "width": 320,
+      "font": "\"Be Vietnam Pro\", sans-serif",
+      "fields": [
+        {
+          "font": 32,
+          "height": 70
+        },
+        {
+          "font": 32,
+          "height": 70
+        },
+        {
+          "font": 32,
+          "height": 70
+        },
+        {
+          "font": 32,
+          "height": 70
+        },
+        {
+          "font": 32,
+          "height": 70
+        }
+      ],
+      "motion": [],
+      "brokenImages": [],
+      "violations": []
+    },
+    {
+      "name": "completion-server-390",
+      "url": "http://127.0.0.1:5197/cooking/complete",
+      "viewport": 390,
+      "width": 390,
+      "font": "\"Be Vietnam Pro\", sans-serif",
+      "fields": [
+        {
+          "font": 16,
+          "height": 48
+        },
+        {
+          "font": 16,
+          "height": 48
+        },
+        {
+          "font": 16,
+          "height": 48
+        },
+        {
+          "font": 16,
+          "height": 48
+        },
+        {
+          "font": 16,
+          "height": 48
+        }
+      ],
+      "motion": [],
+      "brokenImages": [],
+      "violations": []
+    },
+    {
+      "name": "completion-uncertain-390",
+      "url": "http://127.0.0.1:5197/cooking/complete",
+      "viewport": 390,
+      "width": 390,
+      "font": "\"Be Vietnam Pro\", sans-serif",
+      "fields": [
+        {
+          "font": 16,
+          "height": 48
+        },
+        {
+          "font": 16,
+          "height": 48
+        },
+        {
+          "font": 16,
+          "height": 48
+        },
+        {
+          "font": 16,
+          "height": 48
+        },
+        {
+          "font": 16,
+          "height": 48
+        }
+      ],
+      "motion": [],
+      "brokenImages": [],
+      "violations": []
+    },
+    {
+      "name": "cooking-previous-request-390",
+      "url": "http://127.0.0.1:5197/cook/gl-03",
+      "viewport": 390,
+      "width": 390,
+      "font": "\"Be Vietnam Pro\", sans-serif",
+      "fields": [],
+      "motion": [],
+      "brokenImages": [],
+      "violations": []
+    },
+    {
+      "name": "completion-refresh-failed-390",
+      "url": "http://127.0.0.1:5197/cooking/complete",
+      "viewport": 390,
+      "width": 390,
+      "font": "\"Be Vietnam Pro\", sans-serif",
+      "fields": [
+        {
+          "font": 16,
+          "height": 48
+        },
+        {
+          "font": 16,
+          "height": 48
+        },
+        {
+          "font": 16,
+          "height": 48
+        },
+        {
+          "font": 16,
+          "height": 48
+        },
+        {
+          "font": 16,
+          "height": 48
+        }
+      ],
+      "motion": [],
+      "brokenImages": [],
+      "violations": []
+    },
+    {
+      "name": "completion-pending-sync-390",
+      "url": "http://127.0.0.1:5197/cooking/complete",
+      "viewport": 390,
+      "width": 390,
+      "font": "\"Be Vietnam Pro\", sans-serif",
+      "fields": [
+        {
+          "font": 16,
+          "height": 48
+        },
+        {
+          "font": 16,
+          "height": 48
+        },
+        {
+          "font": 16,
+          "height": 48
+        },
+        {
+          "font": 16,
+          "height": 48
+        },
+        {
+          "font": 16,
+          "height": 48
+        }
+      ],
+      "motion": [],
+      "brokenImages": [],
+      "violations": []
+    },
+    {
+      "name": "completion-no-draft-390",
+      "url": "http://127.0.0.1:5197/cooking/complete",
+      "viewport": 390,
+      "width": 390,
+      "font": "\"Be Vietnam Pro\", sans-serif",
+      "fields": [],
+      "motion": [],
+      "brokenImages": [],
+      "violations": []
+    },
+    {
+      "name": "cooking-empty-steps-390",
+      "url": "http://127.0.0.1:5197/cook/empty-recipe",
+      "viewport": 390,
+      "width": 390,
+      "font": "\"Be Vietnam Pro\", sans-serif",
+      "fields": [],
+      "motion": [],
+      "brokenImages": [],
+      "violations": []
+    },
+    {
+      "name": "cooking-id-alias-390",
+      "url": "http://127.0.0.1:5197/cooking/vn-kho-01",
+      "viewport": 390,
+      "width": 390,
+      "font": "\"Be Vietnam Pro\", sans-serif",
+      "fields": [],
+      "motion": [
+        "none"
+      ],
+      "brokenImages": [],
+      "violations": []
+    },
+    {
+      "name": "completion-restricted-390",
+      "url": "http://127.0.0.1:5197/cooking/complete",
+      "viewport": 390,
+      "width": 390,
+      "font": "\"Be Vietnam Pro\", sans-serif",
+      "fields": [
+        {
+          "font": 16,
+          "height": 48
+        },
+        {
+          "font": 16,
+          "height": 48
+        },
+        {
+          "font": 16,
+          "height": 48
+        },
+        {
+          "font": 16,
+          "height": 48
+        },
+        {
+          "font": 16,
+          "height": 48
+        }
+      ],
+      "motion": [],
+      "brokenImages": [],
+      "violations": []
+    },
+    {
+      "name": "cooking-route-change-390",
+      "url": "http://127.0.0.1:5197/cooking/gl-03",
+      "viewport": 390,
+      "width": 390,
+      "font": "\"Be Vietnam Pro\", sans-serif",
+      "fields": [],
+      "motion": [
+        "none"
+      ],
+      "brokenImages": [],
+      "violations": []
+    },
+    {
+      "name": "cooking-recipe-error-390",
+      "url": "http://127.0.0.1:5197/cook/nonexistent-ui05",
+      "viewport": 390,
+      "width": 390,
+      "font": "\"Be Vietnam Pro\", sans-serif",
+      "fields": [],
+      "motion": [],
+      "brokenImages": [],
+      "violations": []
+    },
+    {
+      "name": "cooking-short-390",
+      "url": "http://127.0.0.1:5197/cook/thit-kho-trung",
+      "viewport": 390,
+      "width": 390,
+      "font": "\"Be Vietnam Pro\", sans-serif",
+      "fields": [],
+      "motion": [
+        "none"
+      ],
+      "brokenImages": [],
+      "violations": []
+    }
+  ],
+  "journeys": [
+    "Preparation -> steps -> timer -> shared review at five viewports; no command sent before confirmation.",
+    "Mocked speech: next twice, back from current step, repeat correct current instruction, timer current step, permission error -> manual controls.",
+    "Clock: countdown is not live, pause/resume, elapsed background fast-forward, expiry running false, focus retained/keyboard no-op, reset and stopped voice on review.",
+    {
+      "name": "Real local Worker: 125.5g deducted across compatible g/kg stock; remaining624.5g; same-key replay changes no lot/version.",
+      "commandId": "cook_1791623689146_mvezrs",
+      "status": 200,
+      "replay": true,
+      "stock": [
+        {
+          "id": "ui05-pork-b",
+          "householdId": "planner-preview-household",
+          "ingredientId": "PORK_BELLY",
+          "normalizationStatus": "matched",
+          "name": "Thịt ba chỉ",
+          "quantity": 0.5,
+          "unit": "kg",
+          "category": "meat",
+          "storage": "fridge",
+          "expiryDate": null,
+          "addedDate": "2026-10-10T09:06:27.886Z",
+          "freshness": "fresh",
+          "dataSource": "manual",
+          "version": 1,
+          "updatedAt": "2026-10-10 09:06:27"
+        },
+        {
+          "id": "ui05-pork-a",
+          "householdId": "planner-preview-household",
+          "ingredientId": "PORK_BELLY",
+          "normalizationStatus": "matched",
+          "name": "Thịt ba chỉ",
+          "quantity": 124.5,
+          "unit": "g",
+          "category": "meat",
+          "storage": "fridge",
+          "expiryDate": null,
+          "addedDate": "2026-10-10T09:06:27.861Z",
+          "freshness": "fresh",
+          "dataSource": "manual",
+          "version": 2,
+          "updatedAt": "2026-10-10 09:06:39"
+        }
+      ]
+    },
+    "503 ambiguity locks input; explicit retry sends identical command ID and payload.",
+    "Known409 rejected: failed authoritative refresh keeps amount locked; successful refresh retains actual-use intent and reopens review.",
+    "Late completion after SPA navigation updates only its own run; does not navigate the closed review.",
+    "Aborted completion queues real existing outbox; locked pending-sync feedback makes no server-success claim.",
+    "Direct completion no-draft, empty recipe steps, ID route alias, exit dialog Escape/focus.",
+    "Known safety rejection locks old amount; explicit end-and-choose action clears only rejected cooking run, sends no further command.",
+    "SPA recipe route change starts correct recipe at step1, stops prior voice and ignores old callback. Normal step reveal present, reduced-motion variant disables it.",
+    "Missing recipe has visible retry/error recovery; step action reachable at390x420 without fixed overlay."
+  ],
+  "errors": []
+}

@@ -1,0 +1,1956 @@
+{
+  "base": "http://127.0.0.1:5197",
+  "checks": [
+    {
+      "name": "photo-review-320",
+      "url": "http://127.0.0.1:5197/scan/t13b-preview-fridge/review",
+      "viewport": 320,
+      "documentWidth": 320,
+      "font": "\"Be Vietnam Pro\", sans-serif",
+      "inputs": [
+        {
+          "font": 16,
+          "height": 48
+        },
+        {
+          "font": 16,
+          "height": 48
+        },
+        {
+          "font": 16,
+          "height": 48
+        },
+        {
+          "font": 16,
+          "height": 48
+        },
+        {
+          "font": 16,
+          "height": 48
+        },
+        {
+          "font": 16,
+          "height": 48
+        },
+        {
+          "font": 16,
+          "height": 48
+        },
+        {
+          "font": 16,
+          "height": 48
+        },
+        {
+          "font": 16,
+          "height": 48
+        },
+        {
+          "font": 16,
+          "height": 48
+        },
+        {
+          "font": 16,
+          "height": 48
+        },
+        {
+          "font": 16,
+          "height": 48
+        },
+        {
+          "font": 16,
+          "height": 48
+        },
+        {
+          "font": 16,
+          "height": 48
+        },
+        {
+          "font": 16,
+          "height": 48
+        },
+        {
+          "font": 16,
+          "height": 48
+        },
+        {
+          "font": 16,
+          "height": 48
+        },
+        {
+          "font": 16,
+          "height": 48
+        },
+        {
+          "font": 16,
+          "height": 48
+        },
+        {
+          "font": 16,
+          "height": 48
+        }
+      ],
+      "motion": [],
+      "brokenImages": [],
+      "violations": []
+    },
+    {
+      "name": "receipt-review-320",
+      "url": "http://127.0.0.1:5197/scan/receipt-review?scanId=t13b-preview-receipt",
+      "viewport": 320,
+      "documentWidth": 320,
+      "font": "\"Be Vietnam Pro\", sans-serif",
+      "inputs": [
+        {
+          "font": 16,
+          "height": 48
+        },
+        {
+          "font": 16,
+          "height": 48
+        },
+        {
+          "font": 16,
+          "height": 48
+        },
+        {
+          "font": 16,
+          "height": 48
+        },
+        {
+          "font": 16,
+          "height": 48
+        },
+        {
+          "font": 16,
+          "height": 48
+        },
+        {
+          "font": 16,
+          "height": 48
+        },
+        {
+          "font": 16,
+          "height": 48
+        },
+        {
+          "font": 16,
+          "height": 48
+        },
+        {
+          "font": 16,
+          "height": 48
+        },
+        {
+          "font": 16,
+          "height": 48
+        },
+        {
+          "font": 16,
+          "height": 48
+        },
+        {
+          "font": 16,
+          "height": 48
+        },
+        {
+          "font": 16,
+          "height": 48
+        },
+        {
+          "font": 16,
+          "height": 48
+        },
+        {
+          "font": 16,
+          "height": 48
+        },
+        {
+          "font": 16,
+          "height": 48
+        },
+        {
+          "font": 16,
+          "height": 48
+        },
+        {
+          "font": 16,
+          "height": 48
+        },
+        {
+          "font": 16,
+          "height": 48
+        }
+      ],
+      "motion": [],
+      "brokenImages": [],
+      "violations": []
+    },
+    {
+      "name": "photo-review-390",
+      "url": "http://127.0.0.1:5197/scan/t13b-preview-fridge/review",
+      "viewport": 390,
+      "documentWidth": 390,
+      "font": "\"Be Vietnam Pro\", sans-serif",
+      "inputs": [
+        {
+          "font": 16,
+          "height": 48
+        },
+        {
+          "font": 16,
+          "height": 48
+        },
+        {
+          "font": 16,
+          "height": 48
+        },
+        {
+          "font": 16,
+          "height": 48
+        },
+        {
+          "font": 16,
+          "height": 48
+        },
+        {
+          "font": 16,
+          "height": 48
+        },
+        {
+          "font": 16,
+          "height": 48
+        },
+        {
+          "font": 16,
+          "height": 48
+        },
+        {
+          "font": 16,
+          "height": 48
+        },
+        {
+          "font": 16,
+          "height": 48
+        },
+        {
+          "font": 16,
+          "height": 48
+        },
+        {
+          "font": 16,
+          "height": 48
+        },
+        {
+          "font": 16,
+          "height": 48
+        },
+        {
+          "font": 16,
+          "height": 48
+        },
+        {
+          "font": 16,
+          "height": 48
+        },
+        {
+          "font": 16,
+          "height": 48
+        },
+        {
+          "font": 16,
+          "height": 48
+        },
+        {
+          "font": 16,
+          "height": 48
+        },
+        {
+          "font": 16,
+          "height": 48
+        },
+        {
+          "font": 16,
+          "height": 48
+        }
+      ],
+      "motion": [],
+      "brokenImages": [],
+      "violations": []
+    },
+    {
+      "name": "receipt-review-390",
+      "url": "http://127.0.0.1:5197/scan/receipt-review?scanId=t13b-preview-receipt",
+      "viewport": 390,
+      "documentWidth": 390,
+      "font": "\"Be Vietnam Pro\", sans-serif",
+      "inputs": [
+        {
+          "font": 16,
+          "height": 48
+        },
+        {
+          "font": 16,
+          "height": 48
+        },
+        {
+          "font": 16,
+          "height": 48
+        },
+        {
+          "font": 16,
+          "height": 48
+        },
+        {
+          "font": 16,
+          "height": 48
+        },
+        {
+          "font": 16,
+          "height": 48
+        },
+        {
+          "font": 16,
+          "height": 48
+        },
+        {
+          "font": 16,
+          "height": 48
+        },
+        {
+          "font": 16,
+          "height": 48
+        },
+        {
+          "font": 16,
+          "height": 48
+        },
+        {
+          "font": 16,
+          "height": 48
+        },
+        {
+          "font": 16,
+          "height": 48
+        },
+        {
+          "font": 16,
+          "height": 48
+        },
+        {
+          "font": 16,
+          "height": 48
+        },
+        {
+          "font": 16,
+          "height": 48
+        },
+        {
+          "font": 16,
+          "height": 48
+        },
+        {
+          "font": 16,
+          "height": 48
+        },
+        {
+          "font": 16,
+          "height": 48
+        },
+        {
+          "font": 16,
+          "height": 48
+        },
+        {
+          "font": 16,
+          "height": 48
+        }
+      ],
+      "motion": [],
+      "brokenImages": [],
+      "violations": []
+    },
+    {
+      "name": "photo-review-768",
+      "url": "http://127.0.0.1:5197/scan/t13b-preview-fridge/review",
+      "viewport": 768,
+      "documentWidth": 768,
+      "font": "\"Be Vietnam Pro\", sans-serif",
+      "inputs": [
+        {
+          "font": 16,
+          "height": 48
+        },
+        {
+          "font": 16,
+          "height": 48
+        },
+        {
+          "font": 16,
+          "height": 48
+        },
+        {
+          "font": 16,
+          "height": 48
+        },
+        {
+          "font": 16,
+          "height": 48
+        },
+        {
+          "font": 16,
+          "height": 48
+        },
+        {
+          "font": 16,
+          "height": 48
+        },
+        {
+          "font": 16,
+          "height": 48
+        },
+        {
+          "font": 16,
+          "height": 48
+        },
+        {
+          "font": 16,
+          "height": 48
+        },
+        {
+          "font": 16,
+          "height": 48
+        },
+        {
+          "font": 16,
+          "height": 48
+        },
+        {
+          "font": 16,
+          "height": 48
+        },
+        {
+          "font": 16,
+          "height": 48
+        },
+        {
+          "font": 16,
+          "height": 48
+        },
+        {
+          "font": 16,
+          "height": 48
+        },
+        {
+          "font": 16,
+          "height": 48
+        },
+        {
+          "font": 16,
+          "height": 48
+        },
+        {
+          "font": 16,
+          "height": 48
+        },
+        {
+          "font": 16,
+          "height": 48
+        }
+      ],
+      "motion": [],
+      "brokenImages": [],
+      "violations": []
+    },
+    {
+      "name": "receipt-review-768",
+      "url": "http://127.0.0.1:5197/scan/receipt-review?scanId=t13b-preview-receipt",
+      "viewport": 768,
+      "documentWidth": 768,
+      "font": "\"Be Vietnam Pro\", sans-serif",
+      "inputs": [
+        {
+          "font": 16,
+          "height": 48
+        },
+        {
+          "font": 16,
+          "height": 48
+        },
+        {
+          "font": 16,
+          "height": 48
+        },
+        {
+          "font": 16,
+          "height": 48
+        },
+        {
+          "font": 16,
+          "height": 48
+        },
+        {
+          "font": 16,
+          "height": 48
+        },
+        {
+          "font": 16,
+          "height": 48
+        },
+        {
+          "font": 16,
+          "height": 48
+        },
+        {
+          "font": 16,
+          "height": 48
+        },
+        {
+          "font": 16,
+          "height": 48
+        },
+        {
+          "font": 16,
+          "height": 48
+        },
+        {
+          "font": 16,
+          "height": 48
+        },
+        {
+          "font": 16,
+          "height": 48
+        },
+        {
+          "font": 16,
+          "height": 48
+        },
+        {
+          "font": 16,
+          "height": 48
+        },
+        {
+          "font": 16,
+          "height": 48
+        },
+        {
+          "font": 16,
+          "height": 48
+        },
+        {
+          "font": 16,
+          "height": 48
+        },
+        {
+          "font": 16,
+          "height": 48
+        },
+        {
+          "font": 16,
+          "height": 48
+        }
+      ],
+      "motion": [],
+      "brokenImages": [],
+      "violations": []
+    },
+    {
+      "name": "photo-review-1024",
+      "url": "http://127.0.0.1:5197/scan/t13b-preview-fridge/review",
+      "viewport": 1024,
+      "documentWidth": 1024,
+      "font": "\"Be Vietnam Pro\", sans-serif",
+      "inputs": [
+        {
+          "font": 16,
+          "height": 48
+        },
+        {
+          "font": 16,
+          "height": 48
+        },
+        {
+          "font": 16,
+          "height": 48
+        },
+        {
+          "font": 16,
+          "height": 48
+        },
+        {
+          "font": 16,
+          "height": 48
+        },
+        {
+          "font": 16,
+          "height": 48
+        },
+        {
+          "font": 16,
+          "height": 48
+        },
+        {
+          "font": 16,
+          "height": 48
+        },
+        {
+          "font": 16,
+          "height": 48
+        },
+        {
+          "font": 16,
+          "height": 48
+        },
+        {
+          "font": 16,
+          "height": 48
+        },
+        {
+          "font": 16,
+          "height": 48
+        },
+        {
+          "font": 16,
+          "height": 48
+        },
+        {
+          "font": 16,
+          "height": 48
+        },
+        {
+          "font": 16,
+          "height": 48
+        },
+        {
+          "font": 16,
+          "height": 48
+        },
+        {
+          "font": 16,
+          "height": 48
+        },
+        {
+          "font": 16,
+          "height": 48
+        },
+        {
+          "font": 16,
+          "height": 48
+        },
+        {
+          "font": 16,
+          "height": 48
+        }
+      ],
+      "motion": [],
+      "brokenImages": [],
+      "violations": []
+    },
+    {
+      "name": "receipt-review-1024",
+      "url": "http://127.0.0.1:5197/scan/receipt-review?scanId=t13b-preview-receipt",
+      "viewport": 1024,
+      "documentWidth": 1024,
+      "font": "\"Be Vietnam Pro\", sans-serif",
+      "inputs": [
+        {
+          "font": 16,
+          "height": 48
+        },
+        {
+          "font": 16,
+          "height": 48
+        },
+        {
+          "font": 16,
+          "height": 48
+        },
+        {
+          "font": 16,
+          "height": 48
+        },
+        {
+          "font": 16,
+          "height": 48
+        },
+        {
+          "font": 16,
+          "height": 48
+        },
+        {
+          "font": 16,
+          "height": 48
+        },
+        {
+          "font": 16,
+          "height": 48
+        },
+        {
+          "font": 16,
+          "height": 48
+        },
+        {
+          "font": 16,
+          "height": 48
+        },
+        {
+          "font": 16,
+          "height": 48
+        },
+        {
+          "font": 16,
+          "height": 48
+        },
+        {
+          "font": 16,
+          "height": 48
+        },
+        {
+          "font": 16,
+          "height": 48
+        },
+        {
+          "font": 16,
+          "height": 48
+        },
+        {
+          "font": 16,
+          "height": 48
+        },
+        {
+          "font": 16,
+          "height": 48
+        },
+        {
+          "font": 16,
+          "height": 48
+        },
+        {
+          "font": 16,
+          "height": 48
+        },
+        {
+          "font": 16,
+          "height": 48
+        }
+      ],
+      "motion": [],
+      "brokenImages": [],
+      "violations": []
+    },
+    {
+      "name": "photo-review-1440",
+      "url": "http://127.0.0.1:5197/scan/t13b-preview-fridge/review",
+      "viewport": 1440,
+      "documentWidth": 1440,
+      "font": "\"Be Vietnam Pro\", sans-serif",
+      "inputs": [
+        {
+          "font": 16,
+          "height": 48
+        },
+        {
+          "font": 16,
+          "height": 48
+        },
+        {
+          "font": 16,
+          "height": 48
+        },
+        {
+          "font": 16,
+          "height": 48
+        },
+        {
+          "font": 16,
+          "height": 48
+        },
+        {
+          "font": 16,
+          "height": 48
+        },
+        {
+          "font": 16,
+          "height": 48
+        },
+        {
+          "font": 16,
+          "height": 48
+        },
+        {
+          "font": 16,
+          "height": 48
+        },
+        {
+          "font": 16,
+          "height": 48
+        },
+        {
+          "font": 16,
+          "height": 48
+        },
+        {
+          "font": 16,
+          "height": 48
+        },
+        {
+          "font": 16,
+          "height": 48
+        },
+        {
+          "font": 16,
+          "height": 48
+        },
+        {
+          "font": 16,
+          "height": 48
+        },
+        {
+          "font": 16,
+          "height": 48
+        },
+        {
+          "font": 16,
+          "height": 48
+        },
+        {
+          "font": 16,
+          "height": 48
+        },
+        {
+          "font": 16,
+          "height": 48
+        },
+        {
+          "font": 16,
+          "height": 48
+        }
+      ],
+      "motion": [],
+      "brokenImages": [],
+      "violations": []
+    },
+    {
+      "name": "receipt-review-1440",
+      "url": "http://127.0.0.1:5197/scan/receipt-review?scanId=t13b-preview-receipt",
+      "viewport": 1440,
+      "documentWidth": 1440,
+      "font": "\"Be Vietnam Pro\", sans-serif",
+      "inputs": [
+        {
+          "font": 16,
+          "height": 48
+        },
+        {
+          "font": 16,
+          "height": 48
+        },
+        {
+          "font": 16,
+          "height": 48
+        },
+        {
+          "font": 16,
+          "height": 48
+        },
+        {
+          "font": 16,
+          "height": 48
+        },
+        {
+          "font": 16,
+          "height": 48
+        },
+        {
+          "font": 16,
+          "height": 48
+        },
+        {
+          "font": 16,
+          "height": 48
+        },
+        {
+          "font": 16,
+          "height": 48
+        },
+        {
+          "font": 16,
+          "height": 48
+        },
+        {
+          "font": 16,
+          "height": 48
+        },
+        {
+          "font": 16,
+          "height": 48
+        },
+        {
+          "font": 16,
+          "height": 48
+        },
+        {
+          "font": 16,
+          "height": 48
+        },
+        {
+          "font": 16,
+          "height": 48
+        },
+        {
+          "font": 16,
+          "height": 48
+        },
+        {
+          "font": 16,
+          "height": 48
+        },
+        {
+          "font": 16,
+          "height": 48
+        },
+        {
+          "font": 16,
+          "height": 48
+        },
+        {
+          "font": 16,
+          "height": 48
+        }
+      ],
+      "motion": [],
+      "brokenImages": [],
+      "violations": []
+    },
+    {
+      "name": "scan-camera-390",
+      "url": "http://127.0.0.1:5197/scan",
+      "viewport": 390,
+      "documentWidth": 390,
+      "font": "\"Be Vietnam Pro\", sans-serif",
+      "inputs": [],
+      "motion": [],
+      "brokenImages": [],
+      "violations": []
+    },
+    {
+      "name": "scan-receipt-390",
+      "url": "http://127.0.0.1:5197/scan",
+      "viewport": 390,
+      "documentWidth": 390,
+      "font": "\"Be Vietnam Pro\", sans-serif",
+      "inputs": [],
+      "motion": [],
+      "brokenImages": [],
+      "violations": []
+    },
+    {
+      "name": "scan-camera-1440",
+      "url": "http://127.0.0.1:5197/scan",
+      "viewport": 1440,
+      "documentWidth": 1440,
+      "font": "\"Be Vietnam Pro\", sans-serif",
+      "inputs": [],
+      "motion": [],
+      "brokenImages": [],
+      "violations": []
+    },
+    {
+      "name": "uploading-truth-1440",
+      "url": "http://127.0.0.1:5197/scan",
+      "viewport": 1440,
+      "documentWidth": 1440,
+      "font": "\"Be Vietnam Pro\", sans-serif",
+      "inputs": [],
+      "motion": [
+        "none",
+        "none",
+        "none"
+      ],
+      "brokenImages": [],
+      "violations": []
+    },
+    {
+      "name": "receipt-source-1440",
+      "url": "http://127.0.0.1:5197/scan/receipt-review?scanId=t13b-preview-receipt",
+      "viewport": 1440,
+      "documentWidth": 1440,
+      "font": "\"Be Vietnam Pro\", sans-serif",
+      "inputs": [
+        {
+          "font": 16,
+          "height": 48
+        },
+        {
+          "font": 16,
+          "height": 48
+        },
+        {
+          "font": 16,
+          "height": 48
+        },
+        {
+          "font": 16,
+          "height": 48
+        },
+        {
+          "font": 16,
+          "height": 48
+        },
+        {
+          "font": 16,
+          "height": 48
+        },
+        {
+          "font": 16,
+          "height": 48
+        },
+        {
+          "font": 16,
+          "height": 48
+        },
+        {
+          "font": 16,
+          "height": 48
+        },
+        {
+          "font": 16,
+          "height": 48
+        },
+        {
+          "font": 16,
+          "height": 48
+        },
+        {
+          "font": 16,
+          "height": 48
+        },
+        {
+          "font": 16,
+          "height": 48
+        },
+        {
+          "font": 16,
+          "height": 48
+        },
+        {
+          "font": 16,
+          "height": 48
+        },
+        {
+          "font": 16,
+          "height": 48
+        },
+        {
+          "font": 16,
+          "height": 48
+        },
+        {
+          "font": 16,
+          "height": 48
+        },
+        {
+          "font": 16,
+          "height": 48
+        },
+        {
+          "font": 16,
+          "height": 48
+        }
+      ],
+      "motion": [],
+      "brokenImages": [],
+      "violations": []
+    },
+    {
+      "name": "photo-source-1440",
+      "url": "http://127.0.0.1:5197/scan/t13b-preview-fridge/review",
+      "viewport": 1440,
+      "documentWidth": 1440,
+      "font": "\"Be Vietnam Pro\", sans-serif",
+      "inputs": [
+        {
+          "font": 16,
+          "height": 48
+        },
+        {
+          "font": 16,
+          "height": 48
+        },
+        {
+          "font": 16,
+          "height": 48
+        },
+        {
+          "font": 16,
+          "height": 48
+        },
+        {
+          "font": 16,
+          "height": 48
+        },
+        {
+          "font": 16,
+          "height": 48
+        },
+        {
+          "font": 16,
+          "height": 48
+        },
+        {
+          "font": 16,
+          "height": 48
+        },
+        {
+          "font": 16,
+          "height": 48
+        },
+        {
+          "font": 16,
+          "height": 48
+        },
+        {
+          "font": 16,
+          "height": 48
+        },
+        {
+          "font": 16,
+          "height": 48
+        },
+        {
+          "font": 16,
+          "height": 48
+        },
+        {
+          "font": 16,
+          "height": 48
+        },
+        {
+          "font": 16,
+          "height": 48
+        },
+        {
+          "font": 16,
+          "height": 48
+        },
+        {
+          "font": 16,
+          "height": 48
+        },
+        {
+          "font": 16,
+          "height": 48
+        },
+        {
+          "font": 16,
+          "height": 48
+        },
+        {
+          "font": 16,
+          "height": 48
+        }
+      ],
+      "motion": [],
+      "brokenImages": [],
+      "violations": []
+    },
+    {
+      "name": "manual-sheet-390",
+      "url": "http://127.0.0.1:5197/scan/t13b-preview-fridge/review",
+      "viewport": 390,
+      "documentWidth": 390,
+      "font": "\"Be Vietnam Pro\", sans-serif",
+      "inputs": [
+        {
+          "font": 16,
+          "height": 48
+        },
+        {
+          "font": 16,
+          "height": 48
+        },
+        {
+          "font": 16,
+          "height": 48
+        },
+        {
+          "font": 16,
+          "height": 48
+        },
+        {
+          "font": 16,
+          "height": 48
+        },
+        {
+          "font": 16,
+          "height": 48
+        },
+        {
+          "font": 16,
+          "height": 48
+        },
+        {
+          "font": 16,
+          "height": 48
+        },
+        {
+          "font": 16,
+          "height": 48
+        },
+        {
+          "font": 16,
+          "height": 48
+        },
+        {
+          "font": 16,
+          "height": 48
+        },
+        {
+          "font": 16,
+          "height": 48
+        },
+        {
+          "font": 16,
+          "height": 48
+        },
+        {
+          "font": 16,
+          "height": 48
+        },
+        {
+          "font": 16,
+          "height": 48
+        },
+        {
+          "font": 16,
+          "height": 48
+        },
+        {
+          "font": 16,
+          "height": 48
+        },
+        {
+          "font": 16,
+          "height": 48
+        },
+        {
+          "font": 16,
+          "height": 48
+        },
+        {
+          "font": 16,
+          "height": 48
+        },
+        {
+          "font": 16,
+          "height": 48
+        },
+        {
+          "font": 16,
+          "height": 48
+        },
+        {
+          "font": 16,
+          "height": 48
+        }
+      ],
+      "motion": [],
+      "brokenImages": [],
+      "violations": []
+    },
+    {
+      "name": "photo-edited-390",
+      "url": "http://127.0.0.1:5197/scan/t13b-preview-fridge/review",
+      "viewport": 390,
+      "documentWidth": 390,
+      "font": "\"Be Vietnam Pro\", sans-serif",
+      "inputs": [
+        {
+          "font": 16,
+          "height": 48
+        },
+        {
+          "font": 16,
+          "height": 48
+        },
+        {
+          "font": 16,
+          "height": 48
+        },
+        {
+          "font": 16,
+          "height": 48
+        },
+        {
+          "font": 16,
+          "height": 48
+        },
+        {
+          "font": 16,
+          "height": 48
+        },
+        {
+          "font": 16,
+          "height": 48
+        },
+        {
+          "font": 16,
+          "height": 48
+        },
+        {
+          "font": 16,
+          "height": 48
+        },
+        {
+          "font": 16,
+          "height": 48
+        },
+        {
+          "font": 16,
+          "height": 48
+        },
+        {
+          "font": 16,
+          "height": 48
+        },
+        {
+          "font": 16,
+          "height": 48
+        },
+        {
+          "font": 16,
+          "height": 48
+        },
+        {
+          "font": 16,
+          "height": 48
+        },
+        {
+          "font": 16,
+          "height": 48
+        },
+        {
+          "font": 16,
+          "height": 48
+        },
+        {
+          "font": 16,
+          "height": 48
+        },
+        {
+          "font": 16,
+          "height": 48
+        },
+        {
+          "font": 16,
+          "height": 48
+        },
+        {
+          "font": 16,
+          "height": 48
+        },
+        {
+          "font": 16,
+          "height": 48
+        },
+        {
+          "font": 16,
+          "height": 48
+        },
+        {
+          "font": 16,
+          "height": 48
+        },
+        {
+          "font": 16,
+          "height": 48
+        }
+      ],
+      "motion": [],
+      "brokenImages": [],
+      "violations": []
+    },
+    {
+      "name": "photo-confirmed-390",
+      "url": "http://127.0.0.1:5197/scan/t13b-preview-fridge/review",
+      "viewport": 390,
+      "documentWidth": 390,
+      "font": "\"Be Vietnam Pro\", sans-serif",
+      "inputs": [
+        {
+          "font": 16,
+          "height": 48
+        },
+        {
+          "font": 16,
+          "height": 48
+        },
+        {
+          "font": 16,
+          "height": 48
+        },
+        {
+          "font": 16,
+          "height": 48
+        },
+        {
+          "font": 16,
+          "height": 48
+        },
+        {
+          "font": 16,
+          "height": 48
+        },
+        {
+          "font": 16,
+          "height": 48
+        },
+        {
+          "font": 16,
+          "height": 48
+        },
+        {
+          "font": 16,
+          "height": 48
+        },
+        {
+          "font": 16,
+          "height": 48
+        },
+        {
+          "font": 16,
+          "height": 48
+        },
+        {
+          "font": 16,
+          "height": 48
+        },
+        {
+          "font": 16,
+          "height": 48
+        },
+        {
+          "font": 16,
+          "height": 48
+        },
+        {
+          "font": 16,
+          "height": 48
+        },
+        {
+          "font": 16,
+          "height": 48
+        },
+        {
+          "font": 16,
+          "height": 48
+        },
+        {
+          "font": 16,
+          "height": 48
+        },
+        {
+          "font": 16,
+          "height": 48
+        },
+        {
+          "font": 16,
+          "height": 48
+        }
+      ],
+      "motion": [],
+      "brokenImages": [],
+      "violations": []
+    },
+    {
+      "name": "receipt-edited-390",
+      "url": "http://127.0.0.1:5197/scan/receipt-review?scanId=t13b-preview-receipt",
+      "viewport": 390,
+      "documentWidth": 390,
+      "font": "\"Be Vietnam Pro\", sans-serif",
+      "inputs": [
+        {
+          "font": 16,
+          "height": 48
+        },
+        {
+          "font": 16,
+          "height": 48
+        },
+        {
+          "font": 16,
+          "height": 48
+        },
+        {
+          "font": 16,
+          "height": 48
+        },
+        {
+          "font": 16,
+          "height": 48
+        },
+        {
+          "font": 16,
+          "height": 48
+        },
+        {
+          "font": 16,
+          "height": 48
+        },
+        {
+          "font": 16,
+          "height": 48
+        },
+        {
+          "font": 16,
+          "height": 48
+        },
+        {
+          "font": 16,
+          "height": 48
+        },
+        {
+          "font": 16,
+          "height": 48
+        },
+        {
+          "font": 16,
+          "height": 48
+        },
+        {
+          "font": 16,
+          "height": 48
+        },
+        {
+          "font": 16,
+          "height": 48
+        },
+        {
+          "font": 16,
+          "height": 48
+        },
+        {
+          "font": 16,
+          "height": 48
+        },
+        {
+          "font": 16,
+          "height": 48
+        },
+        {
+          "font": 16,
+          "height": 48
+        },
+        {
+          "font": 16,
+          "height": 48
+        },
+        {
+          "font": 16,
+          "height": 48
+        }
+      ],
+      "motion": [],
+      "brokenImages": [],
+      "violations": []
+    },
+    {
+      "name": "receipt-confirmed-390",
+      "url": "http://127.0.0.1:5197/scan/receipt-review?scanId=t13b-preview-receipt",
+      "viewport": 390,
+      "documentWidth": 390,
+      "font": "\"Be Vietnam Pro\", sans-serif",
+      "inputs": [
+        {
+          "font": 16,
+          "height": 48
+        },
+        {
+          "font": 16,
+          "height": 48
+        },
+        {
+          "font": 16,
+          "height": 48
+        },
+        {
+          "font": 16,
+          "height": 48
+        },
+        {
+          "font": 16,
+          "height": 48
+        },
+        {
+          "font": 16,
+          "height": 48
+        },
+        {
+          "font": 16,
+          "height": 48
+        },
+        {
+          "font": 16,
+          "height": 48
+        },
+        {
+          "font": 16,
+          "height": 48
+        },
+        {
+          "font": 16,
+          "height": 48
+        },
+        {
+          "font": 16,
+          "height": 48
+        },
+        {
+          "font": 16,
+          "height": 48
+        },
+        {
+          "font": 16,
+          "height": 48
+        },
+        {
+          "font": 16,
+          "height": 48
+        },
+        {
+          "font": 16,
+          "height": 48
+        },
+        {
+          "font": 16,
+          "height": 48
+        },
+        {
+          "font": 16,
+          "height": 48
+        },
+        {
+          "font": 16,
+          "height": 48
+        },
+        {
+          "font": 16,
+          "height": 48
+        },
+        {
+          "font": 16,
+          "height": 48
+        }
+      ],
+      "motion": [],
+      "brokenImages": [],
+      "violations": []
+    },
+    {
+      "name": "photo-pending-390",
+      "url": "http://127.0.0.1:5197/scan/ui04-state/review",
+      "viewport": 390,
+      "documentWidth": 390,
+      "font": "\"Be Vietnam Pro\", sans-serif",
+      "inputs": [],
+      "motion": [
+        "none",
+        "none",
+        "none"
+      ],
+      "brokenImages": [],
+      "violations": []
+    },
+    {
+      "name": "photo-failed-390",
+      "url": "http://127.0.0.1:5197/scan/ui04-state/review",
+      "viewport": 390,
+      "documentWidth": 390,
+      "font": "\"Be Vietnam Pro\", sans-serif",
+      "inputs": [],
+      "motion": [],
+      "brokenImages": [],
+      "violations": []
+    },
+    {
+      "name": "receipt-mismatch-390",
+      "url": "http://127.0.0.1:5197/scan/receipt-review?scanId=ui04-state",
+      "viewport": 390,
+      "documentWidth": 390,
+      "font": "\"Be Vietnam Pro\", sans-serif",
+      "inputs": [],
+      "motion": [],
+      "brokenImages": [],
+      "violations": []
+    },
+    {
+      "name": "receipt-empty-390",
+      "url": "http://127.0.0.1:5197/scan/receipt-review?scanId=ui04-state",
+      "viewport": 390,
+      "documentWidth": 390,
+      "font": "\"Be Vietnam Pro\", sans-serif",
+      "inputs": [],
+      "motion": [],
+      "brokenImages": [],
+      "violations": []
+    },
+    {
+      "name": "photo-pending-sync-390",
+      "url": "http://127.0.0.1:5197/scan/ui04-state/review",
+      "viewport": 390,
+      "documentWidth": 390,
+      "font": "\"Be Vietnam Pro\", sans-serif",
+      "inputs": [
+        {
+          "font": 16,
+          "height": 48
+        },
+        {
+          "font": 16,
+          "height": 48
+        },
+        {
+          "font": 16,
+          "height": 48
+        },
+        {
+          "font": 16,
+          "height": 48
+        },
+        {
+          "font": 16,
+          "height": 48
+        }
+      ],
+      "motion": [],
+      "brokenImages": [],
+      "violations": []
+    },
+    {
+      "name": "photo-return-after-pending-390",
+      "url": "http://127.0.0.1:5197/scan/ui04-state/review",
+      "viewport": 390,
+      "documentWidth": 390,
+      "font": "\"Be Vietnam Pro\", sans-serif",
+      "inputs": [
+        {
+          "font": 16,
+          "height": 48
+        },
+        {
+          "font": 16,
+          "height": 48
+        },
+        {
+          "font": 16,
+          "height": 48
+        },
+        {
+          "font": 16,
+          "height": 48
+        },
+        {
+          "font": 16,
+          "height": 48
+        }
+      ],
+      "motion": [],
+      "brokenImages": [],
+      "violations": []
+    },
+    {
+      "name": "receipt-keyboard-height-390",
+      "url": "http://127.0.0.1:5197/scan/receipt-review?scanId=t13b-preview-receipt",
+      "viewport": 390,
+      "documentWidth": 390,
+      "font": "\"Be Vietnam Pro\", sans-serif",
+      "inputs": [
+        {
+          "font": 16,
+          "height": 48
+        },
+        {
+          "font": 16,
+          "height": 48
+        },
+        {
+          "font": 16,
+          "height": 48
+        },
+        {
+          "font": 16,
+          "height": 48
+        },
+        {
+          "font": 16,
+          "height": 48
+        },
+        {
+          "font": 16,
+          "height": 48
+        },
+        {
+          "font": 16,
+          "height": 48
+        },
+        {
+          "font": 16,
+          "height": 48
+        },
+        {
+          "font": 16,
+          "height": 48
+        },
+        {
+          "font": 16,
+          "height": 48
+        },
+        {
+          "font": 16,
+          "height": 48
+        },
+        {
+          "font": 16,
+          "height": 48
+        },
+        {
+          "font": 16,
+          "height": 48
+        },
+        {
+          "font": 16,
+          "height": 48
+        },
+        {
+          "font": 16,
+          "height": 48
+        },
+        {
+          "font": 16,
+          "height": 48
+        },
+        {
+          "font": 16,
+          "height": 48
+        },
+        {
+          "font": 16,
+          "height": 48
+        },
+        {
+          "font": 16,
+          "height": 48
+        },
+        {
+          "font": 16,
+          "height": 48
+        }
+      ],
+      "motion": [],
+      "brokenImages": [],
+      "violations": []
+    },
+    {
+      "name": "photo-text-enlarged-320",
+      "url": "http://127.0.0.1:5197/scan/t13b-preview-fridge/review",
+      "viewport": 320,
+      "documentWidth": 320,
+      "font": "\"Be Vietnam Pro\", sans-serif",
+      "inputs": [
+        {
+          "font": 32,
+          "height": 70
+        },
+        {
+          "font": 32,
+          "height": 70
+        },
+        {
+          "font": 32,
+          "height": 64
+        },
+        {
+          "font": 32,
+          "height": 64
+        },
+        {
+          "font": 32,
+          "height": 72
+        },
+        {
+          "font": 32,
+          "height": 70
+        },
+        {
+          "font": 32,
+          "height": 70
+        },
+        {
+          "font": 32,
+          "height": 64
+        },
+        {
+          "font": 32,
+          "height": 64
+        },
+        {
+          "font": 32,
+          "height": 72
+        },
+        {
+          "font": 32,
+          "height": 70
+        },
+        {
+          "font": 32,
+          "height": 70
+        },
+        {
+          "font": 32,
+          "height": 64
+        },
+        {
+          "font": 32,
+          "height": 64
+        },
+        {
+          "font": 32,
+          "height": 72
+        },
+        {
+          "font": 32,
+          "height": 70
+        },
+        {
+          "font": 32,
+          "height": 70
+        },
+        {
+          "font": 32,
+          "height": 64
+        },
+        {
+          "font": 32,
+          "height": 64
+        },
+        {
+          "font": 32,
+          "height": 72
+        }
+      ],
+      "motion": [],
+      "brokenImages": [],
+      "violations": []
+    }
+  ],
+  "journeys": [
+    "Camera denied: gallery reachable, mode instructions and quota visible at mobile/desktop. Physical camera not exercised.",
+    "Synthetic upload: after 3s still sending, then server-owned receipt review; no artificial stage advances.",
+    "Same synthetic file selected again after switching to ingredient mode; new photo route and explicitly bound source preview.",
+    "Real local Worker photo: fractional quantity, freezer, explicit date, invalid rejected row, manual add, Escape/focus return, confirm and read-only reopen.",
+    "Real local Worker receipt: edit fractional quantity/storage/expiry; reject/restore; immutable OCR prices; confirm and read-only reopen.",
+    "Synthetic responses: pending→failed, receipt identity mismatch hides wrong rows; empty review prevents confirm.",
+    "Synthetic lost-confirm-response: pendingSync visible before leaving, edits/confirm disabled; SPA return loads authoritative confirmed state rather than reusing the queued ready draft.",
+    "Short420px viewport uses in-flow actions; 320px (1280px/400% reflow equivalent width) plus synthetic enlarged text checked. Not actual OS keyboard/zoom."
+  ],
+  "errors": []
+}

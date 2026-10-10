@@ -15,6 +15,10 @@ import { CookingCompleteSchema } from '../validation/schemas';
 import { backgroundExecutorOf, resolveRecipeAuthority } from '../services/recipe-authority';
 import { evaluateCookingHardRestrictions } from '../services/cooking-hard-restrictions';
 import { enrichRecipesWithMedia } from '../services/recipe-media';
+import { DiscoveryQuerySchema } from '../../../packages/recipes/src/discovery-contract';
+import { DiscoveryCursorError } from '../../../packages/recipes/src/discovery';
+import { InventoryReadError } from './inventory';
+import { discoverRecipes } from '../services/recipe-discovery';
 
 export const recipeRoutes = new Hono<{ Bindings: Env; Variables: { auth: AuthContext } }>();
 
@@ -185,6 +189,33 @@ function recipeAuthority(c: { env: Env; executionCtx?: { waitUntil(task: Promise
   try { tenantKey = c.get('auth')?.householdId ?? null; } catch { tenantKey = null; }
   return resolveRecipeAuthority(c.env, { tenantKey, backgroundExecutor: backgroundExecutorOf(c) });
 }
+
+// Additive authenticated list contract; legacy recipe/recommendation payloads stay intact.
+recipeRoutes.use('/recipe-discovery', async (c, next) => {
+  c.header('Cache-Control', 'no-store');
+  await next();
+});
+recipeRoutes.get('/recipe-discovery', tenancyGuard, async (c) => {
+  const parsed = DiscoveryQuerySchema.safeParse(c.req.query());
+  if (!parsed.success)
+    return c.json({ error: 'Bộ lọc công thức không hợp lệ', code: 'DISCOVERY_QUERY_INVALID' }, 400);
+  try {
+    const { snapshot } = await recipeAuthority(c);
+    return c.json(await discoverRecipes(c.env, c.get('auth'), snapshot, parsed.data));
+  } catch (error) {
+    if (error instanceof DiscoveryCursorError)
+      return c.json(
+        { error: 'Danh sách công thức đã thay đổi', code: error.code },
+        error.code === 'DISCOVERY_SNAPSHOT_CHANGED' ? 409 : 400,
+      );
+    if (error instanceof InventoryReadError)
+      return c.json(
+        { error: 'Chưa kiểm tra được nguyên liệu trong tủ', code: 'DATABASE_UNAVAILABLE' },
+        503,
+      );
+    throw error;
+  }
+});
 
 // GET /api/v1/recipes
 recipeRoutes.get('/recipes', async (c) => {

@@ -1,0 +1,1792 @@
+{
+  "source": {
+    "source": "src/web/App.tsx",
+    "routes": [
+      {
+        "path": "/landing",
+        "line": 162
+      },
+      {
+        "path": "/auth",
+        "line": 172
+      },
+      {
+        "path": "/auth/verify",
+        "line": 183
+      },
+      {
+        "path": "/onboarding/*",
+        "line": 194
+      },
+      {
+        "path": "/",
+        "line": 215
+      },
+      {
+        "path": "/fridge",
+        "line": 220
+      },
+      {
+        "path": "/inventory",
+        "line": 221
+      },
+      {
+        "path": "/fridge/:id",
+        "line": 222
+      },
+      {
+        "path": "/ingredients/:id",
+        "line": 223
+      },
+      {
+        "path": "/inventory/:id",
+        "line": 224
+      },
+      {
+        "path": "/inventory-reconciliation",
+        "line": 225
+      },
+      {
+        "path": "/scan",
+        "line": 228
+      },
+      {
+        "path": "/scan/:id/review",
+        "line": 229
+      },
+      {
+        "path": "/scan/receipt-review",
+        "line": 230
+      },
+      {
+        "path": "/scan/result",
+        "line": 231
+      },
+      {
+        "path": "/recipes",
+        "line": 234
+      },
+      {
+        "path": "/recipes/:slug",
+        "line": 235
+      },
+      {
+        "path": "/recipes/id/:id",
+        "line": 236
+      },
+      {
+        "path": "/cook/:slug",
+        "line": 237
+      },
+      {
+        "path": "/cooking/:id",
+        "line": 238
+      },
+      {
+        "path": "/cooking/complete",
+        "line": 239
+      },
+      {
+        "path": "/week",
+        "line": 245
+      },
+      {
+        "path": "/week/setup",
+        "line": 251
+      },
+      {
+        "path": "/week/generating",
+        "line": 255
+      },
+      {
+        "path": "/week/:planId",
+        "line": 265
+      },
+      {
+        "path": "/week/:planId/meal/:mealId",
+        "line": 271
+      },
+      {
+        "path": "/week/:planId/shopping",
+        "line": 275
+      },
+      {
+        "path": "/week/:planId/settings",
+        "line": 281
+      },
+      {
+        "path": "/planner",
+        "line": 291
+      },
+      {
+        "path": "/planner/new",
+        "line": 297
+      },
+      {
+        "path": "/planner/:planId",
+        "line": 303
+      },
+      {
+        "path": "/planner/:planId/meal/:slotId",
+        "line": 309
+      },
+      {
+        "path": "/planner/:planId/shopping",
+        "line": 315
+      },
+      {
+        "path": "/shopping",
+        "line": 322
+      },
+      {
+        "path": "/notifications",
+        "line": 323
+      },
+      {
+        "path": "/me",
+        "line": 324
+      },
+      {
+        "path": "/profile",
+        "line": 325
+      },
+      {
+        "path": "/me/preferences",
+        "line": 326
+      },
+      {
+        "path": "/family",
+        "line": 327
+      },
+      {
+        "path": "/me/household",
+        "line": 328
+      },
+      {
+        "path": "/settings",
+        "line": 329
+      },
+      {
+        "path": "/settings/app",
+        "line": 330
+      },
+      {
+        "path": "/settings/notifications",
+        "line": 332
+      },
+      {
+        "path": "/settings/planning",
+        "line": 335
+      },
+      {
+        "path": "/settings/privacy",
+        "line": 336
+      },
+      {
+        "path": "/plus",
+        "line": 337
+      },
+      {
+        "path": "*",
+        "line": 341
+      }
+    ]
+  },
+  "checkedSnapshotCounts": {
+    "on": 167,
+    "off": 24,
+    "stateFaults": 13,
+    "supplemental": 14
+  },
+  "paths": {
+    "/": [
+      {
+        "group": "planner-on",
+        "name": "home-320",
+        "width": 320,
+        "height": 844,
+        "synthetic": false
+      },
+      {
+        "group": "planner-on",
+        "name": "home-360",
+        "width": 360,
+        "height": 844,
+        "synthetic": false
+      },
+      {
+        "group": "planner-on",
+        "name": "home-390",
+        "width": 390,
+        "height": 844,
+        "synthetic": false
+      },
+      {
+        "group": "planner-on",
+        "name": "home-430",
+        "width": 430,
+        "height": 844,
+        "synthetic": false
+      },
+      {
+        "group": "planner-on",
+        "name": "home-768",
+        "width": 768,
+        "height": 844,
+        "synthetic": false
+      },
+      {
+        "group": "planner-on",
+        "name": "home-1024",
+        "width": 1024,
+        "height": 844,
+        "synthetic": false
+      },
+      {
+        "group": "planner-on",
+        "name": "home-1440",
+        "width": 1440,
+        "height": 844,
+        "synthetic": false
+      },
+      {
+        "group": "planner-on",
+        "name": "home-normal-motion",
+        "width": 390,
+        "height": 844,
+        "synthetic": false
+      }
+    ],
+    "/fridge": [
+      {
+        "group": "planner-on",
+        "name": "stock-320",
+        "width": 320,
+        "height": 844,
+        "synthetic": false
+      },
+      {
+        "group": "planner-on",
+        "name": "stock-360",
+        "width": 360,
+        "height": 844,
+        "synthetic": false
+      },
+      {
+        "group": "planner-on",
+        "name": "stock-390",
+        "width": 390,
+        "height": 844,
+        "synthetic": false
+      },
+      {
+        "group": "planner-on",
+        "name": "stock-430",
+        "width": 430,
+        "height": 844,
+        "synthetic": false
+      },
+      {
+        "group": "planner-on",
+        "name": "stock-768",
+        "width": 768,
+        "height": 844,
+        "synthetic": false
+      },
+      {
+        "group": "planner-on",
+        "name": "stock-1024",
+        "width": 1024,
+        "height": 844,
+        "synthetic": false
+      },
+      {
+        "group": "planner-on",
+        "name": "stock-1440",
+        "width": 1440,
+        "height": 844,
+        "synthetic": false
+      },
+      {
+        "group": "planner-on",
+        "name": "stock-320-844-text2",
+        "width": 320,
+        "height": 844,
+        "synthetic": true
+      },
+      {
+        "group": "planner-on",
+        "name": "stock-768-844-text2",
+        "width": 768,
+        "height": 844,
+        "synthetic": true
+      },
+      {
+        "group": "planner-on",
+        "name": "stock-390-420",
+        "width": 390,
+        "height": 420,
+        "synthetic": false
+      },
+      {
+        "group": "planner-on",
+        "name": "stock-768-420",
+        "width": 768,
+        "height": 420,
+        "synthetic": false
+      },
+      {
+        "group": "planner-on",
+        "name": "stock-320-420-text2",
+        "width": 320,
+        "height": 420,
+        "synthetic": true
+      }
+    ],
+    "/ingredients/preview-stock-egg": [
+      {
+        "group": "planner-on",
+        "name": "detail-320",
+        "width": 320,
+        "height": 844,
+        "synthetic": false
+      },
+      {
+        "group": "planner-on",
+        "name": "detail-360",
+        "width": 360,
+        "height": 844,
+        "synthetic": false
+      },
+      {
+        "group": "planner-on",
+        "name": "detail-390",
+        "width": 390,
+        "height": 844,
+        "synthetic": false
+      },
+      {
+        "group": "planner-on",
+        "name": "detail-430",
+        "width": 430,
+        "height": 844,
+        "synthetic": false
+      },
+      {
+        "group": "planner-on",
+        "name": "detail-768",
+        "width": 768,
+        "height": 844,
+        "synthetic": false
+      },
+      {
+        "group": "planner-on",
+        "name": "detail-1024",
+        "width": 1024,
+        "height": 844,
+        "synthetic": false
+      },
+      {
+        "group": "planner-on",
+        "name": "detail-1440",
+        "width": 1440,
+        "height": 844,
+        "synthetic": false
+      },
+      {
+        "group": "planner-on",
+        "name": "stock-edit-320",
+        "width": 320,
+        "height": 844,
+        "synthetic": false
+      }
+    ],
+    "/scan/t13b-preview-fridge/review": [
+      {
+        "group": "planner-on",
+        "name": "review-320",
+        "width": 320,
+        "height": 844,
+        "synthetic": false
+      },
+      {
+        "group": "planner-on",
+        "name": "review-360",
+        "width": 360,
+        "height": 844,
+        "synthetic": false
+      },
+      {
+        "group": "planner-on",
+        "name": "review-390",
+        "width": 390,
+        "height": 844,
+        "synthetic": false
+      },
+      {
+        "group": "planner-on",
+        "name": "review-430",
+        "width": 430,
+        "height": 844,
+        "synthetic": false
+      },
+      {
+        "group": "planner-on",
+        "name": "review-768",
+        "width": 768,
+        "height": 844,
+        "synthetic": false
+      },
+      {
+        "group": "planner-on",
+        "name": "review-1024",
+        "width": 1024,
+        "height": 844,
+        "synthetic": false
+      },
+      {
+        "group": "planner-on",
+        "name": "review-1440",
+        "width": 1440,
+        "height": 844,
+        "synthetic": false
+      },
+      {
+        "group": "planner-on",
+        "name": "review-320-844-text2",
+        "width": 320,
+        "height": 844,
+        "synthetic": true
+      },
+      {
+        "group": "planner-on",
+        "name": "review-768-844-text2",
+        "width": 768,
+        "height": 844,
+        "synthetic": true
+      },
+      {
+        "group": "planner-on",
+        "name": "review-390-420",
+        "width": 390,
+        "height": 420,
+        "synthetic": false
+      },
+      {
+        "group": "planner-on",
+        "name": "review-768-420",
+        "width": 768,
+        "height": 420,
+        "synthetic": false
+      },
+      {
+        "group": "planner-on",
+        "name": "review-320-420-text2",
+        "width": 320,
+        "height": 420,
+        "synthetic": true
+      }
+    ],
+    "/scan/receipt-review": [
+      {
+        "group": "planner-on",
+        "name": "receipt-320",
+        "width": 320,
+        "height": 844,
+        "synthetic": false
+      },
+      {
+        "group": "planner-on",
+        "name": "receipt-360",
+        "width": 360,
+        "height": 844,
+        "synthetic": false
+      },
+      {
+        "group": "planner-on",
+        "name": "receipt-390",
+        "width": 390,
+        "height": 844,
+        "synthetic": false
+      },
+      {
+        "group": "planner-on",
+        "name": "receipt-430",
+        "width": 430,
+        "height": 844,
+        "synthetic": false
+      },
+      {
+        "group": "planner-on",
+        "name": "receipt-768",
+        "width": 768,
+        "height": 844,
+        "synthetic": false
+      },
+      {
+        "group": "planner-on",
+        "name": "receipt-1024",
+        "width": 1024,
+        "height": 844,
+        "synthetic": false
+      },
+      {
+        "group": "planner-on",
+        "name": "receipt-1440",
+        "width": 1440,
+        "height": 844,
+        "synthetic": false
+      }
+    ],
+    "/recipes/thit-kho-trung": [
+      {
+        "group": "planner-on",
+        "name": "recipe-320",
+        "width": 320,
+        "height": 844,
+        "synthetic": false
+      },
+      {
+        "group": "planner-on",
+        "name": "recipe-360",
+        "width": 360,
+        "height": 844,
+        "synthetic": false
+      },
+      {
+        "group": "planner-on",
+        "name": "recipe-390",
+        "width": 390,
+        "height": 844,
+        "synthetic": false
+      },
+      {
+        "group": "planner-on",
+        "name": "recipe-430",
+        "width": 430,
+        "height": 844,
+        "synthetic": false
+      },
+      {
+        "group": "planner-on",
+        "name": "recipe-768",
+        "width": 768,
+        "height": 844,
+        "synthetic": false
+      },
+      {
+        "group": "planner-on",
+        "name": "recipe-1024",
+        "width": 1024,
+        "height": 844,
+        "synthetic": false
+      },
+      {
+        "group": "planner-on",
+        "name": "recipe-1440",
+        "width": 1440,
+        "height": 844,
+        "synthetic": false
+      },
+      {
+        "group": "planner-on",
+        "name": "recipe-320-844-text2",
+        "width": 320,
+        "height": 844,
+        "synthetic": true
+      },
+      {
+        "group": "planner-on",
+        "name": "recipe-768-844-text2",
+        "width": 768,
+        "height": 844,
+        "synthetic": true
+      },
+      {
+        "group": "planner-on",
+        "name": "recipe-390-420",
+        "width": 390,
+        "height": 420,
+        "synthetic": false
+      },
+      {
+        "group": "planner-on",
+        "name": "recipe-768-420",
+        "width": 768,
+        "height": 420,
+        "synthetic": false
+      },
+      {
+        "group": "planner-on",
+        "name": "recipe-320-420-text2",
+        "width": 320,
+        "height": 420,
+        "synthetic": true
+      },
+      {
+        "group": "planner-on",
+        "name": "panel-steps-320",
+        "width": 320,
+        "height": 844,
+        "synthetic": false
+      },
+      {
+        "group": "planner-on",
+        "name": "panel-nutrition-320",
+        "width": 320,
+        "height": 844,
+        "synthetic": false
+      },
+      {
+        "group": "planner-on",
+        "name": "panel-steps-390",
+        "width": 390,
+        "height": 844,
+        "synthetic": false
+      },
+      {
+        "group": "planner-on",
+        "name": "panel-nutrition-390",
+        "width": 390,
+        "height": 844,
+        "synthetic": false
+      },
+      {
+        "group": "planner-on",
+        "name": "panel-steps-768",
+        "width": 768,
+        "height": 844,
+        "synthetic": false
+      },
+      {
+        "group": "planner-on",
+        "name": "panel-nutrition-768",
+        "width": 768,
+        "height": 844,
+        "synthetic": false
+      },
+      {
+        "group": "planner-on",
+        "name": "panel-steps-1024",
+        "width": 1024,
+        "height": 844,
+        "synthetic": false
+      },
+      {
+        "group": "planner-on",
+        "name": "panel-nutrition-1024",
+        "width": 1024,
+        "height": 844,
+        "synthetic": false
+      },
+      {
+        "group": "planner-on",
+        "name": "panel-steps-1440",
+        "width": 1440,
+        "height": 844,
+        "synthetic": false
+      },
+      {
+        "group": "planner-on",
+        "name": "panel-nutrition-1440",
+        "width": 1440,
+        "height": 844,
+        "synthetic": false
+      },
+      {
+        "group": "planner-on",
+        "name": "panel-steps-text2-320",
+        "width": 320,
+        "height": 844,
+        "synthetic": true
+      },
+      {
+        "group": "planner-on",
+        "name": "panel-nutrition-text2-320",
+        "width": 320,
+        "height": 844,
+        "synthetic": true
+      },
+      {
+        "group": "planner-on",
+        "name": "panel-steps-text2-768",
+        "width": 768,
+        "height": 844,
+        "synthetic": true
+      },
+      {
+        "group": "planner-on",
+        "name": "panel-nutrition-text2-768",
+        "width": 768,
+        "height": 844,
+        "synthetic": true
+      }
+    ],
+    "/recipes": [
+      {
+        "group": "planner-on",
+        "name": "recipes-320",
+        "width": 320,
+        "height": 844,
+        "synthetic": false
+      },
+      {
+        "group": "planner-on",
+        "name": "recipes-360",
+        "width": 360,
+        "height": 844,
+        "synthetic": false
+      },
+      {
+        "group": "planner-on",
+        "name": "recipes-390",
+        "width": 390,
+        "height": 844,
+        "synthetic": false
+      },
+      {
+        "group": "planner-on",
+        "name": "recipes-430",
+        "width": 430,
+        "height": 844,
+        "synthetic": false
+      },
+      {
+        "group": "planner-on",
+        "name": "recipes-768",
+        "width": 768,
+        "height": 844,
+        "synthetic": false
+      },
+      {
+        "group": "planner-on",
+        "name": "recipes-1024",
+        "width": 1024,
+        "height": 844,
+        "synthetic": false
+      },
+      {
+        "group": "planner-on",
+        "name": "recipes-1440",
+        "width": 1440,
+        "height": 844,
+        "synthetic": false
+      },
+      {
+        "group": "planner-on",
+        "name": "recipes-320-844-text2",
+        "width": 320,
+        "height": 844,
+        "synthetic": true
+      },
+      {
+        "group": "planner-on",
+        "name": "recipes-768-844-text2",
+        "width": 768,
+        "height": 844,
+        "synthetic": true
+      },
+      {
+        "group": "planner-on",
+        "name": "recipes-390-420",
+        "width": 390,
+        "height": 420,
+        "synthetic": false
+      },
+      {
+        "group": "planner-on",
+        "name": "recipes-768-420",
+        "width": 768,
+        "height": 420,
+        "synthetic": false
+      },
+      {
+        "group": "planner-on",
+        "name": "recipes-320-420-text2",
+        "width": 320,
+        "height": 420,
+        "synthetic": true
+      }
+    ],
+    "/recipes/pasta-pomodoro": [
+      {
+        "group": "planner-on",
+        "name": "photo-320",
+        "width": 320,
+        "height": 844,
+        "synthetic": false
+      },
+      {
+        "group": "planner-on",
+        "name": "photo-360",
+        "width": 360,
+        "height": 844,
+        "synthetic": false
+      },
+      {
+        "group": "planner-on",
+        "name": "photo-390",
+        "width": 390,
+        "height": 844,
+        "synthetic": false
+      },
+      {
+        "group": "planner-on",
+        "name": "photo-430",
+        "width": 430,
+        "height": 844,
+        "synthetic": false
+      },
+      {
+        "group": "planner-on",
+        "name": "photo-768",
+        "width": 768,
+        "height": 844,
+        "synthetic": false
+      },
+      {
+        "group": "planner-on",
+        "name": "photo-1024",
+        "width": 1024,
+        "height": 844,
+        "synthetic": false
+      },
+      {
+        "group": "planner-on",
+        "name": "photo-1440",
+        "width": 1440,
+        "height": 844,
+        "synthetic": false
+      },
+      {
+        "group": "planner-on",
+        "name": "photo-320-844-text2",
+        "width": 320,
+        "height": 844,
+        "synthetic": true
+      },
+      {
+        "group": "planner-on",
+        "name": "photo-768-844-text2",
+        "width": 768,
+        "height": 844,
+        "synthetic": true
+      },
+      {
+        "group": "planner-on",
+        "name": "photo-390-420",
+        "width": 390,
+        "height": 420,
+        "synthetic": false
+      },
+      {
+        "group": "planner-on",
+        "name": "photo-768-420",
+        "width": 768,
+        "height": 420,
+        "synthetic": false
+      },
+      {
+        "group": "planner-on",
+        "name": "photo-320-420-text2",
+        "width": 320,
+        "height": 420,
+        "synthetic": true
+      }
+    ],
+    "/notifications": [
+      {
+        "group": "planner-on",
+        "name": "notifications-320",
+        "width": 320,
+        "height": 844,
+        "synthetic": false
+      },
+      {
+        "group": "planner-on",
+        "name": "notifications-360",
+        "width": 360,
+        "height": 844,
+        "synthetic": false
+      },
+      {
+        "group": "planner-on",
+        "name": "notifications-390",
+        "width": 390,
+        "height": 844,
+        "synthetic": false
+      },
+      {
+        "group": "planner-on",
+        "name": "notifications-430",
+        "width": 430,
+        "height": 844,
+        "synthetic": false
+      },
+      {
+        "group": "planner-on",
+        "name": "notifications-768",
+        "width": 768,
+        "height": 844,
+        "synthetic": false
+      },
+      {
+        "group": "planner-on",
+        "name": "notifications-1024",
+        "width": 1024,
+        "height": 844,
+        "synthetic": false
+      },
+      {
+        "group": "planner-on",
+        "name": "notifications-1440",
+        "width": 1440,
+        "height": 844,
+        "synthetic": false
+      }
+    ],
+    "/settings/privacy": [
+      {
+        "group": "planner-on",
+        "name": "privacy-320",
+        "width": 320,
+        "height": 844,
+        "synthetic": false
+      },
+      {
+        "group": "planner-on",
+        "name": "privacy-360",
+        "width": 360,
+        "height": 844,
+        "synthetic": false
+      },
+      {
+        "group": "planner-on",
+        "name": "privacy-390",
+        "width": 390,
+        "height": 844,
+        "synthetic": false
+      },
+      {
+        "group": "planner-on",
+        "name": "privacy-430",
+        "width": 430,
+        "height": 844,
+        "synthetic": false
+      },
+      {
+        "group": "planner-on",
+        "name": "privacy-768",
+        "width": 768,
+        "height": 844,
+        "synthetic": false
+      },
+      {
+        "group": "planner-on",
+        "name": "privacy-1024",
+        "width": 1024,
+        "height": 844,
+        "synthetic": false
+      },
+      {
+        "group": "planner-on",
+        "name": "privacy-1440",
+        "width": 1440,
+        "height": 844,
+        "synthetic": false
+      }
+    ],
+    "/planner": [
+      {
+        "group": "planner-on",
+        "name": "planner-320",
+        "width": 320,
+        "height": 844,
+        "synthetic": false
+      },
+      {
+        "group": "planner-on",
+        "name": "planner-360",
+        "width": 360,
+        "height": 844,
+        "synthetic": false
+      },
+      {
+        "group": "planner-on",
+        "name": "planner-390",
+        "width": 390,
+        "height": 844,
+        "synthetic": false
+      },
+      {
+        "group": "planner-on",
+        "name": "planner-430",
+        "width": 430,
+        "height": 844,
+        "synthetic": false
+      },
+      {
+        "group": "planner-on",
+        "name": "planner-768",
+        "width": 768,
+        "height": 844,
+        "synthetic": false
+      },
+      {
+        "group": "planner-on",
+        "name": "planner-1024",
+        "width": 1024,
+        "height": 844,
+        "synthetic": false
+      },
+      {
+        "group": "planner-on",
+        "name": "planner-1440",
+        "width": 1440,
+        "height": 844,
+        "synthetic": false
+      }
+    ],
+    "/shopping": [
+      {
+        "group": "planner-on",
+        "name": "shopping-320",
+        "width": 320,
+        "height": 844,
+        "synthetic": false
+      },
+      {
+        "group": "planner-on",
+        "name": "shopping-360",
+        "width": 360,
+        "height": 844,
+        "synthetic": false
+      },
+      {
+        "group": "planner-on",
+        "name": "shopping-390",
+        "width": 390,
+        "height": 844,
+        "synthetic": false
+      },
+      {
+        "group": "planner-on",
+        "name": "shopping-430",
+        "width": 430,
+        "height": 844,
+        "synthetic": false
+      },
+      {
+        "group": "planner-on",
+        "name": "shopping-768",
+        "width": 768,
+        "height": 844,
+        "synthetic": false
+      },
+      {
+        "group": "planner-on",
+        "name": "shopping-1024",
+        "width": 1024,
+        "height": 844,
+        "synthetic": false
+      },
+      {
+        "group": "planner-on",
+        "name": "shopping-1440",
+        "width": 1440,
+        "height": 844,
+        "synthetic": false
+      },
+      {
+        "group": "planner-on",
+        "name": "shopping-320-844-text2",
+        "width": 320,
+        "height": 844,
+        "synthetic": true
+      },
+      {
+        "group": "planner-on",
+        "name": "shopping-768-844-text2",
+        "width": 768,
+        "height": 844,
+        "synthetic": true
+      },
+      {
+        "group": "planner-on",
+        "name": "shopping-390-420",
+        "width": 390,
+        "height": 420,
+        "synthetic": false
+      },
+      {
+        "group": "planner-on",
+        "name": "shopping-768-420",
+        "width": 768,
+        "height": 420,
+        "synthetic": false
+      },
+      {
+        "group": "planner-on",
+        "name": "shopping-320-420-text2",
+        "width": 320,
+        "height": 420,
+        "synthetic": true
+      },
+      {
+        "group": "planner-on",
+        "name": "shopping-text2-focus",
+        "width": 320,
+        "height": 844,
+        "synthetic": false
+      },
+      {
+        "group": "planner-on",
+        "name": "synthetic-offline-banner",
+        "width": 320,
+        "height": 844,
+        "synthetic": true
+      },
+      {
+        "group": "planner-on",
+        "name": "synthetic-safe-area-320",
+        "width": 320,
+        "height": 844,
+        "synthetic": true
+      },
+      {
+        "group": "planner-on",
+        "name": "rail-short-scan-focus",
+        "width": 768,
+        "height": 420,
+        "synthetic": false
+      }
+    ],
+    "/me": [
+      {
+        "group": "planner-on",
+        "name": "account-320",
+        "width": 320,
+        "height": 844,
+        "synthetic": false
+      },
+      {
+        "group": "planner-on",
+        "name": "account-360",
+        "width": 360,
+        "height": 844,
+        "synthetic": false
+      },
+      {
+        "group": "planner-on",
+        "name": "account-390",
+        "width": 390,
+        "height": 844,
+        "synthetic": false
+      },
+      {
+        "group": "planner-on",
+        "name": "account-430",
+        "width": 430,
+        "height": 844,
+        "synthetic": false
+      },
+      {
+        "group": "planner-on",
+        "name": "account-768",
+        "width": 768,
+        "height": 844,
+        "synthetic": false
+      },
+      {
+        "group": "planner-on",
+        "name": "account-1024",
+        "width": 1024,
+        "height": 844,
+        "synthetic": false
+      },
+      {
+        "group": "planner-on",
+        "name": "account-1440",
+        "width": 1440,
+        "height": 844,
+        "synthetic": false
+      }
+    ],
+    "/me/preferences": [
+      {
+        "group": "planner-on",
+        "name": "preferences-320",
+        "width": 320,
+        "height": 844,
+        "synthetic": false
+      },
+      {
+        "group": "planner-on",
+        "name": "preferences-360",
+        "width": 360,
+        "height": 844,
+        "synthetic": false
+      },
+      {
+        "group": "planner-on",
+        "name": "preferences-390",
+        "width": 390,
+        "height": 844,
+        "synthetic": false
+      },
+      {
+        "group": "planner-on",
+        "name": "preferences-430",
+        "width": 430,
+        "height": 844,
+        "synthetic": false
+      },
+      {
+        "group": "planner-on",
+        "name": "preferences-768",
+        "width": 768,
+        "height": 844,
+        "synthetic": false
+      },
+      {
+        "group": "planner-on",
+        "name": "preferences-1024",
+        "width": 1024,
+        "height": 844,
+        "synthetic": false
+      },
+      {
+        "group": "planner-on",
+        "name": "preferences-1440",
+        "width": 1440,
+        "height": 844,
+        "synthetic": false
+      },
+      {
+        "group": "planner-on",
+        "name": "preferences-320-844-text2",
+        "width": 320,
+        "height": 844,
+        "synthetic": true
+      },
+      {
+        "group": "planner-on",
+        "name": "preferences-768-844-text2",
+        "width": 768,
+        "height": 844,
+        "synthetic": true
+      },
+      {
+        "group": "planner-on",
+        "name": "preferences-390-420",
+        "width": 390,
+        "height": 420,
+        "synthetic": false
+      },
+      {
+        "group": "planner-on",
+        "name": "preferences-768-420",
+        "width": 768,
+        "height": 420,
+        "synthetic": false
+      },
+      {
+        "group": "planner-on",
+        "name": "preferences-320-420-text2",
+        "width": 320,
+        "height": 420,
+        "synthetic": true
+      }
+    ],
+    "/settings/planning": [
+      {
+        "group": "planner-on",
+        "name": "planning-settings-320",
+        "width": 320,
+        "height": 844,
+        "synthetic": false
+      },
+      {
+        "group": "planner-on",
+        "name": "planning-settings-360",
+        "width": 360,
+        "height": 844,
+        "synthetic": false
+      },
+      {
+        "group": "planner-on",
+        "name": "planning-settings-390",
+        "width": 390,
+        "height": 844,
+        "synthetic": false
+      },
+      {
+        "group": "planner-on",
+        "name": "planning-settings-430",
+        "width": 430,
+        "height": 844,
+        "synthetic": false
+      },
+      {
+        "group": "planner-on",
+        "name": "planning-settings-768",
+        "width": 768,
+        "height": 844,
+        "synthetic": false
+      },
+      {
+        "group": "planner-on",
+        "name": "planning-settings-1024",
+        "width": 1024,
+        "height": 844,
+        "synthetic": false
+      },
+      {
+        "group": "planner-on",
+        "name": "planning-settings-1440",
+        "width": 1440,
+        "height": 844,
+        "synthetic": false
+      },
+      {
+        "group": "planner-on",
+        "name": "planning-settings-320-844-text2",
+        "width": 320,
+        "height": 844,
+        "synthetic": true
+      },
+      {
+        "group": "planner-on",
+        "name": "planning-settings-768-844-text2",
+        "width": 768,
+        "height": 844,
+        "synthetic": true
+      },
+      {
+        "group": "planner-on",
+        "name": "planning-settings-390-420",
+        "width": 390,
+        "height": 420,
+        "synthetic": false
+      },
+      {
+        "group": "planner-on",
+        "name": "planning-settings-768-420",
+        "width": 768,
+        "height": 420,
+        "synthetic": false
+      },
+      {
+        "group": "planner-on",
+        "name": "planning-settings-320-420-text2",
+        "width": 320,
+        "height": 420,
+        "synthetic": true
+      }
+    ],
+    "/scan": [
+      {
+        "group": "planner-on",
+        "name": "scan-immersive-320",
+        "width": 320,
+        "height": 844,
+        "synthetic": false
+      }
+    ],
+    "/cook/thit-kho-trung": [
+      {
+        "group": "planner-on",
+        "name": "cook-immersive-320",
+        "width": 320,
+        "height": 844,
+        "synthetic": false
+      }
+    ],
+    "/week": [
+      {
+        "group": "planner-off",
+        "name": "week-320",
+        "width": 320,
+        "height": 844,
+        "synthetic": false
+      },
+      {
+        "group": "planner-off",
+        "name": "week-360",
+        "width": 360,
+        "height": 844,
+        "synthetic": false
+      },
+      {
+        "group": "planner-off",
+        "name": "week-390",
+        "width": 390,
+        "height": 844,
+        "synthetic": false
+      },
+      {
+        "group": "planner-off",
+        "name": "week-430",
+        "width": 430,
+        "height": 844,
+        "synthetic": false
+      },
+      {
+        "group": "planner-off",
+        "name": "week-768",
+        "width": 768,
+        "height": 844,
+        "synthetic": false
+      },
+      {
+        "group": "planner-off",
+        "name": "week-1024",
+        "width": 1024,
+        "height": 844,
+        "synthetic": false
+      },
+      {
+        "group": "planner-off",
+        "name": "week-1440",
+        "width": 1440,
+        "height": 844,
+        "synthetic": false
+      },
+      {
+        "group": "planner-off",
+        "name": "week-320-844-text2",
+        "width": 320,
+        "height": 844,
+        "synthetic": true
+      },
+      {
+        "group": "planner-off",
+        "name": "week-768-844-text2",
+        "width": 768,
+        "height": 844,
+        "synthetic": true
+      },
+      {
+        "group": "planner-off",
+        "name": "week-390-420",
+        "width": 390,
+        "height": 420,
+        "synthetic": false
+      },
+      {
+        "group": "planner-off",
+        "name": "week-768-420",
+        "width": 768,
+        "height": 420,
+        "synthetic": false
+      },
+      {
+        "group": "planner-off",
+        "name": "week-320-420-text2",
+        "width": 320,
+        "height": 420,
+        "synthetic": true
+      }
+    ],
+    "/week/setup": [
+      {
+        "group": "planner-off",
+        "name": "week-setup-320",
+        "width": 320,
+        "height": 844,
+        "synthetic": false
+      },
+      {
+        "group": "planner-off",
+        "name": "week-setup-360",
+        "width": 360,
+        "height": 844,
+        "synthetic": false
+      },
+      {
+        "group": "planner-off",
+        "name": "week-setup-390",
+        "width": 390,
+        "height": 844,
+        "synthetic": false
+      },
+      {
+        "group": "planner-off",
+        "name": "week-setup-430",
+        "width": 430,
+        "height": 844,
+        "synthetic": false
+      },
+      {
+        "group": "planner-off",
+        "name": "week-setup-768",
+        "width": 768,
+        "height": 844,
+        "synthetic": false
+      },
+      {
+        "group": "planner-off",
+        "name": "week-setup-1024",
+        "width": 1024,
+        "height": 844,
+        "synthetic": false
+      },
+      {
+        "group": "planner-off",
+        "name": "week-setup-1440",
+        "width": 1440,
+        "height": 844,
+        "synthetic": false
+      },
+      {
+        "group": "planner-off",
+        "name": "week-setup-320-844-text2",
+        "width": 320,
+        "height": 844,
+        "synthetic": true
+      },
+      {
+        "group": "planner-off",
+        "name": "week-setup-768-844-text2",
+        "width": 768,
+        "height": 844,
+        "synthetic": true
+      },
+      {
+        "group": "planner-off",
+        "name": "week-setup-390-420",
+        "width": 390,
+        "height": 420,
+        "synthetic": false
+      },
+      {
+        "group": "planner-off",
+        "name": "week-setup-768-420",
+        "width": 768,
+        "height": 420,
+        "synthetic": false
+      },
+      {
+        "group": "planner-off",
+        "name": "week-setup-320-420-text2",
+        "width": 320,
+        "height": 420,
+        "synthetic": true
+      }
+    ],
+    "synthetic state (see name)": [
+      {
+        "group": "state-faults",
+        "name": "recipe-loading",
+        "width": 320,
+        "height": null,
+        "synthetic": true
+      },
+      {
+        "group": "state-faults",
+        "name": "recipe-error",
+        "width": 320,
+        "height": null,
+        "synthetic": true
+      },
+      {
+        "group": "state-faults",
+        "name": "recipe-error-text2",
+        "width": 320,
+        "height": null,
+        "synthetic": true
+      },
+      {
+        "group": "state-faults",
+        "name": "recipe-long-title",
+        "width": 320,
+        "height": null,
+        "synthetic": true
+      },
+      {
+        "group": "state-faults",
+        "name": "recipe-nutrition-unknown",
+        "width": 320,
+        "height": null,
+        "synthetic": true
+      },
+      {
+        "group": "state-faults",
+        "name": "recipe-long-unknown-text2",
+        "width": 320,
+        "height": null,
+        "synthetic": true
+      },
+      {
+        "group": "state-faults",
+        "name": "recipe-404",
+        "width": 320,
+        "height": null,
+        "synthetic": false
+      },
+      {
+        "group": "state-faults",
+        "name": "recipe-404-text2",
+        "width": 320,
+        "height": null,
+        "synthetic": true
+      },
+      {
+        "group": "state-faults",
+        "name": "discovery-empty",
+        "width": 320,
+        "height": null,
+        "synthetic": false
+      },
+      {
+        "group": "state-faults",
+        "name": "inventory-read-error",
+        "width": 320,
+        "height": null,
+        "synthetic": false
+      },
+      {
+        "group": "state-faults",
+        "name": "media-canonical",
+        "width": 320,
+        "height": null,
+        "synthetic": true
+      },
+      {
+        "group": "state-faults",
+        "name": "media-fallback",
+        "width": 320,
+        "height": null,
+        "synthetic": true
+      },
+      {
+        "group": "state-faults",
+        "name": "media-missing",
+        "width": 320,
+        "height": null,
+        "synthetic": true
+      }
+    ],
+    "/settings/app": [
+      {
+        "group": "supplemental",
+        "name": "settings",
+        "width": 320,
+        "height": null,
+        "synthetic": false
+      },
+      {
+        "group": "supplemental",
+        "name": "settings",
+        "width": 1440,
+        "height": null,
+        "synthetic": false
+      }
+    ],
+    "/me/household": [
+      {
+        "group": "supplemental",
+        "name": "household",
+        "width": 320,
+        "height": null,
+        "synthetic": false
+      },
+      {
+        "group": "supplemental",
+        "name": "household",
+        "width": 1440,
+        "height": null,
+        "synthetic": false
+      }
+    ],
+    "/inventory-reconciliation": [
+      {
+        "group": "supplemental",
+        "name": "reconciliation",
+        "width": 320,
+        "height": null,
+        "synthetic": false
+      },
+      {
+        "group": "supplemental",
+        "name": "reconciliation",
+        "width": 1440,
+        "height": null,
+        "synthetic": false
+      }
+    ],
+    "/scan/result": [
+      {
+        "group": "supplemental",
+        "name": "scan-no-id",
+        "width": 320,
+        "height": null,
+        "synthetic": false
+      },
+      {
+        "group": "supplemental",
+        "name": "scan-no-id",
+        "width": 1440,
+        "height": null,
+        "synthetic": false
+      }
+    ],
+    "/cook/pasta-pomodoro": [
+      {
+        "group": "supplemental",
+        "name": "cook-entry",
+        "width": 320,
+        "height": null,
+        "synthetic": false
+      },
+      {
+        "group": "supplemental",
+        "name": "cook-entry",
+        "width": 1440,
+        "height": null,
+        "synthetic": false
+      }
+    ],
+    "/cooking/complete": [
+      {
+        "group": "supplemental",
+        "name": "cook-no-attempt",
+        "width": 320,
+        "height": null,
+        "synthetic": false
+      },
+      {
+        "group": "supplemental",
+        "name": "cook-no-attempt",
+        "width": 1440,
+        "height": null,
+        "synthetic": false
+      }
+    ],
+    "/landing": [
+      {
+        "group": "supplemental",
+        "name": "public-entry",
+        "width": 320,
+        "height": null,
+        "synthetic": false
+      }
+    ],
+    "/auth/login": [
+      {
+        "group": "supplemental",
+        "name": "registered-login",
+        "width": 320,
+        "height": null,
+        "synthetic": false
+      }
+    ]
+  },
+  "scopeNotes": [
+    "47 route declarations include aliases, protected payment and auth routes; declarations are not47 independently certified pages",
+    "New runtime slice is Home/discovery/detail/media only",
+    "Existing scan/cooking/planner/account/state routes sampled for regression; deep device/domain tests stay in their own packets",
+    "Axe applies to main/off/state and12 registered supplemental pages; public landing/login supplemental checks verify rendering/overflow only",
+    "Computed text enlargement and browser route faults are synthetic; no native zoom/hardware/production certification"
+  ]
+}

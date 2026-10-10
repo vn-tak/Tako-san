@@ -1,0 +1,35 @@
+{
+  "syntheticTextX2": true,
+  "measurementWait": true,
+  "checks": [
+    {
+      "label": "Cách nấu",
+      "top": 60.1875,
+      "bottom": 122.1875,
+      "navTop": 182.625,
+      "navHeight": 237.375,
+      "visibleAboveNav": true
+    },
+    {
+      "label": "Nguyên liệu",
+      "top": 96.1875,
+      "bottom": 158.1875,
+      "navTop": 182.625,
+      "navHeight": 237.375,
+      "visibleAboveNav": true
+    },
+    {
+      "label": "Dinh dưỡng",
+      "top": 96.1875,
+      "bottom": 158.1875,
+      "navTop": 182.625,
+      "navHeight": 237.375,
+      "visibleAboveNav": true
+    },
+    {
+      "scrollHeight": 2538,
+      "viewportHeight": 420,
+      "navHeight": 237.375
+    }
+  ]
+}

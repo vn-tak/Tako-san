@@ -1,0 +1,10 @@
+v1/planner-empty-390: axe0 overflow0 broken0 fields16
+v1/planner-setup-320: axe0 overflow0 broken0 fields16
+v1/planner-board-320: axe0 overflow0 broken0 fields16
+v1/planner-meal-320: axe0 overflow0 broken0 fields16
+v1/planner-shopping-320: axe0 overflow0 broken0 fields16
+v1/planner-read-error-390: axe0 overflow0 broken0 fields16
+v1/saved-shopping-320: axe0 overflow0 broken0 fields16
+v1/shopping-delete-dialog-390: axe0 overflow0 broken0 fields16
+v1/shopping-offline-390: axe0 overflow0 broken0 fields16
+PASS v1: 9 axe/layout checks, 6 journey groups, no page errors

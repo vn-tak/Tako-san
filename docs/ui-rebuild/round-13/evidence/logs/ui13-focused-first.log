@@ -1,0 +1,11 @@
+
+ RUN  v3.2.7 /Users/tunbee27/Documents/Tako-san-ui-rebuild
+
+ ✓ tests/unit/ui13-media-review.test.mjs (34 tests) 10ms
+ ✓ tests/unit/recipe-media-presentation.test.ts (8 tests) 10ms
+ ✓ tests/unit/ui12-recipe-media.test.tsx (17 tests) 65ms
+
+ Test Files  3 passed (3)
+      Tests  59 passed (59)
+   Start at  06:04:20
+   Duration  1.08s (transform 166ms, setup 33ms, collect 336ms, tests 85ms, environment 776ms, prepare 231ms)

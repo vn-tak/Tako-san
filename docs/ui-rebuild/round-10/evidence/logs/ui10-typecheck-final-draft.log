@@ -1,0 +1,7 @@
+
+> frigo@0.1.0 typecheck /Users/tunbee27/Documents/Tako-san-ui-rebuild
+> tsc -p tsconfig.json --noEmit && tsc -p tsconfig.worker.json --noEmit
+
+tests/unit/t18c-keyboard-controls.test.tsx(58,40): error TS2322: Type '{ slot: MealSlotItem; onClick: Mock<Procedure>; onSwapClick: Mock<Procedure>; }' is not assignable to type 'IntrinsicAttributes & { slot: MealSlotItem; to: string; onSwapClick: (event: MouseEvent<Element, MouseEvent>) => void; }'.
+  Property 'onClick' does not exist on type 'IntrinsicAttributes & { slot: MealSlotItem; to: string; onSwapClick: (event: MouseEvent<Element, MouseEvent>) => void; }'.
+ ELIFECYCLE  Command failed with exit code 2.

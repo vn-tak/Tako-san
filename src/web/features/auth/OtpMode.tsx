@@ -81,6 +81,8 @@ export const OtpMode: React.FC<OtpModeProps> = ({
               ref={(el) => (otpInputsRef.current[idx] = el)}
               type="text"
               inputMode="numeric"
+              name={`otp-${idx + 1}`}
+              spellCheck={false}
               autoComplete="one-time-code"
               aria-label={`Chữ số ${idx + 1} của 6`}
               maxLength={1}

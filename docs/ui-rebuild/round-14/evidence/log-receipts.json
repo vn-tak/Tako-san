@@ -1,0 +1,381 @@
+{
+  "receipts": [
+    {
+      "rawPath": "/private/tmp/ui14-after-accepted.log",
+      "archivePath": "docs/ui-rebuild/round-14/evidence/logs/ui14-after-accepted.log",
+      "rawBytes": 1245,
+      "rawSha256": "f22d0f242de42011b40e31258955727c0603f681fd38aa0467fc9ac4a3d31072",
+      "archiveBytes": 1245,
+      "archiveSha256": "f22d0f242de42011b40e31258955727c0603f681fd38aa0467fc9ac4a3d31072",
+      "interpretation": "Exact recorded output; consult VERIFICATION for accepted versus failed/historical/helper result"
+    },
+    {
+      "rawPath": "/private/tmp/ui14-after-build.log",
+      "archivePath": "docs/ui-rebuild/round-14/evidence/logs/ui14-after-build.log",
+      "rawBytes": 7477,
+      "rawSha256": "507b32c9a7965c7b6d63e847a5891c92d9a0894a8326ae457a952880a19470ff",
+      "archiveBytes": 7477,
+      "archiveSha256": "507b32c9a7965c7b6d63e847a5891c92d9a0894a8326ae457a952880a19470ff",
+      "interpretation": "Exact recorded output; consult VERIFICATION for accepted versus failed/historical/helper result"
+    },
+    {
+      "rawPath": "/private/tmp/ui14-after-preview.log",
+      "archivePath": "docs/ui-rebuild/round-14/evidence/logs/ui14-after-preview.log",
+      "rawBytes": 42566,
+      "rawSha256": "c6224ff0dfc5735e4d78759dcf2980f2b97eb6ca1c2134f204f380e1fd307e11",
+      "archiveBytes": 42566,
+      "archiveSha256": "c6224ff0dfc5735e4d78759dcf2980f2b97eb6ca1c2134f204f380e1fd307e11",
+      "interpretation": "Exact recorded output; consult VERIFICATION for accepted versus failed/historical/helper result"
+    },
+    {
+      "rawPath": "/private/tmp/ui14-analysis.log",
+      "archivePath": "docs/ui-rebuild/round-14/evidence/logs/ui14-analysis.log",
+      "rawBytes": 182,
+      "rawSha256": "e4a116a1ed3b65520e9e0134c862a0857c85b064e4fb14b301261580b3c7eef2",
+      "archiveBytes": 182,
+      "archiveSha256": "e4a116a1ed3b65520e9e0134c862a0857c85b064e4fb14b301261580b3c7eef2",
+      "interpretation": "Exact recorded output; consult VERIFICATION for accepted versus failed/historical/helper result"
+    },
+    {
+      "rawPath": "/private/tmp/ui14-baseline-accepted.log",
+      "archivePath": "docs/ui-rebuild/round-14/evidence/logs/ui14-baseline-accepted.log",
+      "rawBytes": 1245,
+      "rawSha256": "e22325dd484c55d1edbda535506083b247effee7e5113bdab2b6d95fe847027b",
+      "archiveBytes": 1245,
+      "archiveSha256": "e22325dd484c55d1edbda535506083b247effee7e5113bdab2b6d95fe847027b",
+      "interpretation": "Exact recorded output; consult VERIFICATION for accepted versus failed/historical/helper result"
+    },
+    {
+      "rawPath": "/private/tmp/ui14-baseline-build.log",
+      "archivePath": "docs/ui-rebuild/round-14/evidence/logs/ui14-baseline-build.log",
+      "rawBytes": 7210,
+      "rawSha256": "29c21f281ba5e1f2e58dce57523fb383f38c7fa243b973b76b40a3d5d0dc680d",
+      "archiveBytes": 7210,
+      "archiveSha256": "29c21f281ba5e1f2e58dce57523fb383f38c7fa243b973b76b40a3d5d0dc680d",
+      "interpretation": "Exact recorded output; consult VERIFICATION for accepted versus failed/historical/helper result"
+    },
+    {
+      "rawPath": "/private/tmp/ui14-baseline-first.log",
+      "archivePath": "docs/ui-rebuild/round-14/evidence/logs/ui14-baseline-first.log",
+      "rawBytes": 524,
+      "rawSha256": "d5122604e1d347748d24edde6c766114f9f2ed1e50b02f321415d89d0e32de8f",
+      "archiveBytes": 524,
+      "archiveSha256": "d5122604e1d347748d24edde6c766114f9f2ed1e50b02f321415d89d0e32de8f",
+      "interpretation": "Exact recorded output; consult VERIFICATION for accepted versus failed/historical/helper result"
+    },
+    {
+      "rawPath": "/private/tmp/ui14-baseline-preview-recovered.log",
+      "archivePath": "docs/ui-rebuild/round-14/evidence/logs/ui14-baseline-preview-recovered.log",
+      "rawBytes": 10684,
+      "rawSha256": "828e610ed48aa12a9e1d066cc41b83eb4f8c9cfe07365f953f14d5129dcfa9ae",
+      "archiveBytes": 10684,
+      "archiveSha256": "828e610ed48aa12a9e1d066cc41b83eb4f8c9cfe07365f953f14d5129dcfa9ae",
+      "interpretation": "Exact recorded output; consult VERIFICATION for accepted versus failed/historical/helper result"
+    },
+    {
+      "rawPath": "/private/tmp/ui14-baseline-preview.log",
+      "archivePath": "docs/ui-rebuild/round-14/evidence/logs/ui14-baseline-preview.log",
+      "rawBytes": 277,
+      "rawSha256": "d39cfe88923f4dd0153b408add43fb26845582f54bb7956b9b33b16b23068a6f",
+      "archiveBytes": 277,
+      "archiveSha256": "d39cfe88923f4dd0153b408add43fb26845582f54bb7956b9b33b16b23068a6f",
+      "interpretation": "Exact recorded output; consult VERIFICATION for accepted versus failed/historical/helper result"
+    },
+    {
+      "rawPath": "/private/tmp/ui14-baseline-second.log",
+      "archivePath": "docs/ui-rebuild/round-14/evidence/logs/ui14-baseline-second.log",
+      "rawBytes": 481,
+      "rawSha256": "1234eb8e949e402092895f04e2cae3586a5991de03abe34405c6938a69541a5d",
+      "archiveBytes": 481,
+      "archiveSha256": "1234eb8e949e402092895f04e2cae3586a5991de03abe34405c6938a69541a5d",
+      "interpretation": "Exact recorded output; consult VERIFICATION for accepted versus failed/historical/helper result"
+    },
+    {
+      "rawPath": "/private/tmp/ui14-bootstrap-format.log",
+      "archivePath": "docs/ui-rebuild/round-14/evidence/logs/ui14-bootstrap-format.log",
+      "rawBytes": 76,
+      "rawSha256": "1d533261834001e0f501597621f339cd56cf2a93e23e8b2bd3aa51bdedc6d319",
+      "archiveBytes": 76,
+      "archiveSha256": "1d533261834001e0f501597621f339cd56cf2a93e23e8b2bd3aa51bdedc6d319",
+      "interpretation": "Exact recorded output; consult VERIFICATION for accepted versus failed/historical/helper result"
+    },
+    {
+      "rawPath": "/private/tmp/ui14-browser-final.log",
+      "archivePath": "docs/ui-rebuild/round-14/evidence/logs/ui14-browser-final.log",
+      "rawBytes": 6538,
+      "rawSha256": "10c7783199d9abebc3dedc8720362d6d9574b8657af223cff910dd8d898076d4",
+      "archiveBytes": 6538,
+      "archiveSha256": "10c7783199d9abebc3dedc8720362d6d9574b8657af223cff910dd8d898076d4",
+      "interpretation": "Exact recorded output; consult VERIFICATION for accepted versus failed/historical/helper result"
+    },
+    {
+      "rawPath": "/private/tmp/ui14-browser-first.log",
+      "archivePath": "docs/ui-rebuild/round-14/evidence/logs/ui14-browser-first.log",
+      "rawBytes": 4153,
+      "rawSha256": "94eda66ba48ce27fc05cf12e6be5588014601923623f46270421d59efe1d4932",
+      "archiveBytes": 4153,
+      "archiveSha256": "94eda66ba48ce27fc05cf12e6be5588014601923623f46270421d59efe1d4932",
+      "interpretation": "Exact recorded output; consult VERIFICATION for accepted versus failed/historical/helper result"
+    },
+    {
+      "rawPath": "/private/tmp/ui14-browser-settled.log",
+      "archivePath": "docs/ui-rebuild/round-14/evidence/logs/ui14-browser-settled.log",
+      "rawBytes": 2488,
+      "rawSha256": "c12ebed9870bec5d9601757cb7915e1d0718b6ff4cf7fe7372e7ea0477eea208",
+      "archiveBytes": 2488,
+      "archiveSha256": "c12ebed9870bec5d9601757cb7915e1d0718b6ff4cf7fe7372e7ea0477eea208",
+      "interpretation": "Exact recorded output; consult VERIFICATION for accepted versus failed/historical/helper result"
+    },
+    {
+      "rawPath": "/private/tmp/ui14-dependency-audit-stderr.log",
+      "archivePath": "docs/ui-rebuild/round-14/evidence/logs/ui14-dependency-audit-stderr.log",
+      "rawBytes": 0,
+      "rawSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "archiveBytes": 0,
+      "archiveSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "interpretation": "Exact recorded output; consult VERIFICATION for accepted versus failed/historical/helper result"
+    },
+    {
+      "rawPath": "/private/tmp/ui14-dependency-audit.json",
+      "archivePath": "docs/ui-rebuild/round-14/evidence/logs/ui14-dependency-audit.json",
+      "rawBytes": 66322,
+      "rawSha256": "d7584267e0f6037a4221ea3682d5ffc37ad7e04e491cebf5a994fa6adf4b19bb",
+      "archiveBytes": 66322,
+      "archiveSha256": "d7584267e0f6037a4221ea3682d5ffc37ad7e04e491cebf5a994fa6adf4b19bb",
+      "interpretation": "Exact recorded output; consult VERIFICATION for accepted versus failed/historical/helper result"
+    },
+    {
+      "rawPath": "/private/tmp/ui14-final-integrity.log",
+      "archivePath": "docs/ui-rebuild/round-14/evidence/logs/ui14-final-integrity.log",
+      "rawBytes": 127,
+      "rawSha256": "f4d4ddfd9abcbebe8a7f1babe9dc473fa661a420b6dcdc65e42487e99efdde02",
+      "archiveBytes": 127,
+      "archiveSha256": "f4d4ddfd9abcbebe8a7f1babe9dc473fa661a420b6dcdc65e42487e99efdde02",
+      "interpretation": "Exact recorded output; consult VERIFICATION for accepted versus failed/historical/helper result"
+    },
+    {
+      "rawPath": "/private/tmp/ui14-focused-first.log",
+      "archivePath": "docs/ui-rebuild/round-14/evidence/logs/ui14-focused-first.log",
+      "rawBytes": 176812,
+      "rawSha256": "be2f2091dd047b97e13060764f60f6ec41a639bd9d2fd30d540d906432a616e6",
+      "archiveBytes": 176811,
+      "archiveSha256": "e2b4a6b717e1e2305aa8aaade1da7a244955f53ba786f3451049a2e033bfef34",
+      "interpretation": "Exact recorded output; consult VERIFICATION for accepted versus failed/historical/helper result",
+      "rawArchivePath": "docs/ui-rebuild/round-14/evidence/logs/ui14-focused-first.log.raw.gz",
+      "rawArchiveBytes": 3032,
+      "rawArchiveSha256": "14dcc860056fe3e98462bf4803ed1332b8d03ee6f9f5705099f1a6b1d30323d3",
+      "normalization": "Text removes line-end spaces and trailing blank lines; exact raw bytes remain in deterministic .raw.gz"
+    },
+    {
+      "rawPath": "/private/tmp/ui14-format-final.log",
+      "archivePath": "docs/ui-rebuild/round-14/evidence/logs/ui14-format-final.log",
+      "rawBytes": 66,
+      "rawSha256": "17aa973d3f004560237d9a95171210b0671deff23d61628eecf7322ff5938f20",
+      "archiveBytes": 66,
+      "archiveSha256": "17aa973d3f004560237d9a95171210b0671deff23d61628eecf7322ff5938f20",
+      "interpretation": "Exact recorded output; consult VERIFICATION for accepted versus failed/historical/helper result"
+    },
+    {
+      "rawPath": "/private/tmp/ui14-full-check-recovered.log",
+      "archivePath": "docs/ui-rebuild/round-14/evidence/logs/ui14-full-check-recovered.log",
+      "rawBytes": 505056,
+      "rawSha256": "8fc8bf74ae5c6a05f5c077adbdbd93401a7a7f126d271e4381e305f5bfe738cf",
+      "archiveBytes": 505055,
+      "archiveSha256": "2693483ba0aca41e2383b2acd6f96adfe4e07806bf2917a3cd5d039f0c9b4355",
+      "interpretation": "Exact recorded output; consult VERIFICATION for accepted versus failed/historical/helper result",
+      "rawArchivePath": "docs/ui-rebuild/round-14/evidence/logs/ui14-full-check-recovered.log.raw.gz",
+      "rawArchiveBytes": 52828,
+      "rawArchiveSha256": "6a4c2e79037ad846390e86f59a34e95851cce500622bcec1bc84c98ad63b8d5c",
+      "normalization": "Text removes line-end spaces and trailing blank lines; exact raw bytes remain in deterministic .raw.gz"
+    },
+    {
+      "rawPath": "/private/tmp/ui14-full-check.log",
+      "archivePath": "docs/ui-rebuild/round-14/evidence/logs/ui14-full-check.log",
+      "rawBytes": 593,
+      "rawSha256": "f93fe613200bdcf3d87cef860858966837abd5fd6bf23cd5e55ce8a182e20f1c",
+      "archiveBytes": 593,
+      "archiveSha256": "f93fe613200bdcf3d87cef860858966837abd5fd6bf23cd5e55ce8a182e20f1c",
+      "interpretation": "Exact recorded output; consult VERIFICATION for accepted versus failed/historical/helper result"
+    },
+    {
+      "rawPath": "/private/tmp/ui14-harness-lint.log",
+      "archivePath": "docs/ui-rebuild/round-14/evidence/logs/ui14-harness-lint.log",
+      "rawBytes": 0,
+      "rawSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "archiveBytes": 0,
+      "archiveSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "interpretation": "Exact recorded output; consult VERIFICATION for accepted versus failed/historical/helper result"
+    },
+    {
+      "rawPath": "/private/tmp/ui14-interface-guidelines.md",
+      "archivePath": "docs/ui-rebuild/round-14/evidence/logs/ui14-interface-guidelines.md",
+      "rawBytes": 8055,
+      "rawSha256": "d246b026f4f29b5823a9cc857f9edf3d2507002e055e32040cadeaf3b38e0234",
+      "archiveBytes": 8055,
+      "archiveSha256": "d246b026f4f29b5823a9cc857f9edf3d2507002e055e32040cadeaf3b38e0234",
+      "interpretation": "Exact recorded output; consult VERIFICATION for accepted versus failed/historical/helper result"
+    },
+    {
+      "rawPath": "/private/tmp/ui14-legacy-baseline-preview.log",
+      "archivePath": "docs/ui-rebuild/round-14/evidence/logs/ui14-legacy-baseline-preview.log",
+      "rawBytes": 588,
+      "rawSha256": "267f6b404297cb4738a9d8a389eae668aea2a264c5b34fe1a7e605e8b13c1e7f",
+      "archiveBytes": 588,
+      "archiveSha256": "267f6b404297cb4738a9d8a389eae668aea2a264c5b34fe1a7e605e8b13c1e7f",
+      "interpretation": "Exact recorded output; consult VERIFICATION for accepted versus failed/historical/helper result"
+    },
+    {
+      "rawPath": "/private/tmp/ui14-legacy-final.log",
+      "archivePath": "docs/ui-rebuild/round-14/evidence/logs/ui14-legacy-final.log",
+      "rawBytes": 125,
+      "rawSha256": "5a69ec8a6c62c4d9b06092f68e2604bc04cc7e978b8da2124a4cd2d010f0ed3e",
+      "archiveBytes": 125,
+      "archiveSha256": "5a69ec8a6c62c4d9b06092f68e2604bc04cc7e978b8da2124a4cd2d010f0ed3e",
+      "interpretation": "Exact recorded output; consult VERIFICATION for accepted versus failed/historical/helper result"
+    },
+    {
+      "rawPath": "/private/tmp/ui14-legacy-first.log",
+      "archivePath": "docs/ui-rebuild/round-14/evidence/logs/ui14-legacy-first.log",
+      "rawBytes": 3467,
+      "rawSha256": "bbb7bb2c43d42a678221e891a2194a4dd802ab59470a6dbcf05785164b097e95",
+      "archiveBytes": 3467,
+      "archiveSha256": "bbb7bb2c43d42a678221e891a2194a4dd802ab59470a6dbcf05785164b097e95",
+      "interpretation": "Exact recorded output; consult VERIFICATION for accepted versus failed/historical/helper result"
+    },
+    {
+      "rawPath": "/private/tmp/ui14-legacy-preview.log",
+      "archivePath": "docs/ui-rebuild/round-14/evidence/logs/ui14-legacy-preview.log",
+      "rawBytes": 713,
+      "rawSha256": "e0d5fd4083706f1ee87e4cfa300a90891b7dc88aa5f2ad67e5cf1ba5c8c759dc",
+      "archiveBytes": 713,
+      "archiveSha256": "e0d5fd4083706f1ee87e4cfa300a90891b7dc88aa5f2ad67e5cf1ba5c8c759dc",
+      "interpretation": "Exact recorded output; consult VERIFICATION for accepted versus failed/historical/helper result"
+    },
+    {
+      "rawPath": "/private/tmp/ui14-legacy-recovered.log",
+      "archivePath": "docs/ui-rebuild/round-14/evidence/logs/ui14-legacy-recovered.log",
+      "rawBytes": 503,
+      "rawSha256": "340f5a2a16b23188ab798f73723406f18cc4f2baf0eeda12d0ed7b957431e157",
+      "archiveBytes": 503,
+      "archiveSha256": "340f5a2a16b23188ab798f73723406f18cc4f2baf0eeda12d0ed7b957431e157",
+      "interpretation": "Exact recorded output; consult VERIFICATION for accepted versus failed/historical/helper result"
+    },
+    {
+      "rawPath": "/private/tmp/ui14-lighthouse.log",
+      "archivePath": "docs/ui-rebuild/round-14/evidence/logs/ui14-lighthouse.log",
+      "rawBytes": 83,
+      "rawSha256": "a8b8ccb208ca932b960c0892173533424172f03d809679901cd9db11c79ef8f7",
+      "archiveBytes": 83,
+      "archiveSha256": "a8b8ccb208ca932b960c0892173533424172f03d809679901cd9db11c79ef8f7",
+      "interpretation": "Exact recorded output; consult VERIFICATION for accepted versus failed/historical/helper result"
+    },
+    {
+      "rawPath": "/private/tmp/ui14-metric-format.log",
+      "archivePath": "docs/ui-rebuild/round-14/evidence/logs/ui14-metric-format.log",
+      "rawBytes": 40,
+      "rawSha256": "bbdab2e9fa061619d8ca6b0dd54abefab66010767e53b30b08eb15b3cd0bdb47",
+      "archiveBytes": 40,
+      "archiveSha256": "bbdab2e9fa061619d8ca6b0dd54abefab66010767e53b30b08eb15b3cd0bdb47",
+      "interpretation": "Exact recorded output; consult VERIFICATION for accepted versus failed/historical/helper result"
+    },
+    {
+      "rawPath": "/private/tmp/ui14-motion-baseline.log",
+      "archivePath": "docs/ui-rebuild/round-14/evidence/logs/ui14-motion-baseline.log",
+      "rawBytes": 55,
+      "rawSha256": "8d57c0fe5714479b40b99bfa703c127f7b904f01f6d92a5fa45b75cb175c3b51",
+      "archiveBytes": 55,
+      "archiveSha256": "8d57c0fe5714479b40b99bfa703c127f7b904f01f6d92a5fa45b75cb175c3b51",
+      "interpretation": "Exact recorded output; consult VERIFICATION for accepted versus failed/historical/helper result"
+    },
+    {
+      "rawPath": "/private/tmp/ui14-performance-format.log",
+      "archivePath": "docs/ui-rebuild/round-14/evidence/logs/ui14-performance-format.log",
+      "rawBytes": 40,
+      "rawSha256": "0c28ec4b7a167d37d3f2ce750ccd3153a8643312788a485a7c2788351372fe69",
+      "archiveBytes": 40,
+      "archiveSha256": "0c28ec4b7a167d37d3f2ce750ccd3153a8643312788a485a7c2788351372fe69",
+      "interpretation": "Exact recorded output; consult VERIFICATION for accepted versus failed/historical/helper result"
+    },
+    {
+      "rawPath": "/private/tmp/ui14-preview-format.log",
+      "archivePath": "docs/ui-rebuild/round-14/evidence/logs/ui14-preview-format.log",
+      "rawBytes": 36,
+      "rawSha256": "826d206cb5e6912ef0fb9a5c5c9a86b423d2142755a479c215e9012c4782b39e",
+      "archiveBytes": 36,
+      "archiveSha256": "826d206cb5e6912ef0fb9a5c5c9a86b423d2142755a479c215e9012c4782b39e",
+      "interpretation": "Exact recorded output; consult VERIFICATION for accepted versus failed/historical/helper result"
+    },
+    {
+      "rawPath": "/private/tmp/ui14-react-audit.log",
+      "archivePath": "docs/ui-rebuild/round-14/evidence/logs/ui14-react-audit.log",
+      "rawBytes": 888,
+      "rawSha256": "7f3473c5265683418b3f2786244154c1a1609e51f9e582822f5b2076208d2b67",
+      "archiveBytes": 888,
+      "archiveSha256": "7f3473c5265683418b3f2786244154c1a1609e51f9e582822f5b2076208d2b67",
+      "interpretation": "Exact recorded output; consult VERIFICATION for accepted versus failed/historical/helper result"
+    },
+    {
+      "rawPath": "/private/tmp/ui14-runtime-format.log",
+      "archivePath": "docs/ui-rebuild/round-14/evidence/logs/ui14-runtime-format.log",
+      "rawBytes": 175,
+      "rawSha256": "fcb29294791ffce8a87c4a5c0308961e3c9d272f27cadd15b24dc28e1042b25f",
+      "archiveBytes": 175,
+      "archiveSha256": "fcb29294791ffce8a87c4a5c0308961e3c9d272f27cadd15b24dc28e1042b25f",
+      "interpretation": "Exact recorded output; consult VERIFICATION for accepted versus failed/historical/helper result"
+    },
+    {
+      "rawPath": "/private/tmp/ui14-short-probe.log",
+      "archivePath": "docs/ui-rebuild/round-14/evidence/logs/ui14-short-probe.log",
+      "rawBytes": 1122,
+      "rawSha256": "492ba2a1e3910b5a730e597d7ff419d1457bb6dffe68cf43b193c91eee8ad299",
+      "archiveBytes": 1122,
+      "archiveSha256": "492ba2a1e3910b5a730e597d7ff419d1457bb6dffe68cf43b193c91eee8ad299",
+      "interpretation": "Exact recorded output; consult VERIFICATION for accepted versus failed/historical/helper result"
+    },
+    {
+      "rawPath": "/private/tmp/ui14-short-recovered.log",
+      "archivePath": "docs/ui-rebuild/round-14/evidence/logs/ui14-short-recovered.log",
+      "rawBytes": 98,
+      "rawSha256": "015fda2e81725acb9e94e7740119f3fd76b662be941c7ae5fc05b2fa5df24e19",
+      "archiveBytes": 98,
+      "archiveSha256": "015fda2e81725acb9e94e7740119f3fd76b662be941c7ae5fc05b2fa5df24e19",
+      "interpretation": "Exact recorded output; consult VERIFICATION for accepted versus failed/historical/helper result"
+    },
+    {
+      "rawPath": "/private/tmp/ui14-targeted-final.log",
+      "archivePath": "docs/ui-rebuild/round-14/evidence/logs/ui14-targeted-final.log",
+      "rawBytes": 0,
+      "rawSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "archiveBytes": 0,
+      "archiveSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "interpretation": "Exact recorded output; consult VERIFICATION for accepted versus failed/historical/helper result"
+    },
+    {
+      "rawPath": "/private/tmp/ui14-targeted-lint.log",
+      "archivePath": "docs/ui-rebuild/round-14/evidence/logs/ui14-targeted-lint.log",
+      "rawBytes": 0,
+      "rawSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "archiveBytes": 0,
+      "archiveSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "interpretation": "Exact recorded output; consult VERIFICATION for accepted versus failed/historical/helper result"
+    },
+    {
+      "rawPath": "/private/tmp/ui14-ux-audit.log",
+      "archivePath": "docs/ui-rebuild/round-14/evidence/logs/ui14-ux-audit.log",
+      "rawBytes": 2866,
+      "rawSha256": "4d233ae4eddca324e63156c1be95bfd4946fbf0210cad8445d83e8976cb12bac",
+      "archiveBytes": 2866,
+      "archiveSha256": "4d233ae4eddca324e63156c1be95bfd4946fbf0210cad8445d83e8976cb12bac",
+      "interpretation": "Exact recorded output; consult VERIFICATION for accepted versus failed/historical/helper result"
+    },
+    {
+      "rawPath": "/private/tmp/ui14-ux-web-audit.log",
+      "archivePath": "docs/ui-rebuild/round-14/evidence/logs/ui14-ux-web-audit.log",
+      "rawBytes": 2747,
+      "rawSha256": "dddda8af30cea13185579a0909430a9ba6fa4ef7f8e775cfd5403bd8fad840a3",
+      "archiveBytes": 2747,
+      "archiveSha256": "dddda8af30cea13185579a0909430a9ba6fa4ef7f8e775cfd5403bd8fad840a3",
+      "interpretation": "Exact recorded output; consult VERIFICATION for accepted versus failed/historical/helper result"
+    }
+  ]
+}

@@ -1,7 +1,7 @@
+import { AccountPage } from '../../components/common/AccountPage';
 import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
 import { Bell, Bot } from 'lucide-react';
-import { Page, PageHeader, Section, Surface, UnavailableState } from '../../design-system/primitives';
+import { Section, Surface, UnavailableState } from '../../design-system/primitives';
 
 const PERMISSION_LABELS: Record<string, string> = {
   granted: 'đã cho phép',
@@ -15,18 +15,12 @@ const PERMISSION_LABELS: Record<string, string> = {
  * an honest unavailable state; no fake export file or deletion success.
  */
 export const PrivacyDataPage: React.FC = () => {
-  const navigate = useNavigate();
   const [browserPermission] = useState(() =>
     typeof Notification !== 'undefined' ? Notification.permission : 'unsupported'
   );
 
   return (
-    <Page width="compact">
-      <PageHeader
-        title="Quyền riêng tư & dữ liệu"
-        subtitle="Dữ liệu của bạn ở trong tủ lạnh của bạn"
-        onBack={() => navigate('/me')}
-      />
+    <AccountPage title="Quyền riêng tư & dữ liệu" description="Dữ liệu của bạn ở trong tủ lạnh của bạn">
 
       <div className="space-y-4 pb-8">
         <Section title="Dữ liệu Takosan lưu">
@@ -43,9 +37,9 @@ export const PrivacyDataPage: React.FC = () => {
           <Surface className="p-4 space-y-2">
             <p className="text-sm text-semantic-text-secondary leading-relaxed flex gap-2">
               <Bot className="w-4 h-4 text-semantic-action-primary shrink-0 mt-0.5" aria-hidden="true" />
-              Takosan không gửi email, số điện thoại, vị trí hoặc thông tin cá nhân tới các nhà
-              cung cấp AI. AI chỉ nhận diện nguyên liệu từ hình ảnh bạn chủ động gửi để xử lý
-              yêu cầu quét.
+              Khi bạn gửi ảnh để quét, ảnh và nội dung trên ảnh được xử lý để nhận diện nguyên
+              liệu. Ảnh có thể chứa thông tin cá nhân; hãy che thông tin không cần thiết trước
+              khi gửi. Kết quả nhận diện cần được bạn kiểm tra trước khi thêm vào tủ.
             </p>
           </Surface>
         </Section>
@@ -66,12 +60,11 @@ export const PrivacyDataPage: React.FC = () => {
         <Section title="Dữ liệu cá nhân">
           <div className="space-y-3">
             <UnavailableState title="Xuất dữ liệu — chưa hỗ trợ">
-              Chưa có API xuất dữ liệu cá nhân. Khi tính năng này ra mắt, bạn sẽ tải đúng dữ liệu
-              tài khoản của mình từ đây. Hiện trang này không tạo file giả.
+              Bạn hiện chưa thể tải bản xuất dữ liệu cá nhân từ ứng dụng.
             </UnavailableState>
             <UnavailableState title="Xóa tài khoản — chưa hỗ trợ">
-              Chưa có luồng xóa tài khoản. Việc xóa dữ liệu vĩnh viễn cần xác thực máy chủ và sẽ
-              được công bố khi sẵn sàng. Hiện trang này không hiển thị xóa thành công.
+              Bạn hiện chưa thể xóa tài khoản và dữ liệu vĩnh viễn từ ứng dụng.
+              Đăng xuất chỉ kết thúc phiên trên thiết bị, không xóa tài khoản.
             </UnavailableState>
           </div>
           <p className="text-xs text-semantic-text-muted mt-2">
@@ -79,6 +72,6 @@ export const PrivacyDataPage: React.FC = () => {
           </p>
         </Section>
       </div>
-    </Page>
+    </AccountPage>
   );
 };

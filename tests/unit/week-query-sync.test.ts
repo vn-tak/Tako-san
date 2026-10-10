@@ -341,6 +341,12 @@ describe('Week shopping optimism, rollback and reconciliation', () => {
     expect(client.queryClient.getQueryData(unrelatedKey)).toEqual(['OTHER_OWNER']);
   });
 
+  it.each([true, false])('passes through the existing completion pendingSync=%s receipt', async (pendingSync) => {
+    const active = plan(); active.shoppingItems[0].checked = true; seedPlan(active);
+    vi.spyOn(client.api, 'completeWeekShopping').mockResolvedValue({ success: true, importedItemsCount: 1, pendingSync });
+    await expect(client.week.getState().completeShopping()).resolves.toEqual({ success: true, count: 1, pendingSync });
+  });
+
   it.each(['rejected', 'unsuccessful'] as const)('does not report shopping completion when the server response is %s', async (outcome) => {
     seedPlan();
     const complete = vi.spyOn(client.api, 'completeWeekShopping');

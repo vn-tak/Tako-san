@@ -1,0 +1,24 @@
+brand-sheet-320: wait fonts
+brand-sheet-320: wait animations
+brand-sheet-320: wait lazy images
+brand-sheet-320: measure
+brand-sheet-320: axe
+node:internal/modules/run_main:107
+    triggerUncaughtException(
+    ^
+
+AssertionError [ERR_ASSERTION]: brand-sheet-320: [{"id":"color-contrast","impact":"serious","targets":[[".ink > span"]]}]
+
+1 !== 0
+
+    at snapshot (file:///Users/tunbee27/Documents/Tako-san-ui-rebuild/scripts/ui07-browser-check.mjs:49:10)
+    at async file:///Users/tunbee27/Documents/Tako-san-ui-rebuild/scripts/ui07-browser-check.mjs:56:5 {
+  generatedMessage: false,
+  code: 'ERR_ASSERTION',
+  actual: 1,
+  expected: 0,
+  operator: 'strictEqual',
+  diff: 'simple'
+}
+
+Node.js v24.16.0

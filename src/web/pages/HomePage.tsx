@@ -1,442 +1,330 @@
-import React, { useEffect, useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useEffect, useState } from 'react';
+import { Link, useNavigate } from 'react-router-dom';
 import { useQuery } from '@tanstack/react-query';
+import { ArrowRight, CalendarDays, Clock, Users } from 'lucide-react';
 import { useAuthStore } from '../stores/useAuthStore';
+import { TopBar } from '../components/common/TopBar';
 import { RecipeCard } from '../components/common/RecipeCard';
-import { EmptyState } from '../components/common/EmptyState';
+import { RecipeMedia } from '../components/common/RecipeMedia';
+import { KitchenPageHeading } from '../components/common/KitchenHeader';
 import { InlineLoading, InlineError, SkeletonCard } from '../components/common/AsyncState';
+import { Button } from '../components/common/Button';
 import { api } from '../services/api';
 import { queryKeys } from '../lib/queryKeys';
-import { formatVndCompact, daysUntil } from '../lib/format';
+import { daysUntil } from '../lib/format';
 import { presentExpiry } from '../lib/inventory-truth';
-import { findTodayMeal } from '../lib/home-meal';
+import { calendarLabel, type HomePlan } from '../lib/home-plan';
+import { useHomePlan } from '../lib/use-home-plan';
 import { getIngredientImage } from '../lib/ingredient-images';
-import { TAKOSAN_BRAND } from '../lib/takosan-brand';
-import { MealPlan, MealSlotItem } from '@frigo/domain';
-import {
-  Bell,
-  CheckCircle,
-  ChevronRight,
-  Sparkles,
-  Flame,
-  Clock,
-  Users,
-  ArrowRight,
-  CalendarDays,
-} from 'lucide-react';
-import { clsx } from 'clsx';
-import { resolveRecipeImage, recipeImageErrorHandler } from '../lib/recipe-media';
+import { resolveRecipeImage } from '../lib/recipe-media';
 
-const SLOT_LABELS: Record<MealSlotItem['slotType'], string> = {
-  breakfast: 'Bữa sáng hôm nay',
-  lunch: 'Bữa trưa hôm nay',
-  dinner: 'Bữa tối hôm nay',
-};
+const MEAL_LABELS = { breakfast: 'Bữa sáng', lunch: 'Bữa trưa', dinner: 'Bữa tối' };
 
-function planProgress(plan: MealPlan): { planned: number; total: number } {
-  let planned = 0;
-  let total = 0;
-  for (const day of plan.days) {
-    for (const slot of day.slots) {
-      total += 1;
-      if (slot.recipe || slot.status === 'COOKED' || slot.status === 'LEFTOVER') planned += 1;
-    }
-  }
-  return { planned, total };
+function PlannedMeal({ plan, onRetry }: { plan: HomePlan; onRetry: () => void }) {
+  const meal = plan.meal;
+  const label = meal ? calendarLabel(meal.date, plan.today) : null;
+  const image = meal?.recipe ? resolveRecipeImage(meal.recipe) : null;
+  return (
+    <section aria-labelledby="home-plan-heading" className="home-plan-card">
+      <div className="home-plan-copy">
+        <p className="kitchen-eyebrow">
+          <CalendarDays size={16} aria-hidden="true" />
+          {meal ? `${MEAL_LABELS[meal.mealType]} · ${label}` : 'Thực đơn của bạn'}
+        </p>
+        <h2 id="home-plan-heading" className="home-meal-title">
+          {!meal
+            ? 'Không còn bữa sắp tới trong lịch'
+            : meal.state === 'pending'
+              ? 'Đang tải các món trong bữa…'
+              : meal.state === 'error'
+                ? 'Chưa kiểm tra được các món trong bữa'
+                : meal.state === 'empty'
+                  ? 'Bữa này chưa có món nào'
+                  : meal.dishes.length === 1
+                    ? meal.dishes[0]
+                    : `${MEAL_LABELS[meal.mealType]} có ${meal.dishes.length} món`}
+        </h2>
+        {meal?.state === 'ready' && meal.dishes.length > 1 && (
+          <ul className="mt-4 space-y-2 text-base" aria-label="Các món trong bữa">
+            {meal.dishes.map((title, index) => (
+              <li key={`${title}-${index}`}>{title}</li>
+            ))}
+          </ul>
+        )}
+        {meal && (
+          <div className="mt-4 flex flex-wrap gap-4 text-sm text-semantic-text-secondary">
+            <span className="inline-flex items-center gap-1.5">
+              <Users size={16} aria-hidden="true" />
+              {meal.servings} người
+            </span>
+            {meal.state === 'ready' && meal.cookTimeMinutes !== null && (
+              <span className="inline-flex items-center gap-1.5">
+                <Clock size={16} aria-hidden="true" />
+                {meal.cookTimeMinutes} phút
+              </span>
+            )}
+          </div>
+        )}
+        {meal && meal.date > plan.today && (
+          <p className="mt-3 text-sm text-semantic-text-secondary">
+            {plan.startDate > plan.today
+              ? `Thực đơn bắt đầu ${calendarLabel(plan.startDate, plan.today).toLocaleLowerCase('vi-VN')}.`
+              : 'Đây là bữa sắp tới trong lịch của bạn.'}
+          </p>
+        )}
+        {meal?.state === 'pending' && (
+          <p role="status" className="mt-3 text-sm">
+            Đang kiểm tra thực đơn mới nhất.
+          </p>
+        )}
+        {meal?.state === 'error' && (
+          <div role="alert" className="mt-3 text-sm text-semantic-danger-strong">
+            <p>Thực đơn có thể đã thay đổi hoặc chưa tải được. Tải lại để xem các món hiện tại.</p>
+            <Button variant="outline" className="mt-3" onClick={onRetry}>
+              Tải lại thực đơn
+            </Button>
+          </div>
+        )}
+        <Link to={meal?.href ?? plan.href} className="kitchen-primary-link mt-5">
+          {meal?.state === 'empty' ? 'Chọn món cho bữa này' : meal ? 'Xem bữa ăn' : 'Xem thực đơn'}
+          <ArrowRight size={18} aria-hidden="true" />
+        </Link>
+        {plan.requiresReview && (
+          <p className="mt-3 text-sm text-semantic-warning-strong">
+            Dữ liệu đã thay đổi. Kiểm tra lại nguyên liệu trước khi nấu.
+          </p>
+        )}
+      </div>
+      {image && <RecipeMedia className="home-meal-media" image={image} title={meal!.dishes[0]} />}
+    </section>
+  );
 }
 
-export const HomePage: React.FC = () => {
+export const HomePage = () => {
   const navigate = useNavigate();
-  const { displayName, avatarUrl } = useAuthStore();
-
-  const [noBuyOnly, setNoBuyOnly] = useState(false);
-  const [selectedCuisine, setSelectedCuisine] = useState<string | null>(null);
+  const { displayName } = useAuthStore();
   const [now, setNow] = useState(() => new Date());
-
   useEffect(() => {
-    const updateClock = () => setNow(new Date());
-    const timer = window.setInterval(updateClock, 60_000);
-    window.addEventListener('focus', updateClock);
+    const update = () => setNow(new Date());
+    const timer = window.setInterval(update, 60_000);
+    window.addEventListener('focus', update);
     return () => {
       window.clearInterval(timer);
-      window.removeEventListener('focus', updateClock);
+      window.removeEventListener('focus', update);
     };
   }, []);
-
+  const home = useHomePlan(now);
   const inventoryQuery = useQuery({
     queryKey: queryKeys.inventory(),
     queryFn: () => api.getInventory(),
   });
-
   const recommendationsQuery = useQuery({
-    queryKey: queryKeys.recommendations({ noBuy: noBuyOnly, cuisine: selectedCuisine }),
-    queryFn: () =>
-      api.getRecommendations({ noBuy: noBuyOnly, cuisine: selectedCuisine || undefined }),
+    queryKey: queryKeys.recipeDiscovery({ pageSize: 3 }),
+    queryFn: () => api.getRecipeDiscovery({ pageSize: 3 }),
   });
-
-  const weekPlanQuery = useQuery({
-    queryKey: queryKeys.currentWeekPlan(),
-    queryFn: () => api.getCurrentWeekPlan(),
-  });
-
-  const weekPlan = weekPlanQuery.data ?? null;
-  const todayMeal = findTodayMeal(weekPlan, now);
   const inventory = inventoryQuery.data ?? [];
-
-  // Real use-soon list: items that expire soonest, from live inventory.
-  const useSoonItems = inventory
-    .filter((i: any) => i.freshness === 'use_soon' || i.freshness === 'expiring')
-    .sort((a: any, b: any) => (daysUntil(presentExpiry(a).date ?? undefined) ?? 99) - (daysUntil(presentExpiry(b).date ?? undefined) ?? 99))
-    .slice(0, 8);
-
-  const cuisinesList = [
-    { id: null, label: 'Tất cả' },
-    { id: 'vietnamese', label: '🇻🇳 Món Việt' },
-    { id: 'korean', label: '🇰🇷 Món Hàn' },
-    { id: 'japanese', label: '🇯🇵 Món Nhật' },
-    { id: 'chinese', label: '🇨🇳 Trung Hoa' },
-    { id: 'thai', label: '🇹🇭 Món Thái' },
-    { id: 'italian', label: '🇮🇹 Món Ý' },
-  ];
-
-  const firstName = displayName ? displayName.split(' ').pop() : null;
+  const useSoon = inventory
+    .filter((item) => item.freshness === 'use_soon' || item.freshness === 'expiring')
+    .sort(
+      (a, b) =>
+        (daysUntil(presentExpiry(a).date ?? undefined) ?? 99) -
+        (daysUntil(presentExpiry(b).date ?? undefined) ?? 99),
+    )
+    .slice(0, 4);
+  const firstName = displayName?.trim().split(/\s+/).at(-1);
+  const plan = home.plan;
+  const recommendations = recommendationsQuery.data?.items ?? [];
 
   return (
-    <div className="min-h-screen bg-takosan-cream pb-28">
-      {/* HEADER: Avatar + Xin chào + Notification Bell */}
-      <header className="sticky top-0 z-30 bg-takosan-cream/95 backdrop-blur-md px-4 py-3.5 border-b border-takosan-cream-line flex items-center justify-between shadow-xs">
-        <div className="flex items-center gap-3 min-w-0">
-          <button
-            onClick={() => navigate('/me')}
-            aria-label="Trang cá nhân"
-            className="w-11 h-11 rounded-full border-2 border-takosan-green ring-2 ring-takosan-mint bg-takosan-mint overflow-hidden cursor-pointer active:scale-95 transition-transform shrink-0"
-          >
-            <img
-              src={avatarUrl || TAKOSAN_BRAND.symbol}
-              alt=""
-              width={44}
-              height={44}
-              className="w-full h-full object-cover"
-            />
-          </button>
-          <div className="min-w-0">
-            <h1 className="font-heading font-bold text-lg text-takosan-navy leading-tight truncate">
-              Xin chào{firstName ? `, ${firstName}` : ''}! 👋
-            </h1>
-            <p className="text-xs text-semantic-text-muted font-medium truncate">Hôm nay ăn gì đây?</p>
-          </div>
-        </div>
-
-        <button
-          onClick={() => navigate('/notifications')}
-          className="shrink-0 w-11 h-11 rounded-xl bg-semantic-background-subtle border border-semantic-border hover:bg-semantic-border/60 active:scale-95 flex items-center justify-center text-semantic-text-secondary transition-tap tap-target"
-          aria-label="Thông báo"
-        >
-          <Bell className="w-5.5 h-5.5 stroke-[2]" />
-        </button>
-      </header>
-
-      <div className="px-4 pt-4 flex flex-wrap items-start gap-5 animate-fade-in">
-        <div data-testid="t18c-home-primary" className="min-w-0 flex-[1.15_1_18rem] space-y-5">
-        {/* HERO: today's meal from the live Week plan */}
-        {weekPlanQuery.isPending ? (
-          <SkeletonCard className="h-36 rounded-3xl" />
-        ) : weekPlanQuery.isError ? (
-          <InlineError error={weekPlanQuery.error} onRetry={() => weekPlanQuery.refetch()} />
-        ) : todayMeal && todayMeal.recipe ? (
-          <div className="relative rounded-3xl overflow-hidden bg-gradient-to-br from-takosan-green via-takosan-green-hover to-takosan-green-deep shadow-elevated">
-            <div className="absolute -top-10 -right-10 w-40 h-40 rounded-full bg-takosan-mint/20 blur-2xl" />
-            <div className="absolute -bottom-14 -left-8 w-36 h-36 rounded-full bg-takosan-yellow/10 blur-2xl" />
-
-            <div className="relative p-5 flex items-center gap-4">
-              <div className="flex-1 min-w-0 space-y-2">
-                <span className="inline-flex items-center gap-1.5 text-[10px] font-heading font-bold uppercase tracking-widest text-takosan-mint bg-white/10 px-2.5 py-1 rounded-full border border-white/15">
-                  <Flame className="w-3 h-3 text-takosan-yellow" />
-                  {SLOT_LABELS[todayMeal.slotType]}
-                </span>
-                <h2 className="font-heading font-extrabold text-xl text-white leading-snug">
-                  {todayMeal.recipe.title}
-                </h2>
-                <div className="flex items-center gap-3 text-[11px] font-medium text-white">
-                  <span className="flex items-center gap-1">
-                    <Clock className="w-3.5 h-3.5" /> {todayMeal.recipe.cookTimeMinutes} phút
-                  </span>
-                  <span className="flex items-center gap-1">
-                    <Users className="w-3.5 h-3.5" /> {todayMeal.servings} người
-                  </span>
-                </div>
-                <button
-                  onClick={() => navigate(`/cook/${todayMeal.recipe!.slug}`)}
-                  className="mt-1 px-5 py-2.5 rounded-xl bg-white hover:bg-takosan-cream text-takosan-green font-heading font-bold text-sm shadow-float active:scale-95 transition-tap flex items-center gap-2 tap-target"
-                >
-                  <Sparkles className="w-4 h-4" />
-                  <span>Bắt đầu nấu</span>
-                  <ArrowRight className="w-4 h-4" />
-                </button>
+    <div className="takosan-rebuild min-h-screen bg-semantic-background pb-12">
+      <TopBar kitchen />
+      <div className="kitchen-page-body animate-fade-in">
+        <KitchenPageHeading
+          eyebrow={firstName ? `Chào ${firstName}` : 'Căn bếp của bạn'}
+          title="Hôm nay ăn gì?"
+          description="Xem bữa sắp tới, dùng nguyên liệu đang có và chuẩn bị phần cần mua."
+        />
+        <div className="home-workspace">
+          <div data-testid="t18c-home-primary" className="min-w-0 space-y-6">
+            {home.query.isPending ? (
+              <div role="status">
+                <SkeletonCard className="h-64" />
+                <span className="sr-only">Đang tải thực đơn…</span>
               </div>
-
-              <div className="relative shrink-0">
-                <div className="absolute inset-0 rounded-full bg-takosan-coral/40 blur-xl scale-110" />
-                <div className="relative w-24 h-24 rounded-full overflow-hidden border-[3px] border-white/30 ring-4 ring-white/10 shadow-lg">
-                  <img
-                    src={resolveRecipeImage(todayMeal.recipe, TAKOSAN_BRAND.symbol).src}
-                    alt={todayMeal.recipe.title}
-                    width={96}
-                    height={96}
-                    className="w-full h-full object-cover"
-                    onError={recipeImageErrorHandler(resolveRecipeImage(todayMeal.recipe, TAKOSAN_BRAND.symbol).fallbackSrc)}
-                  />
-                </div>
-              </div>
-            </div>
-          </div>
-        ) : (
-          <div className="relative rounded-3xl overflow-hidden bg-gradient-to-br from-takosan-green via-takosan-green-hover to-takosan-green-deep shadow-elevated">
-            <div className="absolute -top-10 -right-10 w-40 h-40 rounded-full bg-takosan-mint/20 blur-2xl" />
-            <div className="relative p-5 space-y-2">
-              <span className="inline-flex items-center gap-1.5 text-[10px] font-heading font-bold uppercase tracking-widest text-takosan-mint bg-white/10 px-2.5 py-1 rounded-full border border-white/15">
-                <CalendarDays className="w-3 h-3 text-takosan-yellow" />
-                Hôm nay
-              </span>
-              <h2 className="font-heading font-extrabold text-lg text-white leading-snug">
-                {weekPlan ? 'Không có bữa cần nấu tiếp hôm nay' : 'Chưa có thực đơn tuần này'}
-              </h2>
-              <p className="text-xs text-white">
-                {weekPlan
-                  ? 'Xem lại các bữa đã lên lịch hoặc thêm món trong thực đơn tuần.'
-                  : 'Lên thực đơn để Takosan gợi ý món từ nguyên liệu sẵn có.'}
-              </p>
-              <button
-                onClick={() => navigate(weekPlan ? `/week/${weekPlan.id}` : '/week/setup')}
-                className="mt-1 px-5 py-2.5 rounded-xl bg-white hover:bg-takosan-cream text-takosan-green font-heading font-bold text-sm shadow-float active:scale-95 transition-tap inline-flex items-center gap-2 tap-target"
-              >
-                <Sparkles className="w-4 h-4" />
-                <span>{weekPlan ? 'Xem thực đơn tuần' : 'Lên thực đơn tuần'}</span>
-                <ArrowRight className="w-4 h-4" />
-              </button>
-            </div>
-          </div>
-        )}
-
-        {/* CARD 2: TUẦN NÀY — real progress from the plan */}
-        {weekPlan && !weekPlanQuery.isError && (() => {
-          const { planned, total } = planProgress(weekPlan);
-          const percent = total > 0 ? Math.round((planned / total) * 100) : 0;
-          const budget = weekPlan.budget;
-          return (
-            <div className="bg-white rounded-2xl p-4 border border-semantic-border shadow-card flex items-center justify-between gap-3 relative overflow-hidden">
-              <div className="space-y-1.5 min-w-0 flex-1">
-                <span className="text-[10px] font-heading font-bold uppercase tracking-wider text-semantic-text-muted block">
-                  TUẦN NÀY
-                </span>
-                <h2 className="font-heading font-bold text-base text-takosan-navy">
-                  {planned}/{total} bữa đã lên thực đơn
-                </h2>
-                <div
-                  className="w-full max-w-[180px] h-2 rounded-full bg-semantic-border/60 overflow-hidden"
-                  role="progressbar"
-                  aria-valuenow={percent}
-                  aria-valuemin={0}
-                  aria-valuemax={100}
-                  aria-label="Tiến độ thực đơn tuần"
-                >
-                  <div
-                    className="h-full rounded-full bg-takosan-green"
-                    style={{ width: `${percent}%` }}
-                  />
-                </div>
-                {budget && budget.targetVnd ? (
-                  <p className="text-xs text-semantic-text-muted font-medium">
-                    {formatVndCompact(budget.estimatedMaxVnd)} /{' '}
-                    {formatVndCompact(budget.targetVnd)} ngân sách
+            ) : home.query.isError ? (
+              <InlineError error={home.query.error} onRetry={() => void home.retry()} />
+            ) : plan ? (
+              <PlannedMeal plan={plan} onRetry={() => void home.retry()} />
+            ) : (
+              <section aria-labelledby="home-plan-heading" className="home-plan-card">
+                <div className="home-plan-copy">
+                  <p className="kitchen-eyebrow">Bắt đầu từ căn bếp của bạn</p>
+                  <h2 id="home-plan-heading" className="home-meal-title">
+                    Chưa có thực đơn hiện tại
+                  </h2>
+                  <p className="mt-3 text-base text-semantic-text-secondary">
+                    Chọn ngày và số người. Takosan sẽ giúp bạn sắp xếp các bữa từ nguyên liệu đang
+                    có.
                   </p>
-                ) : budget?.displayText ? (
-                  <p className="text-xs text-semantic-text-muted font-medium">{budget.displayText}</p>
-                ) : null}
-              </div>
-
-              <button
-                onClick={() => navigate(`/week/${weekPlan.id}`)}
-                className="shrink-0 px-4 py-2.5 rounded-xl bg-takosan-mint text-takosan-green-deep border border-takosan-mint-deep hover:bg-takosan-mint-hover text-xs font-heading font-bold active:scale-95 transition-tap flex items-center gap-1.5 tap-target"
-              >
-                <span>Xem thực đơn</span>
-                <ChevronRight className="w-4 h-4" />
-              </button>
-            </div>
-          );
-        })()}
-
-        {/* SECTION 3: NÊN DÙNG SỚM — real expiring items from inventory */}
-        <div className="space-y-2 pt-1">
-          <div className="flex items-center justify-between">
-            <h2 className="font-heading font-bold text-xs text-semantic-text-primary uppercase tracking-wider">
-              NÊN DÙNG SỚM
-            </h2>
-            <button
-              onClick={() => navigate('/fridge')}
-              className="text-[11px] font-semibold text-takosan-green hover:text-takosan-green-deep flex items-center tap-target"
-            >
-              Xem tất cả{inventoryQuery.isSuccess ? ` (${inventory.length})` : ''}{' '}
-              <ChevronRight className="w-3 h-3 ml-0.5" />
-            </button>
-          </div>
-
-          {inventoryQuery.isPending ? (
-            <div className="flex gap-2.5">
-              <SkeletonCard className="h-28 min-w-[104px]" />
-              <SkeletonCard className="h-28 min-w-[104px]" />
-              <SkeletonCard className="h-28 min-w-[104px]" />
-            </div>
-          ) : inventoryQuery.isError ? (
-            <InlineError error={inventoryQuery.error} onRetry={() => inventoryQuery.refetch()} />
-          ) : useSoonItems.length === 0 ? (
-            <div className="bg-white rounded-2xl border border-semantic-border p-4 text-center">
-              <p className="text-xs text-semantic-text-secondary font-medium">
-                {inventory.length === 0
-                  ? 'Tủ lạnh đang trống. Quét hoặc thêm nguyên liệu để bắt đầu nhé.'
-                  : 'Tuyệt! Không có nguyên liệu nào sắp hết hạn.'}
-              </p>
-              {inventory.length === 0 && (
-                <button
-                  onClick={() => navigate('/scan')}
-                  className="mt-2 inline-flex items-center gap-1.5 px-3.5 py-2 rounded-xl bg-takosan-mint text-takosan-green-deep border border-takosan-mint-deep text-xs font-heading font-bold hover:bg-takosan-mint-hover active:scale-95 transition-tap tap-target"
-                >
-                  <Sparkles className="w-3.5 h-3.5" />
-                  Quét tủ lạnh
-                </button>
-              )}
-            </div>
-          ) : (
-            <div className="flex gap-2.5 overflow-x-auto no-scrollbar py-0.5">
-              {useSoonItems.map((item: any) => {
-                // T13R-B P2-5: the shared presenter decides what the date IS.
-                // An ESTIMATED date is shown with an explicit estimate qualifier
-                // so it is never visually identical to a KNOWN countdown; an
-                // UNKNOWN date shows no countdown at all.
-                const expiry = presentExpiry(item);
-                const days = expiry.date === null ? null : daysUntil(expiry.date);
-                const label = expiry.tone === 'unknown' || days === null ? 'Chưa rõ hạn dùng'
-                  : expiry.tone === 'expired' ? (expiry.estimated ? 'Ước tính đã quá hạn' : '⏳ Đã quá hạn')
-                    : expiry.estimated ? (days <= 0 ? 'Ước tính hết hạn hôm nay' : `Ước tính còn ${days} ngày`)
-                      : (days <= 0 ? '⏳ Hôm nay' : `⏳ ${days} ngày`);
-                return (
-                  <button
-                    key={item.id}
-                    onClick={() => navigate(`/ingredients/${item.id}`)}
-                    className="bg-white rounded-2xl p-3 border border-semantic-border shadow-card flex flex-col items-center justify-center min-w-[104px] shrink-0 cursor-pointer active:scale-95 transition-transform hover:border-semantic-warning/50 hover:shadow-elevated"
-                  >
-                    <div className="w-14 h-14 overflow-hidden flex items-center justify-center mb-1.5">
-                      <img
-                        src={getIngredientImage(item.ingredientId, item.name)}
-                        alt={item.name}
-                        width={56}
-                        height={56}
-                        loading="lazy"
-                        className="w-full h-full object-contain"
-                      />
-                    </div>
-                    <p className="font-heading font-bold text-xs text-takosan-navy leading-tight">
-                      {item.name}
-                    </p>
-                    <span
-                      className={`text-[10px] font-bold px-2.5 py-0.5 rounded-full border mt-1.5 ${
-                        // UNKNOWN is neutral (no evidence), ESTIMATED is info,
-                        // a KNOWN countdown is warning — never the same tone.
-                        expiry.tone === 'unknown'
-                          ? 'text-semantic-text-secondary bg-semantic-border/60 border-semantic-border-strong'
-                          : expiry.estimated
-                            ? 'text-semantic-info bg-semantic-info-soft border-semantic-info/30'
-                            : 'text-semantic-warning-strong bg-semantic-warning-soft border-semantic-warning/30'}`}
-                      data-testid="home-use-soon-expiry"
-                      data-expiry-kind={expiry.tone === 'unknown' ? 'UNKNOWN' : expiry.estimated ? 'ESTIMATED' : 'KNOWN'}
-                    >
-                      {label}
-                    </span>
-                  </button>
-                );
-              })}
-            </div>
-          )}
-        </div>
-
-        </div>
-
-        {/* SECTION 4: GỢI Ý MÓN NGON */}
-        <div data-testid="t18c-home-recommendations" className="min-w-0 flex-[1_1_16rem] space-y-3 pt-2">
-          <div className="flex items-center justify-between">
-            <h2 className="font-heading font-bold text-sm text-takosan-navy">
-              Gợi ý cho bạn
-            </h2>
-
-            <button
-              onClick={() => setNoBuyOnly(!noBuyOnly)}
-              aria-pressed={noBuyOnly}
-              className={clsx(
-                'min-h-11 px-3 py-1.5 rounded-full text-xs font-heading font-semibold transition-tap flex items-center gap-1.5 shadow-xs cursor-pointer',
-                noBuyOnly
-                  ? 'bg-takosan-green text-white border border-takosan-green'
-                  : 'bg-white text-semantic-text-secondary border border-semantic-border hover:bg-semantic-background-subtle'
-              )}
-            >
-              <CheckCircle className={clsx('w-3.5 h-3.5', noBuyOnly ? 'text-takosan-mint' : 'text-takosan-green')} />
-              <span>Không mua thêm gì</span>
-            </button>
-          </div>
-
-          {/* Cuisine Filter Pills */}
-          <div className="flex gap-1.5 overflow-x-auto no-scrollbar py-0.5" role="group" aria-label="Lọc theo ẩm thực">
-            {cuisinesList.map((c) => {
-              const active = selectedCuisine === c.id;
-              return (
-                <button
-                  key={c.label}
-                  onClick={() => setSelectedCuisine(c.id)}
-                  aria-pressed={active}
-                  className={clsx(
-                    'px-3.5 py-1.5 rounded-full text-xs font-heading font-semibold whitespace-nowrap transition-tap tap-target cursor-pointer',
-                    active
-                      ? 'bg-takosan-green text-white shadow-xs'
-                      : 'bg-white text-semantic-text-secondary border border-semantic-border hover:bg-semantic-background-subtle'
+                  <Link className="kitchen-primary-link mt-5" to={home.setupHref}>
+                    Lên thực đơn <ArrowRight size={18} aria-hidden="true" />
+                  </Link>
+                </div>
+              </section>
+            )}
+            {plan && home.query.isSuccess && (
+              <section className="home-plan-summary" aria-label="Tổng quan thực đơn">
+                <div>
+                  <p className="kitchen-eyebrow">Trong thực đơn</p>
+                  <p className="mt-2 text-lg font-semibold">
+                    {plan.planned === null
+                      ? plan.meal?.state === 'error'
+                        ? 'Chưa kiểm tra được các bữa đã xếp'
+                        : plan.meal?.state === 'pending'
+                          ? 'Đang kiểm tra các bữa đã xếp'
+                          : 'Chưa xác nhận số bữa đã xếp'
+                      : `${plan.planned}/${plan.total} bữa đã xếp`}
+                  </p>
+                  {plan.budgetText && (
+                    <p className="mt-2 text-sm text-semantic-text-muted">{plan.budgetText}</p>
                   )}
-                >
-                  {c.label}
-                </button>
-              );
-            })}
+                </div>
+                <Link to={plan.href} className="kitchen-text-link">
+                  Xem lịch <ArrowRight size={17} aria-hidden="true" />
+                </Link>
+              </section>
+            )}
+            <section aria-labelledby="use-soon-heading" className="space-y-4">
+              <div className="kitchen-section-heading">
+                <h2 id="use-soon-heading">Nên dùng sớm</h2>
+                <Link to="/fridge" className="kitchen-text-link">
+                  Mở tủ lạnh <ArrowRight size={17} aria-hidden="true" />
+                </Link>
+              </div>
+              {inventoryQuery.isPending ? (
+                <InlineLoading label="Đang tải nguyên liệu…" />
+              ) : inventoryQuery.isError ? (
+                <InlineError
+                  error={inventoryQuery.error}
+                  onRetry={() => void inventoryQuery.refetch()}
+                />
+              ) : !useSoon.length ? (
+                <div className="kitchen-neutral-panel">
+                  <p className="text-sm text-semantic-text-secondary">
+                    {inventory.length
+                      ? 'Chưa có nguyên liệu được đánh dấu cần dùng sớm. Kiểm tra hạn dùng trong tủ lạnh.'
+                      : 'Tủ lạnh đang trống. Thêm nguyên liệu để tìm món phù hợp.'}
+                  </p>
+                  {!inventory.length && (
+                    <Link to="/scan" className="kitchen-text-link mt-2">
+                      Quét nguyên liệu <ArrowRight size={17} aria-hidden="true" />
+                    </Link>
+                  )}
+                </div>
+              ) : (
+                <div className="home-stock-list">
+                  {useSoon.map((item) => {
+                    const expiry = presentExpiry(item);
+                    const days = expiry.date === null ? null : daysUntil(expiry.date);
+                    const label =
+                      expiry.tone === 'unknown' || days === null
+                        ? 'Chưa rõ hạn dùng'
+                        : expiry.tone === 'expired'
+                          ? expiry.estimated
+                            ? 'Ước tính đã quá hạn'
+                            : 'Đã quá hạn'
+                          : expiry.estimated
+                            ? days <= 0
+                              ? 'Ước tính hết hạn hôm nay'
+                              : `Ước tính còn ${days} ngày`
+                            : days <= 0
+                              ? 'Hết hạn hôm nay'
+                              : `Còn ${days} ngày`;
+                    return (
+                      <Link
+                        key={item.id}
+                        to={`/ingredients/${item.id}`}
+                        className="home-stock-item"
+                      >
+                        <img
+                          src={getIngredientImage(item.ingredientId, item.name)}
+                          alt=""
+                          width={48}
+                          height={48}
+                          loading="lazy"
+                        />
+                        <div className="min-w-0">
+                          <h3 className="text-base font-semibold">{item.name}</h3>
+                          <p
+                            className="mt-1 text-sm text-semantic-text-muted"
+                            data-testid="home-use-soon-expiry"
+                            data-expiry-kind={
+                              expiry.tone === 'unknown'
+                                ? 'UNKNOWN'
+                                : expiry.estimated
+                                  ? 'ESTIMATED'
+                                  : 'KNOWN'
+                            }
+                          >
+                            {label}
+                          </p>
+                        </div>
+                      </Link>
+                    );
+                  })}
+                </div>
+              )}
+            </section>
           </div>
-
-          {/* Recipe List */}
-          <div className="space-y-3 pt-1">
+          <section
+            data-testid="t18c-home-recommendations"
+            className="min-w-0 space-y-4"
+            aria-labelledby="home-recipes-heading"
+          >
+            <div className="kitchen-section-heading">
+              <h2 id="home-recipes-heading">Gợi ý cho bữa tới</h2>
+              <Link to="/recipes" className="kitchen-text-link">
+                Xem thêm <ArrowRight size={17} aria-hidden="true" />
+              </Link>
+            </div>
+            {recommendationsQuery.data?.source === 'device' && (
+              <p role="status" className="text-sm text-semantic-text-secondary">
+                Gợi ý từ nguyên liệu và công thức lưu trên thiết bị.
+              </p>
+            )}
             {recommendationsQuery.isPending ? (
-              <InlineLoading label="Đang tìm món tối ưu…" />
+              <InlineLoading label="Đang tìm món phù hợp…" />
             ) : recommendationsQuery.isError ? (
               <InlineError
                 error={recommendationsQuery.error}
-                onRetry={() => recommendationsQuery.refetch()}
+                onRetry={() => void recommendationsQuery.refetch()}
               />
-            ) : (recommendationsQuery.data ?? []).length === 0 ? (
-              <EmptyState
-                type="no-recipes"
-                headingLevel={3}
-                title="Chưa tìm thấy món phù hợp"
-                description="Hãy thử tắt bộ lọc 'Không mua thêm gì' hoặc quét thêm nguyên liệu vào tủ lạnh nhé."
-                actionText="Xem tất cả công thức"
-                onAction={() => {
-                  setNoBuyOnly(false);
-                  setSelectedCuisine(null);
-                }}
-              />
+            ) : recommendations.length ? (
+              <div className="space-y-4">
+                {recommendations.map((match) => (
+                  <RecipeCard
+                    kitchen
+                    key={match.recipe.id}
+                    matchResult={match}
+                    headingLevel={3}
+                    onClick={() =>
+                      navigate(`/recipes/${match.recipe.slug}`, { state: { discoveryReturn: '/' } })
+                    }
+                  />
+                ))}
+              </div>
             ) : (
-              (recommendationsQuery.data ?? []).slice(0, 5).map((match) => (
-                <RecipeCard
-                  key={match.recipe.id}
-                  matchResult={match}
-                  headingLevel={3}
-                  onClick={() => navigate(`/recipes/${match.recipe.slug}`)}
-                />
-              ))
+              <div className="kitchen-neutral-panel">
+                <p className="text-sm">Chưa có món phù hợp để gợi ý.</p>
+                <Link to="/recipes" className="kitchen-text-link mt-2">
+                  Tìm trong công thức <ArrowRight size={17} aria-hidden="true" />
+                </Link>
+              </div>
             )}
-          </div>
+            <Link to="/recipes?noBuy=true" className="kitchen-discovery-link">
+              Chỉ xem món đủ lượng trong tủ <ArrowRight size={18} aria-hidden="true" />
+            </Link>
+          </section>
         </div>
       </div>
     </div>

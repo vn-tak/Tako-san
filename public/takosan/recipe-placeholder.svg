@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 450" width="600" height="450">
+  <rect width="600" height="450" fill="#EFEEE7"/>
+  <circle cx="300" cy="205" r="95" fill="#F7F3EC" stroke="#DDDCD3" stroke-width="2"/>
+  <circle cx="300" cy="205" r="67" fill="none" stroke="#DDDCD3" stroke-width="2"/>
+  <path d="M185 145v120m-13-120v35q0 22 13 22t13-22v-35m220 0q-24 36-24 67h24v53z" fill="none" stroke="#245D49" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M280 210q20-30 40 0m-30-14h20" fill="none" stroke="#EE705E" stroke-width="7" stroke-linecap="round"/>
+  <text x="300" y="350" text-anchor="middle" font-family="sans-serif" font-size="22" fill="#545F59">Ch&#432;a c&#243; &#7843;nh m&#243;n &#259;n</text>
+</svg>

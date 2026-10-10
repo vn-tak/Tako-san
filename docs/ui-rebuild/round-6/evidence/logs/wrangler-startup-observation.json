@@ -1,0 +1,12 @@
+{
+  "syntheticLocalOnly": true,
+  "cliVersion": "3.114.17",
+  "originalIsolatedSeconds": 23.23,
+  "originalIsolatedLocalTestMs": 20799,
+  "unchangedIsolatedSeconds": 3.26,
+  "unchangedIsolatedLocalTestMs": 945,
+  "updateCacheTimestamp": "2026-10-10T10:07:28.926000+00:00",
+  "manualCacheMutation": false,
+  "networkProbe": "public npm metadata HTTP200 in0.634325s",
+  "ipv6CauseProven": false
+}

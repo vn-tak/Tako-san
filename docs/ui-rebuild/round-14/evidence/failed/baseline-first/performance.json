@@ -1,0 +1,27 @@
+{
+  "browser": "153.0.8010.12",
+  "stage": "baseline",
+  "environment": {
+    "productionBuild": true,
+    "isolatedSyntheticWorker": true,
+    "externalHtmlRemoved": true,
+    "gzip": "preview text assets only; local policy is not hosted compression evidence",
+    "cache": "CDP enabled, no browser request routing; warm is same-context same-route reload",
+    "viewport": {
+      "width": 390,
+      "height": 844
+    },
+    "cpuRate": 4,
+    "network": {
+      "latencyMs": 60,
+      "downloadBytesPerSecond": 200000,
+      "uploadBytesPerSecond": 96000
+    },
+    "observations": "document metrics are local lab observations, not field CWV/INP; SPA ready is measured independently"
+  },
+  "samples": [],
+  "transitions": [],
+  "errors": [],
+  "domainWrites": [],
+  "external": []
+}

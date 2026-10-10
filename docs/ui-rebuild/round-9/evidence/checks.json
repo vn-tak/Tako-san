@@ -1,0 +1,906 @@
+{
+  "base": "http://127.0.0.1:5202",
+  "checks": [
+    {
+      "name": "legacy-detail-390",
+      "route": "/inventory/preview-stock-egg",
+      "synthetic": false,
+      "width": 390,
+      "scrollWidth": 390,
+      "font": "\"Be Vietnam Pro\", sans-serif",
+      "h1Count": 1,
+      "logoCount": 1,
+      "inputs": [],
+      "reduced": true,
+      "violations": []
+    },
+    {
+      "name": "canonical-detail-320",
+      "route": "/fridge/preview-stock-egg",
+      "synthetic": false,
+      "width": 320,
+      "scrollWidth": 320,
+      "font": "\"Be Vietnam Pro\", sans-serif",
+      "h1Count": 1,
+      "logoCount": 1,
+      "inputs": [],
+      "reduced": true,
+      "violations": []
+    },
+    {
+      "name": "canonical-edit-320",
+      "route": "/fridge/preview-stock-egg",
+      "synthetic": false,
+      "width": 320,
+      "scrollWidth": 320,
+      "font": "\"Be Vietnam Pro\", sans-serif",
+      "h1Count": 1,
+      "logoCount": 1,
+      "inputs": [
+        {
+          "height": 50,
+          "font": 16
+        },
+        {
+          "height": 48,
+          "font": 16
+        },
+        {
+          "height": 48,
+          "font": 16
+        },
+        {
+          "height": 52,
+          "font": 16
+        },
+        {
+          "height": 48,
+          "font": 16
+        }
+      ],
+      "reduced": true,
+      "violations": []
+    },
+    {
+      "name": "reconciliation-empty-320",
+      "route": "/inventory-reconciliation",
+      "synthetic": false,
+      "width": 320,
+      "scrollWidth": 320,
+      "font": "\"Be Vietnam Pro\", sans-serif",
+      "h1Count": 1,
+      "logoCount": 1,
+      "inputs": [],
+      "reduced": true,
+      "violations": []
+    },
+    {
+      "name": "canonical-detail-390",
+      "route": "/fridge/preview-stock-egg",
+      "synthetic": false,
+      "width": 390,
+      "scrollWidth": 390,
+      "font": "\"Be Vietnam Pro\", sans-serif",
+      "h1Count": 1,
+      "logoCount": 1,
+      "inputs": [],
+      "reduced": true,
+      "violations": []
+    },
+    {
+      "name": "canonical-edit-390",
+      "route": "/fridge/preview-stock-egg",
+      "synthetic": false,
+      "width": 390,
+      "scrollWidth": 390,
+      "font": "\"Be Vietnam Pro\", sans-serif",
+      "h1Count": 1,
+      "logoCount": 1,
+      "inputs": [
+        {
+          "height": 50,
+          "font": 16
+        },
+        {
+          "height": 48,
+          "font": 16
+        },
+        {
+          "height": 48,
+          "font": 16
+        },
+        {
+          "height": 52,
+          "font": 16
+        },
+        {
+          "height": 48,
+          "font": 16
+        }
+      ],
+      "reduced": true,
+      "violations": []
+    },
+    {
+      "name": "reconciliation-empty-390",
+      "route": "/inventory-reconciliation",
+      "synthetic": false,
+      "width": 390,
+      "scrollWidth": 390,
+      "font": "\"Be Vietnam Pro\", sans-serif",
+      "h1Count": 1,
+      "logoCount": 1,
+      "inputs": [],
+      "reduced": true,
+      "violations": []
+    },
+    {
+      "name": "canonical-detail-768",
+      "route": "/fridge/preview-stock-egg",
+      "synthetic": false,
+      "width": 768,
+      "scrollWidth": 768,
+      "font": "\"Be Vietnam Pro\", sans-serif",
+      "h1Count": 1,
+      "logoCount": 1,
+      "inputs": [],
+      "reduced": true,
+      "violations": []
+    },
+    {
+      "name": "canonical-edit-768",
+      "route": "/fridge/preview-stock-egg",
+      "synthetic": false,
+      "width": 768,
+      "scrollWidth": 768,
+      "font": "\"Be Vietnam Pro\", sans-serif",
+      "h1Count": 1,
+      "logoCount": 1,
+      "inputs": [
+        {
+          "height": 50,
+          "font": 16
+        },
+        {
+          "height": 48,
+          "font": 16
+        },
+        {
+          "height": 48,
+          "font": 16
+        },
+        {
+          "height": 52,
+          "font": 16
+        },
+        {
+          "height": 48,
+          "font": 16
+        }
+      ],
+      "reduced": true,
+      "violations": []
+    },
+    {
+      "name": "reconciliation-empty-768",
+      "route": "/inventory-reconciliation",
+      "synthetic": false,
+      "width": 768,
+      "scrollWidth": 768,
+      "font": "\"Be Vietnam Pro\", sans-serif",
+      "h1Count": 1,
+      "logoCount": 1,
+      "inputs": [],
+      "reduced": true,
+      "violations": []
+    },
+    {
+      "name": "canonical-detail-1024",
+      "route": "/fridge/preview-stock-egg",
+      "synthetic": false,
+      "width": 1024,
+      "scrollWidth": 1024,
+      "font": "\"Be Vietnam Pro\", sans-serif",
+      "h1Count": 1,
+      "logoCount": 1,
+      "inputs": [],
+      "reduced": true,
+      "violations": []
+    },
+    {
+      "name": "canonical-edit-1024",
+      "route": "/fridge/preview-stock-egg",
+      "synthetic": false,
+      "width": 1024,
+      "scrollWidth": 1024,
+      "font": "\"Be Vietnam Pro\", sans-serif",
+      "h1Count": 1,
+      "logoCount": 1,
+      "inputs": [
+        {
+          "height": 50,
+          "font": 16
+        },
+        {
+          "height": 48,
+          "font": 16
+        },
+        {
+          "height": 48,
+          "font": 16
+        },
+        {
+          "height": 52,
+          "font": 16
+        },
+        {
+          "height": 48,
+          "font": 16
+        }
+      ],
+      "reduced": true,
+      "violations": []
+    },
+    {
+      "name": "reconciliation-empty-1024",
+      "route": "/inventory-reconciliation",
+      "synthetic": false,
+      "width": 1024,
+      "scrollWidth": 1024,
+      "font": "\"Be Vietnam Pro\", sans-serif",
+      "h1Count": 1,
+      "logoCount": 1,
+      "inputs": [],
+      "reduced": true,
+      "violations": []
+    },
+    {
+      "name": "canonical-detail-1440",
+      "route": "/fridge/preview-stock-egg",
+      "synthetic": false,
+      "width": 1440,
+      "scrollWidth": 1440,
+      "font": "\"Be Vietnam Pro\", sans-serif",
+      "h1Count": 1,
+      "logoCount": 1,
+      "inputs": [],
+      "reduced": true,
+      "violations": []
+    },
+    {
+      "name": "canonical-edit-1440",
+      "route": "/fridge/preview-stock-egg",
+      "synthetic": false,
+      "width": 1440,
+      "scrollWidth": 1440,
+      "font": "\"Be Vietnam Pro\", sans-serif",
+      "h1Count": 1,
+      "logoCount": 1,
+      "inputs": [
+        {
+          "height": 50,
+          "font": 16
+        },
+        {
+          "height": 48,
+          "font": 16
+        },
+        {
+          "height": 48,
+          "font": 16
+        },
+        {
+          "height": 52,
+          "font": 16
+        },
+        {
+          "height": 48,
+          "font": 16
+        }
+      ],
+      "reduced": true,
+      "violations": []
+    },
+    {
+      "name": "reconciliation-empty-1440",
+      "route": "/inventory-reconciliation",
+      "synthetic": false,
+      "width": 1440,
+      "scrollWidth": 1440,
+      "font": "\"Be Vietnam Pro\", sans-serif",
+      "h1Count": 1,
+      "logoCount": 1,
+      "inputs": [],
+      "reduced": true,
+      "violations": []
+    },
+    {
+      "name": "detail-alias-ingredients",
+      "route": "/ingredients/preview-stock-egg",
+      "synthetic": false,
+      "width": 1440,
+      "scrollWidth": 1440,
+      "font": "\"Be Vietnam Pro\", sans-serif",
+      "h1Count": 1,
+      "logoCount": 1,
+      "inputs": [],
+      "reduced": true,
+      "violations": []
+    },
+    {
+      "name": "detail-alias-inventory",
+      "route": "/inventory/preview-stock-egg",
+      "synthetic": false,
+      "width": 1440,
+      "scrollWidth": 1440,
+      "font": "\"Be Vietnam Pro\", sans-serif",
+      "h1Count": 1,
+      "logoCount": 1,
+      "inputs": [],
+      "reduced": true,
+      "violations": []
+    },
+    {
+      "name": "detail-enlarged-320",
+      "route": "/fridge/preview-stock-egg",
+      "synthetic": false,
+      "width": 320,
+      "scrollWidth": 320,
+      "font": "\"Be Vietnam Pro\", sans-serif",
+      "h1Count": 1,
+      "logoCount": 1,
+      "inputs": [],
+      "reduced": true,
+      "violations": []
+    },
+    {
+      "name": "edit-enlarged-320",
+      "route": "/fridge/preview-stock-egg",
+      "synthetic": false,
+      "width": 320,
+      "scrollWidth": 320,
+      "font": "\"Be Vietnam Pro\", sans-serif",
+      "h1Count": 1,
+      "logoCount": 1,
+      "inputs": [
+        {
+          "height": 74,
+          "font": 32
+        },
+        {
+          "height": 68,
+          "font": 32
+        },
+        {
+          "height": 68,
+          "font": 32
+        },
+        {
+          "height": 76,
+          "font": 32
+        },
+        {
+          "height": 68,
+          "font": 32
+        }
+      ],
+      "reduced": true,
+      "violations": []
+    },
+    {
+      "name": "detail-long-content-enlarged-320",
+      "route": "/fridge/preview-stock-egg",
+      "synthetic": true,
+      "width": 320,
+      "scrollWidth": 320,
+      "font": "\"Be Vietnam Pro\", sans-serif",
+      "h1Count": 1,
+      "logoCount": 1,
+      "inputs": [],
+      "reduced": true,
+      "violations": []
+    },
+    {
+      "name": "edit-short-390",
+      "route": "/fridge/preview-stock-egg",
+      "synthetic": false,
+      "width": 390,
+      "scrollWidth": 390,
+      "font": "\"Be Vietnam Pro\", sans-serif",
+      "h1Count": 1,
+      "logoCount": 1,
+      "inputs": [
+        {
+          "height": 50,
+          "font": 16
+        },
+        {
+          "height": 48,
+          "font": 16
+        },
+        {
+          "height": 48,
+          "font": 16
+        },
+        {
+          "height": 52,
+          "font": 16
+        },
+        {
+          "height": 48,
+          "font": 16
+        }
+      ],
+      "reduced": true,
+      "violations": []
+    },
+    {
+      "name": "detail-not-found",
+      "route": "/fridge/ui09-missing",
+      "synthetic": false,
+      "width": 320,
+      "scrollWidth": 320,
+      "font": "\"Be Vietnam Pro\", sans-serif",
+      "h1Count": 1,
+      "logoCount": 1,
+      "inputs": [],
+      "reduced": true,
+      "violations": []
+    },
+    {
+      "name": "detail-loading",
+      "route": "/fridge/preview-stock-egg",
+      "synthetic": true,
+      "width": 320,
+      "scrollWidth": 320,
+      "font": "\"Be Vietnam Pro\", sans-serif",
+      "h1Count": 1,
+      "logoCount": 1,
+      "inputs": [],
+      "reduced": true,
+      "violations": []
+    },
+    {
+      "name": "metadata-saving",
+      "route": "/fridge/preview-stock-egg",
+      "synthetic": true,
+      "width": 320,
+      "scrollWidth": 320,
+      "font": "\"Be Vietnam Pro\", sans-serif",
+      "h1Count": 1,
+      "logoCount": 1,
+      "inputs": [
+        {
+          "height": 50,
+          "font": 16
+        },
+        {
+          "height": 48,
+          "font": 16
+        },
+        {
+          "height": 48,
+          "font": 16
+        },
+        {
+          "height": 52,
+          "font": 16
+        },
+        {
+          "height": 48,
+          "font": 16
+        }
+      ],
+      "reduced": true,
+      "violations": []
+    },
+    {
+      "name": "metadata-save-error",
+      "route": "/fridge/preview-stock-egg",
+      "synthetic": true,
+      "width": 320,
+      "scrollWidth": 320,
+      "font": "\"Be Vietnam Pro\", sans-serif",
+      "h1Count": 1,
+      "logoCount": 1,
+      "inputs": [
+        {
+          "height": 50,
+          "font": 16
+        },
+        {
+          "height": 48,
+          "font": 16
+        },
+        {
+          "height": 48,
+          "font": 16
+        },
+        {
+          "height": 52,
+          "font": 16
+        },
+        {
+          "height": 48,
+          "font": 16
+        }
+      ],
+      "reduced": true,
+      "violations": []
+    },
+    {
+      "name": "detail-read-error",
+      "route": "/fridge/ui09-read-error",
+      "synthetic": true,
+      "width": 320,
+      "scrollWidth": 320,
+      "font": "\"Be Vietnam Pro\", sans-serif",
+      "h1Count": 1,
+      "logoCount": 1,
+      "inputs": [],
+      "reduced": true,
+      "violations": []
+    },
+    {
+      "name": "reconciliation-records-320",
+      "route": "/inventory-reconciliation",
+      "synthetic": false,
+      "width": 320,
+      "scrollWidth": 320,
+      "font": "\"Be Vietnam Pro\", sans-serif",
+      "h1Count": 1,
+      "logoCount": 1,
+      "inputs": [],
+      "reduced": true,
+      "violations": []
+    },
+    {
+      "name": "reconciliation-records-390",
+      "route": "/inventory-reconciliation",
+      "synthetic": false,
+      "width": 390,
+      "scrollWidth": 390,
+      "font": "\"Be Vietnam Pro\", sans-serif",
+      "h1Count": 1,
+      "logoCount": 1,
+      "inputs": [],
+      "reduced": true,
+      "violations": []
+    },
+    {
+      "name": "reconciliation-records-768",
+      "route": "/inventory-reconciliation",
+      "synthetic": false,
+      "width": 768,
+      "scrollWidth": 768,
+      "font": "\"Be Vietnam Pro\", sans-serif",
+      "h1Count": 1,
+      "logoCount": 1,
+      "inputs": [],
+      "reduced": true,
+      "violations": []
+    },
+    {
+      "name": "reconciliation-records-1024",
+      "route": "/inventory-reconciliation",
+      "synthetic": false,
+      "width": 1024,
+      "scrollWidth": 1024,
+      "font": "\"Be Vietnam Pro\", sans-serif",
+      "h1Count": 1,
+      "logoCount": 1,
+      "inputs": [],
+      "reduced": true,
+      "violations": []
+    },
+    {
+      "name": "reconciliation-records-1440",
+      "route": "/inventory-reconciliation",
+      "synthetic": false,
+      "width": 1440,
+      "scrollWidth": 1440,
+      "font": "\"Be Vietnam Pro\", sans-serif",
+      "h1Count": 1,
+      "logoCount": 1,
+      "inputs": [],
+      "reduced": true,
+      "violations": []
+    },
+    {
+      "name": "reconciliation-enlarged-320",
+      "route": "/inventory-reconciliation",
+      "synthetic": false,
+      "width": 320,
+      "scrollWidth": 320,
+      "font": "\"Be Vietnam Pro\", sans-serif",
+      "h1Count": 1,
+      "logoCount": 1,
+      "inputs": [],
+      "reduced": true,
+      "violations": []
+    },
+    {
+      "name": "reconciliation-long-content-enlarged-320",
+      "route": "/inventory-reconciliation",
+      "synthetic": true,
+      "width": 320,
+      "scrollWidth": 320,
+      "font": "\"Be Vietnam Pro\", sans-serif",
+      "h1Count": 1,
+      "logoCount": 1,
+      "inputs": [],
+      "reduced": true,
+      "violations": []
+    },
+    {
+      "name": "reconciliation-decision-error",
+      "route": "/inventory-reconciliation",
+      "synthetic": true,
+      "width": 320,
+      "scrollWidth": 320,
+      "font": "\"Be Vietnam Pro\", sans-serif",
+      "h1Count": 1,
+      "logoCount": 1,
+      "inputs": [],
+      "reduced": true,
+      "violations": []
+    },
+    {
+      "name": "reconciliation-loading",
+      "route": "/inventory-reconciliation",
+      "synthetic": true,
+      "width": 320,
+      "scrollWidth": 320,
+      "font": "\"Be Vietnam Pro\", sans-serif",
+      "h1Count": 1,
+      "logoCount": 1,
+      "inputs": [],
+      "reduced": true,
+      "violations": []
+    },
+    {
+      "name": "reconciliation-read-error",
+      "route": "/inventory-reconciliation",
+      "synthetic": true,
+      "width": 320,
+      "scrollWidth": 320,
+      "font": "\"Be Vietnam Pro\", sans-serif",
+      "h1Count": 1,
+      "logoCount": 1,
+      "inputs": [],
+      "reduced": true,
+      "violations": []
+    },
+    {
+      "name": "session-verifying",
+      "route": "/fridge",
+      "synthetic": true,
+      "width": 320,
+      "scrollWidth": 320,
+      "font": "\"Be Vietnam Pro\", sans-serif",
+      "h1Count": 1,
+      "logoCount": 1,
+      "inputs": [],
+      "reduced": true,
+      "violations": []
+    },
+    {
+      "name": "session-error-320",
+      "route": "/fridge",
+      "synthetic": true,
+      "width": 320,
+      "scrollWidth": 320,
+      "font": "\"Be Vietnam Pro\", sans-serif",
+      "h1Count": 1,
+      "logoCount": 1,
+      "inputs": [],
+      "reduced": true,
+      "violations": []
+    },
+    {
+      "name": "session-error-390",
+      "route": "/fridge",
+      "synthetic": true,
+      "width": 390,
+      "scrollWidth": 390,
+      "font": "\"Be Vietnam Pro\", sans-serif",
+      "h1Count": 1,
+      "logoCount": 1,
+      "inputs": [],
+      "reduced": true,
+      "violations": []
+    },
+    {
+      "name": "session-error-768",
+      "route": "/fridge",
+      "synthetic": true,
+      "width": 768,
+      "scrollWidth": 768,
+      "font": "\"Be Vietnam Pro\", sans-serif",
+      "h1Count": 1,
+      "logoCount": 1,
+      "inputs": [],
+      "reduced": true,
+      "violations": []
+    },
+    {
+      "name": "session-error-1024",
+      "route": "/fridge",
+      "synthetic": true,
+      "width": 1024,
+      "scrollWidth": 1024,
+      "font": "\"Be Vietnam Pro\", sans-serif",
+      "h1Count": 1,
+      "logoCount": 1,
+      "inputs": [],
+      "reduced": true,
+      "violations": []
+    },
+    {
+      "name": "session-error-1440",
+      "route": "/fridge",
+      "synthetic": true,
+      "width": 1440,
+      "scrollWidth": 1440,
+      "font": "\"Be Vietnam Pro\", sans-serif",
+      "h1Count": 1,
+      "logoCount": 1,
+      "inputs": [],
+      "reduced": true,
+      "violations": []
+    },
+    {
+      "name": "session-error-enlarged-320",
+      "route": "/fridge",
+      "synthetic": true,
+      "width": 320,
+      "scrollWidth": 320,
+      "font": "\"Be Vietnam Pro\", sans-serif",
+      "h1Count": 1,
+      "logoCount": 1,
+      "inputs": [],
+      "reduced": true,
+      "violations": []
+    },
+    {
+      "name": "logout-pending",
+      "route": "/fridge",
+      "synthetic": true,
+      "width": 320,
+      "scrollWidth": 320,
+      "font": "\"Be Vietnam Pro\", sans-serif",
+      "h1Count": 1,
+      "logoCount": 1,
+      "inputs": [],
+      "reduced": true,
+      "violations": []
+    },
+    {
+      "name": "logout-error",
+      "route": "/fridge",
+      "synthetic": true,
+      "width": 320,
+      "scrollWidth": 320,
+      "font": "\"Be Vietnam Pro\", sans-serif",
+      "h1Count": 1,
+      "logoCount": 1,
+      "inputs": [],
+      "reduced": true,
+      "violations": []
+    },
+    {
+      "name": "application-render-error",
+      "route": "/fridge/preview-stock-egg",
+      "synthetic": true,
+      "width": 320,
+      "scrollWidth": 320,
+      "font": "\"Be Vietnam Pro\", sans-serif",
+      "h1Count": 1,
+      "logoCount": 1,
+      "inputs": [],
+      "reduced": true,
+      "violations": []
+    },
+    {
+      "name": "application-error-enlarged-320",
+      "route": "/fridge/preview-stock-egg",
+      "synthetic": true,
+      "width": 320,
+      "scrollWidth": 320,
+      "font": "\"Be Vietnam Pro\", sans-serif",
+      "h1Count": 1,
+      "logoCount": 1,
+      "inputs": [],
+      "reduced": true,
+      "violations": []
+    },
+    {
+      "name": "detail-normal-motion",
+      "route": "/fridge/preview-stock-egg",
+      "synthetic": false,
+      "width": 320,
+      "scrollWidth": 320,
+      "font": "\"Be Vietnam Pro\", sans-serif",
+      "h1Count": 1,
+      "logoCount": 1,
+      "inputs": [],
+      "reduced": false,
+      "violations": []
+    }
+  ],
+  "journeys": [
+    {
+      "kind": "real-local-canonical-adoption",
+      "code": 0
+    },
+    {
+      "kind": "read-only-matrix-preserves-inventory-and-zero-mutations"
+    },
+    {
+      "kind": "keyboard-edit-cancel-beforeunload-lock-real-save",
+      "patchFields": [
+        "name",
+        "version"
+      ],
+      "otherItemFactsUnchanged": true,
+      "householdRevisionBefore": 20,
+      "householdRevisionAfter": 22
+    },
+    {
+      "kind": "retained-error-draft-real-retry-reload"
+    },
+    {
+      "kind": "synthetic-read-error-real-recovery"
+    },
+    {
+      "kind": "real-proposal-apply-and-dismiss-after-synthetic-error",
+      "eggQuantity": 5,
+      "tofuUnchanged": true
+    },
+    {
+      "kind": "reconciliation-loading-error-real-retry"
+    },
+    {
+      "kind": "session-verification-blocks-private-content-and-real-retry"
+    },
+    {
+      "kind": "synthetic-lazy-import-error-real-boundary-and-reload",
+      "expectedFaultCount": 2
+    }
+  ],
+  "errors": [],
+  "expectedFaults": [
+    "UI09_SYNTHETIC_RENDER_FAILURE",
+    "UI09_SYNTHETIC_RENDER_FAILURE"
+  ],
+  "mutations": [
+    {
+      "path": "/api/v1/preferences",
+      "method": "PATCH"
+    },
+    {
+      "path": "/api/v1/inventory/preview-stock-egg",
+      "method": "PATCH"
+    },
+    {
+      "path": "/api/v1/inventory/preview-stock-egg",
+      "method": "PATCH"
+    },
+    {
+      "path": "/api/v1/inventory/preview-stock-egg",
+      "method": "PATCH"
+    },
+    {
+      "path": "/api/v1/inventory/observations/t10-observation%3Aplanner-preview-household%3ASCAN%3At13b-reconciliation-egg/decision",
+      "method": "POST"
+    },
+    {
+      "path": "/api/v1/inventory/observations/t10-observation%3Aplanner-preview-household%3ASCAN%3At13b-reconciliation-egg/decision",
+      "method": "POST"
+    },
+    {
+      "path": "/api/v1/inventory/observations/t10-observation%3Aplanner-preview-household%3ASCAN%3At13b-reconciliation-tofu/decision",
+      "method": "POST"
+    }
+  ]
+}

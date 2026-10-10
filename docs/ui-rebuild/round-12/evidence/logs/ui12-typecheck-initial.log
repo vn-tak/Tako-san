@@ -1,0 +1,3 @@
+
+> frigo@0.1.0 typecheck /Users/tunbee27/Documents/Tako-san-ui-rebuild
+> tsc -p tsconfig.json --noEmit && tsc -p tsconfig.worker.json --noEmit

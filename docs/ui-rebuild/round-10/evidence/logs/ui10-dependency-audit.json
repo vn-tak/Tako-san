@@ -1,0 +1,726 @@
+{
+  "actions": [],
+  "advisories": {
+    "1114638": {
+      "findings": [
+        {
+          "version": "5.29.0",
+          "paths": [
+            ".>wrangler>miniflare>undici"
+          ]
+        }
+      ],
+      "found_by": null,
+      "deleted": null,
+      "references": "- https://github.com/nodejs/undici/security/advisories/GHSA-vrm6-8vpv-qv8q\n- https://nvd.nist.gov/vuln/detail/CVE-2026-1526\n- https://hackerone.com/reports/3481206\n- https://cna.openjsf.org/security-advisories.html\n- https://datatracker.ietf.org/doc/html/rfc7692\n- https://owasp.org/www-community/attacks/Denial_of_Service\n- https://github.com/advisories/GHSA-vrm6-8vpv-qv8q",
+      "created": "2026-03-13T20:41:56.000Z",
+      "id": 1114638,
+      "npm_advisory_id": null,
+      "overview": "## Description\n\nThe undici WebSocket client is vulnerable to a denial-of-service attack via unbounded memory consumption during permessage-deflate decompression. When a WebSocket connection negotiates the permessage-deflate extension, the client decompresses incoming compressed frames without enforcing any limit on the decompressed data size. A malicious WebSocket server can send a small compressed frame (a \"decompression bomb\") that expands to an extremely large size in memory, causing the Node.js process to exhaust available memory and crash or become unresponsive.\n\nThe vulnerability exists in the `PerMessageDeflate.decompress()` method, which accumulates all decompressed chunks in memory and concatenates them into a single Buffer without checking whether the total size exceeds a safe threshold.\n\n## Impact\n\n- Remote denial of service against any Node.js application using undici's WebSocket client\n- A single compressed WebSocket frame of ~6 MB can decompress to ~1 GB or more\n- Memory exhaustion occurs in native/external memory, bypassing V8 heap limits\n- No application-level mitigation is possible as decompression occurs before message delivery\n\n### Patches\n\nUsers should upgrade to fixed versions.\n\n### Workarounds\n\nNo workaround are possible.",
+      "reported_by": null,
+      "title": "Undici has Unbounded Memory Consumption in WebSocket permessage-deflate Decompression",
+      "metadata": null,
+      "cves": [
+        "CVE-2026-1526"
+      ],
+      "access": "public",
+      "severity": "high",
+      "module_name": "undici",
+      "vulnerable_versions": "<6.24.0",
+      "github_advisory_id": "GHSA-vrm6-8vpv-qv8q",
+      "recommendation": "Upgrade to version 6.24.0 or later",
+      "patched_versions": ">=6.24.0",
+      "updated": "2026-03-13T20:41:59.000Z",
+      "cvss": {
+        "score": 7.5,
+        "vectorString": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H"
+      },
+      "cwe": [
+        "CWE-409"
+      ],
+      "url": "https://github.com/advisories/GHSA-vrm6-8vpv-qv8q"
+    },
+    "1114640": {
+      "findings": [
+        {
+          "version": "5.29.0",
+          "paths": [
+            ".>wrangler>miniflare>undici"
+          ]
+        }
+      ],
+      "found_by": null,
+      "deleted": null,
+      "references": "- https://github.com/nodejs/undici/security/advisories/GHSA-v9p9-hfj2-hcw8\n- https://nvd.nist.gov/vuln/detail/CVE-2026-2229\n- https://hackerone.com/reports/3487486\n- https://cna.openjsf.org/security-advisories.html\n- https://datatracker.ietf.org/doc/html/rfc7692\n- https://nodejs.org/api/zlib.html#class-zlibinflateraw\n- https://github.com/advisories/GHSA-v9p9-hfj2-hcw8",
+      "created": "2026-03-13T20:41:41.000Z",
+      "id": 1114640,
+      "npm_advisory_id": null,
+      "overview": "### Impact\n\nThe undici WebSocket client is vulnerable to a denial-of-service attack due to improper validation of the `server_max_window_bits` parameter in the permessage-deflate extension. When a WebSocket client connects to a server, it automatically advertises support for permessage-deflate compression. A malicious server can respond with an out-of-range `server_max_window_bits` value (outside zlib's valid range of 8-15). When the server subsequently sends a compressed frame, the client attempts to create a zlib InflateRaw instance with the invalid windowBits value, causing a synchronous RangeError exception that is not caught, resulting in immediate process termination.\n\nThe vulnerability exists because:\n\n1. The `isValidClientWindowBits()` function only validates that the value contains ASCII digits, not that it falls within the valid range 8-15\n2. The `createInflateRaw()` call is not wrapped in a try-catch block\n3. The resulting exception propagates up through the call stack and crashes the Node.js process\n\n### Patches\n_Has the problem been patched? What versions should users upgrade to?_\n\n### Workarounds\n_Is there a way for users to fix or remediate the vulnerability without upgrading?_",
+      "reported_by": null,
+      "title": "Undici has Unhandled Exception in WebSocket Client Due to Invalid server_max_window_bits Validation",
+      "metadata": null,
+      "cves": [
+        "CVE-2026-2229"
+      ],
+      "access": "public",
+      "severity": "high",
+      "module_name": "undici",
+      "vulnerable_versions": "<6.24.0",
+      "github_advisory_id": "GHSA-v9p9-hfj2-hcw8",
+      "recommendation": "Upgrade to version 6.24.0 or later",
+      "patched_versions": ">=6.24.0",
+      "updated": "2026-03-13T20:41:44.000Z",
+      "cvss": {
+        "score": 7.5,
+        "vectorString": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H"
+      },
+      "cwe": [
+        "CWE-248"
+      ],
+      "url": "https://github.com/advisories/GHSA-v9p9-hfj2-hcw8"
+    },
+    "1121245": {
+      "findings": [
+        {
+          "version": "5.29.0",
+          "paths": [
+            ".>wrangler>miniflare>undici"
+          ]
+        }
+      ],
+      "found_by": null,
+      "deleted": null,
+      "references": "- https://github.com/nodejs/undici/security/advisories/GHSA-vxpw-j846-p89q\n- https://nvd.nist.gov/vuln/detail/CVE-2026-12151\n- https://cna.openjsf.org/security-advisories.html\n- https://github.com/advisories/GHSA-vxpw-j846-p89q",
+      "created": "2026-06-19T14:22:01.000Z",
+      "id": 1121245,
+      "npm_advisory_id": null,
+      "overview": "## Impact\n\nThe undici WebSocket client enforces `maxPayloadSize` on the cumulative byte count of fragments in a message but does not enforce a limit on the number of fragments. A malicious WebSocket server can stream many small or empty continuation frames that each pass per-frame and cumulative-size validation, collectively causing unbounded memory growth in the client process. The result is memory exhaustion and a denial of service.\n\nAffected applications are those using the undici WebSocket client (`new WebSocket(...)`) or the `WebSocketStream` API that can be induced to connect to an attacker-controlled or compromised WebSocket endpoint.\n\nAll releases starting at undici 6.17.0 are affected.\n\n## Patches\n\nUpgrade to undici v6.27.0, v7.28.0 or v8.5.0.\n\n## Workarounds\n\nNo workaround is available. The fix must be applied through an upgrade.",
+      "reported_by": null,
+      "title": "undici WebSocket client vulnerable to denial of service via fragment count bypass",
+      "metadata": null,
+      "cves": [
+        "CVE-2026-12151"
+      ],
+      "access": "public",
+      "severity": "high",
+      "module_name": "undici",
+      "vulnerable_versions": "<6.27.0",
+      "github_advisory_id": "GHSA-vxpw-j846-p89q",
+      "recommendation": "Upgrade to version 6.27.0 or later",
+      "patched_versions": ">=6.27.0",
+      "updated": "2026-06-19T14:23:29.000Z",
+      "cvss": {
+        "score": 7.5,
+        "vectorString": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H"
+      },
+      "cwe": [
+        "CWE-400",
+        "CWE-770"
+      ],
+      "url": "https://github.com/advisories/GHSA-vxpw-j846-p89q"
+    },
+    "1123259": {
+      "findings": [
+        {
+          "version": "8.18.0",
+          "paths": [
+            ".>jsdom>ws"
+          ]
+        }
+      ],
+      "found_by": null,
+      "deleted": null,
+      "references": "- https://github.com/websockets/ws/security/advisories/GHSA-96hv-2xvq-fx4p\n- https://github.com/websockets/ws/commit/86d3e8a5fb0246ed373860c5fbb0de88824a27f7\n- https://github.com/websockets/ws/commit/b5372ac67bb97a773727b8e9f5035a8123556d53\n- https://github.com/websockets/ws/commit/bca91adf15677e47dbe4f959653452727be28b94\n- https://github.com/websockets/ws/commit/fd36cd864fcdf62a08273a99e19a7d975401fee8\n- https://nvd.nist.gov/vuln/detail/CVE-2026-48779\n- https://security.access.redhat.com/data/csaf/v2/vex/2026/cve-2026-48779.json\n- https://bugzilla.redhat.com/show_bug.cgi?id=2489661\n- https://access.redhat.com/security/cve/CVE-2026-48779\n- https://access.redhat.com/errata/RHSA-2026:34342\n- https://access.redhat.com/errata/RHSA-2026:33574\n- https://access.redhat.com/errata/RHSA-2026:33183\n- https://access.redhat.com/errata/RHSA-2026:33173\n- https://access.redhat.com/errata/RHSA-2026:33163\n- https://access.redhat.com/errata/RHSA-2026:33160\n- https://access.redhat.com/errata/RHSA-2026:33155\n- https://access.redhat.com/errata/RHSA-2026:29197\n- https://access.redhat.com/errata/RHSA-2026:36820\n- https://access.redhat.com/errata/RHSA-2026:36754\n- https://access.redhat.com/errata/RHSA-2026:37272\n- https://access.redhat.com/errata/RHSA-2026:27171\n- https://access.redhat.com/errata/RHSA-2026:26638\n- https://github.com/advisories/GHSA-96hv-2xvq-fx4p",
+      "created": "2026-06-15T16:34:23.000Z",
+      "id": 1123259,
+      "npm_advisory_id": null,
+      "overview": "### Impact\n\nA high volume of exceptionally small fragments and data chunks can be sent by a peer, with modest network traffic, to force the remote peer into allocating and holding structural wrappers that consume far more memory than the default documented message-size limit, leading to process termination due to OOM.\n\n### Proof of concept\n\n```js\nimport { WebSocket, WebSocketServer } from 'ws';\n\nconst wss = new WebSocketServer({ port: 0 }, function () {\n  const data = Buffer.alloc(1);\n  const options = { fin: false };\n  const { port } = wss.address();\n  const ws = new WebSocket(`ws://localhost:${port}`);\n\n  ws.on('open', function () {\n    (function send() {\n      ws.send(data, options, function (err) {\n        if (err) return;\n        send();\n      });\n    })();\n  });\n\n  ws.on('error', console.error);\n  ws.on('close', function (code, reason) {\n    console.log(`client close - code: ${code} reason: ${reason.toString()}`);\n  });\n});\n\nwss.on('connection', function (ws) {\n  ws.on('error', console.error);\n  ws.on('close', function (code, reason) {\n    console.log(`server close - code: ${code} reason: ${reason.toString()}`);\n  });\n});\n```\n\n### Patches\n\nThe vulnerability was fixed in ws@8.21.0 (https://github.com/websockets/ws/commit/bca91adf15677e47dbe4f959653452727be28b94) and backported to ws@7.5.11 (https://github.com/websockets/ws/commit/fd36cd864fcdf62a08273a99e19a7d975401fee8), ws@6.2.4 (https://github.com/websockets/ws/commit/86d3e8a5fb0246ed373860c5fbb0de88824a27f7), and ws@5.2.5 (https://github.com/websockets/ws/commit/b5372ac67bb97a773727b8e9f5035a8123556d53).\n\n### Workarounds\n\nIn vulnerable versions, the issue can be mitigated by lowering the value of the `maxPayload` option if possible.\n\n### Credits\n\nThe vulnerability was responsibly disclosed and fixed by [Nadav Magier](https://github.com/Nadav0077).",
+      "reported_by": null,
+      "title": "ws: Memory exhaustion DoS from tiny fragments and data chunks",
+      "metadata": null,
+      "cves": [
+        "CVE-2026-48779"
+      ],
+      "access": "public",
+      "severity": "high",
+      "module_name": "ws",
+      "vulnerable_versions": ">=8.0.0 <8.21.0",
+      "github_advisory_id": "GHSA-96hv-2xvq-fx4p",
+      "recommendation": "Upgrade to version 8.21.0 or later",
+      "patched_versions": ">=8.21.0",
+      "updated": "2026-07-13T15:31:39.000Z",
+      "cvss": {
+        "score": 7.5,
+        "vectorString": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H"
+      },
+      "cwe": [
+        "CWE-400",
+        "CWE-770",
+        "CWE-1050"
+      ],
+      "url": "https://github.com/advisories/GHSA-96hv-2xvq-fx4p"
+    },
+    "1124066": {
+      "findings": [
+        {
+          "version": "0.33.5",
+          "paths": [
+            ".>sharp"
+          ]
+        }
+      ],
+      "found_by": null,
+      "deleted": null,
+      "references": "- https://github.com/libvips/libvips/security/advisories/GHSA-2fcj-gj27-279x\n- https://github.com/libvips/libvips/security/advisories/GHSA-523x-vhfw-6r76\n- https://github.com/libvips/libvips/security/advisories/GHSA-jmwm-wc68-mhwm\n- https://github.com/libvips/libvips/security/advisories/GHSA-r98w-4fp7-m9c7\n- https://github.com/lovell/sharp/security/advisories/GHSA-f88m-g3jw-g9cj\n- https://github.com/advisories/GHSA-f88m-g3jw-g9cj",
+      "created": "2026-07-21T22:07:17.000Z",
+      "id": 1124066,
+      "npm_advisory_id": null,
+      "overview": "### Impact\n\nA number of vulnerabilities, two rated as \"High\" severity using CVSSv4, have been discovered and fixed in the upstream libvips dependency.\n\nThose processing untrusted input with versions of sharp prior to 0.35.0 are affected.\n\n### Patches\n\n#### Using prebuilt binaries provided by sharp?\n\nMost people rely on the prebuilt binaries provided by sharp.\n\nPlease upgrade sharp to the latest version, currently 0.35.3, which provides libvips 8.18.3.\n\n#### Using a globally-installed libvips?\n\nPlease ensure you are using the latest libvips 8.18.3.\n\n### Workarounds\nAdd the following to your code to prevent sharp from decoding GIF, TIFF and VIPS images.\n```js\nsharp.block({ operation: [\"VipsForeignLoadNsgif\", \"VipsForeignLoadTiff\", \"VipsForeignLoadVips\"] });\n```",
+      "reported_by": null,
+      "title": "sharp inherited vulnerabilities in libvips: CVE-2026-33327, CVE-2026-33328, CVE-2026-35590, CVE-2026-35591",
+      "metadata": null,
+      "cves": [],
+      "access": "public",
+      "severity": "high",
+      "module_name": "sharp",
+      "vulnerable_versions": "<0.35.0",
+      "github_advisory_id": "GHSA-f88m-g3jw-g9cj",
+      "recommendation": "Upgrade to version 0.35.0 or later",
+      "patched_versions": ">=0.35.0",
+      "updated": "2026-07-21T22:07:18.000Z",
+      "cvss": {
+        "score": 0,
+        "vectorString": null
+      },
+      "cwe": [
+        "CWE-1395"
+      ],
+      "url": "https://github.com/advisories/GHSA-f88m-g3jw-g9cj"
+    },
+    "1193725": {
+      "findings": [
+        {
+          "version": "0.33.5",
+          "paths": [
+            ".>sharp"
+          ]
+        }
+      ],
+      "found_by": null,
+      "deleted": null,
+      "references": "- https://github.com/lovell/sharp/security/advisories/GHSA-rgj7-g3m4-5g8c\n- https://github.com/strukturag/libheif/security/advisories/GHSA-2jg2-4ch7-h545\n- https://github.com/strukturag/libheif/security/advisories/GHSA-g89c-p67h-r497\n- https://github.com/lovell/sharp/releases/tag/v0.35.4\n- https://github.com/advisories/GHSA-rgj7-g3m4-5g8c",
+      "created": "2026-09-08T21:25:11.000Z",
+      "id": 1193725,
+      "npm_advisory_id": null,
+      "overview": "### Impact\nA number of vulnerabilities, two rated as \"Critical\" severity using CVSSv3, have been discovered and fixed in the upstream libheif dependency. These can lead to possible remote code execution (RCE) on glibc-based Linux when run under certain conditions.\n\nThe attack vector for these claims to be \"network\" however sharp does not provide any networking features so this vulnerability is down-rated to a \"High\" severity using CVSSv4 but please note its Subsequent System Impact.\n\nThose processing untrusted input with versions of sharp prior to 0.35.4 are affected.\n\n### Patches\n\n#### Using prebuilt binaries provided by sharp?\n\nMost people rely on the prebuilt binaries provided by sharp.\n\nPlease upgrade sharp to the latest version, currently 0.35.4, which provides libheif 1.23.2.\n\n#### Using a globally-installed libheif?\n\nPlease ensure you are using the latest libheif 1.23.2.\n\n### Workarounds\nAdd the following to your code to prevent sharp from decoding AVIF images.\n```js\nsharp.block({ operation: [\"VipsForeignLoadHeif\"] });\n```\n\nEnsure you are using a `node` executable binary compiled as a Position Independent Executable (PIE). Most Linux package managers already do this for protection against RCE however be warned that the \"official\" Node.js binaries do not.\n\n### References\n- [CVE-2026-84383](https://github.com/strukturag/libheif/security/advisories/GHSA-g89c-p67h-r497)\n- https://github.com/strukturag/libheif/security/advisories/GHSA-2jg2-4ch7-h545",
+      "reported_by": null,
+      "title": "sharp: Vulnerabilities in libheif: GHSA-g89c-p67h-r497 and GHSA-2jg2-4ch7-h545",
+      "metadata": null,
+      "cves": [],
+      "access": "public",
+      "severity": "high",
+      "module_name": "sharp",
+      "vulnerable_versions": "<0.35.4",
+      "github_advisory_id": "GHSA-rgj7-g3m4-5g8c",
+      "recommendation": "Upgrade to version 0.35.4 or later",
+      "patched_versions": ">=0.35.4",
+      "updated": "2026-09-08T21:25:12.000Z",
+      "cvss": {
+        "score": 0,
+        "vectorString": null
+      },
+      "cwe": [
+        "CWE-122"
+      ],
+      "url": "https://github.com/advisories/GHSA-rgj7-g3m4-5g8c"
+    },
+    "1240104": {
+      "findings": [
+        {
+          "version": "1.1.18",
+          "paths": [
+            ".>eslint>minimatch>brace-expansion"
+          ]
+        }
+      ],
+      "found_by": null,
+      "deleted": null,
+      "references": "- https://github.com/juliangruber/brace-expansion/security/advisories/GHSA-qhr7-859c-m2p7\n- https://nvd.nist.gov/vuln/detail/CVE-2026-102278\n- https://github.com/juliangruber/brace-expansion/commit/1efee7c397c191da6287a78ec19512476a966a7b\n- https://github.com/juliangruber/brace-expansion/commit/935d78f32f335b2ff76578e5c5e877d31ae9888c\n- https://github.com/juliangruber/brace-expansion/commit/de84f144e9816f30e25fc8179e2e1249ab6df0db\n- https://github.com/advisories/GHSA-qhr7-859c-m2p7",
+      "created": "2026-09-29T23:45:17.000Z",
+      "id": 1240104,
+      "npm_advisory_id": null,
+      "overview": "### Summary\n\n`expand_()` recurses once per level of brace *nesting*. Deeply nested input exhausts the native stack and crashes the process.\n\nThis is distinct from CVE-2026-14257 / GHSA-mh99-v99m-4gvg, which made the *tail* iterative (recursion on `m.post`, driven by how many groups are chained). Nesting depth drives a different recursion that the tail fix never touched, so the documented constant-stack-depth guarantee only ever covered chained input, not nested input.\n\nIt is also distinct from GHSA-6j4f-fj2g-mc7p, which fixed recursion in `parseCommaParts()`. Both payloads below still crash with that fix applied.\n\n### Two recursion sites\n\n**Comma members.** Each alternative of a brace set is expanded by a recursive call, so nesting a set inside every alternative recurses once per level:\n\n```js\nexpand('{a,'.repeat(4000) + 'z' + '}'.repeat(4000))\n// RangeError: Maximum call stack size exceeded\n```\n\nCrashes at depth 3,907 - about **15.6 KB** of input.\n\n**Single set.** A brace set whose body parses to a single part is expanded by a recursive call before being re-wrapped (`x{{a,b}}y` -> `x{a}y x{b}y`), which recurses once per nesting level:\n\n```js\nexpand('{'.repeat(3200) + 'a,b' + '}'.repeat(3200))\n// RangeError: Maximum call stack size exceeded\n```\n\nCrashes at depth 3,125 - about **6.25 KB** of input. This is the cheapest stack-exhaustion payload known against this package: roughly a quarter the input of GHSA-6j4f-fj2g-mc7p (29 KB), and about a tenth of minimatch's `MAX_PATTERN_LENGTH` (65,536).\n\n### Why `max` and `maxLength` do not help\n\nBoth crashes happen while recursing into sub-expansions, before the result set grows. The payloads produce almost no output - the single-set case yields 2 results - so neither bound is ever the limiter. `expand(payload, { max: 1, maxLength: 1 })` still overflows.\n\n### Impact\n\nAny application passing an untrusted string to `expand()`, directly or through `minimatch` / `glob` as a user-supplied glob pattern, can be crashed. In Node a `RangeError` the application does not catch terminates the process, so a server globbing user input is exposed to remote unauthenticated denial of service.\n\nAvailability only. No code execution, no data exposure.\n\n### Affected versions\n\nVerified affected on 1.1.18, 2.1.4, 3.0.6 and 5.0.9, at near-identical depths on every line (single set: 3,125 on all four; comma members: 3,907-4,102). Not a regression from any recent fix - the gap predates them.\n\n### Patch\n\nA `maxDepth` bound (default `EXPANSION_MAX_DEPTH`) is threaded through `expand_()`. Past the cap a group is treated as non-expanding and returned literally, which is how the parser already handles a group that cannot expand. This matches the existing `max` / `maxLength` caps, which truncate rather than throw, so `expand()` continues never to throw on any input.\n\nThe default sits far above any realistic nesting depth and well below the crash threshold.",
+      "reported_by": null,
+      "title": "brace-expansion: DoS via uncontrolled recursion on nested brace groups causing stack exhaustion",
+      "metadata": null,
+      "cves": [
+        "CVE-2026-102278"
+      ],
+      "access": "public",
+      "severity": "high",
+      "module_name": "brace-expansion",
+      "vulnerable_versions": "<1.1.20",
+      "github_advisory_id": "GHSA-qhr7-859c-m2p7",
+      "recommendation": "Upgrade to version 1.1.20 or later",
+      "patched_versions": ">=1.1.20",
+      "updated": "2026-09-29T23:45:19.000Z",
+      "cvss": {
+        "score": 7.5,
+        "vectorString": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H"
+      },
+      "cwe": [
+        "CWE-400",
+        "CWE-674"
+      ],
+      "url": "https://github.com/advisories/GHSA-qhr7-859c-m2p7"
+    },
+    "1240105": {
+      "findings": [
+        {
+          "version": "2.1.4",
+          "paths": [
+            ".>vite-plugin-pwa>workbox-build>@trickfilm400/rollup-plugin-off-main-thread>ejs>jake>filelist>minimatch>brace-expansion"
+          ]
+        }
+      ],
+      "found_by": null,
+      "deleted": null,
+      "references": "- https://github.com/juliangruber/brace-expansion/security/advisories/GHSA-qhr7-859c-m2p7\n- https://nvd.nist.gov/vuln/detail/CVE-2026-102278\n- https://github.com/juliangruber/brace-expansion/commit/1efee7c397c191da6287a78ec19512476a966a7b\n- https://github.com/juliangruber/brace-expansion/commit/935d78f32f335b2ff76578e5c5e877d31ae9888c\n- https://github.com/juliangruber/brace-expansion/commit/de84f144e9816f30e25fc8179e2e1249ab6df0db\n- https://github.com/advisories/GHSA-qhr7-859c-m2p7",
+      "created": "2026-09-29T23:45:17.000Z",
+      "id": 1240105,
+      "npm_advisory_id": null,
+      "overview": "### Summary\n\n`expand_()` recurses once per level of brace *nesting*. Deeply nested input exhausts the native stack and crashes the process.\n\nThis is distinct from CVE-2026-14257 / GHSA-mh99-v99m-4gvg, which made the *tail* iterative (recursion on `m.post`, driven by how many groups are chained). Nesting depth drives a different recursion that the tail fix never touched, so the documented constant-stack-depth guarantee only ever covered chained input, not nested input.\n\nIt is also distinct from GHSA-6j4f-fj2g-mc7p, which fixed recursion in `parseCommaParts()`. Both payloads below still crash with that fix applied.\n\n### Two recursion sites\n\n**Comma members.** Each alternative of a brace set is expanded by a recursive call, so nesting a set inside every alternative recurses once per level:\n\n```js\nexpand('{a,'.repeat(4000) + 'z' + '}'.repeat(4000))\n// RangeError: Maximum call stack size exceeded\n```\n\nCrashes at depth 3,907 - about **15.6 KB** of input.\n\n**Single set.** A brace set whose body parses to a single part is expanded by a recursive call before being re-wrapped (`x{{a,b}}y` -> `x{a}y x{b}y`), which recurses once per nesting level:\n\n```js\nexpand('{'.repeat(3200) + 'a,b' + '}'.repeat(3200))\n// RangeError: Maximum call stack size exceeded\n```\n\nCrashes at depth 3,125 - about **6.25 KB** of input. This is the cheapest stack-exhaustion payload known against this package: roughly a quarter the input of GHSA-6j4f-fj2g-mc7p (29 KB), and about a tenth of minimatch's `MAX_PATTERN_LENGTH` (65,536).\n\n### Why `max` and `maxLength` do not help\n\nBoth crashes happen while recursing into sub-expansions, before the result set grows. The payloads produce almost no output - the single-set case yields 2 results - so neither bound is ever the limiter. `expand(payload, { max: 1, maxLength: 1 })` still overflows.\n\n### Impact\n\nAny application passing an untrusted string to `expand()`, directly or through `minimatch` / `glob` as a user-supplied glob pattern, can be crashed. In Node a `RangeError` the application does not catch terminates the process, so a server globbing user input is exposed to remote unauthenticated denial of service.\n\nAvailability only. No code execution, no data exposure.\n\n### Affected versions\n\nVerified affected on 1.1.18, 2.1.4, 3.0.6 and 5.0.9, at near-identical depths on every line (single set: 3,125 on all four; comma members: 3,907-4,102). Not a regression from any recent fix - the gap predates them.\n\n### Patch\n\nA `maxDepth` bound (default `EXPANSION_MAX_DEPTH`) is threaded through `expand_()`. Past the cap a group is treated as non-expanding and returned literally, which is how the parser already handles a group that cannot expand. This matches the existing `max` / `maxLength` caps, which truncate rather than throw, so `expand()` continues never to throw on any input.\n\nThe default sits far above any realistic nesting depth and well below the crash threshold.",
+      "reported_by": null,
+      "title": "brace-expansion: DoS via uncontrolled recursion on nested brace groups causing stack exhaustion",
+      "metadata": null,
+      "cves": [
+        "CVE-2026-102278"
+      ],
+      "access": "public",
+      "severity": "high",
+      "module_name": "brace-expansion",
+      "vulnerable_versions": ">=2.0.0 <2.1.6",
+      "github_advisory_id": "GHSA-qhr7-859c-m2p7",
+      "recommendation": "Upgrade to version 2.1.6 or later",
+      "patched_versions": ">=2.1.6",
+      "updated": "2026-09-29T23:45:19.000Z",
+      "cvss": {
+        "score": 7.5,
+        "vectorString": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H"
+      },
+      "cwe": [
+        "CWE-400",
+        "CWE-674"
+      ],
+      "url": "https://github.com/advisories/GHSA-qhr7-859c-m2p7"
+    },
+    "1240107": {
+      "findings": [
+        {
+          "version": "5.0.9",
+          "paths": [
+            ".>@typescript-eslint/eslint-plugin>@typescript-eslint/type-utils>@typescript-eslint/typescript-estree>minimatch>brace-expansion"
+          ]
+        }
+      ],
+      "found_by": null,
+      "deleted": null,
+      "references": "- https://github.com/juliangruber/brace-expansion/security/advisories/GHSA-qhr7-859c-m2p7\n- https://nvd.nist.gov/vuln/detail/CVE-2026-102278\n- https://github.com/juliangruber/brace-expansion/commit/1efee7c397c191da6287a78ec19512476a966a7b\n- https://github.com/juliangruber/brace-expansion/commit/935d78f32f335b2ff76578e5c5e877d31ae9888c\n- https://github.com/juliangruber/brace-expansion/commit/de84f144e9816f30e25fc8179e2e1249ab6df0db\n- https://github.com/advisories/GHSA-qhr7-859c-m2p7",
+      "created": "2026-09-29T23:45:17.000Z",
+      "id": 1240107,
+      "npm_advisory_id": null,
+      "overview": "### Summary\n\n`expand_()` recurses once per level of brace *nesting*. Deeply nested input exhausts the native stack and crashes the process.\n\nThis is distinct from CVE-2026-14257 / GHSA-mh99-v99m-4gvg, which made the *tail* iterative (recursion on `m.post`, driven by how many groups are chained). Nesting depth drives a different recursion that the tail fix never touched, so the documented constant-stack-depth guarantee only ever covered chained input, not nested input.\n\nIt is also distinct from GHSA-6j4f-fj2g-mc7p, which fixed recursion in `parseCommaParts()`. Both payloads below still crash with that fix applied.\n\n### Two recursion sites\n\n**Comma members.** Each alternative of a brace set is expanded by a recursive call, so nesting a set inside every alternative recurses once per level:\n\n```js\nexpand('{a,'.repeat(4000) + 'z' + '}'.repeat(4000))\n// RangeError: Maximum call stack size exceeded\n```\n\nCrashes at depth 3,907 - about **15.6 KB** of input.\n\n**Single set.** A brace set whose body parses to a single part is expanded by a recursive call before being re-wrapped (`x{{a,b}}y` -> `x{a}y x{b}y`), which recurses once per nesting level:\n\n```js\nexpand('{'.repeat(3200) + 'a,b' + '}'.repeat(3200))\n// RangeError: Maximum call stack size exceeded\n```\n\nCrashes at depth 3,125 - about **6.25 KB** of input. This is the cheapest stack-exhaustion payload known against this package: roughly a quarter the input of GHSA-6j4f-fj2g-mc7p (29 KB), and about a tenth of minimatch's `MAX_PATTERN_LENGTH` (65,536).\n\n### Why `max` and `maxLength` do not help\n\nBoth crashes happen while recursing into sub-expansions, before the result set grows. The payloads produce almost no output - the single-set case yields 2 results - so neither bound is ever the limiter. `expand(payload, { max: 1, maxLength: 1 })` still overflows.\n\n### Impact\n\nAny application passing an untrusted string to `expand()`, directly or through `minimatch` / `glob` as a user-supplied glob pattern, can be crashed. In Node a `RangeError` the application does not catch terminates the process, so a server globbing user input is exposed to remote unauthenticated denial of service.\n\nAvailability only. No code execution, no data exposure.\n\n### Affected versions\n\nVerified affected on 1.1.18, 2.1.4, 3.0.6 and 5.0.9, at near-identical depths on every line (single set: 3,125 on all four; comma members: 3,907-4,102). Not a regression from any recent fix - the gap predates them.\n\n### Patch\n\nA `maxDepth` bound (default `EXPANSION_MAX_DEPTH`) is threaded through `expand_()`. Past the cap a group is treated as non-expanding and returned literally, which is how the parser already handles a group that cannot expand. This matches the existing `max` / `maxLength` caps, which truncate rather than throw, so `expand()` continues never to throw on any input.\n\nThe default sits far above any realistic nesting depth and well below the crash threshold.",
+      "reported_by": null,
+      "title": "brace-expansion: DoS via uncontrolled recursion on nested brace groups causing stack exhaustion",
+      "metadata": null,
+      "cves": [
+        "CVE-2026-102278"
+      ],
+      "access": "public",
+      "severity": "high",
+      "module_name": "brace-expansion",
+      "vulnerable_versions": ">=4.0.0 <5.0.11",
+      "github_advisory_id": "GHSA-qhr7-859c-m2p7",
+      "recommendation": "Upgrade to version 5.0.11 or later",
+      "patched_versions": ">=5.0.11",
+      "updated": "2026-09-29T23:45:19.000Z",
+      "cvss": {
+        "score": 7.5,
+        "vectorString": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H"
+      },
+      "cwe": [
+        "CWE-400",
+        "CWE-674"
+      ],
+      "url": "https://github.com/advisories/GHSA-qhr7-859c-m2p7"
+    },
+    "1240108": {
+      "findings": [
+        {
+          "version": "1.1.18",
+          "paths": [
+            ".>eslint>minimatch>brace-expansion"
+          ]
+        }
+      ],
+      "found_by": null,
+      "deleted": null,
+      "references": "- https://github.com/juliangruber/brace-expansion/security/advisories/GHSA-6j4f-fj2g-mc7p\n- https://nvd.nist.gov/vuln/detail/CVE-2026-102276\n- https://github.com/juliangruber/brace-expansion/commit/0bcbfc0a5928c3073d48f42999d1ce4fc1c42fbc\n- https://github.com/juliangruber/brace-expansion/commit/316359e6019c39b3254c8ba8e25dc586a480652c\n- https://github.com/juliangruber/brace-expansion/commit/5171e681c0922b7ae8bfaf9a331e309107be6edc\n- https://github.com/juliangruber/brace-expansion/commit/6735c94873ca570bcdd6a0690033bdd3126379d3\n- https://github.com/advisories/GHSA-6j4f-fj2g-mc7p",
+      "created": "2026-09-29T23:44:58.000Z",
+      "id": 1240108,
+      "npm_advisory_id": null,
+      "overview": "### Summary\n\n`parseCommaParts()` can exhaust the native stack and crash the process. There are two distinct ways to trigger it, both reachable from a single untrusted pattern string.\n\nThis is the parsing-side counterpart to CVE-2026-14257 / GHSA-mh99-v99m-4gvg. That fix made `expand_()` iterative and documented a constant-stack-depth guarantee, but `parseCommaParts()` was left recursive, so the guarantee only held for one of the two parsing paths.\n\n### Vector 1 - unbounded recursion on `post`\n\n`parseCommaParts()` recursed on the remainder of the string once per brace group:\n\n```js\nconst postParts = parseCommaParts(post)   // unbounded\n```\n\nA brace group containing many comma-separated groups drives one recursion level per group:\n\n```js\nexpand('{' + '{a},'.repeat(7000) + 'b}')\n// RangeError: Maximum call stack size exceeded\n```\n\nAbout 7,300 repetitions - roughly 29 KB of input - is enough on Node 24; roughly 6,300 (25 KB) on Node 18. The threshold is identical on every affected release line.\n\n### Vector 2 - `push.apply` with an unbounded array\n\nEven with the recursion removed, `parseCommaParts()` spread whole arrays into an argument list:\n\n```js\np.push.apply(p, postParts)\nparts.push.apply(parts, p)\n```\n\n`Function.prototype.apply` places one argument per element on the stack, so a single large array overflows it. This needs **no recursion depth at all** - the following reaches a recursion depth of exactly 1:\n\n```js\nexpand('{{x},' + 'a,'.repeat(125000) + 'b}')\n// RangeError: Maximum call stack size exceeded\n```\n\nThreshold is about 124,300 repetitions (~249 KB). This vector was not part of the original report; it was found while verifying the fix. A patch that only de-recurses but keeps `push.apply` leaves a working denial of service behind.\n\n### Why `max` and `maxLength` do not help\n\nBoth crashes happen during **parsing**, before any expansion. The payloads produce one result per group, so output size grows linearly with input and is never the limiter. `expand(payload, { max: 1, maxLength: 1 })` still overflows.\n\n### Impact\n\nAny application that passes an untrusted string to `expand()` - directly, or through `minimatch` / `glob` where it is a user-supplied glob pattern - can be crashed. In Node, a `RangeError` that the application does not catch terminates the process, so a server that globs user input is exposed to remote unauthenticated denial of service.\n\n`minimatch`'s own `MAX_PATTERN_LENGTH` cap (65,536) does not help against vector 1: the overflow threshold sits well below it. Confirmed on minimatch 10.2.6 - a 64,003-byte pattern passes the length check and overflows both `minimatch.braceExpand()` and `new minimatch.Minimatch()`.\n\nThis is an availability-only issue. No code execution and no data exposure.\n\n### Not a regression\n\n5.0.8 and 5.0.9 overflow at the same repetition count, so the gap predates the recent advisories; those fixes simply did not reach it. Verified affected on 1.1.18, 2.1.4, 3.0.6, 5.0.8 and 5.0.9, all at an identical threshold.\n\n### Patch\n\n`parseCommaParts()` is rewritten as a loop that carries the partial part across chunks, and every array append uses an element-by-element loop rather than `push.apply`. The redundant `if (!str) return ['']` guard is dropped - the loop returns `['']` for the empty string on its own.\n\nEquivalence of the old and new implementations was checked by differential testing: exhaustive over every string of `{`, `}`, `,`, `a` up to length 7 plus 300,000 random inputs - 322,000 cases, zero mismatches.\n\n### Severity note\n\nScored 7.5 High under CVSS 3.1 for consistency with the other availability advisories on this package (GHSA-mh99-v99m-4gvg, GHSA-rgw5-rvv9-x895), which use the same vector. The reporter self-assessed 6.9 Medium under CVSS 4.0 (`CVSS:4.0/AV:N/AC:L/AT:N/PR:N/UI:N/VC:N/VI:N/VA:L/SC:N/SI:N/SA:N`).\n\n### Credit\n\nReported by baeseungwon1010, with a working proof of concept and a proposed patch. Vector 2 was identified during maintainer verification.",
+      "reported_by": null,
+      "title": "brace-expansion: DoS via uncontrolled recursion in parseCommaParts causing stack exhaustion",
+      "metadata": null,
+      "cves": [
+        "CVE-2026-102276"
+      ],
+      "access": "public",
+      "severity": "high",
+      "module_name": "brace-expansion",
+      "vulnerable_versions": "<1.1.19",
+      "github_advisory_id": "GHSA-6j4f-fj2g-mc7p",
+      "recommendation": "Upgrade to version 1.1.19 or later",
+      "patched_versions": ">=1.1.19",
+      "updated": "2026-09-29T23:44:59.000Z",
+      "cvss": {
+        "score": 7.5,
+        "vectorString": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H"
+      },
+      "cwe": [
+        "CWE-400",
+        "CWE-674"
+      ],
+      "url": "https://github.com/advisories/GHSA-6j4f-fj2g-mc7p"
+    },
+    "1240109": {
+      "findings": [
+        {
+          "version": "2.1.4",
+          "paths": [
+            ".>vite-plugin-pwa>workbox-build>@trickfilm400/rollup-plugin-off-main-thread>ejs>jake>filelist>minimatch>brace-expansion"
+          ]
+        }
+      ],
+      "found_by": null,
+      "deleted": null,
+      "references": "- https://github.com/juliangruber/brace-expansion/security/advisories/GHSA-6j4f-fj2g-mc7p\n- https://nvd.nist.gov/vuln/detail/CVE-2026-102276\n- https://github.com/juliangruber/brace-expansion/commit/0bcbfc0a5928c3073d48f42999d1ce4fc1c42fbc\n- https://github.com/juliangruber/brace-expansion/commit/316359e6019c39b3254c8ba8e25dc586a480652c\n- https://github.com/juliangruber/brace-expansion/commit/5171e681c0922b7ae8bfaf9a331e309107be6edc\n- https://github.com/juliangruber/brace-expansion/commit/6735c94873ca570bcdd6a0690033bdd3126379d3\n- https://github.com/advisories/GHSA-6j4f-fj2g-mc7p",
+      "created": "2026-09-29T23:44:58.000Z",
+      "id": 1240109,
+      "npm_advisory_id": null,
+      "overview": "### Summary\n\n`parseCommaParts()` can exhaust the native stack and crash the process. There are two distinct ways to trigger it, both reachable from a single untrusted pattern string.\n\nThis is the parsing-side counterpart to CVE-2026-14257 / GHSA-mh99-v99m-4gvg. That fix made `expand_()` iterative and documented a constant-stack-depth guarantee, but `parseCommaParts()` was left recursive, so the guarantee only held for one of the two parsing paths.\n\n### Vector 1 - unbounded recursion on `post`\n\n`parseCommaParts()` recursed on the remainder of the string once per brace group:\n\n```js\nconst postParts = parseCommaParts(post)   // unbounded\n```\n\nA brace group containing many comma-separated groups drives one recursion level per group:\n\n```js\nexpand('{' + '{a},'.repeat(7000) + 'b}')\n// RangeError: Maximum call stack size exceeded\n```\n\nAbout 7,300 repetitions - roughly 29 KB of input - is enough on Node 24; roughly 6,300 (25 KB) on Node 18. The threshold is identical on every affected release line.\n\n### Vector 2 - `push.apply` with an unbounded array\n\nEven with the recursion removed, `parseCommaParts()` spread whole arrays into an argument list:\n\n```js\np.push.apply(p, postParts)\nparts.push.apply(parts, p)\n```\n\n`Function.prototype.apply` places one argument per element on the stack, so a single large array overflows it. This needs **no recursion depth at all** - the following reaches a recursion depth of exactly 1:\n\n```js\nexpand('{{x},' + 'a,'.repeat(125000) + 'b}')\n// RangeError: Maximum call stack size exceeded\n```\n\nThreshold is about 124,300 repetitions (~249 KB). This vector was not part of the original report; it was found while verifying the fix. A patch that only de-recurses but keeps `push.apply` leaves a working denial of service behind.\n\n### Why `max` and `maxLength` do not help\n\nBoth crashes happen during **parsing**, before any expansion. The payloads produce one result per group, so output size grows linearly with input and is never the limiter. `expand(payload, { max: 1, maxLength: 1 })` still overflows.\n\n### Impact\n\nAny application that passes an untrusted string to `expand()` - directly, or through `minimatch` / `glob` where it is a user-supplied glob pattern - can be crashed. In Node, a `RangeError` that the application does not catch terminates the process, so a server that globs user input is exposed to remote unauthenticated denial of service.\n\n`minimatch`'s own `MAX_PATTERN_LENGTH` cap (65,536) does not help against vector 1: the overflow threshold sits well below it. Confirmed on minimatch 10.2.6 - a 64,003-byte pattern passes the length check and overflows both `minimatch.braceExpand()` and `new minimatch.Minimatch()`.\n\nThis is an availability-only issue. No code execution and no data exposure.\n\n### Not a regression\n\n5.0.8 and 5.0.9 overflow at the same repetition count, so the gap predates the recent advisories; those fixes simply did not reach it. Verified affected on 1.1.18, 2.1.4, 3.0.6, 5.0.8 and 5.0.9, all at an identical threshold.\n\n### Patch\n\n`parseCommaParts()` is rewritten as a loop that carries the partial part across chunks, and every array append uses an element-by-element loop rather than `push.apply`. The redundant `if (!str) return ['']` guard is dropped - the loop returns `['']` for the empty string on its own.\n\nEquivalence of the old and new implementations was checked by differential testing: exhaustive over every string of `{`, `}`, `,`, `a` up to length 7 plus 300,000 random inputs - 322,000 cases, zero mismatches.\n\n### Severity note\n\nScored 7.5 High under CVSS 3.1 for consistency with the other availability advisories on this package (GHSA-mh99-v99m-4gvg, GHSA-rgw5-rvv9-x895), which use the same vector. The reporter self-assessed 6.9 Medium under CVSS 4.0 (`CVSS:4.0/AV:N/AC:L/AT:N/PR:N/UI:N/VC:N/VI:N/VA:L/SC:N/SI:N/SA:N`).\n\n### Credit\n\nReported by baeseungwon1010, with a working proof of concept and a proposed patch. Vector 2 was identified during maintainer verification.",
+      "reported_by": null,
+      "title": "brace-expansion: DoS via uncontrolled recursion in parseCommaParts causing stack exhaustion",
+      "metadata": null,
+      "cves": [
+        "CVE-2026-102276"
+      ],
+      "access": "public",
+      "severity": "high",
+      "module_name": "brace-expansion",
+      "vulnerable_versions": ">=2.0.0 <2.1.5",
+      "github_advisory_id": "GHSA-6j4f-fj2g-mc7p",
+      "recommendation": "Upgrade to version 2.1.5 or later",
+      "patched_versions": ">=2.1.5",
+      "updated": "2026-09-29T23:44:59.000Z",
+      "cvss": {
+        "score": 7.5,
+        "vectorString": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H"
+      },
+      "cwe": [
+        "CWE-400",
+        "CWE-674"
+      ],
+      "url": "https://github.com/advisories/GHSA-6j4f-fj2g-mc7p"
+    },
+    "1240111": {
+      "findings": [
+        {
+          "version": "5.0.9",
+          "paths": [
+            ".>@typescript-eslint/eslint-plugin>@typescript-eslint/type-utils>@typescript-eslint/typescript-estree>minimatch>brace-expansion"
+          ]
+        }
+      ],
+      "found_by": null,
+      "deleted": null,
+      "references": "- https://github.com/juliangruber/brace-expansion/security/advisories/GHSA-6j4f-fj2g-mc7p\n- https://nvd.nist.gov/vuln/detail/CVE-2026-102276\n- https://github.com/juliangruber/brace-expansion/commit/0bcbfc0a5928c3073d48f42999d1ce4fc1c42fbc\n- https://github.com/juliangruber/brace-expansion/commit/316359e6019c39b3254c8ba8e25dc586a480652c\n- https://github.com/juliangruber/brace-expansion/commit/5171e681c0922b7ae8bfaf9a331e309107be6edc\n- https://github.com/juliangruber/brace-expansion/commit/6735c94873ca570bcdd6a0690033bdd3126379d3\n- https://github.com/advisories/GHSA-6j4f-fj2g-mc7p",
+      "created": "2026-09-29T23:44:58.000Z",
+      "id": 1240111,
+      "npm_advisory_id": null,
+      "overview": "### Summary\n\n`parseCommaParts()` can exhaust the native stack and crash the process. There are two distinct ways to trigger it, both reachable from a single untrusted pattern string.\n\nThis is the parsing-side counterpart to CVE-2026-14257 / GHSA-mh99-v99m-4gvg. That fix made `expand_()` iterative and documented a constant-stack-depth guarantee, but `parseCommaParts()` was left recursive, so the guarantee only held for one of the two parsing paths.\n\n### Vector 1 - unbounded recursion on `post`\n\n`parseCommaParts()` recursed on the remainder of the string once per brace group:\n\n```js\nconst postParts = parseCommaParts(post)   // unbounded\n```\n\nA brace group containing many comma-separated groups drives one recursion level per group:\n\n```js\nexpand('{' + '{a},'.repeat(7000) + 'b}')\n// RangeError: Maximum call stack size exceeded\n```\n\nAbout 7,300 repetitions - roughly 29 KB of input - is enough on Node 24; roughly 6,300 (25 KB) on Node 18. The threshold is identical on every affected release line.\n\n### Vector 2 - `push.apply` with an unbounded array\n\nEven with the recursion removed, `parseCommaParts()` spread whole arrays into an argument list:\n\n```js\np.push.apply(p, postParts)\nparts.push.apply(parts, p)\n```\n\n`Function.prototype.apply` places one argument per element on the stack, so a single large array overflows it. This needs **no recursion depth at all** - the following reaches a recursion depth of exactly 1:\n\n```js\nexpand('{{x},' + 'a,'.repeat(125000) + 'b}')\n// RangeError: Maximum call stack size exceeded\n```\n\nThreshold is about 124,300 repetitions (~249 KB). This vector was not part of the original report; it was found while verifying the fix. A patch that only de-recurses but keeps `push.apply` leaves a working denial of service behind.\n\n### Why `max` and `maxLength` do not help\n\nBoth crashes happen during **parsing**, before any expansion. The payloads produce one result per group, so output size grows linearly with input and is never the limiter. `expand(payload, { max: 1, maxLength: 1 })` still overflows.\n\n### Impact\n\nAny application that passes an untrusted string to `expand()` - directly, or through `minimatch` / `glob` where it is a user-supplied glob pattern - can be crashed. In Node, a `RangeError` that the application does not catch terminates the process, so a server that globs user input is exposed to remote unauthenticated denial of service.\n\n`minimatch`'s own `MAX_PATTERN_LENGTH` cap (65,536) does not help against vector 1: the overflow threshold sits well below it. Confirmed on minimatch 10.2.6 - a 64,003-byte pattern passes the length check and overflows both `minimatch.braceExpand()` and `new minimatch.Minimatch()`.\n\nThis is an availability-only issue. No code execution and no data exposure.\n\n### Not a regression\n\n5.0.8 and 5.0.9 overflow at the same repetition count, so the gap predates the recent advisories; those fixes simply did not reach it. Verified affected on 1.1.18, 2.1.4, 3.0.6, 5.0.8 and 5.0.9, all at an identical threshold.\n\n### Patch\n\n`parseCommaParts()` is rewritten as a loop that carries the partial part across chunks, and every array append uses an element-by-element loop rather than `push.apply`. The redundant `if (!str) return ['']` guard is dropped - the loop returns `['']` for the empty string on its own.\n\nEquivalence of the old and new implementations was checked by differential testing: exhaustive over every string of `{`, `}`, `,`, `a` up to length 7 plus 300,000 random inputs - 322,000 cases, zero mismatches.\n\n### Severity note\n\nScored 7.5 High under CVSS 3.1 for consistency with the other availability advisories on this package (GHSA-mh99-v99m-4gvg, GHSA-rgw5-rvv9-x895), which use the same vector. The reporter self-assessed 6.9 Medium under CVSS 4.0 (`CVSS:4.0/AV:N/AC:L/AT:N/PR:N/UI:N/VC:N/VI:N/VA:L/SC:N/SI:N/SA:N`).\n\n### Credit\n\nReported by baeseungwon1010, with a working proof of concept and a proposed patch. Vector 2 was identified during maintainer verification.",
+      "reported_by": null,
+      "title": "brace-expansion: DoS via uncontrolled recursion in parseCommaParts causing stack exhaustion",
+      "metadata": null,
+      "cves": [
+        "CVE-2026-102276"
+      ],
+      "access": "public",
+      "severity": "high",
+      "module_name": "brace-expansion",
+      "vulnerable_versions": ">=4.0.0 <5.0.10",
+      "github_advisory_id": "GHSA-6j4f-fj2g-mc7p",
+      "recommendation": "Upgrade to version 5.0.10 or later",
+      "patched_versions": ">=5.0.10",
+      "updated": "2026-09-29T23:44:59.000Z",
+      "cvss": {
+        "score": 7.5,
+        "vectorString": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H"
+      },
+      "cwe": [
+        "CWE-400",
+        "CWE-674"
+      ],
+      "url": "https://github.com/advisories/GHSA-6j4f-fj2g-mc7p"
+    },
+    "1240982": {
+      "findings": [
+        {
+          "version": "2.1.1",
+          "paths": [
+            ".>wrangler>miniflare>undici>@fastify/busboy"
+          ]
+        }
+      ],
+      "found_by": null,
+      "deleted": null,
+      "references": "- https://github.com/fastify/busboy/security/advisories/GHSA-x8mw-p69m-v3mx\n- https://nvd.nist.gov/vuln/detail/CVE-2026-19481\n- https://github.com/fastify/busboy/commit/957a24b66d5915e6d0a6ac988c9dbcee86373e9b\n- https://cna.openjsf.org/security-advisories.html\n- https://github.com/fastify/busboy/releases/tag/v3.2.1\n- https://github.com/advisories/GHSA-x8mw-p69m-v3mx",
+      "created": "2026-10-02T23:16:36.000Z",
+      "id": 1240982,
+      "npm_advisory_id": null,
+      "overview": "### Impact\n\nVersions of `@fastify/busboy` from 1.0.0 and prior to 3.2.1 are vulnerable to a Denial of Service. The multipart header parser stores part-header names on a plain JavaScript object, so a part header named `__proto__` or `constructor` resolves to an inherited value that is not an array, and the parser throws `TypeError: this.header[h].push is not a function`. Through the documented `req.pipe(busboy)` integration this surfaces as an `error` event, while direct `write()`/`end()` usage throws synchronously and can terminate the Node.js process if uncaught. The parser runs before application middleware, so any unauthenticated client that can submit multipart/form-data is affected.\n\n### Patches\n\nFixed in version 3.2.1.\n\n### Workarounds\n\nAttach an `error` listener to the Busboy stream so the parser failure is handled rather than crashing the process, and wrap direct `write()`/`end()` calls in a try/catch. Upgrading to 3.2.1 removes the failure entirely.",
+      "reported_by": null,
+      "title": "@fastify/busboy vulnerable to Denial of Service via prototype-named multipart part header",
+      "metadata": null,
+      "cves": [
+        "CVE-2026-19481"
+      ],
+      "access": "public",
+      "severity": "high",
+      "module_name": "@fastify/busboy",
+      "vulnerable_versions": ">=1.0.0 <3.2.1",
+      "github_advisory_id": "GHSA-x8mw-p69m-v3mx",
+      "recommendation": "Upgrade to version 3.2.1 or later",
+      "patched_versions": ">=3.2.1",
+      "updated": "2026-10-02T23:17:27.000Z",
+      "cvss": {
+        "score": 7.5,
+        "vectorString": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H"
+      },
+      "cwe": [
+        "CWE-754"
+      ],
+      "url": "https://github.com/advisories/GHSA-x8mw-p69m-v3mx"
+    },
+    "1240992": {
+      "findings": [
+        {
+          "version": "3.0.3",
+          "paths": [
+            ".>tailwindcss>chokidar>braces"
+          ]
+        }
+      ],
+      "found_by": null,
+      "deleted": null,
+      "references": "- https://nvd.nist.gov/vuln/detail/CVE-2026-93687\n- https://github.com/micromatch/braces/issues/70\n- https://github.com/micromatch/braces/blob/3.0.3/lib/compile.js#L49-L53\n- https://github.com/micromatch/braces/blob/3.0.3/lib/expand.js#L102-L105\n- https://github.com/micromatch/braces/blob/3.0.3/lib/parse.js#L38-L40\n- https://www.vulncheck.com/advisories/braces-through-3.0.3-stack-overflow-via-deeply-nested-patterns\n- https://github.com/advisories/GHSA-vfj7-8cjw-p6xm",
+      "created": "2026-09-18T18:31:41.000Z",
+      "id": 1240992,
+      "npm_advisory_id": null,
+      "overview": "braces through 3.0.3 contains a stack overflow vulnerability in the recursive AST walkers that lack depth guards. Attackers can supply deeply nested brace patterns under the character limit to exhaust the call stack and terminate the Node.js process with an uncaught RangeError.",
+      "reported_by": null,
+      "title": "braces vulnerable to stack-exhaustion denial of service through deeply nested patterns",
+      "metadata": null,
+      "cves": [
+        "CVE-2026-93687"
+      ],
+      "access": "public",
+      "severity": "high",
+      "module_name": "braces",
+      "vulnerable_versions": "<=3.0.3",
+      "github_advisory_id": "GHSA-vfj7-8cjw-p6xm",
+      "recommendation": "None",
+      "patched_versions": "<0.0.0",
+      "updated": "2026-10-02T22:36:34.000Z",
+      "cvss": {
+        "score": 7.5,
+        "vectorString": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H"
+      },
+      "cwe": [
+        "CWE-674"
+      ],
+      "url": "https://github.com/advisories/GHSA-vfj7-8cjw-p6xm"
+    },
+    "1241209": {
+      "findings": [
+        {
+          "version": "1.2.1",
+          "paths": [
+            ".>postcss>source-map-js"
+          ]
+        }
+      ],
+      "found_by": null,
+      "deleted": null,
+      "references": "- https://nvd.nist.gov/vuln/detail/CVE-2026-93749\n- https://github.com/7rulnik/source-map-js/issues/76\n- https://github.com/7rulnik/source-map-js\n- https://github.com/7rulnik/source-map-js/blob/c1cd8904bb7bd0c7fb5879fcda48134d82a27934/lib/source-node.js#L115-L118\n- https://www.vulncheck.com/advisories/source-map-js-through-1.2.1-event-loop-denial-of-service\n- https://github.com/7rulnik/source-map-js/pull/79\n- https://github.com/7rulnik/source-map-js/commit/cf7658058ceeaa8619d5ae0ec90be6905209d016\n- https://github.com/7rulnik/source-map-js/releases/tag/v1.2.2\n- https://github.com/advisories/GHSA-68fv-2mgg-jv7q",
+      "created": "2026-09-18T18:31:44.000Z",
+      "id": 1241209,
+      "npm_advisory_id": null,
+      "overview": "source-map-js through 1.2.1 fails to validate the per-section offset line value in indexed source maps, allowing attackers to specify arbitrary numeric values. Attackers can supply extremely large offset line values that cause synchronous event loop blocking for extended periods, preventing the service from handling other requests.",
+      "reported_by": null,
+      "title": "source-map-js allows event-loop denial of service through indexed source-map section offsets",
+      "metadata": null,
+      "cves": [
+        "CVE-2026-93749"
+      ],
+      "access": "public",
+      "severity": "high",
+      "module_name": "source-map-js",
+      "vulnerable_versions": ">=1.0.0 <1.2.2",
+      "github_advisory_id": "GHSA-68fv-2mgg-jv7q",
+      "recommendation": "Upgrade to version 1.2.2 or later",
+      "patched_versions": ">=1.2.2",
+      "updated": "2026-10-05T23:31:22.000Z",
+      "cvss": {
+        "score": 7.5,
+        "vectorString": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H"
+      },
+      "cwe": [
+        "CWE-1284"
+      ],
+      "url": "https://github.com/advisories/GHSA-68fv-2mgg-jv7q"
+    },
+    "1241260": {
+      "findings": [
+        {
+          "version": "1.1.1",
+          "paths": [
+            ".>vitest>tinypool"
+          ]
+        }
+      ],
+      "found_by": null,
+      "deleted": null,
+      "references": "- https://github.com/tinylibs/tinypool/security/advisories/GHSA-5gmw-xhrv-c9v3\n- https://nvd.nist.gov/vuln/detail/CVE-2026-104848\n- https://github.com/tinylibs/tinypool/pull/134\n- https://github.com/tinylibs/tinypool/commit/24df4e730e7d0857a6d226c9b58f8924227404fd\n- https://github.com/tinylibs/tinypool/releases/tag/v2.1.1\n- https://github.com/advisories/GHSA-5gmw-xhrv-c9v3",
+      "created": "2026-10-05T22:50:01.000Z",
+      "id": 1241260,
+      "npm_advisory_id": null,
+      "overview": "`tinypool` passes worker options to `new Worker()` by reading them off a plain object whose prototype is `Object.prototype`. Options the application did not set are resolved through the prototype chain and then passed explicitly to `worker_threads.Worker`.\n\nNode core ignores `Worker` options inherited from `Object.prototype`. By reading them and passing them explicitly, tinypool re-materialises them as own properties and defeats that protection.\n\n\nTwo keys reach code execution:\n\n1. **`execArgv`** — polluting `Object.prototype.execArgv = ['--require', '/path/to/attacker.js']` causes every pool worker to load the attacker's script.\n2. **`env`** — polluting `Object.prototype.env = { NODE_OPTIONS: '--require /path/to/attacker.js' }` achieves the same via environment injection.\n\n## Root cause\n\n`dist/index.js` lines 508-511:\n\n```js\nenv:            this.options.env,\nargv:           this.options.argv,\nexecArgv:       this.options.execArgv,\nresourceLimits: this.options.resourceLimits,\n```\n\n`this.options` is built at line 470 via object spread:\n\n```js\nthis.options = { ...kDefaultOptions, ...options, filename, maxQueue: 0 };\n```\n\n## Impact\n\nArbitrary code execution inside every worker the pool spawns, with the privileges of the host process. Because tinypool is the worker pool behind Vitest (~42M downloads/week), the natural blast radius is developer machines and CI runners — an attacker who lands a prototype-pollution primitive anywhere in the dependency tree gets code execution in the build/test pipeline, which is a supply-chain foothold (access to CI secrets, signing keys, artifact publishing).\n\n\n## Proof of concept\n\nMinimal reproduction (3 files):\n\n**worker.mjs** — the application's own legitimate worker:\n```js\nexport default function double(n) { return n * 2 }\n```\n\n**payload.js** — attacker-controlled code (never referenced by the app):\n```js\nconst fs = require('fs')\nfs.writeFileSync('/tmp/RCE_PROOF.txt', 'code execution achieved, pid=' + process.pid)\nconsole.log('*** RCE ***')\n```\n\n**app.js** — normal tinypool usage:\n```js\nconst path = require('path')\n\n// Simulates an upstream PP source (lodash/qs/minimist/set-value/deepmerge)\nObject.prototype.execArgv = ['--require', path.join(__dirname, 'payload.js')]\n\nconst { Tinypool } = require('tinypool')\nconst pool = new Tinypool({\n  filename: path.join(__dirname, 'worker.mjs'),\n  minThreads: 1, maxThreads: 1\n})\npool.run(21).then(r => {\n  console.log('pool returned:', r)  // 42 — app works normally\n  pool.destroy()\n})\n```\n\nRun:\n```\nnpm i tinypool@2.1.0\nnode app.js\ncat /tmp/RCE_PROOF.txt   # attacker's code ran\n```\n\nBoth `execArgv` and `env` vectors confirmed on Node 20.\n\n\n## Suggested fix\n\nResolve worker options with own-property semantics:\n\n```js\nthis.options = Object.assign(Object.create(null),\n  kDefaultOptions, options, { filename, maxQueue: 0 });\n```",
+      "reported_by": null,
+      "title": "Tinypool: Prototype Pollution gadget in worker options leads to Remote Code Execution",
+      "metadata": null,
+      "cves": [
+        "CVE-2026-104848"
+      ],
+      "access": "public",
+      "severity": "critical",
+      "module_name": "tinypool",
+      "vulnerable_versions": "<=2.1.0",
+      "github_advisory_id": "GHSA-5gmw-xhrv-c9v3",
+      "recommendation": "Upgrade to version 2.1.1 or later",
+      "patched_versions": ">=2.1.1",
+      "updated": "2026-10-05T22:50:02.000Z",
+      "cvss": {
+        "score": 0,
+        "vectorString": null
+      },
+      "cwe": [
+        "CWE-1321"
+      ],
+      "url": "https://github.com/advisories/GHSA-5gmw-xhrv-c9v3"
+    },
+    "1241261": {
+      "findings": [
+        {
+          "version": "1.1.1",
+          "paths": [
+            ".>vitest>tinypool"
+          ]
+        }
+      ],
+      "found_by": null,
+      "deleted": null,
+      "references": "- https://github.com/tinylibs/tinypool/security/advisories/GHSA-85c8-ppgw-ccpr\n- https://nvd.nist.gov/vuln/detail/CVE-2026-104849\n- https://github.com/tinylibs/tinypool/pull/135\n- https://github.com/tinylibs/tinypool/commit/f41411a3e23324c674f35a19a3240f7a7c40ffbf\n- https://github.com/tinylibs/tinypool/releases/tag/v2.1.2\n- https://github.com/advisories/GHSA-85c8-ppgw-ccpr",
+      "created": "2026-10-05T22:49:52.000Z",
+      "id": 1241261,
+      "npm_advisory_id": null,
+      "overview": "`tinypool` is a fork of `piscina` and inherited the same prototype-pollution surface. When `pool.run(task, options)` is called, the `filename` option is read from the provided `options` object. If that object does not have an own `filename` property, the lookup falls through to `Object.prototype`.\n\nAn attacker who can pollute `Object.prototype.filename` (for example, via a vulnerable `lodash.merge`, `qs.parse`, or similar elsewhere in the application) can make tinypool load and execute an attacker-controlled worker module.\n\nThis is the tinypool counterpart to the piscina root discovery [GHSA-x9g3-xrwr-cwfg](https://github.com/piscinajs/piscina/security/advisories/GHSA-x9g3-xrwr-cwfg).\n\n`pool.run(task)` with no second argument is not affected, because `kDefaultOptions.filename` is `null` and the options object is not user-controlled. The exploit only triggers when the caller passes their own options object to `pool.run()`.\n\n## Impact\n\nArbitrary JavaScript execution in the worker pool. If the application passes attacker-controlled data as the `run()` task and also supplies a `run()` options object, the attacker can redirect execution to a malicious worker that exfiltrates or modifies that data, achieving remote code execution and/or data exfiltration.\n\n## Proof of Concept\n\n```js\n// legitimate-worker.mjs\nexport default async (task) => ({ by: 'legitimate-worker', processed: task })\n\n// malicious-worker.mjs\nexport default async (task) => ({ by: 'attacker', stolenRequestBody: task })\n\n// main.js\nimport express from \"express\";\nimport Tinypool from \"tinypool\";\nimport { fileURLToPath } from \"node:url\";\nimport path from \"node:path\";\n\nconst __dirname = path.dirname(fileURLToPath(import.meta.url));\n\n// Simulate upstream prototype pollution (lodash merge, qs parse, etc.)\nObject.prototype.filename = path.join(__dirname, \"malicious-worker.mjs\");\n\nconst pool = new Tinypool({\n  filename: path.join(__dirname, \"legitimate-worker.mjs\"),\n});\n\nexpress()\n  .use(express.json())\n  .post(\"/\", async (req, res) => {\n    const ac = new AbortController();\n    const result = await pool.run(req.body, { signal: ac.signal });\n    res.json(result);\n  })\n  .listen(31337);\n```\n\n## Suggested fix\n\nRead all user-supplied options from own properties only (`Object.hasOwn` or `Object.prototype.hasOwnProperty.call`) and build the internal `ThreadPool.options` object with a null prototype.",
+      "reported_by": null,
+      "title": "Tinypool: Prototype Pollution Gadget to RCE in run() options",
+      "metadata": null,
+      "cves": [
+        "CVE-2026-104849"
+      ],
+      "access": "public",
+      "severity": "critical",
+      "module_name": "tinypool",
+      "vulnerable_versions": "<2.1.2",
+      "github_advisory_id": "GHSA-85c8-ppgw-ccpr",
+      "recommendation": "Upgrade to version 2.1.2 or later",
+      "patched_versions": ">=2.1.2",
+      "updated": "2026-10-05T22:49:53.000Z",
+      "cvss": {
+        "score": 0,
+        "vectorString": null
+      },
+      "cwe": [
+        "CWE-94",
+        "CWE-1321"
+      ],
+      "url": "https://github.com/advisories/GHSA-85c8-ppgw-ccpr"
+    },
+    "1241331": {
+      "findings": [
+        {
+          "version": "0.33.5",
+          "paths": [
+            ".>sharp"
+          ]
+        }
+      ],
+      "found_by": null,
+      "deleted": null,
+      "references": "- https://github.com/lovell/sharp/security/advisories/GHSA-wq5f-xc86-pv6w\n- https://github.com/lovell/sharp/commit/96de105d9d36ab04c76c2b78b97255171630d236\n- https://github.com/lovell/sharp/releases/tag/v0.35.5\n- https://gitlab.gnome.org/GNOME/librsvg/-/work_items/1241\n- https://www.cve.org/CVERecord?id=CVE-2026-96889\n- https://github.com/advisories/GHSA-wq5f-xc86-pv6w",
+      "created": "2026-10-06T13:43:57.000Z",
+      "id": 1241331,
+      "npm_advisory_id": null,
+      "overview": "### Impact\n\nA memory-related vulnerability has been discovered and fixed in the upstream librsvg dependency. When certain runtime-specific conditions apply, this vulnerability can lead to possible remote code execution (RCE) on glibc-based Linux.\n\n### Patches\n\n#### Using prebuilt binaries provided by sharp?\n\nMost people rely on the prebuilt binaries provided by sharp.\n\nPlease upgrade sharp to the latest version, currently 0.35.5, which provides librsvg 2.63.2.\n\n#### Using a globally-installed librsvg?\n\nPlease ensure you are using the latest librsvg 2.63.2.\n\n### Workarounds\n\nAdd the following to your code to prevent sharp from decoding SVG images.\n```js\nsharp.block({ operation: [\"VipsForeignLoadSvg\"] });\n```\n\nTo avoid RCE, ensure you are using a `node` executable binary compiled as a Position Independent Executable (PIE). Most Linux package managers already use this security-hardening feature however be warned that the \"official\" Node.js binaries do not.\n1",
+      "reported_by": null,
+      "title": "sharp : Vulnerability in librsvg dependency CVE-2026-96889",
+      "metadata": null,
+      "cves": [],
+      "access": "public",
+      "severity": "high",
+      "module_name": "sharp",
+      "vulnerable_versions": "<0.35.5",
+      "github_advisory_id": "GHSA-wq5f-xc86-pv6w",
+      "recommendation": "Upgrade to version 0.35.5 or later",
+      "patched_versions": ">=0.35.5",
+      "updated": "2026-10-06T13:43:58.000Z",
+      "cvss": {
+        "score": 0,
+        "vectorString": null
+      },
+      "cwe": [
+        "CWE-416",
+        "CWE-1395"
+      ],
+      "url": "https://github.com/advisories/GHSA-wq5f-xc86-pv6w"
+    }
+  },
+  "muted": [],
+  "metadata": {
+    "vulnerabilities": {
+      "info": 0,
+      "low": 4,
+      "moderate": 19,
+      "high": 16,
+      "critical": 2
+    },
+    "dependencies": 728,
+    "devDependencies": 0,
+    "optionalDependencies": 0,
+    "totalDependencies": 728
+  }
+}

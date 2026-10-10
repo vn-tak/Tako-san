@@ -108,7 +108,7 @@ function expectConfirmedReview(acceptedCount = 1) {
   expect(container.querySelector('[role="status"]')?.textContent).toContain(
     `Đã xác nhận ${acceptedCount} nguyên liệu`,
   );
-  expect(container.querySelector('header')?.textContent).toContain('Bản quét đã xác nhận · Chỉ xem');
+  expect(container.querySelector('header.review-heading')?.textContent).toContain('Bản quét đã xác nhận · Chỉ xem');
   expect(container.textContent).toContain('Thông tin bản quét đã được lưu.');
   expect(container.textContent).toContain('từ trang tủ lạnh');
   expect(container.textContent).not.toContain('cần kiểm tra');

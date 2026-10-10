@@ -1,0 +1,111 @@
+{
+  "base": "e584cf0bc8c5ab5c62b0896157c06f7bd511886b",
+  "frozenAt": "2026-10-10T10:00:32.153180+00:00",
+  "files": [
+    {
+      "path": "scripts/ui06-browser-check.mjs",
+      "bytes": 22273,
+      "sha256": "3b1f9b348bae96c55558dfca90115306002786825b0b47b04093d651378bd932"
+    },
+    {
+      "path": "src/web/components/layout/AppLayout.tsx",
+      "bytes": 2281,
+      "sha256": "3b57b80a6cd96657255d0eb5bb4e1e37190b299457a57c0aced03b56410bbd98"
+    },
+    {
+      "path": "src/web/features/planner/ComponentPicker.tsx",
+      "bytes": 9866,
+      "sha256": "92e6490dd1507bcc1d8608a115770483d3072df06a8a3fa4686dc115a1384d38"
+    },
+    {
+      "path": "src/web/features/planner/MealComposer.tsx",
+      "bytes": 18274,
+      "sha256": "6c704d62dc1f090fa33ffcbd116890dce10f9b9f223198da632efba0430fe4af"
+    },
+    {
+      "path": "src/web/features/planner/PlannerMeal.tsx",
+      "bytes": 16571,
+      "sha256": "b2e6ab65c4952b20c681dbdc002ec78a16ed58d936e293ffcc352348a66b3583"
+    },
+    {
+      "path": "src/web/features/planner/PlannerSetup.tsx",
+      "bytes": 7913,
+      "sha256": "4047421e0187c2a1302ff2e4c3c215902659e0e64849d40884dedc4d839602df"
+    },
+    {
+      "path": "src/web/features/planner/PlannerShell.tsx",
+      "bytes": 4151,
+      "sha256": "62c0be69a5d1acfee64104d85ff425f76f813907ed35ea75feea207311b940d7"
+    },
+    {
+      "path": "src/web/features/planner/PlannerShopping.tsx",
+      "bytes": 16006,
+      "sha256": "79f916b284d90962cbc60c474030776ad724f5c3fd90460d1ab14fd5a3265b77"
+    },
+    {
+      "path": "src/web/features/planner/PlannerWeek.tsx",
+      "bytes": 13270,
+      "sha256": "e4a69926fe6c5040bfb95c517041eeb587471ef6cba18819907bf01253b0a596"
+    },
+    {
+      "path": "src/web/lib/shopping-form.ts",
+      "bytes": 1083,
+      "sha256": "9cbd87bc1c42cb3353e023dab1df7f21a6966d049724263ded35535173661eea"
+    },
+    {
+      "path": "src/web/pages/PlannerPage.tsx",
+      "bytes": 3479,
+      "sha256": "5fee873ac9a3c423e3483de8f4a3c3463326266affd8db6feb52ccb0d6d86f35"
+    },
+    {
+      "path": "src/web/pages/ShoppingPage.tsx",
+      "bytes": 12379,
+      "sha256": "f0fb7569a2f6af6bf12da6dd91c85046da991986b4fc682f11461d399ec586b0"
+    },
+    {
+      "path": "src/web/services/shopping.ts",
+      "bytes": 8148,
+      "sha256": "fdff83b25ae4c7d9d68bcb9aaf077ef0439da24a8ed14331b4e4f88c3ed359ba"
+    },
+    {
+      "path": "src/web/styles/index.css",
+      "bytes": 3271,
+      "sha256": "967cc0674e6e124838ba473569529666172169266655667de849ab59157bbec5"
+    },
+    {
+      "path": "src/web/styles/kitchen-planning.css",
+      "bytes": 14247,
+      "sha256": "19e0c14697894394041282560b98a57cd3a3f758e4daf76f1ae43b4d1cdc442a"
+    },
+    {
+      "path": "tests/unit/planner-hook.test.tsx",
+      "bytes": 40983,
+      "sha256": "43b82b5bcb4a328b028a37b8b9892494793476e496f32c38fdf8e730aaf45f71"
+    },
+    {
+      "path": "tests/unit/planner-ui.test.tsx",
+      "bytes": 28780,
+      "sha256": "b43ff40449d8761cab20b89138319ee6e6259aa4948006b0cf7e515783895e8c"
+    },
+    {
+      "path": "tests/unit/t07-planner-ui.test.tsx",
+      "bytes": 9679,
+      "sha256": "fd6c53f6daa173b74f006b33b9f6638e67785c2d6020b4fbee9206be36faafd8"
+    },
+    {
+      "path": "tests/unit/ui02-presentation.test.ts",
+      "bytes": 9427,
+      "sha256": "f1ab27fd047d5e788df860aa3ab64067585a86c8120053f5ff68f3f93449491a"
+    },
+    {
+      "path": "tests/unit/ui06-planner-lifecycle.test.tsx",
+      "bytes": 4002,
+      "sha256": "9735db17074cf83f950b831b2481c5aa2dc34dec8aa8fc6ce954ef7c0ec5c890"
+    },
+    {
+      "path": "tests/unit/ui06-shopping.test.ts",
+      "bytes": 6125,
+      "sha256": "88caf739d7d44d51060e7594c55705444b66026a557a05a4a81ec06621fbe135"
+    }
+  ]
+}

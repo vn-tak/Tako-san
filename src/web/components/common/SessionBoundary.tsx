@@ -5,6 +5,7 @@ import { api } from '../../services/api';
 import { capturePrivateSession, isOfflineGuestSession } from '../../lib/private-session';
 import { queryClient } from '../../lib/query-client';
 import { queryKeys } from '../../lib/queryKeys';
+import { SystemStatusPage } from './SystemStatusPage';
 
 export const SessionBoundary: React.FC<{ children: React.ReactNode }> = ({ children }) => {
   const { userId, householdId, isGuest, logoutStatus, logoutError, logout, setOnboardingFromServer, setPlusFromServer } = useAuthStore();
@@ -36,21 +37,20 @@ export const SessionBoundary: React.FC<{ children: React.ReactNode }> = ({ child
   }, [identity, userId, isGuest, logoutStatus, retry]);
   if (logoutStatus === 'idle') {
     if (userId && verifiedIdentity !== identity) return (
-      <section className="space-y-4 p-6">
+      <SystemStatusPage title={verificationFailed ? 'Chưa xác minh được phiên' : 'Đang kiểm tra phiên…'} busy={!verificationFailed}>
         <p role={verificationFailed ? 'alert' : 'status'}>
           {verificationFailed ? 'Không thể xác minh phiên. Vui lòng kết nối mạng và thử lại.' : 'Đang kiểm tra phiên…'}
         </p>
         {verificationFailed && <button className="rounded-xl bg-takosan-green px-4 py-3 text-white" onClick={() => setRetry((value) => value + 1)}>Thử lại</button>}
-      </section>
+      </SystemStatusPage>
     );
     return <>{children}</>;
   }
 
   const pending = logoutStatus === 'pending';
   return (
-    <main className="min-h-screen bg-takosan-cream flex items-center justify-center p-6">
-      <section className="max-w-md space-y-4 rounded-2xl bg-white p-6 shadow-sm" aria-live="polite">
-        <h1 className="text-xl font-bold">{pending ? 'Đang đăng xuất…' : 'Chưa xác nhận đăng xuất'}</h1>
+    <SystemStatusPage title={pending ? 'Đang đăng xuất…' : 'Chưa xác nhận đăng xuất'} busy={pending}>
+      <div className="space-y-4" aria-live="polite">
         <p role={pending ? 'status' : 'alert'}>{pending ? 'Đã tạm dừng đồng bộ riêng tư. Đang thu hồi phiên trên máy chủ.' : logoutError}</p>
         {!pending && (
           <button className="rounded-xl bg-takosan-green px-4 py-3 font-semibold text-white" onClick={async () => {
@@ -59,7 +59,7 @@ export const SessionBoundary: React.FC<{ children: React.ReactNode }> = ({ child
             Thử đăng xuất lại
           </button>
         )}
-      </section>
-    </main>
+      </div>
+    </SystemStatusPage>
   );
 };

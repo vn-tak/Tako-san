@@ -149,8 +149,8 @@ test('AppShell honors the 640 breakpoint and exposes the active route', async ({
 
   const cases = [
     { width: 639, height: 844, navWidth: 639, mainX: 0, shell: 'bottom' },
-    { width: 640, height: 844, navWidth: 80, mainX: 80, shell: 'rail' },
-    { width: 767, height: 844, navWidth: 80, mainX: 80, shell: 'rail' },
+    { width: 640, height: 844, navWidth: 112, mainX: 112, shell: 'rail' },
+    { width: 767, height: 844, navWidth: 112, mainX: 112, shell: 'rail' },
     { width: 1024, height: 768, navWidth: 256, mainX: 256, shell: 'sidebar' },
   ] as const;
 
@@ -194,9 +194,14 @@ test('AppShell honors the 640 breakpoint and exposes the active route', async ({
     await page.goto('/landing');
     await settle(page);
     const heading = await page.getByRole('heading', { level: 1 }).boundingBox();
-    const mascot = await page.getByRole('img', { name: 'Takosan cầm tủ lạnh' }).boundingBox();
-    expect(heading && mascot).toBeTruthy();
-    expect(heading!.x + heading!.width).toBeLessThanOrEqual(mascot!.x);
+    const actions = await page.locator('.landing-actions').boundingBox();
+    const flow = await page.getByRole('region', { name: 'Cách Takosan giúp bạn' }).boundingBox();
+    await expect(page.getByTestId('landing-logo')).toHaveAccessibleName('Takosan');
+    await expect(page.getByRole('heading', { level: 1 })).toHaveCount(1);
+    await expect(page.getByRole('navigation')).toHaveCount(0);
+    expect(heading && actions && flow).toBeTruthy();
+    expect(heading!.y + heading!.height).toBeLessThanOrEqual(actions!.y);
+    expect(actions!.y + actions!.height).toBeLessThanOrEqual(flow!.y);
     await expectNoHorizontalOverflow(page);
     await page.screenshot({ path: info.outputPath(`landing-boundary-${width}.png`), fullPage: true });
   }

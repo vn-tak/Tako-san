@@ -1,0 +1,1596 @@
+<!doctype html>
+<html lang="vi">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#f7f3ec" />
+    <title>Tako-san · Duyệt ảnh món ăn</title>
+    <style>
+      /* be-vietnam-pro-vietnamese-400-normal */
+@font-face {
+  font-family: 'Be Vietnam Pro';
+  font-style: normal;
+  font-display: swap;
+  font-weight: 400;
+  src: url(../../../public/takosan/fonts/be-vietnam-pro-vietnamese-400-normal.woff2) format('woff2');
+  unicode-range:
+    U+0102-0103, U+0110-0111, U+0128-0129, U+0168-0169, U+01A0-01A1, U+01AF-01B0, U+0300-0301,
+    U+0303-0304, U+0308-0309, U+0323, U+0329, U+1EA0-1EF9, U+20AB;
+}
+
+/* be-vietnam-pro-latin-ext-400-normal */
+@font-face {
+  font-family: 'Be Vietnam Pro';
+  font-style: normal;
+  font-display: swap;
+  font-weight: 400;
+  src: url(../../../public/takosan/fonts/be-vietnam-pro-latin-ext-400-normal.woff2) format('woff2');
+  unicode-range:
+    U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329,
+    U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F,
+    U+A720-A7FF;
+}
+
+/* be-vietnam-pro-latin-400-normal */
+@font-face {
+  font-family: 'Be Vietnam Pro';
+  font-style: normal;
+  font-display: swap;
+  font-weight: 400;
+  src: url(../../../public/takosan/fonts/be-vietnam-pro-latin-400-normal.woff2) format('woff2');
+  unicode-range:
+    U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329,
+    U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+/* be-vietnam-pro-vietnamese-600-normal */
+@font-face {
+  font-family: 'Be Vietnam Pro';
+  font-style: normal;
+  font-display: swap;
+  font-weight: 600;
+  src: url(../../../public/takosan/fonts/be-vietnam-pro-vietnamese-600-normal.woff2) format('woff2');
+  unicode-range:
+    U+0102-0103, U+0110-0111, U+0128-0129, U+0168-0169, U+01A0-01A1, U+01AF-01B0, U+0300-0301,
+    U+0303-0304, U+0308-0309, U+0323, U+0329, U+1EA0-1EF9, U+20AB;
+}
+
+/* be-vietnam-pro-latin-ext-600-normal */
+@font-face {
+  font-family: 'Be Vietnam Pro';
+  font-style: normal;
+  font-display: swap;
+  font-weight: 600;
+  src: url(../../../public/takosan/fonts/be-vietnam-pro-latin-ext-600-normal.woff2) format('woff2');
+  unicode-range:
+    U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329,
+    U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F,
+    U+A720-A7FF;
+}
+
+/* be-vietnam-pro-latin-600-normal */
+@font-face {
+  font-family: 'Be Vietnam Pro';
+  font-style: normal;
+  font-display: swap;
+  font-weight: 600;
+  src: url(../../../public/takosan/fonts/be-vietnam-pro-latin-600-normal.woff2) format('woff2');
+  unicode-range:
+    U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329,
+    U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+/* be-vietnam-pro-vietnamese-700-normal */
+@font-face {
+  font-family: 'Be Vietnam Pro';
+  font-style: normal;
+  font-display: swap;
+  font-weight: 700;
+  src: url(../../../public/takosan/fonts/be-vietnam-pro-vietnamese-700-normal.woff2) format('woff2');
+  unicode-range:
+    U+0102-0103, U+0110-0111, U+0128-0129, U+0168-0169, U+01A0-01A1, U+01AF-01B0, U+0300-0301,
+    U+0303-0304, U+0308-0309, U+0323, U+0329, U+1EA0-1EF9, U+20AB;
+}
+
+/* be-vietnam-pro-latin-ext-700-normal */
+@font-face {
+  font-family: 'Be Vietnam Pro';
+  font-style: normal;
+  font-display: swap;
+  font-weight: 700;
+  src: url(../../../public/takosan/fonts/be-vietnam-pro-latin-ext-700-normal.woff2) format('woff2');
+  unicode-range:
+    U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329,
+    U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F,
+    U+A720-A7FF;
+}
+
+/* be-vietnam-pro-latin-700-normal */
+@font-face {
+  font-family: 'Be Vietnam Pro';
+  font-style: normal;
+  font-display: swap;
+  font-weight: 700;
+  src: url(../../../public/takosan/fonts/be-vietnam-pro-latin-700-normal.woff2) format('woff2');
+  unicode-range:
+    U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329,
+    U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+      :root {
+        --paper: #f7f3ec;
+        --ink: #202c28;
+        --pine: #245d49;
+        --coral: #ee705e;
+        --muted: #53635b;
+        --line: #d9dbd2;
+        --soft: #e8eee8;
+        --warn: #7b4810;
+        --warn-bg: #fff0d3;
+        color-scheme: light;
+      }
+      * {
+        box-sizing: border-box;
+      }
+      body {
+        margin: 0;
+        background: radial-gradient(ellipse at 100% 0, #e8eee8, transparent 40%), var(--paper);
+        color: var(--ink);
+        font:
+          16px/1.55 'Be Vietnam Pro',
+          sans-serif;
+      }
+      button,
+      input,
+      select,
+      textarea {
+        font: inherit;
+        color: inherit;
+      }
+      button,
+      select,
+      input {
+        min-height: 48px;
+      }
+      button,
+      a,
+      input,
+      select,
+      textarea,
+      summary {
+        touch-action: manipulation;
+        -webkit-tap-highlight-color: #245d4922;
+      }
+      button {
+        cursor: pointer;
+        border: 1px solid var(--line);
+        border-radius: 8px;
+        padding: 10px 16px;
+        background: white;
+        white-space: normal;
+      }
+      button:hover {
+        border-color: var(--pine);
+        background: var(--soft);
+      }
+      button.primary {
+        background: var(--pine);
+        border-color: var(--pine);
+        color: white;
+      }
+      button.primary:hover {
+        background: #194735;
+      }
+      a {
+        color: var(--pine);
+        text-underline-offset: 4px;
+      }
+      a:hover {
+        text-decoration-thickness: 2px;
+      }
+      :focus-visible {
+        outline: 3px solid var(--pine);
+        outline-offset: 4px;
+      }
+      a,
+      input,
+      button,
+      select,
+      textarea {
+        scroll-margin-block: 24px;
+      }
+      .skip {
+        position: absolute;
+        top: -200px;
+        left: 16px;
+        z-index: 5;
+        background: white;
+        padding: 12px;
+      }
+      .skip:focus {
+        top: 16px;
+      }
+      main {
+        max-width: 1440px;
+        margin: auto;
+        padding: 32px 40px 80px;
+      }
+      header {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 20px;
+        flex-wrap: wrap;
+        border-bottom: 1px solid var(--line);
+        padding-bottom: 24px;
+      }
+      header img {
+        width: 172px;
+        height: auto;
+        max-width: 100%;
+      }
+      nav {
+        display: flex;
+        gap: 24px;
+        flex-wrap: wrap;
+      }
+      .eyebrow {
+        font-size: 13px;
+        letter-spacing: 0.06em;
+        color: var(--pine);
+        font-weight: 600;
+        margin: 32px 0 12px;
+      }
+      h1 {
+        font-size: clamp(36px, 5.8vw, 76px);
+        line-height: 1.08;
+        letter-spacing: -0.045em;
+        text-wrap: balance;
+        overflow-wrap: anywhere;
+        max-width: 1000px;
+        margin: 0 0 20px;
+      }
+      h2 {
+        font-size: 28px;
+        line-height: 1.25;
+        margin: 0;
+        text-wrap: balance;
+        overflow-wrap: anywhere;
+      }
+      h3 {
+        font-size: 20px;
+        line-height: 1.35;
+        margin: 0;
+        text-wrap: balance;
+        overflow-wrap: anywhere;
+      }
+      p {
+        margin: 0 0 12px;
+      }
+      .lead {
+        font-size: 18px;
+        max-width: 780px;
+        color: var(--muted);
+      }
+      .context {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 12px 28px;
+        margin: 28px 0 0;
+        padding: 20px 0;
+        border-block: 1px solid var(--line);
+      }
+      .context span {
+        color: var(--muted);
+        max-width: 100%;
+        overflow-wrap: anywhere;
+      }
+      .context strong {
+        color: var(--ink);
+        font-variant-numeric: tabular-nums;
+      }
+      .note {
+        max-width: 960px;
+        border-left: 4px solid var(--coral);
+        padding: 16px 20px;
+        background: white;
+        margin: 24px 0;
+        color: var(--muted);
+      }
+      section {
+        margin-top: 44px;
+        scroll-margin-top: 24px;
+      }
+      .section-head {
+        display: flex;
+        align-items: baseline;
+        justify-content: space-between;
+        gap: 16px;
+        flex-wrap: wrap;
+        margin-bottom: 20px;
+      }
+      .section-head p {
+        color: var(--muted);
+        margin: 0;
+      }
+      .toolbar {
+        display: flex;
+        gap: 12px;
+        flex-wrap: wrap;
+        align-items: end;
+        padding-bottom: 24px;
+        border-bottom: 1px solid var(--line);
+        margin-bottom: 24px;
+      }
+      .field {
+        display: flex;
+        flex-direction: column;
+        gap: 6px;
+        min-width: 0;
+      }
+      .field label {
+        font-weight: 600;
+        font-size: 14px;
+      }
+      .search {
+        flex: 1 1 18em;
+      }
+      .filter {
+        flex: 1 1 12em;
+      }
+      input,
+      select,
+      textarea {
+        width: 100%;
+        border: 1px solid var(--line);
+        border-radius: 8px;
+        background: white;
+        padding: 12px;
+      }
+      input::placeholder,
+      textarea::placeholder {
+        color: #647169;
+        opacity: 1;
+      }
+      textarea {
+        min-height: 96px;
+        resize: vertical;
+      }
+      .actions {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+        align-items: center;
+      }
+      .actions button {
+        flex: 0 1 auto;
+      }
+      .file-label {
+        min-height: 48px;
+        display: inline-flex;
+        align-items: center;
+        padding: 10px 16px;
+        border: 1px solid var(--line);
+        border-radius: 8px;
+        background: white;
+        cursor: pointer;
+      }
+      .file-label:hover {
+        border-color: var(--pine);
+        background: var(--soft);
+      }
+      #import-file {
+        position: absolute;
+        width: 1px;
+        height: 1px;
+        opacity: 0;
+        min-height: 0;
+        padding: 0;
+      }
+      .file-label:has(input:focus-visible) {
+        outline: 3px solid var(--pine);
+        outline-offset: 4px;
+      }
+      .status {
+        min-height: 1.5em;
+        margin-top: 12px;
+        color: var(--pine);
+        overflow-wrap: anywhere;
+      }
+      .status[data-error='true'] {
+        color: #a42f24;
+      }
+      .recipe-grid,
+      .asset-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(min(100%, 19em), 1fr));
+        gap: 24px;
+      }
+      .card {
+        border: 1px solid var(--line);
+        border-radius: 12px;
+        overflow: hidden;
+        background: white;
+        min-width: 0;
+        display: flex;
+        flex-direction: column;
+      }
+      .card-body {
+        padding: 20px;
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+        flex: 1;
+        min-width: 0;
+      }
+      .card p {
+        margin: 0;
+        overflow-wrap: anywhere;
+      }
+      .card .description {
+        font-size: 14px;
+        color: var(--muted);
+      }
+      .meta {
+        font:
+          13px/1.5 'Be Vietnam Pro',
+          sans-serif;
+        color: var(--muted);
+        overflow-wrap: anywhere;
+      }
+      .badge {
+        display: inline-block;
+        align-self: start;
+        border-radius: 6px;
+        background: var(--soft);
+        color: var(--pine);
+        padding: 5px 9px;
+        font-size: 13px;
+        line-height: 1.5;
+        font-weight: 600;
+        overflow-wrap: anywhere;
+      }
+      .badge.warn {
+        background: var(--warn-bg);
+        color: var(--warn);
+      }
+      .badge.rejected {
+        background: #fbe7e3;
+        color: #8f3023;
+      }
+      .media {
+        background: #efeee7;
+        overflow: hidden;
+        min-width: 0;
+        position: relative;
+        aspect-ratio: 4/3;
+      }
+      .media img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        display: block;
+      }
+      .missing {
+        display: flex;
+        gap: 12px;
+        align-items: center;
+        background: #efeee7;
+        min-height: 90px;
+        padding: 20px;
+        color: var(--muted);
+        font-size: 14px;
+        line-height: 1.5;
+      }
+      .missing svg {
+        flex: none;
+        color: var(--pine);
+      }
+      .missing span {
+        min-width: 0;
+        overflow-wrap: anywhere;
+      }
+      .card button {
+        margin-top: auto;
+        width: 100%;
+      }
+      .proposed-note {
+        padding: 8px 12px;
+        background: var(--warn-bg);
+        color: var(--warn);
+        font-size: 13px;
+        line-height: 1.5;
+      }
+      .empty {
+        border: 1px dashed var(--line);
+        padding: 32px;
+        background: white;
+        max-width: 760px;
+      }
+      .hidden,
+      [hidden] {
+        display: none !important;
+      }
+      .asset-grid .media {
+        aspect-ratio: 1/1;
+      }
+      .asset-grid .media img {
+        object-fit: contain;
+      }
+      .asset-name {
+        font-size: 16px;
+      }
+      .asset-details {
+        font-size: 13px;
+        color: var(--muted);
+        overflow-wrap: anywhere;
+      }
+      .asset-details dt {
+        font-weight: 600;
+      }
+      .asset-details dd {
+        margin: 0 0 12px;
+      }
+      .asset-details code {
+        font-size: inherit;
+      }
+      .brief-list {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(min(100%, 16em), 1fr));
+        gap: 20px;
+        padding: 0;
+        list-style: none;
+        counter-reset: step;
+      }
+      .brief-list li {
+        padding: 24px;
+        background: white;
+        border-top: 3px solid var(--pine);
+        counter-increment: step;
+      }
+      .brief-list li:before {
+        content: '0' counter(step);
+        color: var(--coral);
+        font-size: 28px;
+        font-weight: 700;
+      }
+      .brief-list h3 {
+        margin: 12px 0;
+      }
+      .brief-list p {
+        font-size: 14px;
+        color: var(--muted);
+      }
+      footer {
+        border-top: 1px solid var(--line);
+        margin-top: 44px;
+        padding-top: 24px;
+        color: var(--muted);
+        font-size: 14px;
+        overflow-wrap: anywhere;
+      }
+      dialog {
+        padding: 0;
+        border: 1px solid var(--line);
+        border-radius: 12px;
+        width: min(1120px, calc(100% - 32px));
+        max-height: calc(100dvh - 32px);
+        background: var(--paper);
+        color: var(--ink);
+        overflow: auto;
+        overscroll-behavior: contain;
+      }
+      dialog::backdrop {
+        background: #142d21aa;
+      }
+      .dialog-head {
+        padding: 24px;
+        display: flex;
+        align-items: flex-start;
+        justify-content: space-between;
+        gap: 16px;
+        border-bottom: 1px solid var(--line);
+      }
+      .dialog-head h2 {
+        font-size: 26px;
+        overflow-wrap: anywhere;
+      }
+      .dialog-head button {
+        flex: none;
+        min-width: 48px;
+      }
+      .dialog-grid {
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) minmax(0, 1.1fr);
+        gap: 28px;
+        padding: 24px;
+      }
+      .dialog-grid > * {
+        min-width: 0;
+      }
+      .dialog-copy {
+        color: var(--muted);
+        font-size: 14px;
+      }
+      .crop-pair {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 16px;
+      }
+      .crop-pair figure {
+        margin: 0;
+      }
+      .crop-pair figcaption {
+        margin: 8px 0 12px;
+        font-size: 14px;
+        color: var(--muted);
+      }
+      .crop-pair .hero {
+        aspect-ratio: 16/9;
+      }
+      .crop-pair .original {
+        aspect-ratio: auto;
+      }
+      .crop-pair .original img {
+        width: 100%;
+        height: auto;
+        object-fit: contain;
+      }
+      .crop-pair .media:after {
+        content: '';
+        position: absolute;
+        inset: 8%;
+        border: 1px dashed #ffffffbb;
+        pointer-events: none;
+      }
+      .crop-pair .original:after {
+        display: none;
+      }
+      .subheading {
+        margin: 24px 0 12px;
+        font-size: 18px;
+      }
+      .review-form {
+        display: flex;
+        flex-direction: column;
+        gap: 16px;
+      }
+      .review-form .row {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(min(100%, 12em), 1fr));
+        gap: 16px;
+      }
+      .field-error {
+        font-size: 14px;
+        color: #a42f24;
+        line-height: 1.5;
+      }
+      .dialog-actions {
+        display: flex;
+        gap: 12px;
+        flex-wrap: wrap;
+      }
+      .dialog-actions button {
+        flex: 1 1 10em;
+      }
+      .small {
+        font-size: 13px;
+        color: var(--muted);
+      }
+      .sr-only {
+        position: absolute;
+        width: 1px;
+        height: 1px;
+        margin: -1px;
+        padding: 0;
+        overflow: hidden;
+        clip: rect(0, 0, 0, 0);
+        white-space: nowrap;
+        border: 0;
+      }
+      @media (max-width: 700px) {
+        main {
+          padding: 20px 16px 48px;
+        }
+        header {
+          gap: 16px;
+        }
+        nav {
+          gap: 12px 20px;
+        }
+        h1 {
+          font-size: 40px;
+        }
+        .context {
+          gap: 12px;
+        }
+        .dialog-grid {
+          grid-template-columns: minmax(0, 1fr);
+          padding: 16px;
+        }
+        .dialog-head {
+          padding: 16px;
+        }
+        .toolbar .actions {
+          width: 100%;
+        }
+        .toolbar .actions > * {
+          flex: 1 1 10em;
+        }
+        .asset-grid {
+          grid-template-columns: minmax(0, 1fr);
+        }
+      }
+      @media (prefers-reduced-motion: no-preference) {
+        .intro {
+          animation: arrive 280ms ease-out;
+        }
+        @keyframes arrive {
+          from {
+            opacity: 0;
+            transform: translateY(8px);
+          }
+          to {
+            opacity: 1;
+            transform: translateY(0);
+          }
+        }
+      }
+      nav a {
+        display: inline-flex;
+        align-items: center;
+        min-height: 48px;
+        overflow-wrap: anywhere;
+      }
+    </style>
+  </head>
+  <body>
+    <a class="skip" href="#main">Đến nội dung chính</a>
+    <main id="main" tabindex="-1">
+      <header>
+        <img
+          src="../../../public/takosan/rebuild/lockup.svg"
+          width="300"
+          height="72"
+          alt="Takosan"
+          translate="no"
+        />
+        <nav aria-label="Nội dung bản duyệt">
+          <a href="#recipes">24 món ưu tiên</a><a href="#assets">Ảnh gốc</a
+          ><a href="#brief">Tiêu chí chọn</a>
+        </nav>
+      </header>
+      <div class="intro">
+        <p class="eyebrow">NỘI DUNG HÌNH ẢNH / BẢN DUYỆT LOCAL 01</p>
+        <h1>Đúng món.<br />Rõ nguồn. Hợp khung.</h1>
+        <p class="lead">
+          Chọn ảnh có thể kể đúng câu chuyện của món ăn. Xem cách ảnh hiện trên thẻ món và phần chi
+          tiết, rồi ghi lại nguồn, quyền sử dụng và quyết định của bạn.
+        </p>
+      </div>
+      <div class="context" aria-label="Tình trạng bộ ảnh">
+        <span><strong>24</strong> món từ danh sách local</span
+        ><span><strong>4</strong> ảnh đang được phép hiển thị</span
+        ><span><strong>20</strong> món chưa có ảnh phù hợp</span
+        ><span><strong>8</strong> file ảnh gốc</span>
+      </div>
+      <p class="note">
+        Đây là bản duyệt, chưa cập nhật ứng dụng. Nguồn và quyền sử dụng của cả tám ảnh còn chưa
+        được xác nhận. Lựa chọn lưu trong phiên này; hãy tải JSON để giữ bản nháp.
+      </p>
+      <section id="recipes" aria-labelledby="recipes-title">
+        <div class="section-head">
+          <h2 id="recipes-title" tabindex="-1">24 món ưu tiên</h2>
+          <p id="result-count" role="status" aria-live="polite"></p>
+        </div>
+        <div class="toolbar">
+          <div class="field search">
+            <label for="search">Tìm món hoặc mã món</label
+            ><input
+              type="search"
+              id="search"
+              name="q"
+              autocomplete="off"
+              maxlength="160"
+              placeholder="Ví dụ: kim chi, thịt kho, gl-05…"
+            />
+          </div>
+          <div class="field filter">
+            <label for="policy">Ảnh đang hiển thị</label
+            ><select id="policy" name="policy">
+              <option value="all">Tất cả món</option>
+              <option value="photo">Có ảnh local</option>
+              <option value="missing">Chưa có ảnh</option>
+              <option value="wrong">Sai món hoặc thiếu file</option>
+            </select>
+          </div>
+          <div class="field filter">
+            <label for="decision-filter">Quyết định trong bản nháp</label
+            ><select id="decision-filter" name="decision">
+              <option value="all">Tất cả quyết định</option>
+              <option value="pending">Chờ duyệt</option>
+              <option value="candidate">Cân nhắc ảnh</option>
+              <option value="rejected">Loại khỏi vòng chọn</option>
+              <option value="owner_reviewed">Có biên bản của chủ dự án</option>
+            </select>
+          </div>
+          <div class="actions">
+            <button id="reset-filters" type="button">Xóa bộ lọc</button
+            ><button id="export-draft" class="primary" type="button">Tải bản nháp JSON</button
+            ><label class="file-label"
+              >Nhập bản nháp<input
+                id="import-file"
+                type="file"
+                accept=".json,application/json"
+                aria-label="Nhập bản nháp JSON"
+            /></label>
+          </div>
+        </div>
+        <p id="feedback" class="status" role="status" aria-live="polite"></p>
+        <div id="recipe-grid" class="recipe-grid"></div>
+        <div id="empty" class="empty" hidden>
+          <h3>Chưa có món khớp bộ lọc</h3>
+          <p>Thử tên khác hoặc xóa bộ lọc để xem lại toàn bộ danh sách.</p>
+          <button id="empty-reset" type="button">Xem tất cả 24 món</button>
+        </div>
+      </section>
+      <section id="assets" aria-labelledby="assets-title">
+        <div class="section-head">
+          <h2 id="assets-title">Tám ảnh gốc</h2>
+          <p>Ảnh để đối chiếu · quyền sử dụng chưa xác nhận</p>
+        </div>
+        <div id="asset-grid" class="asset-grid"></div>
+      </section>
+      <section id="brief" aria-labelledby="brief-title">
+        <h2 id="brief-title">Trước khi chọn một ảnh</h2>
+        <ol class="brief-list">
+          <li>
+            <h3>Đúng chủ thể</h3>
+            <p>
+              Đối chiếu nguyên liệu, cách nấu và tên món. Cơm gà trứng không thay thế được trứng
+              hấp; ảnh cùng nguyên liệu chưa chắc là cùng món.
+            </p>
+          </li>
+          <li>
+            <h3>Có nguồn rõ</h3>
+            <p>
+              Ghi tác giả hoặc đơn vị tạo ảnh, nguồn gốc và căn cứ quyền sử dụng. Nếu là ảnh tạo,
+              ghi rõ công cụ và provenance.
+            </p>
+          </li>
+          <li>
+            <h3>Crop có dụng ý</h3>
+            <p>
+              Giữ món chính trong cả khung thẻ 4:3 và khung rộng 16:9 thử nghiệm. Phần chi tiết hiện
+              dùng 4:3; khung rộng chưa được áp dụng.
+            </p>
+          </li>
+          <li>
+            <h3>Ghi biên bản</h3>
+            <p>
+              Ghi người, ngày, đúng món và crop đã xem. JSON hợp lệ chỉ xác nhận cấu trúc; quyết
+              định áp dụng ảnh vào catalog cần một bước riêng.
+            </p>
+          </li>
+        </ol>
+      </section>
+      <footer>
+        <p>
+          Bộ duyệt dựa trên 24 món đầu discovery cục bộ của UI12, không phải số liệu truy cập
+          production. Ảnh remote không được tải tại đây. Chữ phóng lớn và các bản crop xem thử không
+          thay đổi file ảnh gốc.
+        </p>
+        <p id="dataset-label" class="meta"></p>
+      </footer>
+    </main>
+    <dialog id="review-dialog" aria-labelledby="dialog-title" aria-describedby="dialog-context">
+      <div class="dialog-head">
+        <div>
+          <p class="eyebrow" style="margin-top: 0">DUYỆT TỪNG MÓN</p>
+          <h2 id="dialog-title"></h2>
+          <p id="dialog-context" class="dialog-copy"></p>
+        </div>
+        <button id="close-dialog" type="button" aria-label="Đóng bản duyệt">Đóng</button>
+      </div>
+      <div class="dialog-grid">
+        <div>
+          <h3>Ảnh đang hiển thị</h3>
+          <dl id="mapping-details" class="asset-details" style="margin-top: 16px"></dl>
+          <div id="current-preview" style="margin-top: 12px"></div>
+          <p id="subject-brief" class="dialog-copy" style="margin-top: 16px"></p>
+          <h3 class="subheading">Ảnh đề xuất · chưa áp dụng</h3>
+          <div id="candidate-previews" class="crop-pair"></div>
+        </div>
+        <form id="review-form" class="review-form" novalidate>
+          <div class="field">
+            <label for="candidateAssetId">Ảnh local đề xuất</label
+            ><select id="candidateAssetId" name="candidateAssetId">
+              <option value="">Chưa chọn ảnh</option></select
+            ><span class="small">Chọn từ ảnh gốc để xem thử. Không thay ảnh đang hiển thị.</span>
+          </div>
+          <div class="field">
+            <label for="decision">Quyết định</label
+            ><select id="decision" name="decision">
+              <option value="pending">Chờ duyệt</option>
+              <option value="candidate">Cân nhắc ảnh này</option>
+              <option value="rejected">Loại khỏi vòng chọn</option>
+              <option value="owner_reviewed">Có biên bản của chủ dự án</option>
+            </select>
+          </div>
+          <div class="field">
+            <label for="creator">Tác giả hoặc đơn vị tạo ảnh</label
+            ><input
+              id="creator"
+              name="creator"
+              autocomplete="off"
+              maxlength="2000"
+              placeholder="Ví dụ: tên nhiếp ảnh gia hoặc đơn vị…"
+            />
+          </div>
+          <div class="field">
+            <label for="source">Nguồn hoặc biên bản tạo ảnh</label
+            ><textarea
+              id="source"
+              name="source"
+              autocomplete="off"
+              maxlength="2000"
+              placeholder="URL nguồn, tài liệu hoặc thông tin tạo ảnh…"
+            ></textarea>
+          </div>
+          <div class="field">
+            <label for="rights">Căn cứ quyền sử dụng</label
+            ><textarea
+              id="rights"
+              name="rights"
+              autocomplete="off"
+              maxlength="2000"
+              placeholder="Loại giấy phép, phạm vi sử dụng và tài liệu chứng minh…"
+            ></textarea>
+          </div>
+          <div class="field">
+            <label for="subjectNotes">Đối chiếu đúng món</label
+            ><textarea
+              id="subjectNotes"
+              name="subjectNotes"
+              autocomplete="off"
+              maxlength="2000"
+              placeholder="Nguyên liệu và cách nấu đã đối chiếu; điểm cần xem lại…"
+            ></textarea>
+          </div>
+          <div class="field">
+            <label for="cropNotes">Nhận xét crop</label
+            ><textarea
+              id="cropNotes"
+              name="cropNotes"
+              autocomplete="off"
+              maxlength="2000"
+              placeholder="Khung 4:3, 16:9 và vị trí chủ thể…"
+            ></textarea>
+          </div>
+          <div class="row">
+            <div class="field">
+              <label for="reviewer">Người duyệt</label
+              ><input
+                id="reviewer"
+                name="reviewer"
+                autocomplete="off"
+                maxlength="2000"
+                placeholder="Tên người lập biên bản…"
+              />
+            </div>
+            <div class="field">
+              <label for="reviewedAt">Ngày duyệt</label
+              ><input id="reviewedAt" name="reviewedAt" type="date" autocomplete="off" />
+            </div>
+          </div>
+          <div class="field">
+            <label for="notes">Ghi chú hoặc lý do loại</label
+            ><textarea
+              id="notes"
+              name="notes"
+              autocomplete="off"
+              maxlength="2000"
+              placeholder="Điều cần bổ sung hoặc lý do loại ảnh…"
+            ></textarea>
+          </div>
+          <p id="form-error" class="field-error" role="alert"></p>
+          <p class="small">
+            Biên bản cần đủ tác giả, nguồn, quyền sử dụng, đúng món, crop, người và ngày duyệt.
+            Thông tin này là khai báo của người duyệt; chưa cấp quyền xuất bản.
+          </p>
+          <div class="dialog-actions">
+            <button id="save-review" class="primary" type="submit">Giữ trong bản nháp</button
+            ><button id="cancel-review" type="button">Đóng, bỏ sửa đang nhập</button>
+          </div>
+        </form>
+      </div>
+    </dialog>
+    <script type="application/json" id="review-data">
+      {"schemaVersion":1,"base":"5da802735c318c56505bed85a133b049728afb39","observation":"UI12 local discovery snapshot, rechecked against current static catalog/resolver; not production analytics","promotionAuthorized":false,"sources":[{"kind":"plan","path":"docs/ui-rebuild/round-12/evidence/media-plan.json","sha256":"d9c2c7a0c89b06b8ce768279e49d4a9ff5dc3a28d07de9a115e4c46504484a24"},{"kind":"mapping","path":"docs/ui-rebuild/round-12/evidence/media-mapping.json","sha256":"33f0042ebcc486adddfd613dcad3b2d71274322ecb2b83096fbf40dfc5b41083"},{"kind":"demand","path":"docs/ui-rebuild/round-12/evidence/route-audit-recovered/recipe-demand.json","sha256":"458499510fd25cdcbec01953fb8e53c359a5f07625ffaddbbced6e037565beba"}],"catalogSummary":{"canonicalCount":500,"staticCount":71,"urls":46,"canonicalIssues":{"allowed_legacy_mapping":6,"wrong_dish_or_missing_file":6,"generic_illustration":429,"unreviewed_photo":59},"staticIssues":{"unreviewed_photo":59,"allowed_legacy_mapping":6,"wrong_dish_or_missing_file":6},"mediaStates":[{"status":"pending","count":500}],"urlReuseGroups":21,"duplicateLocalByteHashes":0},"recipes":[{"priority":1,"recipeId":"vn-sang-06","slug":"sup-ga-ngo-non-nam-huong","title":"Súp gà ngô non nấm hương trứng hoa","reason":"First three Home recommendations and first local discovery page","legacyMappingIssue":"unreviewed_photo","action":"Review subject/source/license and crops before retaining or replacing media","observedPreviewOnly":true,"description":"Bát súp nóng hổi sánh óng ánh với những vân trứng hoa bay lượn, thịt gà xé ngọt mềm cùng hạt ngô ngọt giòn bùi.","subjectBrief":"Brief tham khảo từ tên và mô tả, cần đối chiếu công thức gốc. Chụp đúng món “Súp gà ngô non nấm hương trứng hoa”. Chi tiết cần đối chiếu: Bát súp nóng hổi sánh óng ánh với những vân trứng hoa bay lượn, thịt gà xé ngọt mềm cùng hạt ngô ngọt giòn bùi. Không thay bằng món có nguyên liệu hoặc cách nấu khác.","legacyUrl":"https://images.unsplash.com/photo-1547592166-23ac45744acd?auto=format&fit=crop&w=800&q=80","current":{"source":"placeholder","assetId":null,"url":null}},{"priority":2,"recipeId":"gl-09","slug":"chawanmushi","title":"Trứng hấp Chawanmushi Nhật Bản","reason":"First three Home recommendations and first local discovery page","legacyMappingIssue":"wrong_dish_or_missing_file","action":"Review subject/source/license and crops before retaining or replacing media","observedPreviewOnly":true,"description":"Trứng hấp mịn màng như thạch tan trong miệng cùng tôm ngọt và nấm.","subjectBrief":"Brief tham khảo từ tên và mô tả, cần đối chiếu công thức gốc. Chụp đúng món “Trứng hấp Chawanmushi Nhật Bản”. Chi tiết cần đối chiếu: Trứng hấp mịn màng như thạch tan trong miệng cùng tôm ngọt và nấm. Không thay bằng món có nguyên liệu hoặc cách nấu khác.","legacyUrl":"/frigo/recipes/global/oyakodon.webp","current":{"source":"placeholder","assetId":null,"url":null}},{"priority":3,"recipeId":"gl-05","slug":"kimchi-fried-rice","title":"Cơm chiên kim chi Hàn Quốc","reason":"First three Home recommendations and first local discovery page","legacyMappingIssue":null,"action":"Review subject/source/license and crops before retaining or replacing media","observedPreviewOnly":true,"description":"Cơm chiên kim chi chua cay giòn sần sật phủ trứng ốp la lòng đào béo ngậy.","subjectBrief":"Brief tham khảo từ tên và mô tả, cần đối chiếu công thức gốc. Chụp đúng món “Cơm chiên kim chi Hàn Quốc”. Chi tiết cần đối chiếu: Cơm chiên kim chi chua cay giòn sần sật phủ trứng ốp la lòng đào béo ngậy. Không thay bằng món có nguyên liệu hoặc cách nấu khác.","legacyUrl":"/frigo/recipes/global/kimchi-fried-rice.webp","current":{"source":"legacy_static","assetId":"asset-02","url":"/frigo/recipes/global/kimchi-fried-rice.webp"}},{"priority":4,"recipeId":"gl-03","slug":"tomato-egg-stir-fry","title":"Cà chua xào trứng Trung Hoa","reason":"First local discovery page; representative read-only preview ranking","legacyMappingIssue":null,"action":"Review subject/source/license and crops before retaining or replacing media","observedPreviewOnly":true,"description":"Món ăn gia đình kinh điển với trứng mềm xốp quyện sốt cà chua đỏ sánh mịn.","subjectBrief":"Brief tham khảo từ tên và mô tả, cần đối chiếu công thức gốc. Chụp đúng món “Cà chua xào trứng Trung Hoa”. Chi tiết cần đối chiếu: Món ăn gia đình kinh điển với trứng mềm xốp quyện sốt cà chua đỏ sánh mịn. Không thay bằng món có nguyên liệu hoặc cách nấu khác.","legacyUrl":"/frigo/recipes/global/tomato-egg-stir-fry.webp","current":{"source":"legacy_static","assetId":"asset-07","url":"/frigo/recipes/global/tomato-egg-stir-fry.webp"}},{"priority":5,"recipeId":"vn-xao-01","slug":"rau-muong-xao-toi","title":"Rau muống xào tỏi xanh giòn","reason":"First local discovery page; representative read-only preview ranking","legacyMappingIssue":"unreviewed_photo","action":"Review subject/source/license and crops before retaining or replacing media","observedPreviewOnly":true,"description":"Rau muống ngọn non xanh mướt giòn sần sật dậy mùi thơm lừng của tỏi ta phi vàng xém cạnh, linh hồn bữa cơm gia đình.","subjectBrief":"Brief tham khảo từ tên và mô tả, cần đối chiếu công thức gốc. Chụp đúng món “Rau muống xào tỏi xanh giòn”. Chi tiết cần đối chiếu: Rau muống ngọn non xanh mướt giòn sần sật dậy mùi thơm lừng của tỏi ta phi vàng xém cạnh, linh hồn bữa cơm gia đình. Không thay bằng món có nguyên liệu hoặc cách nấu khác.","legacyUrl":"https://images.unsplash.com/photo-1540420773420-3366772f4999?auto=format&fit=crop&w=800&q=80","current":{"source":"placeholder","assetId":null,"url":null}},{"priority":6,"recipeId":"vn-chay-06","slug":"canh-cai-nau-dau-phu-non","title":"Canh cải xanh gừng đậu phụ thanh mát","reason":"First local discovery page; representative read-only preview ranking","legacyMappingIssue":"unreviewed_photo","action":"Review subject/source/license and crops before retaining or replacing media","observedPreviewOnly":true,"description":"Bát canh cải bẹ xanh tươi non nấu cùng gừng tươi đập dập cay nồng và đậu phụ béo mềm, xua tan hàn khí ấm bụng.","subjectBrief":"Brief tham khảo từ tên và mô tả, cần đối chiếu công thức gốc. Chụp đúng món “Canh cải xanh gừng đậu phụ thanh mát”. Chi tiết cần đối chiếu: Bát canh cải bẹ xanh tươi non nấu cùng gừng tươi đập dập cay nồng và đậu phụ béo mềm, xua tan hàn khí ấm bụng. Không thay bằng món có nguyên liệu hoặc cách nấu khác.","legacyUrl":"https://images.unsplash.com/photo-1547592166-23ac45744acd?auto=format&fit=crop&w=800&q=80","current":{"source":"placeholder","assetId":null,"url":null}},{"priority":7,"recipeId":"vn-sang-02","slug":"banh-mi-op-la-pate","title":"Bánh mì ốp la pate dưa leo","reason":"First local discovery page; representative read-only preview ranking","legacyMappingIssue":"unreviewed_photo","action":"Review subject/source/license and crops before retaining or replacing media","observedPreviewOnly":true,"description":"Ổ bánh mì giòn tan kẹp quả trứng ốp la lòng đào béo ngậy, quét đẫm lớp pate Hải Phòng thơm lừng và dưa leo mát rượi.","subjectBrief":"Brief tham khảo từ tên và mô tả, cần đối chiếu công thức gốc. Chụp đúng món “Bánh mì ốp la pate dưa leo”. Chi tiết cần đối chiếu: Ổ bánh mì giòn tan kẹp quả trứng ốp la lòng đào béo ngậy, quét đẫm lớp pate Hải Phòng thơm lừng và dưa leo mát rượi. Không thay bằng món có nguyên liệu hoặc cách nấu khác.","legacyUrl":"https://images.unsplash.com/photo-1626804475297-41608ea09aeb?auto=format&fit=crop&w=800&q=80","current":{"source":"placeholder","assetId":null,"url":null}},{"priority":8,"recipeId":"gl-06","slug":"pad-krapow","title":"Thịt băm xào lá quế kiểu Thái (Pad Krapow)","reason":"First local discovery page; representative read-only preview ranking","legacyMappingIssue":null,"action":"Review subject/source/license and crops before retaining or replacing media","observedPreviewOnly":true,"description":"Món thịt heo băm xào cay thơm lừng lá quế ăn kèm cơm trắng và trứng rán giòn viền.","subjectBrief":"Brief tham khảo từ tên và mô tả, cần đối chiếu công thức gốc. Chụp đúng món “Thịt băm xào lá quế kiểu Thái (Pad Krapow)”. Chi tiết cần đối chiếu: Món thịt heo băm xào cay thơm lừng lá quế ăn kèm cơm trắng và trứng rán giòn viền. Không thay bằng món có nguyên liệu hoặc cách nấu khác.","legacyUrl":"/frigo/recipes/global/pad-krapow.webp","current":{"source":"legacy_static","assetId":"asset-05","url":"/frigo/recipes/global/pad-krapow.webp"}},{"priority":9,"recipeId":"gl-04","slug":"oyakodon","title":"Cơm gà trứng Oyakodon Nhật Bản","reason":"First local discovery page; representative read-only preview ranking","legacyMappingIssue":null,"action":"Review subject/source/license and crops before retaining or replacing media","observedPreviewOnly":true,"description":"Món cơm donburi Nhật Bản với thịt gà mềm ngọt và trứng nấu lướt mịn mượt trên bát cơm nóng.","subjectBrief":"Brief tham khảo từ tên và mô tả, cần đối chiếu công thức gốc. Chụp đúng món “Cơm gà trứng Oyakodon Nhật Bản”. Chi tiết cần đối chiếu: Món cơm donburi Nhật Bản với thịt gà mềm ngọt và trứng nấu lướt mịn mượt trên bát cơm nóng. Không thay bằng món có nguyên liệu hoặc cách nấu khác.","legacyUrl":"/frigo/recipes/global/oyakodon.webp","current":{"source":"legacy_static","assetId":"asset-04","url":"/frigo/recipes/global/oyakodon.webp"}},{"priority":10,"recipeId":"gl-08","slug":"tokbokki-cay-ngot","title":"Bánh gạo Tokbokki sốt cay ngọt","reason":"First local discovery page; representative read-only preview ranking","legacyMappingIssue":"wrong_dish_or_missing_file","action":"Review subject/source/license and crops before retaining or replacing media","observedPreviewOnly":true,"description":"Bánh gạo dẻo mềm đượm sốt ớt Gochujang cay nồng cùng trứng luộc lòng đào.","subjectBrief":"Brief tham khảo từ tên và mô tả, cần đối chiếu công thức gốc. Chụp đúng món “Bánh gạo Tokbokki sốt cay ngọt”. Chi tiết cần đối chiếu: Bánh gạo dẻo mềm đượm sốt ớt Gochujang cay nồng cùng trứng luộc lòng đào. Không thay bằng món có nguyên liệu hoặc cách nấu khác.","legacyUrl":"/frigo/recipes/global/kimchi-fried-rice.webp","current":{"source":"placeholder","assetId":null,"url":null}},{"priority":11,"recipeId":"vn-sang-01","slug":"com-chien-trung-toi-hanh-hoa","title":"Cơm chiên trứng vàng giòn tỏi phi","reason":"First local discovery page; representative read-only preview ranking","legacyMappingIssue":"unreviewed_photo","action":"Review subject/source/license and crops before retaining or replacing media","observedPreviewOnly":true,"description":"Hạt cơm nguội vàng óng bọc đều lớp trứng gà bóng bẩy, chiên giòn tơi xốp dậy mùi thơm nức của tỏi phi và hành hoa.","subjectBrief":"Brief tham khảo từ tên và mô tả, cần đối chiếu công thức gốc. Chụp đúng món “Cơm chiên trứng vàng giòn tỏi phi”. Chi tiết cần đối chiếu: Hạt cơm nguội vàng óng bọc đều lớp trứng gà bóng bẩy, chiên giòn tơi xốp dậy mùi thơm nức của tỏi phi và hành hoa. Không thay bằng món có nguyên liệu hoặc cách nấu khác.","legacyUrl":"https://images.unsplash.com/photo-1603133872878-684f208fb84b?auto=format&fit=crop&w=800&q=80","current":{"source":"placeholder","assetId":null,"url":null}},{"priority":12,"recipeId":"vn-xao-05","slug":"su-su-xao-trung-ga","title":"Su su xào trứng gà thanh ngọt","reason":"First local discovery page; representative read-only preview ranking","legacyMappingIssue":"unreviewed_photo","action":"Review subject/source/license and crops before retaining or replacing media","observedPreviewOnly":true,"description":"Su su bào sợi giòn ngọt tự nhiên ôm lấy từng mảng trứng gà vàng ươm béo ngậy, món ăn thanh đạm dễ làm.","subjectBrief":"Brief tham khảo từ tên và mô tả, cần đối chiếu công thức gốc. Chụp đúng món “Su su xào trứng gà thanh ngọt”. Chi tiết cần đối chiếu: Su su bào sợi giòn ngọt tự nhiên ôm lấy từng mảng trứng gà vàng ươm béo ngậy, món ăn thanh đạm dễ làm. Không thay bằng món có nguyên liệu hoặc cách nấu khác.","legacyUrl":"https://images.unsplash.com/photo-1565299585323-38d6b0865b47?auto=format&fit=crop&w=800&q=80","current":{"source":"placeholder","assetId":null,"url":null}},{"priority":13,"recipeId":"vn-sang-04","slug":"mi-tom-xao-bo-trung-long-dao","title":"Mì gói xào bò trứng lòng đào","reason":"First local discovery page; representative read-only preview ranking","legacyMappingIssue":"unreviewed_photo","action":"Review subject/source/license and crops before retaining or replacing media","observedPreviewOnly":true,"description":"Sợi mì tôm chần xào giòn dai không nát, hòa cùng thịt bò xào mềm ngọt, rau cải giòn mát và quả trứng ốp lòng đào béo ngậy.","subjectBrief":"Brief tham khảo từ tên và mô tả, cần đối chiếu công thức gốc. Chụp đúng món “Mì gói xào bò trứng lòng đào”. Chi tiết cần đối chiếu: Sợi mì tôm chần xào giòn dai không nát, hòa cùng thịt bò xào mềm ngọt, rau cải giòn mát và quả trứng ốp lòng đào béo ngậy. Không thay bằng món có nguyên liệu hoặc cách nấu khác.","legacyUrl":"https://images.unsplash.com/photo-1569718212165-3a8278d5f624?auto=format&fit=crop&w=800&q=80","current":{"source":"placeholder","assetId":null,"url":null}},{"priority":14,"recipeId":"gl-12","slug":"chinese-tomato-egg","title":"Trứng xào cà chua kiểu Trung Hoa","reason":"First local discovery page; representative read-only preview ranking","legacyMappingIssue":"wrong_dish_or_missing_file","action":"Review subject/source/license and crops before retaining or replacing media","observedPreviewOnly":true,"description":"Món ăn gia đình kinh điển Trung Hoa với trứng mềm xốp ngập trong sốt cà chua đỏ sánh chua ngọt.","subjectBrief":"Brief tham khảo từ tên và mô tả, cần đối chiếu công thức gốc. Chụp đúng món “Trứng xào cà chua kiểu Trung Hoa”. Chi tiết cần đối chiếu: Món ăn gia đình kinh điển Trung Hoa với trứng mềm xốp ngập trong sốt cà chua đỏ sánh chua ngọt. Không thay bằng món có nguyên liệu hoặc cách nấu khác.","legacyUrl":"/frigo/recipes/vietnam/dau-phu-sot-ca-chua.webp","current":{"source":"placeholder","assetId":null,"url":null}},{"priority":15,"recipeId":"vn-sang-05","slug":"trung-cuon-rau-cu-han-quoc","title":"Trứng cuộn rau củ mềm mịn","reason":"First local discovery page; representative read-only preview ranking","legacyMappingIssue":"unreviewed_photo","action":"Review subject/source/license and crops before retaining or replacing media","observedPreviewOnly":true,"description":"Trứng gà đánh mịn cuộn tròn nhiều lớp xen kẽ cà rốt và hành hoa thái hạt lựu xinh xắn, món ăn sáng giàu protein cho cả nhà.","subjectBrief":"Brief tham khảo từ tên và mô tả, cần đối chiếu công thức gốc. Chụp đúng món “Trứng cuộn rau củ mềm mịn”. Chi tiết cần đối chiếu: Trứng gà đánh mịn cuộn tròn nhiều lớp xen kẽ cà rốt và hành hoa thái hạt lựu xinh xắn, món ăn sáng giàu protein cho cả nhà. Không thay bằng món có nguyên liệu hoặc cách nấu khác.","legacyUrl":"https://images.unsplash.com/photo-1525351484163-7529414344d8?auto=format&fit=crop&w=800&q=80","current":{"source":"placeholder","assetId":null,"url":null}},{"priority":16,"recipeId":"gl-07","slug":"kimbap-han-quoc","title":"Cơm cuộn Kimbap Hàn Quốc","reason":"First local discovery page; representative read-only preview ranking","legacyMappingIssue":"wrong_dish_or_missing_file","action":"Review subject/source/license and crops before retaining or replacing media","observedPreviewOnly":true,"description":"Cơm cuộn rong biển nhân trứng rán, xúc xích/thịt và dưa chuột giòn mát rượi.","subjectBrief":"Brief tham khảo từ tên và mô tả, cần đối chiếu công thức gốc. Chụp đúng món “Cơm cuộn Kimbap Hàn Quốc”. Chi tiết cần đối chiếu: Cơm cuộn rong biển nhân trứng rán, xúc xích/thịt và dưa chuột giòn mát rượi. Không thay bằng món có nguyên liệu hoặc cách nấu khác.","legacyUrl":"/frigo/recipes/global/kimchi-fried-rice.webp","current":{"source":"placeholder","assetId":null,"url":null}},{"priority":17,"recipeId":"vn-chien-02","slug":"trung-chien-thit-bam-nam-rom","title":"Trứng chiên thịt bằm nấm rơm","reason":"First local discovery page; representative read-only preview ranking","legacyMappingIssue":"unreviewed_photo","action":"Review subject/source/license and crops before retaining or replacing media","observedPreviewOnly":true,"description":"Món trứng chiên phồng xốp vàng rực, bên trong đầy đặn thịt heo băm đậm đà và nấm ngọt giòn sần sật.","subjectBrief":"Brief tham khảo từ tên và mô tả, cần đối chiếu công thức gốc. Chụp đúng món “Trứng chiên thịt bằm nấm rơm”. Chi tiết cần đối chiếu: Món trứng chiên phồng xốp vàng rực, bên trong đầy đặn thịt heo băm đậm đà và nấm ngọt giòn sần sật. Không thay bằng món có nguyên liệu hoặc cách nấu khác.","legacyUrl":"https://images.unsplash.com/photo-1525351484163-7529414344d8?auto=format&fit=crop&w=800&q=80","current":{"source":"placeholder","assetId":null,"url":null}},{"priority":18,"recipeId":"vn-cuon-04","slug":"goi-ga-xe-phay-bap-cai","title":"Gỏi gà xé phay bắp cải hành tây","reason":"First local discovery page; representative read-only preview ranking","legacyMappingIssue":"unreviewed_photo","action":"Review subject/source/license and crops before retaining or replacing media","observedPreviewOnly":true,"description":"Thịt gà ta luộc xé sợi dai ngọt trộn cùng bắp cải bào mỏng giòn rụm, hành tây chua ngọt dịu và rau răm thơm the the.","subjectBrief":"Brief tham khảo từ tên và mô tả, cần đối chiếu công thức gốc. Chụp đúng món “Gỏi gà xé phay bắp cải hành tây”. Chi tiết cần đối chiếu: Thịt gà ta luộc xé sợi dai ngọt trộn cùng bắp cải bào mỏng giòn rụm, hành tây chua ngọt dịu và rau răm thơm the the. Không thay bằng món có nguyên liệu hoặc cách nấu khác.","legacyUrl":"https://images.unsplash.com/photo-1512621776951-a57141f2eefd?auto=format&fit=crop&w=800&q=80","current":{"source":"placeholder","assetId":null,"url":null}},{"priority":19,"recipeId":"vn-chien-05","slug":"nem-ran-truyen-thong-ha-noi","title":"Nem rán truyền thống Hà Nội giòn rụm","reason":"First local discovery page; representative read-only preview ranking","legacyMappingIssue":"unreviewed_photo","action":"Review subject/source/license and crops before retaining or replacing media","observedPreviewOnly":true,"description":"Vỏ nem vàng rộm giòn tan rụm, nhân thịt băm mộc nhĩ nấm hương miến dong và trứng gà thơm phức chấm mắm chua ngọt.","subjectBrief":"Brief tham khảo từ tên và mô tả, cần đối chiếu công thức gốc. Chụp đúng món “Nem rán truyền thống Hà Nội giòn rụm”. Chi tiết cần đối chiếu: Vỏ nem vàng rộm giòn tan rụm, nhân thịt băm mộc nhĩ nấm hương miến dong và trứng gà thơm phức chấm mắm chua ngọt. Không thay bằng món có nguyên liệu hoặc cách nấu khác.","legacyUrl":"https://images.unsplash.com/photo-1544025162-d76694265947?auto=format&fit=crop&w=800&q=80","current":{"source":"placeholder","assetId":null,"url":null}},{"priority":20,"recipeId":"vn-kho-01","slug":"thit-kho-trung","title":"Thịt kho tàu nước dừa trứng béo ngậy","reason":"First local discovery page; representative read-only preview ranking","legacyMappingIssue":"unreviewed_photo","action":"Review subject/source/license and crops before retaining or replacing media","observedPreviewOnly":true,"description":"Thịt ba chỉ vuông vức óng ả màu cánh gián, ninh nhừ mềm tan trong nước dừa xiêm cùng trứng gà bùi bùi chuẩn Tết miền Nam.","subjectBrief":"Brief tham khảo từ tên và mô tả, cần đối chiếu công thức gốc. Chụp đúng món “Thịt kho tàu nước dừa trứng béo ngậy”. Chi tiết cần đối chiếu: Thịt ba chỉ vuông vức óng ả màu cánh gián, ninh nhừ mềm tan trong nước dừa xiêm cùng trứng gà bùi bùi chuẩn Tết miền Nam. Không thay bằng món có nguyên liệu hoặc cách nấu khác.","legacyUrl":"https://images.unsplash.com/photo-1544025162-d76694265947?auto=format&fit=crop&w=800&q=80","current":{"source":"placeholder","assetId":null,"url":null}},{"priority":21,"recipeId":"vn-lau-01","slug":"lau-rieu-cua-dong-bap-bo-suon-sun","title":"Lẩu riêu cua đồng sườn sụn bắp bò","reason":"First local discovery page; representative read-only preview ranking","legacyMappingIssue":"unreviewed_photo","action":"Review subject/source/license and crops before retaining or replacing media","observedPreviewOnly":true,"description":"Nồi lẩu riêu cua bốc khói nghi ngút thơm nồng giấm bỗng, tảng riêu cua vàng ngậy nhúng bắp bò hoa giòn và sườn non sần sật.","subjectBrief":"Brief tham khảo từ tên và mô tả, cần đối chiếu công thức gốc. Chụp đúng món “Lẩu riêu cua đồng sườn sụn bắp bò”. Chi tiết cần đối chiếu: Nồi lẩu riêu cua bốc khói nghi ngút thơm nồng giấm bỗng, tảng riêu cua vàng ngậy nhúng bắp bò hoa giòn và sườn non sần sật. Không thay bằng món có nguyên liệu hoặc cách nấu khác.","legacyUrl":"https://images.unsplash.com/photo-1547928576-a4a33237cbc3?auto=format&fit=crop&w=800&q=80","current":{"source":"placeholder","assetId":null,"url":null}},{"priority":22,"recipeId":"vn-hap-05","slug":"muc-hap-gung-sa","title":"Mực ống hấp gừng sả giòn ngọt","reason":"First local discovery page; representative read-only preview ranking","legacyMappingIssue":"unreviewed_photo","action":"Review subject/source/license and crops before retaining or replacing media","observedPreviewOnly":true,"description":"Mực ống tươi dày mình hấp cùng sả cây đập dập và gừng non, từng miếng mực giòn ngọt sần sật mọng nước.","subjectBrief":"Brief tham khảo từ tên và mô tả, cần đối chiếu công thức gốc. Chụp đúng món “Mực ống hấp gừng sả giòn ngọt”. Chi tiết cần đối chiếu: Mực ống tươi dày mình hấp cùng sả cây đập dập và gừng non, từng miếng mực giòn ngọt sần sật mọng nước. Không thay bằng món có nguyên liệu hoặc cách nấu khác.","legacyUrl":"https://images.unsplash.com/photo-1535400255456-984241443b29?auto=format&fit=crop&w=800&q=80","current":{"source":"placeholder","assetId":null,"url":null}},{"priority":23,"recipeId":"vn-hap-06","slug":"tom-hap-nuoc-dua-tuoi","title":"Tôm hấp nước dừa tươi ngọt lịm","reason":"First local discovery page; representative read-only preview ranking","legacyMappingIssue":"unreviewed_photo","action":"Review subject/source/license and crops before retaining or replacing media","observedPreviewOnly":true,"description":"Tôm sú tươi roi rói hấp cùng nước dừa xiêm ngọt lịm, vỏ tôm đỏ au thịt tôm săn chắc ngọt ngào hương dừa thanh tao.","subjectBrief":"Brief tham khảo từ tên và mô tả, cần đối chiếu công thức gốc. Chụp đúng món “Tôm hấp nước dừa tươi ngọt lịm”. Chi tiết cần đối chiếu: Tôm sú tươi roi rói hấp cùng nước dừa xiêm ngọt lịm, vỏ tôm đỏ au thịt tôm săn chắc ngọt ngào hương dừa thanh tao. Không thay bằng món có nguyên liệu hoặc cách nấu khác.","legacyUrl":"https://images.unsplash.com/photo-1559742811-822873691df8?auto=format&fit=crop&w=800&q=80","current":{"source":"placeholder","assetId":null,"url":null}},{"priority":24,"recipeId":"vn-chay-03","slug":"mi-xao-chay-rau-nam","title":"Mì xào giòn chay nấm rau củ","reason":"First local discovery page; representative read-only preview ranking","legacyMappingIssue":"unreviewed_photo","action":"Review subject/source/license and crops before retaining or replacing media","observedPreviewOnly":true,"description":"Sợi mì xào vàng thơm tơi sợi không bết dính, đảo cùng nấm đùi gà dai giòn, cải ngọt và cà rốt ngập tràn sốt dầu hào chay.","subjectBrief":"Brief tham khảo từ tên và mô tả, cần đối chiếu công thức gốc. Chụp đúng món “Mì xào giòn chay nấm rau củ”. Chi tiết cần đối chiếu: Sợi mì xào vàng thơm tơi sợi không bết dính, đảo cùng nấm đùi gà dai giòn, cải ngọt và cà rốt ngập tràn sốt dầu hào chay. Không thay bằng món có nguyên liệu hoặc cách nấu khác.","legacyUrl":"https://images.unsplash.com/photo-1585032226651-759b368d7246?auto=format&fit=crop&w=800&q=80","current":{"source":"placeholder","assetId":null,"url":null}}],"assets":[{"assetId":"asset-01","url":"/frigo/illustrations/delicious-meal.png","path":"public/frigo/illustrations/delicious-meal.png","bytes":216750,"sha256":"fc8cd3b94aa6d192f36dd735e13228c9e1ca1ceafdc36ada72caf5580a3c04b4","width":365,"height":493,"format":"png","rightsStatus":"unknown","creator":null,"sourceEvidence":null,"licenseEvidence":null,"label":"Minh họa chung","staticRecipeIds":[]},{"assetId":"asset-02","url":"/frigo/recipes/global/kimchi-fried-rice.webp","path":"public/frigo/recipes/global/kimchi-fried-rice.webp","bytes":63902,"sha256":"b4ed63ff715c6eb3b183e49a0c15f30e32a2522c288184b6353482bef612ca8d","width":436,"height":384,"format":"webp","rightsStatus":"unknown","creator":null,"sourceEvidence":null,"licenseEvidence":null,"label":"Cơm chiên kim chi","staticRecipeIds":["gl-05","gl-07","gl-08"]},{"assetId":"asset-03","url":"/frigo/recipes/global/mapo-tofu.webp","path":"public/frigo/recipes/global/mapo-tofu.webp","bytes":65846,"sha256":"bfa6e099a8c3c289e248a3f19d36bc96d6e47f195277239a481603bb24bfbd4a","width":436,"height":371,"format":"webp","rightsStatus":"unknown","creator":null,"sourceEvidence":null,"licenseEvidence":null,"label":"Đậu phụ Mapo","staticRecipeIds":["gl-02"]},{"assetId":"asset-04","url":"/frigo/recipes/global/oyakodon.webp","path":"public/frigo/recipes/global/oyakodon.webp","bytes":55662,"sha256":"f6fa1e79ed329871c6461a7bacafe35d594d05a00f1ff7a7b06c458d7013735b","width":436,"height":384,"format":"webp","rightsStatus":"unknown","creator":null,"sourceEvidence":null,"licenseEvidence":null,"label":"Cơm gà trứng Oyakodon","staticRecipeIds":["gl-04","gl-09"]},{"assetId":"asset-05","url":"/frigo/recipes/global/pad-krapow.webp","path":"public/frigo/recipes/global/pad-krapow.webp","bytes":61312,"sha256":"518d62f283dbae4959e04d06dd8a9b9e2a195388aeb57e8da39e2114eebd6b2e","width":436,"height":384,"format":"webp","rightsStatus":"unknown","creator":null,"sourceEvidence":null,"licenseEvidence":null,"label":"Thịt băm xào lá quế","staticRecipeIds":["gl-06","gl-10"]},{"assetId":"asset-06","url":"/frigo/recipes/global/pasta-pomodoro.webp","path":"public/frigo/recipes/global/pasta-pomodoro.webp","bytes":65518,"sha256":"82a23e835f15733dee11df7061364b53a7f94fb75014fd1f703c25668448b842","width":436,"height":371,"format":"webp","rightsStatus":"unknown","creator":null,"sourceEvidence":null,"licenseEvidence":null,"label":"Mì sốt cà chua Pomodoro","staticRecipeIds":["gl-01"]},{"assetId":"asset-07","url":"/frigo/recipes/global/tomato-egg-stir-fry.webp","path":"public/frigo/recipes/global/tomato-egg-stir-fry.webp","bytes":52622,"sha256":"2f1889cec34e84000cfb2f9c826f9927c738ec62ac776a81ed2a8f83b5786743","width":436,"height":371,"format":"webp","rightsStatus":"unknown","creator":null,"sourceEvidence":null,"licenseEvidence":null,"label":"Cà chua xào trứng","staticRecipeIds":["gl-03"]},{"assetId":"asset-08","url":"/frigo/recipes/vietnam/dau-phu-sot-ca-chua.webp","path":"public/frigo/recipes/vietnam/dau-phu-sot-ca-chua.webp","bytes":68598,"sha256":"8bbe363b887201473cc660e3f0be7f2ea56136b412bd7009e93511d5d1f4f3fc","width":432,"height":386,"format":"webp","rightsStatus":"unknown","creator":null,"sourceEvidence":null,"licenseEvidence":null,"label":"Đậu phụ sốt cà chua","staticRecipeIds":["gl-12"]}],"datasetId":"a7049ac803bec5094eea69a98ffef5185f32945b2f1adb0d88169bb0dcb4fce6"}
+    </script>
+    <script id="review-code">
+      // Covers a complete 24-record draft even when JSON escapes every allowed character.
+const REVIEW_MAX_DRAFT_BYTES = 3 * 1024 * 1024;
+
+const REVIEW_FIELDS = [
+  'recipeId',
+  'decision',
+  'candidateAssetId',
+  'creator',
+  'source',
+  'rights',
+  'subjectNotes',
+  'cropNotes',
+  'reviewer',
+  'reviewedAt',
+  'notes',
+];
+const REVIEW_DECISIONS = ['pending', 'candidate', 'rejected', 'owner_reviewed'];
+
+function createReviewDraft(dataset) {
+  return {
+    schemaVersion: 1,
+    kind: 'takosan_local_media_review',
+    datasetId: dataset.datasetId,
+    promotionAuthorized: false,
+    records: dataset.recipes.map(({ recipeId }) => ({
+      recipeId,
+      decision: 'pending',
+      candidateAssetId: null,
+      creator: '',
+      source: '',
+      rights: '',
+      subjectNotes: '',
+      cropNotes: '',
+      reviewer: '',
+      reviewedAt: '',
+      notes: '',
+    })),
+  };
+}
+
+function validateReviewDataset(dataset) {
+  const issues = [];
+  if (!dataset || dataset.schemaVersion !== 1 || !/^[a-f0-9]{64}$/.test(dataset.datasetId ?? ''))
+    issues.push('Dataset identity is invalid');
+  if (
+    !Array.isArray(dataset?.recipes) ||
+    dataset.recipes.length !== 24 ||
+    !Array.isArray(dataset?.assets) ||
+    dataset.assets.length !== 8
+  )
+    return [...issues, 'Expected 24 recipes and 8 local assets'];
+  for (const [name, rows, field] of [
+    ['recipe', dataset.recipes, 'recipeId'],
+    ['asset', dataset.assets, 'assetId'],
+  ]) {
+    const ids = rows.map((row) => row?.[field]);
+    if (
+      ids.some((id) => typeof id !== 'string' || !/^[a-z0-9-]+$/.test(id)) ||
+      new Set(ids).size !== ids.length
+    )
+      issues.push(`Invalid or duplicate ${name} ID`);
+  }
+  for (const asset of dataset.assets) {
+    const path = asset.path;
+    if (
+      typeof path !== 'string' ||
+      !/^public\/frigo\/[a-z0-9_/-]+\.(png|webp)$/.test(path) ||
+      path.split('/').some((part) => !part || part === '.' || part === '..')
+    )
+      issues.push('Unsafe local asset path');
+    if (asset.url !== '/' + (typeof path === 'string' ? path.slice(7) : ''))
+      issues.push('Asset URL does not match local path');
+    if (
+      !/^[a-f0-9]{64}$/.test(asset.sha256 ?? '') ||
+      !Number.isInteger(asset.bytes) ||
+      asset.bytes <= 0 ||
+      !Number.isInteger(asset.width) ||
+      asset.width <= 0 ||
+      !Number.isInteger(asset.height) ||
+      asset.height <= 0
+    )
+      issues.push('Invalid asset integrity metadata');
+    if (asset.rightsStatus !== 'unknown') issues.push('Initial asset rights must remain unknown');
+  }
+  const assets = new Set(dataset.assets.map((asset) => asset.assetId));
+  const slugs = new Set();
+  for (const recipe of dataset.recipes) {
+    if (
+      typeof recipe.title !== 'string' ||
+      !recipe.title.trim() ||
+      typeof recipe.description !== 'string' ||
+      typeof recipe.subjectBrief !== 'string' ||
+      !recipe.subjectBrief.trim() ||
+      !/^[a-z0-9-]+$/.test(recipe.slug ?? '') ||
+      slugs.has(recipe.slug)
+    )
+      issues.push('Invalid recipe content or duplicate slug');
+    slugs.add(recipe.slug);
+    if (recipe.current?.assetId !== null && !assets.has(recipe.current?.assetId))
+      issues.push('Unknown current asset reference');
+    if (!['placeholder', 'legacy_static'].includes(recipe.current?.source))
+      issues.push('Unreviewed remote/canonical preview is not allowed in this local board');
+    if ((recipe.current?.source === 'placeholder') !== (recipe.current?.assetId === null))
+      issues.push('Resolver output and current asset disagree');
+  }
+  return issues;
+}
+
+function validateReviewDraft(value, dataset) {
+  const issues = [];
+  const add = (recipeId, field, message) => issues.push({ recipeId, field, message });
+  if (!value || typeof value !== 'object' || Array.isArray(value))
+    return [{ recipeId: null, field: 'file', message: 'Bản nháp phải là một đối tượng JSON.' }];
+  const rootFields = ['schemaVersion', 'kind', 'datasetId', 'promotionAuthorized', 'records'];
+  if (Object.keys(value).some((key) => !rootFields.includes(key)))
+    add(null, 'file', 'Bản nháp có trường không được hỗ trợ.');
+  if (
+    value.schemaVersion !== 1 ||
+    value.kind !== 'takosan_local_media_review' ||
+    value.datasetId !== dataset.datasetId ||
+    value.promotionAuthorized !== false
+  )
+    add(
+      null,
+      'file',
+      'Bản nháp không thuộc bộ dữ liệu này hoặc khai báo quyền xuất bản không hợp lệ.',
+    );
+  if (!Array.isArray(value.records))
+    return [
+      ...issues,
+      { recipeId: null, field: 'file', message: 'Thiếu danh sách món cần duyệt.' },
+    ];
+  const expected = new Set(dataset.recipes.map((recipe) => recipe.recipeId));
+  const assets = new Set(dataset.assets.map((asset) => asset.assetId));
+  const seen = new Set();
+  for (const record of value.records) {
+    if (!record || typeof record !== 'object' || Array.isArray(record)) {
+      add(null, 'file', 'Bản ghi món không hợp lệ.');
+      continue;
+    }
+    const id = record.recipeId;
+    if (!expected.has(id) || seen.has(id))
+      add(null, 'file', 'Mã món bị trùng hoặc không thuộc bộ dữ liệu.');
+    seen.add(id);
+    if (
+      REVIEW_FIELDS.some((key) => !Object.hasOwn(record, key)) ||
+      Object.keys(record).some((key) => !REVIEW_FIELDS.includes(key))
+    )
+      add(id, 'file', 'Bản ghi thiếu trường hoặc chứa trường không được hỗ trợ.');
+    if (!REVIEW_DECISIONS.includes(record.decision))
+      add(id, 'decision', 'Trạng thái duyệt không hợp lệ.');
+    if (record.candidateAssetId !== null && !assets.has(record.candidateAssetId))
+      add(id, 'candidateAssetId', 'Chỉ chọn ảnh từ tám asset local của bộ này.');
+    for (const field of REVIEW_FIELDS.filter(
+      (key) => !['recipeId', 'decision', 'candidateAssetId'].includes(key),
+    )) {
+      if (typeof record[field] !== 'string' || record[field].length > 2000)
+        add(id, field, 'Nội dung phải là chuỗi tối đa 2.000 ký tự.');
+    }
+    if (typeof record.reviewedAt === 'string' && record.reviewedAt) {
+      const date = record.reviewedAt;
+      if (
+        !/^\d{4}-\d{2}-\d{2}$/.test(date) ||
+        !Number.isFinite(Date.parse(date)) ||
+        new Date(date).toISOString().slice(0, 10) !== date
+      )
+        add(id, 'reviewedAt', 'Ngày duyệt phải có thật, theo YYYY-MM-DD.');
+    }
+    if (record.decision === 'candidate' || record.decision === 'owner_reviewed') {
+      if (!assets.has(record.candidateAssetId))
+        add(id, 'candidateAssetId', 'Cần chọn ảnh đề xuất.');
+    }
+    if (
+      record.decision === 'rejected' &&
+      (typeof record.notes !== 'string' || !record.notes.trim())
+    )
+      add(id, 'notes', 'Ghi lý do loại khỏi vòng chọn.');
+    if (record.decision === 'owner_reviewed') {
+      for (const field of [
+        'creator',
+        'source',
+        'rights',
+        'subjectNotes',
+        'cropNotes',
+        'reviewer',
+        'reviewedAt',
+      ]) {
+        if (typeof record[field] !== 'string' || !record[field].trim())
+          add(id, field, 'Cần biên bản nguồn, quyền sử dụng, đúng món, crop và người/ngày duyệt.');
+      }
+    }
+  }
+  if (
+    seen.size !== expected.size ||
+    [...expected].some((id) => !seen.has(id)) ||
+    value.records.length !== expected.size
+  )
+    add(null, 'file', 'Bản nháp phải có đầy đủ 24 món, mỗi món đúng một lần.');
+  return issues;
+}
+
+(() => {
+  const dataset = JSON.parse(document.getElementById('review-data').textContent);
+  const byId = (id) => document.getElementById(id);
+  const element = (tag, className, text) => {
+    const el = document.createElement(tag);
+    if (className) el.className = className;
+    if (text !== undefined) el.textContent = text;
+    return el;
+  };
+  const assetMap = new Map(dataset.assets.map((asset) => [asset.assetId, asset]));
+  const decisions = {
+    pending: 'Chờ duyệt',
+    candidate: 'Cân nhắc ảnh',
+    rejected: 'Loại khỏi vòng chọn',
+    owner_reviewed: 'Có biên bản · chưa áp dụng',
+  };
+  const dialog = byId('review-dialog'),
+    form = byId('review-form');
+  let draft = createReviewDraft(dataset),
+    activeRecipe = null,
+    opener = null,
+    dirty = false;
+  const feedback = (text, error = false) => {
+    byId('feedback').textContent = text;
+    byId('feedback').dataset.error = String(error);
+  };
+  const normalize = (text) =>
+    text
+      .normalize('NFD')
+      .replace(/[\u0300-\u036f]/g, '')
+      .replace(/đ/g, 'd')
+      .replace(/Đ/g, 'D')
+      .toLowerCase();
+  function picture(asset, title, variant = '') {
+    if (!asset) {
+      const missing = element('div', 'missing');
+      missing.append(element('span', '', 'Chưa có ảnh món ăn phù hợp'));
+      return missing;
+    }
+    const frame = element('div', `media ${variant}`),
+      image = element('img');
+    image.src = `../../../public${asset.url}`;
+    image.alt = title;
+    image.width = asset.width;
+    image.height = asset.height;
+    image.loading = 'lazy';
+    image.decoding = 'async';
+    image.addEventListener(
+      'error',
+      () =>
+        frame.replaceWith(
+          element('div', 'missing', 'File ảnh local không tải được. Kiểm tra lại bản checkout.'),
+        ),
+      { once: true },
+    );
+    frame.append(image);
+    return frame;
+  }
+  function syncURL() {
+    const url = new URL(location.href);
+    url.search = '';
+    for (const [key, id] of [
+      ['q', 'search'],
+      ['policy', 'policy'],
+      ['decision', 'decision-filter'],
+    ]) {
+      const value = byId(id).value;
+      if (value && value !== 'all') url.searchParams.set(key, value);
+    }
+    if (activeRecipe) url.searchParams.set('recipe', activeRecipe.recipeId);
+    // file: previews can restrict History writes; interactions still work without it.
+    try {
+      history.replaceState(null, '', url);
+    } catch {
+      /* URL state is best-effort on file: origins. */
+    }
+  }
+  function renderRecipes() {
+    const query = normalize(byId('search').value),
+      policy = byId('policy').value,
+      choice = byId('decision-filter').value;
+    const reviews = new Map(draft.records.map((record) => [record.recipeId, record]));
+    const rows = dataset.recipes.filter(
+      (recipe) =>
+        (!query ||
+          normalize(`${recipe.title} ${recipe.recipeId} ${recipe.slug}`).includes(query)) &&
+        (policy === 'all' ||
+          (policy === 'photo' && recipe.current.assetId) ||
+          (policy === 'missing' && !recipe.current.assetId) ||
+          (policy === 'wrong' && recipe.legacyMappingIssue === 'wrong_dish_or_missing_file')) &&
+        (choice === 'all' || reviews.get(recipe.recipeId).decision === choice),
+    );
+    const cards = rows.map((recipe) => {
+      const review = reviews.get(recipe.recipeId),
+        card = element('article', 'card');
+      card.dataset.recipeId = recipe.recipeId;
+      card.append(picture(assetMap.get(recipe.current.assetId), recipe.title));
+      const body = element('div', 'card-body');
+      body.append(
+        element('p', 'meta', `${String(recipe.priority).padStart(2, '0')} / ${recipe.recipeId}`),
+        element('h3', '', recipe.title),
+        element('p', 'description', recipe.description),
+      );
+      body.append(
+        element(
+          'p',
+          'badge' + (recipe.current.assetId ? '' : ' warn'),
+          recipe.current.assetId
+            ? 'Ảnh hiện có · chưa rõ quyền'
+            : recipe.legacyMappingIssue === 'wrong_dish_or_missing_file'
+              ? 'Mapping sai món / thiếu file'
+              : 'Đang hiển thị thiếu ảnh',
+        ),
+      );
+      body.append(
+        element(
+          'p',
+          `badge ${review.decision === 'rejected' ? 'rejected' : ''}`,
+          decisions[review.decision],
+        ),
+      );
+      if (review.candidateAssetId)
+        body.append(
+          element(
+            'p',
+            'meta',
+            `Đề xuất: ${assetMap.get(review.candidateAssetId).label} · chưa áp dụng`,
+          ),
+        );
+      const button = element('button', '', 'Duyệt ảnh và crop');
+      button.type = 'button';
+      button.setAttribute('aria-label', `Duyệt ảnh: ${recipe.title}`);
+      button.addEventListener('click', () => openReview(recipe, button));
+      body.append(button);
+      card.append(body);
+      return card;
+    });
+    byId('recipe-grid').replaceChildren(...cards);
+    byId('result-count').textContent = `${rows.length} / 24 món`;
+    byId('empty').hidden = rows.length > 0;
+    syncURL();
+  }
+  function renderAssets() {
+    byId('asset-grid').replaceChildren(
+      ...dataset.assets.map((asset) => {
+        const card = element('article', 'card');
+        card.append(picture(asset, `Ảnh gốc: ${asset.label}`));
+        const body = element('div', 'card-body');
+        body.append(
+          element('h3', 'asset-name', asset.label),
+          element('p', 'badge warn', 'Nguồn / quyền chưa xác nhận'),
+        );
+        const details = element('dl', 'asset-details');
+        for (const [label, value] of [
+          ['File gốc', asset.path],
+          ['Kích thước', `${asset.width} × ${asset.height} px`],
+          [
+            'Dung lượng',
+            `${new Intl.NumberFormat('vi-VN', { maximumFractionDigits: 1 }).format(asset.bytes / 1024)} KB`,
+          ],
+          ['SHA256', asset.sha256],
+        ])
+          details.append(element('dt', '', label), element('dd', '', value));
+        body.append(details);
+        card.append(body);
+        return card;
+      }),
+    );
+  }
+  function previewCandidate() {
+    const asset = assetMap.get(byId('candidateAssetId').value),
+      frames = [];
+    if (asset) {
+      for (const [name, variant] of [
+        ['Thẻ món / chi tiết hiện tại · 4:3', ''],
+        ['Hero rộng thử nghiệm · 16:9', 'hero'],
+        ['Ảnh gốc · giữ nguyên khung', 'original'],
+      ]) {
+        const figure = element('figure');
+        figure.append(
+          picture(asset, `Ảnh đề xuất cho ${activeRecipe.title} · ${name}`, variant),
+          element('figcaption', '', name),
+        );
+        frames.push(figure);
+      }
+    } else
+      frames.push(
+        element(
+          'p',
+          'dialog-copy',
+          'Chọn ảnh local để so sánh ba khung. Nếu chưa có ảnh đúng món, giữ trạng thái chờ duyệt và ghi brief cần chụp.',
+        ),
+      );
+    byId('candidate-previews').replaceChildren(...frames);
+  }
+  function clearErrors() {
+    form.querySelectorAll('[aria-invalid]').forEach((el) => {
+      el.removeAttribute('aria-invalid');
+      el.removeAttribute('aria-describedby');
+    });
+    byId('form-error').textContent = '';
+  }
+  function openReview(recipe, button = null) {
+    activeRecipe = recipe;
+    opener = button;
+    const review = draft.records.find((record) => record.recipeId === recipe.recipeId);
+    byId('dialog-title').textContent = recipe.title;
+    byId('dialog-context').textContent =
+      `${recipe.recipeId} · ${recipe.current.assetId ? 'Ảnh local hiện có; chưa có biên bản quyền sử dụng' : 'Đang hiển thị thiếu ảnh'}`;
+    byId('subject-brief').textContent = recipe.subjectBrief;
+    const mappingDetails = [];
+    for (const [label, value] of [
+      ['Slug', recipe.slug],
+      ['Mapping legacy', recipe.legacyUrl],
+      ['Policy', recipe.legacyMappingIssue ?? 'allowed_legacy_mapping'],
+      ['Ảnh hiện tại', recipe.current.url ?? 'HTML thiếu ảnh'],
+    ])
+      mappingDetails.push(element('dt', '', label), element('dd', '', value));
+    byId('mapping-details').replaceChildren(...mappingDetails);
+    byId('current-preview').replaceChildren(
+      picture(assetMap.get(recipe.current.assetId), recipe.title),
+    );
+    for (const key of REVIEW_FIELDS.filter((key) => key !== 'recipeId'))
+      byId(key).value = review[key] ?? '';
+    clearErrors();
+    previewCandidate();
+    dialog.showModal();
+    byId('close-dialog').focus();
+    syncURL();
+  }
+  function closeReview() {
+    dialog.close();
+  }
+  dialog.addEventListener('close', () => {
+    const id = activeRecipe?.recipeId;
+    activeRecipe = null;
+    syncURL();
+    const target = opener?.isConnected
+      ? opener
+      : document.querySelector(`[data-recipe-id="${id}"] button`);
+    target?.focus();
+    opener = null;
+  });
+  dialog.addEventListener('keydown', (event) => {
+    if (event.key !== 'Tab') return;
+    const controls = [...dialog.querySelectorAll('button,input,select,textarea,a[href]')].filter(
+      (control) => !control.disabled && control.getClientRects().length,
+    );
+    const first = controls[0],
+      last = controls.at(-1);
+    if (event.shiftKey && document.activeElement === first) {
+      event.preventDefault();
+      last.focus();
+    } else if (!event.shiftKey && document.activeElement === last) {
+      event.preventDefault();
+      first.focus();
+    }
+  });
+  byId('close-dialog').addEventListener('click', closeReview);
+  byId('cancel-review').addEventListener('click', closeReview);
+  byId('candidateAssetId').addEventListener('change', previewCandidate);
+  form.addEventListener('submit', (event) => {
+    event.preventDefault();
+    clearErrors();
+    const review = { recipeId: activeRecipe.recipeId };
+    for (const key of REVIEW_FIELDS.filter((key) => key !== 'recipeId'))
+      review[key] = key === 'candidateAssetId' ? byId(key).value || null : byId(key).value;
+    const candidate = {
+        ...draft,
+        records: draft.records.map((record) =>
+          record.recipeId === review.recipeId ? review : record,
+        ),
+      },
+      issues = validateReviewDraft(candidate, dataset);
+    if (issues.length) {
+      byId('form-error').textContent = issues[0].message;
+      const input = byId(issues[0].field);
+      if (input) {
+        input.setAttribute('aria-invalid', 'true');
+        input.setAttribute('aria-describedby', 'form-error');
+        input.focus();
+      }
+      return;
+    }
+    draft = candidate;
+    ++importVersion;
+    dirty = true;
+    renderRecipes();
+    feedback(
+      `Đã giữ lựa chọn cho ${activeRecipe.title} trong bản nháp. Tải JSON để giữ ngoài phiên này.`,
+    );
+    closeReview();
+  });
+  const resetFilters = () => {
+    byId('search').value = '';
+    byId('policy').value = 'all';
+    byId('decision-filter').value = 'all';
+    renderRecipes();
+    byId('search').focus();
+  };
+  byId('reset-filters').addEventListener('click', resetFilters);
+  byId('empty-reset').addEventListener('click', resetFilters);
+  for (const id of ['search', 'policy', 'decision-filter'])
+    byId(id).addEventListener(id === 'search' ? 'input' : 'change', renderRecipes);
+  byId('export-draft').addEventListener('click', () => {
+    const issues = validateReviewDraft(draft, dataset);
+    if (issues.length) {
+      feedback(issues[0].message, true);
+      return;
+    }
+    const blob = new Blob([JSON.stringify(draft, null, 2) + '\n'], { type: 'application/json' }),
+      url = URL.createObjectURL(blob),
+      link = element('a');
+    link.href = url;
+    link.download = 'takosan-media-review-draft.json';
+    document.body.append(link);
+    link.click();
+    link.remove();
+    setTimeout(() => URL.revokeObjectURL(url), 10000);
+    feedback('Đã tạo tệp JSON để tải. Kiểm tra tệp đã lưu trước khi rời phiên.');
+  });
+  let importVersion = 0;
+  byId('import-file').addEventListener('change', async (event) => {
+    const file = event.target.files[0],
+      version = ++importVersion;
+    if (!file) return;
+    try {
+      if (file.size > REVIEW_MAX_DRAFT_BYTES) throw new Error('Bản nháp vượt 3 MiB.');
+      const candidate = JSON.parse(await file.text());
+      if (version !== importVersion) return;
+      const issues = validateReviewDraft(candidate, dataset);
+      if (issues.length) throw new Error(issues[0].message);
+      draft = candidate;
+      dirty = false;
+      renderRecipes();
+      feedback('Đã nhập đủ 24 món. Các khai báo chưa cấp quyền áp dụng ảnh vào catalog.');
+    } catch (error) {
+      if (version === importVersion)
+        feedback(`Không nhập bản nháp: ${error.message} Dữ liệu trong phiên vẫn giữ nguyên.`, true);
+    } finally {
+      if (version === importVersion) event.target.value = '';
+    }
+  });
+  window.addEventListener('beforeunload', (event) => {
+    if (dirty) {
+      event.preventDefault();
+      event.returnValue = '';
+    }
+  });
+  window.addEventListener('popstate', () => {
+    readURL();
+    renderRecipes();
+  });
+  function readURL() {
+    const url = new URL(location.href);
+    byId('search').value = (url.searchParams.get('q') ?? '').slice(0, 160);
+    for (const [key, id] of [
+      ['policy', 'policy'],
+      ['decision', 'decision-filter'],
+    ]) {
+      const value = url.searchParams.get(key) ?? 'all';
+      byId(id).value = [...byId(id).options].some((option) => option.value === value)
+        ? value
+        : 'all';
+    }
+  }
+  const requestedRecipe = new URL(location.href).searchParams.get('recipe');
+  readURL();
+  for (const asset of dataset.assets) {
+    const option = element('option', '', `${asset.assetId} · ${asset.label}`);
+    option.value = asset.assetId;
+    byId('candidateAssetId').append(option);
+  }
+  renderRecipes();
+  renderAssets();
+  byId('dataset-label').textContent =
+    `Bộ dữ liệu: ${dataset.datasetId} · chỉ dùng cho bản duyệt local`;
+  if (requestedRecipe) {
+    const recipe = dataset.recipes.find((recipe) => recipe.recipeId === requestedRecipe);
+    if (recipe) openReview(recipe);
+  }
+})();
+;
+    </script>
+  </body>
+</html>

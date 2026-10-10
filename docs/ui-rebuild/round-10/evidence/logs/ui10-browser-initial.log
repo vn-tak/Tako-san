@@ -1,0 +1,22 @@
+empty-320: overflow=0; axe=0; broken=0
+setup-320: overflow=0; axe=0; broken=0
+empty-390: overflow=0; axe=0; broken=0
+setup-390: overflow=0; axe=0; broken=0
+empty-768: overflow=0; axe=0; broken=0
+setup-768: overflow=0; axe=0; broken=0
+empty-1024: overflow=0; axe=0; broken=0
+setup-1024: overflow=0; axe=0; broken=0
+empty-1440: overflow=0; axe=0; broken=0
+setup-1440: overflow=0; axe=0; broken=0
+budget-unlimited-320: overflow=0; axe=0; broken=0
+priorities-320: overflow=0; axe=0; broken=0
+frequency-review-320: overflow=0; axe=0; broken=0
+generating-320: overflow=0; axe=0; broken=0
+file:///Users/tunbee27/Documents/Tako-san-ui-rebuild/scripts/ui10-browser-check.mjs:58
+  const generated = (await get(`/week/plans/${planId}`)).data.plan; assert.equal(generated.budget.targetVnd, null); assert.deepEqual(await stock(), before);
+                                                                                           ^
+
+TypeError: Cannot read properties of undefined (reading 'budget')
+    at file:///Users/tunbee27/Documents/Tako-san-ui-rebuild/scripts/ui10-browser-check.mjs:58:92
+
+Node.js v24.16.0

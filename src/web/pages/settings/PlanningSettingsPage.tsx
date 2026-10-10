@@ -1,12 +1,12 @@
-import React, { useEffect, useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { AccountPage } from '../../components/common/AccountPage';
+import React, { useEffect, useRef, useState } from 'react';
 import { useQuery, useQueryClient } from '@tanstack/react-query';
 import { Check, Wallet, ShoppingBag, CalendarDays, Sparkles } from 'lucide-react';
 import { weekApi } from '../../services/week';
 import { queryKeys } from '../../lib/queryKeys';
 import { InlineError, InlineLoading } from '../../components/common/AsyncState';
 import { Button } from '../../components/common/Button';
-import { Page, PageHeader, StickyActions, Surface, Switch, UnavailableState } from '../../design-system/primitives';
+import { StickyActions, Surface, Switch, UnavailableState } from '../../design-system/primitives';
 
 const MEAL_SLOT_PRESETS = [
   { id: 'dinner_only', label: 'Chỉ bữa tối', desc: 'Một món chính mỗi ngày' },
@@ -33,7 +33,6 @@ const PRIORITIES = [
  * (WeekSetup): saving here never generates a plan.
  */
 export const PlanningSettingsPage: React.FC = () => {
-  const navigate = useNavigate();
   const queryClient = useQueryClient();
   const [draft, setDraft] = useState<{
     mealSlotsPreset: string;
@@ -45,6 +44,8 @@ export const PlanningSettingsPage: React.FC = () => {
   const [saving, setSaving] = useState(false);
   const [savedAt, setSavedAt] = useState<number | null>(null);
   const [error, setError] = useState<string | null>(null);
+  const errorRef = useRef<HTMLParagraphElement>(null);
+  useEffect(() => { if (error) errorRef.current?.focus(); }, [error]);
 
   const prefsQuery = useQuery({
     queryKey: queryKeys.planningPreferences(),
@@ -63,6 +64,8 @@ export const PlanningSettingsPage: React.FC = () => {
       });
     }
   }, [draft, prefsQuery.data]);
+
+  useEffect(() => { setSavedAt(null); }, [draft]);
 
   const save = async () => {
     if (!draft) return;
@@ -97,12 +100,7 @@ export const PlanningSettingsPage: React.FC = () => {
     });
 
   return (
-    <Page width="compact">
-      <PageHeader
-        title="Cài đặt lập thực đơn"
-        subtitle="Giá trị mặc định cho các thực đơn kế tiếp"
-        onBack={() => navigate('/me')}
-      />
+    <AccountPage title="Cài đặt lập thực đơn" description="Giá trị mặc định cho các thực đơn kế tiếp">
       <p className="text-xs text-semantic-text-muted mb-3">
         Đây là cài đặt mặc định, không tạo thực đơn mới. Để tạo, mở mục Thực đơn.
       </p>
@@ -120,7 +118,8 @@ export const PlanningSettingsPage: React.FC = () => {
       )}
 
       {draft && (
-        <div className="space-y-4 pb-8">
+        <fieldset disabled={saving} className="account-editor space-y-4 pb-8">
+          <legend className="sr-only">Chọn cài đặt</legend>
           <Surface className="p-4 space-y-3">
             <h2 className="text-type-label text-semantic-text-primary flex items-center gap-2">
               <Wallet className="w-4 h-4 text-semantic-action-primary" aria-hidden="true" /> Ngân sách mục tiêu mỗi tuần
@@ -230,15 +229,16 @@ export const PlanningSettingsPage: React.FC = () => {
 
           <div className="px-4">
             <Switch
+              disabled={saving}
               checked={draft.autoWeeklyPlanEnabled}
               onChange={(next) => setDraft({ ...draft, autoWeeklyPlanEnabled: next })}
               label="Gợi ý thực đơn tuần mới"
-              description="Nhắc chuẩn bị thực đơn cho tuần kế tiếp"
+              description="Lưu lựa chọn cho tuần kế tiếp; hiện chưa tự gửi nhắc nhở"
             />
           </div>
 
           {error && (
-            <p role="alert" className="text-sm text-semantic-danger px-4">
+            <p ref={errorRef} tabIndex={-1} role="alert" className="text-sm text-semantic-danger px-4">
               {error}
             </p>
           )}
@@ -253,8 +253,8 @@ export const PlanningSettingsPage: React.FC = () => {
               Lưu cài đặt
             </Button>
           </StickyActions>
-        </div>
+        </fieldset>
       )}
-    </Page>
+    </AccountPage>
   );
 };

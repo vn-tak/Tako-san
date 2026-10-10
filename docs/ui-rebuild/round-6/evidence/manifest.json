@@ -1,0 +1,544 @@
+{
+  "base": "e584cf0bc8c5ab5c62b0896157c06f7bd511886b",
+  "syntheticLocalOnly": true,
+  "sourceFiles": 21,
+  "pngFiles": 91,
+  "payloadCount": 107,
+  "files": [
+    {
+      "path": "frozen-source.json",
+      "bytes": 3708,
+      "sha256": "fb1c8337917dc7e0bd325e64fbb157048353a3789f9dc74d325fa2c29f4ee6b4"
+    },
+    {
+      "path": "logs/browser-mismatch-final2.log",
+      "bytes": 629,
+      "sha256": "994d7a8b94c54059045155382c9a3604509f64c39de7f6df0b17718ad096a265"
+    },
+    {
+      "path": "logs/browser-v1-final2.log",
+      "bytes": 569,
+      "sha256": "1f93ebe82a8d099a580efbb71b6e2c27ab538f75ca4dededb9e45f2e92800221"
+    },
+    {
+      "path": "logs/browser-v2-final3.log",
+      "bytes": 2376,
+      "sha256": "48aa7ec4785cee03ad1e074c27b25dd2a286b4ec0431e46c9e438b11b3992269"
+    },
+    {
+      "path": "logs/focused-final.log",
+      "bytes": 3740,
+      "sha256": "8929daec358720e3056b03c0eef09d627c7464534313c44fb24d5c98964af89f"
+    },
+    {
+      "path": "logs/full-check-final.log",
+      "bytes": 441627,
+      "sha256": "85b49aa8044abcb375a8fa2a1edbd1f10deeec9e736a76277fa1b88a9741cc9c"
+    },
+    {
+      "path": "logs/full-check-first.log",
+      "bytes": 496826,
+      "sha256": "2824f9edcda741885fe43480c39a1bd3f1a2ba4b378ffa600657be4ab6e0a784"
+    },
+    {
+      "path": "logs/full-check-second.log",
+      "bytes": 438908,
+      "sha256": "a50e668b76923bb23e067b8151a0165e0f319adacdf2ff2bd125c2a15b0fa612"
+    },
+    {
+      "path": "logs/recovery-focused.log",
+      "bytes": 1279,
+      "sha256": "5d2c8abab623376d6effe646197061bd9b48ab39024887fd28ecb5afb2519e9c"
+    },
+    {
+      "path": "logs/wrangler-focused-final.log",
+      "bytes": 554,
+      "sha256": "1e806e2b3773c7fd98bae7ac6e15b5c50890dfa7cad4260f1ef2636f8fa7fc5a"
+    },
+    {
+      "path": "logs/wrangler-focused.log",
+      "bytes": 5490,
+      "sha256": "b074e03e2a889b52c1c1b7eb67333970313fabd1e3a35f2574241d666ee607e0"
+    },
+    {
+      "path": "logs/wrangler-ipv4.log",
+      "bytes": 554,
+      "sha256": "75c6652e9a2cd84be1efeacd4805623989a48fe4a6ea450bbc626f35f893a2bd"
+    },
+    {
+      "path": "logs/wrangler-startup-observation.json",
+      "bytes": 395,
+      "sha256": "868588da80902a08ec36bcf79321dafabf02437b1ffe2f55c708cb73673165b6"
+    },
+    {
+      "path": "mismatch/browser-observations.json",
+      "bytes": 11657,
+      "sha256": "7b5f56e77da084e85d850db4f380714084238e53cdf2512662f6643cfc186656"
+    },
+    {
+      "path": "mismatch/planner-board-320.png",
+      "bytes": 284699,
+      "sha256": "cb877a37d0de9833eb7b98f59c2605dc225ba6ff8e455538c229b231a8f455f5"
+    },
+    {
+      "path": "mismatch/planner-empty-390-viewport.png",
+      "bytes": 91668,
+      "sha256": "a2b2e06c41e6b9497aeb2cd7a8fdea3448cb51921060e1cc74868d1e46710e36"
+    },
+    {
+      "path": "mismatch/planner-empty-390.png",
+      "bytes": 92102,
+      "sha256": "52802916487790b4b2d73022a7278228f9b9e1469cdd26eb8d123cd06562dc1c"
+    },
+    {
+      "path": "mismatch/planner-meal-320.png",
+      "bytes": 252579,
+      "sha256": "e56a61cd377f1e5743c36b759786232c764ca201b6b33177637813d4bb6656e2"
+    },
+    {
+      "path": "mismatch/planner-read-error-390-viewport.png",
+      "bytes": 86706,
+      "sha256": "9b8250dba3e17b59db63edb4916aa27e6230a969065fe9b1aa6d5a8cf7fed1bf"
+    },
+    {
+      "path": "mismatch/planner-read-error-390.png",
+      "bytes": 87136,
+      "sha256": "c875aa80857cc876c53798c7f8a68dbcaed7af25e463fd0b12d173f901fb9eb2"
+    },
+    {
+      "path": "mismatch/planner-setup-320.png",
+      "bytes": 169638,
+      "sha256": "e8c1ab0b0ff50cd92f5500859354d96a83a560ca3aa27c47245e19d9890ed464"
+    },
+    {
+      "path": "mismatch/planner-shopping-320.png",
+      "bytes": 389097,
+      "sha256": "977648ed80586659fe8294957ccf09ea812e2bc65b06b6e1293346835fc91bd7"
+    },
+    {
+      "path": "mismatch/saved-shopping-320.png",
+      "bytes": 100956,
+      "sha256": "12ef6596c8645e156acc13be6828cbba350ebebc6b528932cdce1d21e339d0b4"
+    },
+    {
+      "path": "mismatch/shopping-delete-dialog-390-viewport.png",
+      "bytes": 65496,
+      "sha256": "3180d14d761c6bec5ab48d57083f27c4fd47aa2004df95741c62b3a966c94509"
+    },
+    {
+      "path": "mismatch/shopping-delete-dialog-390.png",
+      "bytes": 144154,
+      "sha256": "03f13f22423d2671bde9780d4c88dad8d7ce2708d881d2b8c7350c5b965b9666"
+    },
+    {
+      "path": "mismatch/shopping-offline-390-viewport.png",
+      "bytes": 69620,
+      "sha256": "8daf813882d6dfe983c52308adff5f9b1965d68994397d542b3dbe6c22c3c3f4"
+    },
+    {
+      "path": "mismatch/shopping-offline-390.png",
+      "bytes": 151224,
+      "sha256": "2153cd1242331b596555dcb0d9d0992372513460176d923e526cbd0d7814eaf8"
+    },
+    {
+      "path": "v1/browser-observations.json",
+      "bytes": 11651,
+      "sha256": "040cbb5529404696065817d52b42b9a7d8622e12b1e71222bf7d223311643624"
+    },
+    {
+      "path": "v1/planner-board-320.png",
+      "bytes": 284699,
+      "sha256": "cb877a37d0de9833eb7b98f59c2605dc225ba6ff8e455538c229b231a8f455f5"
+    },
+    {
+      "path": "v1/planner-empty-390-viewport.png",
+      "bytes": 91668,
+      "sha256": "a2b2e06c41e6b9497aeb2cd7a8fdea3448cb51921060e1cc74868d1e46710e36"
+    },
+    {
+      "path": "v1/planner-empty-390.png",
+      "bytes": 92102,
+      "sha256": "52802916487790b4b2d73022a7278228f9b9e1469cdd26eb8d123cd06562dc1c"
+    },
+    {
+      "path": "v1/planner-meal-320.png",
+      "bytes": 252579,
+      "sha256": "e56a61cd377f1e5743c36b759786232c764ca201b6b33177637813d4bb6656e2"
+    },
+    {
+      "path": "v1/planner-read-error-390-viewport.png",
+      "bytes": 86706,
+      "sha256": "9b8250dba3e17b59db63edb4916aa27e6230a969065fe9b1aa6d5a8cf7fed1bf"
+    },
+    {
+      "path": "v1/planner-read-error-390.png",
+      "bytes": 87136,
+      "sha256": "c875aa80857cc876c53798c7f8a68dbcaed7af25e463fd0b12d173f901fb9eb2"
+    },
+    {
+      "path": "v1/planner-setup-320.png",
+      "bytes": 169638,
+      "sha256": "e8c1ab0b0ff50cd92f5500859354d96a83a560ca3aa27c47245e19d9890ed464"
+    },
+    {
+      "path": "v1/planner-shopping-320.png",
+      "bytes": 389097,
+      "sha256": "977648ed80586659fe8294957ccf09ea812e2bc65b06b6e1293346835fc91bd7"
+    },
+    {
+      "path": "v1/saved-shopping-320.png",
+      "bytes": 100956,
+      "sha256": "12ef6596c8645e156acc13be6828cbba350ebebc6b528932cdce1d21e339d0b4"
+    },
+    {
+      "path": "v1/shopping-delete-dialog-390-viewport.png",
+      "bytes": 65496,
+      "sha256": "3180d14d761c6bec5ab48d57083f27c4fd47aa2004df95741c62b3a966c94509"
+    },
+    {
+      "path": "v1/shopping-delete-dialog-390.png",
+      "bytes": 144154,
+      "sha256": "03f13f22423d2671bde9780d4c88dad8d7ce2708d881d2b8c7350c5b965b9666"
+    },
+    {
+      "path": "v1/shopping-offline-390-viewport.png",
+      "bytes": 69620,
+      "sha256": "8daf813882d6dfe983c52308adff5f9b1965d68994397d542b3dbe6c22c3c3f4"
+    },
+    {
+      "path": "v1/shopping-offline-390.png",
+      "bytes": 151224,
+      "sha256": "2153cd1242331b596555dcb0d9d0992372513460176d923e526cbd0d7814eaf8"
+    },
+    {
+      "path": "v2/browser-observations.json",
+      "bytes": 31302,
+      "sha256": "00401b748612ac9705153cefa49745f5cf0b7563e33fc46bdfee5668368f3bb4"
+    },
+    {
+      "path": "v2/composer-mutation-error-390-viewport.png",
+      "bytes": 49560,
+      "sha256": "902fdd596b146886a66fc59eb3ab45b534bc21a0c39aab5e844e968f190ed06a"
+    },
+    {
+      "path": "v2/composer-mutation-error-390.png",
+      "bytes": 334143,
+      "sha256": "49fc0a2aacefbd7ebe85ac7da4bec80c40af7dc9efa9a63022efe1a4b6cf687f"
+    },
+    {
+      "path": "v2/composer-picker-390-viewport.png",
+      "bytes": 50527,
+      "sha256": "56ff91f273b7594518fd9e9a82337c9bc8628897b9e579c87b42f655b344cc81"
+    },
+    {
+      "path": "v2/composer-picker-390.png",
+      "bytes": 324642,
+      "sha256": "241206e56d8a66e15a01cf9eeb0eeb1f0dabb5b87cc71c9b79c479ffea1b5216"
+    },
+    {
+      "path": "v2/composer-picker-empty-390-viewport.png",
+      "bytes": 50852,
+      "sha256": "bfbd13c7e901e6cc720573aed2a6f835eca1df64a760505f3268428b6afadadd"
+    },
+    {
+      "path": "v2/composer-picker-empty-390.png",
+      "bytes": 324994,
+      "sha256": "3e161a3fc2e3ef1bd7125fa013a09ae61489f5478142350a8cac7d153ba541af"
+    },
+    {
+      "path": "v2/composer-proposal-390-viewport.png",
+      "bytes": 69547,
+      "sha256": "57b47c784c6e2c30870fec561f0d6fccd605985f3b091230d1f97d18dd02e5fb"
+    },
+    {
+      "path": "v2/composer-proposal-390.png",
+      "bytes": 234900,
+      "sha256": "f522dca8a107bc88f890fd422fa4d6bccf154526683c53611ebceba9a5961070"
+    },
+    {
+      "path": "v2/composer-saved-390-viewport.png",
+      "bytes": 121382,
+      "sha256": "403289d78e1dea9ac7f584462cc36e0be886e5dff6f8f1a2cf1102278e0d48f0"
+    },
+    {
+      "path": "v2/composer-saved-390.png",
+      "bytes": 193980,
+      "sha256": "6d34345370239e8d42356b00b7fa0efaf74dfb63224248360440fd3675e8f89d"
+    },
+    {
+      "path": "v2/planner-board-1024.png",
+      "bytes": 326646,
+      "sha256": "c11c770865823f91e3f5a526ef3db76d7c5601d60534e66d4787cca004342e2e"
+    },
+    {
+      "path": "v2/planner-board-1440-viewport.png",
+      "bytes": 272497,
+      "sha256": "4b134853edec24ffc91abdbc850feb0f3f4323b59fe5efdd4737d83221610cec"
+    },
+    {
+      "path": "v2/planner-board-1440.png",
+      "bytes": 349015,
+      "sha256": "804c84631136903227697e60dd1ab97205ee5f6a4363a03bd101d1d0f923c5c0"
+    },
+    {
+      "path": "v2/planner-board-320.png",
+      "bytes": 284699,
+      "sha256": "cb877a37d0de9833eb7b98f59c2605dc225ba6ff8e455538c229b231a8f455f5"
+    },
+    {
+      "path": "v2/planner-board-390-viewport.png",
+      "bytes": 156087,
+      "sha256": "1aeff65b6d671844e74be9fdd4ddd85df35d81dfe31e0f8d2ea2740f9b08a0fe"
+    },
+    {
+      "path": "v2/planner-board-390.png",
+      "bytes": 340603,
+      "sha256": "9a7058ffa7cc7ceb7f9f1557ec16a3ae1dda3537da724213f873324c45ca6722"
+    },
+    {
+      "path": "v2/planner-board-768.png",
+      "bytes": 296173,
+      "sha256": "61aeefe52491ed6254a6aea3108cd2becacd0172ab975e71247cb3b02cd8411e"
+    },
+    {
+      "path": "v2/planner-empty-390-viewport.png",
+      "bytes": 91668,
+      "sha256": "a2b2e06c41e6b9497aeb2cd7a8fdea3448cb51921060e1cc74868d1e46710e36"
+    },
+    {
+      "path": "v2/planner-empty-390.png",
+      "bytes": 92102,
+      "sha256": "52802916487790b4b2d73022a7278228f9b9e1469cdd26eb8d123cd06562dc1c"
+    },
+    {
+      "path": "v2/planner-meal-1024.png",
+      "bytes": 370382,
+      "sha256": "81c20b333c015179f08b5283fb1e9ed75b305da5f472c7ae77005ff233c84abd"
+    },
+    {
+      "path": "v2/planner-meal-1440-viewport.png",
+      "bytes": 214142,
+      "sha256": "5cd091cb03a055170df014280ecf6a79531fbe42e129f47ceddced9041052f0b"
+    },
+    {
+      "path": "v2/planner-meal-1440.png",
+      "bytes": 419388,
+      "sha256": "bb6a5966881798a82e3f47cdefc13bf27e78c61f13bb5cc5602b98d6d9f5435f"
+    },
+    {
+      "path": "v2/planner-meal-320.png",
+      "bytes": 298615,
+      "sha256": "2ac84ba4ec8f84e5f5ce670bb320406397cc72539e4808049028424361a06454"
+    },
+    {
+      "path": "v2/planner-meal-390-viewport.png",
+      "bytes": 139546,
+      "sha256": "dd007af15a1f5ec9b0c26891d13345fe2f9d23f437ffe7a62926ecc2edcccafc"
+    },
+    {
+      "path": "v2/planner-meal-390.png",
+      "bytes": 343820,
+      "sha256": "653d93f44ec968e0f3f42986698965cb3ff13efb627d86230b0722e59c9df80f"
+    },
+    {
+      "path": "v2/planner-meal-768.png",
+      "bytes": 345101,
+      "sha256": "9a3b3a62c2b471c4e357ef3d0f5423dd70bc08020dc70d45bea63206e5d40682"
+    },
+    {
+      "path": "v2/planner-motion-390-viewport.png",
+      "bytes": 150793,
+      "sha256": "a6015ad37b212aeee93092bda29df18e4fa763e1aaf6fa55db5880546d959a49"
+    },
+    {
+      "path": "v2/planner-motion-390.png",
+      "bytes": 348790,
+      "sha256": "642604d38c79e0d379f7acf4b82084e85845ef2e6772064b4d8fceaaeb0a8795"
+    },
+    {
+      "path": "v2/planner-partial-390-viewport.png",
+      "bytes": 148494,
+      "sha256": "534703687c47d923c2242c2ef6005b548207ec619322ec995c18ec09c2c05802"
+    },
+    {
+      "path": "v2/planner-partial-390.png",
+      "bytes": 349059,
+      "sha256": "c73be1eaec599d87693ba5bca2eed4336b9cf9fe9e4c3f4368a5c6b4f3bd4e0f"
+    },
+    {
+      "path": "v2/planner-read-error-390-viewport.png",
+      "bytes": 86706,
+      "sha256": "9b8250dba3e17b59db63edb4916aa27e6230a969065fe9b1aa6d5a8cf7fed1bf"
+    },
+    {
+      "path": "v2/planner-read-error-390.png",
+      "bytes": 87136,
+      "sha256": "c875aa80857cc876c53798c7f8a68dbcaed7af25e463fd0b12d173f901fb9eb2"
+    },
+    {
+      "path": "v2/planner-setup-1024.png",
+      "bytes": 180995,
+      "sha256": "2c42b5bfbb0d5f48a3eabad2d440889a4ea1ffe20443f7f4b31349f56416d511"
+    },
+    {
+      "path": "v2/planner-setup-1440-viewport.png",
+      "bytes": 252963,
+      "sha256": "1a025eea2187d44c0e0964cb6c6004c95e965fac8b89459d110c57eea64e5c71"
+    },
+    {
+      "path": "v2/planner-setup-1440.png",
+      "bytes": 267537,
+      "sha256": "e6ca957853b6849ff91224231dadd15bd6b1ac98c45a7ad505ebe77209e5abff"
+    },
+    {
+      "path": "v2/planner-setup-320.png",
+      "bytes": 169638,
+      "sha256": "e8c1ab0b0ff50cd92f5500859354d96a83a560ca3aa27c47245e19d9890ed464"
+    },
+    {
+      "path": "v2/planner-setup-390-viewport.png",
+      "bytes": 117327,
+      "sha256": "1a1e614825d32532b31906edcc04fa350c69f5dd5a025eddfcab2c1c67c7af75"
+    },
+    {
+      "path": "v2/planner-setup-390.png",
+      "bytes": 170677,
+      "sha256": "a224227bcd16ef78cac420dd52b512a8c3c659386a212d23ee4a3ed6cb9da3f4"
+    },
+    {
+      "path": "v2/planner-setup-768.png",
+      "bytes": 197625,
+      "sha256": "fe133bd1f1efc893b7545adbbd02fc6b969f9d8d8f840408bb74dc0926e20969"
+    },
+    {
+      "path": "v2/planner-shopping-1024.png",
+      "bytes": 488534,
+      "sha256": "fccdcdc6ffe4910c747786810906ccff9b194d7a6e43b3c6add8ad754d80a7ae"
+    },
+    {
+      "path": "v2/planner-shopping-1440-viewport.png",
+      "bytes": 281285,
+      "sha256": "b213778ad310adf0ff261c0469d1e11c014cd9fc79a61849eda93d7bef91813e"
+    },
+    {
+      "path": "v2/planner-shopping-1440.png",
+      "bytes": 582420,
+      "sha256": "48af797f5dbb91123599e0213e0641dac51438fc45d440b98e094cd7fee1d2f4"
+    },
+    {
+      "path": "v2/planner-shopping-320.png",
+      "bytes": 389097,
+      "sha256": "977648ed80586659fe8294957ccf09ea812e2bc65b06b6e1293346835fc91bd7"
+    },
+    {
+      "path": "v2/planner-shopping-390-viewport.png",
+      "bytes": 123248,
+      "sha256": "6ad9f635caf2a3ae096f08e3b1fa426239d8f6b0e486022be296cfc9cdc134f5"
+    },
+    {
+      "path": "v2/planner-shopping-390.png",
+      "bytes": 450948,
+      "sha256": "db43035d2c03d67fe69ee4522b36006fa92b50452682a441261ae64169687290"
+    },
+    {
+      "path": "v2/planner-shopping-768.png",
+      "bytes": 548237,
+      "sha256": "238411f9b11e191fa14983572fb9b5f2112253b7b65743fa360bc2a956c51a1a"
+    },
+    {
+      "path": "v2/planner-stale-390-viewport.png",
+      "bytes": 107808,
+      "sha256": "a1272f15cebd81b613019e3046f1b8d8c4095c64698f8708a29f419dffe7a5a2"
+    },
+    {
+      "path": "v2/planner-stale-390.png",
+      "bytes": 128596,
+      "sha256": "de31f7743d713c29ad8fdacf1f1ed1d93150f27d4411a2c6a98373f2de3c93e4"
+    },
+    {
+      "path": "v2/planner-text-enlarged-320.png",
+      "bytes": 665577,
+      "sha256": "a684000789139fabaad56f6ce4d190697eb09dd922273b773b9fb59f591d609e"
+    },
+    {
+      "path": "v2/saved-shopping-1024.png",
+      "bytes": 131258,
+      "sha256": "6c2a42facc792daa775afd8e531267ff16f0acf77b13ebb11aee858a9951e5f8"
+    },
+    {
+      "path": "v2/saved-shopping-1440-viewport.png",
+      "bytes": 185524,
+      "sha256": "290eb2d636f4e0d06d483006586f0fb70d24c52cf7a7f77af80c2d98d12b462e"
+    },
+    {
+      "path": "v2/saved-shopping-1440.png",
+      "bytes": 185524,
+      "sha256": "290eb2d636f4e0d06d483006586f0fb70d24c52cf7a7f77af80c2d98d12b462e"
+    },
+    {
+      "path": "v2/saved-shopping-320.png",
+      "bytes": 100956,
+      "sha256": "12ef6596c8645e156acc13be6828cbba350ebebc6b528932cdce1d21e339d0b4"
+    },
+    {
+      "path": "v2/saved-shopping-390-viewport.png",
+      "bytes": 111174,
+      "sha256": "5bfded2ce66aa35a67ea68c76019bfd2f488011f4a69a947f9e5e82e57bf0e22"
+    },
+    {
+      "path": "v2/saved-shopping-390.png",
+      "bytes": 126464,
+      "sha256": "7f51687ab8af67b011fb38f2e7bbeec0cd05f49f31554bf999db3cab5ba955a7"
+    },
+    {
+      "path": "v2/saved-shopping-768.png",
+      "bytes": 115730,
+      "sha256": "b803573e7cd692b287272ed3e73013aa2960c0579a78fbc671208fd3d7a34491"
+    },
+    {
+      "path": "v2/shopping-budget-invalid-390-viewport.png",
+      "bytes": 104429,
+      "sha256": "f8754c768037e39cb9ff60865e397de2cc295422d45df760bd9142b852457c97"
+    },
+    {
+      "path": "v2/shopping-budget-invalid-390.png",
+      "bytes": 116439,
+      "sha256": "a77bdc66f33de1047bff740b431583fc22737c4e5a696071269226cc4f15b34b"
+    },
+    {
+      "path": "v2/shopping-delete-dialog-390-viewport.png",
+      "bytes": 65496,
+      "sha256": "3180d14d761c6bec5ab48d57083f27c4fd47aa2004df95741c62b3a966c94509"
+    },
+    {
+      "path": "v2/shopping-delete-dialog-390.png",
+      "bytes": 144154,
+      "sha256": "03f13f22423d2671bde9780d4c88dad8d7ce2708d881d2b8c7350c5b965b9666"
+    },
+    {
+      "path": "v2/shopping-offline-390-viewport.png",
+      "bytes": 69620,
+      "sha256": "8daf813882d6dfe983c52308adff5f9b1965d68994397d542b3dbe6c22c3c3f4"
+    },
+    {
+      "path": "v2/shopping-offline-390.png",
+      "bytes": 151224,
+      "sha256": "2153cd1242331b596555dcb0d9d0992372513460176d923e526cbd0d7814eaf8"
+    },
+    {
+      "path": "v2/shopping-short-390-viewport.png",
+      "bytes": 38172,
+      "sha256": "b5ba7624d846488be783fd4f126bbfdc4ee0f150f5b0fe1e5415e0a5c738ee83"
+    },
+    {
+      "path": "v2/shopping-short-390.png",
+      "bytes": 139125,
+      "sha256": "15f1eb3d943d97f2484e4a05fbf99ffd4d98875de2454782407578392c0851bf"
+    },
+    {
+      "path": "v2/shopping-text-enlarged-320.png",
+      "bytes": 243197,
+      "sha256": "0995970bd50393776fefb225cf9903db10f90f814e4117d7a74901da71c4915c"
+    }
+  ]
+}

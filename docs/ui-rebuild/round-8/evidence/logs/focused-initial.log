@@ -1,0 +1,344 @@
+
+ RUN  v3.2.7 /Users/tunbee27/Documents/Tako-san-ui-rebuild
+
+stderr | tests/unit/onboarding-contract.test.tsx > screens 04-06 — onboarding contract > screen 04 owns only household size and exposes native single-select state
+⚠️ React Router Future Flag Warning: React Router will begin wrapping state updates in `React.startTransition` in v7. You can use the `v7_startTransition` future flag to opt-in early. For more information, see https://reactrouter.com/v6/upgrading/future#v7_starttransition.
+⚠️ React Router Future Flag Warning: Relative route resolution within Splat routes is changing in v7. You can use the `v7_relativeSplatPath` future flag to opt-in early. For more information, see https://reactrouter.com/v6/upgrading/future#v7_relativesplatpath.
+
+ ✓ tests/unit/onboarding-contract.test.tsx (20 tests) 216ms
+ ✓ tests/unit/ui08-account.test.tsx (11 tests) 208ms
+stderr | tests/unit/auth-resend-turnstile.test.tsx > registration-only Turnstile lifecycle > challenges once during registration and resends OTP without another widget
+⚠️ React Router Future Flag Warning: React Router will begin wrapping state updates in `React.startTransition` in v7. You can use the `v7_startTransition` future flag to opt-in early. For more information, see https://reactrouter.com/v6/upgrading/future#v7_starttransition.
+⚠️ React Router Future Flag Warning: Relative route resolution within Splat routes is changing in v7. You can use the `v7_relativeSplatPath` future flag to opt-in early. For more information, see https://reactrouter.com/v6/upgrading/future#v7_relativesplatpath.
+
+stderr | tests/unit/auth-google-credential.test.tsx > Google authentication entry point > renders only the real GIS entry point and never offers a credential-less fallback
+⚠️ React Router Future Flag Warning: React Router will begin wrapping state updates in `React.startTransition` in v7. You can use the `v7_startTransition` future flag to opt-in early. For more information, see https://reactrouter.com/v6/upgrading/future#v7_starttransition.
+⚠️ React Router Future Flag Warning: Relative route resolution within Splat routes is changing in v7. You can use the `v7_relativeSplatPath` future flag to opt-in early. For more information, see https://reactrouter.com/v6/upgrading/future#v7_relativesplatpath.
+
+stderr | tests/unit/auth-funnel-ui.test.tsx > auth funnel UI > honors the registration query parameter on first render
+⚠️ React Router Future Flag Warning: React Router will begin wrapping state updates in `React.startTransition` in v7. You can use the `v7_startTransition` future flag to opt-in early. For more information, see https://reactrouter.com/v6/upgrading/future#v7_starttransition.
+⚠️ React Router Future Flag Warning: Relative route resolution within Splat routes is changing in v7. You can use the `v7_relativeSplatPath` future flag to opt-in early. For more information, see https://reactrouter.com/v6/upgrading/future#v7_relativesplatpath.
+
+stderr | tests/unit/auth-resend-turnstile.test.tsx > registration-only Turnstile lifecycle > challenges once during registration and resends OTP without another widget
+Backend register failed: ApiError: HTTP 503: {"error":"Email OTP chưa gửi được.","code":"OTP_DELIVERY_UNAVAILABLE","accountCreated":true}
+    at fetchJson (/Users/tunbee27/Documents/Tako-san-ui-rebuild/src/web/services/http.ts:125:11)
+    at Object.register (/Users/tunbee27/Documents/Tako-san-ui-rebuild/src/web/services/auth.ts:134:14)
+    at handleRegister (/Users/tunbee27/Documents/Tako-san-ui-rebuild/src/web/pages/AuthPage.tsx:418:19) {
+  kind: 'http',
+  status: 503,
+  retryable: undefined,
+  requestId: undefined,
+  payload: {
+    error: 'Email OTP chưa gửi được.',
+    code: 'OTP_DELIVERY_UNAVAILABLE',
+    accountCreated: true
+  }
+}
+
+ ✓ tests/unit/auth-funnel-ui.test.tsx (2 tests) 109ms
+ ✓ tests/unit/auth-google-credential.test.tsx (2 tests) 156ms
+ ✓ tests/unit/auth-resend-turnstile.test.tsx (2 tests) 173ms
+stderr | tests/unit/auth-verify-route.test.tsx > screen 03 — /auth/verify route > does not let a delayed unverified-login response attach to a replacement session
+Backend login failed: ApiError: Phiên làm việc đã thay đổi. Vui lòng đăng nhập lại.
+    at assertCurrent (/Users/tunbee27/Documents/Tako-san-ui-rebuild/src/web/services/http.ts:61:29)
+    at fetchJson (/Users/tunbee27/Documents/Tako-san-ui-rebuild/src/web/services/http.ts:112:3)
+    at Object.login (/Users/tunbee27/Documents/Tako-san-ui-rebuild/src/web/services/auth.ts:225:14)
+    at handleLogin (/Users/tunbee27/Documents/Tako-san-ui-rebuild/src/web/pages/AuthPage.tsx:360:19) {
+  kind: 'auth',
+  status: undefined,
+  retryable: undefined,
+  requestId: undefined,
+  payload: null
+}
+
+stderr | tests/unit/auth-verify-route.test.tsx > screen 03 — /auth/verify route > does not let a delayed login response navigate after the auth route is abandoned
+Backend login failed: ApiError: HTTP 401: {"error":"Account verification required","requireOtp":true,"otpDelivered":true}
+    at fetchJson (/Users/tunbee27/Documents/Tako-san-ui-rebuild/src/web/services/http.ts:120:13)
+    at Object.login (/Users/tunbee27/Documents/Tako-san-ui-rebuild/src/web/services/auth.ts:225:14)
+    at handleLogin (/Users/tunbee27/Documents/Tako-san-ui-rebuild/src/web/pages/AuthPage.tsx:360:19) {
+  kind: 'auth',
+  status: 401,
+  retryable: undefined,
+  requestId: undefined,
+  payload: {
+    error: 'Account verification required',
+    requireOtp: true,
+    otpDelivered: true
+  }
+}
+
+ ✓ tests/unit/ui07-brand-shell.test.tsx (13 tests) 24ms
+stderr | tests/unit/auth-guest-transfer-deferred.test.tsx > D3 guest → email registration with deferred inventory transfer > B+D. the first guest attempt sends the transfer field; the 409 deferral is shown as an explicit choice, not as a wrong OTP, and the guest session is untouched
+Backend verify OTP failed: ApiError: HTTP 409: {"error":"Chưa hỗ trợ chuyển dữ liệu từ hộ khách một cách an toàn. Hàng tồn kho vẫn được giữ nguyên trong hộ khách; tài khoản chưa được kích hoạt và mã OTP chưa được sử dụng.","code":"INVENTORY_TRANSFER_DEFERRED"}
+    at fetchJson (/Users/tunbee27/Documents/Tako-san-ui-rebuild/src/web/services/http.ts:125:11)
+    at Object.verifyOtp (/Users/tunbee27/Documents/Tako-san-ui-rebuild/src/web/services/auth.ts:159:22)
+    at submitOtpVerification (/Users/tunbee27/Documents/Tako-san-ui-rebuild/src/web/pages/AuthPage.tsx:512:19)
+    at handleVerifyOtp (/Users/tunbee27/Documents/Tako-san-ui-rebuild/src/web/pages/AuthPage.tsx:560:5) {
+  kind: 'http',
+  status: 409,
+  retryable: undefined,
+  requestId: undefined,
+  payload: {
+    error: 'Chưa hỗ trợ chuyển dữ liệu từ hộ khách một cách an toàn. Hàng tồn kho vẫn được giữ nguyên trong hộ khách; tài khoản chưa được kích hoạt và mã OTP chưa được sử dụng.',
+    code: 'INVENTORY_TRANSFER_DEFERRED'
+  }
+}
+
+ ❯ tests/unit/ui08-route-scope.test.tsx (20 tests | 1 failed) 33ms
+   ✓ UI08 adoption boundary > adopts the actual account route /me 10ms
+   ✓ UI08 adoption boundary > adopts the actual account route /profile 3ms
+   ✓ UI08 adoption boundary > adopts the actual account route /me/preferences 1ms
+   ✓ UI08 adoption boundary > adopts the actual account route /me/household 1ms
+   ✓ UI08 adoption boundary > adopts the actual account route /notifications 2ms
+   ✓ UI08 adoption boundary > adopts the actual account route /settings/app 2ms
+   ✓ UI08 adoption boundary > adopts the actual account route /settings/privacy 1ms
+   ✓ UI08 adoption boundary > adopts the actual account route /settings/planning 2ms
+   ✓ UI08 adoption boundary > adopts the actual account route /settings/notifications 2ms
+   ✓ UI08 adoption boundary > keeps unmigrated/protected /plus outside the new route scope 0ms
+   ✓ UI08 adoption boundary > keeps unmigrated/protected /checkout outside the new route scope 0ms
+   ✓ UI08 adoption boundary > keeps unmigrated/protected /week outside the new route scope 0ms
+   ✓ UI08 adoption boundary > keeps unmigrated/protected /week/setup outside the new route scope 0ms
+   ✓ UI08 adoption boundary > keeps unmigrated/protected /settings outside the new route scope 0ms
+   ✓ UI08 adoption boundary > keeps unmigrated/protected /me/unrelated outside the new route scope 0ms
+   ✓ UI08 adoption boundary > keeps unmigrated/protected /settings/billing outside the new route scope 0ms
+   ✓ UI08 adoption boundary > keeps unmigrated/protected /fridge/item outside the new route scope 0ms
+   ✓ UI08 adoption boundary > keeps unmigrated/protected /inventory-reconciliation outside the new route scope 0ms
+   × UI08 adoption boundary > uses one page heading, explicit account return and existing header actions 7ms
+     → expected '<div class="account-page"><header cla…' to contain 'href="/me" aria-label="Quay lại"'
+   ✓ UI08 adoption boundary > keeps route loading as a real live status with the new decorative symbol 0ms
+stderr | tests/unit/auth-guest-transfer-deferred.test.tsx > D3 guest → email registration with deferred inventory transfer > C+F. continuing without transfer retries the same OTP without migrateFromHouseholdId and only then establishes the account session
+Backend verify OTP failed: ApiError: HTTP 409: {"error":"Chưa hỗ trợ chuyển dữ liệu từ hộ khách một cách an toàn. Hàng tồn kho vẫn được giữ nguyên trong hộ khách; tài khoản chưa được kích hoạt và mã OTP chưa được sử dụng.","code":"INVENTORY_TRANSFER_DEFERRED"}
+    at fetchJson (/Users/tunbee27/Documents/Tako-san-ui-rebuild/src/web/services/http.ts:125:11)
+    at Object.verifyOtp (/Users/tunbee27/Documents/Tako-san-ui-rebuild/src/web/services/auth.ts:159:22)
+    at submitOtpVerification (/Users/tunbee27/Documents/Tako-san-ui-rebuild/src/web/pages/AuthPage.tsx:512:19)
+    at handleVerifyOtp (/Users/tunbee27/Documents/Tako-san-ui-rebuild/src/web/pages/AuthPage.tsx:560:5) {
+  kind: 'http',
+  status: 409,
+  retryable: undefined,
+  requestId: undefined,
+  payload: {
+    error: 'Chưa hỗ trợ chuyển dữ liệu từ hộ khách một cách an toàn. Hàng tồn kho vẫn được giữ nguyên trong hộ khách; tài khoản chưa được kích hoạt và mã OTP chưa được sử dụng.',
+    code: 'INVENTORY_TRANSFER_DEFERRED'
+  }
+}
+
+stderr | tests/unit/auth-verify-route.test.tsx > screen 03 — /auth/verify route > invalid verification failure stays server-authoritative on /auth/verify
+Backend verify OTP failed: ApiError: HTTP 400: {"error":"Mã OTP không chính xác hoặc đã được sử dụng"}
+    at fetchJson (/Users/tunbee27/Documents/Tako-san-ui-rebuild/src/web/services/http.ts:125:11)
+    at Object.verifyOtp (/Users/tunbee27/Documents/Tako-san-ui-rebuild/src/web/services/auth.ts:159:22)
+    at submitOtpVerification (/Users/tunbee27/Documents/Tako-san-ui-rebuild/src/web/pages/AuthPage.tsx:512:19)
+    at handleVerifyOtp (/Users/tunbee27/Documents/Tako-san-ui-rebuild/src/web/pages/AuthPage.tsx:560:5) {
+  kind: 'http',
+  status: 400,
+  retryable: undefined,
+  requestId: undefined,
+  payload: { error: 'Mã OTP không chính xác hoặc đã được sử dụng' }
+}
+
+stderr | tests/unit/auth-verify-route.test.tsx > screen 03 — /auth/verify route > expired verification failure stays server-authoritative on /auth/verify
+Backend verify OTP failed: ApiError: HTTP 400: {"error":"Mã OTP đã hết hạn. Vui lòng bấm gửi lại mã mới."}
+    at fetchJson (/Users/tunbee27/Documents/Tako-san-ui-rebuild/src/web/services/http.ts:125:11)
+    at Object.verifyOtp (/Users/tunbee27/Documents/Tako-san-ui-rebuild/src/web/services/auth.ts:159:22)
+    at submitOtpVerification (/Users/tunbee27/Documents/Tako-san-ui-rebuild/src/web/pages/AuthPage.tsx:512:19)
+    at handleVerifyOtp (/Users/tunbee27/Documents/Tako-san-ui-rebuild/src/web/pages/AuthPage.tsx:560:5) {
+  kind: 'http',
+  status: 400,
+  retryable: undefined,
+  requestId: undefined,
+  payload: { error: 'Mã OTP đã hết hạn. Vui lòng bấm gửi lại mã mới.' }
+}
+
+stderr | tests/unit/auth-verify-route.test.tsx > screen 03 — /auth/verify route > rate-limited verification failure stays server-authoritative on /auth/verify
+Backend verify OTP failed: ApiError: HTTP 429: {"error":"Bạn đã thử quá nhiều lần. Vui lòng chờ rồi thử lại."}
+    at fetchJson (/Users/tunbee27/Documents/Tako-san-ui-rebuild/src/web/services/http.ts:125:11)
+    at Object.verifyOtp (/Users/tunbee27/Documents/Tako-san-ui-rebuild/src/web/services/auth.ts:159:22)
+    at submitOtpVerification (/Users/tunbee27/Documents/Tako-san-ui-rebuild/src/web/pages/AuthPage.tsx:512:19)
+    at handleVerifyOtp (/Users/tunbee27/Documents/Tako-san-ui-rebuild/src/web/pages/AuthPage.tsx:560:5) {
+  kind: 'http',
+  status: 429,
+  retryable: undefined,
+  requestId: undefined,
+  payload: { error: 'Bạn đã thử quá nhiều lần. Vui lòng chờ rồi thử lại.' }
+}
+
+stderr | tests/unit/auth-verify-route.test.tsx > screen 03 — /auth/verify route > reports an offline verification without consuming context or establishing a local session
+Backend verify OTP failed: ApiError: Không có kết nối mạng khi gọi /auth/verify-otp
+    at fetchJson (/Users/tunbee27/Documents/Tako-san-ui-rebuild/src/web/services/http.ts:109:11)
+    at Object.verifyOtp (/Users/tunbee27/Documents/Tako-san-ui-rebuild/src/web/services/auth.ts:159:22)
+    at submitOtpVerification (/Users/tunbee27/Documents/Tako-san-ui-rebuild/src/web/pages/AuthPage.tsx:512:19)
+    at handleVerifyOtp (/Users/tunbee27/Documents/Tako-san-ui-rebuild/src/web/pages/AuthPage.tsx:560:5) {
+  kind: 'offline',
+  status: undefined,
+  retryable: true,
+  requestId: undefined,
+  payload: null
+}
+
+stderr | tests/unit/auth-guest-transfer-deferred.test.tsx > D3 guest → email registration with deferred inventory transfer > E. a failed continue-without-transfer retry leaves the guest session intact and never half-authenticates
+Backend verify OTP failed: ApiError: HTTP 409: {"error":"Chưa hỗ trợ chuyển dữ liệu từ hộ khách một cách an toàn. Hàng tồn kho vẫn được giữ nguyên trong hộ khách; tài khoản chưa được kích hoạt và mã OTP chưa được sử dụng.","code":"INVENTORY_TRANSFER_DEFERRED"}
+    at fetchJson (/Users/tunbee27/Documents/Tako-san-ui-rebuild/src/web/services/http.ts:125:11)
+    at Object.verifyOtp (/Users/tunbee27/Documents/Tako-san-ui-rebuild/src/web/services/auth.ts:159:22)
+    at submitOtpVerification (/Users/tunbee27/Documents/Tako-san-ui-rebuild/src/web/pages/AuthPage.tsx:512:19)
+    at handleVerifyOtp (/Users/tunbee27/Documents/Tako-san-ui-rebuild/src/web/pages/AuthPage.tsx:560:5) {
+  kind: 'http',
+  status: 409,
+  retryable: undefined,
+  requestId: undefined,
+  payload: {
+    error: 'Chưa hỗ trợ chuyển dữ liệu từ hộ khách một cách an toàn. Hàng tồn kho vẫn được giữ nguyên trong hộ khách; tài khoản chưa được kích hoạt và mã OTP chưa được sử dụng.',
+    code: 'INVENTORY_TRANSFER_DEFERRED'
+  }
+}
+
+stderr | tests/unit/auth-guest-transfer-deferred.test.tsx > D3 guest → email registration with deferred inventory transfer > E. a failed continue-without-transfer retry leaves the guest session intact and never half-authenticates
+Backend verify OTP failed: ApiError: HTTP 400: {"error":"Mã OTP đã hết hạn. Vui lòng bấm gửi lại mã mới."}
+    at fetchJson (/Users/tunbee27/Documents/Tako-san-ui-rebuild/src/web/services/http.ts:125:11)
+    at Object.verifyOtp (/Users/tunbee27/Documents/Tako-san-ui-rebuild/src/web/services/auth.ts:159:22)
+    at submitOtpVerification (/Users/tunbee27/Documents/Tako-san-ui-rebuild/src/web/pages/AuthPage.tsx:512:19)
+    at handleContinueWithoutTransfer (/Users/tunbee27/Documents/Tako-san-ui-rebuild/src/web/pages/AuthPage.tsx:566:5) {
+  kind: 'http',
+  status: 400,
+  retryable: undefined,
+  requestId: undefined,
+  payload: { error: 'Mã OTP đã hết hạn. Vui lòng bấm gửi lại mã mới.' }
+}
+
+stderr | tests/unit/auth-guest-transfer-deferred.test.tsx > D3 guest → email registration with deferred inventory transfer > keeps unrelated OTP failures on the normal error path (no deferral state)
+Backend verify OTP failed: ApiError: HTTP 400: {"error":"Mã OTP không chính xác hoặc đã được sử dụng"}
+    at fetchJson (/Users/tunbee27/Documents/Tako-san-ui-rebuild/src/web/services/http.ts:125:11)
+    at Object.verifyOtp (/Users/tunbee27/Documents/Tako-san-ui-rebuild/src/web/services/auth.ts:159:22)
+    at submitOtpVerification (/Users/tunbee27/Documents/Tako-san-ui-rebuild/src/web/pages/AuthPage.tsx:512:19)
+    at handleVerifyOtp (/Users/tunbee27/Documents/Tako-san-ui-rebuild/src/web/pages/AuthPage.tsx:560:5) {
+  kind: 'http',
+  status: 400,
+  retryable: undefined,
+  requestId: undefined,
+  payload: { error: 'Mã OTP không chính xác hoặc đã được sử dụng' }
+}
+
+ ✓ tests/unit/auth-guest-transfer-deferred.test.tsx (6 tests) 1550ms
+   ✓ D3 guest → email registration with deferred inventory transfer > A. a non-guest registration verifies the OTP once, without any transfer field, and opens the account session  726ms
+   ✓ D3 guest → email registration with deferred inventory transfer > C+F. continuing without transfer retries the same OTP without migrateFromHouseholdId and only then establishes the account session  577ms
+stderr | tests/unit/auth-verify-route.test.tsx > screen 03 — /auth/verify route > ignores a delayed resend after session-change
+Backend resend OTP failed: ApiError: Phiên làm việc đã thay đổi. Vui lòng đăng nhập lại.
+    at assertCurrent (/Users/tunbee27/Documents/Tako-san-ui-rebuild/src/web/services/http.ts:61:29)
+    at fetchJson (/Users/tunbee27/Documents/Tako-san-ui-rebuild/src/web/services/http.ts:112:3)
+    at Object.resendOtp (/Users/tunbee27/Documents/Tako-san-ui-rebuild/src/web/services/auth.ts:204:14)
+    at handleResendOtp (/Users/tunbee27/Documents/Tako-san-ui-rebuild/src/web/pages/AuthPage.tsx:580:19) {
+  kind: 'auth',
+  status: undefined,
+  retryable: undefined,
+  requestId: undefined,
+  payload: null
+}
+
+stderr | tests/unit/auth-verify-route.test.tsx > screen 03 — /auth/verify route > ignores a delayed resend after logout
+Backend resend OTP failed: ApiError: Phiên làm việc đã thay đổi. Vui lòng đăng nhập lại.
+    at assertCurrent (/Users/tunbee27/Documents/Tako-san-ui-rebuild/src/web/services/http.ts:61:29)
+    at fetchJson (/Users/tunbee27/Documents/Tako-san-ui-rebuild/src/web/services/http.ts:112:3)
+    at Object.resendOtp (/Users/tunbee27/Documents/Tako-san-ui-rebuild/src/web/services/auth.ts:204:14)
+    at handleResendOtp (/Users/tunbee27/Documents/Tako-san-ui-rebuild/src/web/pages/AuthPage.tsx:580:19) {
+  kind: 'auth',
+  status: undefined,
+  retryable: undefined,
+  requestId: undefined,
+  payload: null
+}
+
+stderr | tests/unit/auth-verify-route.test.tsx > screen 03 — /auth/verify route > OTP_DELIVERY_UNAVAILABLE on register still reaches /auth/verify honestly: error shown, no cooldown, context marked undelivered
+Backend register failed: ApiError: HTTP 503: {"error":"Email OTP chưa gửi được.","code":"OTP_DELIVERY_UNAVAILABLE","accountCreated":true}
+    at fetchJson (/Users/tunbee27/Documents/Tako-san-ui-rebuild/src/web/services/http.ts:125:11)
+    at Object.register (/Users/tunbee27/Documents/Tako-san-ui-rebuild/src/web/services/auth.ts:134:14)
+    at handleRegister (/Users/tunbee27/Documents/Tako-san-ui-rebuild/src/web/pages/AuthPage.tsx:418:19) {
+  kind: 'http',
+  status: 503,
+  retryable: undefined,
+  requestId: undefined,
+  payload: {
+    error: 'Email OTP chưa gửi được.',
+    code: 'OTP_DELIVERY_UNAVAILABLE',
+    accountCreated: true
+  }
+}
+
+stderr | tests/unit/auth-verify-route.test.tsx > screen 03 — /auth/verify route > a failed resend surfaces the server error and leaves resend available
+Backend register failed: ApiError: HTTP 503: {"error":"Email OTP chưa gửi được.","code":"OTP_DELIVERY_UNAVAILABLE","accountCreated":true}
+    at fetchJson (/Users/tunbee27/Documents/Tako-san-ui-rebuild/src/web/services/http.ts:125:11)
+    at Object.register (/Users/tunbee27/Documents/Tako-san-ui-rebuild/src/web/services/auth.ts:134:14)
+    at handleRegister (/Users/tunbee27/Documents/Tako-san-ui-rebuild/src/web/pages/AuthPage.tsx:418:19) {
+  kind: 'http',
+  status: 503,
+  retryable: undefined,
+  requestId: undefined,
+  payload: {
+    error: 'Email OTP chưa gửi được.',
+    code: 'OTP_DELIVERY_UNAVAILABLE',
+    accountCreated: true
+  }
+}
+
+stderr | tests/unit/auth-verify-route.test.tsx > screen 03 — /auth/verify route > a failed resend surfaces the server error and leaves resend available
+Backend resend OTP failed: ApiError: HTTP 429: {"error":"Vui lòng chờ trước khi gửi lại mã."}
+    at fetchJson (/Users/tunbee27/Documents/Tako-san-ui-rebuild/src/web/services/http.ts:125:11)
+    at Object.resendOtp (/Users/tunbee27/Documents/Tako-san-ui-rebuild/src/web/services/auth.ts:204:14)
+    at handleResendOtp (/Users/tunbee27/Documents/Tako-san-ui-rebuild/src/web/pages/AuthPage.tsx:580:19) {
+  kind: 'http',
+  status: 429,
+  retryable: undefined,
+  requestId: undefined,
+  payload: { error: 'Vui lòng chờ trước khi gửi lại mã.' }
+}
+
+stderr | tests/unit/auth-verify-route.test.tsx > screen 03 — /auth/verify route > invalidates stale delivery and expiry claims when the server cannot deliver a replacement
+Backend resend OTP failed: ApiError: HTTP 503: {"error":"Email OTP chưa gửi được.","code":"OTP_DELIVERY_UNAVAILABLE"}
+    at fetchJson (/Users/tunbee27/Documents/Tako-san-ui-rebuild/src/web/services/http.ts:125:11)
+    at Object.resendOtp (/Users/tunbee27/Documents/Tako-san-ui-rebuild/src/web/services/auth.ts:204:14)
+    at handleResendOtp (/Users/tunbee27/Documents/Tako-san-ui-rebuild/src/web/pages/AuthPage.tsx:580:19) {
+  kind: 'http',
+  status: 503,
+  retryable: undefined,
+  requestId: undefined,
+  payload: {
+    error: 'Email OTP chưa gửi được.',
+    code: 'OTP_DELIVERY_UNAVAILABLE'
+  }
+}
+
+stderr | tests/unit/auth-verify-route.test.tsx > screen 03 — /auth/verify route > reports an offline resend without fabricating delivery or expiry metadata
+Backend resend OTP failed: ApiError: Không có kết nối mạng khi gọi /auth/resend-otp
+    at fetchJson (/Users/tunbee27/Documents/Tako-san-ui-rebuild/src/web/services/http.ts:109:11)
+    at Object.resendOtp (/Users/tunbee27/Documents/Tako-san-ui-rebuild/src/web/services/auth.ts:204:14)
+    at handleResendOtp (/Users/tunbee27/Documents/Tako-san-ui-rebuild/src/web/pages/AuthPage.tsx:580:19) {
+  kind: 'offline',
+  status: undefined,
+  retryable: true,
+  requestId: undefined,
+  payload: null
+}
+
+ ✓ tests/unit/auth-verify-route.test.tsx (39 tests) 2359ms
+   ✓ screen 03 — /auth/verify route > refresh of /auth/verify restores the verification (email, cooldown) from the tab-scoped context and completes with the server  532ms
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 1 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  tests/unit/ui08-route-scope.test.tsx > UI08 adoption boundary > uses one page heading, explicit account return and existing header actions
+AssertionError: expected '<div class="account-page"><header cla…' to contain 'href="/me" aria-label="Quay lại"'
+
+Expected: "href="/me" aria-label="Quay lại""
+Received: "<div class="account-page"><header class="kitchen-header"><div class="flex min-w-0 items-center gap-2"><a aria-label="Quay lại" class="kitchen-icon-link" href="/me"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-arrow-left" aria-hidden="true"><path d="m12 19-7-7 7-7"></path><path d="M19 12H5"></path></svg></a><a aria-label="Takosan — Trang chủ" translate="no" class="kitchen-brand-link" href="/"><img src="/takosan/rebuild/lockup.svg" alt="" width="300" height="72"/></a><span class="kitchen-brand-motto" aria-hidden="true">Ăn đủ. Mua đủ. Dùng hết.</span></div><div class="flex shrink-0 items-center gap-2"><a aria-label="Thông báo" class="kitchen-icon-link" href="/notifications"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-bell" aria-hidden="true"><path d="M10.268 21a2 2 0 0 0 3.464 0"></path><path d="M3.262 15.326A1 1 0 0 0 4 17h16a1 1 0 0 0 .74-1.673C19.41 13.956 18 12.499 18 8A6 6 0 0 0 6 8c0 4.499-1.411 5.956-2.738 7.326"></path></svg></a><a aria-label="Tài khoản cá nhân" class="kitchen-icon-link" href="/me"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-user" aria-hidden="true"><path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg></a></div></header><div class="account-workspace"><div class="kitchen-page-heading"><div class="min-w-0"><p class="kitchen-eyebrow">Bếp của bạn</p><h1>Sở thích</h1><div class="mt-2 text-sm text-semantic-text-secondary">Gu món</div></div></div><div class="account-body"><p>Nội dung</p></div></div></div>"
+
+ ❯ tests/unit/ui08-route-scope.test.tsx:22:18
+     20|     const html = renderToStaticMarkup(<StaticRouter><AccountPage title…
+     21|     expect(html.match(/<h1/g)).toHaveLength(1);
+     22|     expect(html).toContain('href="/me" aria-label="Quay lại"');
+       |                  ^
+     23|     expect(html).toContain('aria-label="Thông báo"');
+     24|   });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/1]⎯
+
+
+ Test Files  1 failed | 8 passed (9)
+      Tests  1 failed | 114 passed (115)
+   Start at  20:09:26
+   Duration  4.77s (transform 1.75s, setup 109ms, collect 10.11s, tests 4.83s, environment 3.87s, prepare 914ms)

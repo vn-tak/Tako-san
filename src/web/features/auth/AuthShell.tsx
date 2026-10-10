@@ -1,6 +1,6 @@
 import React from 'react';
 import { ArrowLeft, AlertCircle, CheckCircle2, ShieldCheck, Sparkles } from 'lucide-react';
-import { TAKOSAN_BRAND } from '../../lib/takosan-brand';
+import { TAKOSAN_KITCHEN } from '../../lib/takosan-kitchen';
 import type { AuthMode } from './auth-shared';
 
 interface AuthShellProps {
@@ -36,8 +36,8 @@ export const AuthShell: React.FC<AuthShellProps> = ({
   onModeChange,
   children,
 }) => (
-  <main className="min-h-screen bg-takosan-cream px-6 py-8 flex flex-col justify-between text-takosan-navy animate-fade-in mx-auto w-full max-w-md md:max-w-[28rem]">
-    <div>
+  <main className="takosan-rebuild entry-page auth-page">
+    <div className="auth-workspace">
       <div className="flex items-center justify-between">
         <button
           onClick={onBack}
@@ -49,17 +49,19 @@ export const AuthShell: React.FC<AuthShellProps> = ({
         <span className="text-xs font-semibold text-semantic-text-muted">Tài khoản Takosan</span>
       </div>
 
-      <div className="mt-6 text-center">
+      <div className="auth-intro">
         <img
-          src={TAKOSAN_BRAND.logos.horizontal}
-          alt="Takosan"
-          className="h-11 mx-auto mb-3 object-contain"
+          src={TAKOSAN_KITCHEN.logo}
+          alt="Takosan" translate="no"
+          width={300}
+          height={72}
+          className="entry-logo"
         />
         {/* Single page heading (accessibility checklist: sequential levels). */}
-        <h1 className="font-heading font-bold text-xl text-semantic-text-primary tracking-tight">
+        <h1 className="auth-heading">
           {HEADING[mode]}
         </h1>
-        <p className="text-xs text-semantic-text-muted mt-1 max-w-xs mx-auto leading-relaxed">
+        <p className="auth-description">
           {mode === 'login' && 'Đồng bộ tủ lạnh, thực đơn tuần và gợi ý món ăn mọi lúc mọi nơi'}
           {mode === 'register' &&
             'Gia nhập Takosan để quản lý thực phẩm thông minh và giảm lãng phí'}
@@ -76,7 +78,7 @@ export const AuthShell: React.FC<AuthShellProps> = ({
       </div>
 
       {(mode === 'login' || mode === 'register') && (
-        <div className="flex bg-semantic-border/70 p-1 rounded-xl mt-6">
+        <div className="auth-mode-selector">
           {(['login', 'register'] as const).map((m) => (
             <button
               key={m}
@@ -138,10 +140,10 @@ export const AuthShell: React.FC<AuthShellProps> = ({
       {children}
     </div>
 
-    <div className="text-center pt-8">
+    <div className="entry-footer">
       <div className="flex items-center justify-center gap-1.5 text-xs text-semantic-text-muted">
         <ShieldCheck className="w-4 h-4 text-takosan-green" aria-hidden="true" />
-        <span>Bảo mật dữ liệu thực phẩm & Tôn trọng quyền riêng tư</span>
+        <span>Tủ lạnh và thực đơn được phân tách theo hộ gia đình</span>
       </div>
     </div>
   </main>

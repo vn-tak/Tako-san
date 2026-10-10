@@ -1,0 +1,1918 @@
+{
+  "base": "f3a09f2a7beb548fbd4bc9ef8ae932a092dd3827",
+  "fixedTimestamp": "2026-10-10T21:30:00.000Z",
+  "planner": "false",
+  "composition": "false",
+  "files": [
+    {
+      "path": ".artifacts/ui14/baseline-build/client/_headers",
+      "bytes": 1343,
+      "sha256": "be8fb26bff871f30e29b8d6aa9fe2551c6d322d7140afd3e1fd202322ac6a880"
+    },
+    {
+      "path": ".artifacts/ui14/baseline-build/client/assets/AccountPage-CHRseeNY.js",
+      "bytes": 485,
+      "sha256": "c506607ca9cb85c66f9d444a13ade1d8c5965e9a3595fb48df05e08eb0428e77"
+    },
+    {
+      "path": ".artifacts/ui14/baseline-build/client/assets/AccountPage-CHRseeNY.js.map",
+      "bytes": 1282,
+      "sha256": "ba435347d1d8bb918dd6c748201bce230c79ea889fab643e9b84362b7d929bdb"
+    },
+    {
+      "path": ".artifacts/ui14/baseline-build/client/assets/AsyncState-DMJrV5Bu.js",
+      "bytes": 1653,
+      "sha256": "9721e8ef09bd4491eff23a86186e8a0a7f46b04fa50cbb8752670a7114b2f781"
+    },
+    {
+      "path": ".artifacts/ui14/baseline-build/client/assets/AsyncState-DMJrV5Bu.js.map",
+      "bytes": 3465,
+      "sha256": "cefd8fe9c1e8c439f26040e120a6c4d4acbc3c3980684667630ff3914952662f"
+    },
+    {
+      "path": ".artifacts/ui14/baseline-build/client/assets/AuthPage-BCGzuUwv.js",
+      "bytes": 30605,
+      "sha256": "04de8722e19acc43eeb9f592881ffd69932aecffecc6b0034b947a4755ae98b0"
+    },
+    {
+      "path": ".artifacts/ui14/baseline-build/client/assets/AuthPage-BCGzuUwv.js.map",
+      "bytes": 96740,
+      "sha256": "eedeb412da8c4962049f75a62c0c67dcf8d7c975abd1dd32eaa3fb1feeb4966b"
+    },
+    {
+      "path": ".artifacts/ui14/baseline-build/client/assets/Button-keaYca1e.js",
+      "bytes": 29006,
+      "sha256": "365ed844551f8ce3d743fef46368dfc8fd6074c3bb76caa8fb579747779e7eca"
+    },
+    {
+      "path": ".artifacts/ui14/baseline-build/client/assets/Button-keaYca1e.js.map",
+      "bytes": 152632,
+      "sha256": "af330cb2f00e9069666d905702d566fa7c9cbdcc26cdfa64732e02458f1d3d20"
+    },
+    {
+      "path": ".artifacts/ui14/baseline-build/client/assets/Card-B3Hrt15v.js",
+      "bytes": 413,
+      "sha256": "0bcd634de0ec94fabff9b8becc2b75bcfcbfbf6e85562458eacfe1e54c7aba51"
+    },
+    {
+      "path": ".artifacts/ui14/baseline-build/client/assets/Card-B3Hrt15v.js.map",
+      "bytes": 974,
+      "sha256": "e7c722d65b4002715d4808bc4fffa03352a2b92a15c30f7dc8706d5d404e3e4c"
+    },
+    {
+      "path": ".artifacts/ui14/baseline-build/client/assets/ConfirmDialog-CgC60AW3.js",
+      "bytes": 1636,
+      "sha256": "faff23c25b93f2dfc4c02a72ce4c7c15c8799cda04f66c0bedbd01e16c32011d"
+    },
+    {
+      "path": ".artifacts/ui14/baseline-build/client/assets/ConfirmDialog-CgC60AW3.js.map",
+      "bytes": 3874,
+      "sha256": "2157314172edf36a56e7cc39bdf730b27d069df7f3dc130f68446d4dadbb444f"
+    },
+    {
+      "path": ".artifacts/ui14/baseline-build/client/assets/CookingCompletePage-CvtjmX8A.js",
+      "bytes": 840,
+      "sha256": "5195b26f4df6c380dae7dd181b841e95962900c1f3023407247c06acdff070b4"
+    },
+    {
+      "path": ".artifacts/ui14/baseline-build/client/assets/CookingCompletePage-CvtjmX8A.js.map",
+      "bytes": 1382,
+      "sha256": "e86e9fb26c0eed6dca5bd40b5923d7b3a61c69462579fcdfc68736aeffc0eb34"
+    },
+    {
+      "path": ".artifacts/ui14/baseline-build/client/assets/CookingModePage-DquGN_Dh.js",
+      "bytes": 15160,
+      "sha256": "a0db086396e5498a676510a2a5bc27c669670ec45f957c5dd154d1e817cba377"
+    },
+    {
+      "path": ".artifacts/ui14/baseline-build/client/assets/CookingModePage-DquGN_Dh.js.map",
+      "bytes": 44061,
+      "sha256": "bafb61ac095ae7324bd0792ca8f2cb76db89cb48ba935e1ba09155ed9b850bf1"
+    },
+    {
+      "path": ".artifacts/ui14/baseline-build/client/assets/CookingReview-BOEK8tX0.js",
+      "bytes": 7338,
+      "sha256": "a7b41d7f716b2de1349371c1315d8d4a824c9106a4f4796a00804d732ad05206"
+    },
+    {
+      "path": ".artifacts/ui14/baseline-build/client/assets/CookingReview-BOEK8tX0.js.map",
+      "bytes": 20070,
+      "sha256": "133b3cbe8c028d0ce691bb38cddb54083d1290b3a358d54bd6618ef4e4997200"
+    },
+    {
+      "path": ".artifacts/ui14/baseline-build/client/assets/FamilySharingPage-DKg-_ylS.js",
+      "bytes": 2613,
+      "sha256": "b4fcfd0c65652dd3c71abfc7d8cd17587d6447bdbf46c2d9dd8403ede552c93c"
+    },
+    {
+      "path": ".artifacts/ui14/baseline-build/client/assets/FamilySharingPage-DKg-_ylS.js.map",
+      "bytes": 4939,
+      "sha256": "3bf663d9aec0b8e30f9cb016c3aa8f7ddd60f0a6310fa27a6280f50e29576da5"
+    },
+    {
+      "path": ".artifacts/ui14/baseline-build/client/assets/FoodPreferencesPage-DcaZxwW9.js",
+      "bytes": 6458,
+      "sha256": "40e76c6c565ce37cac57ec4d0b0d0017aaa65b7b22c395d30ee028698c6304fb"
+    },
+    {
+      "path": ".artifacts/ui14/baseline-build/client/assets/FoodPreferencesPage-DcaZxwW9.js.map",
+      "bytes": 16658,
+      "sha256": "b3e24b7c7a94c69edc993891d6761dbd91a5fce00596ea0e97c4771c812be7aa"
+    },
+    {
+      "path": ".artifacts/ui14/baseline-build/client/assets/HomePage-sJmgiLui.js",
+      "bytes": 11694,
+      "sha256": "f9f3f604d33e58d5294f54adcd70e5f1f2ecacc8a242a3adaa90b96dead65682"
+    },
+    {
+      "path": ".artifacts/ui14/baseline-build/client/assets/HomePage-sJmgiLui.js.map",
+      "bytes": 37167,
+      "sha256": "6579ee9a8c69717fae755fe0f82f420ceccef4d56731467a563e21d1962e7f31"
+    },
+    {
+      "path": ".artifacts/ui14/baseline-build/client/assets/IngredientDetailPage-Bu36C_Jy.js",
+      "bytes": 15078,
+      "sha256": "845eeb6acaf04dea4192d112055470c44dd93986fc63c9a40af3f13fea2ce50b"
+    },
+    {
+      "path": ".artifacts/ui14/baseline-build/client/assets/IngredientDetailPage-Bu36C_Jy.js.map",
+      "bytes": 37506,
+      "sha256": "cbfb6713ad8979e7d3a6aba3728f917d0113c6be580a1fc1651d9c0fa9185243"
+    },
+    {
+      "path": ".artifacts/ui14/baseline-build/client/assets/InventoryPage-DQgX4mYF.js",
+      "bytes": 21425,
+      "sha256": "b6b24e88a44872c3ca7e1b5d734e28cd1a1c3cbd142def94a8d088aa059380c5"
+    },
+    {
+      "path": ".artifacts/ui14/baseline-build/client/assets/InventoryPage-DQgX4mYF.js.map",
+      "bytes": 72032,
+      "sha256": "a100440d7612da970bd1f6f7b06c92465df377437dcbea0a3a83e7e73e6321d5"
+    },
+    {
+      "path": ".artifacts/ui14/baseline-build/client/assets/KitchenDetailPage-B0unLCYp.js",
+      "bytes": 519,
+      "sha256": "3752bc403fbef84b9346741fa86313bcd97632517b66e7f8858beb3a95d2e851"
+    },
+    {
+      "path": ".artifacts/ui14/baseline-build/client/assets/KitchenDetailPage-B0unLCYp.js.map",
+      "bytes": 1272,
+      "sha256": "5a55e1b7c00e84ecfc397bea8064819dbc6650b3b1320a7bbac2a302e2e50702"
+    },
+    {
+      "path": ".artifacts/ui14/baseline-build/client/assets/KitchenHeader-BszdquYg.js",
+      "bytes": 1665,
+      "sha256": "53a662a12081e23e2cf87052d1bf210d8a340f2af46f2a53dc28dce79fdab0ab"
+    },
+    {
+      "path": ".artifacts/ui14/baseline-build/client/assets/KitchenHeader-BszdquYg.js.map",
+      "bytes": 4109,
+      "sha256": "d4d4256e0e55c584e7d6d8766d083bc50993f7c2116e3b2780d17c38827d8b74"
+    },
+    {
+      "path": ".artifacts/ui14/baseline-build/client/assets/LandingPage-BHAse7om.js",
+      "bytes": 3113,
+      "sha256": "6203605078e258bf9c33bea38f9d37b3f4ec5d1bd36dd1dd106c045dff0a747b"
+    },
+    {
+      "path": ".artifacts/ui14/baseline-build/client/assets/LandingPage-BHAse7om.js.map",
+      "bytes": 6258,
+      "sha256": "234d49f0149f0a21575cda220b4a1f5554c2d61b9aa6195c3895c8ae65978ef8"
+    },
+    {
+      "path": ".artifacts/ui14/baseline-build/client/assets/MealDetailPage-CfA_SRbW.js",
+      "bytes": 6022,
+      "sha256": "1261c450e43fbcb7e6bf1c9005388b5913e40ab99ceac9c46993336ab141d21c"
+    },
+    {
+      "path": ".artifacts/ui14/baseline-build/client/assets/MealDetailPage-CfA_SRbW.js.map",
+      "bytes": 15226,
+      "sha256": "f4901bd4077aab01c88dbb9dbfae4ef356f27a1c56e76c95993d03558f557a51"
+    },
+    {
+      "path": ".artifacts/ui14/baseline-build/client/assets/MealSwapSheet-DYMXqIcI.js",
+      "bytes": 2719,
+      "sha256": "9136f9c44cfb32fc6bbaa5b28bb1f586f738821f02aa9a8ab354dfc15d58edf0"
+    },
+    {
+      "path": ".artifacts/ui14/baseline-build/client/assets/MealSwapSheet-DYMXqIcI.js.map",
+      "bytes": 7150,
+      "sha256": "5b28db681d0262fb9962c799e6c4a0afec072b095c2d39b952345b940395598e"
+    },
+    {
+      "path": ".artifacts/ui14/baseline-build/client/assets/NotificationPreferencesPage-iZAcrASf.js",
+      "bytes": 3798,
+      "sha256": "614c6b680a5cc0c95fb58d6825ee6d92304ed16ee5a31047c984c204ed1a4972"
+    },
+    {
+      "path": ".artifacts/ui14/baseline-build/client/assets/NotificationPreferencesPage-iZAcrASf.js.map",
+      "bytes": 8898,
+      "sha256": "496284d5cab278eae846f07f6638b070b6cf3fac77d20f9d43ca3244ad38f58b"
+    },
+    {
+      "path": ".artifacts/ui14/baseline-build/client/assets/NotificationsPage-RWSLpx3q.js",
+      "bytes": 2995,
+      "sha256": "4b6b2345f118f506e38c16000991b09c64c01579a1a2fb045491fea3fdc008d1"
+    },
+    {
+      "path": ".artifacts/ui14/baseline-build/client/assets/NotificationsPage-RWSLpx3q.js.map",
+      "bytes": 6679,
+      "sha256": "571f79179d664d4ee13b021e5295b11b5c55e2a3eb04cdcd34bcc087138cae4a"
+    },
+    {
+      "path": ".artifacts/ui14/baseline-build/client/assets/OnboardingPage-Bo_yV7GY.js",
+      "bytes": 13528,
+      "sha256": "130fdb0bb4bf2ab85bedf838ebbe4874b10aa3a2a4d2448041931aca83d07601"
+    },
+    {
+      "path": ".artifacts/ui14/baseline-build/client/assets/OnboardingPage-Bo_yV7GY.js.map",
+      "bytes": 34257,
+      "sha256": "c23c41fc15ad8d11c9f4c994d9bce19248c46ea638a50f0e51f42c62f79771e6"
+    },
+    {
+      "path": ".artifacts/ui14/baseline-build/client/assets/PlannerPage-DbmwZfQo.js",
+      "bytes": 83277,
+      "sha256": "3585063c6ab939aabe417b9661056c184d1e1e507f58fa785c75243d5eb0e243"
+    },
+    {
+      "path": ".artifacts/ui14/baseline-build/client/assets/PlannerPage-DbmwZfQo.js.map",
+      "bytes": 178101,
+      "sha256": "e7a4f9710d6a85fec46c089031c2ea483921bfb19c92bfe74cf910ca5b62ba74"
+    },
+    {
+      "path": ".artifacts/ui14/baseline-build/client/assets/PlanningSettingsPage-BVZDVsQa.js",
+      "bytes": 7877,
+      "sha256": "fecd51b422a594b7d0dfee1ee073d427d99ce57daa93acce2561b8fbeb057340"
+    },
+    {
+      "path": ".artifacts/ui14/baseline-build/client/assets/PlanningSettingsPage-BVZDVsQa.js.map",
+      "bytes": 18106,
+      "sha256": "0283ec5560988246612e0131d04eb499f0e0e4f81864eea3e248a53502398ab7"
+    },
+    {
+      "path": ".artifacts/ui14/baseline-build/client/assets/PlusPaywallPage-Dtk3ujJl.js",
+      "bytes": 19062,
+      "sha256": "5559d3504d62dacc7835223587717f330655aa5221145c64ac733f554b0a0075"
+    },
+    {
+      "path": ".artifacts/ui14/baseline-build/client/assets/PlusPaywallPage-Dtk3ujJl.js.map",
+      "bytes": 45216,
+      "sha256": "5c1f0c1fc04af29eeb7cecb5b73c6be201f6470d159608d1d98ad32f512e4a1d"
+    },
+    {
+      "path": ".artifacts/ui14/baseline-build/client/assets/PrivacyDataPage-Bi1gMi3s.js",
+      "bytes": 3152,
+      "sha256": "425c1a0d8d2af1f6416b2b7a8013e4fabbc992da7e2e4d2d413da313015c24fe"
+    },
+    {
+      "path": ".artifacts/ui14/baseline-build/client/assets/PrivacyDataPage-Bi1gMi3s.js.map",
+      "bytes": 5433,
+      "sha256": "f941fb39d9774d9a528544f53d25a88576e85edd01d38179d65363206b43dd42"
+    },
+    {
+      "path": ".artifacts/ui14/baseline-build/client/assets/ProfilePage-LGJBuyAT.js",
+      "bytes": 4886,
+      "sha256": "fd6af6dbd3c417ae221cb71bd8eb54ce6bad30579bf8ca10fda5fe4fb47a5fcb"
+    },
+    {
+      "path": ".artifacts/ui14/baseline-build/client/assets/ProfilePage-LGJBuyAT.js.map",
+      "bytes": 11614,
+      "sha256": "f86a107d4d4704a59b59ed2290ff74e60d513476852cd2b9b4782f18be1f80b5"
+    },
+    {
+      "path": ".artifacts/ui14/baseline-build/client/assets/ReceiptReviewPage-C_Bxew2W.js",
+      "bytes": 13598,
+      "sha256": "5118366254a2f145f5d8d774185eaecb3f0510e6ff7f150ccecaad7c4d6dffee"
+    },
+    {
+      "path": ".artifacts/ui14/baseline-build/client/assets/ReceiptReviewPage-C_Bxew2W.js.map",
+      "bytes": 39540,
+      "sha256": "72ded98680446d692ca59340b470c0cb4c70a86830125851bc2b5b932d8ea7db"
+    },
+    {
+      "path": ".artifacts/ui14/baseline-build/client/assets/RecipeCard-BYK_P8Q9.js",
+      "bytes": 11370,
+      "sha256": "dca6ddf660fbc3112135c13bf3fdd2c066b712328ee105c8d6c45b8a9f512439"
+    },
+    {
+      "path": ".artifacts/ui14/baseline-build/client/assets/RecipeCard-BYK_P8Q9.js.map",
+      "bytes": 22628,
+      "sha256": "84d8a7e7cc4f75cbb8a76a8803275ec52c7c2997bb8c618d52d5f2602937704b"
+    },
+    {
+      "path": ".artifacts/ui14/baseline-build/client/assets/RecipeDetailPage-B3OVxL83.js",
+      "bytes": 14454,
+      "sha256": "93bfb42439444b0435d5d818faf52b5c11ada456b9f36501cc2fa01c50d6b5b7"
+    },
+    {
+      "path": ".artifacts/ui14/baseline-build/client/assets/RecipeDetailPage-B3OVxL83.js.map",
+      "bytes": 35864,
+      "sha256": "f0824e7a1a649e318f6fd1af2761e042074e193e909a0d3fefefd4a4d7c2f4e8"
+    },
+    {
+      "path": ".artifacts/ui14/baseline-build/client/assets/RecipeMedia-edHAkb3G.js",
+      "bytes": 1042,
+      "sha256": "daade374453fc95ae3f0ed5800b4e70b987a78d44b57ec29859025454b976333"
+    },
+    {
+      "path": ".artifacts/ui14/baseline-build/client/assets/RecipeMedia-edHAkb3G.js.map",
+      "bytes": 3100,
+      "sha256": "b0918b1608176fd328d7193991b4b14076c1e2d0a9e2d7ad7a1a745d8241462e"
+    },
+    {
+      "path": ".artifacts/ui14/baseline-build/client/assets/RecipesPage-_4Qxat-c.js",
+      "bytes": 9808,
+      "sha256": "9c628df1927200afe2e796da52a3c8591dd2f15138fbcef32d7970641567ffbc"
+    },
+    {
+      "path": ".artifacts/ui14/baseline-build/client/assets/RecipesPage-_4Qxat-c.js.map",
+      "bytes": 29668,
+      "sha256": "81f77b7c53fd9d81e64eb43adba08e27aac47b647ff9a56aeec532e8971088b0"
+    },
+    {
+      "path": ".artifacts/ui14/baseline-build/client/assets/ReconciliationPage-CgXl4JvN.js",
+      "bytes": 5774,
+      "sha256": "bf54b5a53c138ea564704da7af7b3670e0d6bc4e8fcd84a9f338da25c4eb98ca"
+    },
+    {
+      "path": ".artifacts/ui14/baseline-build/client/assets/ReconciliationPage-CgXl4JvN.js.map",
+      "bytes": 14228,
+      "sha256": "2581fbbc8e631140f1e8dd0e7a36bad8515ead1bd333d82ad9370a1acb02851b"
+    },
+    {
+      "path": ".artifacts/ui14/baseline-build/client/assets/ReviewSource-Dl9i-0QJ.js",
+      "bytes": 4875,
+      "sha256": "13882c71756eb3b133a807f490904a794bcd4adec6092a1c178e007a63f5e3d2"
+    },
+    {
+      "path": ".artifacts/ui14/baseline-build/client/assets/ReviewSource-Dl9i-0QJ.js.map",
+      "bytes": 12837,
+      "sha256": "36915ab0fa508976a3e5f2d23574f37dc82e266e4b6a4cd5e26cf1e56708962f"
+    },
+    {
+      "path": ".artifacts/ui14/baseline-build/client/assets/ScanPage-CE4I6ggX.js",
+      "bytes": 13257,
+      "sha256": "e830d1ba7fc26d2f1b6838066f0e1c83a8437c637c5caaba1959f929680dcc07"
+    },
+    {
+      "path": ".artifacts/ui14/baseline-build/client/assets/ScanPage-CE4I6ggX.js.map",
+      "bytes": 38169,
+      "sha256": "d105e8d924c4023bdd7c31e6c544b1a6de85b96b271df61ec87291b836e52514"
+    },
+    {
+      "path": ".artifacts/ui14/baseline-build/client/assets/ScanResultPage-LyNnnCQH.js",
+      "bytes": 13551,
+      "sha256": "d693e597cf404df1811d9f70b8bbb422747ee1399bf42d02b6e65c437eae73c1"
+    },
+    {
+      "path": ".artifacts/ui14/baseline-build/client/assets/ScanResultPage-LyNnnCQH.js.map",
+      "bytes": 41677,
+      "sha256": "bdbca06c89a763a7479639cab3ec6ef8cfcc35ec65a8fdf6ea47a51bc5165631"
+    },
+    {
+      "path": ".artifacts/ui14/baseline-build/client/assets/SettingsPage-DwD8ezvm.js",
+      "bytes": 3836,
+      "sha256": "0132bdf6dbb85c0d1904bb0deccb93f894b11363e81735f56351443fd06efe07"
+    },
+    {
+      "path": ".artifacts/ui14/baseline-build/client/assets/SettingsPage-DwD8ezvm.js.map",
+      "bytes": 8163,
+      "sha256": "fe372c647226a041736cccb8d5c66f671b6a1e9b5c5b5c72e95987f78be9bc63"
+    },
+    {
+      "path": ".artifacts/ui14/baseline-build/client/assets/ShoppingPage-DbR32ddX.js",
+      "bytes": 7734,
+      "sha256": "a21852cf7710f0515045e1eca2c8cea0fe31a3101ab2e65de9712c09aac1b91f"
+    },
+    {
+      "path": ".artifacts/ui14/baseline-build/client/assets/ShoppingPage-DbR32ddX.js.map",
+      "bytes": 21902,
+      "sha256": "0bfadb1b9680e9c4d0949d90cae05813d8909946d0e9148c6286894f546e21d7"
+    },
+    {
+      "path": ".artifacts/ui14/baseline-build/client/assets/StatusChip-CKBLnL3G.js",
+      "bytes": 1716,
+      "sha256": "ae9528e7a610b596b9f583381d05e9e6d09d1ed858c6bc6587b3fc16024b1dbe"
+    },
+    {
+      "path": ".artifacts/ui14/baseline-build/client/assets/StatusChip-CKBLnL3G.js.map",
+      "bytes": 3546,
+      "sha256": "b4ab834d96df887901a0c5a9df7d975e018720d7ae9b7de3799e03c8aa20456f"
+    },
+    {
+      "path": ".artifacts/ui14/baseline-build/client/assets/TopBar-5k7qANJv.js",
+      "bytes": 2939,
+      "sha256": "1f54fd9885b8f7779243a3d9e8e988e7d2e88878eb60e60a6d72775bb3161d54"
+    },
+    {
+      "path": ".artifacts/ui14/baseline-build/client/assets/TopBar-5k7qANJv.js.map",
+      "bytes": 6417,
+      "sha256": "792e297b2ef6814d262284cbdbb0414cb7b21a86e092d57256974f50e04ebb14"
+    },
+    {
+      "path": ".artifacts/ui14/baseline-build/client/assets/WeekDashboardPage-DpEocPzo.js",
+      "bytes": 12551,
+      "sha256": "e15ec7f40a6033e280ed9c47f1540c09761936d6e0bf85153675bc0dae161290"
+    },
+    {
+      "path": ".artifacts/ui14/baseline-build/client/assets/WeekDashboardPage-DpEocPzo.js.map",
+      "bytes": 32715,
+      "sha256": "fbc70726837fc97587c4a9ad4ca04b61a455107223f5c8132858df60b64529a4"
+    },
+    {
+      "path": ".artifacts/ui14/baseline-build/client/assets/WeekGeneratingPage-CMTC-sw3.js",
+      "bytes": 1999,
+      "sha256": "308d80dce9ecd8eb5c98cd499cf829ec058c145109475d4cab07a5a6de80d817"
+    },
+    {
+      "path": ".artifacts/ui14/baseline-build/client/assets/WeekGeneratingPage-CMTC-sw3.js.map",
+      "bytes": 4967,
+      "sha256": "84e47ecdd06f5c7810fd38d3550d8a7f59ea4f2216eb5ce33dd9eb0c592ca27b"
+    },
+    {
+      "path": ".artifacts/ui14/baseline-build/client/assets/WeekSettingsPage-0Y6B4RnN.js",
+      "bytes": 1729,
+      "sha256": "72d815c6ef5fab06f401d75b61b97811631f54a95b54567ece5e23ed7410e426"
+    },
+    {
+      "path": ".artifacts/ui14/baseline-build/client/assets/WeekSettingsPage-0Y6B4RnN.js.map",
+      "bytes": 4131,
+      "sha256": "9fd0c77bda764f435122cfe1eb29a0bc39a97316a0cb673f641467710ec5e342"
+    },
+    {
+      "path": ".artifacts/ui14/baseline-build/client/assets/WeekSetupChoices-DkZD2FH1.js",
+      "bytes": 1585,
+      "sha256": "891271f4833bd6fda241b29050d111ee3d8072a178eb37469b5a5d7a12be5a64"
+    },
+    {
+      "path": ".artifacts/ui14/baseline-build/client/assets/WeekSetupChoices-DkZD2FH1.js.map",
+      "bytes": 3971,
+      "sha256": "e5ff9d1de588f96b3ce009f8b34380142fb3cbc49a57da6590e515d2db6fd711"
+    },
+    {
+      "path": ".artifacts/ui14/baseline-build/client/assets/WeekSetupPage-CQHxv1bn.js",
+      "bytes": 5286,
+      "sha256": "361753f13f65dacf99db4b4315113e83dc8fee25d4b3a23d4b8f20efdcfe6b36"
+    },
+    {
+      "path": ".artifacts/ui14/baseline-build/client/assets/WeekSetupPage-CQHxv1bn.js.map",
+      "bytes": 13866,
+      "sha256": "9c29f349b321d8bef6e56d8ba5283412d20406e96485a7cf7e7a28caa27e712e"
+    },
+    {
+      "path": ".artifacts/ui14/baseline-build/client/assets/WeekShoppingPage-BgOXcvMA.js",
+      "bytes": 6689,
+      "sha256": "3c88f7be55450ad81be8409fb973bbbf7a9036d51359fa83b1525ee8e3f86380"
+    },
+    {
+      "path": ".artifacts/ui14/baseline-build/client/assets/WeekShoppingPage-BgOXcvMA.js.map",
+      "bytes": 19154,
+      "sha256": "bd6b90ba101c8175e82b8972978c34b3d70120712ed1adff822e7c6b14ef741e"
+    },
+    {
+      "path": ".artifacts/ui14/baseline-build/client/assets/WeekWorkspace-CAWImaEB.js",
+      "bytes": 852,
+      "sha256": "f2d7e36951f62c8cc4f0a1d901102bbb9693fc3ad53b6c5c834a4aeeb0b0ee28"
+    },
+    {
+      "path": ".artifacts/ui14/baseline-build/client/assets/WeekWorkspace-CAWImaEB.js.map",
+      "bytes": 2310,
+      "sha256": "f41bf88679f1736794958438e1594504fe46887ea148f46c70035e107a4da6f7"
+    },
+    {
+      "path": ".artifacts/ui14/baseline-build/client/assets/composition-D0KApUdq.js",
+      "bytes": 13793,
+      "sha256": "ab15367a97f4eeb62e86b2107da824b542903aeb303e8912eacc204e6be543b3"
+    },
+    {
+      "path": ".artifacts/ui14/baseline-build/client/assets/composition-D0KApUdq.js.map",
+      "bytes": 46291,
+      "sha256": "4beabf9650bca084af8124dafd0bc331ea2034b63c8952e101b47b0fb050bb47"
+    },
+    {
+      "path": ".artifacts/ui14/baseline-build/client/assets/format-zRZ7DBjT.js",
+      "bytes": 705,
+      "sha256": "2b19ca3f8b46dd618b04f74cd4ccfa660e59256681443098411e6882191cfbcf"
+    },
+    {
+      "path": ".artifacts/ui14/baseline-build/client/assets/format-zRZ7DBjT.js.map",
+      "bytes": 2876,
+      "sha256": "8cb3388cdb0d5e571396d882cc815d72ddd4c00d1bca5f73d1c057bdc3ad5b25"
+    },
+    {
+      "path": ".artifacts/ui14/baseline-build/client/assets/frigo-app-icon.jpg",
+      "bytes": 315121,
+      "sha256": "ee5aa8deb52480766d37e8914271e27583e775b6c331cf4872e413983bf49d0e"
+    },
+    {
+      "path": ".artifacts/ui14/baseline-build/client/assets/frigo-logo.svg",
+      "bytes": 1239,
+      "sha256": "4f4679d46b2d9c0780b5a896e85898dbaccde833aedf80fe06ef0bf0cecf5b74"
+    },
+    {
+      "path": ".artifacts/ui14/baseline-build/client/assets/hero-banner.jpg",
+      "bytes": 765259,
+      "sha256": "de27b2335f085c644a8b327c6cd295a65188a85b448d4bd817f29f7e0f505f55"
+    },
+    {
+      "path": ".artifacts/ui14/baseline-build/client/assets/index-CshmM-GV.css",
+      "bytes": 134832,
+      "sha256": "7c400d1db844a12629f4d9dbd290b6732d12359bf29993e111ba84c196112d61"
+    },
+    {
+      "path": ".artifacts/ui14/baseline-build/client/assets/index-hOvLcnE8.js",
+      "bytes": 463601,
+      "sha256": "6b47d91d0fdc562128a190fb0304b9584090f6482ffbf88631109a7e0cb982e3"
+    },
+    {
+      "path": ".artifacts/ui14/baseline-build/client/assets/index-hOvLcnE8.js.map",
+      "bytes": 1755775,
+      "sha256": "8524dae5d4f5c63c02c428ea9158c18145eaa892070de9fba71c1c07bbd31daa"
+    },
+    {
+      "path": ".artifacts/ui14/baseline-build/client/assets/ingredient-images-DMUMQtkM.js",
+      "bytes": 20220,
+      "sha256": "27427825bd8eb7c1eadc08dd800cc1bf037c10e61d80a7943ff36a22b082ea00"
+    },
+    {
+      "path": ".artifacts/ui14/baseline-build/client/assets/ingredient-images-DMUMQtkM.js.map",
+      "bytes": 19752,
+      "sha256": "8b41d2de60cf7860d93eda6f190d6ec5796c880e623a73faafd7b0b951b3318b"
+    },
+    {
+      "path": ".artifacts/ui14/baseline-build/client/assets/inventory-truth-BHprnlBW.js",
+      "bytes": 3882,
+      "sha256": "77fef6d580a88fda95e1b29c60c274bd44c51676f1aeaf463fbc9edabc82b6c5"
+    },
+    {
+      "path": ".artifacts/ui14/baseline-build/client/assets/inventory-truth-BHprnlBW.js.map",
+      "bytes": 11886,
+      "sha256": "32c9a5335075cb7ffd7ae646a0319ccd4222238bedeb4554895bafd6e3409a47"
+    },
+    {
+      "path": ".artifacts/ui14/baseline-build/client/assets/primitives-DomMZZRE.js",
+      "bytes": 4820,
+      "sha256": "514033c1ff1301cbfca51aad6251a4aedfa81272dbc6aabe180813f86a7cf0fd"
+    },
+    {
+      "path": ".artifacts/ui14/baseline-build/client/assets/primitives-DomMZZRE.js.map",
+      "bytes": 16943,
+      "sha256": "db2a5721438f741ff040a47596e5609b003aaa2f3000e197fbe311d88a5ba92e"
+    },
+    {
+      "path": ".artifacts/ui14/baseline-build/client/assets/recipe-media-Dtf0slDf.js",
+      "bytes": 1676,
+      "sha256": "a47a512402e0b05ee0ab64bbf08f36117735708d19e40163a88c02361bc7603f"
+    },
+    {
+      "path": ".artifacts/ui14/baseline-build/client/assets/recipe-media-Dtf0slDf.js.map",
+      "bytes": 6329,
+      "sha256": "69d67ed07e8eca131421830b9c4e50bd0dd9ffa9ac49084f6c72a89dfd32b369"
+    },
+    {
+      "path": ".artifacts/ui14/baseline-build/client/assets/scan-errors-Db-HSVzV.js",
+      "bytes": 7237,
+      "sha256": "41a2d7979d4037f773a869a776a38810bf24e0e19f36bb868434940d61790010"
+    },
+    {
+      "path": ".artifacts/ui14/baseline-build/client/assets/scan-errors-Db-HSVzV.js.map",
+      "bytes": 18140,
+      "sha256": "47f2d7a25cdc02c97da6631001204fc8d7655dcc0173fb6a7abe0a95da3d1948"
+    },
+    {
+      "path": ".artifacts/ui14/baseline-build/client/assets/scan-mockup.jpg",
+      "bytes": 688347,
+      "sha256": "ab41fc18f69dc7421fd2eb00c477f6d700c4a648cebf16767df7d362be9419b6"
+    },
+    {
+      "path": ".artifacts/ui14/baseline-build/client/assets/use-modal-focus-DttN_fVe.js",
+      "bytes": 1336,
+      "sha256": "55e2764b3e79d1c962efe1bbe6fb3108cbf243144c24acd0e14711bb4ebaf838"
+    },
+    {
+      "path": ".artifacts/ui14/baseline-build/client/assets/use-modal-focus-DttN_fVe.js.map",
+      "bytes": 4017,
+      "sha256": "41b899aa9409ca373583d247bf67a755424c5c627345e68cd5a4c208ceb9ea06"
+    },
+    {
+      "path": ".artifacts/ui14/baseline-build/client/assets/useCookingStore-BbvTvNZa.js",
+      "bytes": 5383,
+      "sha256": "7a8b1031ff72105595fc55e86ef06eea1f2ce716a3209a9e51b573e6308044d4"
+    },
+    {
+      "path": ".artifacts/ui14/baseline-build/client/assets/useCookingStore-BbvTvNZa.js.map",
+      "bytes": 18160,
+      "sha256": "3e7d950df10c8bf8521c898e0c08b1decef5e2418bdc08a4c94f080b5f566ff5"
+    },
+    {
+      "path": ".artifacts/ui14/baseline-build/client/assets/useWeekStore-LhVujraH.js",
+      "bytes": 5585,
+      "sha256": "d62c810e4f3affa332dbd2cb5821dc0a08e2dfd929fe626669490354fd23b3e0"
+    },
+    {
+      "path": ".artifacts/ui14/baseline-build/client/assets/useWeekStore-LhVujraH.js.map",
+      "bytes": 18230,
+      "sha256": "e5e8e3bfb4e9b6da222f850be651a1e1300bbec8ff0cc5606932a460eadbfcce"
+    },
+    {
+      "path": ".artifacts/ui14/baseline-build/client/assets/vendor-icons-ul0AEewg.js",
+      "bytes": 33190,
+      "sha256": "3858a6d344fa810300ca0c50120eaa847a7f8f45577350ab6ed855bf344c3af9"
+    },
+    {
+      "path": ".artifacts/ui14/baseline-build/client/assets/vendor-icons-ul0AEewg.js.map",
+      "bytes": 88466,
+      "sha256": "b417814b4eacab58413337c1dd4c2183dba7aaa41892a99c9f7155bd7b12f603"
+    },
+    {
+      "path": ".artifacts/ui14/baseline-build/client/assets/vendor-query-D03hXVOl.js",
+      "bytes": 42423,
+      "sha256": "73420718dfa3fcdb47671b26d25b919496308eea8de78c035419a702b41ebea8"
+    },
+    {
+      "path": ".artifacts/ui14/baseline-build/client/assets/vendor-query-D03hXVOl.js.map",
+      "bytes": 155733,
+      "sha256": "9614446898082841f967da58d9ee5f2f2ed3ad8ad284a0d505f917d4666def4e"
+    },
+    {
+      "path": ".artifacts/ui14/baseline-build/client/assets/vendor-react-B6oo3S7f.js",
+      "bytes": 164074,
+      "sha256": "3039bd59cc20eedc838a162d192fe24d6baf35b902b257b49f8bf0ded1bebbad"
+    },
+    {
+      "path": ".artifacts/ui14/baseline-build/client/assets/vendor-react-B6oo3S7f.js.map",
+      "bytes": 705956,
+      "sha256": "037097c503c44086674b4d2ae2410de7d5155d9f3ff10397b803538d5c8d6ef7"
+    },
+    {
+      "path": ".artifacts/ui14/baseline-build/client/frigo/app-icons/icon-128.png",
+      "bytes": 12596,
+      "sha256": "66363a9e18d660f42059b5582058abdf23917a9ddf20db675d199ae02a6c1343"
+    },
+    {
+      "path": ".artifacts/ui14/baseline-build/client/frigo/app-icons/icon-16.png",
+      "bytes": 717,
+      "sha256": "539f58c744476c26a6bf27436d74c74e9303a99a6ff0c101d216560203135e26"
+    },
+    {
+      "path": ".artifacts/ui14/baseline-build/client/frigo/app-icons/icon-180.png",
+      "bytes": 21615,
+      "sha256": "90f692efd32e6137d8b1abd98b2025501b940f111d84185dac2824b9a6111363"
+    },
+    {
+      "path": ".artifacts/ui14/baseline-build/client/frigo/app-icons/icon-192.png",
+      "bytes": 24003,
+      "sha256": "2bb20af08591d9d55c6e4b0e03786b0a502eb548bb81c38c89d68a18c147b724"
+    },
+    {
+      "path": ".artifacts/ui14/baseline-build/client/frigo/app-icons/icon-256.png",
+      "bytes": 38551,
+      "sha256": "84fa4be4f1e575865d023e9b09067b98fff4b8a4e1d90c04f6cd1f57dc32aea3"
+    },
+    {
+      "path": ".artifacts/ui14/baseline-build/client/frigo/app-icons/icon-32.png",
+      "bytes": 1794,
+      "sha256": "a06703f3daa007d67419f5b58256e26314944052e35a7a926b0efda3a524aa83"
+    },
+    {
+      "path": ".artifacts/ui14/baseline-build/client/frigo/app-icons/icon-48.png",
+      "bytes": 3020,
+      "sha256": "a11d3024299a321758603d09aecbe50b6f068d4004740c172fda549c544b04bd"
+    },
+    {
+      "path": ".artifacts/ui14/baseline-build/client/frigo/app-icons/icon-512.png",
+      "bytes": 112671,
+      "sha256": "449182ba3b28406f7dcc60194bf334f437a6829eac913e8fda376ba3f71e53c1"
+    },
+    {
+      "path": ".artifacts/ui14/baseline-build/client/frigo/app-icons/icon-64.png",
+      "bytes": 4520,
+      "sha256": "e8bc8307629ea5b1098cd90fe0854cbe79377921e5d68614ecfb29e8aa9257e6"
+    },
+    {
+      "path": ".artifacts/ui14/baseline-build/client/frigo/app-icons/icon-maskable-512.png",
+      "bytes": 75324,
+      "sha256": "dc1f97d10742888810ab33da999b1bd335776f7b53614f45591df8b235070ac8"
+    },
+    {
+      "path": ".artifacts/ui14/baseline-build/client/frigo/brand/logo-compact.png",
+      "bytes": 108175,
+      "sha256": "b82c0b0d017f6b9de86192702d8b536182ac11fe7937a49f03b43e03305ef4cc"
+    },
+    {
+      "path": ".artifacts/ui14/baseline-build/client/frigo/brand/logo-primary.png",
+      "bytes": 169046,
+      "sha256": "15ae681604ac1593885077946b3f6cdc006dcaae0f2faa7ea7d73b72b0e83eb3"
+    },
+    {
+      "path": ".artifacts/ui14/baseline-build/client/frigo/brand/mark.png",
+      "bytes": 65262,
+      "sha256": "dac102217412baed55d88d0a1c2539c5d25be1fb1fe4061c7d4b2de789546cad"
+    },
+    {
+      "path": ".artifacts/ui14/baseline-build/client/frigo/brand/wordmark.png",
+      "bytes": 101566,
+      "sha256": "b20fd6254cf3332997901674bde7c449ceb06681caad49fd5f4a4042e15c8115"
+    },
+    {
+      "path": ".artifacts/ui14/baseline-build/client/frigo/illustrations/delicious-meal.png",
+      "bytes": 216750,
+      "sha256": "fc8cd3b94aa6d192f36dd735e13228c9e1ca1ceafdc36ada72caf5580a3c04b4"
+    },
+    {
+      "path": ".artifacts/ui14/baseline-build/client/frigo/illustrations/empty-fridge.png",
+      "bytes": 156537,
+      "sha256": "0e6bec2dd3e79648b16b8d7b8aa1b3abf970d67bce3a181281256bfe507b260d"
+    },
+    {
+      "path": ".artifacts/ui14/baseline-build/client/frigo/illustrations/frigo-plus.png",
+      "bytes": 191307,
+      "sha256": "26ad044323808275220921c06efe4a3a80e02609071f40411f7b5c678c3c11ff"
+    },
+    {
+      "path": ".artifacts/ui14/baseline-build/client/frigo/illustrations/no-recipes.png",
+      "bytes": 185524,
+      "sha256": "cd378b36df3a72513f3dea756c89b6c4d6aa9756faa2ca028f0c9e1405151d5f"
+    },
+    {
+      "path": ".artifacts/ui14/baseline-build/client/frigo/illustrations/scan-fridge.png",
+      "bytes": 214297,
+      "sha256": "436ecb188c081f40f3643b32bee90439fc606b73781ae0c7665fc6ca0361f0fd"
+    },
+    {
+      "path": ".artifacts/ui14/baseline-build/client/frigo/illustrations/shopping-ready.png",
+      "bytes": 204435,
+      "sha256": "a295fcf29a254f563b6269c8e3cd8b056e26350b85976d27b940977c3aced8dd"
+    },
+    {
+      "path": ".artifacts/ui14/baseline-build/client/frigo/illustrations/use-soon.png",
+      "bytes": 188030,
+      "sha256": "77567c646ecc0c450490c95d9a7f3b02beb972f7629c64e2a4867652435a25e6"
+    },
+    {
+      "path": ".artifacts/ui14/baseline-build/client/frigo/illustrations/world-cuisines.png",
+      "bytes": 256733,
+      "sha256": "a438f177f403b9404e71dae7898032b4ace6e0a65846fe696369926a47f3ea0d"
+    },
+    {
+      "path": ".artifacts/ui14/baseline-build/client/frigo/ingredients/generic/category-dairy.png",
+      "bytes": 130577,
+      "sha256": "e43205db6490ff053fe28bf39eabcbfbf81aab128f6d496e3d2e58a66a09dba7"
+    },
+    {
+      "path": ".artifacts/ui14/baseline-build/client/frigo/ingredients/generic/category-fruit.png",
+      "bytes": 313358,
+      "sha256": "d04a83b669b18895cec59aeb973b08c1622daa7860c79c84ac9866bf4744a5ad"
+    },
+    {
+      "path": ".artifacts/ui14/baseline-build/client/frigo/ingredients/generic/category-grain.png",
+      "bytes": 284781,
+      "sha256": "0b2fdb86dc9ef193abd96eef2171624061170ca2e8d04532f8f35de0b78f2e2b"
+    },
+    {
+      "path": ".artifacts/ui14/baseline-build/client/frigo/ingredients/generic/category-meat.png",
+      "bytes": 409568,
+      "sha256": "a1e780b315ef147e7025e8780f5b391462efef603c8ddd56dfeefe14ff7c2e5d"
+    },
+    {
+      "path": ".artifacts/ui14/baseline-build/client/frigo/ingredients/generic/category-other.png",
+      "bytes": 259503,
+      "sha256": "01d369251e0796971011192b21c017ff8ec28910f8c0c75265810463acaec403"
+    },
+    {
+      "path": ".artifacts/ui14/baseline-build/client/frigo/ingredients/generic/category-seafood.png",
+      "bytes": 124000,
+      "sha256": "7ccde04bf84660c6d102d284b4f9d2de69b9cdfb7b3de9665d913e2c653f13dc"
+    },
+    {
+      "path": ".artifacts/ui14/baseline-build/client/frigo/ingredients/generic/category-spice.png",
+      "bytes": 401217,
+      "sha256": "2d1f3b21ef22dcd7c83a405fc6256aa9188958a1f252db4d2beecc57fbde00ef"
+    },
+    {
+      "path": ".artifacts/ui14/baseline-build/client/frigo/ingredients/generic/category-vegetable.png",
+      "bytes": 402549,
+      "sha256": "1b1ab145ada06c447e460bbaca55b1f8a3e5c09a47ad853030d120fbe16faf61"
+    },
+    {
+      "path": ".artifacts/ui14/baseline-build/client/frigo/ingredients/pantry/beans.png",
+      "bytes": 76490,
+      "sha256": "5b4b570245a3e17d16f147a7d4b003591d6f6afcea8d3639f0d3a0b5acfc5f26"
+    },
+    {
+      "path": ".artifacts/ui14/baseline-build/client/frigo/ingredients/pantry/beef.png",
+      "bytes": 90794,
+      "sha256": "f5173cf6518180e94c327adda827dcc80a93b6ee41d71e9c0dad81cd425fda08"
+    },
+    {
+      "path": ".artifacts/ui14/baseline-build/client/frigo/ingredients/pantry/bread.png",
+      "bytes": 74800,
+      "sha256": "ec4ab05160fa73ef8262a69efbf28a82a382435d7e9976471c6a436e5e4bb14f"
+    },
+    {
+      "path": ".artifacts/ui14/baseline-build/client/frigo/ingredients/pantry/butter.png",
+      "bytes": 52514,
+      "sha256": "fd6c40c421a022191de29a22a8a5d00deaa6dbfe741edabd11832e7ee3e91136"
+    },
+    {
+      "path": ".artifacts/ui14/baseline-build/client/frigo/ingredients/pantry/cheese.png",
+      "bytes": 45103,
+      "sha256": "cfd463e4a368d7b531dfe277d05884cca1755441707932165240c0d0a5187a85"
+    },
+    {
+      "path": ".artifacts/ui14/baseline-build/client/frigo/ingredients/pantry/chicken-breast.png",
+      "bytes": 63814,
+      "sha256": "50ca7a72fdf223eadadd65060a6dcfe6e9977accc4b6ec66b531be6d67ea5c44"
+    },
+    {
+      "path": ".artifacts/ui14/baseline-build/client/frigo/ingredients/pantry/cooked-rice.png",
+      "bytes": 60535,
+      "sha256": "6e6da51c420a3db283ab4e81684e2aac0b16a67c5897fb795f5d8b404d204e68"
+    },
+    {
+      "path": ".artifacts/ui14/baseline-build/client/frigo/ingredients/pantry/cooking-oil.png",
+      "bytes": 63565,
+      "sha256": "11de55598ba1f1d2489ed5c69ee8c3dd4133a415bb639ae448a8927661be20ba"
+    },
+    {
+      "path": ".artifacts/ui14/baseline-build/client/frigo/ingredients/pantry/cooking-wine.png",
+      "bytes": 81405,
+      "sha256": "74ea2722fef845843cec2a74695fa1534291130ff412b8a449fee9b9404073ee"
+    },
+    {
+      "path": ".artifacts/ui14/baseline-build/client/frigo/ingredients/pantry/crab.png",
+      "bytes": 267954,
+      "sha256": "d88fa31f43eb56f65aa6e24b1d438da1438b0b066d96db1bfb82a832d746d1f0"
+    },
+    {
+      "path": ".artifacts/ui14/baseline-build/client/frigo/ingredients/pantry/egg.png",
+      "bytes": 48121,
+      "sha256": "6b4ad3fc2ac1b71e933674dffa532a8a52c0dd4b8f74773b08c147a490e2e9ff"
+    },
+    {
+      "path": ".artifacts/ui14/baseline-build/client/frigo/ingredients/pantry/fish-sauce.png",
+      "bytes": 48170,
+      "sha256": "3d3a4d59573efb2909cb12009c7d7fada994edd61f14b90c7021eb00773b3081"
+    },
+    {
+      "path": ".artifacts/ui14/baseline-build/client/frigo/ingredients/pantry/flour.png",
+      "bytes": 405315,
+      "sha256": "69f49a756296976d2d91e095aa621a16e1554504e8dfd2aff0c2ebd56c63ced4"
+    },
+    {
+      "path": ".artifacts/ui14/baseline-build/client/frigo/ingredients/pantry/honey.png",
+      "bytes": 256851,
+      "sha256": "6b9e12734fd8c5df0380620a17fc36c52fd5a721cb6abed8654c771d25e4996a"
+    },
+    {
+      "path": ".artifacts/ui14/baseline-build/client/frigo/ingredients/pantry/kimchi.png",
+      "bytes": 93306,
+      "sha256": "d16805ef90e60d2804e9d43451b32394885f14bd305204dac36a3133728d8d33"
+    },
+    {
+      "path": ".artifacts/ui14/baseline-build/client/frigo/ingredients/pantry/milk.png",
+      "bytes": 38593,
+      "sha256": "21e929e10ddce8e551cda6aa65c3593897dcdc328e07e74940d0837dea0fd416"
+    },
+    {
+      "path": ".artifacts/ui14/baseline-build/client/frigo/ingredients/pantry/noodles.png",
+      "bytes": 76898,
+      "sha256": "4446ef3bd477a4fdc94864bff19f8df1cb75fac27cb75c09bbe19c520b58f3ed"
+    },
+    {
+      "path": ".artifacts/ui14/baseline-build/client/frigo/ingredients/pantry/oyster-sauce.png",
+      "bytes": 300690,
+      "sha256": "382778679d4b684eaf4c32f7e0dd4ef89be96f20726fa67d868108c2b01ddace"
+    },
+    {
+      "path": ".artifacts/ui14/baseline-build/client/frigo/ingredients/pantry/pasta.png",
+      "bytes": 70295,
+      "sha256": "eded980a59e75cb6fe992ab76c5eb9ffa301e7808c7e0f558473bb322f51a05e"
+    },
+    {
+      "path": ".artifacts/ui14/baseline-build/client/frigo/ingredients/pantry/peanut.png",
+      "bytes": 242020,
+      "sha256": "2dcb36d6b1483727ada0e5e0f56811d953d914017ba67ae107072705efac9578"
+    },
+    {
+      "path": ".artifacts/ui14/baseline-build/client/frigo/ingredients/pantry/pepper.png",
+      "bytes": 275362,
+      "sha256": "263b5435ceb65fdb0f0e927875e51c482fa3833b76fdd0995e6e73730e85cff6"
+    },
+    {
+      "path": ".artifacts/ui14/baseline-build/client/frigo/ingredients/pantry/pork-belly.png",
+      "bytes": 64777,
+      "sha256": "bf18441aa6e85736c1f63805864bda061f4316e1aacdb6969df8b8e02f888340"
+    },
+    {
+      "path": ".artifacts/ui14/baseline-build/client/frigo/ingredients/pantry/rice-paper.png",
+      "bytes": 276020,
+      "sha256": "f4f20f2a7f93eccd5f6941b5a4391fa451e03b220d6741ce12a1b0762ae7b844"
+    },
+    {
+      "path": ".artifacts/ui14/baseline-build/client/frigo/ingredients/pantry/rice.png",
+      "bytes": 76998,
+      "sha256": "7bb53b24c1c65321b76c1d399dbfdc3ff461cd1c30bb19df18acab168be71448"
+    },
+    {
+      "path": ".artifacts/ui14/baseline-build/client/frigo/ingredients/pantry/salmon.png",
+      "bytes": 79383,
+      "sha256": "4c79f3f0f8689ac830a177817ba558f64fb0cde8e0508f4ba3c9f292fd27ec2c"
+    },
+    {
+      "path": ".artifacts/ui14/baseline-build/client/frigo/ingredients/pantry/salt.png",
+      "bytes": 384760,
+      "sha256": "e5167a142ac68becb8640ac90832a2232e79082946ca02fd7dae499342ce24a3"
+    },
+    {
+      "path": ".artifacts/ui14/baseline-build/client/frigo/ingredients/pantry/sausage.png",
+      "bytes": 61595,
+      "sha256": "2be93a7847595cb75031356eb52484d6c7a0d044a529bd9dbd9307e3ad17222f"
+    },
+    {
+      "path": ".artifacts/ui14/baseline-build/client/frigo/ingredients/pantry/seasoning-powder.png",
+      "bytes": 327770,
+      "sha256": "e47306b0be0c80bf3f8989d9d7e4a4721ed1c99ac13c3d5ca01dc74d9d261932"
+    },
+    {
+      "path": ".artifacts/ui14/baseline-build/client/frigo/ingredients/pantry/sesame-oil.png",
+      "bytes": 224505,
+      "sha256": "d40232d4d0a1cebd368841b4ec3c91714c5bd8263667efd667bcb96e7671c84e"
+    },
+    {
+      "path": ".artifacts/ui14/baseline-build/client/frigo/ingredients/pantry/sesame.png",
+      "bytes": 482424,
+      "sha256": "2c0a7230137483872ab18caa3d4d63ae9ad3ca0621327e43f2c772549ba66db1"
+    },
+    {
+      "path": ".artifacts/ui14/baseline-build/client/frigo/ingredients/pantry/shrimp.png",
+      "bytes": 76369,
+      "sha256": "651d6fe2403c5cb2e0c87b84d29dbafd051767d4834c8f47f9474263b99f2b29"
+    },
+    {
+      "path": ".artifacts/ui14/baseline-build/client/frigo/ingredients/pantry/soy-sauce.png",
+      "bytes": 52927,
+      "sha256": "5e5e4c32aded610aaa4d84b59cfef1ca951c038a023f947811d960178a576fa3"
+    },
+    {
+      "path": ".artifacts/ui14/baseline-build/client/frigo/ingredients/pantry/spare-ribs.png",
+      "bytes": 347408,
+      "sha256": "fc619ac6b41ced42ad801d8486023d239e13cff6bb9717fd2575344c224dc992"
+    },
+    {
+      "path": ".artifacts/ui14/baseline-build/client/frigo/ingredients/pantry/squid.png",
+      "bytes": 218942,
+      "sha256": "0eff4b5ec2f7bd97485bf2fc39f3d160fcc68d996993c1a7ba22b9251a4398da"
+    },
+    {
+      "path": ".artifacts/ui14/baseline-build/client/frigo/ingredients/pantry/sugar.png",
+      "bytes": 76341,
+      "sha256": "c2b50df02f0635948c1eb2751fb642a3d2a560272aaf546e136a5bdbc65743d5"
+    },
+    {
+      "path": ".artifacts/ui14/baseline-build/client/frigo/ingredients/pantry/tofu.png",
+      "bytes": 52576,
+      "sha256": "046c55a00f2a37d8c239dbb3d7cc8a7d1c63cf4bd4bf811a3964af332e4ecee3"
+    },
+    {
+      "path": ".artifacts/ui14/baseline-build/client/frigo/ingredients/pantry/vinegar.png",
+      "bytes": 162033,
+      "sha256": "610060f5c098a5ae4c7dfa8023384780821c8bdcfcec01aa59283ecfea746fa4"
+    },
+    {
+      "path": ".artifacts/ui14/baseline-build/client/frigo/ingredients/pantry/water.png",
+      "bytes": 259780,
+      "sha256": "8ff3eef54625b8f77f3e765ecb70782abdb014b5860db48f1a96dca5843dc6ad"
+    },
+    {
+      "path": ".artifacts/ui14/baseline-build/client/frigo/ingredients/pantry/white-fish.png",
+      "bytes": 68815,
+      "sha256": "5bda454d8bf02deab27e5580d29f454b316efea4dfa4a269dc216f95f08d2ae3"
+    },
+    {
+      "path": ".artifacts/ui14/baseline-build/client/frigo/ingredients/pantry/yogurt.png",
+      "bytes": 55181,
+      "sha256": "89b90976be4b4af1fc92ea51cdae365d4d2816965c1b04db4b2859387260b76d"
+    },
+    {
+      "path": ".artifacts/ui14/baseline-build/client/frigo/ingredients/vegetables/avocado.png",
+      "bytes": 83656,
+      "sha256": "698913f861b5b4a8790fa74ad9ebe72096c2215d11fcadf2c2eb6733201e5390"
+    },
+    {
+      "path": ".artifacts/ui14/baseline-build/client/frigo/ingredients/vegetables/basil.png",
+      "bytes": 72498,
+      "sha256": "767edc4105de2caa3fd7ae33d1b917bd596f334a047760b5bf8cb4b2cfd8a248"
+    },
+    {
+      "path": ".artifacts/ui14/baseline-build/client/frigo/ingredients/vegetables/bean-sprouts.png",
+      "bytes": 242668,
+      "sha256": "6754b75adb20ae5013bb3271b3f326cc6595e24a492c9acc9d74eb146ae17042"
+    },
+    {
+      "path": ".artifacts/ui14/baseline-build/client/frigo/ingredients/vegetables/bitter-melon.png",
+      "bytes": 168607,
+      "sha256": "34a3cd4d468887d4b8d956cc1c4aea446b6b667e0a1c6a6a20a7e9759f4240c5"
+    },
+    {
+      "path": ".artifacts/ui14/baseline-build/client/frigo/ingredients/vegetables/bok-choy.png",
+      "bytes": 78398,
+      "sha256": "42e7c10f5b92a79c690ca424853c67d06804b1c9d19ae602033ac2b13885bb4d"
+    },
+    {
+      "path": ".artifacts/ui14/baseline-build/client/frigo/ingredients/vegetables/broccoli.png",
+      "bytes": 97911,
+      "sha256": "154376c68b241895eb5f04e921efe2e6a6458fc4272c8719f89a63d899ee37f8"
+    },
+    {
+      "path": ".artifacts/ui14/baseline-build/client/frigo/ingredients/vegetables/cabbage.png",
+      "bytes": 82223,
+      "sha256": "5cf1a4858fd6e07066b6f97eb4d41d6795fc91966cb0ca45e2bad82beda9172f"
+    },
+    {
+      "path": ".artifacts/ui14/baseline-build/client/frigo/ingredients/vegetables/carrot.png",
+      "bytes": 83810,
+      "sha256": "93c493f1a192eeb255696fe60ab80319b3b34ea80051979d8dc3927e45707845"
+    },
+    {
+      "path": ".artifacts/ui14/baseline-build/client/frigo/ingredients/vegetables/chili.png",
+      "bytes": 66939,
+      "sha256": "acea092e9807ac981af752a66a9fdf5cfab155393b9f7268797fd83bf3972aa6"
+    },
+    {
+      "path": ".artifacts/ui14/baseline-build/client/frigo/ingredients/vegetables/cilantro.png",
+      "bytes": 332556,
+      "sha256": "139f18693d286be18c5f2a1c790f53b9395a7184421981a7e83e06af7535918e"
+    },
+    {
+      "path": ".artifacts/ui14/baseline-build/client/frigo/ingredients/vegetables/corn.png",
+      "bytes": 96308,
+      "sha256": "fe3640eb4fcb8cb8db09d6078d1573282bfd0705e0a43ebabb078703c475858b"
+    },
+    {
+      "path": ".artifacts/ui14/baseline-build/client/frigo/ingredients/vegetables/cucumber.png",
+      "bytes": 91910,
+      "sha256": "574b54336980c59a4bf37fd07cd2fb807b1a1072d1f0d2045bdd571b1fd7eace"
+    },
+    {
+      "path": ".artifacts/ui14/baseline-build/client/frigo/ingredients/vegetables/eggplant.png",
+      "bytes": 67784,
+      "sha256": "3895b87ba4715dbb269f31a6a1d4322d4291a7049de67d4717390b819a9aa40e"
+    },
+    {
+      "path": ".artifacts/ui14/baseline-build/client/frigo/ingredients/vegetables/galangal.png",
+      "bytes": 208133,
+      "sha256": "aeb9a9f42cd4fea48e5ff6417432b1d3147c0ca9304727ef5a906dd52e91f2ba"
+    },
+    {
+      "path": ".artifacts/ui14/baseline-build/client/frigo/ingredients/vegetables/garlic.png",
+      "bytes": 51465,
+      "sha256": "7cbb78428d65d37a0ede71b4c852c4330beaa8ba64ea19d76f8dd4fc313a31ec"
+    },
+    {
+      "path": ".artifacts/ui14/baseline-build/client/frigo/ingredients/vegetables/ginger.png",
+      "bytes": 95014,
+      "sha256": "7908231b3779de7be40624be48a1f6157899962396d5203c1625e6a898ebace5"
+    },
+    {
+      "path": ".artifacts/ui14/baseline-build/client/frigo/ingredients/vegetables/leek.png",
+      "bytes": 202325,
+      "sha256": "2a567a87fefb03fe10b3eed9b1cae73cd3f44f3c990babc97809c0cdb27b1f62"
+    },
+    {
+      "path": ".artifacts/ui14/baseline-build/client/frigo/ingredients/vegetables/lemon.png",
+      "bytes": 75168,
+      "sha256": "2b8f7fb168b7bcb73056e97e640c6bbe9a568cb67a7681e466e39a8765da2966"
+    },
+    {
+      "path": ".artifacts/ui14/baseline-build/client/frigo/ingredients/vegetables/lemongrass.png",
+      "bytes": 170305,
+      "sha256": "8c2f6ae00bc022d8968710c66ae14358e2a9d8f6a5a973f3830e4d21037d184b"
+    },
+    {
+      "path": ".artifacts/ui14/baseline-build/client/frigo/ingredients/vegetables/lettuce.png",
+      "bytes": 107518,
+      "sha256": "3209cc0a9ecacd40d003169a807a432aa0f29c386c4d0e67be6a4a85f392a04b"
+    },
+    {
+      "path": ".artifacts/ui14/baseline-build/client/frigo/ingredients/vegetables/lime.png",
+      "bytes": 84322,
+      "sha256": "a5552f6822a4007e169239515df77589af04071226a5b87df0123067b983c873"
+    },
+    {
+      "path": ".artifacts/ui14/baseline-build/client/frigo/ingredients/vegetables/luffa.png",
+      "bytes": 224651,
+      "sha256": "5f9918776e247fdbcbd6704590cae15a6fc0e73c2d9822ceeab026c996d9fa51"
+    },
+    {
+      "path": ".artifacts/ui14/baseline-build/client/frigo/ingredients/vegetables/mint.png",
+      "bytes": 322159,
+      "sha256": "aba90e1e2e2ad2aba9e9ac85019d7663b6fab53a4b1d221bf77456705c25ddd1"
+    },
+    {
+      "path": ".artifacts/ui14/baseline-build/client/frigo/ingredients/vegetables/mushroom.png",
+      "bytes": 84127,
+      "sha256": "e4d7b2ea3449dada2a378648f1592f0e2f9f38c0990fe76e57201f58eb56a477"
+    },
+    {
+      "path": ".artifacts/ui14/baseline-build/client/frigo/ingredients/vegetables/onion.png",
+      "bytes": 55640,
+      "sha256": "42cfa6f193b4e4424fa744d63145e1bb4e6a167042adf173100ac34c67794f03"
+    },
+    {
+      "path": ".artifacts/ui14/baseline-build/client/frigo/ingredients/vegetables/pineapple.png",
+      "bytes": 248364,
+      "sha256": "478eba7be4fea35e1b6bccfedf7a3df8237b739cab76fcdf8f369f1180c24d3b"
+    },
+    {
+      "path": ".artifacts/ui14/baseline-build/client/frigo/ingredients/vegetables/potato.png",
+      "bytes": 74084,
+      "sha256": "d4270aa6334a15b577673ef1fa0af2862212bb90a2e3198d51dac42757556da5"
+    },
+    {
+      "path": ".artifacts/ui14/baseline-build/client/frigo/ingredients/vegetables/pumpkin.png",
+      "bytes": 101797,
+      "sha256": "16a519996ddddde8002cf3fbb170eb0e20d417fd7519e0fc541a4d50e29ed0e1"
+    },
+    {
+      "path": ".artifacts/ui14/baseline-build/client/frigo/ingredients/vegetables/red-bell-pepper.png",
+      "bytes": 77603,
+      "sha256": "3aeecade8d8cfe0db2fad0b76679c03797bc51243cc97ff7b983ee35810de1b4"
+    },
+    {
+      "path": ".artifacts/ui14/baseline-build/client/frigo/ingredients/vegetables/scallion.png",
+      "bytes": 56524,
+      "sha256": "7338fd177e2f1cd2876ee32a7b56663d969697d0d5864843b28e9619139b52b0"
+    },
+    {
+      "path": ".artifacts/ui14/baseline-build/client/frigo/ingredients/vegetables/shallot.png",
+      "bytes": 349980,
+      "sha256": "34106317f94bcd56e296dd0f8d113902493717606861fdf68c90bcc83d77d1de"
+    },
+    {
+      "path": ".artifacts/ui14/baseline-build/client/frigo/ingredients/vegetables/spinach.png",
+      "bytes": 79957,
+      "sha256": "56036c1a1b191ac63fe780d005e53765634a1eb51556ca8c6a4f754a17a9df65"
+    },
+    {
+      "path": ".artifacts/ui14/baseline-build/client/frigo/ingredients/vegetables/tomato.png",
+      "bytes": 58890,
+      "sha256": "95878907ce88f26315fb5153d97732dd1e5e7feec1a9adeda17953c97c9154c0"
+    },
+    {
+      "path": ".artifacts/ui14/baseline-build/client/frigo/ingredients/vegetables/turmeric.png",
+      "bytes": 338638,
+      "sha256": "a19acf518b649b2d8baed41f47e318ae2cccb9bfbe2318f79a3b1d8308da41b5"
+    },
+    {
+      "path": ".artifacts/ui14/baseline-build/client/frigo/ingredients/vegetables/vietnamese-coriander.png",
+      "bytes": 244274,
+      "sha256": "c82f1a65ba3e83ed3937ac58b139706469dc2b856e71e741001dfe3af2c3ef62"
+    },
+    {
+      "path": ".artifacts/ui14/baseline-build/client/frigo/ingredients/vegetables/water-spinach.png",
+      "bytes": 105008,
+      "sha256": "ef51912cb7d205fd7598209e6d77ccc10e24b3d89b16a3a239caa70e23f89cbe"
+    },
+    {
+      "path": ".artifacts/ui14/baseline-build/client/frigo/ingredients/vegetables/white-radish.png",
+      "bytes": 82806,
+      "sha256": "76b5bf082b59ae21fc19f1255cec749057ec6249979872b704f2ec4cc64b89d5"
+    },
+    {
+      "path": ".artifacts/ui14/baseline-build/client/frigo/ingredients/vegetables/winter-melon.png",
+      "bytes": 271038,
+      "sha256": "6a9523678705cbe601db380abd0322c195ae07ed0d16a75fccb17b27b82eaa0c"
+    },
+    {
+      "path": ".artifacts/ui14/baseline-build/client/frigo/ingredients/vegetables/zucchini.png",
+      "bytes": 161780,
+      "sha256": "e432a9ee4adf349f6aa4ab379a96c0549e0f285d2eda22feb2b61dbbd72e7608"
+    },
+    {
+      "path": ".artifacts/ui14/baseline-build/client/frigo/recipes/global/kimchi-fried-rice.webp",
+      "bytes": 63902,
+      "sha256": "b4ed63ff715c6eb3b183e49a0c15f30e32a2522c288184b6353482bef612ca8d"
+    },
+    {
+      "path": ".artifacts/ui14/baseline-build/client/frigo/recipes/global/mapo-tofu.webp",
+      "bytes": 65846,
+      "sha256": "bfa6e099a8c3c289e248a3f19d36bc96d6e47f195277239a481603bb24bfbd4a"
+    },
+    {
+      "path": ".artifacts/ui14/baseline-build/client/frigo/recipes/global/oyakodon.webp",
+      "bytes": 55662,
+      "sha256": "f6fa1e79ed329871c6461a7bacafe35d594d05a00f1ff7a7b06c458d7013735b"
+    },
+    {
+      "path": ".artifacts/ui14/baseline-build/client/frigo/recipes/global/pad-krapow.webp",
+      "bytes": 61312,
+      "sha256": "518d62f283dbae4959e04d06dd8a9b9e2a195388aeb57e8da39e2114eebd6b2e"
+    },
+    {
+      "path": ".artifacts/ui14/baseline-build/client/frigo/recipes/global/pasta-pomodoro.webp",
+      "bytes": 65518,
+      "sha256": "82a23e835f15733dee11df7061364b53a7f94fb75014fd1f703c25668448b842"
+    },
+    {
+      "path": ".artifacts/ui14/baseline-build/client/frigo/recipes/global/tomato-egg-stir-fry.webp",
+      "bytes": 52622,
+      "sha256": "2f1889cec34e84000cfb2f9c826f9927c738ec62ac776a81ed2a8f83b5786743"
+    },
+    {
+      "path": ".artifacts/ui14/baseline-build/client/frigo/recipes/vietnam/canh-chua-ca.webp",
+      "bytes": 66390,
+      "sha256": "72e90eb0479f0a7983a68b54a069f2798bd714eaf68b8333afc9d856f82ee82d"
+    },
+    {
+      "path": ".artifacts/ui14/baseline-build/client/frigo/recipes/vietnam/com-chien-trung.webp",
+      "bytes": 58848,
+      "sha256": "2267ff4ed1181ea870ed27d45c7b418f0dfcb443a0b4f38d9b8c85eccd9e0fba"
+    },
+    {
+      "path": ".artifacts/ui14/baseline-build/client/frigo/recipes/vietnam/dau-phu-sot-ca-chua.webp",
+      "bytes": 68598,
+      "sha256": "8bbe363b887201473cc660e3f0be7f2ea56136b412bd7009e93511d5d1f4f3fc"
+    },
+    {
+      "path": ".artifacts/ui14/baseline-build/client/frigo/recipes/vietnam/ga-kho-gung.webp",
+      "bytes": 65934,
+      "sha256": "f28da1bbc42ae2371601d1386c5a4c6157962f27fc21e3afd3870ca6d7448c8f"
+    },
+    {
+      "path": ".artifacts/ui14/baseline-build/client/frigo/recipes/vietnam/rau-muong-xao-toi.webp",
+      "bytes": 65824,
+      "sha256": "763373595603fe577c9621467e3c45fbb3c46712a58e3fb5febff34abc0dcce0"
+    },
+    {
+      "path": ".artifacts/ui14/baseline-build/client/frigo/recipes/vietnam/thit-kho-trung.webp",
+      "bytes": 65130,
+      "sha256": "04b9811468b01a81e504085341c3ddd2c9eb77afbebe51790c42be624acf6569"
+    },
+    {
+      "path": ".artifacts/ui14/baseline-build/client/frigo/reference/brand_board.png",
+      "bytes": 1598233,
+      "sha256": "8e388b64bad2e09110de20798079993ee4a6c21e2ad944e5f85535bb0d7152d0"
+    },
+    {
+      "path": ".artifacts/ui14/baseline-build/client/frigo/reference/frontend_assets_board.png",
+      "bytes": 1742964,
+      "sha256": "ff8790f6f372d058f69764e8529e112d17c593d36d0b727844e1bfed9439e381"
+    },
+    {
+      "path": ".artifacts/ui14/baseline-build/client/frigo/reference/screen_reference.png",
+      "bytes": 1769701,
+      "sha256": "a9cd65e314525b90976051377fec0df6ae39962130f2068cafe422b5b85da15a"
+    },
+    {
+      "path": ".artifacts/ui14/baseline-build/client/frigo/reference/ui_components_board.png",
+      "bytes": 1588966,
+      "sha256": "eef30b588621c4b2ed544d16aa96edda2f54b57ad0a5f6f701057e8448bda064"
+    },
+    {
+      "path": ".artifacts/ui14/baseline-build/client/frigo/ui-icons/calendar.png",
+      "bytes": 20220,
+      "sha256": "4c13fe93e538b6e8fd4cbfff459afadedc8338b4f519c93219820d891959fa69"
+    },
+    {
+      "path": ".artifacts/ui14/baseline-build/client/frigo/ui-icons/camera.png",
+      "bytes": 24879,
+      "sha256": "074b461856def20c892cecfd880a7b0f873bd5a890ebf2ff360fb4d13ea64f9e"
+    },
+    {
+      "path": ".artifacts/ui14/baseline-build/client/frigo/ui-icons/cart.png",
+      "bytes": 16646,
+      "sha256": "5ff6dbd5796073a34055d713c551cd942c2ed5a18bc605c905f0eadd33beedce"
+    },
+    {
+      "path": ".artifacts/ui14/baseline-build/client/frigo/ui-icons/check.png",
+      "bytes": 19972,
+      "sha256": "d5ba06d3f9c5544180c52ddafb50c4a5efbfcc9a98d83beecd4a302cd5e6566a"
+    },
+    {
+      "path": ".artifacts/ui14/baseline-build/client/frigo/ui-icons/chef.png",
+      "bytes": 22041,
+      "sha256": "4ad235f58e012a7a2555f0e41255b2de6455fa5949a72b8a6c662a8809ca0a6d"
+    },
+    {
+      "path": ".artifacts/ui14/baseline-build/client/frigo/ui-icons/clock.png",
+      "bytes": 21277,
+      "sha256": "a6919e93c61089b187832783f213c4e3d65009225e0639c2757d9c3334b07c66"
+    },
+    {
+      "path": ".artifacts/ui14/baseline-build/client/frigo/ui-icons/delete.png",
+      "bytes": 17265,
+      "sha256": "83d7370aac2af87856763253a44efc773a7a14188a9c7dca4c718bf05cad8253"
+    },
+    {
+      "path": ".artifacts/ui14/baseline-build/client/frigo/ui-icons/edit.png",
+      "bytes": 15799,
+      "sha256": "d9cd68553ecddd6a17c551c9b4d0c21168c57854af58ef4360b33c5ff3d5ca45"
+    },
+    {
+      "path": ".artifacts/ui14/baseline-build/client/frigo/ui-icons/favorite.png",
+      "bytes": 17195,
+      "sha256": "c8a0f557c57661599780c6571075474f7182c4508edfbee178ccb518549a4f51"
+    },
+    {
+      "path": ".artifacts/ui14/baseline-build/client/frigo/ui-icons/filter.png",
+      "bytes": 14942,
+      "sha256": "63930dab4a6f99e6b0047add64cd317a8a08aa1f2860af5dd1e72e336c1c5f98"
+    },
+    {
+      "path": ".artifacts/ui14/baseline-build/client/frigo/ui-icons/fridge.png",
+      "bytes": 20073,
+      "sha256": "cab32707a6a36830de18876cef82908c0d477e8d3eb7bd9d1e19ab6e70ace0ac"
+    },
+    {
+      "path": ".artifacts/ui14/baseline-build/client/frigo/ui-icons/gallery.png",
+      "bytes": 19102,
+      "sha256": "fbc24704fc04c929da1090491b179008dbbc1d939ff88cce406e8bb9493353a5"
+    },
+    {
+      "path": ".artifacts/ui14/baseline-build/client/frigo/ui-icons/globe.png",
+      "bytes": 28599,
+      "sha256": "47dc7ec8f058bca9a89e5fcb0f76befe4419358d9970f218f174323fb534ac7b"
+    },
+    {
+      "path": ".artifacts/ui14/baseline-build/client/frigo/ui-icons/home.png",
+      "bytes": 15963,
+      "sha256": "7720fadd8fa6f1e61e6000a62b47a296cd57921638c0d65c5494558ed84436e5"
+    },
+    {
+      "path": ".artifacts/ui14/baseline-build/client/frigo/ui-icons/hot.png",
+      "bytes": 18520,
+      "sha256": "54ae210ba718f2802a70fa09526d96d0476b085f157cf620118dff7fd64e8efe"
+    },
+    {
+      "path": ".artifacts/ui14/baseline-build/client/frigo/ui-icons/list.png",
+      "bytes": 18157,
+      "sha256": "48142e7e863cd8fe5b13b482faeaed6dd843e70a344397959118cf4c3711dfa3"
+    },
+    {
+      "path": ".artifacts/ui14/baseline-build/client/frigo/ui-icons/minus.png",
+      "bytes": 16797,
+      "sha256": "479a0fceb56021428b8702c62e512e47f3adce07353ebc1b3675915a4e9e46f5"
+    },
+    {
+      "path": ".artifacts/ui14/baseline-build/client/frigo/ui-icons/notification.png",
+      "bytes": 17437,
+      "sha256": "2b71df37e954b8b08a5ea8bb22221616d02fb26b48f8043d305fb265dabd0f3b"
+    },
+    {
+      "path": ".artifacts/ui14/baseline-build/client/frigo/ui-icons/plus.png",
+      "bytes": 19024,
+      "sha256": "b2d6c4cc27ad9627f1e97147fef2c637453bcfabc1db0d36d57e72f1b78ecdb7"
+    },
+    {
+      "path": ".artifacts/ui14/baseline-build/client/frigo/ui-icons/profile.png",
+      "bytes": 20459,
+      "sha256": "11af76d89ca5a5f91d6b8b8af677e19c24c0a41d3ec45f82c31f553f48cd457c"
+    },
+    {
+      "path": ".artifacts/ui14/baseline-build/client/frigo/ui-icons/refresh.png",
+      "bytes": 24623,
+      "sha256": "2c4d03d0115d3b0b39fa28a922a0e9fedbedf4b5b6841b7f08b36d830199f43d"
+    },
+    {
+      "path": ".artifacts/ui14/baseline-build/client/frigo/ui-icons/search.png",
+      "bytes": 17303,
+      "sha256": "74cc55e6b9b09c7476247eb570e26d929f9ccb04d68f1f4906a642cc87f6427a"
+    },
+    {
+      "path": ".artifacts/ui14/baseline-build/client/frigo/ui-icons/settings.png",
+      "bytes": 24623,
+      "sha256": "fcbbe9d09a93e4a2de4664126cd099c683204fb4bdefa525f017c93136892505"
+    },
+    {
+      "path": ".artifacts/ui14/baseline-build/client/frigo/ui-icons/sparkles.png",
+      "bytes": 16249,
+      "sha256": "3ac5d19805ea3904fa4f4b817db3d6a9c43430642593a000dbf7634f42ff3762"
+    },
+    {
+      "path": ".artifacts/ui14/baseline-build/client/icons/favicon.svg",
+      "bytes": 563,
+      "sha256": "418535820ef5e142fc20d33805fb1fb421ec6d0b63da194f8de6d97a87922d91"
+    },
+    {
+      "path": ".artifacts/ui14/baseline-build/client/icons/icon-512.png",
+      "bytes": 315121,
+      "sha256": "ee5aa8deb52480766d37e8914271e27583e775b6c331cf4872e413983bf49d0e"
+    },
+    {
+      "path": ".artifacts/ui14/baseline-build/client/index.html",
+      "bytes": 2943,
+      "sha256": "f29faa05020505e076984b1312c19453531c275f8f82b146b3dde5cbf2951dd1"
+    },
+    {
+      "path": ".artifacts/ui14/baseline-build/client/manifest.json",
+      "bytes": 719,
+      "sha256": "c705c3bf71f8e72185486d536d9381273eb548946df13a7919982c541502e47c"
+    },
+    {
+      "path": ".artifacts/ui14/baseline-build/client/sw.js",
+      "bytes": 4054,
+      "sha256": "1be5852af3a802eed77df42c54d1b36c32211e0a3aba9d753321b04cae388fc7"
+    },
+    {
+      "path": ".artifacts/ui14/baseline-build/client/takosan/app-icons/favicon.svg",
+      "bytes": 1251,
+      "sha256": "30125b83cb2e0abb727c6ebea54445e1ef2c52985321e63db7df2325753404fc"
+    },
+    {
+      "path": ".artifacts/ui14/baseline-build/client/takosan/app-icons/icon-128.png",
+      "bytes": 4342,
+      "sha256": "42de0cfeae3cfe213a87ab51f7e5149de6fd267869100cdc7c60af08fda93e1f"
+    },
+    {
+      "path": ".artifacts/ui14/baseline-build/client/takosan/app-icons/icon-16.png",
+      "bytes": 498,
+      "sha256": "0708125e926cc522c99741e73308af3d522f83395696e31361f99cb12bf09a88"
+    },
+    {
+      "path": ".artifacts/ui14/baseline-build/client/takosan/app-icons/icon-180.png",
+      "bytes": 6139,
+      "sha256": "f6e4d88d26701fc761454d6a6baf36e5e44be44eb524873deb4b4d3d2dc04b44"
+    },
+    {
+      "path": ".artifacts/ui14/baseline-build/client/takosan/app-icons/icon-192.png",
+      "bytes": 6590,
+      "sha256": "560be6c412b3befbe14455a125e4e761647dd8b5b9bb82c1548961b05737c883"
+    },
+    {
+      "path": ".artifacts/ui14/baseline-build/client/takosan/app-icons/icon-256.png",
+      "bytes": 9077,
+      "sha256": "9ccddb0946b6e140f5139400d14648268377c7e2a84d29b744fcafb12ca0a9e1"
+    },
+    {
+      "path": ".artifacts/ui14/baseline-build/client/takosan/app-icons/icon-32.png",
+      "bytes": 1015,
+      "sha256": "7297944df18f44b10f26a9001f65ffb5b1174b86551f3a0d7788a962c16ca406"
+    },
+    {
+      "path": ".artifacts/ui14/baseline-build/client/takosan/app-icons/icon-48.png",
+      "bytes": 1554,
+      "sha256": "fde9af178f4d87590d42ac705e78fbc19187575bfe50c535b662ac77ad9d978a"
+    },
+    {
+      "path": ".artifacts/ui14/baseline-build/client/takosan/app-icons/icon-512.png",
+      "bytes": 19625,
+      "sha256": "dd98b391fe8a8e76ef242c40e69cd46edcfff684eb7d6d6f068ccd920bd09434"
+    },
+    {
+      "path": ".artifacts/ui14/baseline-build/client/takosan/app-icons/icon-64.png",
+      "bytes": 2143,
+      "sha256": "fb8f55df5ad85ced062b36401eec31b93d3db2731a28d324a28ddb51958b08b8"
+    },
+    {
+      "path": ".artifacts/ui14/baseline-build/client/takosan/app-icons/icon-maskable-512.png",
+      "bytes": 13982,
+      "sha256": "a3eecd5ca5d3607f3ec4311ee234bfd86ae1887da6af3439723cd95686eac579"
+    },
+    {
+      "path": ".artifacts/ui14/baseline-build/client/takosan/app-icons/takosan-adaptive-background.svg",
+      "bytes": 165,
+      "sha256": "6d22eb7b5d83d01306a17a4eee254c7e26e8bc45cd6b125316d4531298455124"
+    },
+    {
+      "path": ".artifacts/ui14/baseline-build/client/takosan/app-icons/takosan-adaptive-foreground.svg",
+      "bytes": 1304,
+      "sha256": "01f032320fc64f0e796eb359d7d60a462e0229fade9dd3d49d684a3368fe53c0"
+    },
+    {
+      "path": ".artifacts/ui14/baseline-build/client/takosan/app-icons/takosan-app-icon-light-512.png",
+      "bytes": 19625,
+      "sha256": "dd98b391fe8a8e76ef242c40e69cd46edcfff684eb7d6d6f068ccd920bd09434"
+    },
+    {
+      "path": ".artifacts/ui14/baseline-build/client/takosan/app-icons/takosan-app-icon-mint-512.png",
+      "bytes": 21664,
+      "sha256": "59d7870adb69e975f169c60c3cb6cc9d96d37ad4a185ccbb8cc80fa522be6163"
+    },
+    {
+      "path": ".artifacts/ui14/baseline-build/client/takosan/brand/takosan-logo-horizontal-primary.svg",
+      "bytes": 2786,
+      "sha256": "a45642051372f5cddf9d84978ca786f2848bbf8b94b22f41a5d1bd80507051ed"
+    },
+    {
+      "path": ".artifacts/ui14/baseline-build/client/takosan/brand/takosan-logo-horizontal-white.svg",
+      "bytes": 2587,
+      "sha256": "14b2b9558ae104d52f6e8ef15cdc4b51749754db7c6a79a032edf3ee9f14391c"
+    },
+    {
+      "path": ".artifacts/ui14/baseline-build/client/takosan/brand/takosan-logo-primary.svg",
+      "bytes": 2776,
+      "sha256": "fb1623e2df93fc904da2b58e398a0355e9a5325c8bdb799d756805d2a0e3d934"
+    },
+    {
+      "path": ".artifacts/ui14/baseline-build/client/takosan/brand/takosan-logo-white.svg",
+      "bytes": 2577,
+      "sha256": "3d3691f889eceb160ac60d0cdb92b53b6b80c41f2914441bc9cc2acb27c62b84"
+    },
+    {
+      "path": ".artifacts/ui14/baseline-build/client/takosan/brand/takosan-og.png",
+      "bytes": 23028,
+      "sha256": "2165f5dc11bcf5711aa407c68a6bd3ad8041955d677f132908c95ae6f2eb47dd"
+    },
+    {
+      "path": ".artifacts/ui14/baseline-build/client/takosan/brand/takosan-symbol-micro.svg",
+      "bytes": 1251,
+      "sha256": "30125b83cb2e0abb727c6ebea54445e1ef2c52985321e63db7df2325753404fc"
+    },
+    {
+      "path": ".artifacts/ui14/baseline-build/client/takosan/brand/takosan-symbol.svg",
+      "bytes": 1449,
+      "sha256": "a8940affca0a96b29492e039c78c5fae8eb3d461d23ef2fc74087478e67abfe8"
+    },
+    {
+      "path": ".artifacts/ui14/baseline-build/client/takosan/brand/takosan-wordmark.svg",
+      "bytes": 1381,
+      "sha256": "a1c80888d2fa840a25aa03a26f9249ce73b3dc8c803fae6a77445c4f9e588a84"
+    },
+    {
+      "path": ".artifacts/ui14/baseline-build/client/takosan/fonts/OFL.txt",
+      "bytes": 4397,
+      "sha256": "6b7f8f73609a25ea78c891e34cf37b06f8a676b7ea986e941e43b009110f2a85"
+    },
+    {
+      "path": ".artifacts/ui14/baseline-build/client/takosan/fonts/be-vietnam-pro-latin-400-normal.woff2",
+      "bytes": 21276,
+      "sha256": "cefd95a324be2eaf3e23aff008a33cb029872f266d785204fd2f2eaac2abb0d3"
+    },
+    {
+      "path": ".artifacts/ui14/baseline-build/client/takosan/fonts/be-vietnam-pro-latin-600-normal.woff2",
+      "bytes": 22052,
+      "sha256": "136998431df364d059b40ec4ed821fd193437096011f88c8676b5a27274a34ed"
+    },
+    {
+      "path": ".artifacts/ui14/baseline-build/client/takosan/fonts/be-vietnam-pro-latin-700-normal.woff2",
+      "bytes": 22216,
+      "sha256": "6ed20761ae0472f8f1ce186f64739c41787db04c881d5ba0530027dc4eddf4b6"
+    },
+    {
+      "path": ".artifacts/ui14/baseline-build/client/takosan/fonts/be-vietnam-pro-latin-ext-400-normal.woff2",
+      "bytes": 12928,
+      "sha256": "c481d1798fd5d657632f9e32c5489b729653d141f33570e4bbc2cfcb7c4cf5ea"
+    },
+    {
+      "path": ".artifacts/ui14/baseline-build/client/takosan/fonts/be-vietnam-pro-latin-ext-600-normal.woff2",
+      "bytes": 13612,
+      "sha256": "1d37ca4a523cdd1e35b14adbaa0b0d238dc6a057ac3c4aa77ecb9ce534bae475"
+    },
+    {
+      "path": ".artifacts/ui14/baseline-build/client/takosan/fonts/be-vietnam-pro-latin-ext-700-normal.woff2",
+      "bytes": 13776,
+      "sha256": "2a11d0d40a69fb7d3865463ad254fa393840b7d25c8207d60af3dc61f2235304"
+    },
+    {
+      "path": ".artifacts/ui14/baseline-build/client/takosan/fonts/be-vietnam-pro-vietnamese-400-normal.woff2",
+      "bytes": 11484,
+      "sha256": "a1a7de622e4266ff7d5fdef40712c3aa9fa0a7b1213219b4b172b41c62e9fd5a"
+    },
+    {
+      "path": ".artifacts/ui14/baseline-build/client/takosan/fonts/be-vietnam-pro-vietnamese-600-normal.woff2",
+      "bytes": 12160,
+      "sha256": "86dbbb4b20a5ae31c479f1aff09532034340c87239ac2bb183b152c697755227"
+    },
+    {
+      "path": ".artifacts/ui14/baseline-build/client/takosan/fonts/be-vietnam-pro-vietnamese-700-normal.woff2",
+      "bytes": 12428,
+      "sha256": "390d020c9aa37584d7b389dde664d6d8e202013d0d5b13ba6d2297d6f1865f6b"
+    },
+    {
+      "path": ".artifacts/ui14/baseline-build/client/takosan/mascot/takosan-calendar.svg",
+      "bytes": 1915,
+      "sha256": "5e4815a0e39a7239616670da51aeb705d7e5100f3e408566e4a4349057035669"
+    },
+    {
+      "path": ".artifacts/ui14/baseline-build/client/takosan/mascot/takosan-celebrate.svg",
+      "bytes": 1552,
+      "sha256": "92871a573b7adc72251da9b858e8fd0978f46438e56de0daed5ee12930064804"
+    },
+    {
+      "path": ".artifacts/ui14/baseline-build/client/takosan/mascot/takosan-cooking.svg",
+      "bytes": 1869,
+      "sha256": "d258a0fa56acb6a8c7d19cedf4bf809425bf252d25d4c960b9f6f3301503f2f5"
+    },
+    {
+      "path": ".artifacts/ui14/baseline-build/client/takosan/mascot/takosan-fridge.svg",
+      "bytes": 1888,
+      "sha256": "da70f23d44ede3982a373d1043bd850fe495904ed9fc39c8322742b3ebe49747"
+    },
+    {
+      "path": ".artifacts/ui14/baseline-build/client/takosan/mascot/takosan-leaf.svg",
+      "bytes": 1582,
+      "sha256": "546973489b115f6cff1c88883b76fe22bda98108c76619e1b55edabdc08bc58f"
+    },
+    {
+      "path": ".artifacts/ui14/baseline-build/client/takosan/mascot/takosan-neutral.svg",
+      "bytes": 1449,
+      "sha256": "a8940affca0a96b29492e039c78c5fae8eb3d461d23ef2fc74087478e67abfe8"
+    },
+    {
+      "path": ".artifacts/ui14/baseline-build/client/takosan/mascot/takosan-recipe.svg",
+      "bytes": 1827,
+      "sha256": "ff4ace2648f0ed8996b4d6b0ed8cacab76d0f7a6aa8e9f6b0aef577d997eae11"
+    },
+    {
+      "path": ".artifacts/ui14/baseline-build/client/takosan/mascot/takosan-shopping.svg",
+      "bytes": 1909,
+      "sha256": "bafa4369d6bd535ffa7f4503eb43f206a4a4b2776a3cb080cf7b5b873ed786a0"
+    },
+    {
+      "path": ".artifacts/ui14/baseline-build/client/takosan/mascot/takosan-thinking.svg",
+      "bytes": 1595,
+      "sha256": "a7f1f5167c580eea4688d3e0fb42e37724ac48f92a1f3df8ab3086c518b6636a"
+    },
+    {
+      "path": ".artifacts/ui14/baseline-build/client/takosan/mascot/takosan-wave.svg",
+      "bytes": 1576,
+      "sha256": "7b3493ec28ea7e0917bf32680b09b57c09fa239cc4450415e1cb694a1e2b5524"
+    },
+    {
+      "path": ".artifacts/ui14/baseline-build/client/takosan/rebuild/app-icons/favicon.svg",
+      "bytes": 452,
+      "sha256": "a511e345a4c64dbb2ab051ee396c8f791662874338e39d71dd027bca11c4931c"
+    },
+    {
+      "path": ".artifacts/ui14/baseline-build/client/takosan/rebuild/app-icons/icon-128.png",
+      "bytes": 2330,
+      "sha256": "d8989eb4a45bfa106460114cf056530102420280b0fffa91993e0cc6e17d6ad3"
+    },
+    {
+      "path": ".artifacts/ui14/baseline-build/client/takosan/rebuild/app-icons/icon-16.png",
+      "bytes": 313,
+      "sha256": "c68e5926a770d805402b63c5d601437582ea467a324ad5b578484d356f87bb5b"
+    },
+    {
+      "path": ".artifacts/ui14/baseline-build/client/takosan/rebuild/app-icons/icon-180.png",
+      "bytes": 3392,
+      "sha256": "2922faef7b791863350d41738cf247a8965ca01c4f62609e4f2517e3a4823ec3"
+    },
+    {
+      "path": ".artifacts/ui14/baseline-build/client/takosan/rebuild/app-icons/icon-192.png",
+      "bytes": 3639,
+      "sha256": "11b008b59538de18a979a10893a1dbe5e1f3231615777d627939dd83d81fea3d"
+    },
+    {
+      "path": ".artifacts/ui14/baseline-build/client/takosan/rebuild/app-icons/icon-24.png",
+      "bytes": 443,
+      "sha256": "d058502945ba029a4156f64b519e5ffbe47f2d2fd8c4e1de547bbfe970fcd6a8"
+    },
+    {
+      "path": ".artifacts/ui14/baseline-build/client/takosan/rebuild/app-icons/icon-256.png",
+      "bytes": 5028,
+      "sha256": "912d2132737d01ec8e690eebc02accb754c1b1d4222b4b111b6d512cb96e0d34"
+    },
+    {
+      "path": ".artifacts/ui14/baseline-build/client/takosan/rebuild/app-icons/icon-32.png",
+      "bytes": 612,
+      "sha256": "8947392a309e994bdbc3b6625e0fdc4793208e80f8f47754b404fdca9b1bfdc3"
+    },
+    {
+      "path": ".artifacts/ui14/baseline-build/client/takosan/rebuild/app-icons/icon-48.png",
+      "bytes": 889,
+      "sha256": "07525fc54e472c3746660e9b01b23b8d3ada40c28b5baef548a1efb3b92d2c55"
+    },
+    {
+      "path": ".artifacts/ui14/baseline-build/client/takosan/rebuild/app-icons/icon-512.png",
+      "bytes": 10717,
+      "sha256": "88c971380b59199ef4f8ec5825d254a34403b638668d4f2c3167b1faf7dc0cdd"
+    },
+    {
+      "path": ".artifacts/ui14/baseline-build/client/takosan/rebuild/app-icons/icon-64.png",
+      "bytes": 1185,
+      "sha256": "96bc767559d3e7e67ef7aa56d5a4cdb5e009d65a47b6a6e06f0ac0559e5ca0b0"
+    },
+    {
+      "path": ".artifacts/ui14/baseline-build/client/takosan/rebuild/app-icons/icon-maskable-512.png",
+      "bytes": 9882,
+      "sha256": "c06c65c876b5f48322dcae5cb65b85902d278e18080499e3d6ea0bdc1f19e1f0"
+    },
+    {
+      "path": ".artifacts/ui14/baseline-build/client/takosan/rebuild/app-icons/icon-master.svg",
+      "bytes": 763,
+      "sha256": "e070158527d5a745428246c6cbb9d6840e0c2c45db9c321ab0d9dd94b2e58f09"
+    },
+    {
+      "path": ".artifacts/ui14/baseline-build/client/takosan/rebuild/app-icons/maskable-master.svg",
+      "bytes": 761,
+      "sha256": "a675c913fbd94c3aeaa13d28b6de5aaf226fee801c9853c5bb254b1af87a3f1e"
+    },
+    {
+      "path": ".artifacts/ui14/baseline-build/client/takosan/rebuild/lockup-mono-reverse.svg",
+      "bytes": 3663,
+      "sha256": "2c9c0983c25416cb91636cedc6a13b745af75c344031b91570509882ab930378"
+    },
+    {
+      "path": ".artifacts/ui14/baseline-build/client/takosan/rebuild/lockup-mono.svg",
+      "bytes": 3663,
+      "sha256": "ebfb0effffb04894e7f26267b1278b6533e5462191607c751888111844db7e94"
+    },
+    {
+      "path": ".artifacts/ui14/baseline-build/client/takosan/rebuild/lockup-reverse.svg",
+      "bytes": 3814,
+      "sha256": "72ff05076bea48bfa721c47494405ac4ed5b4cf8a91d182d83f91faf3b5a29b9"
+    },
+    {
+      "path": ".artifacts/ui14/baseline-build/client/takosan/rebuild/lockup.svg",
+      "bytes": 3814,
+      "sha256": "069d6444f3d6a1da6a9fb6461f829ca5c7559ec74b8d8fed32f46315a986ee4c"
+    },
+    {
+      "path": ".artifacts/ui14/baseline-build/client/takosan/rebuild/masters/motto.svg",
+      "bytes": 7889,
+      "sha256": "cbb0e306c687a6daa108e13673f1c9f75203befd3e2e6b0c9955e1cd8b109564"
+    },
+    {
+      "path": ".artifacts/ui14/baseline-build/client/takosan/rebuild/masters/symbol-micro.svg",
+      "bytes": 452,
+      "sha256": "a511e345a4c64dbb2ab051ee396c8f791662874338e39d71dd027bca11c4931c"
+    },
+    {
+      "path": ".artifacts/ui14/baseline-build/client/takosan/rebuild/masters/symbol.svg",
+      "bytes": 665,
+      "sha256": "3542fde9816dbf6626005f784318d3df3e24703fc5336d7ca316e1f47ef1125a"
+    },
+    {
+      "path": ".artifacts/ui14/baseline-build/client/takosan/rebuild/masters/tagline.svg",
+      "bytes": 11716,
+      "sha256": "0c8560142f284327b99eda9a8a0dd5d83e704d86cfe2843ccc457b86d1af8da9"
+    },
+    {
+      "path": ".artifacts/ui14/baseline-build/client/takosan/rebuild/masters/wordmark.svg",
+      "bytes": 3177,
+      "sha256": "03258dae13d75e15ea3a1cfae192e9e798009343b231fc4f12abe6985b33c35f"
+    },
+    {
+      "path": ".artifacts/ui14/baseline-build/client/takosan/rebuild/og.png",
+      "bytes": 36373,
+      "sha256": "45a1ab4c033ec2a730c551736fda2d3bb369a52aac31acde42b2429aab8f7701"
+    },
+    {
+      "path": ".artifacts/ui14/baseline-build/client/takosan/rebuild/og.svg",
+      "bytes": 24123,
+      "sha256": "6e91eaa8fd3230923f913541b897cba841e5f4baa84028974aeab6cadb802215"
+    },
+    {
+      "path": ".artifacts/ui14/baseline-build/client/takosan/rebuild/stacked-mono-reverse.svg",
+      "bytes": 3679,
+      "sha256": "30a67293fe3ac3b340dc3e11ffc66f6caa74f2fc0e1d51532a7625eaae3470ba"
+    },
+    {
+      "path": ".artifacts/ui14/baseline-build/client/takosan/rebuild/stacked-mono.svg",
+      "bytes": 3679,
+      "sha256": "03305ee2d78e687ab2a988a3cfc862edfd10ecd449e56c105cbb9f533a87a6c0"
+    },
+    {
+      "path": ".artifacts/ui14/baseline-build/client/takosan/rebuild/stacked-reverse.svg",
+      "bytes": 3830,
+      "sha256": "ed17ee5b5a66a536d09bdb61739293f5cef7e28c830458e5f78343f2d9c16940"
+    },
+    {
+      "path": ".artifacts/ui14/baseline-build/client/takosan/rebuild/stacked.svg",
+      "bytes": 3830,
+      "sha256": "7dd9da977a3eaaf30103240c0aadd13143aa24a512c83ed1e02c5e8f09cc0f76"
+    },
+    {
+      "path": ".artifacts/ui14/baseline-build/client/takosan/rebuild/symbol-micro-mono-reverse.svg",
+      "bytes": 416,
+      "sha256": "570ecd1fa95ccb4c0de23fe63cfb35e701c664ecc4a114c80241e8928b0cdf3c"
+    },
+    {
+      "path": ".artifacts/ui14/baseline-build/client/takosan/rebuild/symbol-micro-mono.svg",
+      "bytes": 416,
+      "sha256": "739a81adc5152447f3cf5b07235c7bf001799c76238c6d57b1c7967a334645fc"
+    },
+    {
+      "path": ".artifacts/ui14/baseline-build/client/takosan/rebuild/symbol-micro-reverse.svg",
+      "bytes": 452,
+      "sha256": "a511e345a4c64dbb2ab051ee396c8f791662874338e39d71dd027bca11c4931c"
+    },
+    {
+      "path": ".artifacts/ui14/baseline-build/client/takosan/rebuild/symbol-micro.svg",
+      "bytes": 452,
+      "sha256": "a511e345a4c64dbb2ab051ee396c8f791662874338e39d71dd027bca11c4931c"
+    },
+    {
+      "path": ".artifacts/ui14/baseline-build/client/takosan/rebuild/symbol-mono-reverse.svg",
+      "bytes": 514,
+      "sha256": "17cd1cd70607d7f469abbccb5556f828a5557e11afac3751b3d75039695eb276"
+    },
+    {
+      "path": ".artifacts/ui14/baseline-build/client/takosan/rebuild/symbol-mono.svg",
+      "bytes": 514,
+      "sha256": "86284d4edd0eedd12844ed014cfe6597e8ebeb149adf05f28c3a6fa8422467cc"
+    },
+    {
+      "path": ".artifacts/ui14/baseline-build/client/takosan/rebuild/symbol-reverse.svg",
+      "bytes": 665,
+      "sha256": "3542fde9816dbf6626005f784318d3df3e24703fc5336d7ca316e1f47ef1125a"
+    },
+    {
+      "path": ".artifacts/ui14/baseline-build/client/takosan/rebuild/symbol.svg",
+      "bytes": 665,
+      "sha256": "3542fde9816dbf6626005f784318d3df3e24703fc5336d7ca316e1f47ef1125a"
+    },
+    {
+      "path": ".artifacts/ui14/baseline-build/client/takosan/rebuild/wordmark-mono-reverse.svg",
+      "bytes": 3169,
+      "sha256": "71f550bbbcf2987e765693839489933df17878ee3d054bcddff0bf8375b1b2e8"
+    },
+    {
+      "path": ".artifacts/ui14/baseline-build/client/takosan/rebuild/wordmark-mono.svg",
+      "bytes": 3169,
+      "sha256": "be3e553dc8887a6f64b0a6590578c9b1827e6974d51af6127cf605a9b315a2d0"
+    },
+    {
+      "path": ".artifacts/ui14/baseline-build/client/takosan/rebuild/wordmark-reverse.svg",
+      "bytes": 3169,
+      "sha256": "71f550bbbcf2987e765693839489933df17878ee3d054bcddff0bf8375b1b2e8"
+    },
+    {
+      "path": ".artifacts/ui14/baseline-build/client/takosan/rebuild/wordmark.svg",
+      "bytes": 3169,
+      "sha256": "12231a5d9abc4b336f3f06e34a93766d282aeb3769ac64b744726946da2eb732"
+    },
+    {
+      "path": ".artifacts/ui14/baseline-build/client/takosan/recipe-placeholder.svg",
+      "bytes": 757,
+      "sha256": "6dbfe1d7f4cba9f8ec8638456a1783827f002fc9931fbdc87681385c91c1e668"
+    },
+    {
+      "path": ".artifacts/ui14/baseline-build/client/takosan/ui-icons/takosan-icon-budget.svg",
+      "bytes": 249,
+      "sha256": "55443da124c0cc8fe66f844ba32d532d375f93cbf011277aec873540d09ee72f"
+    },
+    {
+      "path": ".artifacts/ui14/baseline-build/client/takosan/ui-icons/takosan-icon-calendar.svg",
+      "bytes": 275,
+      "sha256": "a956362d45e2fcea028a013d20b06b0d11901802bc6cfe55beb9385ee3d0c90c"
+    },
+    {
+      "path": ".artifacts/ui14/baseline-build/client/takosan/ui-icons/takosan-icon-expiry.svg",
+      "bytes": 265,
+      "sha256": "958a29d0a119bef31f4cff4c6af4d72ed815cf1cc54b9d7902abd57273e4294c"
+    },
+    {
+      "path": ".artifacts/ui14/baseline-build/client/takosan/ui-icons/takosan-icon-fridge.svg",
+      "bytes": 245,
+      "sha256": "41195d17fb463108fd43351742b9058dd2c5ac6d41aed088d8bc76558753d729"
+    },
+    {
+      "path": ".artifacts/ui14/baseline-build/client/takosan/ui-icons/takosan-icon-home.svg",
+      "bytes": 254,
+      "sha256": "c40dcde4bf1684e66535eba23061cfcf49f0341c0412035063cb47cd6006e6c2"
+    },
+    {
+      "path": ".artifacts/ui14/baseline-build/client/takosan/ui-icons/takosan-icon-meal-plan.svg",
+      "bytes": 264,
+      "sha256": "d2a6a73a7cf12c18e9f179aaf51a56afd2be2c48be1bc622a079da0afbd423ca"
+    },
+    {
+      "path": ".artifacts/ui14/baseline-build/client/takosan/ui-icons/takosan-icon-notification.svg",
+      "bytes": 269,
+      "sha256": "4970ad136ed55cadc843d1745537bc70e0f5a5f92e85fb1ecccd3af70c101a23"
+    },
+    {
+      "path": ".artifacts/ui14/baseline-build/client/takosan/ui-icons/takosan-icon-nutrition.svg",
+      "bytes": 298,
+      "sha256": "9d8a239ceebea63eb94ea278e1bac4d735d01245d6ade2eb87f2ebde7613b44b"
+    },
+    {
+      "path": ".artifacts/ui14/baseline-build/client/takosan/ui-icons/takosan-icon-profile.svg",
+      "bytes": 269,
+      "sha256": "472d1f78ef7136b9fd22c239eb8a7dc8136d743ccb83a64285311b3493e0bceb"
+    },
+    {
+      "path": ".artifacts/ui14/baseline-build/client/takosan/ui-icons/takosan-icon-recipe.svg",
+      "bytes": 283,
+      "sha256": "be6878586e5f48af16059c781424e9e3f6ab2e93e1a7017886071a5543733aae"
+    },
+    {
+      "path": ".artifacts/ui14/baseline-build/client/takosan/ui-icons/takosan-icon-scan.svg",
+      "bytes": 281,
+      "sha256": "7b75288b1790a419b0732f516f7427e4cc30303f96d8006264e282eb444eb444"
+    },
+    {
+      "path": ".artifacts/ui14/baseline-build/client/takosan/ui-icons/takosan-icon-search.svg",
+      "bytes": 254,
+      "sha256": "5dda5e35b9e00ba49f1c1c4bd9192d0c5181479db2f3cabf134ec32f89145ec0"
+    },
+    {
+      "path": ".artifacts/ui14/baseline-build/client/takosan/ui-icons/takosan-icon-settings.svg",
+      "bytes": 258,
+      "sha256": "79dea36a7277b40348b072356af23e3c47199ccf898233fc7db2421c840f66e6"
+    },
+    {
+      "path": ".artifacts/ui14/baseline-build/client/takosan/ui-icons/takosan-icon-shopping-list.svg",
+      "bytes": 299,
+      "sha256": "168628d2ef5717a39964e9b1e06b0c7d71b0745e169d38dcf364ecef04da4d40"
+    },
+    {
+      "path": ".artifacts/ui14/baseline-build/composition-flags.json",
+      "bytes": 81,
+      "sha256": "43198c8718d5db89cd3148bb781c62579f4cc9f61c85809c7b2e6a2b28214e04"
+    }
+  ]
+}

@@ -7,21 +7,40 @@ import { ApiError } from '../../src/web/services/http';
 
 const getMe = vi.hoisted(() => vi.fn());
 const scanFridge = vi.hoisted(() => vi.fn());
+const readImage = vi.hoisted(() => vi.fn());
+vi.mock('../../src/web/lib/private-image', () => ({ readPrivateImage: readImage }));
 vi.mock('../../src/web/services/api', () => ({ api: { getMe, scanFridge } }));
 vi.mock('../../src/web/components/scan/CameraViewfinder', () => ({
-  CameraViewfinder: ({ onCapture }: { onCapture: (image: string) => void }) =>
-    <button onClick={() => onCapture('data:image/png;base64,dGVzdA==')}>Capture test image</button>,
+  CameraViewfinder: ({ onCapture }: { onCapture: (image: string) => void }) => (
+    <button onClick={() => onCapture('data:image/png;base64,dGVzdA==')}>Capture test image</button>
+  ),
 }));
 
+import { useScanStore } from '../../src/web/stores/useScanStore';
 import { ScanPage } from '../../src/web/pages/ScanPage';
 
-const snapshot = { user: { id: 'guest-test', household: { id: 'hh_guest-test' },
-  subscription: { plan: 'free', limit: 5, used: 2, remaining: 3, resetAt: '2026-10-01T00:00:00Z' } } };
+const snapshot = {
+  user: {
+    id: 'guest-test',
+    household: { id: 'hh_guest-test' },
+    subscription: {
+      plan: 'free',
+      limit: 5,
+      used: 2,
+      remaining: 3,
+      resetAt: '2026-10-01T00:00:00Z',
+    },
+  },
+};
 
 async function click(host: HTMLElement, text: string) {
-  const button = [...host.querySelectorAll('button')].find((item) => item.textContent?.includes(text));
+  const button = [...host.querySelectorAll('button')].find((item) =>
+    item.textContent?.includes(text),
+  );
   expect(button).toBeDefined();
-  await act(async () => { button?.click(); });
+  await act(async () => {
+    button?.click();
+  });
 }
 
 describe('scan quota UI', () => {
@@ -30,6 +49,7 @@ describe('scan quota UI', () => {
 
   beforeEach(() => {
     (globalThis as any).IS_REACT_ACT_ENVIRONMENT = true;
+    useScanStore.getState().reset();
     localStorage.clear();
     localStorage.setItem('frigo_user_id', 'guest-test');
     localStorage.setItem('frigo_household_id', 'hh_guest-test');
@@ -42,14 +62,60 @@ describe('scan quota UI', () => {
     host.remove();
     getMe.mockReset();
     scanFridge.mockReset();
+    readImage.mockReset();
+    useScanStore.getState().reset();
+    vi.useRealTimers();
   });
 
   async function render() {
     await act(async () => {
       root = createRoot(host);
-      root.render(<MemoryRouter><ScanPage /></MemoryRouter>);
+      root.render(
+        <MemoryRouter>
+          <ScanPage />
+        </MemoryRouter>,
+      );
     });
   }
+
+  it('does not advance server processing stages just because time passes', async () => {
+    vi.useFakeTimers();
+    let finish!: (result: unknown) => void;
+    scanFridge.mockImplementationOnce(
+      () =>
+        new Promise((resolve) => {
+          finish = resolve;
+        }),
+    );
+    await render();
+    await click(host, 'Capture test image');
+    await act(async () => {
+      vi.advanceTimersByTime(10000);
+    });
+    const state = host.querySelector('[data-testid="scan-processing-state"]')!;
+    expect(state.textContent).toContain('Đang gửi ảnh');
+    expect(state.textContent).not.toContain('Đã xếp hàng');
+    expect(state.textContent).not.toContain('Đang kiểm tra kết quả');
+    await act(async () => finish({ id: 'test-pending', status: 'pending', items: [] }));
+  });
+
+  it('cancels an unfinished image read when the user changes scan mode', async () => {
+    const cancel = vi.fn();
+    readImage.mockReturnValueOnce(cancel);
+    await render();
+    const input = host.querySelector<HTMLInputElement>('input[type=file]')!;
+    Object.defineProperty(input, 'files', {
+      configurable: true,
+      value: [new File(['synthetic'], 'scan.png', { type: 'image/png' })],
+    });
+    await act(async () => input.dispatchEvent(new Event('change', { bubbles: true })));
+    expect(readImage).toHaveBeenCalledOnce();
+    await click(host, 'Hóa đơn');
+    expect(cancel).toHaveBeenCalledOnce();
+    expect(input.value).toBe('');
+    expect(scanFridge).not.toHaveBeenCalled();
+    expect(useScanStore.getState().imagePreviewUrl).toBe('');
+  });
 
   it('shows remaining Free scans from the server snapshot', async () => {
     await render();
@@ -58,11 +124,22 @@ describe('scan quota UI', () => {
   });
 
   it('uses a new key after terminal scan failure and reuses the key after ambiguous enqueue', async () => {
-    scanFridge.mockRejectedValueOnce(new ApiError('http',
-      'HTTP 503: {"code":"MAX_ATTEMPTS_EXCEEDED","scan":{"status":"failed"}}', 503));
-    scanFridge.mockRejectedValueOnce(new ApiError('http', 'HTTP 503: {"code":"QUEUE_UNAVAILABLE"}', 503));
-    scanFridge.mockRejectedValueOnce(new ApiError('http', 'HTTP 503: {"code":"QUEUE_UNAVAILABLE"}', 503));
-    scanFridge.mockRejectedValueOnce(new ApiError('offline', 'Network response lost', undefined, { retryable: true }));
+    scanFridge.mockRejectedValueOnce(
+      new ApiError(
+        'http',
+        'HTTP 503: {"code":"MAX_ATTEMPTS_EXCEEDED","scan":{"status":"failed"}}',
+        503,
+      ),
+    );
+    scanFridge.mockRejectedValueOnce(
+      new ApiError('http', 'HTTP 503: {"code":"QUEUE_UNAVAILABLE"}', 503),
+    );
+    scanFridge.mockRejectedValueOnce(
+      new ApiError('http', 'HTTP 503: {"code":"QUEUE_UNAVAILABLE"}', 503),
+    );
+    scanFridge.mockRejectedValueOnce(
+      new ApiError('offline', 'Network response lost', undefined, { retryable: true }),
+    );
     await render();
     await click(host, 'Capture test image');
     const firstKey = scanFridge.mock.calls[0][2];

@@ -1,0 +1,91 @@
+{
+  "base": "f7a27c16ef460b19322d3a463dc74dc09fa48ade",
+  "localOnly": true,
+  "full": {
+    "command": "PATH=/opt/homebrew/opt/node@24/bin:$PATH CI=true TMPDIR=/private/tmp WRANGLER_SEND_METRICS=false VITEST_MAX_THREADS=2 VITEST_MIN_THREADS=1 VITEST_MAX_FORKS=2 VITEST_MIN_FORKS=1 pnpm check",
+    "exitCode": 0,
+    "testFiles": 286,
+    "tests": 6702,
+    "vitestSeconds": 352.41,
+    "viteBuildSeconds": 2.92,
+    "typecheck": true,
+    "lint": true,
+    "localMigrationSmoke": true,
+    "workerBuild": true,
+    "remoteSchemaSkipped": true,
+    "remoteWeekParitySkipped": true
+  },
+  "focused": {
+    "files": 7,
+    "tests": 86,
+    "newTests": 17,
+    "seconds": 2.43
+  },
+  "browser": {
+    "plannerOn": {
+      "cases": 167,
+      "journeys": 17
+    },
+    "plannerOff": {
+      "cases": 24,
+      "journeys": 1
+    },
+    "stateFaults": {
+      "cases": 13,
+      "journeys": 8
+    },
+    "supplemental": {
+      "cases": 14,
+      "axeCases": 12,
+      "publicRenderOnlyCases": 2
+    },
+    "totalStructuredCases": 218,
+    "countedJourneys": 26,
+    "finalVisualRechecks": 10,
+    "baselineCaptures": 10,
+    "applicableAxeViolations": 0,
+    "overflow": 0,
+    "brokenImages": 0,
+    "unexpectedPageErrors": 0,
+    "newRecipeClipping": 0,
+    "inventoryJSONUnchanged": true,
+    "domainWritesDuringReadJourneys": 0,
+    "syntheticOnboardingPreferencesPatchBeforeMeasuredSlicePerHarness": 1,
+    "standaloneE2ERunnerExecuted": false
+  },
+  "integrity": {
+    "sourceFrozenRecords": 374,
+    "baselineGitBlobsVerified": 777,
+    "publicFilesUnchanged": 257,
+    "buildExactCopies": 256,
+    "expectedSwBuildIdTransforms": 1,
+    "pageExecutableHandlerRecordsUnchanged": 96,
+    "legacyCardTailByteIdentical": true,
+    "protectedDiffEmpty": true
+  },
+  "audits": {
+    "genericUX": {
+      "status": "FAIL",
+      "files": 157,
+      "issues": 31,
+      "warnings": 989,
+      "passedChecks": 86
+    },
+    "dependencies": {
+      "total": 41,
+      "low": 4,
+      "moderate": 19,
+      "high": 16,
+      "critical": 2,
+      "lockfileUnchanged": true
+    }
+  },
+  "knownLimits": [
+    "Local synthetic data and computed text enlargement do not certify production, native zoom, device, Safari, screen reader, keyboard, usability, CWV or licensed photo content.",
+    "No protected domain mutation, push, PR, merge, deploy, remote DB or media operation.",
+    "UI13 next packet only; no runtime UI13 implemented."
+  ],
+  "finalFullLintAfterEvidence": true,
+  "finalFrozenPrettierCheck": true,
+  "archivedLogReceipts": 39
+}

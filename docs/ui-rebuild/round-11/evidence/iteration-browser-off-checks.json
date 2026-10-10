@@ -1,0 +1,197 @@
+{
+  "base": "http://127.0.0.1:5207",
+  "flag": "off",
+  "checks": [
+    {
+      "name": "week-320",
+      "path": "/week",
+      "synthetic": false,
+      "width": 320,
+      "height": 844,
+      "scrollWidth": 320,
+      "h1": 1,
+      "broken": [],
+      "lockups": 1,
+      "nav": {
+        "x": 0,
+        "y": 755.40625,
+        "right": 320,
+        "bottom": 844,
+        "width": 320,
+        "height": 88.59375
+      },
+      "links": [
+        {
+          "text": "Trang chủ",
+          "href": "/",
+          "current": null,
+          "box": {
+            "x": 4,
+            "y": 760.40625,
+            "right": 64.796875,
+            "bottom": 840,
+            "width": 60.796875,
+            "height": 79.59375
+          },
+          "label": {
+            "x": 6,
+            "y": 798.40625,
+            "right": 62.796875,
+            "bottom": 832,
+            "width": 56.796875,
+            "height": 33.59375
+          },
+          "clipped": false
+        },
+        {
+          "text": "Tủ lạnh",
+          "href": "/fridge",
+          "current": null,
+          "box": {
+            "x": 66.796875,
+            "y": 760.40625,
+            "right": 127.59375,
+            "bottom": 840,
+            "width": 60.796875,
+            "height": 79.59375
+          },
+          "label": {
+            "x": 75.984375,
+            "y": 798.40625,
+            "right": 118.40625,
+            "bottom": 815.203125,
+            "width": 42.421875,
+            "height": 16.796875
+          },
+          "clipped": false
+        },
+        {
+          "text": "Công thức",
+          "href": "/recipes",
+          "current": null,
+          "box": {
+            "x": 129.59375,
+            "y": 760.40625,
+            "right": 190.390625,
+            "bottom": 840,
+            "width": 60.796875,
+            "height": 79.59375
+          },
+          "label": {
+            "x": 131.59375,
+            "y": 798.40625,
+            "right": 188.390625,
+            "bottom": 832,
+            "width": 56.796875,
+            "height": 33.59375
+          },
+          "clipped": false
+        },
+        {
+          "text": "Thực đơn",
+          "href": "/week",
+          "current": "page",
+          "box": {
+            "x": 192.390625,
+            "y": 760.40625,
+            "right": 253.1875,
+            "bottom": 840,
+            "width": 60.796875,
+            "height": 79.59375
+          },
+          "label": {
+            "x": 194.5,
+            "y": 798.40625,
+            "right": 251.0625,
+            "bottom": 815.203125,
+            "width": 56.5625,
+            "height": 16.796875
+          },
+          "clipped": false
+        },
+        {
+          "text": "Tôi",
+          "href": "/me",
+          "current": null,
+          "box": {
+            "x": 255.1875,
+            "y": 760.40625,
+            "right": 315.984375,
+            "bottom": 840,
+            "width": 60.796875,
+            "height": 79.59375
+          },
+          "label": {
+            "x": 276.71875,
+            "y": 798.40625,
+            "right": 294.4375,
+            "bottom": 815.203125,
+            "width": 17.71875,
+            "height": 16.796875
+          },
+          "clipped": false
+        }
+      ],
+      "overlaps": [],
+      "bottom": {
+        "x": 0,
+        "y": 755.40625,
+        "right": 320,
+        "bottom": 844,
+        "width": 320,
+        "height": 88.59375
+      },
+      "actions": [],
+      "offset": 88.59375,
+      "header": {
+        "x": 0,
+        "y": 0,
+        "right": 320,
+        "bottom": 125,
+        "width": 320,
+        "height": 125
+      },
+      "scan": [
+        {
+          "x": 16,
+          "y": 68,
+          "right": 304,
+          "bottom": 112,
+          "width": 288,
+          "height": 44
+        }
+      ],
+      "reduced": true,
+      "violations": []
+    },
+    {
+      "name": "week-setup-320",
+      "path": "/week/setup",
+      "synthetic": false,
+      "width": 320,
+      "height": 844,
+      "scrollWidth": 320,
+      "h1": 0,
+      "broken": [],
+      "lockups": 0,
+      "nav": null,
+      "links": [],
+      "overlaps": [],
+      "bottom": null,
+      "actions": [],
+      "offset": null,
+      "header": null,
+      "scan": [],
+      "reduced": true,
+      "violations": []
+    }
+  ],
+  "journeys": [],
+  "errors": [],
+  "writes": [
+    {
+      "path": "/api/v1/preferences",
+      "method": "PATCH"
+    }
+  ]
+}

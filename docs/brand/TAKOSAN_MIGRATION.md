@@ -1,3 +1,9 @@
+> Historical migration report. Current canonical repository is `vn-tak/Tako-san`.
+> UI07/ADR-050 adds the scoped kitchen identity and new browser/PWA/OG assets;
+> the supplied kit described here remains compatibility artwork. See
+> [UI07 foundation](../ui-rebuild/round-7/FOUNDATION.md). Historical hashes and
+> outcomes below are preserved, not current repository or release claims.
+
 # Takosan brand migration (Frigo → Takosan, user-facing only)
 
 Independent branding branch descending from the T13 certified lineage. It is

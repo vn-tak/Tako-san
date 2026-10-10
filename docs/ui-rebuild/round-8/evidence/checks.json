@@ -1,0 +1,1900 @@
+{
+  "base": "http://127.0.0.1:5201",
+  "checks": [
+    {
+      "name": "landing-320",
+      "route": "/landing",
+      "synthetic": false,
+      "width": 320,
+      "scrollWidth": 320,
+      "font": "\"Be Vietnam Pro\", sans-serif",
+      "logoCount": 1,
+      "switches": [],
+      "inputs": [],
+      "reduced": true,
+      "violations": []
+    },
+    {
+      "name": "login-320",
+      "route": "/auth",
+      "synthetic": false,
+      "width": 320,
+      "scrollWidth": 320,
+      "font": "\"Be Vietnam Pro\", sans-serif",
+      "logoCount": 1,
+      "switches": [],
+      "inputs": [
+        {
+          "size": 16,
+          "width": 280,
+          "height": 52
+        },
+        {
+          "size": 16,
+          "width": 280,
+          "height": 52
+        }
+      ],
+      "reduced": true,
+      "violations": []
+    },
+    {
+      "name": "register-320",
+      "route": "/auth",
+      "synthetic": false,
+      "width": 320,
+      "scrollWidth": 320,
+      "font": "\"Be Vietnam Pro\", sans-serif",
+      "logoCount": 1,
+      "switches": [],
+      "inputs": [
+        {
+          "size": 16,
+          "width": 280,
+          "height": 52
+        },
+        {
+          "size": 16,
+          "width": 280,
+          "height": 52
+        },
+        {
+          "size": 16,
+          "width": 280,
+          "height": 52
+        }
+      ],
+      "reduced": true,
+      "violations": []
+    },
+    {
+      "name": "verify-missing-320",
+      "route": "/auth/verify",
+      "synthetic": false,
+      "width": 320,
+      "scrollWidth": 320,
+      "font": "\"Be Vietnam Pro\", sans-serif",
+      "logoCount": 1,
+      "switches": [],
+      "inputs": [],
+      "reduced": true,
+      "violations": []
+    },
+    {
+      "name": "forgot-320",
+      "route": "/auth",
+      "synthetic": false,
+      "width": 320,
+      "scrollWidth": 320,
+      "font": "\"Be Vietnam Pro\", sans-serif",
+      "logoCount": 1,
+      "switches": [],
+      "inputs": [
+        {
+          "size": 16,
+          "width": 280,
+          "height": 52
+        }
+      ],
+      "reduced": true,
+      "violations": []
+    },
+    {
+      "name": "landing-390",
+      "route": "/landing",
+      "synthetic": false,
+      "width": 390,
+      "scrollWidth": 390,
+      "font": "\"Be Vietnam Pro\", sans-serif",
+      "logoCount": 1,
+      "switches": [],
+      "inputs": [],
+      "reduced": true,
+      "violations": []
+    },
+    {
+      "name": "login-390",
+      "route": "/auth",
+      "synthetic": false,
+      "width": 390,
+      "scrollWidth": 390,
+      "font": "\"Be Vietnam Pro\", sans-serif",
+      "logoCount": 1,
+      "switches": [],
+      "inputs": [
+        {
+          "size": 16,
+          "width": 350,
+          "height": 52
+        },
+        {
+          "size": 16,
+          "width": 350,
+          "height": 52
+        }
+      ],
+      "reduced": true,
+      "violations": []
+    },
+    {
+      "name": "register-390",
+      "route": "/auth",
+      "synthetic": false,
+      "width": 390,
+      "scrollWidth": 390,
+      "font": "\"Be Vietnam Pro\", sans-serif",
+      "logoCount": 1,
+      "switches": [],
+      "inputs": [
+        {
+          "size": 16,
+          "width": 350,
+          "height": 52
+        },
+        {
+          "size": 16,
+          "width": 350,
+          "height": 52
+        },
+        {
+          "size": 16,
+          "width": 350,
+          "height": 52
+        }
+      ],
+      "reduced": true,
+      "violations": []
+    },
+    {
+      "name": "verify-missing-390",
+      "route": "/auth/verify",
+      "synthetic": false,
+      "width": 390,
+      "scrollWidth": 390,
+      "font": "\"Be Vietnam Pro\", sans-serif",
+      "logoCount": 1,
+      "switches": [],
+      "inputs": [],
+      "reduced": true,
+      "violations": []
+    },
+    {
+      "name": "forgot-390",
+      "route": "/auth",
+      "synthetic": false,
+      "width": 390,
+      "scrollWidth": 390,
+      "font": "\"Be Vietnam Pro\", sans-serif",
+      "logoCount": 1,
+      "switches": [],
+      "inputs": [
+        {
+          "size": 16,
+          "width": 350,
+          "height": 52
+        }
+      ],
+      "reduced": true,
+      "violations": []
+    },
+    {
+      "name": "landing-768",
+      "route": "/landing",
+      "synthetic": false,
+      "width": 768,
+      "scrollWidth": 768,
+      "font": "\"Be Vietnam Pro\", sans-serif",
+      "logoCount": 1,
+      "switches": [],
+      "inputs": [],
+      "reduced": true,
+      "violations": []
+    },
+    {
+      "name": "login-768",
+      "route": "/auth",
+      "synthetic": false,
+      "width": 768,
+      "scrollWidth": 768,
+      "font": "\"Be Vietnam Pro\", sans-serif",
+      "logoCount": 1,
+      "switches": [],
+      "inputs": [
+        {
+          "size": 16,
+          "width": 480,
+          "height": 52
+        },
+        {
+          "size": 16,
+          "width": 480,
+          "height": 52
+        }
+      ],
+      "reduced": true,
+      "violations": []
+    },
+    {
+      "name": "register-768",
+      "route": "/auth",
+      "synthetic": false,
+      "width": 768,
+      "scrollWidth": 768,
+      "font": "\"Be Vietnam Pro\", sans-serif",
+      "logoCount": 1,
+      "switches": [],
+      "inputs": [
+        {
+          "size": 16,
+          "width": 480,
+          "height": 52
+        },
+        {
+          "size": 16,
+          "width": 480,
+          "height": 52
+        },
+        {
+          "size": 16,
+          "width": 480,
+          "height": 52
+        }
+      ],
+      "reduced": true,
+      "violations": []
+    },
+    {
+      "name": "verify-missing-768",
+      "route": "/auth/verify",
+      "synthetic": false,
+      "width": 768,
+      "scrollWidth": 768,
+      "font": "\"Be Vietnam Pro\", sans-serif",
+      "logoCount": 1,
+      "switches": [],
+      "inputs": [],
+      "reduced": true,
+      "violations": []
+    },
+    {
+      "name": "forgot-768",
+      "route": "/auth",
+      "synthetic": false,
+      "width": 768,
+      "scrollWidth": 768,
+      "font": "\"Be Vietnam Pro\", sans-serif",
+      "logoCount": 1,
+      "switches": [],
+      "inputs": [
+        {
+          "size": 16,
+          "width": 480,
+          "height": 52
+        }
+      ],
+      "reduced": true,
+      "violations": []
+    },
+    {
+      "name": "landing-1024",
+      "route": "/landing",
+      "synthetic": false,
+      "width": 1024,
+      "scrollWidth": 1024,
+      "font": "\"Be Vietnam Pro\", sans-serif",
+      "logoCount": 1,
+      "switches": [],
+      "inputs": [],
+      "reduced": true,
+      "violations": []
+    },
+    {
+      "name": "login-1024",
+      "route": "/auth",
+      "synthetic": false,
+      "width": 1024,
+      "scrollWidth": 1024,
+      "font": "\"Be Vietnam Pro\", sans-serif",
+      "logoCount": 1,
+      "switches": [],
+      "inputs": [
+        {
+          "size": 16,
+          "width": 478,
+          "height": 52
+        },
+        {
+          "size": 16,
+          "width": 478,
+          "height": 52
+        }
+      ],
+      "reduced": true,
+      "violations": []
+    },
+    {
+      "name": "register-1024",
+      "route": "/auth",
+      "synthetic": false,
+      "width": 1024,
+      "scrollWidth": 1024,
+      "font": "\"Be Vietnam Pro\", sans-serif",
+      "logoCount": 1,
+      "switches": [],
+      "inputs": [
+        {
+          "size": 16,
+          "width": 478,
+          "height": 52
+        },
+        {
+          "size": 16,
+          "width": 478,
+          "height": 52
+        },
+        {
+          "size": 16,
+          "width": 478,
+          "height": 52
+        }
+      ],
+      "reduced": true,
+      "violations": []
+    },
+    {
+      "name": "verify-missing-1024",
+      "route": "/auth/verify",
+      "synthetic": false,
+      "width": 1024,
+      "scrollWidth": 1024,
+      "font": "\"Be Vietnam Pro\", sans-serif",
+      "logoCount": 1,
+      "switches": [],
+      "inputs": [],
+      "reduced": true,
+      "violations": []
+    },
+    {
+      "name": "forgot-1024",
+      "route": "/auth",
+      "synthetic": false,
+      "width": 1024,
+      "scrollWidth": 1024,
+      "font": "\"Be Vietnam Pro\", sans-serif",
+      "logoCount": 1,
+      "switches": [],
+      "inputs": [
+        {
+          "size": 16,
+          "width": 478,
+          "height": 52
+        }
+      ],
+      "reduced": true,
+      "violations": []
+    },
+    {
+      "name": "landing-1440",
+      "route": "/landing",
+      "synthetic": false,
+      "width": 1440,
+      "scrollWidth": 1440,
+      "font": "\"Be Vietnam Pro\", sans-serif",
+      "logoCount": 1,
+      "switches": [],
+      "inputs": [],
+      "reduced": true,
+      "violations": []
+    },
+    {
+      "name": "login-1440",
+      "route": "/auth",
+      "synthetic": false,
+      "width": 1440,
+      "scrollWidth": 1440,
+      "font": "\"Be Vietnam Pro\", sans-serif",
+      "logoCount": 1,
+      "switches": [],
+      "inputs": [
+        {
+          "size": 16,
+          "width": 478,
+          "height": 52
+        },
+        {
+          "size": 16,
+          "width": 478,
+          "height": 52
+        }
+      ],
+      "reduced": true,
+      "violations": []
+    },
+    {
+      "name": "register-1440",
+      "route": "/auth",
+      "synthetic": false,
+      "width": 1440,
+      "scrollWidth": 1440,
+      "font": "\"Be Vietnam Pro\", sans-serif",
+      "logoCount": 1,
+      "switches": [],
+      "inputs": [
+        {
+          "size": 16,
+          "width": 478,
+          "height": 52
+        },
+        {
+          "size": 16,
+          "width": 478,
+          "height": 52
+        },
+        {
+          "size": 16,
+          "width": 478,
+          "height": 52
+        }
+      ],
+      "reduced": true,
+      "violations": []
+    },
+    {
+      "name": "verify-missing-1440",
+      "route": "/auth/verify",
+      "synthetic": false,
+      "width": 1440,
+      "scrollWidth": 1440,
+      "font": "\"Be Vietnam Pro\", sans-serif",
+      "logoCount": 1,
+      "switches": [],
+      "inputs": [],
+      "reduced": true,
+      "violations": []
+    },
+    {
+      "name": "forgot-1440",
+      "route": "/auth",
+      "synthetic": false,
+      "width": 1440,
+      "scrollWidth": 1440,
+      "font": "\"Be Vietnam Pro\", sans-serif",
+      "logoCount": 1,
+      "switches": [],
+      "inputs": [
+        {
+          "size": 16,
+          "width": 478,
+          "height": 52
+        }
+      ],
+      "reduced": true,
+      "violations": []
+    },
+    {
+      "name": "otp-undelivered-320",
+      "route": "/auth/verify",
+      "synthetic": true,
+      "width": 320,
+      "scrollWidth": 320,
+      "font": "\"Be Vietnam Pro\", sans-serif",
+      "logoCount": 1,
+      "switches": [],
+      "inputs": [
+        {
+          "size": 20,
+          "width": 44.15625,
+          "height": 56
+        },
+        {
+          "size": 20,
+          "width": 44.171875,
+          "height": 56
+        },
+        {
+          "size": 20,
+          "width": 44.171875,
+          "height": 56
+        },
+        {
+          "size": 20,
+          "width": 44.15625,
+          "height": 56
+        },
+        {
+          "size": 20,
+          "width": 44.171875,
+          "height": 56
+        },
+        {
+          "size": 20,
+          "width": 44.171875,
+          "height": 56
+        }
+      ],
+      "reduced": true,
+      "violations": []
+    },
+    {
+      "name": "otp-undelivered-1440",
+      "route": "/auth/verify",
+      "synthetic": true,
+      "width": 1440,
+      "scrollWidth": 1440,
+      "font": "\"Be Vietnam Pro\", sans-serif",
+      "logoCount": 1,
+      "switches": [],
+      "inputs": [
+        {
+          "size": 20,
+          "width": 74.65625,
+          "height": 56
+        },
+        {
+          "size": 20,
+          "width": 74.671875,
+          "height": 56
+        },
+        {
+          "size": 20,
+          "width": 74.65625,
+          "height": 56
+        },
+        {
+          "size": 20,
+          "width": 74.671875,
+          "height": 56
+        },
+        {
+          "size": 20,
+          "width": 74.671875,
+          "height": 56
+        },
+        {
+          "size": 20,
+          "width": 74.65625,
+          "height": 56
+        }
+      ],
+      "reduced": true,
+      "violations": []
+    },
+    {
+      "name": "otp-enlarged-320",
+      "route": "/auth/verify",
+      "synthetic": true,
+      "width": 320,
+      "scrollWidth": 320,
+      "font": "\"Be Vietnam Pro\", sans-serif",
+      "logoCount": 1,
+      "switches": [],
+      "inputs": [
+        {
+          "size": 40,
+          "width": 44.15625,
+          "height": 56
+        },
+        {
+          "size": 40,
+          "width": 44.171875,
+          "height": 56
+        },
+        {
+          "size": 40,
+          "width": 44.171875,
+          "height": 56
+        },
+        {
+          "size": 40,
+          "width": 44.15625,
+          "height": 56
+        },
+        {
+          "size": 40,
+          "width": 44.171875,
+          "height": 56
+        },
+        {
+          "size": 40,
+          "width": 44.171875,
+          "height": 56
+        }
+      ],
+      "reduced": true,
+      "violations": []
+    },
+    {
+      "name": "landing-enlarged-320",
+      "route": "/landing",
+      "synthetic": false,
+      "width": 320,
+      "scrollWidth": 320,
+      "font": "\"Be Vietnam Pro\", sans-serif",
+      "logoCount": 1,
+      "switches": [],
+      "inputs": [],
+      "reduced": true,
+      "violations": []
+    },
+    {
+      "name": "login-enlarged-320",
+      "route": "/auth",
+      "synthetic": false,
+      "width": 320,
+      "scrollWidth": 320,
+      "font": "\"Be Vietnam Pro\", sans-serif",
+      "logoCount": 1,
+      "switches": [],
+      "inputs": [
+        {
+          "size": 32,
+          "width": 280,
+          "height": 52
+        },
+        {
+          "size": 32,
+          "width": 280,
+          "height": 52
+        }
+      ],
+      "reduced": true,
+      "violations": []
+    },
+    {
+      "name": "onboarding-household-320",
+      "route": "/onboarding/household",
+      "synthetic": false,
+      "width": 320,
+      "scrollWidth": 320,
+      "font": "\"Be Vietnam Pro\", sans-serif",
+      "logoCount": 1,
+      "switches": [],
+      "inputs": [],
+      "reduced": true,
+      "violations": []
+    },
+    {
+      "name": "onboarding-food-320",
+      "route": "/onboarding/preferences",
+      "synthetic": false,
+      "width": 320,
+      "scrollWidth": 320,
+      "font": "\"Be Vietnam Pro\", sans-serif",
+      "logoCount": 1,
+      "switches": [],
+      "inputs": [],
+      "reduced": true,
+      "violations": []
+    },
+    {
+      "name": "onboarding-goal-320",
+      "route": "/onboarding/goals",
+      "synthetic": false,
+      "width": 320,
+      "scrollWidth": 320,
+      "font": "\"Be Vietnam Pro\", sans-serif",
+      "logoCount": 1,
+      "switches": [],
+      "inputs": [],
+      "reduced": true,
+      "violations": []
+    },
+    {
+      "name": "onboarding-household-390",
+      "route": "/onboarding/household",
+      "synthetic": false,
+      "width": 390,
+      "scrollWidth": 390,
+      "font": "\"Be Vietnam Pro\", sans-serif",
+      "logoCount": 1,
+      "switches": [],
+      "inputs": [],
+      "reduced": true,
+      "violations": []
+    },
+    {
+      "name": "onboarding-food-390",
+      "route": "/onboarding/preferences",
+      "synthetic": false,
+      "width": 390,
+      "scrollWidth": 390,
+      "font": "\"Be Vietnam Pro\", sans-serif",
+      "logoCount": 1,
+      "switches": [],
+      "inputs": [],
+      "reduced": true,
+      "violations": []
+    },
+    {
+      "name": "onboarding-goal-390",
+      "route": "/onboarding/goals",
+      "synthetic": false,
+      "width": 390,
+      "scrollWidth": 390,
+      "font": "\"Be Vietnam Pro\", sans-serif",
+      "logoCount": 1,
+      "switches": [],
+      "inputs": [],
+      "reduced": true,
+      "violations": []
+    },
+    {
+      "name": "onboarding-household-768",
+      "route": "/onboarding/household",
+      "synthetic": false,
+      "width": 768,
+      "scrollWidth": 768,
+      "font": "\"Be Vietnam Pro\", sans-serif",
+      "logoCount": 1,
+      "switches": [],
+      "inputs": [],
+      "reduced": true,
+      "violations": []
+    },
+    {
+      "name": "onboarding-food-768",
+      "route": "/onboarding/preferences",
+      "synthetic": false,
+      "width": 768,
+      "scrollWidth": 768,
+      "font": "\"Be Vietnam Pro\", sans-serif",
+      "logoCount": 1,
+      "switches": [],
+      "inputs": [],
+      "reduced": true,
+      "violations": []
+    },
+    {
+      "name": "onboarding-goal-768",
+      "route": "/onboarding/goals",
+      "synthetic": false,
+      "width": 768,
+      "scrollWidth": 768,
+      "font": "\"Be Vietnam Pro\", sans-serif",
+      "logoCount": 1,
+      "switches": [],
+      "inputs": [],
+      "reduced": true,
+      "violations": []
+    },
+    {
+      "name": "onboarding-household-1024",
+      "route": "/onboarding/household",
+      "synthetic": false,
+      "width": 1024,
+      "scrollWidth": 1024,
+      "font": "\"Be Vietnam Pro\", sans-serif",
+      "logoCount": 1,
+      "switches": [],
+      "inputs": [],
+      "reduced": true,
+      "violations": []
+    },
+    {
+      "name": "onboarding-food-1024",
+      "route": "/onboarding/preferences",
+      "synthetic": false,
+      "width": 1024,
+      "scrollWidth": 1024,
+      "font": "\"Be Vietnam Pro\", sans-serif",
+      "logoCount": 1,
+      "switches": [],
+      "inputs": [],
+      "reduced": true,
+      "violations": []
+    },
+    {
+      "name": "onboarding-goal-1024",
+      "route": "/onboarding/goals",
+      "synthetic": false,
+      "width": 1024,
+      "scrollWidth": 1024,
+      "font": "\"Be Vietnam Pro\", sans-serif",
+      "logoCount": 1,
+      "switches": [],
+      "inputs": [],
+      "reduced": true,
+      "violations": []
+    },
+    {
+      "name": "onboarding-household-1440",
+      "route": "/onboarding/household",
+      "synthetic": false,
+      "width": 1440,
+      "scrollWidth": 1440,
+      "font": "\"Be Vietnam Pro\", sans-serif",
+      "logoCount": 1,
+      "switches": [],
+      "inputs": [],
+      "reduced": true,
+      "violations": []
+    },
+    {
+      "name": "onboarding-food-1440",
+      "route": "/onboarding/preferences",
+      "synthetic": false,
+      "width": 1440,
+      "scrollWidth": 1440,
+      "font": "\"Be Vietnam Pro\", sans-serif",
+      "logoCount": 1,
+      "switches": [],
+      "inputs": [],
+      "reduced": true,
+      "violations": []
+    },
+    {
+      "name": "onboarding-goal-1440",
+      "route": "/onboarding/goals",
+      "synthetic": false,
+      "width": 1440,
+      "scrollWidth": 1440,
+      "font": "\"Be Vietnam Pro\", sans-serif",
+      "logoCount": 1,
+      "switches": [],
+      "inputs": [],
+      "reduced": true,
+      "violations": []
+    },
+    {
+      "name": "onboarding-household-enlarged-320",
+      "route": "/onboarding/household",
+      "synthetic": false,
+      "width": 320,
+      "scrollWidth": 320,
+      "font": "\"Be Vietnam Pro\", sans-serif",
+      "logoCount": 1,
+      "switches": [],
+      "inputs": [],
+      "reduced": true,
+      "violations": []
+    },
+    {
+      "name": "onboarding-preferences-enlarged-320",
+      "route": "/onboarding/preferences",
+      "synthetic": false,
+      "width": 320,
+      "scrollWidth": 320,
+      "font": "\"Be Vietnam Pro\", sans-serif",
+      "logoCount": 1,
+      "switches": [],
+      "inputs": [],
+      "reduced": true,
+      "violations": []
+    },
+    {
+      "name": "onboarding-goals-enlarged-320",
+      "route": "/onboarding/goals",
+      "synthetic": false,
+      "width": 320,
+      "scrollWidth": 320,
+      "font": "\"Be Vietnam Pro\", sans-serif",
+      "logoCount": 1,
+      "switches": [],
+      "inputs": [],
+      "reduced": true,
+      "violations": []
+    },
+    {
+      "name": "profile-320",
+      "route": "/me",
+      "synthetic": false,
+      "width": 320,
+      "scrollWidth": 320,
+      "font": "\"Be Vietnam Pro\", sans-serif",
+      "logoCount": 1,
+      "switches": [],
+      "inputs": [],
+      "reduced": true,
+      "violations": []
+    },
+    {
+      "name": "preferences-320",
+      "route": "/me/preferences",
+      "synthetic": false,
+      "width": 320,
+      "scrollWidth": 320,
+      "font": "\"Be Vietnam Pro\", sans-serif",
+      "logoCount": 1,
+      "switches": [],
+      "inputs": [],
+      "reduced": true,
+      "violations": []
+    },
+    {
+      "name": "family-320",
+      "route": "/me/household",
+      "synthetic": false,
+      "width": 320,
+      "scrollWidth": 320,
+      "font": "\"Be Vietnam Pro\", sans-serif",
+      "logoCount": 1,
+      "switches": [],
+      "inputs": [],
+      "reduced": true,
+      "violations": []
+    },
+    {
+      "name": "app-settings-320",
+      "route": "/settings/app",
+      "synthetic": false,
+      "width": 320,
+      "scrollWidth": 320,
+      "font": "\"Be Vietnam Pro\", sans-serif",
+      "logoCount": 1,
+      "switches": [],
+      "inputs": [],
+      "reduced": true,
+      "violations": []
+    },
+    {
+      "name": "planning-settings-320",
+      "route": "/settings/planning",
+      "synthetic": false,
+      "width": 320,
+      "scrollWidth": 320,
+      "font": "\"Be Vietnam Pro\", sans-serif",
+      "logoCount": 1,
+      "switches": [
+        {
+          "width": 52,
+          "height": 48,
+          "contained": true
+        }
+      ],
+      "inputs": [],
+      "reduced": true,
+      "violations": []
+    },
+    {
+      "name": "notification-settings-320",
+      "route": "/settings/notifications",
+      "synthetic": false,
+      "width": 320,
+      "scrollWidth": 320,
+      "font": "\"Be Vietnam Pro\", sans-serif",
+      "logoCount": 1,
+      "switches": [
+        {
+          "width": 52,
+          "height": 48,
+          "contained": true
+        },
+        {
+          "width": 52,
+          "height": 48,
+          "contained": true
+        },
+        {
+          "width": 52,
+          "height": 48,
+          "contained": true
+        },
+        {
+          "width": 52,
+          "height": 48,
+          "contained": true
+        },
+        {
+          "width": 52,
+          "height": 48,
+          "contained": true
+        }
+      ],
+      "inputs": [],
+      "reduced": true,
+      "violations": []
+    },
+    {
+      "name": "privacy-320",
+      "route": "/settings/privacy",
+      "synthetic": false,
+      "width": 320,
+      "scrollWidth": 320,
+      "font": "\"Be Vietnam Pro\", sans-serif",
+      "logoCount": 1,
+      "switches": [],
+      "inputs": [],
+      "reduced": true,
+      "violations": []
+    },
+    {
+      "name": "inbox-320",
+      "route": "/notifications",
+      "synthetic": false,
+      "width": 320,
+      "scrollWidth": 320,
+      "font": "\"Be Vietnam Pro\", sans-serif",
+      "logoCount": 1,
+      "switches": [],
+      "inputs": [],
+      "reduced": true,
+      "violations": []
+    },
+    {
+      "name": "profile-390",
+      "route": "/me",
+      "synthetic": false,
+      "width": 390,
+      "scrollWidth": 390,
+      "font": "\"Be Vietnam Pro\", sans-serif",
+      "logoCount": 1,
+      "switches": [],
+      "inputs": [],
+      "reduced": true,
+      "violations": []
+    },
+    {
+      "name": "preferences-390",
+      "route": "/me/preferences",
+      "synthetic": false,
+      "width": 390,
+      "scrollWidth": 390,
+      "font": "\"Be Vietnam Pro\", sans-serif",
+      "logoCount": 1,
+      "switches": [],
+      "inputs": [],
+      "reduced": true,
+      "violations": []
+    },
+    {
+      "name": "family-390",
+      "route": "/me/household",
+      "synthetic": false,
+      "width": 390,
+      "scrollWidth": 390,
+      "font": "\"Be Vietnam Pro\", sans-serif",
+      "logoCount": 1,
+      "switches": [],
+      "inputs": [],
+      "reduced": true,
+      "violations": []
+    },
+    {
+      "name": "app-settings-390",
+      "route": "/settings/app",
+      "synthetic": false,
+      "width": 390,
+      "scrollWidth": 390,
+      "font": "\"Be Vietnam Pro\", sans-serif",
+      "logoCount": 1,
+      "switches": [],
+      "inputs": [],
+      "reduced": true,
+      "violations": []
+    },
+    {
+      "name": "planning-settings-390",
+      "route": "/settings/planning",
+      "synthetic": false,
+      "width": 390,
+      "scrollWidth": 390,
+      "font": "\"Be Vietnam Pro\", sans-serif",
+      "logoCount": 1,
+      "switches": [
+        {
+          "width": 52,
+          "height": 48,
+          "contained": true
+        }
+      ],
+      "inputs": [],
+      "reduced": true,
+      "violations": []
+    },
+    {
+      "name": "notification-settings-390",
+      "route": "/settings/notifications",
+      "synthetic": false,
+      "width": 390,
+      "scrollWidth": 390,
+      "font": "\"Be Vietnam Pro\", sans-serif",
+      "logoCount": 1,
+      "switches": [
+        {
+          "width": 52,
+          "height": 48,
+          "contained": true
+        },
+        {
+          "width": 52,
+          "height": 48,
+          "contained": true
+        },
+        {
+          "width": 52,
+          "height": 48,
+          "contained": true
+        },
+        {
+          "width": 52,
+          "height": 48,
+          "contained": true
+        },
+        {
+          "width": 52,
+          "height": 48,
+          "contained": true
+        }
+      ],
+      "inputs": [],
+      "reduced": true,
+      "violations": []
+    },
+    {
+      "name": "privacy-390",
+      "route": "/settings/privacy",
+      "synthetic": false,
+      "width": 390,
+      "scrollWidth": 390,
+      "font": "\"Be Vietnam Pro\", sans-serif",
+      "logoCount": 1,
+      "switches": [],
+      "inputs": [],
+      "reduced": true,
+      "violations": []
+    },
+    {
+      "name": "inbox-390",
+      "route": "/notifications",
+      "synthetic": false,
+      "width": 390,
+      "scrollWidth": 390,
+      "font": "\"Be Vietnam Pro\", sans-serif",
+      "logoCount": 1,
+      "switches": [],
+      "inputs": [],
+      "reduced": true,
+      "violations": []
+    },
+    {
+      "name": "profile-768",
+      "route": "/me",
+      "synthetic": false,
+      "width": 768,
+      "scrollWidth": 768,
+      "font": "\"Be Vietnam Pro\", sans-serif",
+      "logoCount": 1,
+      "switches": [],
+      "inputs": [],
+      "reduced": true,
+      "violations": []
+    },
+    {
+      "name": "preferences-768",
+      "route": "/me/preferences",
+      "synthetic": false,
+      "width": 768,
+      "scrollWidth": 768,
+      "font": "\"Be Vietnam Pro\", sans-serif",
+      "logoCount": 1,
+      "switches": [],
+      "inputs": [],
+      "reduced": true,
+      "violations": []
+    },
+    {
+      "name": "family-768",
+      "route": "/me/household",
+      "synthetic": false,
+      "width": 768,
+      "scrollWidth": 768,
+      "font": "\"Be Vietnam Pro\", sans-serif",
+      "logoCount": 1,
+      "switches": [],
+      "inputs": [],
+      "reduced": true,
+      "violations": []
+    },
+    {
+      "name": "app-settings-768",
+      "route": "/settings/app",
+      "synthetic": false,
+      "width": 768,
+      "scrollWidth": 768,
+      "font": "\"Be Vietnam Pro\", sans-serif",
+      "logoCount": 1,
+      "switches": [],
+      "inputs": [],
+      "reduced": true,
+      "violations": []
+    },
+    {
+      "name": "planning-settings-768",
+      "route": "/settings/planning",
+      "synthetic": false,
+      "width": 768,
+      "scrollWidth": 768,
+      "font": "\"Be Vietnam Pro\", sans-serif",
+      "logoCount": 1,
+      "switches": [
+        {
+          "width": 52,
+          "height": 48,
+          "contained": true
+        }
+      ],
+      "inputs": [],
+      "reduced": true,
+      "violations": []
+    },
+    {
+      "name": "notification-settings-768",
+      "route": "/settings/notifications",
+      "synthetic": false,
+      "width": 768,
+      "scrollWidth": 768,
+      "font": "\"Be Vietnam Pro\", sans-serif",
+      "logoCount": 1,
+      "switches": [
+        {
+          "width": 52,
+          "height": 48,
+          "contained": true
+        },
+        {
+          "width": 52,
+          "height": 48,
+          "contained": true
+        },
+        {
+          "width": 52,
+          "height": 48,
+          "contained": true
+        },
+        {
+          "width": 52,
+          "height": 48,
+          "contained": true
+        },
+        {
+          "width": 52,
+          "height": 48,
+          "contained": true
+        }
+      ],
+      "inputs": [],
+      "reduced": true,
+      "violations": []
+    },
+    {
+      "name": "privacy-768",
+      "route": "/settings/privacy",
+      "synthetic": false,
+      "width": 768,
+      "scrollWidth": 768,
+      "font": "\"Be Vietnam Pro\", sans-serif",
+      "logoCount": 1,
+      "switches": [],
+      "inputs": [],
+      "reduced": true,
+      "violations": []
+    },
+    {
+      "name": "inbox-768",
+      "route": "/notifications",
+      "synthetic": false,
+      "width": 768,
+      "scrollWidth": 768,
+      "font": "\"Be Vietnam Pro\", sans-serif",
+      "logoCount": 1,
+      "switches": [],
+      "inputs": [],
+      "reduced": true,
+      "violations": []
+    },
+    {
+      "name": "profile-1024",
+      "route": "/me",
+      "synthetic": false,
+      "width": 1024,
+      "scrollWidth": 1024,
+      "font": "\"Be Vietnam Pro\", sans-serif",
+      "logoCount": 1,
+      "switches": [],
+      "inputs": [],
+      "reduced": true,
+      "violations": []
+    },
+    {
+      "name": "preferences-1024",
+      "route": "/me/preferences",
+      "synthetic": false,
+      "width": 1024,
+      "scrollWidth": 1024,
+      "font": "\"Be Vietnam Pro\", sans-serif",
+      "logoCount": 1,
+      "switches": [],
+      "inputs": [],
+      "reduced": true,
+      "violations": []
+    },
+    {
+      "name": "family-1024",
+      "route": "/me/household",
+      "synthetic": false,
+      "width": 1024,
+      "scrollWidth": 1024,
+      "font": "\"Be Vietnam Pro\", sans-serif",
+      "logoCount": 1,
+      "switches": [],
+      "inputs": [],
+      "reduced": true,
+      "violations": []
+    },
+    {
+      "name": "app-settings-1024",
+      "route": "/settings/app",
+      "synthetic": false,
+      "width": 1024,
+      "scrollWidth": 1024,
+      "font": "\"Be Vietnam Pro\", sans-serif",
+      "logoCount": 1,
+      "switches": [],
+      "inputs": [],
+      "reduced": true,
+      "violations": []
+    },
+    {
+      "name": "planning-settings-1024",
+      "route": "/settings/planning",
+      "synthetic": false,
+      "width": 1024,
+      "scrollWidth": 1024,
+      "font": "\"Be Vietnam Pro\", sans-serif",
+      "logoCount": 1,
+      "switches": [
+        {
+          "width": 52,
+          "height": 48,
+          "contained": true
+        }
+      ],
+      "inputs": [],
+      "reduced": true,
+      "violations": []
+    },
+    {
+      "name": "notification-settings-1024",
+      "route": "/settings/notifications",
+      "synthetic": false,
+      "width": 1024,
+      "scrollWidth": 1024,
+      "font": "\"Be Vietnam Pro\", sans-serif",
+      "logoCount": 1,
+      "switches": [
+        {
+          "width": 52,
+          "height": 48,
+          "contained": true
+        },
+        {
+          "width": 52,
+          "height": 48,
+          "contained": true
+        },
+        {
+          "width": 52,
+          "height": 48,
+          "contained": true
+        },
+        {
+          "width": 52,
+          "height": 48,
+          "contained": true
+        },
+        {
+          "width": 52,
+          "height": 48,
+          "contained": true
+        }
+      ],
+      "inputs": [],
+      "reduced": true,
+      "violations": []
+    },
+    {
+      "name": "privacy-1024",
+      "route": "/settings/privacy",
+      "synthetic": false,
+      "width": 1024,
+      "scrollWidth": 1024,
+      "font": "\"Be Vietnam Pro\", sans-serif",
+      "logoCount": 1,
+      "switches": [],
+      "inputs": [],
+      "reduced": true,
+      "violations": []
+    },
+    {
+      "name": "inbox-1024",
+      "route": "/notifications",
+      "synthetic": false,
+      "width": 1024,
+      "scrollWidth": 1024,
+      "font": "\"Be Vietnam Pro\", sans-serif",
+      "logoCount": 1,
+      "switches": [],
+      "inputs": [],
+      "reduced": true,
+      "violations": []
+    },
+    {
+      "name": "profile-1440",
+      "route": "/me",
+      "synthetic": false,
+      "width": 1440,
+      "scrollWidth": 1440,
+      "font": "\"Be Vietnam Pro\", sans-serif",
+      "logoCount": 1,
+      "switches": [],
+      "inputs": [],
+      "reduced": true,
+      "violations": []
+    },
+    {
+      "name": "preferences-1440",
+      "route": "/me/preferences",
+      "synthetic": false,
+      "width": 1440,
+      "scrollWidth": 1440,
+      "font": "\"Be Vietnam Pro\", sans-serif",
+      "logoCount": 1,
+      "switches": [],
+      "inputs": [],
+      "reduced": true,
+      "violations": []
+    },
+    {
+      "name": "family-1440",
+      "route": "/me/household",
+      "synthetic": false,
+      "width": 1440,
+      "scrollWidth": 1440,
+      "font": "\"Be Vietnam Pro\", sans-serif",
+      "logoCount": 1,
+      "switches": [],
+      "inputs": [],
+      "reduced": true,
+      "violations": []
+    },
+    {
+      "name": "app-settings-1440",
+      "route": "/settings/app",
+      "synthetic": false,
+      "width": 1440,
+      "scrollWidth": 1440,
+      "font": "\"Be Vietnam Pro\", sans-serif",
+      "logoCount": 1,
+      "switches": [],
+      "inputs": [],
+      "reduced": true,
+      "violations": []
+    },
+    {
+      "name": "planning-settings-1440",
+      "route": "/settings/planning",
+      "synthetic": false,
+      "width": 1440,
+      "scrollWidth": 1440,
+      "font": "\"Be Vietnam Pro\", sans-serif",
+      "logoCount": 1,
+      "switches": [
+        {
+          "width": 52,
+          "height": 48,
+          "contained": true
+        }
+      ],
+      "inputs": [],
+      "reduced": true,
+      "violations": []
+    },
+    {
+      "name": "notification-settings-1440",
+      "route": "/settings/notifications",
+      "synthetic": false,
+      "width": 1440,
+      "scrollWidth": 1440,
+      "font": "\"Be Vietnam Pro\", sans-serif",
+      "logoCount": 1,
+      "switches": [
+        {
+          "width": 52,
+          "height": 48,
+          "contained": true
+        },
+        {
+          "width": 52,
+          "height": 48,
+          "contained": true
+        },
+        {
+          "width": 52,
+          "height": 48,
+          "contained": true
+        },
+        {
+          "width": 52,
+          "height": 48,
+          "contained": true
+        },
+        {
+          "width": 52,
+          "height": 48,
+          "contained": true
+        }
+      ],
+      "inputs": [],
+      "reduced": true,
+      "violations": []
+    },
+    {
+      "name": "privacy-1440",
+      "route": "/settings/privacy",
+      "synthetic": false,
+      "width": 1440,
+      "scrollWidth": 1440,
+      "font": "\"Be Vietnam Pro\", sans-serif",
+      "logoCount": 1,
+      "switches": [],
+      "inputs": [],
+      "reduced": true,
+      "violations": []
+    },
+    {
+      "name": "inbox-1440",
+      "route": "/notifications",
+      "synthetic": false,
+      "width": 1440,
+      "scrollWidth": 1440,
+      "font": "\"Be Vietnam Pro\", sans-serif",
+      "logoCount": 1,
+      "switches": [],
+      "inputs": [],
+      "reduced": true,
+      "violations": []
+    },
+    {
+      "name": "install-help-dialog",
+      "route": "/settings/app",
+      "synthetic": false,
+      "width": 1440,
+      "scrollWidth": 1440,
+      "font": "\"Be Vietnam Pro\", sans-serif",
+      "logoCount": 1,
+      "switches": [],
+      "inputs": [],
+      "reduced": true,
+      "violations": []
+    },
+    {
+      "name": "logout-dialog",
+      "route": "/me",
+      "synthetic": false,
+      "width": 1440,
+      "scrollWidth": 1440,
+      "font": "\"Be Vietnam Pro\", sans-serif",
+      "logoCount": 1,
+      "switches": [],
+      "inputs": [],
+      "reduced": true,
+      "violations": []
+    },
+    {
+      "name": "inbox-loading",
+      "route": "/notifications",
+      "synthetic": true,
+      "width": 1440,
+      "scrollWidth": 1440,
+      "font": "\"Be Vietnam Pro\", sans-serif",
+      "logoCount": 1,
+      "switches": [],
+      "inputs": [],
+      "reduced": true,
+      "violations": []
+    },
+    {
+      "name": "food-save-error",
+      "route": "/me/preferences",
+      "synthetic": true,
+      "width": 1440,
+      "scrollWidth": 1440,
+      "font": "\"Be Vietnam Pro\", sans-serif",
+      "logoCount": 1,
+      "switches": [],
+      "inputs": [],
+      "reduced": true,
+      "violations": []
+    },
+    {
+      "name": "planning-save-error",
+      "route": "/settings/planning",
+      "synthetic": true,
+      "width": 1440,
+      "scrollWidth": 1440,
+      "font": "\"Be Vietnam Pro\", sans-serif",
+      "logoCount": 1,
+      "switches": [
+        {
+          "width": 52,
+          "height": 48,
+          "contained": true
+        }
+      ],
+      "inputs": [],
+      "reduced": true,
+      "violations": []
+    },
+    {
+      "name": "inbox-empty",
+      "route": "/notifications",
+      "synthetic": true,
+      "width": 1440,
+      "scrollWidth": 1440,
+      "font": "\"Be Vietnam Pro\", sans-serif",
+      "logoCount": 1,
+      "switches": [],
+      "inputs": [],
+      "reduced": true,
+      "violations": []
+    },
+    {
+      "name": "inbox-error",
+      "route": "/notifications",
+      "synthetic": true,
+      "width": 1440,
+      "scrollWidth": 1440,
+      "font": "\"Be Vietnam Pro\", sans-serif",
+      "logoCount": 1,
+      "switches": [],
+      "inputs": [],
+      "reduced": true,
+      "violations": []
+    },
+    {
+      "name": "inbox-recovered",
+      "route": "/notifications",
+      "synthetic": false,
+      "width": 1440,
+      "scrollWidth": 1440,
+      "font": "\"Be Vietnam Pro\", sans-serif",
+      "logoCount": 1,
+      "switches": [],
+      "inputs": [],
+      "reduced": true,
+      "violations": []
+    },
+    {
+      "name": "profile-enlarged-320",
+      "route": "/me",
+      "synthetic": false,
+      "width": 320,
+      "scrollWidth": 320,
+      "font": "\"Be Vietnam Pro\", sans-serif",
+      "logoCount": 1,
+      "switches": [],
+      "inputs": [],
+      "reduced": true,
+      "violations": []
+    },
+    {
+      "name": "preferences-enlarged-320",
+      "route": "/me/preferences",
+      "synthetic": false,
+      "width": 320,
+      "scrollWidth": 320,
+      "font": "\"Be Vietnam Pro\", sans-serif",
+      "logoCount": 1,
+      "switches": [],
+      "inputs": [],
+      "reduced": true,
+      "violations": []
+    },
+    {
+      "name": "family-enlarged-320",
+      "route": "/me/household",
+      "synthetic": false,
+      "width": 320,
+      "scrollWidth": 320,
+      "font": "\"Be Vietnam Pro\", sans-serif",
+      "logoCount": 1,
+      "switches": [],
+      "inputs": [],
+      "reduced": true,
+      "violations": []
+    },
+    {
+      "name": "app-settings-enlarged-320",
+      "route": "/settings/app",
+      "synthetic": false,
+      "width": 320,
+      "scrollWidth": 320,
+      "font": "\"Be Vietnam Pro\", sans-serif",
+      "logoCount": 1,
+      "switches": [],
+      "inputs": [],
+      "reduced": true,
+      "violations": []
+    },
+    {
+      "name": "planning-settings-enlarged-320",
+      "route": "/settings/planning",
+      "synthetic": false,
+      "width": 320,
+      "scrollWidth": 320,
+      "font": "\"Be Vietnam Pro\", sans-serif",
+      "logoCount": 1,
+      "switches": [
+        {
+          "width": 52,
+          "height": 48,
+          "contained": true
+        }
+      ],
+      "inputs": [],
+      "reduced": true,
+      "violations": []
+    },
+    {
+      "name": "notification-settings-enlarged-320",
+      "route": "/settings/notifications",
+      "synthetic": false,
+      "width": 320,
+      "scrollWidth": 320,
+      "font": "\"Be Vietnam Pro\", sans-serif",
+      "logoCount": 1,
+      "switches": [
+        {
+          "width": 52,
+          "height": 48,
+          "contained": true
+        },
+        {
+          "width": 52,
+          "height": 48,
+          "contained": true
+        },
+        {
+          "width": 52,
+          "height": 48,
+          "contained": true
+        },
+        {
+          "width": 52,
+          "height": 48,
+          "contained": true
+        },
+        {
+          "width": 52,
+          "height": 48,
+          "contained": true
+        }
+      ],
+      "inputs": [],
+      "reduced": true,
+      "violations": []
+    },
+    {
+      "name": "privacy-enlarged-320",
+      "route": "/settings/privacy",
+      "synthetic": false,
+      "width": 320,
+      "scrollWidth": 320,
+      "font": "\"Be Vietnam Pro\", sans-serif",
+      "logoCount": 1,
+      "switches": [],
+      "inputs": [],
+      "reduced": true,
+      "violations": []
+    },
+    {
+      "name": "inbox-enlarged-320",
+      "route": "/notifications",
+      "synthetic": false,
+      "width": 320,
+      "scrollWidth": 320,
+      "font": "\"Be Vietnam Pro\", sans-serif",
+      "logoCount": 1,
+      "switches": [],
+      "inputs": [],
+      "reduced": true,
+      "violations": []
+    },
+    {
+      "name": "install-dialog-short-390",
+      "route": "/settings/app",
+      "synthetic": false,
+      "width": 390,
+      "scrollWidth": 390,
+      "font": "\"Be Vietnam Pro\", sans-serif",
+      "logoCount": 1,
+      "switches": [],
+      "inputs": [],
+      "reduced": true,
+      "violations": []
+    },
+    {
+      "name": "profile-normal-motion",
+      "route": "/me",
+      "synthetic": false,
+      "width": 390,
+      "scrollWidth": 390,
+      "font": "\"Be Vietnam Pro\", sans-serif",
+      "logoCount": 1,
+      "switches": [],
+      "inputs": [],
+      "reduced": false,
+      "violations": []
+    }
+  ],
+  "journeys": [
+    {
+      "kind": "keyboard-reveal-and-retained-auth-fields",
+      "providerRequest": false
+    },
+    {
+      "kind": "real-onboarding-draft-back-and-server-completion",
+      "householdSize": 3,
+      "cuisine": "japanese"
+    },
+    {
+      "kind": "keyboard-profile-food-save-server-reload-back"
+    },
+    {
+      "kind": "planning-default-save-server-reload-no-generation"
+    },
+    {
+      "kind": "keyboard-local-notification-intent-reload"
+    },
+    {
+      "kind": "install-help-escape-focus-restored",
+      "actualOSInstall": false
+    },
+    {
+      "kind": "logout-dialog-cancel-preserves-session"
+    },
+    {
+      "kind": "synthetic-loading-and-save-errors-focus-real-retry"
+    },
+    {
+      "kind": "synthetic-inbox-empty-error-real-recovery"
+    },
+    {
+      "kind": "completed-onboarding-guard"
+    },
+    {
+      "kind": "inventory-unchanged-by-account-actions"
+    },
+    {
+      "kind": "real-guest-entry-onboarding-failure-retained-goal-retry-week-alias",
+      "legacyFlagOff": false
+    },
+    {
+      "kind": "guest-profile-enlarged-320",
+      "overflow": false,
+      "axeViolations": 0,
+      "upgradeHref": "/auth?mode=login&returnTo=%2Fplus"
+    }
+  ],
+  "errors": []
+}

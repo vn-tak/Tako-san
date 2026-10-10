@@ -1,0 +1,229 @@
+{
+  "normalization": "Strip ANSI/trailing spaces/final blank lines; escape NUL; no semantic log edits",
+  "files": [
+    {
+      "source": ".artifacts/ui09/browser-fifth.log",
+      "archive": "docs/ui-rebuild/round-9/evidence/logs/browser-fifth.log",
+      "rawBytes": 2353,
+      "rawSha256": "f51e71e7367586da396e72521e9a5077bff49d3f6434a3cbbfeb64c9551d8c33",
+      "archiveBytes": 2353,
+      "archiveSha256": "f51e71e7367586da396e72521e9a5077bff49d3f6434a3cbbfeb64c9551d8c33"
+    },
+    {
+      "source": ".artifacts/ui09/browser-fourth.log",
+      "archive": "docs/ui-rebuild/round-9/evidence/logs/browser-fourth.log",
+      "rawBytes": 8763,
+      "rawSha256": "61bc37850771f1e46cf22551c63301b5907aa009ecd45da6a4ea249ded837f8e",
+      "archiveBytes": 8763,
+      "archiveSha256": "61bc37850771f1e46cf22551c63301b5907aa009ecd45da6a4ea249ded837f8e"
+    },
+    {
+      "source": ".artifacts/ui09/browser-frozen.log",
+      "archive": "docs/ui-rebuild/round-9/evidence/logs/browser-frozen.log",
+      "rawBytes": 2526,
+      "rawSha256": "fa678300c29f8d21b8ad96edb3f4233c417656577fb54880ec8848c0ceaa9ccf",
+      "archiveBytes": 2526,
+      "archiveSha256": "fa678300c29f8d21b8ad96edb3f4233c417656577fb54880ec8848c0ceaa9ccf"
+    },
+    {
+      "source": ".artifacts/ui09/browser-initial.log",
+      "archive": "docs/ui-rebuild/round-9/evidence/logs/browser-initial.log",
+      "rawBytes": 1514,
+      "rawSha256": "d096b214fce671180920d8f61c2a6aa53758e46b3b45bd0f0d24599e15782afb",
+      "archiveBytes": 1514,
+      "archiveSha256": "d096b214fce671180920d8f61c2a6aa53758e46b3b45bd0f0d24599e15782afb"
+    },
+    {
+      "source": ".artifacts/ui09/browser-second.log",
+      "archive": "docs/ui-rebuild/round-9/evidence/logs/browser-second.log",
+      "rawBytes": 1680,
+      "rawSha256": "81c956ac9a36c88925ff0a8563329572523a9a5e67315b4f413a9e9cf575f172",
+      "archiveBytes": 1680,
+      "archiveSha256": "81c956ac9a36c88925ff0a8563329572523a9a5e67315b4f413a9e9cf575f172"
+    },
+    {
+      "source": ".artifacts/ui09/browser-third.log",
+      "archive": "docs/ui-rebuild/round-9/evidence/logs/browser-third.log",
+      "rawBytes": 4030,
+      "rawSha256": "5033ef0639c198beaa01cbb808a4a4b8fcb69d27a2ff4faf64c9d77479affdb1",
+      "archiveBytes": 4030,
+      "archiveSha256": "5033ef0639c198beaa01cbb808a4a4b8fcb69d27a2ff4faf64c9d77479affdb1"
+    },
+    {
+      "source": ".artifacts/ui09/dependency-audit.log",
+      "archive": "docs/ui-rebuild/round-9/evidence/logs/dependency-audit.log",
+      "rawBytes": 42189,
+      "rawSha256": "c043a8238560978f7cdc3b965c73a1b435e4e94eb96c022d8ebe5191eb22c7d7",
+      "archiveBytes": 42189,
+      "archiveSha256": "c043a8238560978f7cdc3b965c73a1b435e4e94eb96c022d8ebe5191eb22c7d7"
+    },
+    {
+      "source": ".artifacts/ui09/edit-overflow-probe.log",
+      "archive": "docs/ui-rebuild/round-9/evidence/logs/edit-overflow-probe.log",
+      "rawBytes": 5615,
+      "rawSha256": "fbd4545b16329d5182abaec0dc1cc22e0e956825ea37ebc4c8450d748c63ee74",
+      "archiveBytes": 5615,
+      "archiveSha256": "fbd4545b16329d5182abaec0dc1cc22e0e956825ea37ebc4c8450d748c63ee74"
+    },
+    {
+      "source": ".artifacts/ui09/focused-expanded.log",
+      "archive": "docs/ui-rebuild/round-9/evidence/logs/focused-expanded.log",
+      "rawBytes": 150160,
+      "rawSha256": "c09295809152046d9781f681f26be2a90b5f5d6acd85f742f9340b63b29ac21f",
+      "archiveBytes": 150158,
+      "archiveSha256": "62eba2068ea0eade01a3b16c1974ad97e6cb6956abc17e272b5edd0d30f2ae3b"
+    },
+    {
+      "source": ".artifacts/ui09/focused-final.log",
+      "archive": "docs/ui-rebuild/round-9/evidence/logs/focused-final.log",
+      "rawBytes": 147570,
+      "rawSha256": "16ba10f66868d7a0b2ba9f5c8c51f5ee4842a1a8bdbc9a25d691150d70cdfb8f",
+      "archiveBytes": 147569,
+      "archiveSha256": "55c5a39c70682e4d05b96bd7d685eb216374b380db9b93329638cd913a015c68"
+    },
+    {
+      "source": ".artifacts/ui09/focused-frozen-complete.log",
+      "archive": "docs/ui-rebuild/round-9/evidence/logs/focused-frozen-complete.log",
+      "rawBytes": 147265,
+      "rawSha256": "d87fcdc34a9ff50f402b344be8365e0d5093f147d9f029f5d4521db0061882a9",
+      "archiveBytes": 147264,
+      "archiveSha256": "39a7b0a99e0325bd44062ab4e3fce9d66cee20b2c4ddc608d7bde7eeae02e8d0"
+    },
+    {
+      "source": ".artifacts/ui09/focused-frozen.log",
+      "archive": "docs/ui-rebuild/round-9/evidence/logs/focused-frozen.log",
+      "rawBytes": 146489,
+      "rawSha256": "3dd19cb678424d9cc26e399eebd9c8bcdeb77342a65b7dd304ecbdfee155169e",
+      "archiveBytes": 146488,
+      "archiveSha256": "7108780753e1dff503c611a8a538fc18c1bdd9697c16b93a8c2cdb7f43199e50"
+    },
+    {
+      "source": ".artifacts/ui09/focused-initial.log",
+      "archive": "docs/ui-rebuild/round-9/evidence/logs/focused-initial.log",
+      "rawBytes": 144411,
+      "rawSha256": "4112a0845bdec7228bc4ceaf0ea8b8e2b914363f1e14b6275aba17cd706d5e4b",
+      "archiveBytes": 144410,
+      "archiveSha256": "8664f5e5fcf5fea49e981ea137d64aece68034e0335c9dc77b1e0d83e57161a8"
+    },
+    {
+      "source": ".artifacts/ui09/format.log",
+      "archive": "docs/ui-rebuild/round-9/evidence/logs/format.log",
+      "rawBytes": 386,
+      "rawSha256": "f4e014f485c786a6e8989cb26524bb130c522ca62ce0646bdbb980c8eb3c6ec6",
+      "archiveBytes": 386,
+      "archiveSha256": "f4e014f485c786a6e8989cb26524bb130c522ca62ce0646bdbb980c8eb3c6ec6"
+    },
+    {
+      "source": ".artifacts/ui09/full-check.log",
+      "archive": "docs/ui-rebuild/round-9/evidence/logs/full-check.log",
+      "rawBytes": 468450,
+      "rawSha256": "e6ba4a04c0ebdf05c55f43620cd13dcc4b4d2a98a2e6aa816b98b0ebe07a57ae",
+      "archiveBytes": 468327,
+      "archiveSha256": "0e9279acec46bbe24aea871277af7fc00a9dd12d2195134f4b00b142e35cbd6d"
+    },
+    {
+      "source": ".artifacts/ui09/lint-expanded.log",
+      "archive": "docs/ui-rebuild/round-9/evidence/logs/lint-expanded.log",
+      "rawBytes": 78,
+      "rawSha256": "0843d347fecf8ae8f1653d172a665366b6ab2587b42bb8c9052674f7ae192088",
+      "archiveBytes": 77,
+      "archiveSha256": "e98bbc43ec9a006b84e2f29d9062626b28ac5f935399b65e11585e42f6eaed39"
+    },
+    {
+      "source": ".artifacts/ui09/lint-final.log",
+      "archive": "docs/ui-rebuild/round-9/evidence/logs/lint-final.log",
+      "rawBytes": 78,
+      "rawSha256": "0843d347fecf8ae8f1653d172a665366b6ab2587b42bb8c9052674f7ae192088",
+      "archiveBytes": 77,
+      "archiveSha256": "e98bbc43ec9a006b84e2f29d9062626b28ac5f935399b65e11585e42f6eaed39"
+    },
+    {
+      "source": ".artifacts/ui09/overflow-probe.log",
+      "archive": "docs/ui-rebuild/round-9/evidence/logs/overflow-probe.log",
+      "rawBytes": 3,
+      "rawSha256": "37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570",
+      "archiveBytes": 3,
+      "archiveSha256": "37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570"
+    },
+    {
+      "source": ".artifacts/ui09/preview-default.log",
+      "archive": "docs/ui-rebuild/round-9/evidence/logs/preview-default.log",
+      "rawBytes": 30372,
+      "rawSha256": "e000bce9e594eb35fa6d62adc0283895c77a8cc15fff1f790b73f61121bb99ac",
+      "archiveBytes": 30372,
+      "archiveSha256": "e000bce9e594eb35fa6d62adc0283895c77a8cc15fff1f790b73f61121bb99ac"
+    },
+    {
+      "source": ".artifacts/ui09/preview-week-off.log",
+      "archive": "docs/ui-rebuild/round-9/evidence/logs/preview-week-off.log",
+      "rawBytes": 7513,
+      "rawSha256": "91616113e6c69ec8eaa839630b73399771b5536940f64024a1cba275b700e3df",
+      "archiveBytes": 7513,
+      "archiveSha256": "91616113e6c69ec8eaa839630b73399771b5536940f64024a1cba275b700e3df"
+    },
+    {
+      "source": ".artifacts/ui09/typecheck-expanded.log",
+      "archive": "docs/ui-rebuild/round-9/evidence/logs/typecheck-expanded.log",
+      "rawBytes": 144,
+      "rawSha256": "89d662e7c54d599aab310047afa9f99a853da8b357c03c6226f4e57b115b6525",
+      "archiveBytes": 143,
+      "archiveSha256": "3d4a43ec5f8927989d7eb534356d88c25d7ce71fdafef36db5be760a9b576bf9"
+    },
+    {
+      "source": ".artifacts/ui09/typecheck-initial.log",
+      "archive": "docs/ui-rebuild/round-9/evidence/logs/typecheck-initial.log",
+      "rawBytes": 144,
+      "rawSha256": "89d662e7c54d599aab310047afa9f99a853da8b357c03c6226f4e57b115b6525",
+      "archiveBytes": 143,
+      "archiveSha256": "3d4a43ec5f8927989d7eb534356d88c25d7ce71fdafef36db5be760a9b576bf9"
+    },
+    {
+      "source": ".artifacts/ui09/ux-audit.log",
+      "archive": "docs/ui-rebuild/round-9/evidence/logs/ux-audit.log",
+      "rawBytes": 2981,
+      "rawSha256": "e833510425c0fca576fa74a948c4160956f16b0232157dca87e23615b243b988",
+      "archiveBytes": 2981,
+      "archiveSha256": "e833510425c0fca576fa74a948c4160956f16b0232157dca87e23615b243b988"
+    },
+    {
+      "source": ".artifacts/ui09/web-interface-guidelines.md",
+      "archive": "docs/ui-rebuild/round-9/evidence/logs/web-interface-guidelines.md",
+      "rawBytes": 8055,
+      "rawSha256": "d246b026f4f29b5823a9cc857f9edf3d2507002e055e32040cadeaf3b38e0234",
+      "archiveBytes": 8055,
+      "archiveSha256": "d246b026f4f29b5823a9cc857f9edf3d2507002e055e32040cadeaf3b38e0234"
+    },
+    {
+      "source": ".artifacts/ui09/week-audit-final.log",
+      "archive": "docs/ui-rebuild/round-9/evidence/logs/week-audit-final.log",
+      "rawBytes": 651,
+      "rawSha256": "271433598e7e7c87860c4d7c32350f956b5171c8a2fc0241fad05a342ae751a3",
+      "archiveBytes": 651,
+      "archiveSha256": "271433598e7e7c87860c4d7c32350f956b5171c8a2fc0241fad05a342ae751a3"
+    },
+    {
+      "source": ".artifacts/ui09/week-audit-frozen.log",
+      "archive": "docs/ui-rebuild/round-9/evidence/logs/week-audit-frozen.log",
+      "rawBytes": 651,
+      "rawSha256": "271433598e7e7c87860c4d7c32350f956b5171c8a2fc0241fad05a342ae751a3",
+      "archiveBytes": 651,
+      "archiveSha256": "271433598e7e7c87860c4d7c32350f956b5171c8a2fc0241fad05a342ae751a3"
+    },
+    {
+      "source": ".artifacts/ui09/week-audit-initial.log",
+      "archive": "docs/ui-rebuild/round-9/evidence/logs/week-audit-initial.log",
+      "rawBytes": 1502,
+      "rawSha256": "071fa5068667767a0d5e8927b93ff88c660261ba2f024210989797c9f430e82f",
+      "archiveBytes": 1502,
+      "archiveSha256": "071fa5068667767a0d5e8927b93ff88c660261ba2f024210989797c9f430e82f"
+    },
+    {
+      "source": ".artifacts/ui09/week-audit-second.log",
+      "archive": "docs/ui-rebuild/round-9/evidence/logs/week-audit-second.log",
+      "rawBytes": 607,
+      "rawSha256": "cecda3cf6ffc4e4f7e4980d4f2bfcee4812d9d1e0619759aa10530864c30fb0c",
+      "archiveBytes": 607,
+      "archiveSha256": "cecda3cf6ffc4e4f7e4980d4f2bfcee4812d9d1e0619759aa10530864c30fb0c"
+    }
+  ]
+}

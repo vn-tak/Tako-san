@@ -1,0 +1,98 @@
+home-320: roots5 overlap0 axe0 width320
+stock-320: roots5 overlap0 axe0 width320
+detail-320: roots5 overlap0 axe0 width320
+review-320: roots5 overlap0 axe0 width320
+receipt-320: roots5 overlap0 axe0 width320
+recipe-320: roots5 overlap0 axe0 width320
+planner-320: roots5 overlap0 axe0 width320
+shopping-320: roots5 overlap0 axe0 width320
+account-320: roots5 overlap0 axe0 width320
+preferences-320: roots5 overlap0 axe0 width320
+planning-settings-320: roots5 overlap0 axe0 width320
+home-360: roots5 overlap0 axe0 width360
+stock-360: roots5 overlap0 axe0 width360
+detail-360: roots5 overlap0 axe0 width360
+review-360: roots5 overlap0 axe0 width360
+receipt-360: roots5 overlap0 axe0 width360
+recipe-360: roots5 overlap0 axe0 width360
+planner-360: roots5 overlap0 axe0 width360
+shopping-360: roots5 overlap0 axe0 width360
+account-360: roots5 overlap0 axe0 width360
+preferences-360: roots5 overlap0 axe0 width360
+planning-settings-360: roots5 overlap0 axe0 width360
+home-390: roots5 overlap0 axe0 width390
+stock-390: roots5 overlap0 axe0 width390
+detail-390: roots5 overlap0 axe0 width390
+review-390: roots5 overlap0 axe0 width390
+receipt-390: roots5 overlap0 axe0 width390
+recipe-390: roots5 overlap0 axe0 width390
+planner-390: roots5 overlap0 axe0 width390
+shopping-390: roots5 overlap0 axe0 width390
+account-390: roots5 overlap0 axe0 width390
+preferences-390: roots5 overlap0 axe0 width390
+planning-settings-390: roots5 overlap0 axe0 width390
+home-430: roots5 overlap0 axe0 width430
+stock-430: roots5 overlap0 axe0 width430
+detail-430: roots5 overlap0 axe0 width430
+review-430: roots5 overlap0 axe0 width430
+receipt-430: roots5 overlap0 axe0 width430
+recipe-430: roots5 overlap0 axe0 width430
+planner-430: roots5 overlap0 axe0 width430
+shopping-430: roots5 overlap0 axe0 width430
+account-430: roots5 overlap0 axe0 width430
+preferences-430: roots5 overlap0 axe0 width430
+planning-settings-430: roots5 overlap0 axe0 width430
+home-768: roots7 overlap0 axe0 width768
+stock-768: roots7 overlap0 axe0 width768
+detail-768: roots7 overlap0 axe0 width768
+review-768: roots7 overlap0 axe0 width768
+receipt-768: roots7 overlap0 axe0 width768
+recipe-768: roots7 overlap0 axe0 width768
+planner-768: roots7 overlap0 axe0 width768
+shopping-768: roots7 overlap0 axe0 width768
+account-768: roots7 overlap0 axe0 width768
+preferences-768: roots7 overlap0 axe0 width768
+planning-settings-768: roots7 overlap0 axe0 width768
+home-1024: roots7 overlap0 axe0 width1024
+stock-1024: roots7 overlap0 axe0 width1024
+detail-1024: roots7 overlap0 axe0 width1024
+review-1024: roots7 overlap0 axe0 width1024
+receipt-1024: roots7 overlap0 axe0 width1024
+recipe-1024: roots7 overlap0 axe0 width1024
+planner-1024: roots7 overlap0 axe0 width1024
+shopping-1024: roots7 overlap0 axe0 width1024
+account-1024: roots7 overlap0 axe0 width1024
+preferences-1024: roots7 overlap0 axe0 width1024
+planning-settings-1024: roots7 overlap0 axe0 width1024
+home-1440: roots7 overlap0 axe0 width1440
+stock-1440: roots7 overlap0 axe0 width1440
+detail-1440: roots7 overlap0 axe0 width1440
+review-1440: roots7 overlap0 axe0 width1440
+receipt-1440: roots7 overlap0 axe0 width1440
+recipe-1440: roots7 overlap0 axe0 width1440
+planner-1440: roots7 overlap0 axe0 width1440
+shopping-1440: roots7 overlap0 axe0 width1440
+account-1440: roots7 overlap0 axe0 width1440
+preferences-1440: roots7 overlap0 axe0 width1440
+planning-settings-1440: roots7 overlap0 axe0 width1440
+stock-320-844-text2: roots5 overlap0 axe0 width320
+review-320-844-text2: roots5 overlap0 axe0 width320
+recipe-320-844-text2: roots5 overlap0 axe0 width320
+shopping-320-844-text2: roots5 overlap0 axe0 width320
+preferences-320-844-text2: roots5 overlap0 axe0 width320
+node:internal/modules/run_main:107
+    triggerUncaughtException(
+    ^
+
+AssertionError [ERR_ASSERTION]: planning-settings-320-844-text2: action overlaps nav
+    at shot (file:///Users/tunbee27/Documents/Tako-san-ui-rebuild/scripts/ui11-browser-check.mjs:88:90)
+    at async file:///Users/tunbee27/Documents/Tako-san-ui-rebuild/scripts/ui11-browser-check.mjs:128:76 {
+  generatedMessage: false,
+  code: 'ERR_ASSERTION',
+  actual: false,
+  expected: true,
+  operator: '==',
+  diff: 'simple'
+}
+
+Node.js v24.16.0

@@ -1,0 +1,169 @@
+{
+  "records": [
+    {
+      "name": "settings",
+      "width": 320,
+      "path": "/settings/app",
+      "actual": "/settings/app",
+      "scrollWidth": 320,
+      "h1": [
+        "Cài đặt ứng dụng"
+      ],
+      "broken": [],
+      "violations": []
+    },
+    {
+      "name": "household",
+      "width": 320,
+      "path": "/me/household",
+      "actual": "/me/household",
+      "scrollWidth": 320,
+      "h1": [
+        "Hộ gia đình & chia sẻ"
+      ],
+      "broken": [],
+      "violations": []
+    },
+    {
+      "name": "reconciliation",
+      "width": 320,
+      "path": "/inventory-reconciliation",
+      "actual": "/inventory-reconciliation",
+      "scrollWidth": 320,
+      "h1": [
+        "Đối chiếu tủ lạnh"
+      ],
+      "broken": [],
+      "violations": []
+    },
+    {
+      "name": "scan-no-id",
+      "width": 320,
+      "path": "/scan/result",
+      "actual": "/scan/result",
+      "scrollWidth": 320,
+      "h1": [
+        "Kiểm tra nguyên liệu"
+      ],
+      "broken": [],
+      "violations": []
+    },
+    {
+      "name": "cook-entry",
+      "width": 320,
+      "path": "/cook/pasta-pomodoro",
+      "actual": "/cook/pasta-pomodoro",
+      "scrollWidth": 320,
+      "h1": [
+        "Mì Ý sốt cà chua Pomodoro"
+      ],
+      "broken": [],
+      "violations": []
+    },
+    {
+      "name": "cook-no-attempt",
+      "width": 320,
+      "path": "/cooking/complete",
+      "actual": "/cooking/complete",
+      "scrollWidth": 320,
+      "h1": [
+        "Không có món ăn đang hoàn tất"
+      ],
+      "broken": [],
+      "violations": []
+    },
+    {
+      "name": "settings",
+      "width": 1440,
+      "path": "/settings/app",
+      "actual": "/settings/app",
+      "scrollWidth": 1440,
+      "h1": [
+        "Cài đặt ứng dụng"
+      ],
+      "broken": [],
+      "violations": []
+    },
+    {
+      "name": "household",
+      "width": 1440,
+      "path": "/me/household",
+      "actual": "/me/household",
+      "scrollWidth": 1440,
+      "h1": [
+        "Hộ gia đình & chia sẻ"
+      ],
+      "broken": [],
+      "violations": []
+    },
+    {
+      "name": "reconciliation",
+      "width": 1440,
+      "path": "/inventory-reconciliation",
+      "actual": "/inventory-reconciliation",
+      "scrollWidth": 1440,
+      "h1": [
+        "Đối chiếu tủ lạnh"
+      ],
+      "broken": [],
+      "violations": []
+    },
+    {
+      "name": "scan-no-id",
+      "width": 1440,
+      "path": "/scan/result",
+      "actual": "/scan/result",
+      "scrollWidth": 1440,
+      "h1": [
+        "Kiểm tra nguyên liệu"
+      ],
+      "broken": [],
+      "violations": []
+    },
+    {
+      "name": "cook-entry",
+      "width": 1440,
+      "path": "/cook/pasta-pomodoro",
+      "actual": "/cook/pasta-pomodoro",
+      "scrollWidth": 1440,
+      "h1": [
+        "Mì Ý sốt cà chua Pomodoro"
+      ],
+      "broken": [],
+      "violations": []
+    },
+    {
+      "name": "cook-no-attempt",
+      "width": 1440,
+      "path": "/cooking/complete",
+      "actual": "/cooking/complete",
+      "scrollWidth": 1440,
+      "h1": [
+        "Không có món ăn đang hoàn tất"
+      ],
+      "broken": [],
+      "violations": []
+    },
+    {
+      "name": "public-entry",
+      "path": "/landing",
+      "width": 320,
+      "scrollWidth": 320,
+      "h1": "Ăn đủ.Mua đủ.Dùng hết."
+    },
+    {
+      "name": "registered-login",
+      "path": "/auth/login",
+      "width": 320,
+      "scrollWidth": 320,
+      "h1": "Ăn đủ.Mua đủ.Dùng hết."
+    }
+  ],
+  "errors": [],
+  "writes": [
+    {
+      "path": "/api/v1/preferences",
+      "method": "PATCH"
+    }
+  ]
+}

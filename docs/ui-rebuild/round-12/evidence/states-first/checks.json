@@ -1,0 +1,184 @@
+{
+  "checks": [
+    {
+      "name": "recipe-loading",
+      "synthetic": true,
+      "width": 320,
+      "scrollWidth": 320,
+      "h1": 1,
+      "clipped": [],
+      "media": [],
+      "violations": []
+    },
+    {
+      "name": "recipe-error",
+      "synthetic": true,
+      "width": 320,
+      "scrollWidth": 320,
+      "h1": 1,
+      "clipped": [],
+      "media": [],
+      "violations": []
+    },
+    {
+      "name": "recipe-error-text2",
+      "synthetic": true,
+      "width": 320,
+      "scrollWidth": 320,
+      "h1": 1,
+      "clipped": [],
+      "media": [],
+      "violations": []
+    },
+    {
+      "name": "recipe-long-title",
+      "synthetic": true,
+      "width": 320,
+      "scrollWidth": 320,
+      "h1": 1,
+      "clipped": [],
+      "media": [
+        "missing"
+      ],
+      "violations": []
+    },
+    {
+      "name": "recipe-nutrition-unknown",
+      "synthetic": true,
+      "width": 320,
+      "scrollWidth": 320,
+      "h1": 1,
+      "clipped": [],
+      "media": [
+        "missing"
+      ],
+      "violations": []
+    },
+    {
+      "name": "recipe-long-unknown-text2",
+      "synthetic": true,
+      "width": 320,
+      "scrollWidth": 320,
+      "h1": 1,
+      "clipped": [],
+      "media": [
+        "missing"
+      ],
+      "violations": []
+    },
+    {
+      "name": "recipe-404",
+      "synthetic": false,
+      "width": 320,
+      "scrollWidth": 320,
+      "h1": 1,
+      "clipped": [],
+      "media": [],
+      "violations": []
+    },
+    {
+      "name": "recipe-404-text2",
+      "synthetic": true,
+      "width": 320,
+      "scrollWidth": 320,
+      "h1": 1,
+      "clipped": [],
+      "media": [],
+      "violations": []
+    },
+    {
+      "name": "discovery-empty",
+      "synthetic": false,
+      "width": 320,
+      "scrollWidth": 320,
+      "h1": 1,
+      "clipped": [],
+      "media": [],
+      "violations": []
+    },
+    {
+      "name": "inventory-read-error",
+      "synthetic": false,
+      "width": 320,
+      "scrollWidth": 320,
+      "h1": 1,
+      "clipped": [],
+      "media": [
+        "missing"
+      ],
+      "violations": []
+    },
+    {
+      "name": "media-canonical",
+      "synthetic": true,
+      "width": 320,
+      "scrollWidth": 320,
+      "h1": 1,
+      "clipped": [],
+      "media": [
+        "photo"
+      ],
+      "violations": []
+    },
+    {
+      "name": "media-fallback",
+      "synthetic": true,
+      "width": 320,
+      "scrollWidth": 320,
+      "h1": 1,
+      "clipped": [],
+      "media": [
+        "photo"
+      ],
+      "violations": []
+    },
+    {
+      "name": "media-missing",
+      "synthetic": true,
+      "width": 320,
+      "scrollWidth": 320,
+      "h1": 1,
+      "clipped": [],
+      "media": [
+        "missing"
+      ],
+      "violations": []
+    }
+  ],
+  "journeys": [
+    {
+      "kind": "recipe-pending-error-real-retry-success",
+      "synthetic": true
+    },
+    {
+      "kind": "404-return-to-catalog"
+    },
+    {
+      "kind": "search-empty-reset-real-results"
+    },
+    {
+      "kind": "native-card-Enter-filtered-detail-back"
+    },
+    {
+      "kind": "native-pagination-results-focus"
+    },
+    {
+      "kind": "inventory-error-disabled-Cook-retry-no-invented-stock",
+      "synthetic": true
+    },
+    {
+      "kind": "canonical-photo-to-allowed-legacy-to-HTML-missing-no-loop",
+      "synthetic": true
+    },
+    {
+      "kind": "all-inventory-JSON-equal-zero-domain-writes"
+    }
+  ],
+  "errors": [],
+  "writes": [
+    {
+      "method": "PATCH",
+      "path": "/api/v1/preferences"
+    }
+  ]
+}

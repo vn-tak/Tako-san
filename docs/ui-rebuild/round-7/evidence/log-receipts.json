@@ -1,0 +1,117 @@
+{
+  "normalization": "trim trailing whitespace per line and trailing blank lines; escape NUL as literal \\u0000; preserve content/failures; raw files in .artifacts/ui07",
+  "logs": [
+    {
+      "name": "browser-fifth.log",
+      "rawBytes": 6596,
+      "rawSha256": "9943684e2fc91a9eded1d2e910f5879bd5508528e509b0f4b4b4088fe302ce09",
+      "archiveBytes": 6596,
+      "archiveSha256": "9943684e2fc91a9eded1d2e910f5879bd5508528e509b0f4b4b4088fe302ce09"
+    },
+    {
+      "name": "browser-final.log",
+      "rawBytes": 1765,
+      "rawSha256": "bc6878da00589cff4e777abeb5b2105141bcb10e89220af5d8c1d9684f6443b0",
+      "archiveBytes": 1765,
+      "archiveSha256": "bc6878da00589cff4e777abeb5b2105141bcb10e89220af5d8c1d9684f6443b0"
+    },
+    {
+      "name": "browser-first-diagnostic.txt",
+      "rawBytes": 327,
+      "rawSha256": "a7327c69baef554d98e3e87e66792a50abf2f5192aed570abea711c371c35d01",
+      "archiveBytes": 327,
+      "archiveSha256": "a7327c69baef554d98e3e87e66792a50abf2f5192aed570abea711c371c35d01"
+    },
+    {
+      "name": "browser-first.log",
+      "rawBytes": 370,
+      "rawSha256": "3d807af82c711f980cf78899762af7ddf7f1ae5847d8ef01cb35cb3322174b78",
+      "archiveBytes": 370,
+      "archiveSha256": "3d807af82c711f980cf78899762af7ddf7f1ae5847d8ef01cb35cb3322174b78"
+    },
+    {
+      "name": "browser-fourth.log",
+      "rawBytes": 701,
+      "rawSha256": "d710fb317ee488720a3d0f5339024a655f931baba48197d789daa3f030ed3ea3",
+      "archiveBytes": 701,
+      "archiveSha256": "d710fb317ee488720a3d0f5339024a655f931baba48197d789daa3f030ed3ea3"
+    },
+    {
+      "name": "browser-frozen.log",
+      "rawBytes": 1765,
+      "rawSha256": "bc6878da00589cff4e777abeb5b2105141bcb10e89220af5d8c1d9684f6443b0",
+      "archiveBytes": 1765,
+      "archiveSha256": "bc6878da00589cff4e777abeb5b2105141bcb10e89220af5d8c1d9684f6443b0"
+    },
+    {
+      "name": "browser-second.log",
+      "rawBytes": 370,
+      "rawSha256": "6b73fe98c9918028468610d2471ef744c107c1e828a3f26d13093d3f7b7e42a8",
+      "archiveBytes": 370,
+      "archiveSha256": "6b73fe98c9918028468610d2471ef744c107c1e828a3f26d13093d3f7b7e42a8"
+    },
+    {
+      "name": "browser-sixth.log",
+      "rawBytes": 6719,
+      "rawSha256": "8b9a100eb8625f955cd8747c51939c6d5cb0ac4e8d904baa443302ef3c963ca5",
+      "archiveBytes": 6719,
+      "archiveSha256": "8b9a100eb8625f955cd8747c51939c6d5cb0ac4e8d904baa443302ef3c963ca5"
+    },
+    {
+      "name": "browser-third.log",
+      "rawBytes": 465,
+      "rawSha256": "fc215d5d36085ef28d6c80f2ee86c64358eb0d260c8c7ccdf7a66ea0beab8838",
+      "archiveBytes": 465,
+      "archiveSha256": "fc215d5d36085ef28d6c80f2ee86c64358eb0d260c8c7ccdf7a66ea0beab8838"
+    },
+    {
+      "name": "focused-final.log",
+      "rawBytes": 480,
+      "rawSha256": "60283aba58a436a784d9eb907adf776c4e55bf63f0d271a9dc99e821c0718644",
+      "archiveBytes": 479,
+      "archiveSha256": "b4c1ea2ab4a86b15b4b4138dd596e7220b5e95915119de84f321d838ea91605b"
+    },
+    {
+      "name": "focused-first.log",
+      "rawBytes": 25775,
+      "rawSha256": "de2674802092c7b05c2081976ad4d78db59b50f25d224b6bc74486e32c3afc15",
+      "archiveBytes": 25774,
+      "archiveSha256": "cb28bc7b980eff39fb62502d22abda4588ea2c0ab9ba8f94b414081c2314e65a"
+    },
+    {
+      "name": "focused-frozen.log",
+      "rawBytes": 480,
+      "rawSha256": "a6b0f7eb27291a99fb6fcf3b75eb209bcb756d8b697975b7ba614ce68cbbeca8",
+      "archiveBytes": 479,
+      "archiveSha256": "5b9945e6e44a056ce2997160a39b6a2e1c24a2c72da6d86ff91e51e24167d9f9"
+    },
+    {
+      "name": "preview.log",
+      "rawBytes": 27736,
+      "rawSha256": "a134c088c382d3081a109eb287df3870ad38bb81966819acf6b51547914e92e3",
+      "archiveBytes": 27736,
+      "archiveSha256": "a134c088c382d3081a109eb287df3870ad38bb81966819acf6b51547914e92e3"
+    },
+    {
+      "name": "ux-audit.log",
+      "rawBytes": 2981,
+      "rawSha256": "e453cda84c0deb4a42098caf758d877a8a927c2d83bcb7e4f1b61db540776914",
+      "archiveBytes": 2981,
+      "archiveSha256": "e453cda84c0deb4a42098caf758d877a8a927c2d83bcb7e4f1b61db540776914"
+    },
+    {
+      "name": "web-interface-guidelines.md",
+      "rawBytes": 8055,
+      "rawSha256": "d246b026f4f29b5823a9cc857f9edf3d2507002e055e32040cadeaf3b38e0234",
+      "archiveBytes": 8055,
+      "archiveSha256": "d246b026f4f29b5823a9cc857f9edf3d2507002e055e32040cadeaf3b38e0234"
+    },
+    {
+      "name": "full-check-final.log",
+      "rawBytes": 442111,
+      "rawSha256": "c01f8a10a2309af5ad0aafae83c167287f92db207ae503ed2dd450016eb865ed",
+      "archiveBytes": 442115,
+      "archiveSha256": "839a8594f9f39edda47f40f9c2fd14aeeee26c63c2083c9082b1aa93584d17da"
+    }
+  ]
+}

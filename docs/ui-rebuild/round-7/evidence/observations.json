@@ -1,0 +1,1152 @@
+{
+  "checks": [
+    {
+      "name": "brand-sheet-320",
+      "url": "http://127.0.0.1:5201/docs/ui-rebuild/round-7/brand-preview.html",
+      "width": 320,
+      "scrollWidth": 320,
+      "logoCount": 3,
+      "brandWidths": [
+        200,
+        238,
+        238
+      ],
+      "hiddenHeaderLink": null,
+      "actions": [],
+      "broken": [],
+      "font": "\"Be Vietnam Pro\", sans-serif",
+      "reduced": true,
+      "violations": []
+    },
+    {
+      "name": "brand-sheet-390",
+      "url": "http://127.0.0.1:5201/docs/ui-rebuild/round-7/brand-preview.html",
+      "width": 390,
+      "scrollWidth": 390,
+      "logoCount": 3,
+      "brandWidths": [
+        200,
+        300,
+        300
+      ],
+      "hiddenHeaderLink": null,
+      "actions": [],
+      "broken": [],
+      "font": "\"Be Vietnam Pro\", sans-serif",
+      "reduced": true,
+      "violations": []
+    },
+    {
+      "name": "brand-sheet-768",
+      "url": "http://127.0.0.1:5201/docs/ui-rebuild/round-7/brand-preview.html",
+      "width": 768,
+      "scrollWidth": 768,
+      "logoCount": 3,
+      "brandWidths": [
+        200,
+        278,
+        300
+      ],
+      "hiddenHeaderLink": null,
+      "actions": [],
+      "broken": [],
+      "font": "\"Be Vietnam Pro\", sans-serif",
+      "reduced": true,
+      "violations": []
+    },
+    {
+      "name": "brand-sheet-1440",
+      "url": "http://127.0.0.1:5201/docs/ui-rebuild/round-7/brand-preview.html",
+      "width": 1440,
+      "scrollWidth": 1440,
+      "logoCount": 3,
+      "brandWidths": [
+        200,
+        300,
+        300
+      ],
+      "hiddenHeaderLink": null,
+      "actions": [],
+      "broken": [],
+      "font": "\"Be Vietnam Pro\", sans-serif",
+      "reduced": true,
+      "violations": []
+    },
+    {
+      "name": "home-320",
+      "url": "http://127.0.0.1:5201/",
+      "width": 320,
+      "scrollWidth": 320,
+      "logoCount": 1,
+      "brandWidths": [
+        128
+      ],
+      "hiddenHeaderLink": false,
+      "actions": [
+        {
+          "label": "Thông báo",
+          "width": 44,
+          "height": 44
+        },
+        {
+          "label": "Tài khoản cá nhân",
+          "width": 44,
+          "height": 44
+        }
+      ],
+      "broken": [],
+      "font": "\"Be Vietnam Pro\", sans-serif",
+      "reduced": true,
+      "violations": []
+    },
+    {
+      "name": "fridge-320",
+      "url": "http://127.0.0.1:5201/fridge",
+      "width": 320,
+      "scrollWidth": 320,
+      "logoCount": 1,
+      "brandWidths": [
+        128
+      ],
+      "hiddenHeaderLink": false,
+      "actions": [
+        {
+          "label": "Thông báo",
+          "width": 44,
+          "height": 44
+        },
+        {
+          "label": "Tài khoản cá nhân",
+          "width": 44,
+          "height": 44
+        }
+      ],
+      "broken": [],
+      "font": "\"Be Vietnam Pro\", sans-serif",
+      "reduced": true,
+      "violations": []
+    },
+    {
+      "name": "recipes-320",
+      "url": "http://127.0.0.1:5201/recipes",
+      "width": 320,
+      "scrollWidth": 320,
+      "logoCount": 1,
+      "brandWidths": [
+        128
+      ],
+      "hiddenHeaderLink": false,
+      "actions": [
+        {
+          "label": "Thông báo",
+          "width": 44,
+          "height": 44
+        },
+        {
+          "label": "Tài khoản cá nhân",
+          "width": 44,
+          "height": 44
+        }
+      ],
+      "broken": [],
+      "font": "\"Be Vietnam Pro\", sans-serif",
+      "reduced": true,
+      "violations": []
+    },
+    {
+      "name": "planner-320",
+      "url": "http://127.0.0.1:5201/planner",
+      "width": 320,
+      "scrollWidth": 320,
+      "logoCount": 1,
+      "brandWidths": [
+        128
+      ],
+      "hiddenHeaderLink": false,
+      "actions": [
+        {
+          "label": "Quay lại",
+          "width": 44,
+          "height": 44
+        },
+        {
+          "label": "Thông báo",
+          "width": 44,
+          "height": 44
+        },
+        {
+          "label": "Tài khoản cá nhân",
+          "width": 44,
+          "height": 44
+        }
+      ],
+      "broken": [],
+      "font": "\"Be Vietnam Pro\", sans-serif",
+      "reduced": true,
+      "violations": []
+    },
+    {
+      "name": "shopping-320",
+      "url": "http://127.0.0.1:5201/shopping",
+      "width": 320,
+      "scrollWidth": 320,
+      "logoCount": 1,
+      "brandWidths": [
+        128
+      ],
+      "hiddenHeaderLink": false,
+      "actions": [
+        {
+          "label": "Quay lại",
+          "width": 44,
+          "height": 44
+        },
+        {
+          "label": "Thông báo",
+          "width": 44,
+          "height": 44
+        },
+        {
+          "label": "Tài khoản cá nhân",
+          "width": 44,
+          "height": 44
+        }
+      ],
+      "broken": [],
+      "font": "\"Be Vietnam Pro\", sans-serif",
+      "reduced": true,
+      "violations": []
+    },
+    {
+      "name": "recipe-320",
+      "url": "http://127.0.0.1:5201/recipes/thit-kho-trung",
+      "width": 320,
+      "scrollWidth": 320,
+      "logoCount": 1,
+      "brandWidths": [
+        128
+      ],
+      "hiddenHeaderLink": false,
+      "actions": [
+        {
+          "label": "Quay lại",
+          "width": 44,
+          "height": 44
+        },
+        {
+          "label": "Thông báo",
+          "width": 44,
+          "height": 44
+        },
+        {
+          "label": "Tài khoản cá nhân",
+          "width": 44,
+          "height": 44
+        }
+      ],
+      "broken": [],
+      "font": "\"Be Vietnam Pro\", sans-serif",
+      "reduced": true,
+      "violations": []
+    },
+    {
+      "name": "home-390",
+      "url": "http://127.0.0.1:5201/",
+      "width": 390,
+      "scrollWidth": 390,
+      "logoCount": 1,
+      "brandWidths": [
+        128
+      ],
+      "hiddenHeaderLink": false,
+      "actions": [
+        {
+          "label": "Thông báo",
+          "width": 44,
+          "height": 44
+        },
+        {
+          "label": "Tài khoản cá nhân",
+          "width": 44,
+          "height": 44
+        }
+      ],
+      "broken": [],
+      "font": "\"Be Vietnam Pro\", sans-serif",
+      "reduced": true,
+      "violations": []
+    },
+    {
+      "name": "fridge-390",
+      "url": "http://127.0.0.1:5201/fridge",
+      "width": 390,
+      "scrollWidth": 390,
+      "logoCount": 1,
+      "brandWidths": [
+        128
+      ],
+      "hiddenHeaderLink": false,
+      "actions": [
+        {
+          "label": "Thông báo",
+          "width": 44,
+          "height": 44
+        },
+        {
+          "label": "Tài khoản cá nhân",
+          "width": 44,
+          "height": 44
+        }
+      ],
+      "broken": [],
+      "font": "\"Be Vietnam Pro\", sans-serif",
+      "reduced": true,
+      "violations": []
+    },
+    {
+      "name": "recipes-390",
+      "url": "http://127.0.0.1:5201/recipes",
+      "width": 390,
+      "scrollWidth": 390,
+      "logoCount": 1,
+      "brandWidths": [
+        128
+      ],
+      "hiddenHeaderLink": false,
+      "actions": [
+        {
+          "label": "Thông báo",
+          "width": 44,
+          "height": 44
+        },
+        {
+          "label": "Tài khoản cá nhân",
+          "width": 44,
+          "height": 44
+        }
+      ],
+      "broken": [],
+      "font": "\"Be Vietnam Pro\", sans-serif",
+      "reduced": true,
+      "violations": []
+    },
+    {
+      "name": "planner-390",
+      "url": "http://127.0.0.1:5201/planner",
+      "width": 390,
+      "scrollWidth": 390,
+      "logoCount": 1,
+      "brandWidths": [
+        128
+      ],
+      "hiddenHeaderLink": false,
+      "actions": [
+        {
+          "label": "Quay lại",
+          "width": 44,
+          "height": 44
+        },
+        {
+          "label": "Thông báo",
+          "width": 44,
+          "height": 44
+        },
+        {
+          "label": "Tài khoản cá nhân",
+          "width": 44,
+          "height": 44
+        }
+      ],
+      "broken": [],
+      "font": "\"Be Vietnam Pro\", sans-serif",
+      "reduced": true,
+      "violations": []
+    },
+    {
+      "name": "shopping-390",
+      "url": "http://127.0.0.1:5201/shopping",
+      "width": 390,
+      "scrollWidth": 390,
+      "logoCount": 1,
+      "brandWidths": [
+        128
+      ],
+      "hiddenHeaderLink": false,
+      "actions": [
+        {
+          "label": "Quay lại",
+          "width": 44,
+          "height": 44
+        },
+        {
+          "label": "Thông báo",
+          "width": 44,
+          "height": 44
+        },
+        {
+          "label": "Tài khoản cá nhân",
+          "width": 44,
+          "height": 44
+        }
+      ],
+      "broken": [],
+      "font": "\"Be Vietnam Pro\", sans-serif",
+      "reduced": true,
+      "violations": []
+    },
+    {
+      "name": "recipe-390",
+      "url": "http://127.0.0.1:5201/recipes/thit-kho-trung",
+      "width": 390,
+      "scrollWidth": 390,
+      "logoCount": 1,
+      "brandWidths": [
+        128
+      ],
+      "hiddenHeaderLink": false,
+      "actions": [
+        {
+          "label": "Quay lại",
+          "width": 44,
+          "height": 44
+        },
+        {
+          "label": "Thông báo",
+          "width": 44,
+          "height": 44
+        },
+        {
+          "label": "Tài khoản cá nhân",
+          "width": 44,
+          "height": 44
+        }
+      ],
+      "broken": [],
+      "font": "\"Be Vietnam Pro\", sans-serif",
+      "reduced": true,
+      "violations": []
+    },
+    {
+      "name": "home-768",
+      "url": "http://127.0.0.1:5201/",
+      "width": 768,
+      "scrollWidth": 768,
+      "logoCount": 1,
+      "brandWidths": [
+        128
+      ],
+      "hiddenHeaderLink": false,
+      "actions": [
+        {
+          "label": "Thông báo",
+          "width": 44,
+          "height": 44
+        },
+        {
+          "label": "Tài khoản cá nhân",
+          "width": 44,
+          "height": 44
+        }
+      ],
+      "broken": [],
+      "font": "\"Be Vietnam Pro\", sans-serif",
+      "reduced": true,
+      "violations": []
+    },
+    {
+      "name": "fridge-768",
+      "url": "http://127.0.0.1:5201/fridge",
+      "width": 768,
+      "scrollWidth": 768,
+      "logoCount": 1,
+      "brandWidths": [
+        128
+      ],
+      "hiddenHeaderLink": false,
+      "actions": [
+        {
+          "label": "Thông báo",
+          "width": 44,
+          "height": 44
+        },
+        {
+          "label": "Tài khoản cá nhân",
+          "width": 44,
+          "height": 44
+        }
+      ],
+      "broken": [],
+      "font": "\"Be Vietnam Pro\", sans-serif",
+      "reduced": true,
+      "violations": []
+    },
+    {
+      "name": "recipes-768",
+      "url": "http://127.0.0.1:5201/recipes",
+      "width": 768,
+      "scrollWidth": 768,
+      "logoCount": 1,
+      "brandWidths": [
+        128
+      ],
+      "hiddenHeaderLink": false,
+      "actions": [
+        {
+          "label": "Thông báo",
+          "width": 44,
+          "height": 44
+        },
+        {
+          "label": "Tài khoản cá nhân",
+          "width": 44,
+          "height": 44
+        }
+      ],
+      "broken": [],
+      "font": "\"Be Vietnam Pro\", sans-serif",
+      "reduced": true,
+      "violations": []
+    },
+    {
+      "name": "planner-768",
+      "url": "http://127.0.0.1:5201/planner",
+      "width": 768,
+      "scrollWidth": 768,
+      "logoCount": 1,
+      "brandWidths": [
+        128
+      ],
+      "hiddenHeaderLink": false,
+      "actions": [
+        {
+          "label": "Quay lại",
+          "width": 44,
+          "height": 44
+        },
+        {
+          "label": "Thông báo",
+          "width": 44,
+          "height": 44
+        },
+        {
+          "label": "Tài khoản cá nhân",
+          "width": 44,
+          "height": 44
+        }
+      ],
+      "broken": [],
+      "font": "\"Be Vietnam Pro\", sans-serif",
+      "reduced": true,
+      "violations": []
+    },
+    {
+      "name": "shopping-768",
+      "url": "http://127.0.0.1:5201/shopping",
+      "width": 768,
+      "scrollWidth": 768,
+      "logoCount": 1,
+      "brandWidths": [
+        128
+      ],
+      "hiddenHeaderLink": false,
+      "actions": [
+        {
+          "label": "Quay lại",
+          "width": 44,
+          "height": 44
+        },
+        {
+          "label": "Thông báo",
+          "width": 44,
+          "height": 44
+        },
+        {
+          "label": "Tài khoản cá nhân",
+          "width": 44,
+          "height": 44
+        }
+      ],
+      "broken": [],
+      "font": "\"Be Vietnam Pro\", sans-serif",
+      "reduced": true,
+      "violations": []
+    },
+    {
+      "name": "recipe-768",
+      "url": "http://127.0.0.1:5201/recipes/thit-kho-trung",
+      "width": 768,
+      "scrollWidth": 768,
+      "logoCount": 1,
+      "brandWidths": [
+        128
+      ],
+      "hiddenHeaderLink": false,
+      "actions": [
+        {
+          "label": "Quay lại",
+          "width": 44,
+          "height": 44
+        },
+        {
+          "label": "Thông báo",
+          "width": 44,
+          "height": 44
+        },
+        {
+          "label": "Tài khoản cá nhân",
+          "width": 44,
+          "height": 44
+        }
+      ],
+      "broken": [],
+      "font": "\"Be Vietnam Pro\", sans-serif",
+      "reduced": true,
+      "violations": []
+    },
+    {
+      "name": "home-1024",
+      "url": "http://127.0.0.1:5201/",
+      "width": 1024,
+      "scrollWidth": 1024,
+      "logoCount": 1,
+      "brandWidths": [
+        150
+      ],
+      "hiddenHeaderLink": true,
+      "actions": [
+        {
+          "label": "Thông báo",
+          "width": 44,
+          "height": 44
+        },
+        {
+          "label": "Tài khoản cá nhân",
+          "width": 44,
+          "height": 44
+        }
+      ],
+      "broken": [],
+      "font": "\"Be Vietnam Pro\", sans-serif",
+      "reduced": true,
+      "violations": []
+    },
+    {
+      "name": "fridge-1024",
+      "url": "http://127.0.0.1:5201/fridge",
+      "width": 1024,
+      "scrollWidth": 1024,
+      "logoCount": 1,
+      "brandWidths": [
+        150
+      ],
+      "hiddenHeaderLink": true,
+      "actions": [
+        {
+          "label": "Thông báo",
+          "width": 44,
+          "height": 44
+        },
+        {
+          "label": "Tài khoản cá nhân",
+          "width": 44,
+          "height": 44
+        }
+      ],
+      "broken": [],
+      "font": "\"Be Vietnam Pro\", sans-serif",
+      "reduced": true,
+      "violations": []
+    },
+    {
+      "name": "recipes-1024",
+      "url": "http://127.0.0.1:5201/recipes",
+      "width": 1024,
+      "scrollWidth": 1024,
+      "logoCount": 1,
+      "brandWidths": [
+        150
+      ],
+      "hiddenHeaderLink": true,
+      "actions": [
+        {
+          "label": "Thông báo",
+          "width": 44,
+          "height": 44
+        },
+        {
+          "label": "Tài khoản cá nhân",
+          "width": 44,
+          "height": 44
+        }
+      ],
+      "broken": [],
+      "font": "\"Be Vietnam Pro\", sans-serif",
+      "reduced": true,
+      "violations": []
+    },
+    {
+      "name": "planner-1024",
+      "url": "http://127.0.0.1:5201/planner",
+      "width": 1024,
+      "scrollWidth": 1024,
+      "logoCount": 1,
+      "brandWidths": [
+        150
+      ],
+      "hiddenHeaderLink": true,
+      "actions": [
+        {
+          "label": "Quay lại",
+          "width": 44,
+          "height": 44
+        },
+        {
+          "label": "Thông báo",
+          "width": 44,
+          "height": 44
+        },
+        {
+          "label": "Tài khoản cá nhân",
+          "width": 44,
+          "height": 44
+        }
+      ],
+      "broken": [],
+      "font": "\"Be Vietnam Pro\", sans-serif",
+      "reduced": true,
+      "violations": []
+    },
+    {
+      "name": "shopping-1024",
+      "url": "http://127.0.0.1:5201/shopping",
+      "width": 1024,
+      "scrollWidth": 1024,
+      "logoCount": 1,
+      "brandWidths": [
+        150
+      ],
+      "hiddenHeaderLink": true,
+      "actions": [
+        {
+          "label": "Quay lại",
+          "width": 44,
+          "height": 44
+        },
+        {
+          "label": "Thông báo",
+          "width": 44,
+          "height": 44
+        },
+        {
+          "label": "Tài khoản cá nhân",
+          "width": 44,
+          "height": 44
+        }
+      ],
+      "broken": [],
+      "font": "\"Be Vietnam Pro\", sans-serif",
+      "reduced": true,
+      "violations": []
+    },
+    {
+      "name": "recipe-1024",
+      "url": "http://127.0.0.1:5201/recipes/thit-kho-trung",
+      "width": 1024,
+      "scrollWidth": 1024,
+      "logoCount": 1,
+      "brandWidths": [
+        150
+      ],
+      "hiddenHeaderLink": true,
+      "actions": [
+        {
+          "label": "Quay lại",
+          "width": 44,
+          "height": 44
+        },
+        {
+          "label": "Thông báo",
+          "width": 44,
+          "height": 44
+        },
+        {
+          "label": "Tài khoản cá nhân",
+          "width": 44,
+          "height": 44
+        }
+      ],
+      "broken": [],
+      "font": "\"Be Vietnam Pro\", sans-serif",
+      "reduced": true,
+      "violations": []
+    },
+    {
+      "name": "home-1440",
+      "url": "http://127.0.0.1:5201/",
+      "width": 1440,
+      "scrollWidth": 1440,
+      "logoCount": 1,
+      "brandWidths": [
+        150
+      ],
+      "hiddenHeaderLink": true,
+      "actions": [
+        {
+          "label": "Thông báo",
+          "width": 44,
+          "height": 44
+        },
+        {
+          "label": "Tài khoản cá nhân",
+          "width": 44,
+          "height": 44
+        }
+      ],
+      "broken": [],
+      "font": "\"Be Vietnam Pro\", sans-serif",
+      "reduced": true,
+      "violations": []
+    },
+    {
+      "name": "fridge-1440",
+      "url": "http://127.0.0.1:5201/fridge",
+      "width": 1440,
+      "scrollWidth": 1440,
+      "logoCount": 1,
+      "brandWidths": [
+        150
+      ],
+      "hiddenHeaderLink": true,
+      "actions": [
+        {
+          "label": "Thông báo",
+          "width": 44,
+          "height": 44
+        },
+        {
+          "label": "Tài khoản cá nhân",
+          "width": 44,
+          "height": 44
+        }
+      ],
+      "broken": [],
+      "font": "\"Be Vietnam Pro\", sans-serif",
+      "reduced": true,
+      "violations": []
+    },
+    {
+      "name": "recipes-1440",
+      "url": "http://127.0.0.1:5201/recipes",
+      "width": 1440,
+      "scrollWidth": 1440,
+      "logoCount": 1,
+      "brandWidths": [
+        150
+      ],
+      "hiddenHeaderLink": true,
+      "actions": [
+        {
+          "label": "Thông báo",
+          "width": 44,
+          "height": 44
+        },
+        {
+          "label": "Tài khoản cá nhân",
+          "width": 44,
+          "height": 44
+        }
+      ],
+      "broken": [],
+      "font": "\"Be Vietnam Pro\", sans-serif",
+      "reduced": true,
+      "violations": []
+    },
+    {
+      "name": "planner-1440",
+      "url": "http://127.0.0.1:5201/planner",
+      "width": 1440,
+      "scrollWidth": 1440,
+      "logoCount": 1,
+      "brandWidths": [
+        150
+      ],
+      "hiddenHeaderLink": true,
+      "actions": [
+        {
+          "label": "Quay lại",
+          "width": 44,
+          "height": 44
+        },
+        {
+          "label": "Thông báo",
+          "width": 44,
+          "height": 44
+        },
+        {
+          "label": "Tài khoản cá nhân",
+          "width": 44,
+          "height": 44
+        }
+      ],
+      "broken": [],
+      "font": "\"Be Vietnam Pro\", sans-serif",
+      "reduced": true,
+      "violations": []
+    },
+    {
+      "name": "shopping-1440",
+      "url": "http://127.0.0.1:5201/shopping",
+      "width": 1440,
+      "scrollWidth": 1440,
+      "logoCount": 1,
+      "brandWidths": [
+        150
+      ],
+      "hiddenHeaderLink": true,
+      "actions": [
+        {
+          "label": "Quay lại",
+          "width": 44,
+          "height": 44
+        },
+        {
+          "label": "Thông báo",
+          "width": 44,
+          "height": 44
+        },
+        {
+          "label": "Tài khoản cá nhân",
+          "width": 44,
+          "height": 44
+        }
+      ],
+      "broken": [],
+      "font": "\"Be Vietnam Pro\", sans-serif",
+      "reduced": true,
+      "violations": []
+    },
+    {
+      "name": "recipe-1440",
+      "url": "http://127.0.0.1:5201/recipes/thit-kho-trung",
+      "width": 1440,
+      "scrollWidth": 1440,
+      "logoCount": 1,
+      "brandWidths": [
+        150
+      ],
+      "hiddenHeaderLink": true,
+      "actions": [
+        {
+          "label": "Quay lại",
+          "width": 44,
+          "height": 44
+        },
+        {
+          "label": "Thông báo",
+          "width": 44,
+          "height": 44
+        },
+        {
+          "label": "Tài khoản cá nhân",
+          "width": 44,
+          "height": 44
+        }
+      ],
+      "broken": [],
+      "font": "\"Be Vietnam Pro\", sans-serif",
+      "reduced": true,
+      "violations": []
+    },
+    {
+      "name": "shopping-enlarged-text-320",
+      "url": "http://127.0.0.1:5201/shopping",
+      "width": 320,
+      "scrollWidth": 320,
+      "logoCount": 1,
+      "brandWidths": [
+        128
+      ],
+      "hiddenHeaderLink": false,
+      "actions": [
+        {
+          "label": "Quay lại",
+          "width": 44,
+          "height": 44
+        },
+        {
+          "label": "Thông báo",
+          "width": 44,
+          "height": 44
+        },
+        {
+          "label": "Tài khoản cá nhân",
+          "width": 44,
+          "height": 44
+        }
+      ],
+      "broken": [],
+      "font": "\"Be Vietnam Pro\", sans-serif",
+      "reduced": true,
+      "violations": []
+    },
+    {
+      "name": "shopping-short-390",
+      "url": "http://127.0.0.1:5201/shopping",
+      "width": 390,
+      "scrollWidth": 390,
+      "logoCount": 1,
+      "brandWidths": [
+        128
+      ],
+      "hiddenHeaderLink": false,
+      "actions": [
+        {
+          "label": "Quay lại",
+          "width": 44,
+          "height": 44
+        },
+        {
+          "label": "Thông báo",
+          "width": 44,
+          "height": 44
+        },
+        {
+          "label": "Tài khoản cá nhân",
+          "width": 44,
+          "height": 44
+        }
+      ],
+      "broken": [],
+      "font": "\"Be Vietnam Pro\", sans-serif",
+      "reduced": true,
+      "violations": []
+    },
+    {
+      "name": "planner-normal-motion-390",
+      "url": "http://127.0.0.1:5201/planner",
+      "width": 390,
+      "scrollWidth": 390,
+      "logoCount": 1,
+      "brandWidths": [
+        128
+      ],
+      "hiddenHeaderLink": false,
+      "actions": [
+        {
+          "label": "Quay lại",
+          "width": 44,
+          "height": 44
+        },
+        {
+          "label": "Thông báo",
+          "width": 44,
+          "height": 44
+        },
+        {
+          "label": "Tài khoản cá nhân",
+          "width": 44,
+          "height": 44
+        }
+      ],
+      "broken": [],
+      "font": "\"Be Vietnam Pro\", sans-serif",
+      "reduced": false,
+      "violations": []
+    },
+    {
+      "name": "cooking-immersive-320",
+      "url": "http://127.0.0.1:5201/cook/thit-kho-trung",
+      "width": 320,
+      "scrollWidth": 320,
+      "logoCount": 1,
+      "brandWidths": [
+        128
+      ],
+      "hiddenHeaderLink": null,
+      "actions": [],
+      "broken": [],
+      "font": "\"Be Vietnam Pro\", sans-serif",
+      "reduced": false,
+      "violations": []
+    },
+    {
+      "name": "cooking-immersive-1440",
+      "url": "http://127.0.0.1:5201/cook/thit-kho-trung",
+      "width": 1440,
+      "scrollWidth": 1440,
+      "logoCount": 1,
+      "brandWidths": [
+        128
+      ],
+      "hiddenHeaderLink": null,
+      "actions": [],
+      "broken": [],
+      "font": "\"Be Vietnam Pro\", sans-serif",
+      "reduced": false,
+      "violations": []
+    },
+    {
+      "name": "cooking-review-320",
+      "url": "http://127.0.0.1:5201/cooking/complete",
+      "width": 320,
+      "scrollWidth": 320,
+      "logoCount": 1,
+      "brandWidths": [
+        128
+      ],
+      "hiddenHeaderLink": null,
+      "actions": [],
+      "broken": [],
+      "font": "\"Be Vietnam Pro\", sans-serif",
+      "reduced": false,
+      "violations": []
+    },
+    {
+      "name": "cooking-review-1440",
+      "url": "http://127.0.0.1:5201/cooking/complete",
+      "width": 1440,
+      "scrollWidth": 1440,
+      "logoCount": 1,
+      "brandWidths": [
+        128
+      ],
+      "hiddenHeaderLink": null,
+      "actions": [],
+      "broken": [],
+      "font": "\"Be Vietnam Pro\", sans-serif",
+      "reduced": false,
+      "violations": []
+    }
+  ],
+  "journeys": [
+    {
+      "kind": "desktop-and-mobile-keyboard-home",
+      "focus": {
+        "outline": "solid",
+        "width": "2px"
+      }
+    },
+    {
+      "kind": "immersive-retains-brand",
+      "route": "/cook/thit-kho-trung"
+    },
+    {
+      "kind": "review-retains-brand-no-command",
+      "route": "/cooking/complete"
+    },
+    {
+      "kind": "metadata-local-asset-serving",
+      "icons": 3,
+      "browserIconLinks": 4
+    },
+    {
+      "kind": "legacy-account-sidebar-compatibility",
+      "fullUXAudit": false
+    },
+    {
+      "kind": "no-inventory-command",
+      "equal": true
+    }
+  ],
+  "pageErrors": []
+}

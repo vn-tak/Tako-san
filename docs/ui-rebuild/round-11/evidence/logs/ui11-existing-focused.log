@@ -1,0 +1,15 @@
+
+ RUN  v3.2.7 /Users/tunbee27/Documents/Tako-san-ui-rebuild
+
+ ✓ tests/unit/takosan-brand.test.tsx (19 tests) 172ms
+stderr | tests/unit/ui08-onboarding-navigation.test.tsx > UI08 completion intent through actual App guards > today reaches its chosen destination after server confirmation
+⚠️ React Router Future Flag Warning: React Router will begin wrapping state updates in `React.startTransition` in v7. You can use the `v7_startTransition` future flag to opt-in early. For more information, see https://reactrouter.com/v6/upgrading/future#v7_starttransition.
+⚠️ React Router Future Flag Warning: Relative route resolution within Splat routes is changing in v7. You can use the `v7_relativeSplatPath` future flag to opt-in early. For more information, see https://reactrouter.com/v6/upgrading/future#v7_relativesplatpath.
+
+ ✓ tests/unit/ui08-onboarding-navigation.test.tsx (6 tests) 215ms
+ ✓ tests/unit/ui07-brand-shell.test.tsx (15 tests) 24ms
+
+ Test Files  3 passed (3)
+      Tests  40 passed (40)
+   Start at  23:06:14
+   Duration  1.82s (transform 699ms, setup 46ms, collect 1.94s, tests 411ms, environment 437ms, prepare 269ms)

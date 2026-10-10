@@ -1,0 +1,172 @@
+{
+  "base": "http://127.0.0.1:5204",
+  "checks": [
+    {
+      "name": "empty-320",
+      "path": "/week",
+      "width": 320,
+      "scrollWidth": 320,
+      "h1Count": 1,
+      "brokenImages": [],
+      "font": "\"Be Vietnam Pro\", sans-serif",
+      "dialog": null,
+      "violations": []
+    },
+    {
+      "name": "setup-320",
+      "path": "/week/setup",
+      "width": 320,
+      "scrollWidth": 320,
+      "h1Count": 1,
+      "brokenImages": [],
+      "font": "\"Be Vietnam Pro\", sans-serif",
+      "dialog": null,
+      "violations": []
+    },
+    {
+      "name": "empty-390",
+      "path": "/week",
+      "width": 390,
+      "scrollWidth": 390,
+      "h1Count": 1,
+      "brokenImages": [],
+      "font": "\"Be Vietnam Pro\", sans-serif",
+      "dialog": null,
+      "violations": []
+    },
+    {
+      "name": "setup-390",
+      "path": "/week/setup",
+      "width": 390,
+      "scrollWidth": 390,
+      "h1Count": 1,
+      "brokenImages": [],
+      "font": "\"Be Vietnam Pro\", sans-serif",
+      "dialog": null,
+      "violations": []
+    },
+    {
+      "name": "empty-768",
+      "path": "/week",
+      "width": 768,
+      "scrollWidth": 768,
+      "h1Count": 1,
+      "brokenImages": [],
+      "font": "\"Be Vietnam Pro\", sans-serif",
+      "dialog": null,
+      "violations": []
+    },
+    {
+      "name": "setup-768",
+      "path": "/week/setup",
+      "width": 768,
+      "scrollWidth": 768,
+      "h1Count": 1,
+      "brokenImages": [],
+      "font": "\"Be Vietnam Pro\", sans-serif",
+      "dialog": null,
+      "violations": []
+    },
+    {
+      "name": "empty-1024",
+      "path": "/week",
+      "width": 1024,
+      "scrollWidth": 1024,
+      "h1Count": 1,
+      "brokenImages": [],
+      "font": "\"Be Vietnam Pro\", sans-serif",
+      "dialog": null,
+      "violations": []
+    },
+    {
+      "name": "setup-1024",
+      "path": "/week/setup",
+      "width": 1024,
+      "scrollWidth": 1024,
+      "h1Count": 1,
+      "brokenImages": [],
+      "font": "\"Be Vietnam Pro\", sans-serif",
+      "dialog": null,
+      "violations": []
+    },
+    {
+      "name": "empty-1440",
+      "path": "/week",
+      "width": 1440,
+      "scrollWidth": 1440,
+      "h1Count": 1,
+      "brokenImages": [],
+      "font": "\"Be Vietnam Pro\", sans-serif",
+      "dialog": null,
+      "violations": []
+    },
+    {
+      "name": "setup-1440",
+      "path": "/week/setup",
+      "width": 1440,
+      "scrollWidth": 1440,
+      "h1Count": 1,
+      "brokenImages": [],
+      "font": "\"Be Vietnam Pro\", sans-serif",
+      "dialog": null,
+      "violations": []
+    },
+    {
+      "name": "budget-unlimited-320",
+      "path": "/week/setup",
+      "width": 320,
+      "scrollWidth": 320,
+      "h1Count": 1,
+      "brokenImages": [],
+      "font": "\"Be Vietnam Pro\", sans-serif",
+      "dialog": null,
+      "violations": []
+    },
+    {
+      "name": "priorities-320",
+      "path": "/week/setup",
+      "width": 320,
+      "scrollWidth": 320,
+      "h1Count": 1,
+      "brokenImages": [],
+      "font": "\"Be Vietnam Pro\", sans-serif",
+      "dialog": null,
+      "violations": []
+    },
+    {
+      "name": "frequency-review-320",
+      "path": "/week/setup",
+      "width": 320,
+      "scrollWidth": 320,
+      "h1Count": 1,
+      "brokenImages": [],
+      "font": "\"Be Vietnam Pro\", sans-serif",
+      "dialog": null,
+      "violations": []
+    },
+    {
+      "name": "generating-320",
+      "path": "/week/generating",
+      "width": 320,
+      "scrollWidth": 320,
+      "h1Count": 1,
+      "brokenImages": [],
+      "font": "\"Be Vietnam Pro\", sans-serif",
+      "dialog": null,
+      "violations": []
+    }
+  ],
+  "journeys": [
+    {
+      "kind": "real-planner-off",
+      "server": {
+        "status": 404,
+        "data": {
+          "code": "MEAL_PLANNER_DISABLED",
+          "error": "Meal planner is not enabled"
+        }
+      }
+    }
+  ],
+  "errors": []
+}

@@ -1,0 +1,630 @@
+{
+  "base": "dbcabb7648e7f4ee9595f5ae430f0d7b50e80f0b",
+  "files": [
+    {
+      "path": "package.json",
+      "bytes": 3023,
+      "sha256": "8255751d5a8f61bdc218b21e7822073afcaa509f62a097a97858ff8896da610b"
+    },
+    {
+      "path": "packages/db/src/inventory-read-authority.ts",
+      "bytes": 12504,
+      "sha256": "11f33a8d59be66e0d85efa30e605b985a1e734865d42b4c449241c0bb2706df4"
+    },
+    {
+      "path": "pnpm-lock.yaml",
+      "bytes": 236266,
+      "sha256": "b9f5c384b33f25a1ccfb05bb10258ea95182a32434678d5087b2f62be8d26867"
+    },
+    {
+      "path": "public/takosan/fonts/OFL.txt",
+      "bytes": 4397,
+      "sha256": "6b7f8f73609a25ea78c891e34cf37b06f8a676b7ea986e941e43b009110f2a85"
+    },
+    {
+      "path": "public/takosan/fonts/be-vietnam-pro-latin-400-normal.woff2",
+      "bytes": 21276,
+      "sha256": "cefd95a324be2eaf3e23aff008a33cb029872f266d785204fd2f2eaac2abb0d3"
+    },
+    {
+      "path": "public/takosan/fonts/be-vietnam-pro-latin-600-normal.woff2",
+      "bytes": 22052,
+      "sha256": "136998431df364d059b40ec4ed821fd193437096011f88c8676b5a27274a34ed"
+    },
+    {
+      "path": "public/takosan/fonts/be-vietnam-pro-latin-700-normal.woff2",
+      "bytes": 22216,
+      "sha256": "6ed20761ae0472f8f1ce186f64739c41787db04c881d5ba0530027dc4eddf4b6"
+    },
+    {
+      "path": "public/takosan/fonts/be-vietnam-pro-latin-ext-400-normal.woff2",
+      "bytes": 12928,
+      "sha256": "c481d1798fd5d657632f9e32c5489b729653d141f33570e4bbc2cfcb7c4cf5ea"
+    },
+    {
+      "path": "public/takosan/fonts/be-vietnam-pro-latin-ext-600-normal.woff2",
+      "bytes": 13612,
+      "sha256": "1d37ca4a523cdd1e35b14adbaa0b0d238dc6a057ac3c4aa77ecb9ce534bae475"
+    },
+    {
+      "path": "public/takosan/fonts/be-vietnam-pro-latin-ext-700-normal.woff2",
+      "bytes": 13776,
+      "sha256": "2a11d0d40a69fb7d3865463ad254fa393840b7d25c8207d60af3dc61f2235304"
+    },
+    {
+      "path": "public/takosan/fonts/be-vietnam-pro-vietnamese-400-normal.woff2",
+      "bytes": 11484,
+      "sha256": "a1a7de622e4266ff7d5fdef40712c3aa9fa0a7b1213219b4b172b41c62e9fd5a"
+    },
+    {
+      "path": "public/takosan/fonts/be-vietnam-pro-vietnamese-600-normal.woff2",
+      "bytes": 12160,
+      "sha256": "86dbbb4b20a5ae31c479f1aff09532034340c87239ac2bb183b152c697755227"
+    },
+    {
+      "path": "public/takosan/fonts/be-vietnam-pro-vietnamese-700-normal.woff2",
+      "bytes": 12428,
+      "sha256": "390d020c9aa37584d7b389dde664d6d8e202013d0d5b13ba6d2297d6f1865f6b"
+    },
+    {
+      "path": "public/takosan/rebuild/app-icons/favicon.svg",
+      "bytes": 452,
+      "sha256": "a511e345a4c64dbb2ab051ee396c8f791662874338e39d71dd027bca11c4931c"
+    },
+    {
+      "path": "public/takosan/rebuild/app-icons/icon-128.png",
+      "bytes": 2330,
+      "sha256": "d8989eb4a45bfa106460114cf056530102420280b0fffa91993e0cc6e17d6ad3"
+    },
+    {
+      "path": "public/takosan/rebuild/app-icons/icon-16.png",
+      "bytes": 313,
+      "sha256": "c68e5926a770d805402b63c5d601437582ea467a324ad5b578484d356f87bb5b"
+    },
+    {
+      "path": "public/takosan/rebuild/app-icons/icon-180.png",
+      "bytes": 3392,
+      "sha256": "2922faef7b791863350d41738cf247a8965ca01c4f62609e4f2517e3a4823ec3"
+    },
+    {
+      "path": "public/takosan/rebuild/app-icons/icon-192.png",
+      "bytes": 3639,
+      "sha256": "11b008b59538de18a979a10893a1dbe5e1f3231615777d627939dd83d81fea3d"
+    },
+    {
+      "path": "public/takosan/rebuild/app-icons/icon-24.png",
+      "bytes": 443,
+      "sha256": "d058502945ba029a4156f64b519e5ffbe47f2d2fd8c4e1de547bbfe970fcd6a8"
+    },
+    {
+      "path": "public/takosan/rebuild/app-icons/icon-256.png",
+      "bytes": 5028,
+      "sha256": "912d2132737d01ec8e690eebc02accb754c1b1d4222b4b111b6d512cb96e0d34"
+    },
+    {
+      "path": "public/takosan/rebuild/app-icons/icon-32.png",
+      "bytes": 612,
+      "sha256": "8947392a309e994bdbc3b6625e0fdc4793208e80f8f47754b404fdca9b1bfdc3"
+    },
+    {
+      "path": "public/takosan/rebuild/app-icons/icon-48.png",
+      "bytes": 889,
+      "sha256": "07525fc54e472c3746660e9b01b23b8d3ada40c28b5baef548a1efb3b92d2c55"
+    },
+    {
+      "path": "public/takosan/rebuild/app-icons/icon-512.png",
+      "bytes": 10717,
+      "sha256": "88c971380b59199ef4f8ec5825d254a34403b638668d4f2c3167b1faf7dc0cdd"
+    },
+    {
+      "path": "public/takosan/rebuild/app-icons/icon-64.png",
+      "bytes": 1185,
+      "sha256": "96bc767559d3e7e67ef7aa56d5a4cdb5e009d65a47b6a6e06f0ac0559e5ca0b0"
+    },
+    {
+      "path": "public/takosan/rebuild/app-icons/icon-maskable-512.png",
+      "bytes": 9882,
+      "sha256": "c06c65c876b5f48322dcae5cb65b85902d278e18080499e3d6ea0bdc1f19e1f0"
+    },
+    {
+      "path": "public/takosan/rebuild/app-icons/icon-master.svg",
+      "bytes": 763,
+      "sha256": "e070158527d5a745428246c6cbb9d6840e0c2c45db9c321ab0d9dd94b2e58f09"
+    },
+    {
+      "path": "public/takosan/rebuild/app-icons/maskable-master.svg",
+      "bytes": 761,
+      "sha256": "a675c913fbd94c3aeaa13d28b6de5aaf226fee801c9853c5bb254b1af87a3f1e"
+    },
+    {
+      "path": "public/takosan/rebuild/lockup-mono-reverse.svg",
+      "bytes": 3663,
+      "sha256": "2c9c0983c25416cb91636cedc6a13b745af75c344031b91570509882ab930378"
+    },
+    {
+      "path": "public/takosan/rebuild/lockup-mono.svg",
+      "bytes": 3663,
+      "sha256": "ebfb0effffb04894e7f26267b1278b6533e5462191607c751888111844db7e94"
+    },
+    {
+      "path": "public/takosan/rebuild/lockup-reverse.svg",
+      "bytes": 3814,
+      "sha256": "72ff05076bea48bfa721c47494405ac4ed5b4cf8a91d182d83f91faf3b5a29b9"
+    },
+    {
+      "path": "public/takosan/rebuild/lockup.svg",
+      "bytes": 3814,
+      "sha256": "069d6444f3d6a1da6a9fb6461f829ca5c7559ec74b8d8fed32f46315a986ee4c"
+    },
+    {
+      "path": "public/takosan/rebuild/masters/motto.svg",
+      "bytes": 7889,
+      "sha256": "cbb0e306c687a6daa108e13673f1c9f75203befd3e2e6b0c9955e1cd8b109564"
+    },
+    {
+      "path": "public/takosan/rebuild/masters/symbol-micro.svg",
+      "bytes": 452,
+      "sha256": "a511e345a4c64dbb2ab051ee396c8f791662874338e39d71dd027bca11c4931c"
+    },
+    {
+      "path": "public/takosan/rebuild/masters/symbol.svg",
+      "bytes": 665,
+      "sha256": "3542fde9816dbf6626005f784318d3df3e24703fc5336d7ca316e1f47ef1125a"
+    },
+    {
+      "path": "public/takosan/rebuild/masters/tagline.svg",
+      "bytes": 11716,
+      "sha256": "0c8560142f284327b99eda9a8a0dd5d83e704d86cfe2843ccc457b86d1af8da9"
+    },
+    {
+      "path": "public/takosan/rebuild/masters/wordmark.svg",
+      "bytes": 3177,
+      "sha256": "03258dae13d75e15ea3a1cfae192e9e798009343b231fc4f12abe6985b33c35f"
+    },
+    {
+      "path": "public/takosan/rebuild/og.png",
+      "bytes": 36373,
+      "sha256": "45a1ab4c033ec2a730c551736fda2d3bb369a52aac31acde42b2429aab8f7701"
+    },
+    {
+      "path": "public/takosan/rebuild/og.svg",
+      "bytes": 24123,
+      "sha256": "6e91eaa8fd3230923f913541b897cba841e5f4baa84028974aeab6cadb802215"
+    },
+    {
+      "path": "public/takosan/rebuild/stacked-mono-reverse.svg",
+      "bytes": 3679,
+      "sha256": "30a67293fe3ac3b340dc3e11ffc66f6caa74f2fc0e1d51532a7625eaae3470ba"
+    },
+    {
+      "path": "public/takosan/rebuild/stacked-mono.svg",
+      "bytes": 3679,
+      "sha256": "03305ee2d78e687ab2a988a3cfc862edfd10ecd449e56c105cbb9f533a87a6c0"
+    },
+    {
+      "path": "public/takosan/rebuild/stacked-reverse.svg",
+      "bytes": 3830,
+      "sha256": "ed17ee5b5a66a536d09bdb61739293f5cef7e28c830458e5f78343f2d9c16940"
+    },
+    {
+      "path": "public/takosan/rebuild/stacked.svg",
+      "bytes": 3830,
+      "sha256": "7dd9da977a3eaaf30103240c0aadd13143aa24a512c83ed1e02c5e8f09cc0f76"
+    },
+    {
+      "path": "public/takosan/rebuild/symbol-micro-mono-reverse.svg",
+      "bytes": 416,
+      "sha256": "570ecd1fa95ccb4c0de23fe63cfb35e701c664ecc4a114c80241e8928b0cdf3c"
+    },
+    {
+      "path": "public/takosan/rebuild/symbol-micro-mono.svg",
+      "bytes": 416,
+      "sha256": "739a81adc5152447f3cf5b07235c7bf001799c76238c6d57b1c7967a334645fc"
+    },
+    {
+      "path": "public/takosan/rebuild/symbol-micro-reverse.svg",
+      "bytes": 452,
+      "sha256": "a511e345a4c64dbb2ab051ee396c8f791662874338e39d71dd027bca11c4931c"
+    },
+    {
+      "path": "public/takosan/rebuild/symbol-micro.svg",
+      "bytes": 452,
+      "sha256": "a511e345a4c64dbb2ab051ee396c8f791662874338e39d71dd027bca11c4931c"
+    },
+    {
+      "path": "public/takosan/rebuild/symbol-mono-reverse.svg",
+      "bytes": 514,
+      "sha256": "17cd1cd70607d7f469abbccb5556f828a5557e11afac3751b3d75039695eb276"
+    },
+    {
+      "path": "public/takosan/rebuild/symbol-mono.svg",
+      "bytes": 514,
+      "sha256": "86284d4edd0eedd12844ed014cfe6597e8ebeb149adf05f28c3a6fa8422467cc"
+    },
+    {
+      "path": "public/takosan/rebuild/symbol-reverse.svg",
+      "bytes": 665,
+      "sha256": "3542fde9816dbf6626005f784318d3df3e24703fc5336d7ca316e1f47ef1125a"
+    },
+    {
+      "path": "public/takosan/rebuild/symbol.svg",
+      "bytes": 665,
+      "sha256": "3542fde9816dbf6626005f784318d3df3e24703fc5336d7ca316e1f47ef1125a"
+    },
+    {
+      "path": "public/takosan/rebuild/wordmark-mono-reverse.svg",
+      "bytes": 3169,
+      "sha256": "71f550bbbcf2987e765693839489933df17878ee3d054bcddff0bf8375b1b2e8"
+    },
+    {
+      "path": "public/takosan/rebuild/wordmark-mono.svg",
+      "bytes": 3169,
+      "sha256": "be3e553dc8887a6f64b0a6590578c9b1827e6974d51af6127cf605a9b315a2d0"
+    },
+    {
+      "path": "public/takosan/rebuild/wordmark-reverse.svg",
+      "bytes": 3169,
+      "sha256": "71f550bbbcf2987e765693839489933df17878ee3d054bcddff0bf8375b1b2e8"
+    },
+    {
+      "path": "public/takosan/rebuild/wordmark.svg",
+      "bytes": 3169,
+      "sha256": "12231a5d9abc4b336f3f06e34a93766d282aeb3769ac64b744726946da2eb732"
+    },
+    {
+      "path": "scripts/security-preview.mjs",
+      "bytes": 6466,
+      "sha256": "a94681507089253650fc6e5371e9188edf459b6a5fcd69e085ca179cc659b528"
+    },
+    {
+      "path": "scripts/ui08-browser-check.mjs",
+      "bytes": 19332,
+      "sha256": "e865a9ce6edcdcc533df6560148467699cf3b5d1338fed605f47099e7fb1fceb"
+    },
+    {
+      "path": "scripts/ui09-browser-check.mjs",
+      "bytes": 23126,
+      "sha256": "642b2ed702d48c23fc24005847bc5b68c8937f57ae0a0849d747e7b2ffa6a9e2"
+    },
+    {
+      "path": "scripts/ui09-week-audit.mjs",
+      "bytes": 7117,
+      "sha256": "a6b4fc1ac9c4cd2ac049d6f4a538b983feb912f3a1d1216c9cf880cf2bf77a25"
+    },
+    {
+      "path": "src/web/App.tsx",
+      "bytes": 15206,
+      "sha256": "b1a05acee2d3a04e2856a96c3382c7dfb2d44d0cc8d36bfdbcae90d99392e481"
+    },
+    {
+      "path": "src/web/components/common/AccountPage.tsx",
+      "bytes": 623,
+      "sha256": "5297f51bad8c33b9bccba1b587cf63c56de621c1d264de74dd54913c5d06e544"
+    },
+    {
+      "path": "src/web/components/common/ConfirmDialog.tsx",
+      "bytes": 2501,
+      "sha256": "b212bb74bc61de1ba03a27f3b1fffc89099df2dac5d3a2224002d127f3fbf5da"
+    },
+    {
+      "path": "src/web/components/common/KitchenDetailPage.tsx",
+      "bytes": 616,
+      "sha256": "753059134dd1c6839ebe6c972cf83027d0f521d0f679a8c62c4aa3b7813d5b0c"
+    },
+    {
+      "path": "src/web/components/common/KitchenHeader.tsx",
+      "bytes": 2185,
+      "sha256": "c9b2977456f84cf24c6783259e65b1760471aab9c9bbdb17286c43b6b70c1247"
+    },
+    {
+      "path": "src/web/components/common/LogoutDialog.tsx",
+      "bytes": 1829,
+      "sha256": "f8607456e3373ca4e230556f2cec71e8f255591d1a12de55edd27fbb2cce54f2"
+    },
+    {
+      "path": "src/web/components/common/RouteFallback.tsx",
+      "bytes": 710,
+      "sha256": "d3d2935302466f044185eed9fc20f7e0ce51a27271d6144c331d534c4bc86fa1"
+    },
+    {
+      "path": "src/web/components/common/SessionBoundary.tsx",
+      "bytes": 3191,
+      "sha256": "765dc3f2420c7ab5bd8eefb6bc356f6dc3937ee00904817e1d9b0d8de34679bb"
+    },
+    {
+      "path": "src/web/components/common/SystemStatusPage.tsx",
+      "bytes": 692,
+      "sha256": "73802e2c4d93687cc1662332e72695b088ede33fdfbadb56518244b0554c7e13"
+    },
+    {
+      "path": "src/web/components/layout/AppLayout.tsx",
+      "bytes": 2749,
+      "sha256": "84fdd53c960e0d9a57f11eab5187c271302530e975c122d293fe965733592e10"
+    },
+    {
+      "path": "src/web/features/auth/AuthField.tsx",
+      "bytes": 2307,
+      "sha256": "59375fd7dca3120e120f93122e2a8b7b53179303b556672c5609a9497ebe407a"
+    },
+    {
+      "path": "src/web/features/auth/AuthShell.tsx",
+      "bytes": 5864,
+      "sha256": "efa1d4f5bd49578f96e1c2d66d727bd5ed40dd1a3e7cb55fd4da964408af7915"
+    },
+    {
+      "path": "src/web/features/auth/ForgotPasswordMode.tsx",
+      "bytes": 5808,
+      "sha256": "d02b14e42b67556814cbcdd2193e889e4e4328130e4256e3231b4368f96600e7"
+    },
+    {
+      "path": "src/web/features/auth/LoginMode.tsx",
+      "bytes": 3719,
+      "sha256": "dc278ee4667de82039fb29787ac88853381442c097244830026f9a36901f2f6a"
+    },
+    {
+      "path": "src/web/features/auth/OtpMode.tsx",
+      "bytes": 7290,
+      "sha256": "4708313658a7a06071177b764525b4dea88809afccad161faaf591ade71785fe"
+    },
+    {
+      "path": "src/web/features/auth/verify-context.ts",
+      "bytes": 5550,
+      "sha256": "70d9d349d03b9fc01de490ec746c468a5d1b70a27acf41cb274e3bc1f3bc532b"
+    },
+    {
+      "path": "src/web/lib/inventory-truth.ts",
+      "bytes": 8487,
+      "sha256": "e859784afdcfa8b9a5595616af4aec2be673ee589fc72f175f2d237997c0979d"
+    },
+    {
+      "path": "src/web/lib/takosan-kitchen.ts",
+      "bytes": 906,
+      "sha256": "3ab069e060a51d2185835bd916683732c68b2900b9a8c012f1e989f07dec20ae"
+    },
+    {
+      "path": "src/web/pages/AuthPage.tsx",
+      "bytes": 30684,
+      "sha256": "2ae606f5f6bbc98122c341e1df27d3aa8d91f89b9b8a54ccf1db1d8c8a28b072"
+    },
+    {
+      "path": "src/web/pages/FamilySharingPage.tsx",
+      "bytes": 3381,
+      "sha256": "059768cf069071f118d88b1ba22f4fedab5914ea75caefccc06df9073a7c1694"
+    },
+    {
+      "path": "src/web/pages/IngredientDetailPage.tsx",
+      "bytes": 24642,
+      "sha256": "99867da1a2bfbc7195eb6ef9c09fc3764c7f08aa70808b2df4b58cbcf54fce4f"
+    },
+    {
+      "path": "src/web/pages/LandingPage.tsx",
+      "bytes": 3619,
+      "sha256": "89eebd395551e9ab43b623ebd1323cb3dc45432ce97001d40750688acd37b048"
+    },
+    {
+      "path": "src/web/pages/MealDetailPage.tsx",
+      "bytes": 15824,
+      "sha256": "c286aaf4479131ec90484d158e4fe202ccc82f3007c637d01fcd53d10fdae63b"
+    },
+    {
+      "path": "src/web/pages/NotificationsPage.tsx",
+      "bytes": 4260,
+      "sha256": "e51b1d603b06158b33d9d40f39ad42e2c6a711584f9eafedac7fd9293f3f0543"
+    },
+    {
+      "path": "src/web/pages/OnboardingPage.tsx",
+      "bytes": 23178,
+      "sha256": "d4d48ce8f4fa397c42ca935e412e5d8452ae6336b965a948560523edc7089863"
+    },
+    {
+      "path": "src/web/pages/ProfilePage.tsx",
+      "bytes": 4372,
+      "sha256": "22fc695324dfb25f2af7e2d2e6a1d868c9c172f044395cceacc1de6d65f13f88"
+    },
+    {
+      "path": "src/web/pages/ReconciliationPage.tsx",
+      "bytes": 9530,
+      "sha256": "a968652633cc2939a69212315ebec6f1c2376e5bd3ff12c3789f68e9e5bcff82"
+    },
+    {
+      "path": "src/web/pages/SettingsPage.tsx",
+      "bytes": 5075,
+      "sha256": "c1eccebde643c1c6d218c1f9b5e361b533c19e2f3ebf8beb80d06de2aba35c20"
+    },
+    {
+      "path": "src/web/pages/WeekDashboardPage.tsx",
+      "bytes": 11501,
+      "sha256": "2dac2c0d0b558a612183a91a1308e5197392477ff8296c1c0c59a10ddc29cadc"
+    },
+    {
+      "path": "src/web/pages/WeekGeneratingPage.tsx",
+      "bytes": 2949,
+      "sha256": "dfc688a6a51d934dc4c5756b3ceb26e407ebe5b72270ed3b7094c7ce98f2d60b"
+    },
+    {
+      "path": "src/web/pages/WeekSettingsPage.tsx",
+      "bytes": 3945,
+      "sha256": "11fdb78285136b68247a8fb39614b781c8344619ae856b5407dc1b7ac676df09"
+    },
+    {
+      "path": "src/web/pages/WeekSetupPage.tsx",
+      "bytes": 21176,
+      "sha256": "70934dc1ad21c7d05404e36d5c34b07f68937852c873f2c1aa0b95974bb4fe2c"
+    },
+    {
+      "path": "src/web/pages/WeekShoppingPage.tsx",
+      "bytes": 15380,
+      "sha256": "68c56e3e84bd328275d328400741a107a34c9ee46194d09cf2c16ae052081bf6"
+    },
+    {
+      "path": "src/web/pages/settings/FoodPreferencesPage.tsx",
+      "bytes": 10617,
+      "sha256": "67d2a98b3b4939105ee4c93483cedd817bf3332da79f55aa3c365f05614eb2be"
+    },
+    {
+      "path": "src/web/pages/settings/NotificationPreferencesPage.tsx",
+      "bytes": 5752,
+      "sha256": "a1e35e8cb550391d2d247a5d89d18612cdb0bd1c1c5f850ebab28058739b740c"
+    },
+    {
+      "path": "src/web/pages/settings/PlanningSettingsPage.tsx",
+      "bytes": 11969,
+      "sha256": "c449e0f28b4726a47d0458312339c8ef533e73dcbf31478c8f0a221ac0fbaa1b"
+    },
+    {
+      "path": "src/web/pages/settings/PrivacyDataPage.tsx",
+      "bytes": 3774,
+      "sha256": "482ca6b7d7e2c37adc0d9a7b3bcfa6d9e977da1de46007dda9600e35c7a51814"
+    },
+    {
+      "path": "src/web/services/auth.ts",
+      "bytes": 8612,
+      "sha256": "d02119e7e2b727706c976d5e0ce5e46d3ab5fc2be454f7d41c552fc9446895c1"
+    },
+    {
+      "path": "src/web/services/http.ts",
+      "bytes": 7645,
+      "sha256": "79ffd6df578b4877aa386e16e9c23fc25689d1b00d2f86b219a19de4dadc5b56"
+    },
+    {
+      "path": "src/web/services/inventory.ts",
+      "bytes": 5609,
+      "sha256": "933ffc0e858c6b10c07f61efedaf78946d56a08871331af71b8080ea57c3763d"
+    },
+    {
+      "path": "src/web/services/notifications.ts",
+      "bytes": 666,
+      "sha256": "54558761ec628af6c45ea220af917c170640feaa8e5a3607ac3b8a12fee98ffd"
+    },
+    {
+      "path": "src/web/services/week.ts",
+      "bytes": 14494,
+      "sha256": "f1beee446f1266d5896e19623f5d56cbcc40605653400ddac90b11fe28baf6ec"
+    },
+    {
+      "path": "src/web/stores/useAuthStore.ts",
+      "bytes": 10932,
+      "sha256": "98c140bcafb80f439a96db21db225abc1c006f692a3dfdfd6858a0d75ed74ac1"
+    },
+    {
+      "path": "src/web/stores/useWeekStore.ts",
+      "bytes": 10943,
+      "sha256": "901a1900db693944264d370c7f99411ad355e68e4de07abd5b0ec77fd0caab5c"
+    },
+    {
+      "path": "src/web/styles/index.css",
+      "bytes": 3373,
+      "sha256": "969af86e4c92d64f2e75b97a8a6b8dd46452b4addf318d5336279e3c77b36bec"
+    },
+    {
+      "path": "src/web/styles/kitchen-account.css",
+      "bytes": 4840,
+      "sha256": "337b4d33de2ffa660b496a005dba201b588df569efc3cd9d8d90cccd0deb9563"
+    },
+    {
+      "path": "src/web/styles/kitchen-entry.css",
+      "bytes": 6553,
+      "sha256": "6482746fe6f95939fbd718864e3c557db37db8696a3ac5be1f237fa07f2d3add"
+    },
+    {
+      "path": "src/web/styles/kitchen-foundation.css",
+      "bytes": 2431,
+      "sha256": "6b7203e90b2e7ad40d9e567ae862646a70ceec84a86cd077e158c8612d889fb9"
+    },
+    {
+      "path": "src/web/styles/kitchen-stock-detail.css",
+      "bytes": 6398,
+      "sha256": "c5451cb99fbd179b82259b9a2b122775e39a287ca3df416d2582c804b6c6e1a5"
+    },
+    {
+      "path": "src/worker/routes/inventory-truth.ts",
+      "bytes": 14445,
+      "sha256": "18072ffe3a1e1647f86038df1a7c1357d878858fa3d0efe417eb033b61904dae"
+    },
+    {
+      "path": "src/worker/routes/inventory.ts",
+      "bytes": 49125,
+      "sha256": "381e31aba88e10e907aef1b395caec9f1963e0a72628db7f6c2b7d8efc880e05"
+    },
+    {
+      "path": "tests/integration/frontend-security-integration.test.ts",
+      "bytes": 30487,
+      "sha256": "f54f08b8d031e47861ea52da968d5c17167674881ba4c86d7d58424d1ef90b47"
+    },
+    {
+      "path": "tests/integration/frontend-ui-integration.test.tsx",
+      "bytes": 20950,
+      "sha256": "ffce2b27da07fb7abc0a3ee18dfdb813817df1e914cbdf8c63e6f5c9e9cdf6c5"
+    },
+    {
+      "path": "tests/unit/t13b-inventory-detail.test.tsx",
+      "bytes": 22105,
+      "sha256": "87058f10faa40b9c546decdc949fa1aef1ff3f190b8b637130c948ba747d8df6"
+    },
+    {
+      "path": "tests/unit/t13r-a-lot-draft-ownership.test.tsx",
+      "bytes": 12864,
+      "sha256": "5daa9a5cfa08730fafd4d6cb86f7fc7a550062eab3d518fd2fdb4e1981bfdfec"
+    },
+    {
+      "path": "tests/unit/t13r-b-inventory-conflict.test.tsx",
+      "bytes": 8717,
+      "sha256": "fe773de343a02b2b0c7d0e06d800c84f79eea37c3694c655b32e4402018a35aa"
+    },
+    {
+      "path": "tests/unit/takosan-brand.test.tsx",
+      "bytes": 15932,
+      "sha256": "9afbaced2e3f88ed7d8ec21d3c116c9518229c49dd721967775ad997961744e3"
+    },
+    {
+      "path": "tests/unit/ui02-presentation.test.ts",
+      "bytes": 9443,
+      "sha256": "3f47fde726cb3e208616395c0af835430f1728a33288f0b9ab01cbe6cf8da6a5"
+    },
+    {
+      "path": "tests/unit/ui07-brand-shell.test.tsx",
+      "bytes": 2184,
+      "sha256": "e3fbe9c5cf88e5993f649967753f0b150016e44f42f5c911288afa4385b108d0"
+    },
+    {
+      "path": "tests/unit/ui08-account.test.tsx",
+      "bytes": 9890,
+      "sha256": "7efb3821727bea57a02c985a34f988c487165f342f8d0748341baa3d9bc6e15e"
+    },
+    {
+      "path": "tests/unit/ui08-onboarding-navigation.test.tsx",
+      "bytes": 5190,
+      "sha256": "6aae62732d7b3e6b28fd5735b5ca9aa35cdf801017a30eb28d4294737fd63c27"
+    },
+    {
+      "path": "tests/unit/ui08-route-scope.test.tsx",
+      "bytes": 2167,
+      "sha256": "40e45430cd279f6aaa095b207ca0d2ff5b75fa6e971b992f078b9932e666e9c9"
+    },
+    {
+      "path": "tests/unit/ui09-reconciliation.test.tsx",
+      "bytes": 5300,
+      "sha256": "2548e7ad2bc43594b27cfe98a185d9fa1f3c6aadecabf0c95236dcad7b9d7217"
+    },
+    {
+      "path": "tests/unit/ui09-route-scope.test.tsx",
+      "bytes": 1486,
+      "sha256": "596a3a4cf290883e3f5362f82e3e422b77b373d57a4f75a2e6c71157900759ac"
+    },
+    {
+      "path": "tests/unit/ui09-stock-detail.test.tsx",
+      "bytes": 8003,
+      "sha256": "04e05358228d6816b85c4e5a3408c9110d5db87e19aa2b291aac8653417685d2"
+    },
+    {
+      "path": "tests/unit/ui09-system-states.test.tsx",
+      "bytes": 4261,
+      "sha256": "55e44cc540b4e746fa960f1161a5d5a61d1279e63ab58688acb24ca7ff2a026d"
+    },
+    {
+      "path": "wrangler.jsonc",
+      "bytes": 3037,
+      "sha256": "c91126d5d08d39d2f86018226249bafef1a916f7c5783619535cfe139a156598"
+    }
+  ]
+}

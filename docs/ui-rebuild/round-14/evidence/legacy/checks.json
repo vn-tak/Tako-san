@@ -1,0 +1,456 @@
+{
+  "browser": "153.0.8010.12",
+  "isolatedComponentFixture": true,
+  "applicationPaymentAuthRoutesExercised": false,
+  "checks": [
+    {
+      "mode": "delayed",
+      "reduced": "no-preference",
+      "chunks": [
+        "http://127.0.0.1:5218/assets/legacy-nav-indicator-O7DU9fhu.js"
+      ],
+      "background": "rgb(231, 245, 236)",
+      "transforms": [
+        "translate3d(-189px, 0px, 0px)",
+        "translate3d(-168.818px, 0px, 0px)",
+        "translate3d(-94.5px, 0px, 0px)",
+        "translate3d(-53.465px, 0px, 0px)",
+        "translate3d(-30.5236px, 0px, 0px)",
+        "translate3d(-16.4008px, 0px, 0px)",
+        "translate3d(-8.09084px, 0px, 0px)",
+        "translate3d(-2.87434px, 0px, 0px)",
+        "translate3d(-0.48506px, 0px, 0px)"
+      ],
+      "frames": [
+        [
+          "none",
+          "translate3d(-189px, 0px, 0px)"
+        ],
+        [
+          "none",
+          "translate3d(-168.818px, 0px, 0px)"
+        ],
+        [
+          "none",
+          "translate3d(-94.5px, 0px, 0px)"
+        ],
+        [
+          "none",
+          "translate3d(-53.465px, 0px, 0px)"
+        ],
+        [
+          "none",
+          "translate3d(-30.5236px, 0px, 0px)"
+        ],
+        [
+          "none",
+          "translate3d(-16.4008px, 0px, 0px)"
+        ],
+        [
+          "none",
+          "translate3d(-8.09084px, 0px, 0px)"
+        ],
+        [
+          "none",
+          "translate3d(-2.87434px, 0px, 0px)"
+        ],
+        [
+          "none",
+          "translate3d(-0.48506px, 0px, 0px)"
+        ],
+        [
+          "none",
+          "none"
+        ],
+        [
+          "none",
+          "none"
+        ],
+        [
+          "none",
+          "none"
+        ],
+        [
+          "none",
+          "none"
+        ],
+        [
+          "none",
+          "none"
+        ],
+        [
+          "none",
+          "none"
+        ],
+        [
+          "none",
+          "none"
+        ],
+        [
+          "none",
+          "none"
+        ],
+        [
+          "none",
+          "none"
+        ],
+        [
+          "none",
+          "none"
+        ],
+        [
+          "none",
+          "none"
+        ],
+        [
+          "none",
+          "none"
+        ],
+        [
+          "none",
+          "none"
+        ],
+        [
+          "none",
+          "none"
+        ],
+        [
+          "none",
+          "none"
+        ]
+      ],
+      "linksWorkWhilePendingOrFailed": true,
+      "policy": "user"
+    },
+    {
+      "mode": "failed",
+      "reduced": "no-preference",
+      "chunks": [
+        "http://127.0.0.1:5218/assets/legacy-nav-indicator-O7DU9fhu.js"
+      ],
+      "background": "rgb(231, 245, 236)",
+      "transforms": [],
+      "frames": [
+        [
+          "none",
+          "none"
+        ],
+        [
+          "none",
+          "none"
+        ],
+        [
+          "none",
+          "none"
+        ],
+        [
+          "none",
+          "none"
+        ],
+        [
+          "none",
+          "none"
+        ],
+        [
+          "none",
+          "none"
+        ],
+        [
+          "none",
+          "none"
+        ],
+        [
+          "none",
+          "none"
+        ],
+        [
+          "none",
+          "none"
+        ],
+        [
+          "none",
+          "none"
+        ],
+        [
+          "none",
+          "none"
+        ],
+        [
+          "none",
+          "none"
+        ],
+        [
+          "none",
+          "none"
+        ],
+        [
+          "none",
+          "none"
+        ],
+        [
+          "none",
+          "none"
+        ],
+        [
+          "none",
+          "none"
+        ],
+        [
+          "none",
+          "none"
+        ],
+        [
+          "none",
+          "none"
+        ],
+        [
+          "none",
+          "none"
+        ],
+        [
+          "none",
+          "none"
+        ],
+        [
+          "none",
+          "none"
+        ],
+        [
+          "none",
+          "none"
+        ],
+        [
+          "none",
+          "none"
+        ],
+        [
+          "none",
+          "none"
+        ]
+      ],
+      "linksWorkWhilePendingOrFailed": true,
+      "policy": "user"
+    },
+    {
+      "mode": "delayed",
+      "reduced": "reduce",
+      "chunks": [
+        "http://127.0.0.1:5218/assets/legacy-nav-indicator-O7DU9fhu.js"
+      ],
+      "background": "rgb(231, 245, 236)",
+      "transforms": [
+        "translate3d(-189px, 0px, 0px)"
+      ],
+      "frames": [
+        [
+          "none",
+          "translate3d(-189px, 0px, 0px)"
+        ],
+        [
+          "none",
+          "none"
+        ],
+        [
+          "none",
+          "none"
+        ],
+        [
+          "none",
+          "none"
+        ],
+        [
+          "none",
+          "none"
+        ],
+        [
+          "none",
+          "none"
+        ],
+        [
+          "none",
+          "none"
+        ],
+        [
+          "none",
+          "none"
+        ],
+        [
+          "none",
+          "none"
+        ],
+        [
+          "none",
+          "none"
+        ],
+        [
+          "none",
+          "none"
+        ],
+        [
+          "none",
+          "none"
+        ],
+        [
+          "none",
+          "none"
+        ],
+        [
+          "none",
+          "none"
+        ],
+        [
+          "none",
+          "none"
+        ],
+        [
+          "none",
+          "none"
+        ],
+        [
+          "none",
+          "none"
+        ],
+        [
+          "none",
+          "none"
+        ],
+        [
+          "none",
+          "none"
+        ],
+        [
+          "none",
+          "none"
+        ],
+        [
+          "none",
+          "none"
+        ],
+        [
+          "none",
+          "none"
+        ],
+        [
+          "none",
+          "none"
+        ],
+        [
+          "none",
+          "none"
+        ]
+      ],
+      "linksWorkWhilePendingOrFailed": true,
+      "policy": "user"
+    },
+    {
+      "mode": "failed",
+      "reduced": "reduce",
+      "chunks": [
+        "http://127.0.0.1:5218/assets/legacy-nav-indicator-O7DU9fhu.js"
+      ],
+      "background": "rgb(231, 245, 236)",
+      "transforms": [],
+      "frames": [
+        [
+          "none",
+          "none"
+        ],
+        [
+          "none",
+          "none"
+        ],
+        [
+          "none",
+          "none"
+        ],
+        [
+          "none",
+          "none"
+        ],
+        [
+          "none",
+          "none"
+        ],
+        [
+          "none",
+          "none"
+        ],
+        [
+          "none",
+          "none"
+        ],
+        [
+          "none",
+          "none"
+        ],
+        [
+          "none",
+          "none"
+        ],
+        [
+          "none",
+          "none"
+        ],
+        [
+          "none",
+          "none"
+        ],
+        [
+          "none",
+          "none"
+        ],
+        [
+          "none",
+          "none"
+        ],
+        [
+          "none",
+          "none"
+        ],
+        [
+          "none",
+          "none"
+        ],
+        [
+          "none",
+          "none"
+        ],
+        [
+          "none",
+          "none"
+        ],
+        [
+          "none",
+          "none"
+        ],
+        [
+          "none",
+          "none"
+        ],
+        [
+          "none",
+          "none"
+        ],
+        [
+          "none",
+          "none"
+        ],
+        [
+          "none",
+          "none"
+        ],
+        [
+          "none",
+          "none"
+        ],
+        [
+          "none",
+          "none"
+        ]
+      ],
+      "linksWorkWhilePendingOrFailed": true,
+      "policy": "user"
+    }
+  ],
+  "errors": []
+}

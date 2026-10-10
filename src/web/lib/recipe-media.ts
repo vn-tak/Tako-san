@@ -9,10 +9,14 @@
  * nothing here attaches credentials. Media never changes which recipe is shown, only its picture.
  */
 import type { Recipe, RecipeMediaPresentationSet } from '@frigo/recipes';
+import { legacyRecipeImageIssue } from '../../../packages/recipes/src/legacy-media-policy';
 
-export const RECIPE_IMAGE_PLACEHOLDER = '/frigo/recipes/vietnam/thit-kho-trung.webp';
+export const RECIPE_IMAGE_PLACEHOLDER = '/takosan/recipe-placeholder.svg';
 
-export type RecipeWithOptionalMedia = Pick<Recipe, 'imageUrl'> & { media?: RecipeMediaPresentationSet | null };
+export type RecipeWithOptionalMedia = Pick<Recipe, 'imageUrl'> & {
+  id?: string;
+  media?: RecipeMediaPresentationSet | null;
+};
 
 export interface ResolvedRecipeImage {
   src: string;
@@ -26,36 +30,66 @@ export interface ResolvedRecipeImage {
 function isRenderableLegacyUrl(value: unknown): value is string {
   if (typeof value !== 'string') return false;
   const trimmed = value.trim();
-  return trimmed.length > 0 && (trimmed.startsWith('/') && !trimmed.startsWith('//') || /^https:\/\//i.test(trimmed));
+  return (
+    trimmed.length > 0 &&
+    ((trimmed.startsWith('/') && !trimmed.startsWith('//')) || /^https:\/\//i.test(trimmed))
+  );
 }
 
-export function resolveRecipeImage(recipe: RecipeWithOptionalMedia | null | undefined, placeholder = RECIPE_IMAGE_PLACEHOLDER): ResolvedRecipeImage {
+export function resolveRecipeImage(
+  recipe: RecipeWithOptionalMedia | null | undefined,
+  placeholder = RECIPE_IMAGE_PLACEHOLDER,
+): ResolvedRecipeImage {
   const hero = recipe?.media?.hero;
-  if (hero && hero.source === 'canonical_r2' && typeof hero.url === 'string' && hero.url.startsWith('/api/v1/recipe-media/')) {
+  const legacyAllowed =
+    recipe && isRenderableLegacyUrl(recipe.imageUrl) && !legacyRecipeImageIssue(recipe);
+  if (
+    hero &&
+    hero.source === 'canonical_r2' &&
+    typeof hero.url === 'string' &&
+    hero.url.startsWith('/api/v1/recipe-media/')
+  ) {
     const width = hero.width ?? null;
     const height = hero.height ?? null;
     return {
       src: hero.url,
-      fallbackSrc: isRenderableLegacyUrl(recipe?.imageUrl) ? recipe!.imageUrl.trim() : placeholder,
+      fallbackSrc: legacyAllowed ? recipe.imageUrl.trim() : placeholder,
       source: 'canonical_r2',
       width,
       height,
       aspectRatio: width && height ? `${width} / ${height}` : undefined,
     };
   }
-  if (isRenderableLegacyUrl(recipe?.imageUrl)) {
-    const url = recipe!.imageUrl.trim();
-    return { src: url, fallbackSrc: placeholder, source: url.startsWith('/') ? 'legacy_static' : 'legacy_external', width: null, height: null, aspectRatio: undefined };
+  if (legacyAllowed) {
+    const url = recipe.imageUrl.trim();
+    return {
+      src: url,
+      fallbackSrc: placeholder,
+      source: url.startsWith('/') ? 'legacy_static' : 'legacy_external',
+      width: null,
+      height: null,
+      aspectRatio: undefined,
+    };
   }
-  return { src: placeholder, fallbackSrc: placeholder, source: 'placeholder', width: null, height: null, aspectRatio: undefined };
+  return {
+    src: placeholder,
+    fallbackSrc: placeholder,
+    source: 'placeholder',
+    width: null,
+    height: null,
+    aspectRatio: undefined,
+  };
 }
 
-/** `onError` handler that steps to the fallback exactly once (no infinite reload loops). */
+/** `onError` handler that steps through the legacy fallback to the neutral placeholder (no infinite reload loops). */
 export function recipeImageErrorHandler(fallbackSrc: string) {
   return (event: { currentTarget: HTMLImageElement }) => {
     const image = event.currentTarget;
-    if (image.dataset.recipeMediaFallbackApplied === '1') return;
+    const current = image.getAttribute('src');
+    if (current === RECIPE_IMAGE_PLACEHOLDER) return;
+    const next = current === fallbackSrc ? RECIPE_IMAGE_PLACEHOLDER : fallbackSrc;
     image.dataset.recipeMediaFallbackApplied = '1';
-    if (image.getAttribute('src') !== fallbackSrc) image.src = fallbackSrc;
+    image.src = next;
+    if (next === RECIPE_IMAGE_PLACEHOLDER) image.alt = 'Chưa có ảnh món ăn';
   };
 }

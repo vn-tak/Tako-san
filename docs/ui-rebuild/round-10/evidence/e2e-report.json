@@ -1,0 +1,423 @@
+{
+  "config": {
+    "argv": [
+      "/opt/homebrew/Cellar/node@24/24.16.0/bin/node",
+      "/Users/tunbee27/Documents/Tako-san-ui-rebuild/node_modules/@playwright/test/cli.js",
+      "test",
+      "t18c-week-compatibility.e2e.ts",
+      "--config=.artifacts/ui10/playwright.config.ts"
+    ],
+    "configFile": "/Users/tunbee27/Documents/Tako-san-ui-rebuild/.artifacts/ui10/playwright.config.ts",
+    "rootDir": "/Users/tunbee27/Documents/Tako-san-ui-rebuild/tests/e2e/t17-ui",
+    "failOnFlakyTests": false,
+    "forbidOnly": true,
+    "fullyParallel": false,
+    "globalSetup": null,
+    "globalTeardown": null,
+    "globalTimeout": 0,
+    "grep": {},
+    "grepInvert": null,
+    "maxFailures": 0,
+    "metadata": {
+      "actualWorkers": 1
+    },
+    "preserveOutput": "always",
+    "projects": [
+      {
+        "outputDir": "/Users/tunbee27/Documents/Tako-san-ui-rebuild/.artifacts/ui10/e2e/results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "mobile-360",
+        "name": "mobile-360",
+        "testDir": "/Users/tunbee27/Documents/Tako-san-ui-rebuild/tests/e2e/t17-ui",
+        "testIgnore": [],
+        "testMatch": [
+          "*.e2e.ts"
+        ],
+        "timeout": 60000
+      },
+      {
+        "outputDir": "/Users/tunbee27/Documents/Tako-san-ui-rebuild/.artifacts/ui10/e2e/results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "mobile-390",
+        "name": "mobile-390",
+        "testDir": "/Users/tunbee27/Documents/Tako-san-ui-rebuild/tests/e2e/t17-ui",
+        "testIgnore": [],
+        "testMatch": [
+          "*.e2e.ts"
+        ],
+        "timeout": 60000
+      },
+      {
+        "outputDir": "/Users/tunbee27/Documents/Tako-san-ui-rebuild/.artifacts/ui10/e2e/results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "mobile-430",
+        "name": "mobile-430",
+        "testDir": "/Users/tunbee27/Documents/Tako-san-ui-rebuild/tests/e2e/t17-ui",
+        "testIgnore": [],
+        "testMatch": [
+          "*.e2e.ts"
+        ],
+        "timeout": 60000
+      },
+      {
+        "outputDir": "/Users/tunbee27/Documents/Tako-san-ui-rebuild/.artifacts/ui10/e2e/results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "tablet-768",
+        "name": "tablet-768",
+        "testDir": "/Users/tunbee27/Documents/Tako-san-ui-rebuild/tests/e2e/t17-ui",
+        "testIgnore": [],
+        "testMatch": [
+          "*.e2e.ts"
+        ],
+        "timeout": 60000
+      },
+      {
+        "outputDir": "/Users/tunbee27/Documents/Tako-san-ui-rebuild/.artifacts/ui10/e2e/results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "desktop-1024",
+        "name": "desktop-1024",
+        "testDir": "/Users/tunbee27/Documents/Tako-san-ui-rebuild/tests/e2e/t17-ui",
+        "testIgnore": [],
+        "testMatch": [
+          "*.e2e.ts"
+        ],
+        "timeout": 60000
+      },
+      {
+        "outputDir": "/Users/tunbee27/Documents/Tako-san-ui-rebuild/.artifacts/ui10/e2e/results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "desktop-1440",
+        "name": "desktop-1440",
+        "testDir": "/Users/tunbee27/Documents/Tako-san-ui-rebuild/tests/e2e/t17-ui",
+        "testIgnore": [],
+        "testMatch": [
+          "*.e2e.ts"
+        ],
+        "timeout": 60000
+      }
+    ],
+    "quiet": false,
+    "reporter": [
+      [
+        "list",
+        null
+      ],
+      [
+        "json",
+        {
+          "outputFile": "/Users/tunbee27/Documents/Tako-san-ui-rebuild/.artifacts/ui10/e2e/report.json"
+        }
+      ]
+    ],
+    "reportSlowTests": {
+      "max": 5,
+      "threshold": 300000
+    },
+    "shard": null,
+    "tags": [],
+    "updateSnapshots": "missing",
+    "updateSourceMethod": "patch",
+    "version": "1.63.0",
+    "workers": 1,
+    "webServer": {
+      "command": "node scripts/security-preview.mjs",
+      "url": "http://127.0.0.1:5205/__preview",
+      "env": {
+        "PORT": "5205",
+        "PREVIEW_APP_URL": "http://localhost:5205",
+        "PREVIEW_API_PORT": "8905"
+      },
+      "reuseExistingServer": true,
+      "timeout": 60000,
+      "stdout": "pipe",
+      "stderr": "pipe",
+      "gracefulShutdown": {
+        "signal": "SIGTERM",
+        "timeout": 5000
+      }
+    }
+  },
+  "suites": [
+    {
+      "title": "t18c-week-compatibility.e2e.ts",
+      "file": "t18c-week-compatibility.e2e.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "flag-off Week setup keeps native keyboard selections and unchanged progression",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "mobile-360",
+              "projectName": "mobile-360",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 2053,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-10T13:13:39.549Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "sanitized-browser-diagnostics",
+                      "contentType": "application/json",
+                      "body": "ewogICJ1bmV4cGVjdGVkIjogW10sCiAgImJsb2NrZWRJbWFnZXMiOiBbXSwKICAiZXJyb3JzIjogW10sCiAgInJlcXVlc3RzIjogWwogICAgIkdFVCAvYXBpL3YxL21lOiAyMDAiLAogICAgIkdFVCAvYXBpL3YxL21lOiAyMDAiCiAgXQp9"
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "42cd80edcc66c4b450af-b25b10d111471edf0dc1",
+          "file": "t18c-week-compatibility.e2e.ts",
+          "line": 3,
+          "column": 1
+        },
+        {
+          "title": "flag-off Week setup keeps native keyboard selections and unchanged progression",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "mobile-390",
+              "projectName": "mobile-390",
+              "results": [
+                {
+                  "workerIndex": 1,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 1650,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-10T13:13:42.310Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "sanitized-browser-diagnostics",
+                      "contentType": "application/json",
+                      "body": "ewogICJ1bmV4cGVjdGVkIjogW10sCiAgImJsb2NrZWRJbWFnZXMiOiBbXSwKICAiZXJyb3JzIjogW10sCiAgInJlcXVlc3RzIjogWwogICAgIkdFVCAvYXBpL3YxL21lOiAyMDAiLAogICAgIkdFVCAvYXBpL3YxL21lOiAyMDAiCiAgXQp9"
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "42cd80edcc66c4b450af-41dfd3d1ea749702e1ba",
+          "file": "t18c-week-compatibility.e2e.ts",
+          "line": 3,
+          "column": 1
+        },
+        {
+          "title": "flag-off Week setup keeps native keyboard selections and unchanged progression",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "mobile-430",
+              "projectName": "mobile-430",
+              "results": [
+                {
+                  "workerIndex": 2,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 1506,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-10T13:13:44.636Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "sanitized-browser-diagnostics",
+                      "contentType": "application/json",
+                      "body": "ewogICJ1bmV4cGVjdGVkIjogW10sCiAgImJsb2NrZWRJbWFnZXMiOiBbXSwKICAiZXJyb3JzIjogW10sCiAgInJlcXVlc3RzIjogWwogICAgIkdFVCAvYXBpL3YxL21lOiAyMDAiLAogICAgIkdFVCAvYXBpL3YxL21lOiAyMDAiCiAgXQp9"
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "42cd80edcc66c4b450af-2fda9232e21e76ad6cf8",
+          "file": "t18c-week-compatibility.e2e.ts",
+          "line": 3,
+          "column": 1
+        },
+        {
+          "title": "flag-off Week setup keeps native keyboard selections and unchanged progression",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "tablet-768",
+              "projectName": "tablet-768",
+              "results": [
+                {
+                  "workerIndex": 3,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 1669,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-10T13:13:46.859Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "sanitized-browser-diagnostics",
+                      "contentType": "application/json",
+                      "body": "ewogICJ1bmV4cGVjdGVkIjogW10sCiAgImJsb2NrZWRJbWFnZXMiOiBbXSwKICAiZXJyb3JzIjogW10sCiAgInJlcXVlc3RzIjogWwogICAgIkdFVCAvYXBpL3YxL21lOiAyMDAiLAogICAgIkdFVCAvYXBpL3YxL21lOiAyMDAiCiAgXQp9"
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "42cd80edcc66c4b450af-dd838cf20643c0a71677",
+          "file": "t18c-week-compatibility.e2e.ts",
+          "line": 3,
+          "column": 1
+        },
+        {
+          "title": "flag-off Week setup keeps native keyboard selections and unchanged progression",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop-1024",
+              "projectName": "desktop-1024",
+              "results": [
+                {
+                  "workerIndex": 4,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 1704,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-10T13:13:49.215Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "sanitized-browser-diagnostics",
+                      "contentType": "application/json",
+                      "body": "ewogICJ1bmV4cGVjdGVkIjogW10sCiAgImJsb2NrZWRJbWFnZXMiOiBbXSwKICAiZXJyb3JzIjogW10sCiAgInJlcXVlc3RzIjogWwogICAgIkdFVCAvYXBpL3YxL21lOiAyMDAiLAogICAgIkdFVCAvYXBpL3YxL21lOiAyMDAiCiAgXQp9"
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "42cd80edcc66c4b450af-cd0739a3589c782d4b28",
+          "file": "t18c-week-compatibility.e2e.ts",
+          "line": 3,
+          "column": 1
+        },
+        {
+          "title": "flag-off Week setup keeps native keyboard selections and unchanged progression",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop-1440",
+              "projectName": "desktop-1440",
+              "results": [
+                {
+                  "workerIndex": 5,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 1942,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-10T13:13:51.810Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "sanitized-browser-diagnostics",
+                      "contentType": "application/json",
+                      "body": "ewogICJ1bmV4cGVjdGVkIjogW10sCiAgImJsb2NrZWRJbWFnZXMiOiBbXSwKICAiZXJyb3JzIjogW10sCiAgInJlcXVlc3RzIjogWwogICAgIkdFVCAvYXBpL3YxL21lOiAyMDAiLAogICAgIkdFVCAvYXBpL3YxL21lOiAyMDAiCiAgXQp9"
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "42cd80edcc66c4b450af-8c0ff5767b392e57825c",
+          "file": "t18c-week-compatibility.e2e.ts",
+          "line": 3,
+          "column": 1
+        }
+      ]
+    }
+  ],
+  "errors": [],
+  "stats": {
+    "startTime": "2026-10-10T13:13:39.064Z",
+    "duration": 15050.789999999999,
+    "expected": 6,
+    "skipped": 0,
+    "unexpected": 0,
+    "flaky": 0
+  }
+}

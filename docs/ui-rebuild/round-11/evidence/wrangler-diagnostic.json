@@ -1,0 +1,89 @@
+{
+  "scope": "local-only unchanged Wrangler; no credentials/config/timeout changes",
+  "records": [
+    {
+      "name": "wrangler-2026-10-10_14-47-58_989.log",
+      "milestones": [
+        {
+          "timestamp": "2026-10-10T14:47:59.047Z debug",
+          "stage": "log-start"
+        },
+        {
+          "timestamp": "2026-10-10T14:47:59.050Z debug",
+          "stage": "config-flags"
+        },
+        {
+          "timestamp": "2026-10-10T14:47:59.056Z log",
+          "stage": "update-banner"
+        },
+        {
+          "timestamp": "2026-10-10T14:47:59.086Z log",
+          "stage": "local-D1"
+        },
+        {
+          "timestamp": "2026-10-10T14:47:59.241Z log",
+          "stage": "local-D1"
+        }
+      ]
+    },
+    {
+      "name": "wrangler-2026-10-10_14-47-12_758.log",
+      "milestones": [
+        {
+          "timestamp": "2026-10-10T14:47:12.822Z debug",
+          "stage": "log-start"
+        },
+        {
+          "timestamp": "2026-10-10T14:47:12.826Z debug",
+          "stage": "config-flags"
+        }
+      ]
+    },
+    {
+      "name": "wrangler-2026-10-10_14-46-11_148.log",
+      "milestones": [
+        {
+          "timestamp": "2026-10-10T14:46:11.209Z debug",
+          "stage": "log-start"
+        },
+        {
+          "timestamp": "2026-10-10T14:46:11.212Z debug",
+          "stage": "config-flags"
+        },
+        {
+          "timestamp": "2026-10-10T14:46:57.652Z log",
+          "stage": "update-banner"
+        },
+        {
+          "timestamp": "2026-10-10T14:46:57.707Z log",
+          "stage": "local-D1"
+        },
+        {
+          "timestamp": "2026-10-10T14:46:58.007Z log",
+          "stage": "local-D1"
+        }
+      ]
+    }
+  ],
+  "diagnosticTestMs": 976,
+  "testsPassed": 32,
+  "suiteSeconds": 3.41,
+  "hypothesis": "pre-command update-check wait; debug log stalls before banner, not D1 migration execution",
+  "cacheIntervalSeconds": 3600,
+  "cacheLocation": "os.tmpdir()/update-check/wrangler-latest.json",
+  "fullGateTMPDIR": "/private/tmp",
+  "defaultTMPDIRHasDifferentCache": true,
+  "exactEnvFirstRun": {
+    "passed": 31,
+    "failed": 1,
+    "durationSeconds": 17.87
+  },
+  "cacheRefreshedByWrangler": true,
+  "manualCacheOrDependencyEdit": false,
+  "exactEnvRecovery": {
+    "passed": 32,
+    "failed": 0,
+    "durationSeconds": 3.77,
+    "affectedTestMs": 1206
+  }
+}

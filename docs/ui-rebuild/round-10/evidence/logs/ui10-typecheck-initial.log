@@ -1,0 +1,7 @@
+
+> frigo@0.1.0 typecheck /Users/tunbee27/Documents/Tako-san-ui-rebuild
+> tsc -p tsconfig.json --noEmit && tsc -p tsconfig.worker.json --noEmit
+
+src/web/pages/WeekGeneratingPage.tsx(53,2): error TS1005: ')' expected.
+src/web/pages/WeekGeneratingPage.tsx(54,1): error TS1005: '}' expected.
+ ELIFECYCLE  Command failed with exit code 2.

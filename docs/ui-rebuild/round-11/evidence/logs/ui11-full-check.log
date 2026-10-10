@@ -1,0 +1,62 @@
+
+> frigo@0.1.0 check /Users/tunbee27/Documents/Tako-san-ui-rebuild
+> bash scripts/deploy-check.sh
+
+=== Frigo Pre-Deployment Verification ===
+1. Checking TypeScript Types...
+
+> frigo@0.1.0 typecheck /Users/tunbee27/Documents/Tako-san-ui-rebuild
+> tsc -p tsconfig.json --noEmit && tsc -p tsconfig.worker.json --noEmit
+
+2. Running ESLint...
+
+> frigo@0.1.0 lint /Users/tunbee27/Documents/Tako-san-ui-rebuild
+> eslint .
+
+3. Running Vitest Suite...
+
+> frigo@0.1.0 test /Users/tunbee27/Documents/Tako-san-ui-rebuild
+> vitest run
+
+
+ RUN  v3.2.7 /Users/tunbee27/Documents/Tako-san-ui-rebuild
+
+ ✓ tests/integration/inventory-lot-authority.test.ts (306 tests) 44329ms
+ ✓ tests/unit/production-catalog-import-inspection.test.mjs (163 tests) 46279ms
+   ✓ fixed production import incident SELECT-only inspection > observes an exact applied marker and shape-safe archive/target/live counts without certifying a release  417ms
+   ✓ fixed production import incident SELECT-only inspection > rejects an extra recovery-prefix object despite the complete 58 known objects  425ms
+   ✓ fixed production import incident SELECT-only inspection > rejects modified evidence-trigger SQL even with exact object names and types  420ms
+   ✓ fixed production import incident SELECT-only inspection > does not trust an applied status row with a different source identity  421ms
+   ✓ sealed latest V2 import incident SELECT-only inspection > queries only application FKs with the real SQLite authorizer rejecting reserved names  439ms
+   ✓ sealed latest V2 import incident SELECT-only inspection > still scans an unknown application table and reports its incoming uppercase catalog FK  428ms
+   ✓ sealed latest V2 import incident SELECT-only inspection > blocks unknown table before any schema PRAGMA  408ms
+   ✓ sealed latest V2 import incident SELECT-only inspection > blocks case-variant reserved view before any schema PRAGMA  401ms
+   ✓ sealed latest V2 import incident SELECT-only inspection > blocks malformed documented table before any schema PRAGMA  406ms
+   ✓ sealed latest V2 import incident SELECT-only inspection > blocks attached reserved index before any schema PRAGMA  409ms
+   ✓ sealed latest V2 import incident SELECT-only inspection > observes exact applied V2 evidence and target counts despite the expected old-catalog bound mismatch  417ms
+   ✓ sealed latest V2 import incident SELECT-only inspection > observes a real complete rollback with the optional canonical 59th guard object  623ms
+   ✓ sealed latest V2 import incident SELECT-only inspection > does not trust an applied marker with a changed repair ID or digest  413ms
+   ✓ sealed latest V2 import incident SELECT-only inspection > does not claim applied observation when live target counts drift  460ms
+   ✓ sealed latest V2 import incident SELECT-only inspection > rejects a compatible-shape rollback guard with different DDL  642ms
+   ✓ sealed latest V2 import incident SELECT-only inspection > rejects incomplete rollback guard rows despite an exact rolled-back marker  631ms
+   ✓ sealed latest V2 import incident SELECT-only inspection > keeps final observation blocked when namespace read is not primary  427ms
+   ✓ sealed latest V2 import incident SELECT-only inspection > keeps final observation blocked when schema read is not primary  432ms
+   ✓ sealed latest V2 import incident SELECT-only inspection > keeps final observation blocked when aggregate read is not primary  428ms
+   ✓ sealed latest V2 import incident SELECT-only inspection > keeps final observation blocked when status read is not primary  424ms
+   ✓ sealed latest V2 import incident SELECT-only inspection > sanitizes auth-scope errors from a latest aggregate and blocks final observation  426ms
+   ✓ sealed fixed V2 import incident 37536969564 SELECT-only inspection > observes complete applied evidence with a marker unique to this run  425ms
+   ✓ sealed fixed V2 import incident 37536969564 SELECT-only inspection > observes real rollback evidence and all canonical rollback guard rows  655ms
+   ✓ sealed fixed V2 import incident 37536969564 SELECT-only inspection > rejects substituted status identity even when all applied objects exist  414ms
+   ✓ sealed fixed V2 import incident 37536969564 SELECT-only inspection > blocks applied count drift  418ms
+   ✓ sealed fixed V2 import incident 37536969564 SELECT-only inspection > blocks incomplete rollback evidence  633ms
+   ✓ sealed fixed V2 import incident 37536969564 SELECT-only inspection > uses the approved reserved inventory before scanning application FK metadata  419ms
+   ✓ sealed fixed V2 import incident 37536969564 SELECT-only inspection > blocks unknown reserved table before any schema PRAGMA, as confirmed by a real authorizer  401ms
+   ✓ sealed fixed V2 import incident 37536969564 SELECT-only inspection > blocks case-variant reserved view before any schema PRAGMA, as confirmed by a real authorizer  415ms
+   ✓ sealed fixed V2 import incident 37536969564 SELECT-only inspection > blocks malformed reserved table before any schema PRAGMA, as confirmed by a real authorizer  401ms
+   ✓ sealed fixed V2 import incident 37536969564 SELECT-only inspection > blocks reserved index before any schema PRAGMA, as confirmed by a real authorizer  407ms
+   ✓ sealed fixed V2 import incident 37536969564 SELECT-only inspection > requires strict primary metadata for each namespace read  448ms
+   ✓ sealed fixed V2 import incident 37536969564 SELECT-only inspection > requires strict primary metadata for each schema read  414ms
+   ✓ sealed fixed V2 import incident 37536969564 SELECT-only inspection > requires strict primary metadata for each aggregate read  414ms
+   ✓ sealed fixed V2 import incident 37536969564 SELECT-only inspection > requires strict primary metadata for each status read  416ms
+ ELIFECYCLE  Test failed. See above for more details.
+ ELIFECYCLE  Command failed.

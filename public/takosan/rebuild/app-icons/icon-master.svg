@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="512" height="512" viewBox="0 0 512 512"><rect width="512" height="512" fill="#F7F3EC"/><g transform="translate(48 48) scale(6.5)">
+  <g id="takosan-kitchen-symbol">
+    <path d="M16 32V29C16 15 22 7 32 7C42 7 48 15 48 29V32C52 29 55 31 55 35C55 40 57 40 57 36C57 33 62 32 62 37C62 47 53 52 47 46C48 52 46 57 42 57C38 57 36 53 36 48C36 55 34 59 32 59C30 59 28 55 28 48C28 53 26 57 22 57C18 57 16 52 17 46C11 52 2 47 2 37C2 32 7 33 7 36C7 40 9 40 9 35C9 31 12 29 16 32Z" fill="#EE705E"/>
+    <circle cx="25" cy="30" r="2.5" fill="#202C28"/>
+    <circle cx="39" cy="30" r="2.5" fill="#202C28"/>
+    <path d="M28 39Q32 43 36 39" fill="none" stroke="#202C28" stroke-width="2.5" stroke-linecap="round"/>
+  </g>
+</g></svg>

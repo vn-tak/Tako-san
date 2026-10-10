@@ -1,0 +1,20 @@
+home-320: roots5 overlap0 axe0 width320
+node:internal/modules/run_main:107
+    triggerUncaughtException(
+    ^
+
+AssertionError [ERR_ASSERTION]: stock-320: headings
+
+0 !== 1
+
+    at shot (file:///Users/tunbee27/Documents/Tako-san-ui-rebuild/scripts/ui11-browser-check.mjs:75:10)
+    at async file:///Users/tunbee27/Documents/Tako-san-ui-rebuild/scripts/ui11-browser-check.mjs:122:53 {
+  generatedMessage: false,
+  code: 'ERR_ASSERTION',
+  actual: 0,
+  expected: 1,
+  operator: 'strictEqual',
+  diff: 'simple'
+}
+
+Node.js v24.16.0

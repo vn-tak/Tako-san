@@ -346,14 +346,21 @@ describe(`T14F — HTTP user flows on the ${TOTAL}-recipe D1 release (list, deta
     const stocked = new Set(STOCK.map(([id]) => id as string));
     db.seed(cook.ingredients.filter((line) => !stocked.has(line.ingredientId)).map((line) =>
       `INSERT INTO inventory_items (id, household_id, ingredient_id, name, quantity, unit, category, storage, freshness, data_source) VALUES ('g-scale-${line.ingredientId.toLowerCase()}', '${INSIDE}', '${line.ingredientId}', '${line.ingredientId}', ${line.requiredQuantity * 4}, '${line.unit}', 'other', 'fridge', 'fresh', 'manual');`).join('\n'));
-    // Batch B recipes rank in recommendations (release-order ties) and the stocked one is cookable without buying.
+    // A bunch label has no verified contents; recommendations stay quantity-conservative.
+    // Batch B recipes still participate in ranking and existing cooking/planner paths.
     const recommendations = await request('d1', 'GET', '/recommendations');
     const recommended = new Set(recommendations.json.recommendations.map((entry: any) => entry.recipe.id));
     const scaleIds = new Set(scaleRecipes.map((recipe) => recipe.id));
     expect([...recommended].filter((id) => scaleIds.has(id as string)).length).toBeGreaterThan(50);
     const cookableScale = recommendations.json.recommendations.find((entry: any) => entry.recipe.id === cook.id);
     expect(cookableScale, 'the stocked Batch B recipe must be recommendable').toBeDefined();
-    expect(cookableScale.canCookWithoutBuying).toBe(true);
+    expect(cookableScale.canCookWithoutBuying).toBe(false);
+    expect(cookableScale.missingRequiredIngredients).toEqual(
+      cook.ingredients.filter(line => !line.isOptional && ['pack', 'bunch', 'slice'].includes(line.unit)),
+    );
+    const quantityEvidence = (await request('d1', 'GET', `/recipes/${cook.id}`)).json.match.ingredientAvailability;
+    expect(quantityEvidence.filter((line: { status: string }) => line.status !== 'satisfied'))
+      .toEqual([expect.objectContaining({ ingredientId: 'SCALLION', status: 'unresolved', missingQuantity: null })]);
 
     // Planner: an executed swap onto a Batch B recipe from a non-Vietnamese cuisine resolves through the D1 snapshot.
     const setup = { startDate: '2026-09-21', householdSize: 2, mealSlotsPreset: 'dinner_only', budgetTargetVnd: 600000, priorities: ['use_fridge'], shoppingFrequency: 'once', planId: 'plan_t14f_c_scale' };

@@ -115,8 +115,9 @@ export const BottomCTA: React.FC<{ children: React.ReactNode; hideOnDesktop?: bo
   hideOnDesktop = false,
 }) => (
   <div
+    data-kitchen-action="fixed"
     className={clsx(
-      'fixed inset-x-0 bottom-[calc(68px+env(safe-area-inset-bottom,0px))] sm:bottom-0 sm:left-20 z-20 bg-semantic-background/95 backdrop-blur border-t border-semantic-border px-4 py-3 sm:pb-[calc(env(safe-area-inset-bottom,0px)+12px)] lg:static lg:left-auto lg:bottom-auto lg:z-auto lg:bg-transparent lg:border-0 lg:p-0',
+      'kitchen-bottom-cta fixed inset-x-0 bottom-[calc(68px+env(safe-area-inset-bottom,0px))] sm:bottom-0 sm:left-20 z-20 bg-semantic-background/95 backdrop-blur border-t border-semantic-border px-4 py-3 sm:pb-[calc(env(safe-area-inset-bottom,0px)+12px)] lg:static lg:left-auto lg:bottom-auto lg:z-auto lg:bg-transparent lg:border-0 lg:p-0',
       hideOnDesktop && 'lg:hidden'
     )}
   >
@@ -128,7 +129,7 @@ export const BottomCTA: React.FC<{ children: React.ReactNode; hideOnDesktop?: bo
  *  Sticky offset equals the mobile bottom nav height so actions never hide
  *  behind it; rail/sidebar breakpoints stick to the true bottom. */
 export const StickyActions: React.FC<{ children: React.ReactNode }> = ({ children }) => (
-  <div className="sticky bottom-[calc(68px+env(safe-area-inset-bottom,0px))] sm:bottom-0 z-20 -mx-4 md:-mx-6 lg:-mx-8 mt-4 bg-semantic-background/95 backdrop-blur border-t border-semantic-border px-4 md:px-6 lg:px-8 py-3 sm:pb-[calc(env(safe-area-inset-bottom,0px)+12px)] flex gap-3">
+  <div data-kitchen-action="fixed" className="kitchen-sticky-actions sticky bottom-[calc(68px+env(safe-area-inset-bottom,0px))] sm:bottom-0 z-20 -mx-4 md:-mx-6 lg:-mx-8 mt-4 bg-semantic-background/95 backdrop-blur border-t border-semantic-border px-4 md:px-6 lg:px-8 py-3 sm:pb-[calc(env(safe-area-inset-bottom,0px)+12px)] flex gap-3">
     {children}
   </div>
 );

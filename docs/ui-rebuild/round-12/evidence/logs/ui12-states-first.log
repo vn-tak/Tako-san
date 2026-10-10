@@ -1,0 +1,14 @@
+recipe-loading PASS
+recipe-error PASS
+recipe-error-text2 PASS
+recipe-long-title PASS
+recipe-nutrition-unknown PASS
+recipe-long-unknown-text2 PASS
+recipe-404 PASS
+recipe-404-text2 PASS
+discovery-empty PASS
+inventory-read-error PASS
+media-canonical PASS
+media-fallback PASS
+media-missing PASS
+PASS 13 states / 8 journeys

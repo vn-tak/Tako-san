@@ -1,0 +1,2 @@
+UI14 production-build preview http://127.0.0.1:5216; gzip/cache local policy, synthetic SQLite, external Worker fetch blocked; /Users/tunbee27/Documents/Tako-san-ui-rebuild/.artifacts/ui14/baseline-build/client
+[req] GET /api/v1/me 401 1ms 533867aa-aa10-4c36-aa3a-474515bb4e2a

@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { useQuery } from '@tanstack/react-query';
-import { TopBar } from '../components/common/TopBar';
+import { AccountPage } from '../components/common/AccountPage';
 import { InlineLoading, InlineError } from '../components/common/AsyncState';
 import { api } from '../services/api';
 import { queryKeys } from '../lib/queryKeys';
@@ -31,10 +31,9 @@ export const NotificationsPage: React.FC = () => {
   });
 
   return (
-    <div className="min-h-screen bg-takosan-cream pb-16">
-      <TopBar showBack title="Thông báo" subtitle="Nhắc nhở từ tủ lạnh của bạn" />
+    <AccountPage title="Thông báo" description="Những việc cần chú ý trong bếp." backTo="/">
 
-      <div className="px-4 pt-4 space-y-5 animate-fade-in">
+      <div className="space-y-5">
         {/* Live notifications derived from real household state */}
         <section aria-label="Thông báo mới">
           {notificationsQuery.isPending ? (
@@ -48,7 +47,7 @@ export const NotificationsPage: React.FC = () => {
             <div className="bg-white rounded-2xl border border-semantic-border p-5 text-center">
               <Bell className="w-6 h-6 text-semantic-border-strong mx-auto mb-1.5" aria-hidden="true" />
               <p className="text-xs text-semantic-text-secondary font-medium">
-                Chưa có thông báo mới. Takosan sẽ nhắc khi có nguyên liệu cần dùng sớm.
+                Không có thông báo để hiển thị. Khi mất mạng, hộp này có thể chưa phản ánh dữ liệu mới nhất.
               </p>
             </div>
           ) : (
@@ -56,7 +55,7 @@ export const NotificationsPage: React.FC = () => {
               {(notificationsQuery.data ?? []).map((n) => {
                 const Icon = TYPE_ICONS[n.type] || Bell;
                 return (
-                  <div key={n.id} className="p-4 flex items-start gap-3.5">
+                  <article key={n.id} className="account-notification">
                     <div className="w-9 h-9 rounded-xl bg-takosan-mint text-takosan-green-deep flex items-center justify-center shrink-0">
                       <Icon className="w-5 h-5" aria-hidden="true" />
                     </div>
@@ -65,9 +64,9 @@ export const NotificationsPage: React.FC = () => {
                         {n.title}
                       </h2>
                       <p className="text-xs text-semantic-text-muted mt-0.5 leading-snug">{n.message}</p>
-                      <p className="text-[10px] text-semantic-text-muted mt-1">{relativeTimeVi(n.createdAt)}</p>
+                      <time dateTime={n.createdAt} className="account-notification-time">{relativeTimeVi(n.createdAt)}</time>
                     </div>
-                  </div>
+                  </article>
                 );
               })}
             </div>
@@ -87,6 +86,6 @@ export const NotificationsPage: React.FC = () => {
           <ChevronRight className="w-4 h-4 text-semantic-text-muted" aria-hidden="true" />
         </Link>
       </div>
-    </div>
+    </AccountPage>
   );
 };

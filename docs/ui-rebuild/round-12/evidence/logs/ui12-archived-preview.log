@@ -1,0 +1,16 @@
+node:fs:1570
+  const result = binding.readdir(
+                         ^
+
+Error: ENOENT: no such file or directory, scandir '/private/tmp/takosan-ui12-baseline-f7a27c1/migrations'
+    at readdirSync (node:fs:1570:26)
+    at applyMigrations (/private/tmp/takosan-ui12-baseline-f7a27c1/tests/helpers/sqlite-d1.ts:31:52)
+    at new SqliteD1 (/private/tmp/takosan-ui12-baseline-f7a27c1/tests/helpers/sqlite-d1.ts:56:56)
+    at file:///private/tmp/takosan-ui12-baseline-f7a27c1/scripts/security-preview.mjs:37:10 {
+  errno: -2,
+  code: 'ENOENT',
+  syscall: 'scandir',
+  path: '/private/tmp/takosan-ui12-baseline-f7a27c1/migrations'
+}
+
+Node.js v24.16.0

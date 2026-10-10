@@ -1,0 +1,9 @@
+{
+  "base": "f7a27c16ef460b19322d3a463dc74dc09fa48ade",
+  "path": "src/web/components/common/RecipeCard.tsx",
+  "marker": "  const cuisineFlags:",
+  "defaultJSXTailByteIdentical": true,
+  "bytes": 12831,
+  "sha256": "bdd1b3c3dd0108d8efd2114912aba8135dd94d9959b3c52cf1fd31653838a6a8",
+  "scope": "Existing legacy JSX tail only; kernel callbacks separately reviewed and card tests executed."
+}

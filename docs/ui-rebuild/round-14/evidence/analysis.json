@@ -1,0 +1,3765 @@
+{
+  "method": "Three cold/warm pairs per route, identical pinned flags/timestamp, sequential baseline then after. Resource snapshots at useful-view readiness; not page-total download or field CWV. Source-map bytes are unminified sources, not minified bundle attribution. Entry gzip uses Node default level6, matching local preview; differs from Python level9 stated in pre-change ADR.",
+  "stages": [
+    {
+      "stage": "baseline",
+      "browser": "153.0.8010.12",
+      "environment": {
+        "productionBuild": true,
+        "isolatedSyntheticWorker": true,
+        "externalHtmlRemoved": true,
+        "gzip": "preview text assets only; local policy is not hosted compression evidence",
+        "cache": "CDP enabled, no browser request routing; warm is same-context same-route reload",
+        "viewport": {
+          "width": 390,
+          "height": 844
+        },
+        "cpuRate": 4,
+        "network": {
+          "latencyMs": 60,
+          "downloadBytesPerSecond": 200000,
+          "uploadBytesPerSecond": 96000
+        },
+        "observations": "document metrics are local lab observations, not field CWV/INP; SPA ready is measured independently"
+      },
+      "entry": {
+        "path": "index-hOvLcnE8.js",
+        "rawBytes": 463601,
+        "rawSha256": "6b47d91d0fdc562128a190fb0304b9584090f6482ffbf88631109a7e0cb982e3",
+        "gzipDefault6Bytes": 129276,
+        "sourceMapSha256": "8524dae5d4f5c63c02c428ea9158c18145eaa892070de9fba71c1c07bbd31daa",
+        "sourceMapModules": 347,
+        "motionModuleCount": 222,
+        "fullProjectionInEntry": true,
+        "largestUnminifiedSources": [
+          {
+            "path": "../../../node_modules/.pnpm/zod@3.25.76/node_modules/zod/v3/types.js",
+            "sourceBytes": 131212
+          },
+          {
+            "path": "../../../packages/recipes/src/vietnamese-bank.ts",
+            "sourceBytes": 125290
+          },
+          {
+            "path": "../../../node_modules/.pnpm/motion-dom@13.3.0/node_modules/motion-dom/dist/es/projection/node/create-projection-node.mjs",
+            "sourceBytes": 75520
+          },
+          {
+            "path": "../../../node_modules/.pnpm/framer-motion@13.4.0_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/framer-motion/dist/es/gestures/drag/VisualElementDragControls.mjs",
+            "sourceBytes": 25097
+          },
+          {
+            "path": "../../../node_modules/.pnpm/motion-dom@13.3.0/node_modules/motion-dom/dist/es/render/VisualElement.mjs",
+            "sourceBytes": 22355
+          },
+          {
+            "path": "../../../packages/domain/src/inventory-truth.ts",
+            "sourceBytes": 18337
+          },
+          {
+            "path": "../../../packages/recipes/src/data.ts",
+            "sourceBytes": 17692
+          },
+          {
+            "path": "../../../node_modules/.pnpm/motion-dom@13.3.0/node_modules/motion-dom/dist/es/render/utils/animation-state.mjs",
+            "sourceBytes": 17534
+          },
+          {
+            "path": "../../../packages/domain/src/week/planner.ts",
+            "sourceBytes": 16419
+          },
+          {
+            "path": "../../../packages/domain/src/index.ts",
+            "sourceBytes": 16063
+          },
+          {
+            "path": "../../../packages/recipes/src/catalog-drift.ts",
+            "sourceBytes": 15576
+          },
+          {
+            "path": "../../../src/web/App.tsx",
+            "sourceBytes": 15206
+          },
+          {
+            "path": "../../../src/web/services/week.ts",
+            "sourceBytes": 14494
+          },
+          {
+            "path": "../../../node_modules/.pnpm/motion-dom@13.3.0/node_modules/motion-dom/dist/es/animation/JSAnimation.mjs",
+            "sourceBytes": 14308
+          },
+          {
+            "path": "../../../node_modules/.pnpm/motion-dom@13.3.0/node_modules/motion-dom/dist/es/animation/generators/spring.mjs",
+            "sourceBytes": 14305
+          }
+        ]
+      },
+      "summary": [
+        {
+          "name": "home",
+          "cache": "cold",
+          "runs": 3,
+          "readyMs": 3546.300000011921,
+          "readyRangeMs": [
+            3531.199999988079,
+            3572.300000011921
+          ],
+          "lcpMs": 2372,
+          "fcpMs": 1444,
+          "jsTransfer": 240255,
+          "resourceTransfer": 586313,
+          "clsCumulativeLab": 0.017652234275858873,
+          "longTaskCounts": [
+            1,
+            0,
+            1
+          ],
+          "longTaskDurations": [
+            56,
+            0,
+            55
+          ],
+          "requestCounts": [
+            34,
+            34,
+            34
+          ]
+        },
+        {
+          "name": "home",
+          "cache": "warm",
+          "runs": 3,
+          "readyMs": 1353,
+          "readyRangeMs": [
+            1338.5999999940395,
+            1360.0999999940395
+          ],
+          "lcpMs": 376,
+          "fcpMs": 184,
+          "jsTransfer": 0,
+          "resourceTransfer": 177570,
+          "clsCumulativeLab": 0.017646955732932717,
+          "longTaskCounts": [
+            0,
+            0,
+            0
+          ],
+          "longTaskDurations": [
+            0,
+            0,
+            0
+          ],
+          "requestCounts": [
+            34,
+            34,
+            34
+          ]
+        },
+        {
+          "name": "discovery",
+          "cache": "cold",
+          "runs": 3,
+          "readyMs": 2848.199999988079,
+          "readyRangeMs": [
+            2832.2999999821186,
+            2891.800000011921
+          ],
+          "lcpMs": 2552,
+          "fcpMs": 1444,
+          "jsTransfer": 226429,
+          "resourceTransfer": 400717,
+          "clsCumulativeLab": 0,
+          "longTaskCounts": [
+            1,
+            0,
+            1
+          ],
+          "longTaskDurations": [
+            58,
+            0,
+            51
+          ],
+          "requestCounts": [
+            25,
+            25,
+            25
+          ]
+        },
+        {
+          "name": "discovery",
+          "cache": "warm",
+          "runs": 3,
+          "readyMs": 633,
+          "readyRangeMs": [
+            623,
+            633.7000000178814
+          ],
+          "lcpMs": 520,
+          "fcpMs": 196,
+          "jsTransfer": 0,
+          "resourceTransfer": 19712,
+          "clsCumulativeLab": 0,
+          "longTaskCounts": [
+            0,
+            0,
+            0
+          ],
+          "longTaskDurations": [
+            0,
+            0,
+            0
+          ],
+          "requestCounts": [
+            25,
+            25,
+            25
+          ]
+        },
+        {
+          "name": "detail",
+          "cache": "cold",
+          "runs": 3,
+          "readyMs": 4029.0999999940395,
+          "readyRangeMs": [
+            4024.4000000059605,
+            4033.699999988079
+          ],
+          "lcpMs": 4000,
+          "fcpMs": 1444,
+          "jsTransfer": 234569,
+          "resourceTransfer": 511758,
+          "clsCumulativeLab": 0.000046073357991820627,
+          "longTaskCounts": [
+            2,
+            2,
+            1
+          ],
+          "longTaskDurations": [
+            121,
+            115,
+            65
+          ],
+          "requestCounts": [
+            30,
+            30,
+            30
+          ]
+        },
+        {
+          "name": "detail",
+          "cache": "warm",
+          "runs": 3,
+          "readyMs": 2012.300000011921,
+          "readyRangeMs": [
+            1999.4000000059605,
+            2012.7000000178814
+          ],
+          "lcpMs": 1984,
+          "fcpMs": 196,
+          "jsTransfer": 0,
+          "resourceTransfer": 186478,
+          "clsCumulativeLab": 0,
+          "longTaskCounts": [
+            0,
+            0,
+            0
+          ],
+          "longTaskDurations": [
+            0,
+            0,
+            0
+          ],
+          "requestCounts": [
+            31,
+            31,
+            31
+          ]
+        }
+      ],
+      "exploratorySingleSpaTransitions": [
+        {
+          "from": "home",
+          "to": "discovery",
+          "transitionMs": 432.7999999821186
+        },
+        {
+          "from": "discovery",
+          "to": "/recipes/kimchi-fried-rice",
+          "transitionMs": 465.19999998807907
+        }
+      ],
+      "firstRunResources": [
+        {
+          "name": "home",
+          "cache": "cold",
+          "fonts": [
+            {
+              "path": "/takosan/fonts/be-vietnam-pro-latin-400-normal.woff2",
+              "initiator": "css",
+              "start": 1421.5999999940395,
+              "duration": 601.7000000178814,
+              "transfer": 21576,
+              "encoded": 21276,
+              "decoded": 21276
+            },
+            {
+              "path": "/takosan/fonts/be-vietnam-pro-latin-ext-700-normal.woff2",
+              "initiator": "css",
+              "start": 1421.699999988079,
+              "duration": 518.4000000059605,
+              "transfer": 14076,
+              "encoded": 13776,
+              "decoded": 13776
+            },
+            {
+              "path": "/takosan/fonts/be-vietnam-pro-vietnamese-400-normal.woff2",
+              "initiator": "css",
+              "start": 1445.4000000059605,
+              "duration": 419.90000000596046,
+              "transfer": 11784,
+              "encoded": 11484,
+              "decoded": 11484
+            },
+            {
+              "path": "/takosan/fonts/be-vietnam-pro-vietnamese-700-normal.woff2",
+              "initiator": "css",
+              "start": 1457.199999988079,
+              "duration": 459.90000000596046,
+              "transfer": 12728,
+              "encoded": 12428,
+              "decoded": 12428
+            },
+            {
+              "path": "/takosan/fonts/be-vietnam-pro-latin-700-normal.woff2",
+              "initiator": "css",
+              "start": 1457.199999988079,
+              "duration": 573.3000000119209,
+              "transfer": 22516,
+              "encoded": 22216,
+              "decoded": 22216
+            },
+            {
+              "path": "/takosan/fonts/be-vietnam-pro-latin-ext-400-normal.woff2",
+              "initiator": "css",
+              "start": 1459.300000011921,
+              "duration": 466.2999999821186,
+              "transfer": 13228,
+              "encoded": 12928,
+              "decoded": 12928
+            },
+            {
+              "path": "/takosan/fonts/be-vietnam-pro-latin-600-normal.woff2",
+              "initiator": "css",
+              "start": 2329.800000011921,
+              "duration": 480.89999997615814,
+              "transfer": 22352,
+              "encoded": 22052,
+              "decoded": 22052
+            },
+            {
+              "path": "/takosan/fonts/be-vietnam-pro-vietnamese-600-normal.woff2",
+              "initiator": "css",
+              "start": 2331.4000000059605,
+              "duration": 344.09999999403954,
+              "transfer": 12460,
+              "encoded": 12160,
+              "decoded": 12160
+            },
+            {
+              "path": "/takosan/fonts/be-vietnam-pro-latin-ext-600-normal.woff2",
+              "initiator": "css",
+              "start": 2334.800000011921,
+              "duration": 377.89999997615814,
+              "transfer": 13912,
+              "encoded": 13612,
+              "decoded": 13612
+            }
+          ],
+          "images": [
+            {
+              "path": "/takosan/rebuild/lockup.svg",
+              "initiator": "img",
+              "start": 1394.0999999940395,
+              "duration": 72.80000001192093,
+              "transfer": 1789,
+              "encoded": 1489,
+              "decoded": 3814
+            },
+            {
+              "path": "/takosan/rebuild/symbol.svg",
+              "initiator": "img",
+              "start": 2003.300000011921,
+              "duration": 230.69999998807907,
+              "transfer": 681,
+              "encoded": 381,
+              "decoded": 665
+            },
+            {
+              "path": "/frigo/ingredients/vegetables/water-spinach.png",
+              "initiator": "img",
+              "start": 2428.9000000059605,
+              "duration": 1094.4000000059605,
+              "transfer": 105308,
+              "encoded": 105008,
+              "decoded": 105008
+            },
+            {
+              "path": "/frigo/recipes/global/kimchi-fried-rice.webp",
+              "initiator": "img",
+              "start": 2452.800000011921,
+              "duration": 860.5,
+              "transfer": 64202,
+              "encoded": 63902,
+              "decoded": 63902
+            }
+          ],
+          "js": [
+            {
+              "path": "/assets/index-hOvLcnE8.js",
+              "initiator": "script",
+              "start": 85.69999998807907,
+              "duration": 1217.300000011921,
+              "transfer": 129576,
+              "encoded": 129276,
+              "decoded": 463601
+            },
+            {
+              "path": "/assets/vendor-icons-ul0AEewg.js",
+              "initiator": "other",
+              "start": 86.40000000596046,
+              "duration": 287.09999999403954,
+              "transfer": 7500,
+              "encoded": 7200,
+              "decoded": 33190
+            },
+            {
+              "path": "/assets/vendor-query-D03hXVOl.js",
+              "initiator": "other",
+              "start": 86.40000000596046,
+              "duration": 368.69999998807907,
+              "transfer": 13218,
+              "encoded": 12918,
+              "decoded": 42423
+            },
+            {
+              "path": "/assets/vendor-react-B6oo3S7f.js",
+              "initiator": "other",
+              "start": 86.40000000596046,
+              "duration": 833.2999999821186,
+              "transfer": 53986,
+              "encoded": 53686,
+              "decoded": 164074
+            },
+            {
+              "path": "/assets/HomePage-sJmgiLui.js",
+              "initiator": "script",
+              "start": 1994.0999999940395,
+              "duration": 133.40000000596046,
+              "transfer": 4534,
+              "encoded": 4234,
+              "decoded": 11694
+            },
+            {
+              "path": "/assets/TopBar-5k7qANJv.js",
+              "initiator": "script",
+              "start": 1995.0999999940395,
+              "duration": 73.30000001192093,
+              "transfer": 1400,
+              "encoded": 1100,
+              "decoded": 2939
+            },
+            {
+              "path": "/assets/KitchenHeader-BszdquYg.js",
+              "initiator": "script",
+              "start": 1995.199999988079,
+              "duration": 79.90000000596046,
+              "transfer": 1037,
+              "encoded": 737,
+              "decoded": 1665
+            },
+            {
+              "path": "/assets/RecipeCard-BYK_P8Q9.js",
+              "initiator": "script",
+              "start": 1996.0999999940395,
+              "duration": 102.40000000596046,
+              "transfer": 2628,
+              "encoded": 2328,
+              "decoded": 11370
+            },
+            {
+              "path": "/assets/RecipeMedia-edHAkb3G.js",
+              "initiator": "script",
+              "start": 1996.199999988079,
+              "duration": 108.40000000596046,
+              "transfer": 929,
+              "encoded": 629,
+              "decoded": 1042
+            },
+            {
+              "path": "/assets/recipe-media-Dtf0slDf.js",
+              "initiator": "script",
+              "start": 1996.199999988079,
+              "duration": 123.80000001192093,
+              "transfer": 1170,
+              "encoded": 870,
+              "decoded": 1676
+            },
+            {
+              "path": "/assets/AsyncState-DMJrV5Bu.js",
+              "initiator": "script",
+              "start": 1997,
+              "duration": 139.09999999403954,
+              "transfer": 1174,
+              "encoded": 874,
+              "decoded": 1653
+            },
+            {
+              "path": "/assets/format-zRZ7DBjT.js",
+              "initiator": "script",
+              "start": 1997,
+              "duration": 176.5,
+              "transfer": 732,
+              "encoded": 432,
+              "decoded": 705
+            },
+            {
+              "path": "/assets/Button-keaYca1e.js",
+              "initiator": "script",
+              "start": 1997,
+              "duration": 251.80000001192093,
+              "transfer": 9643,
+              "encoded": 9343,
+              "decoded": 29006
+            },
+            {
+              "path": "/assets/inventory-truth-BHprnlBW.js",
+              "initiator": "script",
+              "start": 1997.0999999940395,
+              "duration": 205.80000001192093,
+              "transfer": 1979,
+              "encoded": 1679,
+              "decoded": 3882
+            },
+            {
+              "path": "/assets/composition-D0KApUdq.js",
+              "initiator": "script",
+              "start": 1997.9000000059605,
+              "duration": 271.69999998807907,
+              "transfer": 5484,
+              "encoded": 5184,
+              "decoded": 13793
+            },
+            {
+              "path": "/assets/ingredient-images-DMUMQtkM.js",
+              "initiator": "script",
+              "start": 1998.5,
+              "duration": 279.5,
+              "transfer": 5265,
+              "encoded": 4965,
+              "decoded": 20220
+            }
+          ],
+          "layoutShifts": [
+            {
+              "start": 2406.800000011921,
+              "value": 0.014883857747337902,
+              "recentInput": false,
+              "sources": [
+                {
+                  "tag": "SECTION",
+                  "className": "space-y-4"
+                },
+                {
+                  "tag": "SECTION",
+                  "className": "min-w-0 space-y-4"
+                }
+              ]
+            },
+            {
+              "start": 2427.5,
+              "value": 0.0024664678552731383,
+              "recentInput": false,
+              "sources": [
+                {
+                  "tag": "SECTION",
+                  "className": "min-w-0 space-y-4"
+                }
+              ]
+            },
+            {
+              "start": 2557.300000011921,
+              "value": 0.00029663013032167477,
+              "recentInput": false,
+              "sources": [
+                {
+                  "tag": "SECTION",
+                  "className": "min-w-0 space-y-4"
+                }
+              ]
+            },
+            {
+              "start": 2680.5999999940395,
+              "value": 0.00000527854292615585,
+              "recentInput": false,
+              "sources": [
+                {
+                  "tag": "svg",
+                  "className": "[object SVGAnimatedString]"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "home",
+          "cache": "warm",
+          "fonts": [
+            {
+              "path": "/takosan/fonts/be-vietnam-pro-vietnamese-400-normal.woff2",
+              "initiator": "css",
+              "start": 97.90000000596046,
+              "duration": 0,
+              "transfer": 0,
+              "encoded": 11484,
+              "decoded": 11484
+            },
+            {
+              "path": "/takosan/fonts/be-vietnam-pro-latin-ext-400-normal.woff2",
+              "initiator": "css",
+              "start": 98.09999999403954,
+              "duration": 0,
+              "transfer": 0,
+              "encoded": 12928,
+              "decoded": 12928
+            },
+            {
+              "path": "/takosan/fonts/be-vietnam-pro-latin-400-normal.woff2",
+              "initiator": "css",
+              "start": 98.2000000178814,
+              "duration": 0,
+              "transfer": 0,
+              "encoded": 21276,
+              "decoded": 21276
+            },
+            {
+              "path": "/takosan/fonts/be-vietnam-pro-vietnamese-600-normal.woff2",
+              "initiator": "css",
+              "start": 98.30000001192093,
+              "duration": 0,
+              "transfer": 0,
+              "encoded": 12160,
+              "decoded": 12160
+            },
+            {
+              "path": "/takosan/fonts/be-vietnam-pro-latin-ext-600-normal.woff2",
+              "initiator": "css",
+              "start": 98.30000001192093,
+              "duration": 0,
+              "transfer": 0,
+              "encoded": 13612,
+              "decoded": 13612
+            },
+            {
+              "path": "/takosan/fonts/be-vietnam-pro-latin-600-normal.woff2",
+              "initiator": "css",
+              "start": 98.30000001192093,
+              "duration": 0,
+              "transfer": 0,
+              "encoded": 22052,
+              "decoded": 22052
+            },
+            {
+              "path": "/takosan/fonts/be-vietnam-pro-vietnamese-700-normal.woff2",
+              "initiator": "css",
+              "start": 98.40000000596046,
+              "duration": 0,
+              "transfer": 0,
+              "encoded": 12428,
+              "decoded": 12428
+            },
+            {
+              "path": "/takosan/fonts/be-vietnam-pro-latin-ext-700-normal.woff2",
+              "initiator": "css",
+              "start": 98.5,
+              "duration": 0,
+              "transfer": 0,
+              "encoded": 13776,
+              "decoded": 13776
+            },
+            {
+              "path": "/takosan/fonts/be-vietnam-pro-latin-700-normal.woff2",
+              "initiator": "css",
+              "start": 99,
+              "duration": 0,
+              "transfer": 0,
+              "encoded": 22216,
+              "decoded": 22216
+            }
+          ],
+          "images": [
+            {
+              "path": "/takosan/rebuild/lockup.svg",
+              "initiator": "img",
+              "start": 133.5,
+              "duration": 73.7000000178814,
+              "transfer": 1789,
+              "encoded": 1489,
+              "decoded": 3814
+            },
+            {
+              "path": "/takosan/rebuild/symbol.svg",
+              "initiator": "img",
+              "start": 260.80000001192093,
+              "duration": 66.69999998807907,
+              "transfer": 681,
+              "encoded": 381,
+              "decoded": 665
+            },
+            {
+              "path": "/frigo/ingredients/vegetables/water-spinach.png",
+              "initiator": "img",
+              "start": 400.40000000596046,
+              "duration": 918.0999999940395,
+              "transfer": 105308,
+              "encoded": 105008,
+              "decoded": 105008
+            },
+            {
+              "path": "/frigo/recipes/global/kimchi-fried-rice.webp",
+              "initiator": "img",
+              "start": 418.2000000178814,
+              "duration": 705.0999999940395,
+              "transfer": 64202,
+              "encoded": 63902,
+              "decoded": 63902
+            }
+          ],
+          "js": [
+            {
+              "path": "/assets/index-hOvLcnE8.js",
+              "initiator": "script",
+              "start": 84.90000000596046,
+              "duration": 0,
+              "transfer": 0,
+              "encoded": 129276,
+              "decoded": 463601
+            },
+            {
+              "path": "/assets/vendor-react-B6oo3S7f.js",
+              "initiator": "other",
+              "start": 85,
+              "duration": 0,
+              "transfer": 0,
+              "encoded": 53686,
+              "decoded": 164074
+            },
+            {
+              "path": "/assets/vendor-query-D03hXVOl.js",
+              "initiator": "other",
+              "start": 85,
+              "duration": 0,
+              "transfer": 0,
+              "encoded": 12918,
+              "decoded": 42423
+            },
+            {
+              "path": "/assets/vendor-icons-ul0AEewg.js",
+              "initiator": "other",
+              "start": 86,
+              "duration": 0,
+              "transfer": 0,
+              "encoded": 7200,
+              "decoded": 33190
+            },
+            {
+              "path": "/assets/HomePage-sJmgiLui.js",
+              "initiator": "script",
+              "start": 265.40000000596046,
+              "duration": 0,
+              "transfer": 0,
+              "encoded": 4234,
+              "decoded": 11694
+            },
+            {
+              "path": "/assets/TopBar-5k7qANJv.js",
+              "initiator": "script",
+              "start": 265.5,
+              "duration": 0,
+              "transfer": 0,
+              "encoded": 1100,
+              "decoded": 2939
+            },
+            {
+              "path": "/assets/KitchenHeader-BszdquYg.js",
+              "initiator": "script",
+              "start": 265.5,
+              "duration": 0,
+              "transfer": 0,
+              "encoded": 737,
+              "decoded": 1665
+            },
+            {
+              "path": "/assets/RecipeCard-BYK_P8Q9.js",
+              "initiator": "script",
+              "start": 266.5,
+              "duration": 0,
+              "transfer": 0,
+              "encoded": 2328,
+              "decoded": 11370
+            },
+            {
+              "path": "/assets/RecipeMedia-edHAkb3G.js",
+              "initiator": "script",
+              "start": 266.59999999403954,
+              "duration": 0,
+              "transfer": 0,
+              "encoded": 629,
+              "decoded": 1042
+            },
+            {
+              "path": "/assets/recipe-media-Dtf0slDf.js",
+              "initiator": "script",
+              "start": 267,
+              "duration": 0,
+              "transfer": 0,
+              "encoded": 870,
+              "decoded": 1676
+            },
+            {
+              "path": "/assets/AsyncState-DMJrV5Bu.js",
+              "initiator": "script",
+              "start": 267.09999999403954,
+              "duration": 0,
+              "transfer": 0,
+              "encoded": 874,
+              "decoded": 1653
+            },
+            {
+              "path": "/assets/Button-keaYca1e.js",
+              "initiator": "script",
+              "start": 267.5,
+              "duration": 0,
+              "transfer": 0,
+              "encoded": 9343,
+              "decoded": 29006
+            },
+            {
+              "path": "/assets/format-zRZ7DBjT.js",
+              "initiator": "script",
+              "start": 267.59999999403954,
+              "duration": 0,
+              "transfer": 0,
+              "encoded": 432,
+              "decoded": 705
+            },
+            {
+              "path": "/assets/inventory-truth-BHprnlBW.js",
+              "initiator": "script",
+              "start": 268.30000001192093,
+              "duration": 0,
+              "transfer": 0,
+              "encoded": 1679,
+              "decoded": 3882
+            },
+            {
+              "path": "/assets/composition-D0KApUdq.js",
+              "initiator": "script",
+              "start": 268.30000001192093,
+              "duration": 0,
+              "transfer": 0,
+              "encoded": 5184,
+              "decoded": 13793
+            },
+            {
+              "path": "/assets/ingredient-images-DMUMQtkM.js",
+              "initiator": "script",
+              "start": 268.30000001192093,
+              "duration": 0,
+              "transfer": 0,
+              "encoded": 4965,
+              "decoded": 20220
+            }
+          ],
+          "layoutShifts": [
+            {
+              "start": 382.80000001192093,
+              "value": 0.014883857747337902,
+              "recentInput": false,
+              "sources": [
+                {
+                  "tag": "SECTION",
+                  "className": "space-y-4"
+                },
+                {
+                  "tag": "SECTION",
+                  "className": "min-w-0 space-y-4"
+                }
+              ]
+            },
+            {
+              "start": 410.90000000596046,
+              "value": 0.0024664678552731383,
+              "recentInput": false,
+              "sources": [
+                {
+                  "tag": "SECTION",
+                  "className": "min-w-0 space-y-4"
+                }
+              ]
+            },
+            {
+              "start": 491,
+              "value": 0.00029663013032167477,
+              "recentInput": false,
+              "sources": [
+                {
+                  "tag": "SECTION",
+                  "className": "min-w-0 space-y-4"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "discovery",
+          "cache": "cold",
+          "fonts": [
+            {
+              "path": "/takosan/fonts/be-vietnam-pro-latin-400-normal.woff2",
+              "initiator": "css",
+              "start": 1425,
+              "duration": 591.7000000178814,
+              "transfer": 21576,
+              "encoded": 21276,
+              "decoded": 21276
+            },
+            {
+              "path": "/takosan/fonts/be-vietnam-pro-latin-ext-700-normal.woff2",
+              "initiator": "css",
+              "start": 1425.2000000178814,
+              "duration": 508.7999999821186,
+              "transfer": 14076,
+              "encoded": 13776,
+              "decoded": 13776
+            },
+            {
+              "path": "/takosan/fonts/be-vietnam-pro-vietnamese-400-normal.woff2",
+              "initiator": "css",
+              "start": 1449.1000000238419,
+              "duration": 409.7999999821186,
+              "transfer": 11784,
+              "encoded": 11484,
+              "decoded": 11484
+            },
+            {
+              "path": "/takosan/fonts/be-vietnam-pro-vietnamese-700-normal.woff2",
+              "initiator": "css",
+              "start": 1456.300000011921,
+              "duration": 455.80000001192093,
+              "transfer": 12728,
+              "encoded": 12428,
+              "decoded": 12428
+            },
+            {
+              "path": "/takosan/fonts/be-vietnam-pro-latin-700-normal.woff2",
+              "initiator": "css",
+              "start": 1456.300000011921,
+              "duration": 568.8000000119209,
+              "transfer": 22516,
+              "encoded": 22216,
+              "decoded": 22216
+            },
+            {
+              "path": "/takosan/fonts/be-vietnam-pro-latin-ext-400-normal.woff2",
+              "initiator": "css",
+              "start": 1456.9000000059605,
+              "duration": 470.90000000596046,
+              "transfer": 13228,
+              "encoded": 12928,
+              "decoded": 12928
+            },
+            {
+              "path": "/takosan/fonts/be-vietnam-pro-latin-600-normal.woff2",
+              "initiator": "css",
+              "start": 2243.300000011921,
+              "duration": 321.09999999403954,
+              "transfer": 22352,
+              "encoded": 22052,
+              "decoded": 22052
+            },
+            {
+              "path": "/takosan/fonts/be-vietnam-pro-vietnamese-600-normal.woff2",
+              "initiator": "css",
+              "start": 2245.7000000178814,
+              "duration": 273.69999998807907,
+              "transfer": 12460,
+              "encoded": 12160,
+              "decoded": 12160
+            }
+          ],
+          "images": [
+            {
+              "path": "/takosan/rebuild/lockup.svg",
+              "initiator": "img",
+              "start": 1396.5,
+              "duration": 72.80000001192093,
+              "transfer": 1789,
+              "encoded": 1489,
+              "decoded": 3814
+            },
+            {
+              "path": "/takosan/rebuild/symbol.svg",
+              "initiator": "img",
+              "start": 1991.300000011921,
+              "duration": 176.5,
+              "transfer": 681,
+              "encoded": 381,
+              "decoded": 665
+            }
+          ],
+          "js": [
+            {
+              "path": "/assets/index-hOvLcnE8.js",
+              "initiator": "script",
+              "start": 84.90000000596046,
+              "duration": 1220.300000011921,
+              "transfer": 129576,
+              "encoded": 129276,
+              "decoded": 463601
+            },
+            {
+              "path": "/assets/vendor-react-B6oo3S7f.js",
+              "initiator": "other",
+              "start": 85.2000000178814,
+              "duration": 837.4000000059605,
+              "transfer": 53986,
+              "encoded": 53686,
+              "decoded": 164074
+            },
+            {
+              "path": "/assets/vendor-icons-ul0AEewg.js",
+              "initiator": "other",
+              "start": 85.5,
+              "duration": 289.5,
+              "transfer": 7500,
+              "encoded": 7200,
+              "decoded": 33190
+            },
+            {
+              "path": "/assets/vendor-query-D03hXVOl.js",
+              "initiator": "other",
+              "start": 85.5,
+              "duration": 379.80000001192093,
+              "transfer": 13218,
+              "encoded": 12918,
+              "decoded": 42423
+            },
+            {
+              "path": "/assets/RecipesPage-_4Qxat-c.js",
+              "initiator": "script",
+              "start": 1982.4000000059605,
+              "duration": 132.5,
+              "transfer": 4168,
+              "encoded": 3868,
+              "decoded": 9808
+            },
+            {
+              "path": "/assets/KitchenHeader-BszdquYg.js",
+              "initiator": "script",
+              "start": 1983.5,
+              "duration": 79,
+              "transfer": 1037,
+              "encoded": 737,
+              "decoded": 1665
+            },
+            {
+              "path": "/assets/TopBar-5k7qANJv.js",
+              "initiator": "script",
+              "start": 1983.6000000238419,
+              "duration": 86.5,
+              "transfer": 1400,
+              "encoded": 1100,
+              "decoded": 2939
+            },
+            {
+              "path": "/assets/RecipeCard-BYK_P8Q9.js",
+              "initiator": "script",
+              "start": 1983.6000000238419,
+              "duration": 116,
+              "transfer": 2628,
+              "encoded": 2328,
+              "decoded": 11370
+            },
+            {
+              "path": "/assets/RecipeMedia-edHAkb3G.js",
+              "initiator": "script",
+              "start": 1984.800000011921,
+              "duration": 107.09999999403954,
+              "transfer": 929,
+              "encoded": 629,
+              "decoded": 1042
+            },
+            {
+              "path": "/assets/recipe-media-Dtf0slDf.js",
+              "initiator": "script",
+              "start": 1984.9000000059605,
+              "duration": 123.30000001192093,
+              "transfer": 1170,
+              "encoded": 870,
+              "decoded": 1676
+            },
+            {
+              "path": "/assets/AsyncState-DMJrV5Bu.js",
+              "initiator": "script",
+              "start": 1984.9000000059605,
+              "duration": 144.59999999403954,
+              "transfer": 1174,
+              "encoded": 874,
+              "decoded": 1653
+            },
+            {
+              "path": "/assets/Button-keaYca1e.js",
+              "initiator": "script",
+              "start": 1985,
+              "duration": 205.30000001192093,
+              "transfer": 9643,
+              "encoded": 9343,
+              "decoded": 29006
+            }
+          ],
+          "layoutShifts": []
+        },
+        {
+          "name": "discovery",
+          "cache": "warm",
+          "fonts": [
+            {
+              "path": "/takosan/fonts/be-vietnam-pro-vietnamese-400-normal.woff2",
+              "initiator": "css",
+              "start": 107.09999999403954,
+              "duration": 0,
+              "transfer": 0,
+              "encoded": 11484,
+              "decoded": 11484
+            },
+            {
+              "path": "/takosan/fonts/be-vietnam-pro-latin-ext-400-normal.woff2",
+              "initiator": "css",
+              "start": 107.09999999403954,
+              "duration": 0,
+              "transfer": 0,
+              "encoded": 12928,
+              "decoded": 12928
+            },
+            {
+              "path": "/takosan/fonts/be-vietnam-pro-latin-400-normal.woff2",
+              "initiator": "css",
+              "start": 107.09999999403954,
+              "duration": 0,
+              "transfer": 0,
+              "encoded": 21276,
+              "decoded": 21276
+            },
+            {
+              "path": "/takosan/fonts/be-vietnam-pro-vietnamese-600-normal.woff2",
+              "initiator": "css",
+              "start": 107.09999999403954,
+              "duration": 0,
+              "transfer": 0,
+              "encoded": 12160,
+              "decoded": 12160
+            },
+            {
+              "path": "/takosan/fonts/be-vietnam-pro-latin-600-normal.woff2",
+              "initiator": "css",
+              "start": 107.09999999403954,
+              "duration": 0,
+              "transfer": 0,
+              "encoded": 22052,
+              "decoded": 22052
+            },
+            {
+              "path": "/takosan/fonts/be-vietnam-pro-vietnamese-700-normal.woff2",
+              "initiator": "css",
+              "start": 107.90000000596046,
+              "duration": 0,
+              "transfer": 0,
+              "encoded": 12428,
+              "decoded": 12428
+            },
+            {
+              "path": "/takosan/fonts/be-vietnam-pro-latin-ext-700-normal.woff2",
+              "initiator": "css",
+              "start": 107.90000000596046,
+              "duration": 0,
+              "transfer": 0,
+              "encoded": 13776,
+              "decoded": 13776
+            },
+            {
+              "path": "/takosan/fonts/be-vietnam-pro-latin-700-normal.woff2",
+              "initiator": "css",
+              "start": 108,
+              "duration": 0,
+              "transfer": 0,
+              "encoded": 22216,
+              "decoded": 22216
+            }
+          ],
+          "images": [
+            {
+              "path": "/takosan/rebuild/lockup.svg",
+              "initiator": "img",
+              "start": 146.69999998807907,
+              "duration": 74,
+              "transfer": 1789,
+              "encoded": 1489,
+              "decoded": 3814
+            },
+            {
+              "path": "/takosan/rebuild/symbol.svg",
+              "initiator": "img",
+              "start": 281.19999998807907,
+              "duration": 65.7000000178814,
+              "transfer": 681,
+              "encoded": 381,
+              "decoded": 665
+            }
+          ],
+          "js": [
+            {
+              "path": "/assets/index-hOvLcnE8.js",
+              "initiator": "script",
+              "start": 93.59999999403954,
+              "duration": 0,
+              "transfer": 0,
+              "encoded": 129276,
+              "decoded": 463601
+            },
+            {
+              "path": "/assets/vendor-react-B6oo3S7f.js",
+              "initiator": "other",
+              "start": 93.59999999403954,
+              "duration": 0,
+              "transfer": 0,
+              "encoded": 53686,
+              "decoded": 164074
+            },
+            {
+              "path": "/assets/vendor-query-D03hXVOl.js",
+              "initiator": "other",
+              "start": 94.2999999821186,
+              "duration": 0,
+              "transfer": 0,
+              "encoded": 12918,
+              "decoded": 42423
+            },
+            {
+              "path": "/assets/vendor-icons-ul0AEewg.js",
+              "initiator": "other",
+              "start": 94.40000000596046,
+              "duration": 0,
+              "transfer": 0,
+              "encoded": 7200,
+              "decoded": 33190
+            },
+            {
+              "path": "/assets/RecipesPage-_4Qxat-c.js",
+              "initiator": "script",
+              "start": 285,
+              "duration": 0,
+              "transfer": 0,
+              "encoded": 3868,
+              "decoded": 9808
+            },
+            {
+              "path": "/assets/KitchenHeader-BszdquYg.js",
+              "initiator": "script",
+              "start": 285.5,
+              "duration": 0,
+              "transfer": 0,
+              "encoded": 737,
+              "decoded": 1665
+            },
+            {
+              "path": "/assets/TopBar-5k7qANJv.js",
+              "initiator": "script",
+              "start": 285.59999999403954,
+              "duration": 0,
+              "transfer": 0,
+              "encoded": 1100,
+              "decoded": 2939
+            },
+            {
+              "path": "/assets/RecipeCard-BYK_P8Q9.js",
+              "initiator": "script",
+              "start": 286.19999998807907,
+              "duration": 0,
+              "transfer": 0,
+              "encoded": 2328,
+              "decoded": 11370
+            },
+            {
+              "path": "/assets/RecipeMedia-edHAkb3G.js",
+              "initiator": "script",
+              "start": 286.19999998807907,
+              "duration": 0,
+              "transfer": 0,
+              "encoded": 629,
+              "decoded": 1042
+            },
+            {
+              "path": "/assets/recipe-media-Dtf0slDf.js",
+              "initiator": "script",
+              "start": 286.2999999821186,
+              "duration": 0,
+              "transfer": 0,
+              "encoded": 870,
+              "decoded": 1676
+            },
+            {
+              "path": "/assets/AsyncState-DMJrV5Bu.js",
+              "initiator": "script",
+              "start": 286.2999999821186,
+              "duration": 0,
+              "transfer": 0,
+              "encoded": 874,
+              "decoded": 1653
+            },
+            {
+              "path": "/assets/Button-keaYca1e.js",
+              "initiator": "script",
+              "start": 287.19999998807907,
+              "duration": 0,
+              "transfer": 0,
+              "encoded": 9343,
+              "decoded": 29006
+            }
+          ],
+          "layoutShifts": []
+        },
+        {
+          "name": "detail",
+          "cache": "cold",
+          "fonts": [
+            {
+              "path": "/takosan/fonts/be-vietnam-pro-latin-ext-700-normal.woff2",
+              "initiator": "css",
+              "start": 1414.9000000059605,
+              "duration": 505.5,
+              "transfer": 14076,
+              "encoded": 13776,
+              "decoded": 13776
+            },
+            {
+              "path": "/takosan/fonts/be-vietnam-pro-latin-400-normal.woff2",
+              "initiator": "css",
+              "start": 1414.9000000059605,
+              "duration": 639.6999999880791,
+              "transfer": 21576,
+              "encoded": 21276,
+              "decoded": 21276
+            },
+            {
+              "path": "/takosan/fonts/be-vietnam-pro-vietnamese-400-normal.woff2",
+              "initiator": "css",
+              "start": 1436.0999999940395,
+              "duration": 415.40000000596046,
+              "transfer": 11784,
+              "encoded": 11484,
+              "decoded": 11484
+            },
+            {
+              "path": "/takosan/fonts/be-vietnam-pro-vietnamese-700-normal.woff2",
+              "initiator": "css",
+              "start": 1443.4000000059605,
+              "duration": 461.5,
+              "transfer": 12728,
+              "encoded": 12428,
+              "decoded": 12428
+            },
+            {
+              "path": "/takosan/fonts/be-vietnam-pro-latin-700-normal.woff2",
+              "initiator": "css",
+              "start": 1443.4000000059605,
+              "duration": 618.1999999880791,
+              "transfer": 22516,
+              "encoded": 22216,
+              "decoded": 22216
+            },
+            {
+              "path": "/takosan/fonts/be-vietnam-pro-latin-ext-400-normal.woff2",
+              "initiator": "css",
+              "start": 1444.199999988079,
+              "duration": 482.90000000596046,
+              "transfer": 13228,
+              "encoded": 12928,
+              "decoded": 12928
+            },
+            {
+              "path": "/takosan/fonts/be-vietnam-pro-latin-600-normal.woff2",
+              "initiator": "css",
+              "start": 2243.0999999940395,
+              "duration": 291.09999999403954,
+              "transfer": 22352,
+              "encoded": 22052,
+              "decoded": 22052
+            },
+            {
+              "path": "/takosan/fonts/be-vietnam-pro-vietnamese-600-normal.woff2",
+              "initiator": "css",
+              "start": 2244.4000000059605,
+              "duration": 230.09999999403954,
+              "transfer": 12460,
+              "encoded": 12160,
+              "decoded": 12160
+            }
+          ],
+          "images": [
+            {
+              "path": "/takosan/rebuild/lockup.svg",
+              "initiator": "img",
+              "start": 1378.0999999940395,
+              "duration": 76.5,
+              "transfer": 1789,
+              "encoded": 1489,
+              "decoded": 3814
+            },
+            {
+              "path": "/takosan/rebuild/symbol.svg",
+              "initiator": "img",
+              "start": 1522.9000000059605,
+              "duration": 644.7999999821186,
+              "transfer": 681,
+              "encoded": 381,
+              "decoded": 665
+            },
+            {
+              "path": "/frigo/recipes/global/kimchi-fried-rice.webp",
+              "initiator": "img",
+              "start": 2444.0999999940395,
+              "duration": 1545.0999999940395,
+              "transfer": 64202,
+              "encoded": 63902,
+              "decoded": 63902
+            },
+            {
+              "path": "/frigo/ingredients/pantry/egg.png",
+              "initiator": "img",
+              "start": 2476.0999999940395,
+              "duration": 1288.0999999940395,
+              "transfer": 48421,
+              "encoded": 48121,
+              "decoded": 48121
+            }
+          ],
+          "js": [
+            {
+              "path": "/assets/index-hOvLcnE8.js",
+              "initiator": "script",
+              "start": 75.5,
+              "duration": 1222.0999999940395,
+              "transfer": 129576,
+              "encoded": 129276,
+              "decoded": 463601
+            },
+            {
+              "path": "/assets/vendor-react-B6oo3S7f.js",
+              "initiator": "other",
+              "start": 76,
+              "duration": 838.5999999940395,
+              "transfer": 53986,
+              "encoded": 53686,
+              "decoded": 164074
+            },
+            {
+              "path": "/assets/vendor-query-D03hXVOl.js",
+              "initiator": "other",
+              "start": 76.09999999403954,
+              "duration": 380.40000000596046,
+              "transfer": 13218,
+              "encoded": 12918,
+              "decoded": 42423
+            },
+            {
+              "path": "/assets/vendor-icons-ul0AEewg.js",
+              "initiator": "other",
+              "start": 76.5,
+              "duration": 291.09999999403954,
+              "transfer": 7500,
+              "encoded": 7200,
+              "decoded": 33190
+            },
+            {
+              "path": "/assets/RecipeDetailPage-B3OVxL83.js",
+              "initiator": "script",
+              "start": 1515.199999988079,
+              "duration": 509.60000002384186,
+              "transfer": 5026,
+              "encoded": 4726,
+              "decoded": 14454
+            },
+            {
+              "path": "/assets/TopBar-5k7qANJv.js",
+              "initiator": "script",
+              "start": 1516.199999988079,
+              "duration": 477.80000001192093,
+              "transfer": 1400,
+              "encoded": 1100,
+              "decoded": 2939
+            },
+            {
+              "path": "/assets/KitchenHeader-BszdquYg.js",
+              "initiator": "script",
+              "start": 1516.199999988079,
+              "duration": 501.5,
+              "transfer": 1037,
+              "encoded": 737,
+              "decoded": 1665
+            },
+            {
+              "path": "/assets/RecipeMedia-edHAkb3G.js",
+              "initiator": "script",
+              "start": 1516.5999999940395,
+              "duration": 516.0999999940395,
+              "transfer": 929,
+              "encoded": 629,
+              "decoded": 1042
+            },
+            {
+              "path": "/assets/recipe-media-Dtf0slDf.js",
+              "initiator": "script",
+              "start": 1516.699999988079,
+              "duration": 554,
+              "transfer": 1170,
+              "encoded": 870,
+              "decoded": 1676
+            },
+            {
+              "path": "/assets/Button-keaYca1e.js",
+              "initiator": "script",
+              "start": 1516.800000011921,
+              "duration": 680.5999999940395,
+              "transfer": 9643,
+              "encoded": 9343,
+              "decoded": 29006
+            },
+            {
+              "path": "/assets/AsyncState-DMJrV5Bu.js",
+              "initiator": "script",
+              "start": 1517.4000000059605,
+              "duration": 581.6999999880791,
+              "transfer": 1174,
+              "encoded": 874,
+              "decoded": 1653
+            },
+            {
+              "path": "/assets/useCookingStore-BbvTvNZa.js",
+              "initiator": "script",
+              "start": 1517.5,
+              "duration": 619.3000000119209,
+              "transfer": 2666,
+              "encoded": 2366,
+              "decoded": 5383
+            },
+            {
+              "path": "/assets/inventory-truth-BHprnlBW.js",
+              "initiator": "script",
+              "start": 1517.5,
+              "duration": 641.6999999880791,
+              "transfer": 1979,
+              "encoded": 1679,
+              "decoded": 3882
+            },
+            {
+              "path": "/assets/ingredient-images-DMUMQtkM.js",
+              "initiator": "script",
+              "start": 1517.5,
+              "duration": 687,
+              "transfer": 5265,
+              "encoded": 4965,
+              "decoded": 20220
+            }
+          ],
+          "layoutShifts": [
+            {
+              "start": 2543.5,
+              "value": 0.000046073357991820627,
+              "recentInput": false,
+              "sources": [
+                {
+                  "className": ""
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "detail",
+          "cache": "warm",
+          "fonts": [
+            {
+              "path": "/takosan/fonts/be-vietnam-pro-vietnamese-400-normal.woff2",
+              "initiator": "css",
+              "start": 130.60000002384186,
+              "duration": 0,
+              "transfer": 0,
+              "encoded": 11484,
+              "decoded": 11484
+            },
+            {
+              "path": "/takosan/fonts/be-vietnam-pro-latin-ext-400-normal.woff2",
+              "initiator": "css",
+              "start": 130.60000002384186,
+              "duration": 0,
+              "transfer": 0,
+              "encoded": 12928,
+              "decoded": 12928
+            },
+            {
+              "path": "/takosan/fonts/be-vietnam-pro-latin-400-normal.woff2",
+              "initiator": "css",
+              "start": 131.40000000596046,
+              "duration": 0,
+              "transfer": 0,
+              "encoded": 21276,
+              "decoded": 21276
+            },
+            {
+              "path": "/takosan/fonts/be-vietnam-pro-vietnamese-600-normal.woff2",
+              "initiator": "css",
+              "start": 131.60000002384186,
+              "duration": 0,
+              "transfer": 0,
+              "encoded": 12160,
+              "decoded": 12160
+            },
+            {
+              "path": "/takosan/fonts/be-vietnam-pro-latin-600-normal.woff2",
+              "initiator": "css",
+              "start": 131.60000002384186,
+              "duration": 0,
+              "transfer": 0,
+              "encoded": 22052,
+              "decoded": 22052
+            },
+            {
+              "path": "/takosan/fonts/be-vietnam-pro-vietnamese-700-normal.woff2",
+              "initiator": "css",
+              "start": 131.60000002384186,
+              "duration": 0,
+              "transfer": 0,
+              "encoded": 12428,
+              "decoded": 12428
+            },
+            {
+              "path": "/takosan/fonts/be-vietnam-pro-latin-ext-700-normal.woff2",
+              "initiator": "css",
+              "start": 131.7000000178814,
+              "duration": 0,
+              "transfer": 0,
+              "encoded": 13776,
+              "decoded": 13776
+            },
+            {
+              "path": "/takosan/fonts/be-vietnam-pro-latin-700-normal.woff2",
+              "initiator": "css",
+              "start": 132.10000002384186,
+              "duration": 0,
+              "transfer": 0,
+              "encoded": 22216,
+              "decoded": 22216
+            }
+          ],
+          "images": [
+            {
+              "path": "/takosan/rebuild/lockup.svg",
+              "initiator": "img",
+              "start": 141.7000000178814,
+              "duration": 75.19999998807907,
+              "transfer": 1789,
+              "encoded": 1489,
+              "decoded": 3814
+            },
+            {
+              "path": "/takosan/rebuild/symbol.svg",
+              "initiator": "img",
+              "start": 260.5,
+              "duration": 68.2000000178814,
+              "transfer": 681,
+              "encoded": 381,
+              "decoded": 665
+            },
+            {
+              "path": "/frigo/recipes/global/kimchi-fried-rice.webp",
+              "initiator": "img",
+              "start": 412.5,
+              "duration": 1544.4000000059605,
+              "transfer": 64202,
+              "encoded": 63902,
+              "decoded": 63902
+            },
+            {
+              "path": "/frigo/ingredients/pantry/egg.png",
+              "initiator": "img",
+              "start": 414.7000000178814,
+              "duration": 1256.2999999821186,
+              "transfer": 48421,
+              "encoded": 48121,
+              "decoded": 48121
+            },
+            {
+              "path": "/frigo/ingredients/pantry/cooking-oil.png",
+              "initiator": "img",
+              "start": 415.2000000178814,
+              "duration": 1563.7999999821186,
+              "transfer": 63865,
+              "encoded": 63565,
+              "decoded": 63565
+            }
+          ],
+          "js": [
+            {
+              "path": "/assets/index-hOvLcnE8.js",
+              "initiator": "script",
+              "start": 95,
+              "duration": 0,
+              "transfer": 0,
+              "encoded": 129276,
+              "decoded": 463601
+            },
+            {
+              "path": "/assets/vendor-react-B6oo3S7f.js",
+              "initiator": "other",
+              "start": 95,
+              "duration": 0,
+              "transfer": 0,
+              "encoded": 53686,
+              "decoded": 164074
+            },
+            {
+              "path": "/assets/vendor-query-D03hXVOl.js",
+              "initiator": "other",
+              "start": 95.90000000596046,
+              "duration": 0,
+              "transfer": 0,
+              "encoded": 12918,
+              "decoded": 42423
+            },
+            {
+              "path": "/assets/vendor-icons-ul0AEewg.js",
+              "initiator": "other",
+              "start": 96.10000002384186,
+              "duration": 0,
+              "transfer": 0,
+              "encoded": 7200,
+              "decoded": 33190
+            },
+            {
+              "path": "/assets/RecipeDetailPage-B3OVxL83.js",
+              "initiator": "script",
+              "start": 264.10000002384186,
+              "duration": 0,
+              "transfer": 0,
+              "encoded": 4726,
+              "decoded": 14454
+            },
+            {
+              "path": "/assets/TopBar-5k7qANJv.js",
+              "initiator": "script",
+              "start": 264.60000002384186,
+              "duration": 0,
+              "transfer": 0,
+              "encoded": 1100,
+              "decoded": 2939
+            },
+            {
+              "path": "/assets/KitchenHeader-BszdquYg.js",
+              "initiator": "script",
+              "start": 264.60000002384186,
+              "duration": 0,
+              "transfer": 0,
+              "encoded": 737,
+              "decoded": 1665
+            },
+            {
+              "path": "/assets/RecipeMedia-edHAkb3G.js",
+              "initiator": "script",
+              "start": 265.2000000178814,
+              "duration": 0,
+              "transfer": 0,
+              "encoded": 629,
+              "decoded": 1042
+            },
+            {
+              "path": "/assets/recipe-media-Dtf0slDf.js",
+              "initiator": "script",
+              "start": 265.30000001192093,
+              "duration": 0,
+              "transfer": 0,
+              "encoded": 870,
+              "decoded": 1676
+            },
+            {
+              "path": "/assets/Button-keaYca1e.js",
+              "initiator": "script",
+              "start": 265.40000000596046,
+              "duration": 0,
+              "transfer": 0,
+              "encoded": 9343,
+              "decoded": 29006
+            },
+            {
+              "path": "/assets/AsyncState-DMJrV5Bu.js",
+              "initiator": "script",
+              "start": 265.40000000596046,
+              "duration": 0,
+              "transfer": 0,
+              "encoded": 874,
+              "decoded": 1653
+            },
+            {
+              "path": "/assets/useCookingStore-BbvTvNZa.js",
+              "initiator": "script",
+              "start": 266.2000000178814,
+              "duration": 0,
+              "transfer": 0,
+              "encoded": 2366,
+              "decoded": 5383
+            },
+            {
+              "path": "/assets/inventory-truth-BHprnlBW.js",
+              "initiator": "script",
+              "start": 266.2000000178814,
+              "duration": 0,
+              "transfer": 0,
+              "encoded": 1679,
+              "decoded": 3882
+            },
+            {
+              "path": "/assets/ingredient-images-DMUMQtkM.js",
+              "initiator": "script",
+              "start": 266.30000001192093,
+              "duration": 0,
+              "transfer": 0,
+              "encoded": 4965,
+              "decoded": 20220
+            }
+          ],
+          "layoutShifts": []
+        }
+      ],
+      "integrity": {
+        "inventoryBeforeAfterEqual": true,
+        "domainWrites": 0,
+        "externalRequests": 0,
+        "pageerrors": 0
+      }
+    },
+    {
+      "stage": "after",
+      "browser": "153.0.8010.12",
+      "environment": {
+        "productionBuild": true,
+        "isolatedSyntheticWorker": true,
+        "externalHtmlRemoved": true,
+        "gzip": "preview text assets only; local policy is not hosted compression evidence",
+        "cache": "CDP enabled, no browser request routing; warm is same-context same-route reload",
+        "viewport": {
+          "width": 390,
+          "height": 844
+        },
+        "cpuRate": 4,
+        "network": {
+          "latencyMs": 60,
+          "downloadBytesPerSecond": 200000,
+          "uploadBytesPerSecond": 96000
+        },
+        "observations": "document metrics are local lab observations, not field CWV/INP; SPA ready is measured independently"
+      },
+      "entry": {
+        "path": "index-3tMGmj4W.js",
+        "rawBytes": 336308,
+        "rawSha256": "37389953eac1038c3cb61c6a729011fa6cb61ceecef37dd8b8ee83fc614467f0",
+        "gzipDefault6Bytes": 87619,
+        "sourceMapSha256": "0744fd5b1a80b17c49788787e4b842e3bab88f27096275a746e5298c037063a1",
+        "sourceMapModules": 92,
+        "motionModuleCount": 1,
+        "fullProjectionInEntry": false,
+        "largestUnminifiedSources": [
+          {
+            "path": "../../../node_modules/.pnpm/zod@3.25.76/node_modules/zod/v3/types.js",
+            "sourceBytes": 131212
+          },
+          {
+            "path": "../../../packages/recipes/src/vietnamese-bank.ts",
+            "sourceBytes": 125290
+          },
+          {
+            "path": "../../../packages/domain/src/inventory-truth.ts",
+            "sourceBytes": 18337
+          },
+          {
+            "path": "../../../packages/recipes/src/data.ts",
+            "sourceBytes": 17692
+          },
+          {
+            "path": "../../../packages/domain/src/week/planner.ts",
+            "sourceBytes": 16419
+          },
+          {
+            "path": "../../../packages/domain/src/index.ts",
+            "sourceBytes": 16063
+          },
+          {
+            "path": "../../../packages/recipes/src/catalog-drift.ts",
+            "sourceBytes": 15576
+          },
+          {
+            "path": "../../../src/web/App.tsx",
+            "sourceBytes": 15215
+          },
+          {
+            "path": "../../../src/web/services/week.ts",
+            "sourceBytes": 14494
+          },
+          {
+            "path": "../../../packages/domain/src/availability.ts",
+            "sourceBytes": 12339
+          },
+          {
+            "path": "../../../src/web/design-system/navigation.tsx",
+            "sourceBytes": 11808
+          },
+          {
+            "path": "../../../packages/recipes/src/planner-nutrition.ts",
+            "sourceBytes": 11143
+          },
+          {
+            "path": "../../../packages/recipes/src/planner-inventory.ts",
+            "sourceBytes": 10983
+          },
+          {
+            "path": "../../../src/web/stores/useAuthStore.ts",
+            "sourceBytes": 10932
+          },
+          {
+            "path": "../../../packages/recipes/src/import/release-manifest.ts",
+            "sourceBytes": 10543
+          }
+        ]
+      },
+      "summary": [
+        {
+          "name": "home",
+          "cache": "cold",
+          "runs": 3,
+          "readyMs": 3329.9000000059605,
+          "readyRangeMs": [
+            3306.0999999940395,
+            3339.5
+          ],
+          "lcpMs": 2188,
+          "fcpMs": 1228,
+          "jsTransfer": 198605,
+          "resourceTransfer": 544663,
+          "clsCumulativeLab": 0.017652234275858873,
+          "longTaskCounts": [
+            0,
+            0,
+            0
+          ],
+          "longTaskDurations": [
+            0,
+            0,
+            0
+          ],
+          "requestCounts": [
+            34,
+            34,
+            34
+          ]
+        },
+        {
+          "name": "home",
+          "cache": "warm",
+          "runs": 3,
+          "readyMs": 1335.699999988079,
+          "readyRangeMs": [
+            1331.5,
+            1340.4000000059605
+          ],
+          "lcpMs": 372,
+          "fcpMs": 176,
+          "jsTransfer": 0,
+          "resourceTransfer": 177570,
+          "clsCumulativeLab": 0.017646955732932717,
+          "longTaskCounts": [
+            0,
+            0,
+            0
+          ],
+          "longTaskDurations": [
+            0,
+            0,
+            0
+          ],
+          "requestCounts": [
+            34,
+            34,
+            34
+          ]
+        },
+        {
+          "name": "discovery",
+          "cache": "cold",
+          "runs": 3,
+          "readyMs": 2624.699999988079,
+          "readyRangeMs": [
+            2614.2999999821186,
+            2720.0999999940395
+          ],
+          "lcpMs": 2312,
+          "fcpMs": 1220,
+          "jsTransfer": 184779,
+          "resourceTransfer": 359067,
+          "clsCumulativeLab": 0,
+          "longTaskCounts": [
+            0,
+            1,
+            0
+          ],
+          "longTaskDurations": [
+            0,
+            54,
+            0
+          ],
+          "requestCounts": [
+            25,
+            25,
+            25
+          ]
+        },
+        {
+          "name": "discovery",
+          "cache": "warm",
+          "runs": 3,
+          "readyMs": 600,
+          "readyRangeMs": [
+            597,
+            600.3000000119209
+          ],
+          "lcpMs": 508,
+          "fcpMs": 192,
+          "jsTransfer": 0,
+          "resourceTransfer": 19712,
+          "clsCumulativeLab": 0,
+          "longTaskCounts": [
+            0,
+            0,
+            0
+          ],
+          "longTaskDurations": [
+            0,
+            0,
+            0
+          ],
+          "requestCounts": [
+            25,
+            25,
+            25
+          ]
+        },
+        {
+          "name": "detail",
+          "cache": "cold",
+          "runs": 3,
+          "readyMs": 3812.7000000178814,
+          "readyRangeMs": [
+            3812.5,
+            3830.800000011921
+          ],
+          "lcpMs": 3784,
+          "fcpMs": 1224,
+          "jsTransfer": 192917,
+          "resourceTransfer": 470106,
+          "clsCumulativeLab": 0.000046073357991820627,
+          "longTaskCounts": [
+            1,
+            2,
+            1
+          ],
+          "longTaskDurations": [
+            63,
+            120,
+            69
+          ],
+          "requestCounts": [
+            30,
+            30,
+            30
+          ]
+        },
+        {
+          "name": "detail",
+          "cache": "warm",
+          "runs": 3,
+          "readyMs": 2000.0999999940395,
+          "readyRangeMs": [
+            1996.0999999940395,
+            2015.2000000178814
+          ],
+          "lcpMs": 1972,
+          "fcpMs": 192,
+          "jsTransfer": 0,
+          "resourceTransfer": 186478,
+          "clsCumulativeLab": 0,
+          "longTaskCounts": [
+            0,
+            0,
+            0
+          ],
+          "longTaskDurations": [
+            0,
+            0,
+            0
+          ],
+          "requestCounts": [
+            31,
+            31,
+            31
+          ]
+        }
+      ],
+      "exploratorySingleSpaTransitions": [
+        {
+          "from": "home",
+          "to": "discovery",
+          "transitionMs": 451.2000000178814
+        },
+        {
+          "from": "discovery",
+          "to": "/recipes/kimchi-fried-rice",
+          "transitionMs": 445.7000000178814
+        }
+      ],
+      "firstRunResources": [
+        {
+          "name": "home",
+          "cache": "cold",
+          "fonts": [
+            {
+              "path": "/takosan/fonts/be-vietnam-pro-latin-ext-700-normal.woff2",
+              "initiator": "css",
+              "start": 1190.3999999761581,
+              "duration": 512.1000000238419,
+              "transfer": 14076,
+              "encoded": 13776,
+              "decoded": 13776
+            },
+            {
+              "path": "/takosan/fonts/be-vietnam-pro-latin-400-normal.woff2",
+              "initiator": "css",
+              "start": 1190.3999999761581,
+              "duration": 594.3000000119209,
+              "transfer": 21576,
+              "encoded": 21276,
+              "decoded": 21276
+            },
+            {
+              "path": "/takosan/fonts/be-vietnam-pro-vietnamese-400-normal.woff2",
+              "initiator": "css",
+              "start": 1211.699999988079,
+              "duration": 416.09999999403954,
+              "transfer": 11784,
+              "encoded": 11484,
+              "decoded": 11484
+            },
+            {
+              "path": "/takosan/fonts/be-vietnam-pro-latin-700-normal.woff2",
+              "initiator": "css",
+              "start": 1217.0999999940395,
+              "duration": 575.5,
+              "transfer": 22516,
+              "encoded": 22216,
+              "decoded": 22216
+            },
+            {
+              "path": "/takosan/fonts/be-vietnam-pro-vietnamese-700-normal.woff2",
+              "initiator": "css",
+              "start": 1217.199999988079,
+              "duration": 462.80000001192093,
+              "transfer": 12728,
+              "encoded": 12428,
+              "decoded": 12428
+            },
+            {
+              "path": "/takosan/fonts/be-vietnam-pro-latin-ext-400-normal.woff2",
+              "initiator": "css",
+              "start": 1218.5999999940395,
+              "duration": 476.5,
+              "transfer": 13228,
+              "encoded": 12928,
+              "decoded": 12928
+            },
+            {
+              "path": "/takosan/fonts/be-vietnam-pro-latin-600-normal.woff2",
+              "initiator": "css",
+              "start": 2080,
+              "duration": 492.5,
+              "transfer": 22352,
+              "encoded": 22052,
+              "decoded": 22052
+            },
+            {
+              "path": "/takosan/fonts/be-vietnam-pro-vietnamese-600-normal.woff2",
+              "initiator": "css",
+              "start": 2081.7999999821186,
+              "duration": 340.80000001192093,
+              "transfer": 12460,
+              "encoded": 12160,
+              "decoded": 12160
+            },
+            {
+              "path": "/takosan/fonts/be-vietnam-pro-latin-ext-600-normal.woff2",
+              "initiator": "css",
+              "start": 2084.7999999821186,
+              "duration": 383.09999999403954,
+              "transfer": 13912,
+              "encoded": 13612,
+              "decoded": 13612
+            }
+          ],
+          "images": [
+            {
+              "path": "/takosan/rebuild/lockup.svg",
+              "initiator": "img",
+              "start": 1165.3999999761581,
+              "duration": 72.60000002384186,
+              "transfer": 1789,
+              "encoded": 1489,
+              "decoded": 3814
+            },
+            {
+              "path": "/takosan/rebuild/symbol.svg",
+              "initiator": "img",
+              "start": 1758.8999999761581,
+              "duration": 228.5,
+              "transfer": 681,
+              "encoded": 381,
+              "decoded": 665
+            },
+            {
+              "path": "/frigo/ingredients/vegetables/water-spinach.png",
+              "initiator": "img",
+              "start": 2241.699999988079,
+              "duration": 1057.5,
+              "transfer": 105308,
+              "encoded": 105008,
+              "decoded": 105008
+            },
+            {
+              "path": "/frigo/recipes/global/kimchi-fried-rice.webp",
+              "initiator": "img",
+              "start": 2262.5999999940395,
+              "duration": 826.5999999940395,
+              "transfer": 64202,
+              "encoded": 63902,
+              "decoded": 63902
+            }
+          ],
+          "js": [
+            {
+              "path": "/assets/index-3tMGmj4W.js",
+              "initiator": "script",
+              "start": 83.09999999403954,
+              "duration": 1012.2999999821186,
+              "transfer": 87919,
+              "encoded": 87619,
+              "decoded": 336308
+            },
+            {
+              "path": "/assets/vendor-react-B6oo3S7f.js",
+              "initiator": "other",
+              "start": 83.19999998807907,
+              "duration": 839.3000000119209,
+              "transfer": 53986,
+              "encoded": 53686,
+              "decoded": 164074
+            },
+            {
+              "path": "/assets/vendor-query-D03hXVOl.js",
+              "initiator": "other",
+              "start": 83.2999999821186,
+              "duration": 374,
+              "transfer": 13218,
+              "encoded": 12918,
+              "decoded": 42423
+            },
+            {
+              "path": "/assets/vendor-icons-ul0AEewg.js",
+              "initiator": "other",
+              "start": 84,
+              "duration": 291.2999999821186,
+              "transfer": 7500,
+              "encoded": 7200,
+              "decoded": 33190
+            },
+            {
+              "path": "/assets/HomePage-BJsuXWcN.js",
+              "initiator": "script",
+              "start": 1751.3999999761581,
+              "duration": 137.7000000178814,
+              "transfer": 4537,
+              "encoded": 4237,
+              "decoded": 11694
+            },
+            {
+              "path": "/assets/TopBar-e1qbmtrL.js",
+              "initiator": "script",
+              "start": 1752.0999999940395,
+              "duration": 78.5,
+              "transfer": 1396,
+              "encoded": 1096,
+              "decoded": 2939
+            },
+            {
+              "path": "/assets/KitchenHeader-Dj-PH4km.js",
+              "initiator": "script",
+              "start": 1752.199999988079,
+              "duration": 84.5,
+              "transfer": 1040,
+              "encoded": 740,
+              "decoded": 1665
+            },
+            {
+              "path": "/assets/RecipeCard-DSCNz1QG.js",
+              "initiator": "script",
+              "start": 1752.2999999821186,
+              "duration": 107.40000000596046,
+              "transfer": 2625,
+              "encoded": 2325,
+              "decoded": 11370
+            },
+            {
+              "path": "/assets/RecipeMedia-CeapuVmk.js",
+              "initiator": "script",
+              "start": 1752.2999999821186,
+              "duration": 114.5,
+              "transfer": 929,
+              "encoded": 629,
+              "decoded": 1042
+            },
+            {
+              "path": "/assets/recipe-media-t5Sanqq1.js",
+              "initiator": "script",
+              "start": 1753.199999988079,
+              "duration": 129.80000001192093,
+              "transfer": 1173,
+              "encoded": 873,
+              "decoded": 1676
+            },
+            {
+              "path": "/assets/AsyncState-BN_UCL76.js",
+              "initiator": "script",
+              "start": 1753.199999988079,
+              "duration": 144.5,
+              "transfer": 1176,
+              "encoded": 876,
+              "decoded": 1653
+            },
+            {
+              "path": "/assets/format-zRZ7DBjT.js",
+              "initiator": "script",
+              "start": 1753.3999999761581,
+              "duration": 174,
+              "transfer": 732,
+              "encoded": 432,
+              "decoded": 705
+            },
+            {
+              "path": "/assets/Button-DdE7yA1t.js",
+              "initiator": "script",
+              "start": 1753.3999999761581,
+              "duration": 256.10000002384186,
+              "transfer": 9646,
+              "encoded": 9346,
+              "decoded": 29006
+            },
+            {
+              "path": "/assets/inventory-truth-BHprnlBW.js",
+              "initiator": "script",
+              "start": 1754.3999999761581,
+              "duration": 203.5,
+              "transfer": 1979,
+              "encoded": 1679,
+              "decoded": 3882
+            },
+            {
+              "path": "/assets/composition-Bm5IqdtK.js",
+              "initiator": "script",
+              "start": 1754.3999999761581,
+              "duration": 277,
+              "transfer": 5484,
+              "encoded": 5184,
+              "decoded": 13793
+            },
+            {
+              "path": "/assets/ingredient-images-DMUMQtkM.js",
+              "initiator": "script",
+              "start": 1754.5,
+              "duration": 285.09999999403954,
+              "transfer": 5265,
+              "encoded": 4965,
+              "decoded": 20220
+            }
+          ],
+          "layoutShifts": [
+            {
+              "start": 2198.399999976158,
+              "value": 0.014883857747337902,
+              "recentInput": false,
+              "sources": [
+                {
+                  "tag": "SECTION",
+                  "className": "space-y-4"
+                },
+                {
+                  "tag": "SECTION",
+                  "className": "min-w-0 space-y-4"
+                }
+              ]
+            },
+            {
+              "start": 2240.199999988079,
+              "value": 0.0024664678552731383,
+              "recentInput": false,
+              "sources": [
+                {
+                  "tag": "SECTION",
+                  "className": "min-w-0 space-y-4"
+                }
+              ]
+            },
+            {
+              "start": 2372.199999988079,
+              "value": 0.00029663013032167477,
+              "recentInput": false,
+              "sources": [
+                {
+                  "tag": "SECTION",
+                  "className": "min-w-0 space-y-4"
+                }
+              ]
+            },
+            {
+              "start": 2439.2999999821186,
+              "value": 0.00000527854292615585,
+              "recentInput": false,
+              "sources": [
+                {
+                  "tag": "svg",
+                  "className": "[object SVGAnimatedString]"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "home",
+          "cache": "warm",
+          "fonts": [
+            {
+              "path": "/takosan/fonts/be-vietnam-pro-vietnamese-400-normal.woff2",
+              "initiator": "css",
+              "start": 95.10000002384186,
+              "duration": 0,
+              "transfer": 0,
+              "encoded": 11484,
+              "decoded": 11484
+            },
+            {
+              "path": "/takosan/fonts/be-vietnam-pro-latin-ext-400-normal.woff2",
+              "initiator": "css",
+              "start": 95.5,
+              "duration": 0,
+              "transfer": 0,
+              "encoded": 12928,
+              "decoded": 12928
+            },
+            {
+              "path": "/takosan/fonts/be-vietnam-pro-latin-400-normal.woff2",
+              "initiator": "css",
+              "start": 95.5,
+              "duration": 0,
+              "transfer": 0,
+              "encoded": 21276,
+              "decoded": 21276
+            },
+            {
+              "path": "/takosan/fonts/be-vietnam-pro-vietnamese-600-normal.woff2",
+              "initiator": "css",
+              "start": 95.5,
+              "duration": 0,
+              "transfer": 0,
+              "encoded": 12160,
+              "decoded": 12160
+            },
+            {
+              "path": "/takosan/fonts/be-vietnam-pro-latin-ext-600-normal.woff2",
+              "initiator": "css",
+              "start": 95.60000002384186,
+              "duration": 0,
+              "transfer": 0,
+              "encoded": 13612,
+              "decoded": 13612
+            },
+            {
+              "path": "/takosan/fonts/be-vietnam-pro-latin-600-normal.woff2",
+              "initiator": "css",
+              "start": 95.60000002384186,
+              "duration": 0,
+              "transfer": 0,
+              "encoded": 22052,
+              "decoded": 22052
+            },
+            {
+              "path": "/takosan/fonts/be-vietnam-pro-vietnamese-700-normal.woff2",
+              "initiator": "css",
+              "start": 96.2000000178814,
+              "duration": 0,
+              "transfer": 0,
+              "encoded": 12428,
+              "decoded": 12428
+            },
+            {
+              "path": "/takosan/fonts/be-vietnam-pro-latin-ext-700-normal.woff2",
+              "initiator": "css",
+              "start": 96.30000001192093,
+              "duration": 0,
+              "transfer": 0,
+              "encoded": 13776,
+              "decoded": 13776
+            },
+            {
+              "path": "/takosan/fonts/be-vietnam-pro-latin-700-normal.woff2",
+              "initiator": "css",
+              "start": 96.30000001192093,
+              "duration": 0,
+              "transfer": 0,
+              "encoded": 22216,
+              "decoded": 22216
+            }
+          ],
+          "images": [
+            {
+              "path": "/takosan/rebuild/lockup.svg",
+              "initiator": "img",
+              "start": 129,
+              "duration": 78.5,
+              "transfer": 1789,
+              "encoded": 1489,
+              "decoded": 3814
+            },
+            {
+              "path": "/takosan/rebuild/symbol.svg",
+              "initiator": "img",
+              "start": 253.30000001192093,
+              "duration": 65.59999999403954,
+              "transfer": 681,
+              "encoded": 381,
+              "decoded": 665
+            },
+            {
+              "path": "/frigo/ingredients/vegetables/water-spinach.png",
+              "initiator": "img",
+              "start": 384.5,
+              "duration": 916.7000000178814,
+              "transfer": 105308,
+              "encoded": 105008,
+              "decoded": 105008
+            },
+            {
+              "path": "/frigo/recipes/global/kimchi-fried-rice.webp",
+              "initiator": "img",
+              "start": 396.7000000178814,
+              "duration": 702.9000000059605,
+              "transfer": 64202,
+              "encoded": 63902,
+              "decoded": 63902
+            }
+          ],
+          "js": [
+            {
+              "path": "/assets/index-3tMGmj4W.js",
+              "initiator": "script",
+              "start": 84.30000001192093,
+              "duration": 0,
+              "transfer": 0,
+              "encoded": 87619,
+              "decoded": 336308
+            },
+            {
+              "path": "/assets/vendor-react-B6oo3S7f.js",
+              "initiator": "other",
+              "start": 84.30000001192093,
+              "duration": 0,
+              "transfer": 0,
+              "encoded": 53686,
+              "decoded": 164074
+            },
+            {
+              "path": "/assets/vendor-query-D03hXVOl.js",
+              "initiator": "other",
+              "start": 84.30000001192093,
+              "duration": 0,
+              "transfer": 0,
+              "encoded": 12918,
+              "decoded": 42423
+            },
+            {
+              "path": "/assets/vendor-icons-ul0AEewg.js",
+              "initiator": "other",
+              "start": 84.40000000596046,
+              "duration": 0,
+              "transfer": 0,
+              "encoded": 7200,
+              "decoded": 33190
+            },
+            {
+              "path": "/assets/HomePage-BJsuXWcN.js",
+              "initiator": "script",
+              "start": 257.30000001192093,
+              "duration": 0,
+              "transfer": 0,
+              "encoded": 4237,
+              "decoded": 11694
+            },
+            {
+              "path": "/assets/TopBar-e1qbmtrL.js",
+              "initiator": "script",
+              "start": 257.40000000596046,
+              "duration": 0,
+              "transfer": 0,
+              "encoded": 1096,
+              "decoded": 2939
+            },
+            {
+              "path": "/assets/KitchenHeader-Dj-PH4km.js",
+              "initiator": "script",
+              "start": 257.40000000596046,
+              "duration": 0,
+              "transfer": 0,
+              "encoded": 740,
+              "decoded": 1665
+            },
+            {
+              "path": "/assets/RecipeCard-DSCNz1QG.js",
+              "initiator": "script",
+              "start": 258.30000001192093,
+              "duration": 0,
+              "transfer": 0,
+              "encoded": 2325,
+              "decoded": 11370
+            },
+            {
+              "path": "/assets/RecipeMedia-CeapuVmk.js",
+              "initiator": "script",
+              "start": 258.80000001192093,
+              "duration": 0,
+              "transfer": 0,
+              "encoded": 629,
+              "decoded": 1042
+            },
+            {
+              "path": "/assets/recipe-media-t5Sanqq1.js",
+              "initiator": "script",
+              "start": 259,
+              "duration": 0,
+              "transfer": 0,
+              "encoded": 873,
+              "decoded": 1676
+            },
+            {
+              "path": "/assets/AsyncState-BN_UCL76.js",
+              "initiator": "script",
+              "start": 259.30000001192093,
+              "duration": 0,
+              "transfer": 0,
+              "encoded": 876,
+              "decoded": 1653
+            },
+            {
+              "path": "/assets/Button-DdE7yA1t.js",
+              "initiator": "script",
+              "start": 259.5,
+              "duration": 0,
+              "transfer": 0,
+              "encoded": 9346,
+              "decoded": 29006
+            },
+            {
+              "path": "/assets/format-zRZ7DBjT.js",
+              "initiator": "script",
+              "start": 259.5,
+              "duration": 0,
+              "transfer": 0,
+              "encoded": 432,
+              "decoded": 705
+            },
+            {
+              "path": "/assets/inventory-truth-BHprnlBW.js",
+              "initiator": "script",
+              "start": 259.5,
+              "duration": 0,
+              "transfer": 0,
+              "encoded": 1679,
+              "decoded": 3882
+            },
+            {
+              "path": "/assets/composition-Bm5IqdtK.js",
+              "initiator": "script",
+              "start": 260.10000002384186,
+              "duration": 0,
+              "transfer": 0,
+              "encoded": 5184,
+              "decoded": 13793
+            },
+            {
+              "path": "/assets/ingredient-images-DMUMQtkM.js",
+              "initiator": "script",
+              "start": 260.10000002384186,
+              "duration": 0,
+              "transfer": 0,
+              "encoded": 4965,
+              "decoded": 20220
+            }
+          ],
+          "layoutShifts": [
+            {
+              "start": 366.2000000178814,
+              "value": 0.014883857747337902,
+              "recentInput": false,
+              "sources": [
+                {
+                  "tag": "SECTION",
+                  "className": "space-y-4"
+                },
+                {
+                  "tag": "SECTION",
+                  "className": "min-w-0 space-y-4"
+                }
+              ]
+            },
+            {
+              "start": 388.60000002384186,
+              "value": 0.0024664678552731383,
+              "recentInput": false,
+              "sources": [
+                {
+                  "tag": "SECTION",
+                  "className": "min-w-0 space-y-4"
+                }
+              ]
+            },
+            {
+              "start": 472,
+              "value": 0.00029663013032167477,
+              "recentInput": false,
+              "sources": [
+                {
+                  "tag": "SECTION",
+                  "className": "min-w-0 space-y-4"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "discovery",
+          "cache": "cold",
+          "fonts": [
+            {
+              "path": "/takosan/fonts/be-vietnam-pro-latin-400-normal.woff2",
+              "initiator": "css",
+              "start": 1185.0999999940395,
+              "duration": 592.5,
+              "transfer": 21576,
+              "encoded": 21276,
+              "decoded": 21276
+            },
+            {
+              "path": "/takosan/fonts/be-vietnam-pro-latin-ext-700-normal.woff2",
+              "initiator": "css",
+              "start": 1185.2999999821186,
+              "duration": 502.5,
+              "transfer": 14076,
+              "encoded": 13776,
+              "decoded": 13776
+            },
+            {
+              "path": "/takosan/fonts/be-vietnam-pro-vietnamese-400-normal.woff2",
+              "initiator": "css",
+              "start": 1204.5,
+              "duration": 414.69999998807907,
+              "transfer": 11784,
+              "encoded": 11484,
+              "decoded": 11484
+            },
+            {
+              "path": "/takosan/fonts/be-vietnam-pro-latin-700-normal.woff2",
+              "initiator": "css",
+              "start": 1210.4000000059605,
+              "duration": 574.6999999880791,
+              "transfer": 22516,
+              "encoded": 22216,
+              "decoded": 22216
+            },
+            {
+              "path": "/takosan/fonts/be-vietnam-pro-vietnamese-700-normal.woff2",
+              "initiator": "css",
+              "start": 1210.5,
+              "duration": 461.2999999821186,
+              "transfer": 12728,
+              "encoded": 12428,
+              "decoded": 12428
+            },
+            {
+              "path": "/takosan/fonts/be-vietnam-pro-latin-ext-400-normal.woff2",
+              "initiator": "css",
+              "start": 1211.0999999940395,
+              "duration": 483.30000001192093,
+              "transfer": 13228,
+              "encoded": 12928,
+              "decoded": 12928
+            },
+            {
+              "path": "/takosan/fonts/be-vietnam-pro-latin-600-normal.woff2",
+              "initiator": "css",
+              "start": 1981.5999999940395,
+              "duration": 321.09999999403954,
+              "transfer": 22352,
+              "encoded": 22052,
+              "decoded": 22052
+            },
+            {
+              "path": "/takosan/fonts/be-vietnam-pro-vietnamese-600-normal.woff2",
+              "initiator": "css",
+              "start": 1983.199999988079,
+              "duration": 274,
+              "transfer": 12460,
+              "encoded": 12160,
+              "decoded": 12160
+            }
+          ],
+          "images": [
+            {
+              "path": "/takosan/rebuild/lockup.svg",
+              "initiator": "img",
+              "start": 1161.199999988079,
+              "duration": 76.59999999403954,
+              "transfer": 1789,
+              "encoded": 1489,
+              "decoded": 3814
+            },
+            {
+              "path": "/takosan/rebuild/symbol.svg",
+              "initiator": "img",
+              "start": 1744.0999999940395,
+              "duration": 168.80000001192093,
+              "transfer": 681,
+              "encoded": 381,
+              "decoded": 665
+            }
+          ],
+          "js": [
+            {
+              "path": "/assets/index-3tMGmj4W.js",
+              "initiator": "script",
+              "start": 83,
+              "duration": 1011.1999999880791,
+              "transfer": 87919,
+              "encoded": 87619,
+              "decoded": 336308
+            },
+            {
+              "path": "/assets/vendor-query-D03hXVOl.js",
+              "initiator": "other",
+              "start": 83.09999999403954,
+              "duration": 382,
+              "transfer": 13218,
+              "encoded": 12918,
+              "decoded": 42423
+            },
+            {
+              "path": "/assets/vendor-react-B6oo3S7f.js",
+              "initiator": "other",
+              "start": 83.09999999403954,
+              "duration": 839.4000000059605,
+              "transfer": 53986,
+              "encoded": 53686,
+              "decoded": 164074
+            },
+            {
+              "path": "/assets/vendor-icons-ul0AEewg.js",
+              "initiator": "other",
+              "start": 83.90000000596046,
+              "duration": 290,
+              "transfer": 7500,
+              "encoded": 7200,
+              "decoded": 33190
+            },
+            {
+              "path": "/assets/RecipesPage-D7-vkGf4.js",
+              "initiator": "script",
+              "start": 1737.5999999940395,
+              "duration": 115,
+              "transfer": 4171,
+              "encoded": 3871,
+              "decoded": 9805
+            },
+            {
+              "path": "/assets/KitchenHeader-Dj-PH4km.js",
+              "initiator": "script",
+              "start": 1738.0999999940395,
+              "duration": 77.69999998807907,
+              "transfer": 1040,
+              "encoded": 740,
+              "decoded": 1665
+            },
+            {
+              "path": "/assets/TopBar-e1qbmtrL.js",
+              "initiator": "script",
+              "start": 1738.0999999940395,
+              "duration": 84.40000000596046,
+              "transfer": 1396,
+              "encoded": 1096,
+              "decoded": 2939
+            },
+            {
+              "path": "/assets/RecipeCard-DSCNz1QG.js",
+              "initiator": "script",
+              "start": 1738.199999988079,
+              "duration": 106.09999999403954,
+              "transfer": 2625,
+              "encoded": 2325,
+              "decoded": 11370
+            },
+            {
+              "path": "/assets/RecipeMedia-CeapuVmk.js",
+              "initiator": "script",
+              "start": 1738.699999988079,
+              "duration": 121.80000001192093,
+              "transfer": 929,
+              "encoded": 629,
+              "decoded": 1042
+            },
+            {
+              "path": "/assets/recipe-media-t5Sanqq1.js",
+              "initiator": "script",
+              "start": 1738.9000000059605,
+              "duration": 128.19999998807907,
+              "transfer": 1173,
+              "encoded": 873,
+              "decoded": 1676
+            },
+            {
+              "path": "/assets/AsyncState-BN_UCL76.js",
+              "initiator": "script",
+              "start": 1739,
+              "duration": 142.90000000596046,
+              "transfer": 1176,
+              "encoded": 876,
+              "decoded": 1653
+            },
+            {
+              "path": "/assets/Button-DdE7yA1t.js",
+              "initiator": "script",
+              "start": 1739,
+              "duration": 203.40000000596046,
+              "transfer": 9646,
+              "encoded": 9346,
+              "decoded": 29006
+            }
+          ],
+          "layoutShifts": []
+        },
+        {
+          "name": "discovery",
+          "cache": "warm",
+          "fonts": [
+            {
+              "path": "/takosan/fonts/be-vietnam-pro-vietnamese-400-normal.woff2",
+              "initiator": "css",
+              "start": 102.90000000596046,
+              "duration": 0,
+              "transfer": 0,
+              "encoded": 11484,
+              "decoded": 11484
+            },
+            {
+              "path": "/takosan/fonts/be-vietnam-pro-latin-ext-400-normal.woff2",
+              "initiator": "css",
+              "start": 102.90000000596046,
+              "duration": 0,
+              "transfer": 0,
+              "encoded": 12928,
+              "decoded": 12928
+            },
+            {
+              "path": "/takosan/fonts/be-vietnam-pro-latin-400-normal.woff2",
+              "initiator": "css",
+              "start": 103.2999999821186,
+              "duration": 0,
+              "transfer": 0,
+              "encoded": 21276,
+              "decoded": 21276
+            },
+            {
+              "path": "/takosan/fonts/be-vietnam-pro-vietnamese-600-normal.woff2",
+              "initiator": "css",
+              "start": 103.2999999821186,
+              "duration": 0,
+              "transfer": 0,
+              "encoded": 12160,
+              "decoded": 12160
+            },
+            {
+              "path": "/takosan/fonts/be-vietnam-pro-latin-600-normal.woff2",
+              "initiator": "css",
+              "start": 103.40000000596046,
+              "duration": 0,
+              "transfer": 0,
+              "encoded": 22052,
+              "decoded": 22052
+            },
+            {
+              "path": "/takosan/fonts/be-vietnam-pro-vietnamese-700-normal.woff2",
+              "initiator": "css",
+              "start": 103.40000000596046,
+              "duration": 0,
+              "transfer": 0,
+              "encoded": 12428,
+              "decoded": 12428
+            },
+            {
+              "path": "/takosan/fonts/be-vietnam-pro-latin-ext-700-normal.woff2",
+              "initiator": "css",
+              "start": 103.40000000596046,
+              "duration": 0,
+              "transfer": 0,
+              "encoded": 13776,
+              "decoded": 13776
+            },
+            {
+              "path": "/takosan/fonts/be-vietnam-pro-latin-700-normal.woff2",
+              "initiator": "css",
+              "start": 103.40000000596046,
+              "duration": 0,
+              "transfer": 0,
+              "encoded": 22216,
+              "decoded": 22216
+            }
+          ],
+          "images": [
+            {
+              "path": "/takosan/rebuild/lockup.svg",
+              "initiator": "img",
+              "start": 135.40000000596046,
+              "duration": 77.7999999821186,
+              "transfer": 1789,
+              "encoded": 1489,
+              "decoded": 3814
+            },
+            {
+              "path": "/takosan/rebuild/symbol.svg",
+              "initiator": "img",
+              "start": 257.7999999821186,
+              "duration": 67.10000002384186,
+              "transfer": 681,
+              "encoded": 381,
+              "decoded": 665
+            }
+          ],
+          "js": [
+            {
+              "path": "/assets/index-3tMGmj4W.js",
+              "initiator": "script",
+              "start": 91.90000000596046,
+              "duration": 0,
+              "transfer": 0,
+              "encoded": 87619,
+              "decoded": 336308
+            },
+            {
+              "path": "/assets/vendor-react-B6oo3S7f.js",
+              "initiator": "other",
+              "start": 92,
+              "duration": 0,
+              "transfer": 0,
+              "encoded": 53686,
+              "decoded": 164074
+            },
+            {
+              "path": "/assets/vendor-query-D03hXVOl.js",
+              "initiator": "other",
+              "start": 92.09999999403954,
+              "duration": 0,
+              "transfer": 0,
+              "encoded": 12918,
+              "decoded": 42423
+            },
+            {
+              "path": "/assets/vendor-icons-ul0AEewg.js",
+              "initiator": "other",
+              "start": 92.5,
+              "duration": 0,
+              "transfer": 0,
+              "encoded": 7200,
+              "decoded": 33190
+            },
+            {
+              "path": "/assets/RecipesPage-D7-vkGf4.js",
+              "initiator": "script",
+              "start": 261.40000000596046,
+              "duration": 0,
+              "transfer": 0,
+              "encoded": 3871,
+              "decoded": 9805
+            },
+            {
+              "path": "/assets/KitchenHeader-Dj-PH4km.js",
+              "initiator": "script",
+              "start": 261.59999999403954,
+              "duration": 0,
+              "transfer": 0,
+              "encoded": 740,
+              "decoded": 1665
+            },
+            {
+              "path": "/assets/TopBar-e1qbmtrL.js",
+              "initiator": "script",
+              "start": 261.69999998807907,
+              "duration": 0,
+              "transfer": 0,
+              "encoded": 1096,
+              "decoded": 2939
+            },
+            {
+              "path": "/assets/RecipeCard-DSCNz1QG.js",
+              "initiator": "script",
+              "start": 262.19999998807907,
+              "duration": 0,
+              "transfer": 0,
+              "encoded": 2325,
+              "decoded": 11370
+            },
+            {
+              "path": "/assets/RecipeMedia-CeapuVmk.js",
+              "initiator": "script",
+              "start": 262.2999999821186,
+              "duration": 0,
+              "transfer": 0,
+              "encoded": 629,
+              "decoded": 1042
+            },
+            {
+              "path": "/assets/recipe-media-t5Sanqq1.js",
+              "initiator": "script",
+              "start": 262.69999998807907,
+              "duration": 0,
+              "transfer": 0,
+              "encoded": 873,
+              "decoded": 1676
+            },
+            {
+              "path": "/assets/AsyncState-BN_UCL76.js",
+              "initiator": "script",
+              "start": 262.69999998807907,
+              "duration": 0,
+              "transfer": 0,
+              "encoded": 876,
+              "decoded": 1653
+            },
+            {
+              "path": "/assets/Button-DdE7yA1t.js",
+              "initiator": "script",
+              "start": 262.7999999821186,
+              "duration": 0,
+              "transfer": 0,
+              "encoded": 9346,
+              "decoded": 29006
+            }
+          ],
+          "layoutShifts": []
+        },
+        {
+          "name": "detail",
+          "cache": "cold",
+          "fonts": [
+            {
+              "path": "/takosan/fonts/be-vietnam-pro-latin-400-normal.woff2",
+              "initiator": "css",
+              "start": 1181,
+              "duration": 595.4000000059605,
+              "transfer": 21576,
+              "encoded": 21276,
+              "decoded": 21276
+            },
+            {
+              "path": "/takosan/fonts/be-vietnam-pro-latin-ext-700-normal.woff2",
+              "initiator": "css",
+              "start": 1181.5,
+              "duration": 513.9000000059605,
+              "transfer": 14076,
+              "encoded": 13776,
+              "decoded": 13776
+            },
+            {
+              "path": "/takosan/fonts/be-vietnam-pro-vietnamese-400-normal.woff2",
+              "initiator": "css",
+              "start": 1207.4000000059605,
+              "duration": 412.90000000596046,
+              "transfer": 11784,
+              "encoded": 11484,
+              "decoded": 11484
+            },
+            {
+              "path": "/takosan/fonts/be-vietnam-pro-latin-700-normal.woff2",
+              "initiator": "css",
+              "start": 1214,
+              "duration": 570.3000000119209,
+              "transfer": 22516,
+              "encoded": 22216,
+              "decoded": 22216
+            },
+            {
+              "path": "/takosan/fonts/be-vietnam-pro-vietnamese-700-normal.woff2",
+              "initiator": "css",
+              "start": 1214.0999999940395,
+              "duration": 457.90000000596046,
+              "transfer": 12728,
+              "encoded": 12428,
+              "decoded": 12428
+            },
+            {
+              "path": "/takosan/fonts/be-vietnam-pro-latin-ext-400-normal.woff2",
+              "initiator": "css",
+              "start": 1215.4000000059605,
+              "duration": 471.59999999403954,
+              "transfer": 13228,
+              "encoded": 12928,
+              "decoded": 12928
+            },
+            {
+              "path": "/takosan/fonts/be-vietnam-pro-latin-600-normal.woff2",
+              "initiator": "css",
+              "start": 2029.0999999940395,
+              "duration": 393,
+              "transfer": 22352,
+              "encoded": 22052,
+              "decoded": 22052
+            },
+            {
+              "path": "/takosan/fonts/be-vietnam-pro-vietnamese-600-normal.woff2",
+              "initiator": "css",
+              "start": 2030.4000000059605,
+              "duration": 226.90000000596046,
+              "transfer": 12460,
+              "encoded": 12160,
+              "decoded": 12160
+            }
+          ],
+          "images": [
+            {
+              "path": "/takosan/rebuild/lockup.svg",
+              "initiator": "img",
+              "start": 1156.0999999940395,
+              "duration": 73.30000001192093,
+              "transfer": 1789,
+              "encoded": 1489,
+              "decoded": 3814
+            },
+            {
+              "path": "/takosan/rebuild/symbol.svg",
+              "initiator": "img",
+              "start": 1753.5,
+              "duration": 211,
+              "transfer": 681,
+              "encoded": 381,
+              "decoded": 665
+            },
+            {
+              "path": "/frigo/recipes/global/kimchi-fried-rice.webp",
+              "initiator": "img",
+              "start": 2201.199999988079,
+              "duration": 1564,
+              "transfer": 64202,
+              "encoded": 63902,
+              "decoded": 63902
+            },
+            {
+              "path": "/frigo/ingredients/pantry/egg.png",
+              "initiator": "img",
+              "start": 2227.300000011921,
+              "duration": 1320.699999988079,
+              "transfer": 48421,
+              "encoded": 48121,
+              "decoded": 48121
+            }
+          ],
+          "js": [
+            {
+              "path": "/assets/index-3tMGmj4W.js",
+              "initiator": "script",
+              "start": 75.09999999403954,
+              "duration": 1011.9000000059605,
+              "transfer": 87919,
+              "encoded": 87619,
+              "decoded": 336308
+            },
+            {
+              "path": "/assets/vendor-query-D03hXVOl.js",
+              "initiator": "other",
+              "start": 75.80000001192093,
+              "duration": 373.89999997615814,
+              "transfer": 13218,
+              "encoded": 12918,
+              "decoded": 42423
+            },
+            {
+              "path": "/assets/vendor-react-B6oo3S7f.js",
+              "initiator": "other",
+              "start": 75.80000001192093,
+              "duration": 839.2999999821186,
+              "transfer": 53986,
+              "encoded": 53686,
+              "decoded": 164074
+            },
+            {
+              "path": "/assets/vendor-icons-ul0AEewg.js",
+              "initiator": "other",
+              "start": 75.90000000596046,
+              "duration": 291.09999999403954,
+              "transfer": 7500,
+              "encoded": 7200,
+              "decoded": 33190
+            },
+            {
+              "path": "/assets/RecipeDetailPage-BggRXkKB.js",
+              "initiator": "script",
+              "start": 1746.199999988079,
+              "duration": 136.10000002384186,
+              "transfer": 5027,
+              "encoded": 4727,
+              "decoded": 14453
+            },
+            {
+              "path": "/assets/TopBar-e1qbmtrL.js",
+              "initiator": "script",
+              "start": 1747.0999999940395,
+              "duration": 74.59999999403954,
+              "transfer": 1396,
+              "encoded": 1096,
+              "decoded": 2939
+            },
+            {
+              "path": "/assets/KitchenHeader-Dj-PH4km.js",
+              "initiator": "script",
+              "start": 1747.0999999940395,
+              "duration": 83.30000001192093,
+              "transfer": 1040,
+              "encoded": 740,
+              "decoded": 1665
+            },
+            {
+              "path": "/assets/RecipeMedia-CeapuVmk.js",
+              "initiator": "script",
+              "start": 1747.300000011921,
+              "duration": 89.69999998807907,
+              "transfer": 929,
+              "encoded": 629,
+              "decoded": 1042
+            },
+            {
+              "path": "/assets/recipe-media-t5Sanqq1.js",
+              "initiator": "script",
+              "start": 1747.300000011921,
+              "duration": 104.69999998807907,
+              "transfer": 1173,
+              "encoded": 873,
+              "decoded": 1676
+            },
+            {
+              "path": "/assets/Button-DdE7yA1t.js",
+              "initiator": "script",
+              "start": 1747.300000011921,
+              "duration": 232.5,
+              "transfer": 9646,
+              "encoded": 9346,
+              "decoded": 29006
+            },
+            {
+              "path": "/assets/AsyncState-BN_UCL76.js",
+              "initiator": "script",
+              "start": 1748.300000011921,
+              "duration": 148.2999999821186,
+              "transfer": 1176,
+              "encoded": 876,
+              "decoded": 1653
+            },
+            {
+              "path": "/assets/useCookingStore-04FXBolX.js",
+              "initiator": "script",
+              "start": 1748.4000000059605,
+              "duration": 185.59999999403954,
+              "transfer": 2663,
+              "encoded": 2363,
+              "decoded": 5380
+            },
+            {
+              "path": "/assets/inventory-truth-BHprnlBW.js",
+              "initiator": "script",
+              "start": 1748.4000000059605,
+              "duration": 201.7999999821186,
+              "transfer": 1979,
+              "encoded": 1679,
+              "decoded": 3882
+            },
+            {
+              "path": "/assets/ingredient-images-DMUMQtkM.js",
+              "initiator": "script",
+              "start": 1749.0999999940395,
+              "duration": 246.2000000178814,
+              "transfer": 5265,
+              "encoded": 4965,
+              "decoded": 20220
+            }
+          ],
+          "layoutShifts": [
+            {
+              "start": 2427.0999999940395,
+              "value": 0.000046073357991820627,
+              "recentInput": false,
+              "sources": [
+                {
+                  "className": ""
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "detail",
+          "cache": "warm",
+          "fonts": [
+            {
+              "path": "/takosan/fonts/be-vietnam-pro-vietnamese-400-normal.woff2",
+              "initiator": "css",
+              "start": 130.30000001192093,
+              "duration": 0,
+              "transfer": 0,
+              "encoded": 11484,
+              "decoded": 11484
+            },
+            {
+              "path": "/takosan/fonts/be-vietnam-pro-latin-ext-400-normal.woff2",
+              "initiator": "css",
+              "start": 130.40000000596046,
+              "duration": 0,
+              "transfer": 0,
+              "encoded": 12928,
+              "decoded": 12928
+            },
+            {
+              "path": "/takosan/fonts/be-vietnam-pro-latin-400-normal.woff2",
+              "initiator": "css",
+              "start": 131.19999998807907,
+              "duration": 0,
+              "transfer": 0,
+              "encoded": 21276,
+              "decoded": 21276
+            },
+            {
+              "path": "/takosan/fonts/be-vietnam-pro-vietnamese-600-normal.woff2",
+              "initiator": "css",
+              "start": 131.30000001192093,
+              "duration": 0,
+              "transfer": 0,
+              "encoded": 12160,
+              "decoded": 12160
+            },
+            {
+              "path": "/takosan/fonts/be-vietnam-pro-latin-600-normal.woff2",
+              "initiator": "css",
+              "start": 131.80000001192093,
+              "duration": 0,
+              "transfer": 0,
+              "encoded": 22052,
+              "decoded": 22052
+            },
+            {
+              "path": "/takosan/fonts/be-vietnam-pro-vietnamese-700-normal.woff2",
+              "initiator": "css",
+              "start": 131.80000001192093,
+              "duration": 0,
+              "transfer": 0,
+              "encoded": 12428,
+              "decoded": 12428
+            },
+            {
+              "path": "/takosan/fonts/be-vietnam-pro-latin-ext-700-normal.woff2",
+              "initiator": "css",
+              "start": 131.80000001192093,
+              "duration": 0,
+              "transfer": 0,
+              "encoded": 13776,
+              "decoded": 13776
+            },
+            {
+              "path": "/takosan/fonts/be-vietnam-pro-latin-700-normal.woff2",
+              "initiator": "css",
+              "start": 132.30000001192093,
+              "duration": 0,
+              "transfer": 0,
+              "encoded": 22216,
+              "decoded": 22216
+            }
+          ],
+          "images": [
+            {
+              "path": "/takosan/rebuild/lockup.svg",
+              "initiator": "img",
+              "start": 142,
+              "duration": 74.30000001192093,
+              "transfer": 1789,
+              "encoded": 1489,
+              "decoded": 3814
+            },
+            {
+              "path": "/takosan/rebuild/symbol.svg",
+              "initiator": "img",
+              "start": 259.90000000596046,
+              "duration": 68.2999999821186,
+              "transfer": 681,
+              "encoded": 381,
+              "decoded": 665
+            },
+            {
+              "path": "/frigo/recipes/global/kimchi-fried-rice.webp",
+              "initiator": "img",
+              "start": 404.30000001192093,
+              "duration": 1544.8999999761581,
+              "transfer": 64202,
+              "encoded": 63902,
+              "decoded": 63902
+            },
+            {
+              "path": "/frigo/ingredients/pantry/egg.png",
+              "initiator": "img",
+              "start": 407.59999999403954,
+              "duration": 1256.2000000178814,
+              "transfer": 48421,
+              "encoded": 48121,
+              "decoded": 48121
+            },
+            {
+              "path": "/frigo/ingredients/pantry/cooking-oil.png",
+              "initiator": "img",
+              "start": 407.59999999403954,
+              "duration": 1563.7000000178814,
+              "transfer": 63865,
+              "encoded": 63565,
+              "decoded": 63565
+            }
+          ],
+          "js": [
+            {
+              "path": "/assets/index-3tMGmj4W.js",
+              "initiator": "script",
+              "start": 95.19999998807907,
+              "duration": 0,
+              "transfer": 0,
+              "encoded": 87619,
+              "decoded": 336308
+            },
+            {
+              "path": "/assets/vendor-react-B6oo3S7f.js",
+              "initiator": "other",
+              "start": 95.90000000596046,
+              "duration": 0,
+              "transfer": 0,
+              "encoded": 53686,
+              "decoded": 164074
+            },
+            {
+              "path": "/assets/vendor-query-D03hXVOl.js",
+              "initiator": "other",
+              "start": 95.90000000596046,
+              "duration": 0,
+              "transfer": 0,
+              "encoded": 12918,
+              "decoded": 42423
+            },
+            {
+              "path": "/assets/vendor-icons-ul0AEewg.js",
+              "initiator": "other",
+              "start": 96.30000001192093,
+              "duration": 0,
+              "transfer": 0,
+              "encoded": 7200,
+              "decoded": 33190
+            },
+            {
+              "path": "/assets/RecipeDetailPage-BggRXkKB.js",
+              "initiator": "script",
+              "start": 262.69999998807907,
+              "duration": 0,
+              "transfer": 0,
+              "encoded": 4727,
+              "decoded": 14453
+            },
+            {
+              "path": "/assets/TopBar-e1qbmtrL.js",
+              "initiator": "script",
+              "start": 263.59999999403954,
+              "duration": 0,
+              "transfer": 0,
+              "encoded": 1096,
+              "decoded": 2939
+            },
+            {
+              "path": "/assets/KitchenHeader-Dj-PH4km.js",
+              "initiator": "script",
+              "start": 264.09999999403954,
+              "duration": 0,
+              "transfer": 0,
+              "encoded": 740,
+              "decoded": 1665
+            },
+            {
+              "path": "/assets/RecipeMedia-CeapuVmk.js",
+              "initiator": "script",
+              "start": 264.09999999403954,
+              "duration": 0,
+              "transfer": 0,
+              "encoded": 629,
+              "decoded": 1042
+            },
+            {
+              "path": "/assets/recipe-media-t5Sanqq1.js",
+              "initiator": "script",
+              "start": 264.59999999403954,
+              "duration": 0,
+              "transfer": 0,
+              "encoded": 873,
+              "decoded": 1676
+            },
+            {
+              "path": "/assets/Button-DdE7yA1t.js",
+              "initiator": "script",
+              "start": 264.59999999403954,
+              "duration": 0,
+              "transfer": 0,
+              "encoded": 9346,
+              "decoded": 29006
+            },
+            {
+              "path": "/assets/AsyncState-BN_UCL76.js",
+              "initiator": "script",
+              "start": 264.69999998807907,
+              "duration": 0,
+              "transfer": 0,
+              "encoded": 876,
+              "decoded": 1653
+            },
+            {
+              "path": "/assets/useCookingStore-04FXBolX.js",
+              "initiator": "script",
+              "start": 265.19999998807907,
+              "duration": 0,
+              "transfer": 0,
+              "encoded": 2363,
+              "decoded": 5380
+            },
+            {
+              "path": "/assets/inventory-truth-BHprnlBW.js",
+              "initiator": "script",
+              "start": 265.40000000596046,
+              "duration": 0,
+              "transfer": 0,
+              "encoded": 1679,
+              "decoded": 3882
+            },
+            {
+              "path": "/assets/ingredient-images-DMUMQtkM.js",
+              "initiator": "script",
+              "start": 265.40000000596046,
+              "duration": 0,
+              "transfer": 0,
+              "encoded": 4965,
+              "decoded": 20220
+            }
+          ],
+          "layoutShifts": []
+        }
+      ],
+      "integrity": {
+        "inventoryBeforeAfterEqual": true,
+        "domainWrites": 0,
+        "externalRequests": 0,
+        "pageerrors": 0
+      }
+    }
+  ],
+  "deltas": [
+    {
+      "name": "home",
+      "cache": "cold",
+      "jsBytesSaved": 41650,
+      "jsReductionPercent": 17.335747435016962,
+      "readyMsDelta": -216.40000000596046,
+      "lcpMsDelta": -184
+    },
+    {
+      "name": "home",
+      "cache": "warm",
+      "jsBytesSaved": 0,
+      "jsReductionPercent": 0,
+      "readyMsDelta": -17.30000001192093,
+      "lcpMsDelta": -4
+    },
+    {
+      "name": "discovery",
+      "cache": "cold",
+      "jsBytesSaved": 41650,
+      "jsReductionPercent": 18.394286950876435,
+      "readyMsDelta": -223.5,
+      "lcpMsDelta": -240
+    },
+    {
+      "name": "discovery",
+      "cache": "warm",
+      "jsBytesSaved": 0,
+      "jsReductionPercent": 0,
+      "readyMsDelta": -33,
+      "lcpMsDelta": -12
+    },
+    {
+      "name": "detail",
+      "cache": "cold",
+      "jsBytesSaved": 41652,
+      "jsReductionPercent": 17.756822086464965,
+      "readyMsDelta": -216.39999997615814,
+      "lcpMsDelta": -216
+    },
+    {
+      "name": "detail",
+      "cache": "warm",
+      "jsBytesSaved": 0,
+      "jsReductionPercent": 0,
+      "readyMsDelta": -12.200000017881393,
+      "lcpMsDelta": -12
+    }
+  ]
+}

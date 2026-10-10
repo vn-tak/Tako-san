@@ -1,0 +1,5 @@
+src/web/components/layout/use-kitchen-shell.ts 54ms
+src/web/styles/kitchen-shell.css 32ms
+tests/unit/ui11-navigation.test.tsx 17ms
+tests/unit/ui11-shell-measurement.test.tsx 16ms
+scripts/ui11-browser-check.mjs 45ms

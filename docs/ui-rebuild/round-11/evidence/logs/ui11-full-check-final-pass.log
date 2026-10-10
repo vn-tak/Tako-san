@@ -1,0 +1,25 @@
+
+> frigo@0.1.0 check /Users/tunbee27/Documents/Tako-san-ui-rebuild
+> bash scripts/deploy-check.sh
+
+=== Frigo Pre-Deployment Verification ===
+1. Checking TypeScript Types...
+
+> frigo@0.1.0 typecheck /Users/tunbee27/Documents/Tako-san-ui-rebuild
+> tsc -p tsconfig.json --noEmit && tsc -p tsconfig.worker.json --noEmit
+
+2. Running ESLint...
+
+> frigo@0.1.0 lint /Users/tunbee27/Documents/Tako-san-ui-rebuild
+> eslint .
+
+3. Running Vitest Suite...
+
+> frigo@0.1.0 test /Users/tunbee27/Documents/Tako-san-ui-rebuild
+> vitest run
+
+
+ RUN  v3.2.7 /Users/tunbee27/Documents/Tako-san-ui-rebuild
+
+ ELIFECYCLE  Test failed. See above for more details.
+ ELIFECYCLE  Command failed.

@@ -1,0 +1,139 @@
+{
+  "base": "3c018d7778a780f5759d967e62d58440e4e08c2d",
+  "scope": "UI10 local Week presentation; no remote, release, owner-brand or real-device certification",
+  "focused": {
+    "files": 11,
+    "passed": 192,
+    "failed": 0,
+    "durationSeconds": 7.18,
+    "newTests": 34,
+    "log": "evidence/logs/ui10-focused-final.log"
+  },
+  "fullFailure": {
+    "exitCode": 1,
+    "files": 283,
+    "passed": 6642,
+    "failed": 7,
+    "totalTests": 6649,
+    "durationSeconds": 525.94,
+    "log": "evidence/logs/ui10-full-check-final.log"
+  },
+  "failureReproduction": {
+    "exitCode": 1,
+    "files": 5,
+    "passed": 118,
+    "failed": 6,
+    "durationSeconds": 6.89,
+    "unchangedWranglerSuitePassed": true,
+    "log": "evidence/logs/ui10-full-failure-reproduction.log"
+  },
+  "failureRecovery": {
+    "exitCode": 0,
+    "files": 5,
+    "passed": 128,
+    "failed": 0,
+    "durationSeconds": 5.55,
+    "unchangedWranglerCaseMilliseconds": 1163,
+    "log": "evidence/logs/ui10-full-failure-recovery.log"
+  },
+  "finalFullGate": {
+    "command": "PATH=/opt/homebrew/opt/node@24/bin:$PATH CI=true TMPDIR=/private/tmp WRANGLER_SEND_METRICS=false VITEST_MAX_THREADS=2 VITEST_MIN_THREADS=1 VITEST_MAX_FORKS=2 VITEST_MIN_FORKS=1 pnpm check",
+    "exitCode": 0,
+    "files": 283,
+    "passed": 6653,
+    "failed": 0,
+    "vitestDurationSeconds": 393.63,
+    "typecheck": "PASS",
+    "lint": "PASS",
+    "migrationSmoke": "PASS",
+    "viteBuildSeconds": 3.12,
+    "workerTypeScriptBuild": "PASS",
+    "remoteSchema": "not run",
+    "remoteWeekParity": "not run",
+    "log": "evidence/logs/ui10-full-check-recovered.log"
+  },
+  "browser": {
+    "snapshots": 61,
+    "journeyGroups": 11,
+    "unexpectedPageErrors": 0,
+    "applicableAxeViolations": 0,
+    "horizontalOverflows": 0,
+    "brokenImages": 0,
+    "oneH1Each": true,
+    "widths": [
+      320,
+      390,
+      768,
+      1024,
+      1440
+    ],
+    "shortViewport": [
+      390,
+      420
+    ],
+    "computedTextDoubled": true,
+    "normalAndReducedMotion": true,
+    "report": "evidence/checks.json"
+  },
+  "plannerOnAliases": {
+    "count": 7,
+    "weekWrites": 0,
+    "pageErrors": 0,
+    "report": "evidence/aliases-checks.json"
+  },
+  "nativeKeyboardE2E": {
+    "projects": 6,
+    "unexpected": 0,
+    "skipped": 0,
+    "flaky": 0,
+    "durationSeconds": 15.05079,
+    "report": "evidence/e2e-report.json"
+  },
+  "inventoryChecks": {
+    "realLocalWorker": true,
+    "generationReadSwapAndShoppingChecksKeepWholeInventoryJSON": true,
+    "selectedImportAddedRows": 1,
+    "oldRowsPreservedAllFields": 5,
+    "newQuantityUnitMatchSelectedSnapshot": true,
+    "reloadReadbackMatches": true,
+    "pendingReceipt": "synthetic presentation only; no durability or replay proof"
+  },
+  "genericUXAudit": {
+    "command": "python3 /Users/tunbee27/.codex/skills/frontend-design/scripts/ux_audit.py .",
+    "exitCode": 1,
+    "files": 151,
+    "issues": 29,
+    "warnings": 968,
+    "passedChecks": 82,
+    "status": "FAIL",
+    "log": "evidence/logs/ui10-ux-audit-recovered.log"
+  },
+  "dependencyAudit": {
+    "exitCode": 1,
+    "advisories": 41,
+    "low": 4,
+    "moderate": 19,
+    "high": 16,
+    "critical": 2,
+    "lockfileChanged": false,
+    "log": "evidence/logs/ui10-dependency-audit.json"
+  },
+  "sourceProof": {
+    "frozenFileCount": 143,
+    "allVerifiedAfterFullGate": true,
+    "buildPublicFileCount": 51,
+    "allBuildPublicFilesByteIdentical": true,
+    "protectedPathDiffEmpty": true,
+    "storeExactBytesExceptTwoApprovedReplacements": true,
+    "generationEffectASTIdenticalExceptBudgetMapping": true,
+    "exportTextGeneratorASTIdentical": true,
+    "appRoutesAndGuardsByteIdentical": true
+  },
+  "logArchive": {
+    "receiptCount": 40,
+    "normalization": "ANSI removed, trailing whitespace and blank EOF lines trimmed, NUL escaped; raw/archive SHA256 receipts retained"
+  },
+  "preliminaryFullRun": "interrupted for final heading CSS visual finding; not a passing gate",
+  "runtimeFrozenAfterBrowserQA": true,
+  "recoveryChanges": "four earlier route-scope test files only; four positive cases added, invalid-route/protected negative checks retained; no timeout/config weakening"
+}

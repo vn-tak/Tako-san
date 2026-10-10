@@ -1,0 +1,127 @@
+{
+  "scope": "UI02 synthetic local browser evidence; no production media",
+  "browser": "Chromium headless shell 1243",
+  "screenshots": 23,
+  "items": [
+    {
+      "file": "browser-observations.json",
+      "bytes": 6840,
+      "sha256": "b22e1ac6d2fac247f12871432326b260ba4faf7f006ff114d24600dd7c1b5d7b"
+    },
+    {
+      "file": "detail-header-320.png",
+      "bytes": 133263,
+      "sha256": "46deedb8e5c2fc35bb4c1cffc0b48a6f389fb4effb118690512d1873f06cf26f"
+    },
+    {
+      "file": "discovery-1024.png",
+      "bytes": 2800033,
+      "sha256": "9d03a4e2037519a735cbb602ce296ce5c703b21722f2f659f19ef50a2993e40b"
+    },
+    {
+      "file": "discovery-1440-viewport.png",
+      "bytes": 534804,
+      "sha256": "e62332364a2693aba14b9acd0ef38146bc19ec2cf51d5625a84bc28179c85322"
+    },
+    {
+      "file": "discovery-1440.png",
+      "bytes": 3844859,
+      "sha256": "0e621b107f78186c0a8f58a2e7d1d2e862a75fbab44e53863e25614f82dc93fa"
+    },
+    {
+      "file": "discovery-320.png",
+      "bytes": 2620930,
+      "sha256": "4a1f37deb0f73fbbc4af4274c85fc6f7e042e993789293655f7adfeae53dfb9b"
+    },
+    {
+      "file": "discovery-390-viewport.png",
+      "bytes": 176319,
+      "sha256": "7278eb49ee7cc931d27fd811d6e6214abf3becd1289f8f7cc51fa1f6a5ddd08f"
+    },
+    {
+      "file": "discovery-390.png",
+      "bytes": 3241503,
+      "sha256": "9ac0b13e65d722c286344c05bc80203291a0b2accc615241f4f9149c4d8103c0"
+    },
+    {
+      "file": "discovery-768.png",
+      "bytes": 2472157,
+      "sha256": "4ebf51401830132ad4c8418368c8d90c04d468a5568af9b2fb1b70b2ff8ee764"
+    },
+    {
+      "file": "discovery-empty-320.png",
+      "bytes": 67582,
+      "sha256": "a0a6e6c3b1c154d1f5853cceaa966355a031b16f7e8b804f0682e8d6f45fe8f2"
+    },
+    {
+      "file": "home-1024.png",
+      "bytes": 204920,
+      "sha256": "eea7c7d9df4f40431d0c49c4789f6fa351f5f72f4eb1cce5aeceedb823768c79"
+    },
+    {
+      "file": "home-1440.png",
+      "bytes": 213178,
+      "sha256": "b66ab80ab5ddc4db683c8ee4ba9c3ce45e0f2db908f9f542e9ba4648d1b4ecc1"
+    },
+    {
+      "file": "home-320.png",
+      "bytes": 182841,
+      "sha256": "68f169d3531c066bec58ff82364dc5fd0b716ea0130471ecea67f2dbd9d01319"
+    },
+    {
+      "file": "home-390.png",
+      "bytes": 184943,
+      "sha256": "15414aa0e1169b2f46efccbd66e47d00ec328ca189b4468a56012f4bdc51a4b8"
+    },
+    {
+      "file": "home-768.png",
+      "bytes": 205167,
+      "sha256": "d1ff314bdd9697dc6541e501c4adae17eea684ef8c8a265130cb58ae03f0a779"
+    },
+    {
+      "file": "home-composition-404-390.png",
+      "bytes": 185628,
+      "sha256": "a33e20c09d6052728dc9d61591f710313cf0866af67663839eaf46fd9c032cdf"
+    },
+    {
+      "file": "home-composition-500-390.png",
+      "bytes": 201591,
+      "sha256": "363bc14e4bdb155bcad0da449bf546f65d9d0bdc079bc1cfc966423ef6b15ad8"
+    },
+    {
+      "file": "home-composition-mismatch-390.png",
+      "bytes": 201591,
+      "sha256": "363bc14e4bdb155bcad0da449bf546f65d9d0bdc079bc1cfc966423ef6b15ad8"
+    },
+    {
+      "file": "home-composition-missing-390.png",
+      "bytes": 201591,
+      "sha256": "363bc14e4bdb155bcad0da449bf546f65d9d0bdc079bc1cfc966423ef6b15ad8"
+    },
+    {
+      "file": "home-composition-pending-390.png",
+      "bytes": 189681,
+      "sha256": "a66d2a44cc9025c42e25778afa5cb63fc77371563532ccdde92e65f0b5087aa6"
+    },
+    {
+      "file": "home-long-title-320.png",
+      "bytes": 210975,
+      "sha256": "b881f22a1a0aa8dfcc6d0a1118fc14481435b291255f7478566aad7258fbeab7"
+    },
+    {
+      "file": "home-no-plan-390.png",
+      "bytes": 181292,
+      "sha256": "98edbe79bd89227d07618733d12c41e986d8f0ca4ac4255e7fd7cc78498cb00b"
+    },
+    {
+      "file": "home-today-320.png",
+      "bytes": 178229,
+      "sha256": "e4381ca0942b7370e7c7dd3d35ebff32ae807c9747497561b797a545a47c8d93"
+    },
+    {
+      "file": "inventory-header-320.png",
+      "bytes": 102808,
+      "sha256": "23e467bfa0b78bcc3f1a8dd12231ba64ec78c316b4f101c4d47d3d6c32268d84"
+    }
+  ]
+}

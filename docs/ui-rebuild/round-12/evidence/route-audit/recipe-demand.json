@@ -1,0 +1,592 @@
+{
+  "status": 200,
+  "data": {
+    "schemaVersion": 1,
+    "source": "server",
+    "total": 71,
+    "page": 1,
+    "pageSize": 24,
+    "pages": 3,
+    "snapshot": "0550572f61266f7fff848fb641b1e078795403a43d7bec1d8c12689c93291bb8",
+    "previousCursor": null,
+    "nextCursor": "v1.2.0550572f61266f7fff848fb641b1e078795403a43d7bec1d8c12689c93291bb8",
+    "items": [
+      {
+        "recipe": {
+          "id": "vn-sang-06",
+          "slug": "sup-ga-ngo-non-nam-huong",
+          "title": "Súp gà ngô non nấm hương trứng hoa",
+          "description": "Bát súp nóng hổi sánh óng ánh với những vân trứng hoa bay lượn, thịt gà xé ngọt mềm cùng hạt ngô ngọt giòn bùi.",
+          "cuisine": "vietnamese",
+          "cookTimeMinutes": 18,
+          "servings": 4,
+          "imageUrl": "https://images.unsplash.com/photo-1547592166-23ac45744acd?auto=format&fit=crop&w=800&q=80",
+          "media": {
+            "hero": {
+              "url": "https://images.unsplash.com/photo-1547592166-23ac45744acd?auto=format&fit=crop&w=800&q=80",
+              "source": "legacy_external",
+              "version": null,
+              "width": null,
+              "height": null
+            }
+          }
+        },
+        "matchPercentage": 40,
+        "canCookWithoutBuying": false,
+        "missingRequiredIngredientCount": 3
+      },
+      {
+        "recipe": {
+          "id": "gl-09",
+          "slug": "chawanmushi",
+          "title": "Trứng hấp Chawanmushi Nhật Bản",
+          "description": "Trứng hấp mịn màng như thạch tan trong miệng cùng tôm ngọt và nấm.",
+          "cuisine": "japanese",
+          "cookTimeMinutes": 15,
+          "servings": 2,
+          "imageUrl": "/frigo/recipes/global/oyakodon.webp",
+          "media": {
+            "hero": {
+              "url": "/frigo/recipes/global/oyakodon.webp",
+              "source": "legacy_static",
+              "version": null,
+              "width": null,
+              "height": null
+            }
+          }
+        },
+        "matchPercentage": 33,
+        "canCookWithoutBuying": false,
+        "missingRequiredIngredientCount": 2
+      },
+      {
+        "recipe": {
+          "id": "gl-05",
+          "slug": "kimchi-fried-rice",
+          "title": "Cơm chiên kim chi Hàn Quốc",
+          "description": "Cơm chiên kim chi chua cay giòn sần sật phủ trứng ốp la lòng đào béo ngậy.",
+          "cuisine": "korean",
+          "cookTimeMinutes": 15,
+          "servings": 2,
+          "imageUrl": "/frigo/recipes/global/kimchi-fried-rice.webp",
+          "media": {
+            "hero": {
+              "url": "/frigo/recipes/global/kimchi-fried-rice.webp",
+              "source": "legacy_static",
+              "version": null,
+              "width": null,
+              "height": null
+            }
+          }
+        },
+        "matchPercentage": 25,
+        "canCookWithoutBuying": false,
+        "missingRequiredIngredientCount": 3
+      },
+      {
+        "recipe": {
+          "id": "gl-03",
+          "slug": "tomato-egg-stir-fry",
+          "title": "Cà chua xào trứng Trung Hoa",
+          "description": "Món ăn gia đình kinh điển với trứng mềm xốp quyện sốt cà chua đỏ sánh mịn.",
+          "cuisine": "chinese",
+          "cookTimeMinutes": 10,
+          "servings": 2,
+          "imageUrl": "/frigo/recipes/global/tomato-egg-stir-fry.webp",
+          "media": {
+            "hero": {
+              "url": "/frigo/recipes/global/tomato-egg-stir-fry.webp",
+              "source": "legacy_static",
+              "version": null,
+              "width": null,
+              "height": null
+            }
+          }
+        },
+        "matchPercentage": 25,
+        "canCookWithoutBuying": false,
+        "missingRequiredIngredientCount": 4
+      },
+      {
+        "recipe": {
+          "id": "vn-xao-01",
+          "slug": "rau-muong-xao-toi",
+          "title": "Rau muống xào tỏi xanh giòn",
+          "description": "Rau muống ngọn non xanh mướt giòn sần sật dậy mùi thơm lừng của tỏi ta phi vàng xém cạnh, linh hồn bữa cơm gia đình.",
+          "cuisine": "vietnamese",
+          "cookTimeMinutes": 10,
+          "servings": 3,
+          "imageUrl": "https://images.unsplash.com/photo-1540420773420-3366772f4999?auto=format&fit=crop&w=800&q=80",
+          "media": {
+            "hero": {
+              "url": "https://images.unsplash.com/photo-1540420773420-3366772f4999?auto=format&fit=crop&w=800&q=80",
+              "source": "legacy_external",
+              "version": null,
+              "width": null,
+              "height": null
+            }
+          }
+        },
+        "matchPercentage": 25,
+        "canCookWithoutBuying": false,
+        "missingRequiredIngredientCount": 4
+      },
+      {
+        "recipe": {
+          "id": "vn-chay-06",
+          "slug": "canh-cai-nau-dau-phu-non",
+          "title": "Canh cải xanh gừng đậu phụ thanh mát",
+          "description": "Bát canh cải bẹ xanh tươi non nấu cùng gừng tươi đập dập cay nồng và đậu phụ béo mềm, xua tan hàn khí ấm bụng.",
+          "cuisine": "vietnamese",
+          "cookTimeMinutes": 12,
+          "servings": 4,
+          "imageUrl": "https://images.unsplash.com/photo-1547592166-23ac45744acd?auto=format&fit=crop&w=800&q=80",
+          "media": {
+            "hero": {
+              "url": "https://images.unsplash.com/photo-1547592166-23ac45744acd?auto=format&fit=crop&w=800&q=80",
+              "source": "legacy_external",
+              "version": null,
+              "width": null,
+              "height": null
+            }
+          }
+        },
+        "matchPercentage": 25,
+        "canCookWithoutBuying": false,
+        "missingRequiredIngredientCount": 4
+      },
+      {
+        "recipe": {
+          "id": "vn-sang-02",
+          "slug": "banh-mi-op-la-pate",
+          "title": "Bánh mì ốp la pate dưa leo",
+          "description": "Ổ bánh mì giòn tan kẹp quả trứng ốp la lòng đào béo ngậy, quét đẫm lớp pate Hải Phòng thơm lừng và dưa leo mát rượi.",
+          "cuisine": "vietnamese",
+          "cookTimeMinutes": 10,
+          "servings": 2,
+          "imageUrl": "https://images.unsplash.com/photo-1626804475297-41608ea09aeb?auto=format&fit=crop&w=800&q=80",
+          "media": {
+            "hero": {
+              "url": "https://images.unsplash.com/photo-1626804475297-41608ea09aeb?auto=format&fit=crop&w=800&q=80",
+              "source": "legacy_external",
+              "version": null,
+              "width": null,
+              "height": null
+            }
+          }
+        },
+        "matchPercentage": 20,
+        "canCookWithoutBuying": false,
+        "missingRequiredIngredientCount": 4
+      },
+      {
+        "recipe": {
+          "id": "gl-06",
+          "slug": "pad-krapow",
+          "title": "Thịt băm xào lá quế kiểu Thái (Pad Krapow)",
+          "description": "Món thịt heo băm xào cay thơm lừng lá quế ăn kèm cơm trắng và trứng rán giòn viền.",
+          "cuisine": "thai",
+          "cookTimeMinutes": 12,
+          "servings": 2,
+          "imageUrl": "/frigo/recipes/global/pad-krapow.webp",
+          "media": {
+            "hero": {
+              "url": "/frigo/recipes/global/pad-krapow.webp",
+              "source": "legacy_static",
+              "version": null,
+              "width": null,
+              "height": null
+            }
+          }
+        },
+        "matchPercentage": 20,
+        "canCookWithoutBuying": false,
+        "missingRequiredIngredientCount": 4
+      },
+      {
+        "recipe": {
+          "id": "gl-04",
+          "slug": "oyakodon",
+          "title": "Cơm gà trứng Oyakodon Nhật Bản",
+          "description": "Món cơm donburi Nhật Bản với thịt gà mềm ngọt và trứng nấu lướt mịn mượt trên bát cơm nóng.",
+          "cuisine": "japanese",
+          "cookTimeMinutes": 15,
+          "servings": 2,
+          "imageUrl": "/frigo/recipes/global/oyakodon.webp",
+          "media": {
+            "hero": {
+              "url": "/frigo/recipes/global/oyakodon.webp",
+              "source": "legacy_static",
+              "version": null,
+              "width": null,
+              "height": null
+            }
+          }
+        },
+        "matchPercentage": 20,
+        "canCookWithoutBuying": false,
+        "missingRequiredIngredientCount": 4
+      },
+      {
+        "recipe": {
+          "id": "gl-08",
+          "slug": "tokbokki-cay-ngot",
+          "title": "Bánh gạo Tokbokki sốt cay ngọt",
+          "description": "Bánh gạo dẻo mềm đượm sốt ớt Gochujang cay nồng cùng trứng luộc lòng đào.",
+          "cuisine": "korean",
+          "cookTimeMinutes": 18,
+          "servings": 2,
+          "imageUrl": "/frigo/recipes/global/kimchi-fried-rice.webp",
+          "media": {
+            "hero": {
+              "url": "/frigo/recipes/global/kimchi-fried-rice.webp",
+              "source": "legacy_static",
+              "version": null,
+              "width": null,
+              "height": null
+            }
+          }
+        },
+        "matchPercentage": 20,
+        "canCookWithoutBuying": false,
+        "missingRequiredIngredientCount": 4
+      },
+      {
+        "recipe": {
+          "id": "vn-sang-01",
+          "slug": "com-chien-trung-toi-hanh-hoa",
+          "title": "Cơm chiên trứng vàng giòn tỏi phi",
+          "description": "Hạt cơm nguội vàng óng bọc đều lớp trứng gà bóng bẩy, chiên giòn tơi xốp dậy mùi thơm nức của tỏi phi và hành hoa.",
+          "cuisine": "vietnamese",
+          "cookTimeMinutes": 12,
+          "servings": 2,
+          "imageUrl": "https://images.unsplash.com/photo-1603133872878-684f208fb84b?auto=format&fit=crop&w=800&q=80",
+          "media": {
+            "hero": {
+              "url": "https://images.unsplash.com/photo-1603133872878-684f208fb84b?auto=format&fit=crop&w=800&q=80",
+              "source": "legacy_external",
+              "version": null,
+              "width": null,
+              "height": null
+            }
+          }
+        },
+        "matchPercentage": 17,
+        "canCookWithoutBuying": false,
+        "missingRequiredIngredientCount": 5
+      },
+      {
+        "recipe": {
+          "id": "vn-xao-05",
+          "slug": "su-su-xao-trung-ga",
+          "title": "Su su xào trứng gà thanh ngọt",
+          "description": "Su su bào sợi giòn ngọt tự nhiên ôm lấy từng mảng trứng gà vàng ươm béo ngậy, món ăn thanh đạm dễ làm.",
+          "cuisine": "vietnamese",
+          "cookTimeMinutes": 12,
+          "servings": 3,
+          "imageUrl": "https://images.unsplash.com/photo-1565299585323-38d6b0865b47?auto=format&fit=crop&w=800&q=80",
+          "media": {
+            "hero": {
+              "url": "https://images.unsplash.com/photo-1565299585323-38d6b0865b47?auto=format&fit=crop&w=800&q=80",
+              "source": "legacy_external",
+              "version": null,
+              "width": null,
+              "height": null
+            }
+          }
+        },
+        "matchPercentage": 17,
+        "canCookWithoutBuying": false,
+        "missingRequiredIngredientCount": 5
+      },
+      {
+        "recipe": {
+          "id": "vn-sang-04",
+          "slug": "mi-tom-xao-bo-trung-long-dao",
+          "title": "Mì gói xào bò trứng lòng đào",
+          "description": "Sợi mì tôm chần xào giòn dai không nát, hòa cùng thịt bò xào mềm ngọt, rau cải giòn mát và quả trứng ốp lòng đào béo ngậy.",
+          "cuisine": "vietnamese",
+          "cookTimeMinutes": 15,
+          "servings": 2,
+          "imageUrl": "https://images.unsplash.com/photo-1569718212165-3a8278d5f624?auto=format&fit=crop&w=800&q=80",
+          "media": {
+            "hero": {
+              "url": "https://images.unsplash.com/photo-1569718212165-3a8278d5f624?auto=format&fit=crop&w=800&q=80",
+              "source": "legacy_external",
+              "version": null,
+              "width": null,
+              "height": null
+            }
+          }
+        },
+        "matchPercentage": 17,
+        "canCookWithoutBuying": false,
+        "missingRequiredIngredientCount": 5
+      },
+      {
+        "recipe": {
+          "id": "gl-12",
+          "slug": "chinese-tomato-egg",
+          "title": "Trứng xào cà chua kiểu Trung Hoa",
+          "description": "Món ăn gia đình kinh điển Trung Hoa với trứng mềm xốp ngập trong sốt cà chua đỏ sánh chua ngọt.",
+          "cuisine": "chinese",
+          "cookTimeMinutes": 10,
+          "servings": 2,
+          "imageUrl": "/frigo/recipes/vietnam/dau-phu-sot-ca-chua.webp",
+          "media": {
+            "hero": {
+              "url": "/frigo/recipes/vietnam/dau-phu-sot-ca-chua.webp",
+              "source": "legacy_static",
+              "version": null,
+              "width": null,
+              "height": null
+            }
+          }
+        },
+        "matchPercentage": 20,
+        "canCookWithoutBuying": false,
+        "missingRequiredIngredientCount": 5
+      },
+      {
+        "recipe": {
+          "id": "vn-sang-05",
+          "slug": "trung-cuon-rau-cu-han-quoc",
+          "title": "Trứng cuộn rau củ mềm mịn",
+          "description": "Trứng gà đánh mịn cuộn tròn nhiều lớp xen kẽ cà rốt và hành hoa thái hạt lựu xinh xắn, món ăn sáng giàu protein cho cả nhà.",
+          "cuisine": "vietnamese",
+          "cookTimeMinutes": 12,
+          "servings": 2,
+          "imageUrl": "https://images.unsplash.com/photo-1525351484163-7529414344d8?auto=format&fit=crop&w=800&q=80",
+          "media": {
+            "hero": {
+              "url": "https://images.unsplash.com/photo-1525351484163-7529414344d8?auto=format&fit=crop&w=800&q=80",
+              "source": "legacy_external",
+              "version": null,
+              "width": null,
+              "height": null
+            }
+          }
+        },
+        "matchPercentage": 20,
+        "canCookWithoutBuying": false,
+        "missingRequiredIngredientCount": 5
+      },
+      {
+        "recipe": {
+          "id": "gl-07",
+          "slug": "kimbap-han-quoc",
+          "title": "Cơm cuộn Kimbap Hàn Quốc",
+          "description": "Cơm cuộn rong biển nhân trứng rán, xúc xích/thịt và dưa chuột giòn mát rượi.",
+          "cuisine": "korean",
+          "cookTimeMinutes": 20,
+          "servings": 3,
+          "imageUrl": "/frigo/recipes/global/kimchi-fried-rice.webp",
+          "media": {
+            "hero": {
+              "url": "/frigo/recipes/global/kimchi-fried-rice.webp",
+              "source": "legacy_static",
+              "version": null,
+              "width": null,
+              "height": null
+            }
+          }
+        },
+        "matchPercentage": 20,
+        "canCookWithoutBuying": false,
+        "missingRequiredIngredientCount": 5
+      },
+      {
+        "recipe": {
+          "id": "vn-chien-02",
+          "slug": "trung-chien-thit-bam-nam-rom",
+          "title": "Trứng chiên thịt bằm nấm rơm",
+          "description": "Món trứng chiên phồng xốp vàng rực, bên trong đầy đặn thịt heo băm đậm đà và nấm ngọt giòn sần sật.",
+          "cuisine": "vietnamese",
+          "cookTimeMinutes": 12,
+          "servings": 3,
+          "imageUrl": "https://images.unsplash.com/photo-1525351484163-7529414344d8?auto=format&fit=crop&w=800&q=80",
+          "media": {
+            "hero": {
+              "url": "https://images.unsplash.com/photo-1525351484163-7529414344d8?auto=format&fit=crop&w=800&q=80",
+              "source": "legacy_external",
+              "version": null,
+              "width": null,
+              "height": null
+            }
+          }
+        },
+        "matchPercentage": 17,
+        "canCookWithoutBuying": false,
+        "missingRequiredIngredientCount": 6
+      },
+      {
+        "recipe": {
+          "id": "vn-cuon-04",
+          "slug": "goi-ga-xe-phay-bap-cai",
+          "title": "Gỏi gà xé phay bắp cải hành tây",
+          "description": "Thịt gà ta luộc xé sợi dai ngọt trộn cùng bắp cải bào mỏng giòn rụm, hành tây chua ngọt dịu và rau răm thơm the the.",
+          "cuisine": "vietnamese",
+          "cookTimeMinutes": 20,
+          "servings": 4,
+          "imageUrl": "https://images.unsplash.com/photo-1512621776951-a57141f2eefd?auto=format&fit=crop&w=800&q=80",
+          "media": {
+            "hero": {
+              "url": "https://images.unsplash.com/photo-1512621776951-a57141f2eefd?auto=format&fit=crop&w=800&q=80",
+              "source": "legacy_external",
+              "version": null,
+              "width": null,
+              "height": null
+            }
+          }
+        },
+        "matchPercentage": 17,
+        "canCookWithoutBuying": false,
+        "missingRequiredIngredientCount": 6
+      },
+      {
+        "recipe": {
+          "id": "vn-chien-05",
+          "slug": "nem-ran-truyen-thong-ha-noi",
+          "title": "Nem rán truyền thống Hà Nội giòn rụm",
+          "description": "Vỏ nem vàng rộm giòn tan rụm, nhân thịt băm mộc nhĩ nấm hương miến dong và trứng gà thơm phức chấm mắm chua ngọt.",
+          "cuisine": "vietnamese",
+          "cookTimeMinutes": 35,
+          "servings": 4,
+          "imageUrl": "https://images.unsplash.com/photo-1544025162-d76694265947?auto=format&fit=crop&w=800&q=80",
+          "media": {
+            "hero": {
+              "url": "https://images.unsplash.com/photo-1544025162-d76694265947?auto=format&fit=crop&w=800&q=80",
+              "source": "legacy_external",
+              "version": null,
+              "width": null,
+              "height": null
+            }
+          }
+        },
+        "matchPercentage": 17,
+        "canCookWithoutBuying": false,
+        "missingRequiredIngredientCount": 5
+      },
+      {
+        "recipe": {
+          "id": "vn-kho-01",
+          "slug": "thit-kho-trung",
+          "title": "Thịt kho tàu nước dừa trứng béo ngậy",
+          "description": "Thịt ba chỉ vuông vức óng ả màu cánh gián, ninh nhừ mềm tan trong nước dừa xiêm cùng trứng gà bùi bùi chuẩn Tết miền Nam.",
+          "cuisine": "vietnamese",
+          "cookTimeMinutes": 45,
+          "servings": 4,
+          "imageUrl": "https://images.unsplash.com/photo-1544025162-d76694265947?auto=format&fit=crop&w=800&q=80",
+          "media": {
+            "hero": {
+              "url": "https://images.unsplash.com/photo-1544025162-d76694265947?auto=format&fit=crop&w=800&q=80",
+              "source": "legacy_external",
+              "version": null,
+              "width": null,
+              "height": null
+            }
+          }
+        },
+        "matchPercentage": 20,
+        "canCookWithoutBuying": false,
+        "missingRequiredIngredientCount": 5
+      },
+      {
+        "recipe": {
+          "id": "vn-lau-01",
+          "slug": "lau-rieu-cua-dong-bap-bo-suon-sun",
+          "title": "Lẩu riêu cua đồng sườn sụn bắp bò",
+          "description": "Nồi lẩu riêu cua bốc khói nghi ngút thơm nồng giấm bỗng, tảng riêu cua vàng ngậy nhúng bắp bò hoa giòn và sườn non sần sật.",
+          "cuisine": "vietnamese",
+          "cookTimeMinutes": 45,
+          "servings": 6,
+          "imageUrl": "https://images.unsplash.com/photo-1547928576-a4a33237cbc3?auto=format&fit=crop&w=800&q=80",
+          "media": {
+            "hero": {
+              "url": "https://images.unsplash.com/photo-1547928576-a4a33237cbc3?auto=format&fit=crop&w=800&q=80",
+              "source": "legacy_external",
+              "version": null,
+              "width": null,
+              "height": null
+            }
+          }
+        },
+        "matchPercentage": 14,
+        "canCookWithoutBuying": false,
+        "missingRequiredIngredientCount": 7
+      },
+      {
+        "recipe": {
+          "id": "vn-hap-05",
+          "slug": "muc-hap-gung-sa",
+          "title": "Mực ống hấp gừng sả giòn ngọt",
+          "description": "Mực ống tươi dày mình hấp cùng sả cây đập dập và gừng non, từng miếng mực giòn ngọt sần sật mọng nước.",
+          "cuisine": "vietnamese",
+          "cookTimeMinutes": 12,
+          "servings": 3,
+          "imageUrl": "https://images.unsplash.com/photo-1535400255456-984241443b29?auto=format&fit=crop&w=800&q=80",
+          "media": {
+            "hero": {
+              "url": "https://images.unsplash.com/photo-1535400255456-984241443b29?auto=format&fit=crop&w=800&q=80",
+              "source": "legacy_external",
+              "version": null,
+              "width": null,
+              "height": null
+            }
+          }
+        },
+        "matchPercentage": 0,
+        "canCookWithoutBuying": false,
+        "missingRequiredIngredientCount": 5
+      },
+      {
+        "recipe": {
+          "id": "vn-hap-06",
+          "slug": "tom-hap-nuoc-dua-tuoi",
+          "title": "Tôm hấp nước dừa tươi ngọt lịm",
+          "description": "Tôm sú tươi roi rói hấp cùng nước dừa xiêm ngọt lịm, vỏ tôm đỏ au thịt tôm săn chắc ngọt ngào hương dừa thanh tao.",
+          "cuisine": "vietnamese",
+          "cookTimeMinutes": 12,
+          "servings": 3,
+          "imageUrl": "https://images.unsplash.com/photo-1559742811-822873691df8?auto=format&fit=crop&w=800&q=80",
+          "media": {
+            "hero": {
+              "url": "https://images.unsplash.com/photo-1559742811-822873691df8?auto=format&fit=crop&w=800&q=80",
+              "source": "legacy_external",
+              "version": null,
+              "width": null,
+              "height": null
+            }
+          }
+        },
+        "matchPercentage": 0,
+        "canCookWithoutBuying": false,
+        "missingRequiredIngredientCount": 3
+      },
+      {
+        "recipe": {
+          "id": "vn-chay-03",
+          "slug": "mi-xao-chay-rau-nam",
+          "title": "Mì xào giòn chay nấm rau củ",
+          "description": "Sợi mì xào vàng thơm tơi sợi không bết dính, đảo cùng nấm đùi gà dai giòn, cải ngọt và cà rốt ngập tràn sốt dầu hào chay.",
+          "cuisine": "vietnamese",
+          "cookTimeMinutes": 15,
+          "servings": 3,
+          "imageUrl": "https://images.unsplash.com/photo-1585032226651-759b368d7246?auto=format&fit=crop&w=800&q=80",
+          "media": {
+            "hero": {
+              "url": "https://images.unsplash.com/photo-1585032226651-759b368d7246?auto=format&fit=crop&w=800&q=80",
+              "source": "legacy_external",
+              "version": null,
+              "width": null,
+              "height": null
+            }
+          }
+        },
+        "matchPercentage": 0,
+        "canCookWithoutBuying": false,
+        "missingRequiredIngredientCount": 6
+      }
+    ]
+  }
+}

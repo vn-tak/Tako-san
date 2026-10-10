@@ -1,0 +1,1230 @@
+{
+  "base": "http://127.0.0.1:5212",
+  "flag": "on",
+  "checks": [
+    {
+      "name": "home-320",
+      "path": "/",
+      "synthetic": false,
+      "width": 320,
+      "height": 844,
+      "scrollWidth": 320,
+      "h1": 1,
+      "broken": [],
+      "lockups": 1,
+      "nav": {
+        "x": 0,
+        "y": 755.40625,
+        "right": 320,
+        "bottom": 844,
+        "width": 320,
+        "height": 88.59375
+      },
+      "links": [
+        {
+          "text": "Trang chủ",
+          "href": "/",
+          "current": "page",
+          "box": {
+            "x": 4,
+            "y": 760.40625,
+            "right": 64.796875,
+            "bottom": 840,
+            "width": 60.796875,
+            "height": 79.59375
+          },
+          "label": {
+            "x": 6,
+            "y": 798.40625,
+            "right": 62.796875,
+            "bottom": 832,
+            "width": 56.796875,
+            "height": 33.59375
+          },
+          "clipped": false
+        },
+        {
+          "text": "Tủ lạnh",
+          "href": "/fridge",
+          "current": null,
+          "box": {
+            "x": 66.796875,
+            "y": 760.40625,
+            "right": 127.59375,
+            "bottom": 840,
+            "width": 60.796875,
+            "height": 79.59375
+          },
+          "label": {
+            "x": 75.984375,
+            "y": 798.40625,
+            "right": 118.40625,
+            "bottom": 815.203125,
+            "width": 42.421875,
+            "height": 16.796875
+          },
+          "clipped": false
+        },
+        {
+          "text": "Công thức",
+          "href": "/recipes",
+          "current": null,
+          "box": {
+            "x": 129.59375,
+            "y": 760.40625,
+            "right": 190.390625,
+            "bottom": 840,
+            "width": 60.796875,
+            "height": 79.59375
+          },
+          "label": {
+            "x": 131.59375,
+            "y": 798.40625,
+            "right": 188.390625,
+            "bottom": 832,
+            "width": 56.796875,
+            "height": 33.59375
+          },
+          "clipped": false
+        },
+        {
+          "text": "Thực đơn",
+          "href": "/planner",
+          "current": null,
+          "box": {
+            "x": 192.390625,
+            "y": 760.40625,
+            "right": 253.1875,
+            "bottom": 840,
+            "width": 60.796875,
+            "height": 79.59375
+          },
+          "label": {
+            "x": 195.390625,
+            "y": 798.40625,
+            "right": 250.171875,
+            "bottom": 815.203125,
+            "width": 54.78125,
+            "height": 16.796875
+          },
+          "clipped": false
+        },
+        {
+          "text": "Tôi",
+          "href": "/me",
+          "current": null,
+          "box": {
+            "x": 255.1875,
+            "y": 760.40625,
+            "right": 315.984375,
+            "bottom": 840,
+            "width": 60.796875,
+            "height": 79.59375
+          },
+          "label": {
+            "x": 276.71875,
+            "y": 798.40625,
+            "right": 294.4375,
+            "bottom": 815.203125,
+            "width": 17.71875,
+            "height": 16.796875
+          },
+          "clipped": false
+        }
+      ],
+      "overlaps": [],
+      "bottom": {
+        "x": 0,
+        "y": 755.40625,
+        "right": 320,
+        "bottom": 844,
+        "width": 320,
+        "height": 88.59375
+      },
+      "actions": [],
+      "offset": 88.59375,
+      "header": {
+        "x": 0,
+        "y": 0,
+        "right": 320,
+        "bottom": 125,
+        "width": 320,
+        "height": 125
+      },
+      "scan": [
+        {
+          "x": 16,
+          "y": 68,
+          "right": 304,
+          "bottom": 112,
+          "width": 288,
+          "height": 44
+        }
+      ],
+      "recipeClipping": [],
+      "media": [
+        {
+          "state": "missing",
+          "height": 80
+        },
+        {
+          "state": "missing",
+          "height": 80
+        },
+        {
+          "state": "photo",
+          "height": 214.5
+        }
+      ],
+      "reduced": true,
+      "violations": []
+    },
+    {
+      "name": "stock-320",
+      "path": "/fridge",
+      "synthetic": false,
+      "width": 320,
+      "height": 844,
+      "scrollWidth": 320,
+      "h1": 1,
+      "broken": [],
+      "lockups": 1,
+      "nav": {
+        "x": 0,
+        "y": 755.40625,
+        "right": 320,
+        "bottom": 844,
+        "width": 320,
+        "height": 88.59375
+      },
+      "links": [
+        {
+          "text": "Trang chủ",
+          "href": "/",
+          "current": null,
+          "box": {
+            "x": 4,
+            "y": 760.40625,
+            "right": 64.796875,
+            "bottom": 840,
+            "width": 60.796875,
+            "height": 79.59375
+          },
+          "label": {
+            "x": 6,
+            "y": 798.40625,
+            "right": 62.796875,
+            "bottom": 832,
+            "width": 56.796875,
+            "height": 33.59375
+          },
+          "clipped": false
+        },
+        {
+          "text": "Tủ lạnh",
+          "href": "/fridge",
+          "current": "page",
+          "box": {
+            "x": 66.796875,
+            "y": 760.40625,
+            "right": 127.59375,
+            "bottom": 840,
+            "width": 60.796875,
+            "height": 79.59375
+          },
+          "label": {
+            "x": 75.140625,
+            "y": 798.40625,
+            "right": 119.234375,
+            "bottom": 815.203125,
+            "width": 44.09375,
+            "height": 16.796875
+          },
+          "clipped": false
+        },
+        {
+          "text": "Công thức",
+          "href": "/recipes",
+          "current": null,
+          "box": {
+            "x": 129.59375,
+            "y": 760.40625,
+            "right": 190.390625,
+            "bottom": 840,
+            "width": 60.796875,
+            "height": 79.59375
+          },
+          "label": {
+            "x": 131.59375,
+            "y": 798.40625,
+            "right": 188.390625,
+            "bottom": 832,
+            "width": 56.796875,
+            "height": 33.59375
+          },
+          "clipped": false
+        },
+        {
+          "text": "Thực đơn",
+          "href": "/planner",
+          "current": null,
+          "box": {
+            "x": 192.390625,
+            "y": 760.40625,
+            "right": 253.1875,
+            "bottom": 840,
+            "width": 60.796875,
+            "height": 79.59375
+          },
+          "label": {
+            "x": 195.390625,
+            "y": 798.40625,
+            "right": 250.171875,
+            "bottom": 815.203125,
+            "width": 54.78125,
+            "height": 16.796875
+          },
+          "clipped": false
+        },
+        {
+          "text": "Tôi",
+          "href": "/me",
+          "current": null,
+          "box": {
+            "x": 255.1875,
+            "y": 760.40625,
+            "right": 315.984375,
+            "bottom": 840,
+            "width": 60.796875,
+            "height": 79.59375
+          },
+          "label": {
+            "x": 276.71875,
+            "y": 798.40625,
+            "right": 294.4375,
+            "bottom": 815.203125,
+            "width": 17.71875,
+            "height": 16.796875
+          },
+          "clipped": false
+        }
+      ],
+      "overlaps": [],
+      "bottom": {
+        "x": 0,
+        "y": 755.40625,
+        "right": 320,
+        "bottom": 844,
+        "width": 320,
+        "height": 88.59375
+      },
+      "actions": [
+        {
+          "box": {
+            "x": 0,
+            "y": 695.40625,
+            "right": 320,
+            "bottom": 743.40625,
+            "width": 320,
+            "height": 48
+          },
+          "position": "fixed"
+        }
+      ],
+      "offset": 88.59375,
+      "header": {
+        "x": 0,
+        "y": 0,
+        "right": 320,
+        "bottom": 125,
+        "width": 320,
+        "height": 125
+      },
+      "scan": [
+        {
+          "x": 16,
+          "y": 68,
+          "right": 304,
+          "bottom": 112,
+          "width": 288,
+          "height": 44
+        }
+      ],
+      "recipeClipping": [],
+      "media": [],
+      "reduced": true,
+      "violations": []
+    },
+    {
+      "name": "detail-320",
+      "path": "/ingredients/preview-stock-egg",
+      "synthetic": false,
+      "width": 320,
+      "height": 844,
+      "scrollWidth": 320,
+      "h1": 1,
+      "broken": [],
+      "lockups": 1,
+      "nav": {
+        "x": 0,
+        "y": 755.40625,
+        "right": 320,
+        "bottom": 844,
+        "width": 320,
+        "height": 88.59375
+      },
+      "links": [
+        {
+          "text": "Trang chủ",
+          "href": "/",
+          "current": null,
+          "box": {
+            "x": 4,
+            "y": 760.40625,
+            "right": 64.796875,
+            "bottom": 840,
+            "width": 60.796875,
+            "height": 79.59375
+          },
+          "label": {
+            "x": 6,
+            "y": 798.40625,
+            "right": 62.796875,
+            "bottom": 832,
+            "width": 56.796875,
+            "height": 33.59375
+          },
+          "clipped": false
+        },
+        {
+          "text": "Tủ lạnh",
+          "href": "/fridge",
+          "current": "page",
+          "box": {
+            "x": 66.796875,
+            "y": 760.40625,
+            "right": 127.59375,
+            "bottom": 840,
+            "width": 60.796875,
+            "height": 79.59375
+          },
+          "label": {
+            "x": 75.140625,
+            "y": 798.40625,
+            "right": 119.234375,
+            "bottom": 815.203125,
+            "width": 44.09375,
+            "height": 16.796875
+          },
+          "clipped": false
+        },
+        {
+          "text": "Công thức",
+          "href": "/recipes",
+          "current": null,
+          "box": {
+            "x": 129.59375,
+            "y": 760.40625,
+            "right": 190.390625,
+            "bottom": 840,
+            "width": 60.796875,
+            "height": 79.59375
+          },
+          "label": {
+            "x": 131.59375,
+            "y": 798.40625,
+            "right": 188.390625,
+            "bottom": 832,
+            "width": 56.796875,
+            "height": 33.59375
+          },
+          "clipped": false
+        },
+        {
+          "text": "Thực đơn",
+          "href": "/planner",
+          "current": null,
+          "box": {
+            "x": 192.390625,
+            "y": 760.40625,
+            "right": 253.1875,
+            "bottom": 840,
+            "width": 60.796875,
+            "height": 79.59375
+          },
+          "label": {
+            "x": 195.390625,
+            "y": 798.40625,
+            "right": 250.171875,
+            "bottom": 815.203125,
+            "width": 54.78125,
+            "height": 16.796875
+          },
+          "clipped": false
+        },
+        {
+          "text": "Tôi",
+          "href": "/me",
+          "current": null,
+          "box": {
+            "x": 255.1875,
+            "y": 760.40625,
+            "right": 315.984375,
+            "bottom": 840,
+            "width": 60.796875,
+            "height": 79.59375
+          },
+          "label": {
+            "x": 276.71875,
+            "y": 798.40625,
+            "right": 294.4375,
+            "bottom": 815.203125,
+            "width": 17.71875,
+            "height": 16.796875
+          },
+          "clipped": false
+        }
+      ],
+      "overlaps": [],
+      "bottom": {
+        "x": 0,
+        "y": 755.40625,
+        "right": 320,
+        "bottom": 844,
+        "width": 320,
+        "height": 88.59375
+      },
+      "actions": [],
+      "offset": 88.59375,
+      "header": {
+        "x": 0,
+        "y": 0,
+        "right": 320,
+        "bottom": 125,
+        "width": 320,
+        "height": 125
+      },
+      "scan": [
+        {
+          "x": 16,
+          "y": 68,
+          "right": 304,
+          "bottom": 112,
+          "width": 288,
+          "height": 44
+        }
+      ],
+      "recipeClipping": [],
+      "media": [],
+      "reduced": true,
+      "violations": []
+    },
+    {
+      "name": "review-320",
+      "path": "/scan/t13b-preview-fridge/review",
+      "synthetic": false,
+      "width": 320,
+      "height": 844,
+      "scrollWidth": 320,
+      "h1": 1,
+      "broken": [],
+      "lockups": 1,
+      "nav": {
+        "x": 0,
+        "y": 755.40625,
+        "right": 320,
+        "bottom": 844,
+        "width": 320,
+        "height": 88.59375
+      },
+      "links": [
+        {
+          "text": "Trang chủ",
+          "href": "/",
+          "current": null,
+          "box": {
+            "x": 4,
+            "y": 760.40625,
+            "right": 64.796875,
+            "bottom": 840,
+            "width": 60.796875,
+            "height": 79.59375
+          },
+          "label": {
+            "x": 6,
+            "y": 798.40625,
+            "right": 62.796875,
+            "bottom": 832,
+            "width": 56.796875,
+            "height": 33.59375
+          },
+          "clipped": false
+        },
+        {
+          "text": "Tủ lạnh",
+          "href": "/fridge",
+          "current": null,
+          "box": {
+            "x": 66.796875,
+            "y": 760.40625,
+            "right": 127.59375,
+            "bottom": 840,
+            "width": 60.796875,
+            "height": 79.59375
+          },
+          "label": {
+            "x": 75.984375,
+            "y": 798.40625,
+            "right": 118.40625,
+            "bottom": 815.203125,
+            "width": 42.421875,
+            "height": 16.796875
+          },
+          "clipped": false
+        },
+        {
+          "text": "Công thức",
+          "href": "/recipes",
+          "current": null,
+          "box": {
+            "x": 129.59375,
+            "y": 760.40625,
+            "right": 190.390625,
+            "bottom": 840,
+            "width": 60.796875,
+            "height": 79.59375
+          },
+          "label": {
+            "x": 131.59375,
+            "y": 798.40625,
+            "right": 188.390625,
+            "bottom": 832,
+            "width": 56.796875,
+            "height": 33.59375
+          },
+          "clipped": false
+        },
+        {
+          "text": "Thực đơn",
+          "href": "/planner",
+          "current": null,
+          "box": {
+            "x": 192.390625,
+            "y": 760.40625,
+            "right": 253.1875,
+            "bottom": 840,
+            "width": 60.796875,
+            "height": 79.59375
+          },
+          "label": {
+            "x": 195.390625,
+            "y": 798.40625,
+            "right": 250.171875,
+            "bottom": 815.203125,
+            "width": 54.78125,
+            "height": 16.796875
+          },
+          "clipped": false
+        },
+        {
+          "text": "Tôi",
+          "href": "/me",
+          "current": null,
+          "box": {
+            "x": 255.1875,
+            "y": 760.40625,
+            "right": 315.984375,
+            "bottom": 840,
+            "width": 60.796875,
+            "height": 79.59375
+          },
+          "label": {
+            "x": 276.71875,
+            "y": 798.40625,
+            "right": 294.4375,
+            "bottom": 815.203125,
+            "width": 17.71875,
+            "height": 16.796875
+          },
+          "clipped": false
+        }
+      ],
+      "overlaps": [],
+      "bottom": {
+        "x": 0,
+        "y": 755.40625,
+        "right": 320,
+        "bottom": 844,
+        "width": 320,
+        "height": 88.59375
+      },
+      "actions": [
+        {
+          "box": {
+            "x": 0,
+            "y": 674.40625,
+            "right": 320,
+            "bottom": 755.40625,
+            "width": 320,
+            "height": 81
+          },
+          "position": "sticky"
+        }
+      ],
+      "offset": 88.59375,
+      "header": {
+        "x": 0,
+        "y": 0,
+        "right": 320,
+        "bottom": 125,
+        "width": 320,
+        "height": 125
+      },
+      "scan": [
+        {
+          "x": 16,
+          "y": 68,
+          "right": 304,
+          "bottom": 112,
+          "width": 288,
+          "height": 44
+        }
+      ],
+      "recipeClipping": [],
+      "media": [],
+      "reduced": true,
+      "violations": []
+    },
+    {
+      "name": "receipt-320",
+      "path": "/scan/receipt-review",
+      "synthetic": false,
+      "width": 320,
+      "height": 844,
+      "scrollWidth": 320,
+      "h1": 1,
+      "broken": [],
+      "lockups": 1,
+      "nav": {
+        "x": 0,
+        "y": 755.40625,
+        "right": 320,
+        "bottom": 844,
+        "width": 320,
+        "height": 88.59375
+      },
+      "links": [
+        {
+          "text": "Trang chủ",
+          "href": "/",
+          "current": null,
+          "box": {
+            "x": 4,
+            "y": 760.40625,
+            "right": 64.796875,
+            "bottom": 840,
+            "width": 60.796875,
+            "height": 79.59375
+          },
+          "label": {
+            "x": 6,
+            "y": 798.40625,
+            "right": 62.796875,
+            "bottom": 832,
+            "width": 56.796875,
+            "height": 33.59375
+          },
+          "clipped": false
+        },
+        {
+          "text": "Tủ lạnh",
+          "href": "/fridge",
+          "current": null,
+          "box": {
+            "x": 66.796875,
+            "y": 760.40625,
+            "right": 127.59375,
+            "bottom": 840,
+            "width": 60.796875,
+            "height": 79.59375
+          },
+          "label": {
+            "x": 75.984375,
+            "y": 798.40625,
+            "right": 118.40625,
+            "bottom": 815.203125,
+            "width": 42.421875,
+            "height": 16.796875
+          },
+          "clipped": false
+        },
+        {
+          "text": "Công thức",
+          "href": "/recipes",
+          "current": null,
+          "box": {
+            "x": 129.59375,
+            "y": 760.40625,
+            "right": 190.390625,
+            "bottom": 840,
+            "width": 60.796875,
+            "height": 79.59375
+          },
+          "label": {
+            "x": 131.59375,
+            "y": 798.40625,
+            "right": 188.390625,
+            "bottom": 832,
+            "width": 56.796875,
+            "height": 33.59375
+          },
+          "clipped": false
+        },
+        {
+          "text": "Thực đơn",
+          "href": "/planner",
+          "current": null,
+          "box": {
+            "x": 192.390625,
+            "y": 760.40625,
+            "right": 253.1875,
+            "bottom": 840,
+            "width": 60.796875,
+            "height": 79.59375
+          },
+          "label": {
+            "x": 195.390625,
+            "y": 798.40625,
+            "right": 250.171875,
+            "bottom": 815.203125,
+            "width": 54.78125,
+            "height": 16.796875
+          },
+          "clipped": false
+        },
+        {
+          "text": "Tôi",
+          "href": "/me",
+          "current": null,
+          "box": {
+            "x": 255.1875,
+            "y": 760.40625,
+            "right": 315.984375,
+            "bottom": 840,
+            "width": 60.796875,
+            "height": 79.59375
+          },
+          "label": {
+            "x": 276.71875,
+            "y": 798.40625,
+            "right": 294.4375,
+            "bottom": 815.203125,
+            "width": 17.71875,
+            "height": 16.796875
+          },
+          "clipped": false
+        }
+      ],
+      "overlaps": [],
+      "bottom": {
+        "x": 0,
+        "y": 755.40625,
+        "right": 320,
+        "bottom": 844,
+        "width": 320,
+        "height": 88.59375
+      },
+      "actions": [
+        {
+          "box": {
+            "x": 0,
+            "y": 674.40625,
+            "right": 320,
+            "bottom": 755.40625,
+            "width": 320,
+            "height": 81
+          },
+          "position": "sticky"
+        }
+      ],
+      "offset": 88.59375,
+      "header": {
+        "x": 0,
+        "y": 0,
+        "right": 320,
+        "bottom": 125,
+        "width": 320,
+        "height": 125
+      },
+      "scan": [
+        {
+          "x": 16,
+          "y": 68,
+          "right": 304,
+          "bottom": 112,
+          "width": 288,
+          "height": 44
+        }
+      ],
+      "recipeClipping": [],
+      "media": [],
+      "reduced": true,
+      "violations": []
+    },
+    {
+      "name": "recipe-320",
+      "path": "/recipes/thit-kho-trung",
+      "synthetic": false,
+      "width": 320,
+      "height": 844,
+      "scrollWidth": 320,
+      "h1": 1,
+      "broken": [],
+      "lockups": 1,
+      "nav": {
+        "x": 0,
+        "y": 755.40625,
+        "right": 320,
+        "bottom": 844,
+        "width": 320,
+        "height": 88.59375
+      },
+      "links": [
+        {
+          "text": "Trang chủ",
+          "href": "/",
+          "current": null,
+          "box": {
+            "x": 4,
+            "y": 760.40625,
+            "right": 64.796875,
+            "bottom": 840,
+            "width": 60.796875,
+            "height": 79.59375
+          },
+          "label": {
+            "x": 6,
+            "y": 798.40625,
+            "right": 62.796875,
+            "bottom": 832,
+            "width": 56.796875,
+            "height": 33.59375
+          },
+          "clipped": false
+        },
+        {
+          "text": "Tủ lạnh",
+          "href": "/fridge",
+          "current": null,
+          "box": {
+            "x": 66.796875,
+            "y": 760.40625,
+            "right": 127.59375,
+            "bottom": 840,
+            "width": 60.796875,
+            "height": 79.59375
+          },
+          "label": {
+            "x": 75.984375,
+            "y": 798.40625,
+            "right": 118.40625,
+            "bottom": 815.203125,
+            "width": 42.421875,
+            "height": 16.796875
+          },
+          "clipped": false
+        },
+        {
+          "text": "Công thức",
+          "href": "/recipes",
+          "current": "page",
+          "box": {
+            "x": 129.59375,
+            "y": 760.40625,
+            "right": 190.390625,
+            "bottom": 840,
+            "width": 60.796875,
+            "height": 79.59375
+          },
+          "label": {
+            "x": 131.59375,
+            "y": 798.40625,
+            "right": 188.390625,
+            "bottom": 832,
+            "width": 56.796875,
+            "height": 33.59375
+          },
+          "clipped": false
+        },
+        {
+          "text": "Thực đơn",
+          "href": "/planner",
+          "current": null,
+          "box": {
+            "x": 192.390625,
+            "y": 760.40625,
+            "right": 253.1875,
+            "bottom": 840,
+            "width": 60.796875,
+            "height": 79.59375
+          },
+          "label": {
+            "x": 195.390625,
+            "y": 798.40625,
+            "right": 250.171875,
+            "bottom": 815.203125,
+            "width": 54.78125,
+            "height": 16.796875
+          },
+          "clipped": false
+        },
+        {
+          "text": "Tôi",
+          "href": "/me",
+          "current": null,
+          "box": {
+            "x": 255.1875,
+            "y": 760.40625,
+            "right": 315.984375,
+            "bottom": 840,
+            "width": 60.796875,
+            "height": 79.59375
+          },
+          "label": {
+            "x": 276.71875,
+            "y": 798.40625,
+            "right": 294.4375,
+            "bottom": 815.203125,
+            "width": 17.71875,
+            "height": 16.796875
+          },
+          "clipped": false
+        }
+      ],
+      "overlaps": [],
+      "bottom": {
+        "x": 0,
+        "y": 755.40625,
+        "right": 320,
+        "bottom": 844,
+        "width": 320,
+        "height": 88.59375
+      },
+      "actions": [
+        {
+          "box": {
+            "x": 0,
+            "y": 678.40625,
+            "right": 320,
+            "bottom": 755.40625,
+            "width": 320,
+            "height": 77
+          },
+          "position": "fixed"
+        }
+      ],
+      "offset": 88.59375,
+      "header": {
+        "x": 0,
+        "y": 0,
+        "right": 320,
+        "bottom": 125,
+        "width": 320,
+        "height": 125
+      },
+      "scan": [
+        {
+          "x": 16,
+          "y": 68,
+          "right": 304,
+          "bottom": 112,
+          "width": 288,
+          "height": 44
+        }
+      ],
+      "recipeClipping": [],
+      "media": [
+        {
+          "state": "missing",
+          "height": 82
+        }
+      ],
+      "reduced": true,
+      "violations": []
+    },
+    {
+      "name": "recipes-320",
+      "path": "/recipes",
+      "synthetic": false,
+      "width": 320,
+      "height": 844,
+      "scrollWidth": 320,
+      "h1": 1,
+      "broken": [],
+      "lockups": 1,
+      "nav": {
+        "x": 16,
+        "y": 10675.625,
+        "right": 304,
+        "bottom": 10752.625,
+        "width": 288,
+        "height": 77
+      },
+      "links": [
+        {
+          "text": "Tiếp",
+          "href": "/recipes?page=2&cursor=v1.2.2033458a8767a935ee206ca018760216544b4f60bcfc418b2af3c4733c60db36",
+          "current": null,
+          "box": {
+            "x": 247.6875,
+            "y": 10692.625,
+            "right": 304,
+            "bottom": 10736.625,
+            "width": 56.3125,
+            "height": 44
+          },
+          "label": null,
+          "clipped": false
+        }
+      ],
+      "overlaps": [],
+      "bottom": {
+        "x": 0,
+        "y": 755.40625,
+        "right": 320,
+        "bottom": 844,
+        "width": 320,
+        "height": 88.59375
+      },
+      "actions": [],
+      "offset": 88.59375,
+      "header": {
+        "x": 0,
+        "y": 0,
+        "right": 320,
+        "bottom": 125,
+        "width": 320,
+        "height": 125
+      },
+      "scan": [
+        {
+          "x": 16,
+          "y": 68,
+          "right": 304,
+          "bottom": 112,
+          "width": 288,
+          "height": 44
+        }
+      ],
+      "recipeClipping": [],
+      "media": [
+        {
+          "state": "missing",
+          "height": 80
+        },
+        {
+          "state": "missing",
+          "height": 80
+        },
+        {
+          "state": "photo",
+          "height": 214.5
+        },
+        {
+          "state": "photo",
+          "height": 214.5
+        },
+        {
+          "state": "missing",
+          "height": 80
+        },
+        {
+          "state": "missing",
+          "height": 80
+        },
+        {
+          "state": "missing",
+          "height": 80
+        },
+        {
+          "state": "photo",
+          "height": 214.5
+        },
+        {
+          "state": "photo",
+          "height": 214.5
+        },
+        {
+          "state": "missing",
+          "height": 80
+        },
+        {
+          "state": "missing",
+          "height": 80
+        },
+        {
+          "state": "missing",
+          "height": 80
+        },
+        {
+          "state": "missing",
+          "height": 80
+        },
+        {
+          "state": "missing",
+          "height": 80
+        },
+        {
+          "state": "missing",
+          "height": 80
+        },
+        {
+          "state": "missing",
+          "height": 80
+        },
+        {
+          "state": "missing",
+          "height": 80
+        },
+        {
+          "state": "missing",
+          "height": 80
+        },
+        {
+          "state": "missing",
+          "height": 80
+        },
+        {
+          "state": "missing",
+          "height": 80
+        },
+        {
+          "state": "missing",
+          "height": 80
+        },
+        {
+          "state": "missing",
+          "height": 80
+        },
+        {
+          "state": "missing",
+          "height": 80
+        },
+        {
+          "state": "missing",
+          "height": 80
+        }
+      ],
+      "reduced": true,
+      "violations": []
+    }
+  ],
+  "journeys": [],
+  "errors": [],
+  "writes": [
+    {
+      "path": "/api/v1/preferences",
+      "method": "PATCH"
+    }
+  ]
+}

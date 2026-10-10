@@ -1,0 +1,39 @@
+week-home-320: overflow=0 / axe=0
+week-setup-320: overflow=0 / axe=0
+week-home-390: overflow=0 / axe=0
+week-setup-390: overflow=0 / axe=0
+week-home-768: overflow=0 / axe=0
+week-setup-768: overflow=0 / axe=0
+week-home-1440: overflow=0 / axe=0
+week-setup-1440: overflow=0 / axe=0
+week-budget-320: overflow=0 / axe=0
+week-schedule-320: overflow=0 / axe=0
+week-priorities-320: overflow=0 / axe=0
+week-frequency-320: overflow=0 / axe=0
+node:internal/modules/run_main:107
+    triggerUncaughtException(
+    ^
+
+ExpectError: expect(received).toBeTruthy()
+
+Received: undefined
+
+Call Log:
+- Timeout 5000ms exceeded while waiting on the predicate
+    at captureRawStack (/Users/tunbee27/Documents/Tako-san-ui-rebuild/node_modules/.pnpm/playwright-core@1.63.0/node_modules/playwright-core/lib/coreBundle.js:8588:17)
+    at callMatcherAsStep (/Users/tunbee27/Documents/Tako-san-ui-rebuild/node_modules/.pnpm/playwright@1.63.0/node_modules/playwright/lib/matchers/expect.js:13310:57)
+    at Object.toBeTruthy (/Users/tunbee27/Documents/Tako-san-ui-rebuild/node_modules/.pnpm/playwright@1.63.0/node_modules/playwright/lib/matchers/expect.js:13302:23)
+    at /Users/tunbee27/Documents/Tako-san-ui-rebuild/scripts/ui09-week-audit.mjs:24:41 {
+  matcherResult: {
+    pass: false,
+    message: 'expect(received).toBeTruthy()\n' +
+      '\n' +
+      'Received: undefined\n' +
+      '\n' +
+      'Call Log:\n' +
+      '- Timeout 5000ms exceeded while waiting on the predicate',
+    name: 'toBeTruthy'
+  }
+}
+
+Node.js v24.16.0

@@ -1,0 +1,63 @@
+landing-320: axe0 / overflow0 / assets0
+login-320: axe0 / overflow0 / assets0
+register-320: axe0 / overflow0 / assets0
+verify-missing-320: axe0 / overflow0 / assets0
+forgot-320: axe0 / overflow0 / assets0
+landing-390: axe0 / overflow0 / assets0
+login-390: axe0 / overflow0 / assets0
+register-390: axe0 / overflow0 / assets0
+verify-missing-390: axe0 / overflow0 / assets0
+forgot-390: axe0 / overflow0 / assets0
+landing-768: axe0 / overflow0 / assets0
+login-768: axe0 / overflow0 / assets0
+register-768: axe0 / overflow0 / assets0
+verify-missing-768: axe0 / overflow0 / assets0
+forgot-768: axe0 / overflow0 / assets0
+landing-1024: axe0 / overflow0 / assets0
+login-1024: axe0 / overflow0 / assets0
+register-1024: axe0 / overflow0 / assets0
+verify-missing-1024: axe0 / overflow0 / assets0
+forgot-1024: axe0 / overflow0 / assets0
+landing-1440: axe0 / overflow0 / assets0
+login-1440: axe0 / overflow0 / assets0
+register-1440: axe0 / overflow0 / assets0
+verify-missing-1440: axe0 / overflow0 / assets0
+forgot-1440: axe0 / overflow0 / assets0
+otp-undelivered-320: axe0 / overflow0 / assets0
+otp-undelivered-1440: axe0 / overflow0 / assets0
+otp-enlarged-320: axe0 / overflow0 / assets0
+landing-enlarged-320: axe0 / overflow0 / assets0
+login-enlarged-320: axe0 / overflow0 / assets0
+onboarding-household-320: axe0 / overflow0 / assets0
+onboarding-food-320: axe0 / overflow0 / assets0
+onboarding-goal-320: axe0 / overflow0 / assets0
+onboarding-household-390: axe0 / overflow0 / assets0
+onboarding-food-390: axe0 / overflow0 / assets0
+onboarding-goal-390: axe0 / overflow0 / assets0
+onboarding-household-768: axe0 / overflow0 / assets0
+onboarding-food-768: axe0 / overflow0 / assets0
+onboarding-goal-768: axe0 / overflow0 / assets0
+onboarding-household-1024: axe0 / overflow0 / assets0
+onboarding-food-1024: axe0 / overflow0 / assets0
+onboarding-goal-1024: axe0 / overflow0 / assets0
+onboarding-household-1440: axe0 / overflow0 / assets0
+onboarding-food-1440: axe0 / overflow0 / assets0
+onboarding-goal-1440: axe0 / overflow0 / assets0
+onboarding-household-enlarged-320: axe0 / overflow0 / assets0
+onboarding-preferences-enlarged-320: axe0 / overflow0 / assets0
+node:internal/modules/run_main:107
+    triggerUncaughtException(
+    ^
+
+AssertionError [ERR_ASSERTION]: onboarding-goals-enlarged-320: overflow {"width":320,"scrollWidth":389,"font":"\"Be Vietnam Pro\", sans-serif","logoCount":1,"switches":[],"inputs":[],"reduced":true}
+    at snapshot (file:///Users/tunbee27/Documents/Tako-san-ui-rebuild/scripts/ui08-browser-check.mjs:36:3)
+    at async file:///Users/tunbee27/Documents/Tako-san-ui-rebuild/scripts/ui08-browser-check.mjs:101:57 {
+  generatedMessage: false,
+  code: 'ERR_ASSERTION',
+  actual: false,
+  expected: true,
+  operator: '==',
+  diff: 'simple'
+}
+
+Node.js v24.16.0

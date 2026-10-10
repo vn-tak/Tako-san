@@ -1,4 +1,383 @@
+# ADR-052 - Scoped stock detail and system-state presentation (UI09)
+
+Status: accepted and locally verified for UI09, 2026-10-10 JST.
+Full281files/6615tests PASS;focused223;browser49snapshots/9journeys;Weekflagoff
+audit16screens/2journeys. Evidence: ../ui-rebuild/round-9/VERIFICATION.md.
+Owner/device/navigation/Weekimplementation/hosted/release remain.
+Implementation `251e42ad9efd5b84e87171c69f9fc1bfb3e9b463` verified against125sourcehashes/
+115evidencepayloads and manifest Git objects/worktree; protectedpaths unchanged.
+Packet: `tasks/UI09-stock-detail-states.md`; extends ADR-044 through ADR-051.
+
+Detail aliases and reconciliation still use the supplied shell, tiny copy and
+truncated evidence. Adopt existing digital tokens/assets through explicit routes,
+shared kitchen header/heading and a readable single-column detail workspace.
+Quantity/expiry/provenance precede editing; related recipes indicate ingredient
+relevance only. Preserve canonical queries/fallback, dirty-only versioned PATCH,
+lot-bound drafts, conflict reload truth and server reconciliation intent/proposals.
+Pending fallback must show loading rather than a premature not-found message.
+Metadata controls lock during save; input/error/return focus and explicit cancel
+warnings improve interaction without adding persistence or stock commands.
+
+SystemStatusPage owns standalone identity for AppErrorBoundary and SessionBoundary
+markup. Keep verification effects, session/Plus/onboarding/logout logic and all
+App guards unchanged. No auth protocol or payment surface redesign.
+
+Week has an unsent per-day schedule and a separate command/sheet lifecycle.
+Audit real flag-off local preview in this packet and plan UI10 for that workflow.
+PREVIEW_MEAL_PLANNER_ENABLED opt-in false sets both preview frontend/server flags;
+default remains true. No production flag, router, Week/store/service change.
+No backend/schema/dependency/config/asset/font/pose/remote/push/deploy changes.
+Local new-surface QA and full gates are required; Week audit and synthetic faults
+are not device/owner/hosted/release approval or whole-system UX certification.
+
+---
+
+# ADR-051 - Account and entry adopt the scoped digital identity (UI08)
+
+Status: accepted and locally verified for UI08, 2026-10-10 JST.
+Full277files/6588tests PASS;focused121;recovery130;browser106checks/107PNG/13journeys.
+Evidence: `../ui-rebuild/round-8/VERIFICATION.md`; owner/device/remaining/hosted
+release remain. Implementation `5ad78191295fabe4a8b2accd14e134452e203788` verified against
+Git objects: 95 source hashes / 137 evidence payloads and the manifest match worktree.
+Packet: `tasks/UI08-account-entry.md`; extends ADR-044 through ADR-050.
+
+Remaining account and entry screens mix the supplied kit, very small copy and
+unsupported AI/notification promises. Adopt UI07 assets, font and tokens through
+explicit account routes and page-owned public entry scopes. Shared account chrome
+uses the existing KitchenHeader, heading and primitives; preserve form authority.
+Group profile navigation by task and present unavailable sharing/data capabilities
+in plain language. Notification preferences store local intent only; no scheduled
+or delivered-reminder claim. Scan imagery may contain personal content, so privacy
+copy must not promise otherwise.
+
+AuthPage/security/services and unrelated guards stay byte-identical. AuthShell and fields may
+change visual layout/geometry; OTP paste/expiry, resend, Turnstile/GSI, transfer,
+returnTo and session fencing remain. Onboarding drafts/request/completion and
+navigation remain. Preserve Plus link JSX/target and existing logout authority;
+no payment UI or backend/config/dependency/production edits. Legacy Week needs
+separate flag-off evidence and is not included in this presentation packet.
+
+Actual guest QA exposed the existing onboarded /onboarding guard racing finish's
+week navigation with a Home redirect. Match that guard to the existing in-memory
+primaryGoal intent; preserve /week/setup alias and server-authoritative completion.
+No other guard or authentication protocol changes. Verify all goals through App
+and actual browser retry; direct alias resolves /planner/new when flag is enabled.
+
+Validate actual local interaction and responsive/enlarged/reduced-motion states,
+focused behavior tests and full gates. Synthetic provider results are not real
+email receipt/Google credential/device install/production or final brand approval.
+
+---
+
+# ADR-050 - Scoped digital identity from the kitchen direction (UI07)
+
+Status: accepted and locally verified for UI07, 2026-10-10 JST.
+Implementation `94b9ae3f889781e58999c3fe3a21a0f265d3a5cb` verified against Git objects.
+Full274files/6551tests PASS;focused82;browser41checks/45PNG/6journeys. Owner/device/
+remaining routes/hosted/release remain; evidence `../ui-rebuild/round-7/VERIFICATION.md`.
+Packet: `tasks/UI07-brand-kit.md`; builds on ADR-044 through ADR-049.
+
+The supplied chef-hat/leaf uppercase kit and the UI01 kitchen prototype diverge;
+public icons/OG still identify the older kit. Finish the existing kitchen direction
+as a reviewable digital system: simple octopus, lowercase licensed outlined
+wordmark, optical micro, horizontal/stacked and reversed/one-color variants.
+Preserve the displayed Takosan spelling and all technical IDs/domain/commands.
+
+Keep new masters/exports under /takosan/rebuild and retain every supplied/legacy
+path and TAKOSAN_BRAND for remaining surfaces. Update browser metadata and add new
+assets to the existing release-aware precache. No cache policy, auth/payment UI,
+Worker, schema, migration, production flag or dependency change. Default generator
+uses repository vector masters; explicit supplied-kit invocation remains supported.
+
+Persistent desktop sidebar owns the lockup; header shows the existing motto.
+Mobile/tablet and immersive workflows keep accessible header identity. Layout mode
+comes from AppLayout, not route duplication inside Header. Verify actual render,
+small-size readability, pixel safe zones, export determinism and full gates.
+
+Local verification is a digital direction checkpoint, not final owner approval,
+trademark/recognition/usability research, physical install or production release.
+Remaining route and mascot adoption needs its own scoped inventory/packet.
+
+---
+
+# ADR-049 - Planner workspace and truthful shopping presentation (UI06)
+
+Status: accepted and locally verified for UI06, 2026-10-10 JST.
+Implementation `c441e194b0fe861fc1e3f81747e6346c30266f09`.
+Full272files/6533tests PASS;browser59checks/91PNG/21journey groups (repeated across
+V2/V1/mismatch). Independent/device/hosted/release review remains; evidence
+`../ui-rebuild/round-6/VERIFICATION.md`.
+Packet: `tasks/UI06-planner-shopping.md`; builds on ADR-044/046/048/031.
+
+Keep the canonical /planner and legacy /week flag routing, V1/V2 DTOs and all
+server commands intact. Present dates as a responsive day board, setup as a
+readable form with context, and shopping as a summary plus explicit demand list.
+Do not introduce recipe media or new arithmetic. Partial/unplanned/stale/unknown
+prices, untracked components and temporary recommendation checks stay explicit.
+Remove the looping legacy link in favor of a real /shopping saved-list destination.
+
+A pathname-keyed workspace owns async UI callbacks. Changing subroute unmounts
+the old workflow; existing private-session guards and query caches remain. A late
+server commit may exist and must be read on return, but cannot navigate/accept into
+an abandoned screen. Generation keys remain stable while retrying on that screen.
+
+Saved shopping exposes positive fractional quantity and the eight wire units,
+keeps blank invalid, confirms removal and labels verified queued writes. Its
+existing server/client item identity and durable outbox are retained. Return a
+pendingSync receipt for toggle/delete without changing HTTP payloads. Local cache
+projection must not re-read the server after a committed mutation or duplicate an
+already queued client ID. No inventory mutation is introduced by any check.
+
+No production flag/schema/dependency/Worker/payment/auth/infrastructure change.
+Full final brand kit, legacy detailed workflows, account/settings and release
+remain separate packets. Validate actual local V1/V2/mismatch/aliases and shopping
+flows, then full repository gates; local QA is not production certification.
+
+---
+
+# ADR-048 - One cooking review and immutable completion attempt (UI05)
+
+Status: accepted and locally verified for UI05, 2026-10-10 JST.
+Implementation `cef5acb5a21964fb58d4886fb58ffd098e54fe89`. Full270files/6514tests PASS;
+focused70; browser32checks/55PNG/12journeys. Independent/hosted/device/release
+review remains; evidence `../ui-rebuild/round-5/VERIFICATION.md`.
+Packet: `tasks/UI05-cooking.md`; builds on ADR-044/045/047.
+
+## Problem and decision
+
+The two completion surfaces diverge in errors/session fences and hide pendingSync.
+Their coarse +/- controls cannot enter fractional actual use. Retrying generates
+another command ID. Voice callbacks capture the original step. The tick countdown
+loses background time and leaves running true at zero; empty steps can crash.
+
+Share one review component and an in-memory cooking-run command snapshot. Inputs
+preserve blank and zero; strict sequential availability checks prevent duplicate
+rows spending the same compatible stock. Freeze payload and key on first confirm.
+Unknown transport/response/5xx failures allow only same-key/same-payload retry.
+Known 400/409/422 rejections permit explicit fresh authoritative inventory fetch
+before unlocking edits with a new key. Idempotency-conflict and access errors do
+not auto-reset identity. Known safety rejection permits explicitly ending the
+rejected run to choose another recipe; it never resubmits that meal. Successful/
+queued results lock review and show their actual status until the user explicitly
+enters inventory. Cached offline reads cannot substantiate a fresh-stock claim. Worker remains sole mutation authority.
+
+Own lifecycle by run ID, recipe route and private session. Late results cannot
+reset another run or navigate an unmounted surface. Voice reads the current store
+step at callback time, stops on review/route/unmount, clears feedback timeouts.
+A deadline countdown accounts for elapsed wall time while open; pause stores
+remaining time, resume creates a new deadline, navigation resets it. Expiry alerts
+once per timer generation, not each render. Manual controls and existing live
+region/focus contracts remain. No claim of alarms when browser/OS suspends app.
+
+## Compatibility and limits
+
+No backend endpoint/schema/SQL/authority/migration change. Keep existing aliases,
+preparation availability, conversions, per-lot offline projection, session reset,
+Week invalidation and idempotency/outbox headers. Cooking-only service typing and
+response validation must preserve current callers. Offline projection uses stock
+from before the attempted mutation to avoid subtracting a lost-response commit
+again; an existing queued key must not project twice. Outbox persistence must be
+verified before claiming pendingSync. No new persistence of private drafts; warn
+on document exit while unsaved/uncertain. Prototype brand is not final brand kit.
+
+---
+
+# ADR-047 - Shared scan review presentation and truthful lifecycle (2026-10-10)
+
+Status: accepted and locally verified for UI04; independent/hosted review and
+release/device/usability validation remain. Full268files/6490tests PASS; focused188;
+browser29checks/51PNG/8journeys. Evidence: `../ui-rebuild/round-4/VERIFICATION.md`.
+Verified implementation: `85b86442257ae9573701c2df6107cd5e509cdade`.
+
+## Problem and decision
+
+Photo and receipt reviews duplicate fields and diverge in typography, unit labels,
+expiry status and action layout. ScanPage claims timed processing milestones with
+no server evidence. Adopt shared typed review fields and a scoped review header,
+summary and responsive action region within the existing prototype shell. Retain
+all route IDs, server ownership, extraction evidence and explicit confirmation.
+Keep canonical resolution on the existing server; display mapping limitations
+without a new static/catalog picker or implied confirmed remapping.
+
+Uploading is an in-flight request, not a claimed completed queue/AI stage. Pending
+and processing DTOs alone determine queued/analyzing presentation. No artificial
+percentage or timer-based completion. Elapsed time remains visible but not live
+announced every second; reduced motion is respected.
+
+Accepted fields must be valid independently of native form submission. Rejected
+photo rows disable fields and submit ID+rejection so invalid discarded edits do
+not block durable rejection. Synthetic offline confirmation skips rejected rows,
+validates accepted quantity rather than inventing 1, and reports pendingSync
+only when synthetic imports enqueue at least one item. All-rejected imports
+produce no command and no claimed pending operation.
+Photo review retains that state until the user leaves review; it then clears the
+queued ready draft so returning must hydrate server state rather than editing
+the locally queued command; receipt retains
+its existing explicit pending toast. Camera effects own and stop their stream.
+
+## Compatibility and limits
+
+No endpoint/schema/migration or inventory command change; eight wire units,
+expiry flags, server extraction/price facts, quota, session fences, conflict
+refetch and Week link remain. No review draft persistence or new image read path.
+Only an explicitly bound in-memory image for a ready/confirmed matching scan
+may show a source preview (photo or authorized receipt); new reads cannot adopt
+an old preview merely by hydrating their scan ID. Review remains
+explicit: AI never writes stock before confirmation. Validation includes T13
+round trips, offline/rejection/invalid edits and local browser/full repository gates.
+
+---
+
+# ADR-046 - Additive discovery summaries and snapshot-fenced pagination (UI03)
+
+Status: accepted for local implementation, 2026-10-10 JST. Packet:
+`tasks/UI03-discovery-api-media.md`. Builds on ADR-044/045/026/025.
+
+## Problem
+
+UI02 limits DOM to24 but downloads full recipe requirements/steps for every result.
+Legacy recommendations treat cuisine/time as score preferences, while discovery
+needs hard filters. Ranking depends on household stock; unfenced offset links can
+silently duplicate/skip dishes after inventory or catalog changes. Fresh local D1
+contains429 imported dishes sharing one decorative pasta illustration. Several
+legacy global dishes reuse unrelated food photographs; Unsplash mappings have no
+repo evidence proving each image depicts the named dish.
+
+## Decision
+
+Add `GET /api/v1/recipe-discovery`, authenticated under existing middleware, with
+strict Zod request/response schemas and no-store responses. Use one existing
+recipe authority snapshot and a strict household inventory read per request.
+Filter full catalog before the existing quantity-aware ranker; resolve score,
+match percentage and time ties by stable recipe ID. Slice only after ranking.
+Return small card summaries, total/page/pageSize/pages and previous/next cursors;
+media enrichment reads only the selected IDs. Recipe detail remains independent.
+Recipes defaults24; Home requests3. Old endpoints, scoring and command consumers
+are unchanged. No database migration or parallel catalog authority is introduced.
+
+Cursor encodes version, target page and SHA256 witness over normalized filters,
+page size, user/household, catalog source/fingerprint and sorted inventory fields
+used by quantity/ranking (plus available version identifiers). It contains no raw
+identity or stock. It confers no access: the current authenticated inputs must
+produce the same witness. Malformed/page-mismatched cursor400; changed witness409
+`DISCOVERY_SNAPSHOT_CHANGED`. UI shows explicit restart with same filters/page1.
+An unfenced direct page URL uses current data and clamps to current pages. Links
+carry cursors for refresh/back/detail-return; changing filters removes the cursor.
+This is stateless snapshot-fenced offset pagination, not persistent historical
+snapshots or database keyset paging. No HMAC secret is needed because the witness
+cannot select stock/catalog or bypass authorization and only compares current data.
+
+Frontend shares the contract, validates responses, retains transport/session
+fences, uses the existing scoped recommendations cache prefix for inventory
+invalidation, and labels offline static-catalog/local-inventory results. Offline
+source has its own witness; switching source invalidates fenced navigation.
+`src/web/services/recipe-discovery.ts` is an explicitly approved offline static
+reader in the T14D audit allowlist; server discovery only accepts its routed
+RecipeAuthoritySnapshot. The unknown-reader guard remains enforced.
+
+Media quarantine lives in shared presentation policy: generic illustration,
+precise confirmed recipe/path mismatches, and known legacy Unsplash mappings
+without dish review. Raw URLs/release fingerprints/migrations stay intact;
+ready canonical media wins and its failure falls only to an allowed legacy image
+or neutral placeholder. Audit records URL reuse separately from duplicate bytes,
+local file SHA/dimensions, pending media, and unknown license/provider provenance.
+No generated replacement or claim of new verified photo coverage.
+
+## Limits and compatibility
+
+Server still loads the authoritative full catalog and evaluates candidates for
+household ranking each request. This reduces transfer/DOM and bounds media reads,
+not catalog hydration/CPU. Canonical media may change independently of ranking.
+Legacy APIs retain their payloads and source selection. A fail-closed strict
+inventory read is specific to the new endpoint; no legacy reader behavior changes.
+No payment/auth/command/Week/flag/infrastructure or remote operations.
+
+Validation: API all-page coverage/filter/no-buy/source/stock/session fixtures;
+mounted URL/loading/recovery tests; real local Worker/browser/network/axe checks;
+full pnpm check exit0,266files/6468tests;15browser axe/layout checks,0violations.
+Verified implementation `dbba0535f66b585ff3bdedb27894ee72b57872d1`; exact commands,
+failures/repairs and limitations in `../ui-rebuild/round-3/VERIFICATION.md`.
+
+---
+
 # Architecture Decisions
+
+## ADR-045 - Home plan authority and scoped daily discovery
+
+**Status:** Accepted for local UI02 implementation on 2026-10-10 under the user's
+request to continue one milestone; release remains a separate activity.
+
+**Problem:** Home reads legacy Week even when Planner uses canonical meal-planning.
+Home can therefore claim no plan for a household with an active future plan.
+Composition may supersede a V1 anchor. Header/identity differ between rebuilt pages
+and navigation; discovery loses filters on reload and renders500 rows at once.
+
+**Decision:** Select the current-plan query using the existing planner UI flag and
+reuse its household-scoped key. Read canonical DTOs through the existing validated
+client; keep the legacy Week path when the flag is off. A pure presentation adapter
+uses canonical fixed-offset dates and intent slots, with distinct upcoming/past/
+no-today states. Home links to meal detail for authoritative composition handling.
+Use shared composition reads when enabled. Never show V1 titles on pending/error/
+missing/revision-mismatched composition; only UI-off or explicit404 permits V1.
+V2 components can fill originally unplanned slots. An explicit server V1 projection
+retains a family-variant anchor, matching existing Planner compatibility; it does
+not permit fallback on uncertain reads or an empty V2. Explicit future slot times
+remain eligible beyond the default meal window. Do not derive current-stock or
+food-safety claims from the planning projection or manufacture budget data.
+
+A shared header/page heading and prototype shell apply only to the four migrated
+route families. Navigation keeps its current IA/Scan and defaults elsewhere;
+payment/auth presentation and commands remain protected. Store validated recipe
+filters and page in URL, preserving unrelated parameters. Client pagination shows
+24 results and searches the entire returned set. Native filter disclosure collapses
+on smaller devices and defaults open from1280px; active count remains visible.
+Recipe detail returns to its accepted originating Home/catalog context.
+This is a DOM/UX improvement,
+not a smaller API response: server list DTO/cursor design remains UI03.
+
+**Compatibility:** No schema, migration, flag, dependency, server contract or
+payment/auth/infrastructure changes. Existing Week and canonical planner keys are
+retained. No stock/cooking/planning mutations are introduced. Rollback is source
+only; there is no persisted-data conversion. Browser tests are synthetic/local.
+
+## ADR-044 - Quantity evidence and a scoped interface rebuild foundation
+
+**Status:** Accepted for local implementation on 2026-10-09 under the user's
+instruction to start the Tako-san UI rebuild; remote release requires separate work.
+
+**Problem:** The legacy matcher treats compatible but insufficient stock as
+no-buy. Detail checks only positive stock and shopping posts the whole demand.
+The generic image fallback depicts a different dish. Filter emptiness is presented
+as an empty fridge. The accepted audit roadmap calls for a more mature visual system.
+
+**Decision:** Reuse T02's lot index/reservation arithmetic in an explicit
+quantity-only adapter for the legacy matcher, detail and cooking drafts. Preserve
+existing type-match percentage and ranking weights; no-buy requires satisfied
+required demands. Add optional `ingredientAvailability` evidence to the result;
+keep existing fields and full required lines in `missingRequiredIngredients` for
+compatibility. Only a known positive `missingQuantity` may be posted to shopping.
+Unknown/contextual conversion requires review, never a guessed shortage.
+
+This adapter projects quantity, identity, unit and freshness, with no expiry dates:
+the fixed index date is inert. It does not certify expiry/allergen safety, replace
+planner eligibility or authorize stock consumption. Existing authenticated inventory
+readers own household scope. Real lot IDs retain duplicate detection; legacy inputs
+without IDs receive deterministic per-row IDs. Required lines reserve before optional
+lines, so repeated demands cannot double-spend stock. Cooking commands/FEFO/session
+and revision fencing remain server-owned and unchanged.
+
+Use a neutral SVG image fallback. Keep valid canonical/legacy media resolution.
+Distinguish true empty inventory from empty search/filter results. Apply the prototype
+palette/Be Vietnam Pro and responsive typography only within rebuilt inventory/detail
+surfaces. Existing global brand and protected payment presentation remain intact until
+subsequent component migration. The name remains Takosan per current identity contract.
+
+**Compatibility:** No schema, migration, catalog, flag, dependency, auth, payment or
+production-infrastructure change. The additive evidence is optional for old clients
+and mocks; rebuilt detail recomputes against its inventory query. No-buy semantics
+become stricter as intended. Legacy contextual stock may now require checking.
+Rollback source/UI together; no data or composition records need removal.
+
 
 ## ADR-043 — T20 hiển thị composition có thẩm quyền và kiểm tra prerequisite trên cả hai môi trường
 
@@ -1738,3 +2117,289 @@ Plus. New explicit checkout attempts create independent intents; single-flight
 browser requests prevent double-click duplication. No cancel/refund automation
 or claim of live-provider certification is introduced. Operators must separately
 verify PayOS configuration/webhook delivery and approve deployment.
+
+## ADR-053 - Truthful Week compatibility and UI07 identity
+
+**Status:** Accepted and locally verified 2026-10-10; UI10 implemented from
+`3c018d7778a780f5759d967e62d58440e4e08c2d`.
+
+**Decision:** Remove the unsupported, unsent day-schedule step and expose four
+real setup stages. Week settings explicitly edit the next-generation in-memory
+session draft; no durable/current-plan save claim or delayed navigation. Replace
+ignored priority regeneration with review in setup. Preserve unlimited null budget,
+defaulting only undefined. Await clipboard/share receipts, report failures inside
+the existing focus-trapped dialog and fence abandoned completions. Pass through
+the service's existing optional pendingSync in completeShopping only; queued copy
+cannot claim server-confirmed import or durable offline persistence.
+
+Six Week pages and four components adopt UI07 typography, assets and tokens through
+a shared scoped workspace, exact route boundaries, responsive day board and modal
+scroll/safe areas. Availability, budget and waste remain plan projections; recipe
+nutrition absence remains unknown. Existing queries, services, StrictMode command
+reuse, private-session fencing, selected-item snapshots, import/cook authorities,
+Week dual-write and planner-on redirect aliases remain authoritative.
+
+**Boundary:** No backend/packages/schema/migrations/dependencies/auth protocol/
+payment/production configuration or remote writes. Only store change is optional
+pendingSync pass-through. Durable Week outbox receipt/projection replay, inventory
+fallback authority and global mobile navigation are separate packets. Local QA
+cannot establish brand owner approval, device/Safari/usability/CWV or hosted release.
+
+**Verification:** Runtime and 11 files / 192 focused tests PASS; 61 browser
+snapshots / 11 journeys, seven planner-on aliases and six native-keyboard E2E
+projects PASS. A full run exposed six stale earlier route assertions and one
+Wrangler timeout. The route assertions now match accepted Week adoption, retain
+negative boundaries and add four positive cases; recovery 5 files / 128 PASS.
+Wrangler passes unchanged in reproduction/recovery and the final full run.
+Final pnpm check exit0: 283 files / 6653 tests PASS, Vitest393.63s;
+type/lint/migration smoke/Vite3.12s/WorkerTS PASS. Source143 and public build assets51
+verified after full. Implementation `89bddf821ea4f74d639f0779febd78606bdf617f` verified: all 143 source hashes,
+144 evidence payloads and manifest 29760 bytes/SHA256
+`7ac94d4590e8c449ca4a1046e330871db4ce650bfda80329625595ac4d5618ab` match Git blobs/worktree.
+Protected diff empty and tree clean after implementation; documentation checkpoint
+follows. No timeout/config was weakened. Round-10 reports retain failed runs, generic UX
+FAIL151/29/968/82 and dependency41 advisories, and distinguish synthetic receipts
+from real Worker commands. UI11 navigation packet is ready; runtime not started.
+
+## ADR-054 - Measured kitchen navigation and shell offsets
+
+**Status:** Accepted 2026-10-10; locally verified; final full and Git-object checks PASS.
+Verified implementation `74adf20db00f77c63ba47085362c621b56e050fc` on 2026-10-11 JST.
+Source160/evidence271/publicassets99 and manifest verified against Git/worktree;
+receipt `../ui-rebuild/round-11/GIT_VERIFICATION.md`. Owner/device/release remain.
+
+**Problem/evidence:** Local Chromium audit from 13cef9f captures ten states.
+At320px computed text x2 the six-cell69px mobile bar has three label-overlap
+pairs and text below the viewport. Tablet10px labels truncate at x2; short768x420
+shrinks icon rows and clips labels. Header with back/brand/notifications/account
+already uses312px at320, so adding Scan in that row is not viable.
+
+**Decision:** Kitchen-only mobile navigation contains the five existing roots,
+full12px wrapping labels, intrinsic height, static active surface and real links.
+An em-based grid reflows to two rows under enlarged text instead of breaking words
+to force five cells on one row; the measured bar reserves the resulting height.
+Scan remains an explicit labelled44px-minimum action in a second header row on
+mobile; scan review pages adopt the same KitchenHeader for persistent access. Tablet uses a112px scrolling rail with14px wrapping labels; desktop keeps
+256px and a labelled Scan action. Rail owns brand from640px, header owns it below.
+On short viewports the header and page actions flow normally so editing space
+is available; navigation itself remains reachable. No new root/drawer or asset.
+
+Kitchen active states use segment boundaries, including inventory-reconciliation
+under stock. Shopping and scan review remain contextual with no selected root;
+Scan link itself marks the scan family. Planner/Week destination still follows
+the existing build flag. Legacy default navigation/API retains its existing kit,
+six-cell layout and matchers; protected surfaces are not migrated.
+
+One kitchen shell measurement contract owns --kitchen-nav-height (actual visible
+mobile bar including safe area), --kitchen-header-height, --kitchen-banner-height,
+--kitchen-action-reserve and --kitchen-rail-width. ResizeObserver watches shell
+chrome; child-list changes rebind late route/header/actions; route cleanup restores
+root scrolling offsets. Main padding reserves nav and fixed page actions; scan review sticky
+actions occupy their existing flow and clear nav. Settings actions are fixed
+under kitchen scope: text x2 proved a fieldset-start clamp can hide sticky Save
+behind the bar before its parent reaches the visible viewport. Short-height
+settings actions remain in-flow. Focused main controls are kept
+between visible chrome; dialogs retain their own focus/scroll authority. Inventory
+Add, recipe Cook, settings StickyActions, scan review and unused BottomCTA all
+consume this contract under kitchen scope. Short<=600px actions become in-flow.
+
+**Compatibility/boundary:** App route/guard source, callbacks, commands, stores,
+services, backend/packages/schema/migrations/public/dependencies/auth/payment/
+production flags/config remain unchanged. Existing UI07 identity, immersive
+camera/cooking/onboarding/auth and protected/legacy shell remain. Synthetic text
+magnification and safe areas are explicit checks, not native zoom/device claims.
+
+**Plan/acceptance:** Implement variants and measured shell; meaningful contracts
+for five destinations, Scan, flag, active boundaries, immersive/legacy and observer
+cleanup. Browser seven widths320..1440, short390x420 and768x420, text x2, keyboard,
+dialog return, focus/offset/brand checks across all packet route families and both
+planner flags. Preserve inventory JSON for read/navigation journeys. Freeze source/
+evidence, focused/type/lint/full pnpm check, fresh guideline/UX/dependency review,
+local implementation commit and Git-object verification, then documentation
+checkpoint. No push/PR/deploy. Device/Safari/usability/CWV and separate offline/media/
+dependency risks remain. Runtime may be refined from measured failures and recorded.
+
+
+**UI11 verified adjustments:** em grid uses two rows at computed text x2;
+settings toolbar is fixed after observed fieldset clamping; action buttons use
+intrinsic heights/1.4 line-height; ResizeObserver explicitly observes border-box
+so padding-only safe-area changes update measured offsets. Browser115checks/
+16journeys, flag-off24/1, seven aliases and E2E19PASS/5once-onlySKIP39.6s. E2E
+public assertion was stale from pre-UI08 mascot and now covers actual stacked entry;
+no runtime/timeout change. Protected patches restore base bytes exactly. Generic
+UX154/30/977/85FAIL (earlier980warnings) and dependency41advisories remain; final
+full/Git verification and implementation hash are recorded in this ADR and receipt.
+
+
+**Final UI11 gate:**285files/6685tests PASS,Vitest344.71s,type/lint/migration
+smoke/Vite2.97s/WorkerTS PASS. Final focused14files/255PASS6.34s. Four scan fixture
+suites recovered without runtime/authority changes; unchanged Wrangler startup
+then exposed expired update-check cache under full-gate TMPDIR. Logs isolate delay
+before local D1; exact-env recovery32PASS3.77s/case1206ms,full suite32PASS2711ms.
+No manual cache/dependency/timeout/config edit. Source160 and all99publicTakosan
+build assets verify after full; remote gates remain skipped. Git checkpoint verified:
+160 source records, 271 evidence payloads, 99 public assets and manifest match
+480 unique Git blobs/worktree. Manifest55364bytes/SHA256
+`42892dfeaaa814df6203eb470ecd1f35850dbd6d3d7af69ec5a4976eec9c61bc`.
+Protected base-to-implementation diff empty; tree clean after implementation;
+diff-check PASS. Following documentation checkpoint records the verified hash
+without including its own hash. UI12 runtime not started.
+
+## ADR-055 - Readable recipe journey and honest media states (UI12)
+
+**Status:** Accepted before runtime, 2026-10-11 JST; local gates PASS, Git objects verified.
+Base `f7a27c16ef460b19322d3a463dc74dc09fa48ade`, canonical vn-tak/Tako-san.
+
+**Evidence:** Ten real local baseline captures across Home, discovery and all
+three detail panels at320px, normal/computed text x2. Direct images show clipped
+hero badges, overlapping quantity/availability text, overlapping tabs and nutrition
+labels escaping their four-column cells even at normal text. Existing px-based
+line heights fail after font enlargement. The216px missing hero dominates mobile;
+Home row titles and card descriptions truncate. Media re-audit:500 local migrated
+recipes,71 static,6 allowed legacy mappings,494 canonical mappings needing review
+or correction; all500 local canonical media rows pending. This is not live state
+or photo-license certification. A Vite optimizer conflict during audit required a
+preview restart; no application or configuration fix is implied by that failure.
+
+**Decision/scope:** Complete one coherent recipe presentation slice: explicit
+kitchen RecipeCard variant for Home/discovery, shared RecipeMedia presentation,
+recipe detail/state/panels and responsive discovery controls. Retain UI07 identity
+and UI11 shell. Full titles, readable availability/time/servings, labels instead of
+an unexplained percentage, compact neutral missing-photo treatment, intrinsic line
+heights/controls and adaptive tab/nutrition grids. Existing default card variants
+retain their rendering. Existing resolver and legacy media policy stay unchanged;
+new media view consumes the resolved src/fallback only, updates state on load/error,
+falls through permitted legacy to an HTML missing-photo panel, stops retries and
+resets synchronously when title/src/fallback changes. No placeholder image request
+is needed, no new raster or public asset. Local photos remain compatibility media,
+not a claim of verified provenance. No source/license invention or AI food image.
+
+Detail keeps all query/404/error branches, retry handlers, availability arithmetic,
+shopping aggregation/mutation and cooking authority unchanged. JSX and scoped CSS
+may change; domain declarations/callbacks must match base. No raw imageUrl reads,
+new catalog mapping, canonical promotion, command/store/service/schema/guard or
+payment/auth change. Short-height recipe overview is in normal flow; sticky filters
+consume measured UI11 header/banner tokens. Reduced-motion CSS is scoped to the
+new recipe/card surfaces; no new decorative animation is required.
+
+**Sequence/acceptance:** Audit migrated route families/states and source media;
+implement chosen slice; test media load/error/reset and retained Link/modifier
+semantics; browser seven widths320..1440, computed x2 at320/768, short390x420 and
+768x420, three panels, long content, no nutrition and media fallback stages. Exercise
+keyboard tabs/Home/End, native card/back/filter/pagination, recipe loading/404/error
+retry and inventory failure without stock writes. Verify other migrated families
+and both Planner flags, one brand and UI11 nav/action/focus contract. Inventory JSON
+must equal before/after read journeys. Capture failed/final evidence and fresh
+interface guideline review; focused/type/lint/full pnpm check. Freeze source/public
+assets/evidence; local implementation commit, Git-object verification, documentation
+checkpoint with verified hash. No push/PR/deploy/remote writes. Owner/device/Safari/
+native zoom/virtual keyboard/screen-reader/CWV/hosted/whole-product approval and
+licensed catalog photography remain distinct follow-ups.
+
+**UI12 local result:** Full286files/6702PASS352.41s,type/lint/migrations/buildPASS;
+focused86,new17;browser218structuredcases/26main-off-statejourneys,applicableaxe/
+overflow/brokenimages/pageerrors/recipeclipping0. Source374frozen,96page lifecycle
+records/legacycard JSX unchanged;protected diffempty;public256copies+existingSW
+build-IDtransform. Baseline777Gitblobs verified;10finalcomparisonclip0. Localmedia
+500pending,24demandrecipes/8assets plan;genericUXFAIL157/31/989/86,41advisories.
+Ownedpreviews stopped/sixportsclosed. No protected/remote change or release.
+Implementation `03e16c78850b061784dc2e9a01323bd7e74b65f3`; source374/evidence349/public257/manifest match724uniqueGitblobs;39logreceipts/7rawgzip
+match. Manifest71599bytes/SHA256
+3c7ff61129ff0d14dd9e04c1053567b3e891d438821a7c118f3cb4716bb66e02.
+Documentation checkpoint follows,does not name itself. UI13-local-media-review
+only next,not started.
+
+## ADR-056 - Local recipe media review board (UI13)
+
+**Status:** Accepted before implementation, 2026-10-11 JST.
+Base `5da802735c318c56505bed85a133b049728afb39`; exact base is recorded in round-13/PLAN.md before coding.
+
+**Problem/evidence:** UI12 confirms500local canonical media rows pending. The24
+observed discovery recipes contain4permitted local photo mappings and20missing
+presentations. Eight local assets have hashes but no established per-image rights
+receipt. Matching recipe-source metadata, a renderable URL or a hash does not
+prove image provenance, subject approval or permission to promote media.
+
+**Decision:** Build a standalone local review board from pinned UI12 demand plus
+fresh read-only mapping verification. Preserve current resolver output separately
+from proposed local candidates. Show eight original local assets and CSS card/hero
+crop previews; do not create raster derivatives or fetch remote photos. Reuse UI07
+vector/font/palette. Native search/filter/links/dialog, labelled notes, meaningful
+unknown states, memory-only draft, explicit JSON export/import and keyboard focus.
+
+A shared validator checks dataset identity, unique complete recipe records,
+allowlisted local asset references, decision enums and required evidence fields for
+an owner-reviewed claim. Human claims remain claims: structural validation never
+grants catalog promotion or verifies licensing. Reject unknown/missing records and
+unsafe local paths; imported notes are rendered as text. No backend/auth/store/
+resolver/catalog/public-master/dependency/config edit. No push/PR/deploy/media write.
+
+**Acceptance:** 24records/8asset hashes trace to pinned sources; fresh mapping and
+current resolver match receipts. Board works at320..1440,textx2,shortscreens,keyboard
+and accessible dialog; imported invalid drafts leave current draft intact. Export
+roundtrip retains all notes/choices; no network/domain write or remote image load.
+Meaningful validator tests, actual browser interactions, deterministic generation
+check and local configured gates. Update state/board/handoff; implementation commit,
+Git-object verification and following documentation checkpoint. Owner/photo/device/
+production approval remains separate.
+
+**UI13 local result:** Review board/generator/validator/readonly preview complete,
+24 pending records/eight byte-verified originals, four permitted current photos.
+Rights remain unknown, human evidence claims never authorize promotion. Resolved
+text clipping, reverse Tab, late import races and 256 KB versus valid-export size
+mismatch (3 MiB bound + full-size/oversize tests). PASS exit 0: 287 files / 6,737 tests, Vitest 357.58s; typecheck/full lint/local migration smoke/Vite 3.06s/Worker TypeScript PASS; remote gates skipped.
+Final focused/browser/supplemental and integrity receipts in round-13. Generic UX
+FAIL31 issues/1,006 warnings and 41 dependency advisories retained. Entire src/
+protected/public source unchanged; no remote operation. Implementation:
+`021220bbcb883360ba79b8101ff9586a67ebc4ae`. Git-object receipt follows; docs
+checkpoint names verified implementation, not itself. UI14 ready only.
+
+## ADR-057 - Defer the optional navigation motion engine (UI14)
+
+**Status:** Accepted before runtime change, 2026-10-11 JST.
+Base `f3a09f2a7beb548fbd4bc9ef8ae932a092dd3827`, canonical vn-tak/Tako-san.
+
+**Evidence:** Fixed-timestamp production build entry is 463,601 raw / 128,900 gzip
+bytes. Source map places full motion projection/drag features in the entry through
+MotionProvider/helpers sharing one module and eager legacy navigation motion.span.
+The kitchen shell has static indicators and does not use this engine. First local
+Chromium/CDP smoke, CPU4/60ms/200KBps: 226,429–240,255 JS transfer bytes on these
+three routes; no domain writes and inventory unchanged. Cold/warm repeated
+baseline is now running; no field CWV claim. Offline catalog/domain modules and
+public font cache policy are also observed, but protected in this packet.
+
+**Decision:** One bounded delivery optimization: separate the lightweight
+MotionConfig provider from motion helper/engine modules, and defer the optional
+legacy navigation indicator until that branch is actually mounted. Preserve the
+existing shared layoutId, classes and transition in the loaded indicator. While
+loading or if importing fails, keep the same static active highlight; navigation
+links/content remain immediate and never depend on animation success. Fence late
+module receipts on unmount; share the import promise across active indicators.
+
+App.tsx changes only the provider import source; name, ancestry, routes, guards,
+callbacks and flag behavior must otherwise be byte-equivalent. Existing motion
+module continues re-exporting MotionProvider for caller compatibility. Kitchen
+navigation markup/selection authority is unchanged. No global CSS motion redesign,
+new library/asset/font, public/cache/production config or services/stores change.
+
+**Acceptance:** Same fixed build flags/timestamp, fixture and CDP conditions before
+and after; repeated local measurements demonstrate initial JS transfer reduction.
+Verify engine not requested on kitchen Home/discovery/detail, loads on actual
+legacy indicator use, and static fallback survives import error/abandoned mount.
+Normal/reduced motion and navigation/focus/recipe tabs/back/media/read-only flows
+work; responsive/short/text x2/axe checks and configured gates. Source/build/map
+receipts and protected proof, logged failures, local implementation commit,
+sequential Git verification and documentation checkpoint. No hosted/device/photo
+approval or production deployment follows from this local optimization.
+
+**UI14 local result:** Exact production entry463601→336308raw; gzip6
+129276→87619. Repeated cold route JS saves41650/41650/41652bytes (17.3–18.4%);
+warm JS0, timings bounded lab only. No optional engine requested by kitchen routes.
+PASS288files/6742tests/370.67s,type/lint/migrations/build;50settled snapshots/5journeys,
+4actual legacy journeys,2baseline probes,short focus supplemental. Static links
+survive delayed/rejected chunks. Reduced first-frame projection equals baseline;
+no claim of zero spatial frames. Axe mid-fadecontrast remains a measured residual,
+final stable snapshots clean. UI15 short-screen/readability next, not started.
+396source frozen,protected/App/helpers/public proofPASS;four previewports closed.
+Failures/helperUXFAIL/41dependency advisories archived. Implementation
+`7ee28bf48974e8faf52f78caa2b9a5b979953768`; Git-object receipt follows.

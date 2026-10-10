@@ -1,0 +1,11 @@
+
+ RUN  v3.2.7 /Users/tunbee27/Documents/Tako-san-ui-rebuild
+
+ ✓ tests/unit/staging-d1-catchup-check.test.mjs (32 tests) 2608ms
+   ✓ ephemeral staging D1-only catch-up config > is readable by Wrangler locally and lists only the prefix through the target  976ms
+   ✓ candidate SHA and hosted CI gates > requires the catch-up ref to equal current origin/main  719ms
+
+ Test Files  1 passed (1)
+      Tests  32 passed (32)
+   Start at  23:47:57
+   Duration  3.41s (transform 71ms, setup 12ms, collect 313ms, tests 2.61s, environment 0ms, prepare 78ms)

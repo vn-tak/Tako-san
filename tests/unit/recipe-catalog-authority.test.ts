@@ -49,6 +49,7 @@ const APPROVED_DIRECT_STATIC_READERS = new Set([
   'src/worker/services/recipe-catalog-shadow.ts',
   // offline browser fallbacks: the client bundle has no D1; when the API is unreachable it degrades to the static bank.
   'src/web/services/recipes.ts',
+  'src/web/services/recipe-discovery.ts', // ADR-046: labelled, session-fenced offline summary only.
   'src/web/services/week.ts',
   'src/web/pages/IngredientDetailPage.tsx',
 ]);

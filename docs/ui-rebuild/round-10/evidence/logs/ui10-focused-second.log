@@ -1,0 +1,1189 @@
+
+ RUN  v3.2.7 /Users/tunbee27/Documents/Tako-san-ui-rebuild
+
+stderr | tests/unit/ui08-onboarding-navigation.test.tsx > UI08 completion intent through actual App guards > today reaches its chosen destination after server confirmation
+⚠️ React Router Future Flag Warning: React Router will begin wrapping state updates in `React.startTransition` in v7. You can use the `v7_startTransition` future flag to opt-in early. For more information, see https://reactrouter.com/v6/upgrading/future#v7_starttransition.
+⚠️ React Router Future Flag Warning: Relative route resolution within Splat routes is changing in v7. You can use the `v7_relativeSplatPath` future flag to opt-in early. For more information, see https://reactrouter.com/v6/upgrading/future#v7_relativesplatpath.
+
+ ✓ tests/unit/week-route-serialization.test.ts (6 tests) 70ms
+ ✓ tests/unit/ui08-onboarding-navigation.test.tsx (6 tests) 542ms
+stderr | tests/integration/week-core-flow.test.ts > Week core HTTP flow (in-memory D1) > creates, reads, regenerates, and swaps a plan while preserving relational state
+{"level":"warn","limiter":"rl_week_w","reason":"kv-unbound","message":"Rate limiter degraded to isolate-local counters; enforcement is not globally reliable."}
+
+stderr | tests/integration/week-core-flow.test.ts > Week core HTTP flow (in-memory D1) > creates, reads, regenerates, and swaps a plan while preserving relational state
+{"level":"warn","limiter":"rl_gen","reason":"kv-unbound","message":"Rate limiter degraded to isolate-local counters; enforcement is not globally reliable."}
+
+stderr | tests/integration/week-core-flow.test.ts > Week core HTTP flow (in-memory D1) > creates, reads, regenerates, and swaps a plan while preserving relational state
+{"level":"warn","limiter":"rl_swap","reason":"kv-unbound","message":"Rate limiter degraded to isolate-local counters; enforcement is not globally reliable."}
+
+ ✓ tests/unit/week-reconciliation.test.ts (5 tests) 28ms
+stderr | tests/integration/frontend-ui-integration.test.tsx > real Home data rendered through the shared QueryClient > renders honest empty states without fake meal, budget, expiry items, progress, or notification badges
+Warning: useLayoutEffect does nothing on the server, because its effect cannot be encoded into the server renderer's output format. This will lead to a mismatch between the initial, non-hydrated UI and the intended UI. To avoid this, useLayoutEffect should only be used in components that render exclusively on the client. See https://reactjs.org/link/uselayouteffect-ssr for common fixes.
+    at MemoryRouter (/Users/tunbee27/Documents/Tako-san-ui-rebuild/node_modules/.pnpm/react-router@6.30.6_react@18.3.1/node_modules/react-router/dist/umd/react-router.development.js:1097:7)
+    at QueryClientProvider (file:///Users/tunbee27/Documents/Tako-san-ui-rebuild/node_modules/.pnpm/@tanstack+react-query@5.102.8_react@18.3.1/node_modules/@tanstack/react-query/build/modern/QueryClientProvider.js:12:32)
+Warning: useLayoutEffect does nothing on the server, because its effect cannot be encoded into the server renderer's output format. This will lead to a mismatch between the initial, non-hydrated UI and the intended UI. To avoid this, useLayoutEffect should only be used in components that render exclusively on the client. See https://reactjs.org/link/uselayouteffect-ssr for common fixes.
+    at LinkWithRef (/Users/tunbee27/Documents/Tako-san-ui-rebuild/node_modules/.pnpm/react-router-dom@6.30.6_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/react-router-dom/dist/umd/react-router-dom.development.js:807:9)
+    at div
+    at header
+    at KitchenHeader (/Users/tunbee27/Documents/Tako-san-ui-rebuild/src/web/components/common/KitchenHeader.tsx:9:3)
+    at TopBar (/Users/tunbee27/Documents/Tako-san-ui-rebuild/src/web/components/common/TopBar.tsx:9:3)
+    at div
+    at HomePage (/Users/tunbee27/Documents/Tako-san-ui-rebuild/src/web/pages/HomePage.tsx:161:65)
+    at Router (/Users/tunbee27/Documents/Tako-san-ui-rebuild/node_modules/.pnpm/react-router@6.30.6_react@18.3.1/node_modules/react-router/dist/umd/react-router.development.js:1203:17)
+    at MemoryRouter (/Users/tunbee27/Documents/Tako-san-ui-rebuild/node_modules/.pnpm/react-router@6.30.6_react@18.3.1/node_modules/react-router/dist/umd/react-router.development.js:1097:7)
+    at QueryClientProvider (file:///Users/tunbee27/Documents/Tako-san-ui-rebuild/node_modules/.pnpm/@tanstack+react-query@5.102.8_react@18.3.1/node_modules/@tanstack/react-query/build/modern/QueryClientProvider.js:12:32)
+Warning: useLayoutEffect does nothing on the server, because its effect cannot be encoded into the server renderer's output format. This will lead to a mismatch between the initial, non-hydrated UI and the intended UI. To avoid this, useLayoutEffect should only be used in components that render exclusively on the client. See https://reactjs.org/link/uselayouteffect-ssr for common fixes.
+    at LinkWithRef (/Users/tunbee27/Documents/Tako-san-ui-rebuild/node_modules/.pnpm/react-router-dom@6.30.6_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/react-router-dom/dist/umd/react-router-dom.development.js:807:9)
+    at div
+    at header
+    at KitchenHeader (/Users/tunbee27/Documents/Tako-san-ui-rebuild/src/web/components/common/KitchenHeader.tsx:9:3)
+    at TopBar (/Users/tunbee27/Documents/Tako-san-ui-rebuild/src/web/components/common/TopBar.tsx:9:3)
+    at div
+    at HomePage (/Users/tunbee27/Documents/Tako-san-ui-rebuild/src/web/pages/HomePage.tsx:161:65)
+    at Router (/Users/tunbee27/Documents/Tako-san-ui-rebuild/node_modules/.pnpm/react-router@6.30.6_react@18.3.1/node_modules/react-router/dist/umd/react-router.development.js:1203:17)
+    at MemoryRouter (/Users/tunbee27/Documents/Tako-san-ui-rebuild/node_modules/.pnpm/react-router@6.30.6_react@18.3.1/node_modules/react-router/dist/umd/react-router.development.js:1097:7)
+    at QueryClientProvider (file:///Users/tunbee27/Documents/Tako-san-ui-rebuild/node_modules/.pnpm/@tanstack+react-query@5.102.8_react@18.3.1/node_modules/@tanstack/react-query/build/modern/QueryClientProvider.js:12:32)
+Warning: useLayoutEffect does nothing on the server, because its effect cannot be encoded into the server renderer's output format. This will lead to a mismatch between the initial, non-hydrated UI and the intended UI. To avoid this, useLayoutEffect should only be used in components that render exclusively on the client. See https://reactjs.org/link/uselayouteffect-ssr for common fixes.
+    at LinkWithRef (/Users/tunbee27/Documents/Tako-san-ui-rebuild/node_modules/.pnpm/react-router-dom@6.30.6_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/react-router-dom/dist/umd/react-router-dom.development.js:807:9)
+    at div
+    at header
+    at KitchenHeader (/Users/tunbee27/Documents/Tako-san-ui-rebuild/src/web/components/common/KitchenHeader.tsx:9:3)
+    at TopBar (/Users/tunbee27/Documents/Tako-san-ui-rebuild/src/web/components/common/TopBar.tsx:9:3)
+    at div
+    at HomePage (/Users/tunbee27/Documents/Tako-san-ui-rebuild/src/web/pages/HomePage.tsx:161:65)
+    at Router (/Users/tunbee27/Documents/Tako-san-ui-rebuild/node_modules/.pnpm/react-router@6.30.6_react@18.3.1/node_modules/react-router/dist/umd/react-router.development.js:1203:17)
+    at MemoryRouter (/Users/tunbee27/Documents/Tako-san-ui-rebuild/node_modules/.pnpm/react-router@6.30.6_react@18.3.1/node_modules/react-router/dist/umd/react-router.development.js:1097:7)
+    at QueryClientProvider (file:///Users/tunbee27/Documents/Tako-san-ui-rebuild/node_modules/.pnpm/@tanstack+react-query@5.102.8_react@18.3.1/node_modules/@tanstack/react-query/build/modern/QueryClientProvider.js:12:32)
+Warning: useLayoutEffect does nothing on the server, because its effect cannot be encoded into the server renderer's output format. This will lead to a mismatch between the initial, non-hydrated UI and the intended UI. To avoid this, useLayoutEffect should only be used in components that render exclusively on the client. See https://reactjs.org/link/uselayouteffect-ssr for common fixes.
+    at LinkWithRef (/Users/tunbee27/Documents/Tako-san-ui-rebuild/node_modules/.pnpm/react-router-dom@6.30.6_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/react-router-dom/dist/umd/react-router-dom.development.js:807:9)
+    at div
+    at section
+    at div
+    at div
+    at div
+    at div
+    at HomePage (/Users/tunbee27/Documents/Tako-san-ui-rebuild/src/web/pages/HomePage.tsx:161:65)
+    at Router (/Users/tunbee27/Documents/Tako-san-ui-rebuild/node_modules/.pnpm/react-router@6.30.6_react@18.3.1/node_modules/react-router/dist/umd/react-router.development.js:1203:17)
+    at MemoryRouter (/Users/tunbee27/Documents/Tako-san-ui-rebuild/node_modules/.pnpm/react-router@6.30.6_react@18.3.1/node_modules/react-router/dist/umd/react-router.development.js:1097:7)
+    at QueryClientProvider (file:///Users/tunbee27/Documents/Tako-san-ui-rebuild/node_modules/.pnpm/@tanstack+react-query@5.102.8_react@18.3.1/node_modules/@tanstack/react-query/build/modern/QueryClientProvider.js:12:32)
+Warning: useLayoutEffect does nothing on the server, because its effect cannot be encoded into the server renderer's output format. This will lead to a mismatch between the initial, non-hydrated UI and the intended UI. To avoid this, useLayoutEffect should only be used in components that render exclusively on the client. See https://reactjs.org/link/uselayouteffect-ssr for common fixes.
+    at LinkWithRef (/Users/tunbee27/Documents/Tako-san-ui-rebuild/node_modules/.pnpm/react-router-dom@6.30.6_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/react-router-dom/dist/umd/react-router-dom.development.js:807:9)
+    at div
+    at section
+    at div
+    at div
+    at div
+    at div
+    at HomePage (/Users/tunbee27/Documents/Tako-san-ui-rebuild/src/web/pages/HomePage.tsx:161:65)
+    at Router (/Users/tunbee27/Documents/Tako-san-ui-rebuild/node_modules/.pnpm/react-router@6.30.6_react@18.3.1/node_modules/react-router/dist/umd/react-router.development.js:1203:17)
+    at MemoryRouter (/Users/tunbee27/Documents/Tako-san-ui-rebuild/node_modules/.pnpm/react-router@6.30.6_react@18.3.1/node_modules/react-router/dist/umd/react-router.development.js:1097:7)
+    at QueryClientProvider (file:///Users/tunbee27/Documents/Tako-san-ui-rebuild/node_modules/.pnpm/@tanstack+react-query@5.102.8_react@18.3.1/node_modules/@tanstack/react-query/build/modern/QueryClientProvider.js:12:32)
+Warning: useLayoutEffect does nothing on the server, because its effect cannot be encoded into the server renderer's output format. This will lead to a mismatch between the initial, non-hydrated UI and the intended UI. To avoid this, useLayoutEffect should only be used in components that render exclusively on the client. See https://reactjs.org/link/uselayouteffect-ssr for common fixes.
+    at LinkWithRef (/Users/tunbee27/Documents/Tako-san-ui-rebuild/node_modules/.pnpm/react-router-dom@6.30.6_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/react-router-dom/dist/umd/react-router-dom.development.js:807:9)
+    at div
+    at section
+    at div
+    at div
+    at div
+    at div
+    at HomePage (/Users/tunbee27/Documents/Tako-san-ui-rebuild/src/web/pages/HomePage.tsx:161:65)
+    at Router (/Users/tunbee27/Documents/Tako-san-ui-rebuild/node_modules/.pnpm/react-router@6.30.6_react@18.3.1/node_modules/react-router/dist/umd/react-router.development.js:1203:17)
+    at MemoryRouter (/Users/tunbee27/Documents/Tako-san-ui-rebuild/node_modules/.pnpm/react-router@6.30.6_react@18.3.1/node_modules/react-router/dist/umd/react-router.development.js:1097:7)
+    at QueryClientProvider (file:///Users/tunbee27/Documents/Tako-san-ui-rebuild/node_modules/.pnpm/@tanstack+react-query@5.102.8_react@18.3.1/node_modules/@tanstack/react-query/build/modern/QueryClientProvider.js:12:32)
+Warning: useLayoutEffect does nothing on the server, because its effect cannot be encoded into the server renderer's output format. This will lead to a mismatch between the initial, non-hydrated UI and the intended UI. To avoid this, useLayoutEffect should only be used in components that render exclusively on the client. See https://reactjs.org/link/uselayouteffect-ssr for common fixes.
+    at LinkWithRef (/Users/tunbee27/Documents/Tako-san-ui-rebuild/node_modules/.pnpm/react-router-dom@6.30.6_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/react-router-dom/dist/umd/react-router-dom.development.js:807:9)
+    at div
+    at section
+    at div
+    at div
+    at div
+    at HomePage (/Users/tunbee27/Documents/Tako-san-ui-rebuild/src/web/pages/HomePage.tsx:161:65)
+    at Router (/Users/tunbee27/Documents/Tako-san-ui-rebuild/node_modules/.pnpm/react-router@6.30.6_react@18.3.1/node_modules/react-router/dist/umd/react-router.development.js:1203:17)
+    at MemoryRouter (/Users/tunbee27/Documents/Tako-san-ui-rebuild/node_modules/.pnpm/react-router@6.30.6_react@18.3.1/node_modules/react-router/dist/umd/react-router.development.js:1097:7)
+    at QueryClientProvider (file:///Users/tunbee27/Documents/Tako-san-ui-rebuild/node_modules/.pnpm/@tanstack+react-query@5.102.8_react@18.3.1/node_modules/@tanstack/react-query/build/modern/QueryClientProvider.js:12:32)
+Warning: useLayoutEffect does nothing on the server, because its effect cannot be encoded into the server renderer's output format. This will lead to a mismatch between the initial, non-hydrated UI and the intended UI. To avoid this, useLayoutEffect should only be used in components that render exclusively on the client. See https://reactjs.org/link/uselayouteffect-ssr for common fixes.
+    at LinkWithRef (/Users/tunbee27/Documents/Tako-san-ui-rebuild/node_modules/.pnpm/react-router-dom@6.30.6_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/react-router-dom/dist/umd/react-router-dom.development.js:807:9)
+    at div
+    at section
+    at div
+    at div
+    at div
+    at HomePage (/Users/tunbee27/Documents/Tako-san-ui-rebuild/src/web/pages/HomePage.tsx:161:65)
+    at Router (/Users/tunbee27/Documents/Tako-san-ui-rebuild/node_modules/.pnpm/react-router@6.30.6_react@18.3.1/node_modules/react-router/dist/umd/react-router.development.js:1203:17)
+    at MemoryRouter (/Users/tunbee27/Documents/Tako-san-ui-rebuild/node_modules/.pnpm/react-router@6.30.6_react@18.3.1/node_modules/react-router/dist/umd/react-router.development.js:1097:7)
+    at QueryClientProvider (file:///Users/tunbee27/Documents/Tako-san-ui-rebuild/node_modules/.pnpm/@tanstack+react-query@5.102.8_react@18.3.1/node_modules/@tanstack/react-query/build/modern/QueryClientProvider.js:12:32)
+Warning: useLayoutEffect does nothing on the server, because its effect cannot be encoded into the server renderer's output format. This will lead to a mismatch between the initial, non-hydrated UI and the intended UI. To avoid this, useLayoutEffect should only be used in components that render exclusively on the client. See https://reactjs.org/link/uselayouteffect-ssr for common fixes.
+    at LinkWithRef (/Users/tunbee27/Documents/Tako-san-ui-rebuild/node_modules/.pnpm/react-router-dom@6.30.6_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/react-router-dom/dist/umd/react-router-dom.development.js:807:9)
+    at section
+    at div
+    at div
+    at div
+    at HomePage (/Users/tunbee27/Documents/Tako-san-ui-rebuild/src/web/pages/HomePage.tsx:161:65)
+    at Router (/Users/tunbee27/Documents/Tako-san-ui-rebuild/node_modules/.pnpm/react-router@6.30.6_react@18.3.1/node_modules/react-router/dist/umd/react-router.development.js:1203:17)
+    at MemoryRouter (/Users/tunbee27/Documents/Tako-san-ui-rebuild/node_modules/.pnpm/react-router@6.30.6_react@18.3.1/node_modules/react-router/dist/umd/react-router.development.js:1097:7)
+    at QueryClientProvider (file:///Users/tunbee27/Documents/Tako-san-ui-rebuild/node_modules/.pnpm/@tanstack+react-query@5.102.8_react@18.3.1/node_modules/@tanstack/react-query/build/modern/QueryClientProvider.js:12:32)
+
+ ✓ tests/integration/week-core-flow.test.ts (3 tests) 1039ms
+   ✓ Week core HTTP flow (in-memory D1) > creates, reads, regenerates, and swaps a plan while preserving relational state  379ms
+   ✓ Week core HTTP flow (in-memory D1) > completes cooking with FIFO deductions and protects replay from double-debit  368ms
+ ✓ tests/unit/week-planner.test.ts (15 tests) 67ms
+ ✓ tests/unit/week-shopping-route-policy.test.ts (6 tests) 7ms
+stderr | tests/unit/ui10-week-routes.test.tsx > planner on preserves /week → /planner
+⚠️ React Router Future Flag Warning: React Router will begin wrapping state updates in `React.startTransition` in v7. You can use the `v7_startTransition` future flag to opt-in early. For more information, see https://reactrouter.com/v6/upgrading/future#v7_starttransition.
+⚠️ React Router Future Flag Warning: Relative route resolution within Splat routes is changing in v7. You can use the `v7_relativeSplatPath` future flag to opt-in early. For more information, see https://reactrouter.com/v6/upgrading/future#v7_relativesplatpath.
+
+stderr | tests/integration/frontend-ui-integration.test.tsx > real Home data rendered through the shared QueryClient > derives the current meal, week progress, budget, and use-soon inventory from query data
+Warning: useLayoutEffect does nothing on the server, because its effect cannot be encoded into the server renderer's output format. This will lead to a mismatch between the initial, non-hydrated UI and the intended UI. To avoid this, useLayoutEffect should only be used in components that render exclusively on the client. See https://reactjs.org/link/uselayouteffect-ssr for common fixes.
+    at MemoryRouter (/Users/tunbee27/Documents/Tako-san-ui-rebuild/node_modules/.pnpm/react-router@6.30.6_react@18.3.1/node_modules/react-router/dist/umd/react-router.development.js:1097:7)
+    at QueryClientProvider (file:///Users/tunbee27/Documents/Tako-san-ui-rebuild/node_modules/.pnpm/@tanstack+react-query@5.102.8_react@18.3.1/node_modules/@tanstack/react-query/build/modern/QueryClientProvider.js:12:32)
+Warning: useLayoutEffect does nothing on the server, because its effect cannot be encoded into the server renderer's output format. This will lead to a mismatch between the initial, non-hydrated UI and the intended UI. To avoid this, useLayoutEffect should only be used in components that render exclusively on the client. See https://reactjs.org/link/uselayouteffect-ssr for common fixes.
+    at LinkWithRef (/Users/tunbee27/Documents/Tako-san-ui-rebuild/node_modules/.pnpm/react-router-dom@6.30.6_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/react-router-dom/dist/umd/react-router-dom.development.js:807:9)
+    at div
+    at header
+    at KitchenHeader (/Users/tunbee27/Documents/Tako-san-ui-rebuild/src/web/components/common/KitchenHeader.tsx:9:3)
+    at TopBar (/Users/tunbee27/Documents/Tako-san-ui-rebuild/src/web/components/common/TopBar.tsx:9:3)
+    at div
+    at HomePage (/Users/tunbee27/Documents/Tako-san-ui-rebuild/src/web/pages/HomePage.tsx:161:65)
+    at Router (/Users/tunbee27/Documents/Tako-san-ui-rebuild/node_modules/.pnpm/react-router@6.30.6_react@18.3.1/node_modules/react-router/dist/umd/react-router.development.js:1203:17)
+    at MemoryRouter (/Users/tunbee27/Documents/Tako-san-ui-rebuild/node_modules/.pnpm/react-router@6.30.6_react@18.3.1/node_modules/react-router/dist/umd/react-router.development.js:1097:7)
+    at QueryClientProvider (file:///Users/tunbee27/Documents/Tako-san-ui-rebuild/node_modules/.pnpm/@tanstack+react-query@5.102.8_react@18.3.1/node_modules/@tanstack/react-query/build/modern/QueryClientProvider.js:12:32)
+Warning: useLayoutEffect does nothing on the server, because its effect cannot be encoded into the server renderer's output format. This will lead to a mismatch between the initial, non-hydrated UI and the intended UI. To avoid this, useLayoutEffect should only be used in components that render exclusively on the client. See https://reactjs.org/link/uselayouteffect-ssr for common fixes.
+    at LinkWithRef (/Users/tunbee27/Documents/Tako-san-ui-rebuild/node_modules/.pnpm/react-router-dom@6.30.6_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/react-router-dom/dist/umd/react-router-dom.development.js:807:9)
+    at div
+    at header
+    at KitchenHeader (/Users/tunbee27/Documents/Tako-san-ui-rebuild/src/web/components/common/KitchenHeader.tsx:9:3)
+    at TopBar (/Users/tunbee27/Documents/Tako-san-ui-rebuild/src/web/components/common/TopBar.tsx:9:3)
+    at div
+    at HomePage (/Users/tunbee27/Documents/Tako-san-ui-rebuild/src/web/pages/HomePage.tsx:161:65)
+    at Router (/Users/tunbee27/Documents/Tako-san-ui-rebuild/node_modules/.pnpm/react-router@6.30.6_react@18.3.1/node_modules/react-router/dist/umd/react-router.development.js:1203:17)
+    at MemoryRouter (/Users/tunbee27/Documents/Tako-san-ui-rebuild/node_modules/.pnpm/react-router@6.30.6_react@18.3.1/node_modules/react-router/dist/umd/react-router.development.js:1097:7)
+    at QueryClientProvider (file:///Users/tunbee27/Documents/Tako-san-ui-rebuild/node_modules/.pnpm/@tanstack+react-query@5.102.8_react@18.3.1/node_modules/@tanstack/react-query/build/modern/QueryClientProvider.js:12:32)
+Warning: useLayoutEffect does nothing on the server, because its effect cannot be encoded into the server renderer's output format. This will lead to a mismatch between the initial, non-hydrated UI and the intended UI. To avoid this, useLayoutEffect should only be used in components that render exclusively on the client. See https://reactjs.org/link/uselayouteffect-ssr for common fixes.
+    at LinkWithRef (/Users/tunbee27/Documents/Tako-san-ui-rebuild/node_modules/.pnpm/react-router-dom@6.30.6_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/react-router-dom/dist/umd/react-router-dom.development.js:807:9)
+    at div
+    at header
+    at KitchenHeader (/Users/tunbee27/Documents/Tako-san-ui-rebuild/src/web/components/common/KitchenHeader.tsx:9:3)
+    at TopBar (/Users/tunbee27/Documents/Tako-san-ui-rebuild/src/web/components/common/TopBar.tsx:9:3)
+    at div
+    at HomePage (/Users/tunbee27/Documents/Tako-san-ui-rebuild/src/web/pages/HomePage.tsx:161:65)
+    at Router (/Users/tunbee27/Documents/Tako-san-ui-rebuild/node_modules/.pnpm/react-router@6.30.6_react@18.3.1/node_modules/react-router/dist/umd/react-router.development.js:1203:17)
+    at MemoryRouter (/Users/tunbee27/Documents/Tako-san-ui-rebuild/node_modules/.pnpm/react-router@6.30.6_react@18.3.1/node_modules/react-router/dist/umd/react-router.development.js:1097:7)
+    at QueryClientProvider (file:///Users/tunbee27/Documents/Tako-san-ui-rebuild/node_modules/.pnpm/@tanstack+react-query@5.102.8_react@18.3.1/node_modules/@tanstack/react-query/build/modern/QueryClientProvider.js:12:32)
+Warning: useLayoutEffect does nothing on the server, because its effect cannot be encoded into the server renderer's output format. This will lead to a mismatch between the initial, non-hydrated UI and the intended UI. To avoid this, useLayoutEffect should only be used in components that render exclusively on the client. See https://reactjs.org/link/uselayouteffect-ssr for common fixes.
+    at LinkWithRef (/Users/tunbee27/Documents/Tako-san-ui-rebuild/node_modules/.pnpm/react-router-dom@6.30.6_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/react-router-dom/dist/umd/react-router-dom.development.js:807:9)
+    at div
+    at section
+    at PlannedMeal (/Users/tunbee27/Documents/Tako-san-ui-rebuild/src/web/pages/HomePage.tsx:22:24)
+    at div
+    at div
+    at div
+    at div
+    at HomePage (/Users/tunbee27/Documents/Tako-san-ui-rebuild/src/web/pages/HomePage.tsx:161:65)
+    at Router (/Users/tunbee27/Documents/Tako-san-ui-rebuild/node_modules/.pnpm/react-router@6.30.6_react@18.3.1/node_modules/react-router/dist/umd/react-router.development.js:1203:17)
+    at MemoryRouter (/Users/tunbee27/Documents/Tako-san-ui-rebuild/node_modules/.pnpm/react-router@6.30.6_react@18.3.1/node_modules/react-router/dist/umd/react-router.development.js:1097:7)
+    at QueryClientProvider (file:///Users/tunbee27/Documents/Tako-san-ui-rebuild/node_modules/.pnpm/@tanstack+react-query@5.102.8_react@18.3.1/node_modules/@tanstack/react-query/build/modern/QueryClientProvider.js:12:32)
+Warning: useLayoutEffect does nothing on the server, because its effect cannot be encoded into the server renderer's output format. This will lead to a mismatch between the initial, non-hydrated UI and the intended UI. To avoid this, useLayoutEffect should only be used in components that render exclusively on the client. See https://reactjs.org/link/uselayouteffect-ssr for common fixes.
+    at LinkWithRef (/Users/tunbee27/Documents/Tako-san-ui-rebuild/node_modules/.pnpm/react-router-dom@6.30.6_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/react-router-dom/dist/umd/react-router-dom.development.js:807:9)
+    at section
+    at div
+    at div
+    at div
+    at div
+    at HomePage (/Users/tunbee27/Documents/Tako-san-ui-rebuild/src/web/pages/HomePage.tsx:161:65)
+    at Router (/Users/tunbee27/Documents/Tako-san-ui-rebuild/node_modules/.pnpm/react-router@6.30.6_react@18.3.1/node_modules/react-router/dist/umd/react-router.development.js:1203:17)
+    at MemoryRouter (/Users/tunbee27/Documents/Tako-san-ui-rebuild/node_modules/.pnpm/react-router@6.30.6_react@18.3.1/node_modules/react-router/dist/umd/react-router.development.js:1097:7)
+    at QueryClientProvider (file:///Users/tunbee27/Documents/Tako-san-ui-rebuild/node_modules/.pnpm/@tanstack+react-query@5.102.8_react@18.3.1/node_modules/@tanstack/react-query/build/modern/QueryClientProvider.js:12:32)
+Warning: useLayoutEffect does nothing on the server, because its effect cannot be encoded into the server renderer's output format. This will lead to a mismatch between the initial, non-hydrated UI and the intended UI. To avoid this, useLayoutEffect should only be used in components that render exclusively on the client. See https://reactjs.org/link/uselayouteffect-ssr for common fixes.
+    at LinkWithRef (/Users/tunbee27/Documents/Tako-san-ui-rebuild/node_modules/.pnpm/react-router-dom@6.30.6_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/react-router-dom/dist/umd/react-router-dom.development.js:807:9)
+    at div
+    at section
+    at div
+    at div
+    at div
+    at div
+    at HomePage (/Users/tunbee27/Documents/Tako-san-ui-rebuild/src/web/pages/HomePage.tsx:161:65)
+    at Router (/Users/tunbee27/Documents/Tako-san-ui-rebuild/node_modules/.pnpm/react-router@6.30.6_react@18.3.1/node_modules/react-router/dist/umd/react-router.development.js:1203:17)
+    at MemoryRouter (/Users/tunbee27/Documents/Tako-san-ui-rebuild/node_modules/.pnpm/react-router@6.30.6_react@18.3.1/node_modules/react-router/dist/umd/react-router.development.js:1097:7)
+    at QueryClientProvider (file:///Users/tunbee27/Documents/Tako-san-ui-rebuild/node_modules/.pnpm/@tanstack+react-query@5.102.8_react@18.3.1/node_modules/@tanstack/react-query/build/modern/QueryClientProvider.js:12:32)
+Warning: useLayoutEffect does nothing on the server, because its effect cannot be encoded into the server renderer's output format. This will lead to a mismatch between the initial, non-hydrated UI and the intended UI. To avoid this, useLayoutEffect should only be used in components that render exclusively on the client. See https://reactjs.org/link/uselayouteffect-ssr for common fixes.
+    at LinkWithRef (/Users/tunbee27/Documents/Tako-san-ui-rebuild/node_modules/.pnpm/react-router-dom@6.30.6_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/react-router-dom/dist/umd/react-router-dom.development.js:807:9)
+    at div
+    at section
+    at div
+    at div
+    at div
+    at div
+    at HomePage (/Users/tunbee27/Documents/Tako-san-ui-rebuild/src/web/pages/HomePage.tsx:161:65)
+    at Router (/Users/tunbee27/Documents/Tako-san-ui-rebuild/node_modules/.pnpm/react-router@6.30.6_react@18.3.1/node_modules/react-router/dist/umd/react-router.development.js:1203:17)
+    at MemoryRouter (/Users/tunbee27/Documents/Tako-san-ui-rebuild/node_modules/.pnpm/react-router@6.30.6_react@18.3.1/node_modules/react-router/dist/umd/react-router.development.js:1097:7)
+    at QueryClientProvider (file:///Users/tunbee27/Documents/Tako-san-ui-rebuild/node_modules/.pnpm/@tanstack+react-query@5.102.8_react@18.3.1/node_modules/@tanstack/react-query/build/modern/QueryClientProvider.js:12:32)
+Warning: useLayoutEffect does nothing on the server, because its effect cannot be encoded into the server renderer's output format. This will lead to a mismatch between the initial, non-hydrated UI and the intended UI. To avoid this, useLayoutEffect should only be used in components that render exclusively on the client. See https://reactjs.org/link/uselayouteffect-ssr for common fixes.
+    at LinkWithRef (/Users/tunbee27/Documents/Tako-san-ui-rebuild/node_modules/.pnpm/react-router-dom@6.30.6_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/react-router-dom/dist/umd/react-router-dom.development.js:807:9)
+    at div
+    at section
+    at div
+    at div
+    at div
+    at HomePage (/Users/tunbee27/Documents/Tako-san-ui-rebuild/src/web/pages/HomePage.tsx:161:65)
+    at Router (/Users/tunbee27/Documents/Tako-san-ui-rebuild/node_modules/.pnpm/react-router@6.30.6_react@18.3.1/node_modules/react-router/dist/umd/react-router.development.js:1203:17)
+    at MemoryRouter (/Users/tunbee27/Documents/Tako-san-ui-rebuild/node_modules/.pnpm/react-router@6.30.6_react@18.3.1/node_modules/react-router/dist/umd/react-router.development.js:1097:7)
+    at QueryClientProvider (file:///Users/tunbee27/Documents/Tako-san-ui-rebuild/node_modules/.pnpm/@tanstack+react-query@5.102.8_react@18.3.1/node_modules/@tanstack/react-query/build/modern/QueryClientProvider.js:12:32)
+Warning: useLayoutEffect does nothing on the server, because its effect cannot be encoded into the server renderer's output format. This will lead to a mismatch between the initial, non-hydrated UI and the intended UI. To avoid this, useLayoutEffect should only be used in components that render exclusively on the client. See https://reactjs.org/link/uselayouteffect-ssr for common fixes.
+    at LinkWithRef (/Users/tunbee27/Documents/Tako-san-ui-rebuild/node_modules/.pnpm/react-router-dom@6.30.6_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/react-router-dom/dist/umd/react-router-dom.development.js:807:9)
+    at div
+    at section
+    at div
+    at div
+    at div
+    at HomePage (/Users/tunbee27/Documents/Tako-san-ui-rebuild/src/web/pages/HomePage.tsx:161:65)
+    at Router (/Users/tunbee27/Documents/Tako-san-ui-rebuild/node_modules/.pnpm/react-router@6.30.6_react@18.3.1/node_modules/react-router/dist/umd/react-router.development.js:1203:17)
+    at MemoryRouter (/Users/tunbee27/Documents/Tako-san-ui-rebuild/node_modules/.pnpm/react-router@6.30.6_react@18.3.1/node_modules/react-router/dist/umd/react-router.development.js:1097:7)
+    at QueryClientProvider (file:///Users/tunbee27/Documents/Tako-san-ui-rebuild/node_modules/.pnpm/@tanstack+react-query@5.102.8_react@18.3.1/node_modules/@tanstack/react-query/build/modern/QueryClientProvider.js:12:32)
+Warning: useLayoutEffect does nothing on the server, because its effect cannot be encoded into the server renderer's output format. This will lead to a mismatch between the initial, non-hydrated UI and the intended UI. To avoid this, useLayoutEffect should only be used in components that render exclusively on the client. See https://reactjs.org/link/uselayouteffect-ssr for common fixes.
+    at LinkWithRef (/Users/tunbee27/Documents/Tako-san-ui-rebuild/node_modules/.pnpm/react-router-dom@6.30.6_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/react-router-dom/dist/umd/react-router-dom.development.js:807:9)
+    at section
+    at div
+    at div
+    at div
+    at HomePage (/Users/tunbee27/Documents/Tako-san-ui-rebuild/src/web/pages/HomePage.tsx:161:65)
+    at Router (/Users/tunbee27/Documents/Tako-san-ui-rebuild/node_modules/.pnpm/react-router@6.30.6_react@18.3.1/node_modules/react-router/dist/umd/react-router.development.js:1203:17)
+    at MemoryRouter (/Users/tunbee27/Documents/Tako-san-ui-rebuild/node_modules/.pnpm/react-router@6.30.6_react@18.3.1/node_modules/react-router/dist/umd/react-router.development.js:1097:7)
+    at QueryClientProvider (file:///Users/tunbee27/Documents/Tako-san-ui-rebuild/node_modules/.pnpm/@tanstack+react-query@5.102.8_react@18.3.1/node_modules/@tanstack/react-query/build/modern/QueryClientProvider.js:12:32)
+
+stderr | tests/unit/ui10-week-presentation.test.tsx > UI10 truthful setup and generation > retains choices on back and submits four real stages only after explicit generation
+⚠️ React Router Future Flag Warning: React Router will begin wrapping state updates in `React.startTransition` in v7. You can use the `v7_startTransition` future flag to opt-in early. For more information, see https://reactrouter.com/v6/upgrading/future#v7_starttransition.
+⚠️ React Router Future Flag Warning: Relative route resolution within Splat routes is changing in v7. You can use the `v7_relativeSplatPath` future flag to opt-in early. For more information, see https://reactrouter.com/v6/upgrading/future#v7_relativesplatpath.
+
+stderr | tests/unit/ui10-week-routes.test.tsx > planner on preserves /week/plan-a/settings → /planner/new
+Warning: A suspended resource finished loading inside a test, but the event was not wrapped in act(...).
+
+When testing, code that resolves suspended data should be wrapped into act(...):
+
+act(() => {
+  /* finish loading suspended data */
+});
+/* assert on the output */
+
+This ensures that you're testing the behavior the user would see in the browser. Learn more at https://reactjs.org/link/wrap-tests-with-act
+
+stderr | tests/integration/frontend-ui-integration.test.tsx > real Home data rendered through the shared QueryClient > qualifies estimated expiry on Home and keeps KNOWN/ESTIMATED/UNKNOWN visually distinct
+Warning: useLayoutEffect does nothing on the server, because its effect cannot be encoded into the server renderer's output format. This will lead to a mismatch between the initial, non-hydrated UI and the intended UI. To avoid this, useLayoutEffect should only be used in components that render exclusively on the client. See https://reactjs.org/link/uselayouteffect-ssr for common fixes.
+    at MemoryRouter (/Users/tunbee27/Documents/Tako-san-ui-rebuild/node_modules/.pnpm/react-router@6.30.6_react@18.3.1/node_modules/react-router/dist/umd/react-router.development.js:1097:7)
+    at QueryClientProvider (file:///Users/tunbee27/Documents/Tako-san-ui-rebuild/node_modules/.pnpm/@tanstack+react-query@5.102.8_react@18.3.1/node_modules/@tanstack/react-query/build/modern/QueryClientProvider.js:12:32)
+Warning: useLayoutEffect does nothing on the server, because its effect cannot be encoded into the server renderer's output format. This will lead to a mismatch between the initial, non-hydrated UI and the intended UI. To avoid this, useLayoutEffect should only be used in components that render exclusively on the client. See https://reactjs.org/link/uselayouteffect-ssr for common fixes.
+    at LinkWithRef (/Users/tunbee27/Documents/Tako-san-ui-rebuild/node_modules/.pnpm/react-router-dom@6.30.6_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/react-router-dom/dist/umd/react-router-dom.development.js:807:9)
+    at div
+    at header
+    at KitchenHeader (/Users/tunbee27/Documents/Tako-san-ui-rebuild/src/web/components/common/KitchenHeader.tsx:9:3)
+    at TopBar (/Users/tunbee27/Documents/Tako-san-ui-rebuild/src/web/components/common/TopBar.tsx:9:3)
+    at div
+    at HomePage (/Users/tunbee27/Documents/Tako-san-ui-rebuild/src/web/pages/HomePage.tsx:161:65)
+    at Router (/Users/tunbee27/Documents/Tako-san-ui-rebuild/node_modules/.pnpm/react-router@6.30.6_react@18.3.1/node_modules/react-router/dist/umd/react-router.development.js:1203:17)
+    at MemoryRouter (/Users/tunbee27/Documents/Tako-san-ui-rebuild/node_modules/.pnpm/react-router@6.30.6_react@18.3.1/node_modules/react-router/dist/umd/react-router.development.js:1097:7)
+    at QueryClientProvider (file:///Users/tunbee27/Documents/Tako-san-ui-rebuild/node_modules/.pnpm/@tanstack+react-query@5.102.8_react@18.3.1/node_modules/@tanstack/react-query/build/modern/QueryClientProvider.js:12:32)
+Warning: useLayoutEffect does nothing on the server, because its effect cannot be encoded into the server renderer's output format. This will lead to a mismatch between the initial, non-hydrated UI and the intended UI. To avoid this, useLayoutEffect should only be used in components that render exclusively on the client. See https://reactjs.org/link/uselayouteffect-ssr for common fixes.
+    at LinkWithRef (/Users/tunbee27/Documents/Tako-san-ui-rebuild/node_modules/.pnpm/react-router-dom@6.30.6_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/react-router-dom/dist/umd/react-router-dom.development.js:807:9)
+    at div
+    at header
+    at KitchenHeader (/Users/tunbee27/Documents/Tako-san-ui-rebuild/src/web/components/common/KitchenHeader.tsx:9:3)
+    at TopBar (/Users/tunbee27/Documents/Tako-san-ui-rebuild/src/web/components/common/TopBar.tsx:9:3)
+    at div
+    at HomePage (/Users/tunbee27/Documents/Tako-san-ui-rebuild/src/web/pages/HomePage.tsx:161:65)
+    at Router (/Users/tunbee27/Documents/Tako-san-ui-rebuild/node_modules/.pnpm/react-router@6.30.6_react@18.3.1/node_modules/react-router/dist/umd/react-router.development.js:1203:17)
+    at MemoryRouter (/Users/tunbee27/Documents/Tako-san-ui-rebuild/node_modules/.pnpm/react-router@6.30.6_react@18.3.1/node_modules/react-router/dist/umd/react-router.development.js:1097:7)
+    at QueryClientProvider (file:///Users/tunbee27/Documents/Tako-san-ui-rebuild/node_modules/.pnpm/@tanstack+react-query@5.102.8_react@18.3.1/node_modules/@tanstack/react-query/build/modern/QueryClientProvider.js:12:32)
+Warning: useLayoutEffect does nothing on the server, because its effect cannot be encoded into the server renderer's output format. This will lead to a mismatch between the initial, non-hydrated UI and the intended UI. To avoid this, useLayoutEffect should only be used in components that render exclusively on the client. See https://reactjs.org/link/uselayouteffect-ssr for common fixes.
+    at LinkWithRef (/Users/tunbee27/Documents/Tako-san-ui-rebuild/node_modules/.pnpm/react-router-dom@6.30.6_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/react-router-dom/dist/umd/react-router-dom.development.js:807:9)
+    at div
+    at header
+    at KitchenHeader (/Users/tunbee27/Documents/Tako-san-ui-rebuild/src/web/components/common/KitchenHeader.tsx:9:3)
+    at TopBar (/Users/tunbee27/Documents/Tako-san-ui-rebuild/src/web/components/common/TopBar.tsx:9:3)
+    at div
+    at HomePage (/Users/tunbee27/Documents/Tako-san-ui-rebuild/src/web/pages/HomePage.tsx:161:65)
+    at Router (/Users/tunbee27/Documents/Tako-san-ui-rebuild/node_modules/.pnpm/react-router@6.30.6_react@18.3.1/node_modules/react-router/dist/umd/react-router.development.js:1203:17)
+    at MemoryRouter (/Users/tunbee27/Documents/Tako-san-ui-rebuild/node_modules/.pnpm/react-router@6.30.6_react@18.3.1/node_modules/react-router/dist/umd/react-router.development.js:1097:7)
+    at QueryClientProvider (file:///Users/tunbee27/Documents/Tako-san-ui-rebuild/node_modules/.pnpm/@tanstack+react-query@5.102.8_react@18.3.1/node_modules/@tanstack/react-query/build/modern/QueryClientProvider.js:12:32)
+Warning: useLayoutEffect does nothing on the server, because its effect cannot be encoded into the server renderer's output format. This will lead to a mismatch between the initial, non-hydrated UI and the intended UI. To avoid this, useLayoutEffect should only be used in components that render exclusively on the client. See https://reactjs.org/link/uselayouteffect-ssr for common fixes.
+    at LinkWithRef (/Users/tunbee27/Documents/Tako-san-ui-rebuild/node_modules/.pnpm/react-router-dom@6.30.6_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/react-router-dom/dist/umd/react-router-dom.development.js:807:9)
+    at div
+    at section
+    at div
+    at div
+    at div
+    at div
+    at HomePage (/Users/tunbee27/Documents/Tako-san-ui-rebuild/src/web/pages/HomePage.tsx:161:65)
+    at Router (/Users/tunbee27/Documents/Tako-san-ui-rebuild/node_modules/.pnpm/react-router@6.30.6_react@18.3.1/node_modules/react-router/dist/umd/react-router.development.js:1203:17)
+    at MemoryRouter (/Users/tunbee27/Documents/Tako-san-ui-rebuild/node_modules/.pnpm/react-router@6.30.6_react@18.3.1/node_modules/react-router/dist/umd/react-router.development.js:1097:7)
+    at QueryClientProvider (file:///Users/tunbee27/Documents/Tako-san-ui-rebuild/node_modules/.pnpm/@tanstack+react-query@5.102.8_react@18.3.1/node_modules/@tanstack/react-query/build/modern/QueryClientProvider.js:12:32)
+Warning: useLayoutEffect does nothing on the server, because its effect cannot be encoded into the server renderer's output format. This will lead to a mismatch between the initial, non-hydrated UI and the intended UI. To avoid this, useLayoutEffect should only be used in components that render exclusively on the client. See https://reactjs.org/link/uselayouteffect-ssr for common fixes.
+    at LinkWithRef (/Users/tunbee27/Documents/Tako-san-ui-rebuild/node_modules/.pnpm/react-router-dom@6.30.6_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/react-router-dom/dist/umd/react-router-dom.development.js:807:9)
+    at div
+    at section
+    at div
+    at div
+    at div
+    at div
+    at HomePage (/Users/tunbee27/Documents/Tako-san-ui-rebuild/src/web/pages/HomePage.tsx:161:65)
+    at Router (/Users/tunbee27/Documents/Tako-san-ui-rebuild/node_modules/.pnpm/react-router@6.30.6_react@18.3.1/node_modules/react-router/dist/umd/react-router.development.js:1203:17)
+    at MemoryRouter (/Users/tunbee27/Documents/Tako-san-ui-rebuild/node_modules/.pnpm/react-router@6.30.6_react@18.3.1/node_modules/react-router/dist/umd/react-router.development.js:1097:7)
+    at QueryClientProvider (file:///Users/tunbee27/Documents/Tako-san-ui-rebuild/node_modules/.pnpm/@tanstack+react-query@5.102.8_react@18.3.1/node_modules/@tanstack/react-query/build/modern/QueryClientProvider.js:12:32)
+Warning: useLayoutEffect does nothing on the server, because its effect cannot be encoded into the server renderer's output format. This will lead to a mismatch between the initial, non-hydrated UI and the intended UI. To avoid this, useLayoutEffect should only be used in components that render exclusively on the client. See https://reactjs.org/link/uselayouteffect-ssr for common fixes.
+    at LinkWithRef (/Users/tunbee27/Documents/Tako-san-ui-rebuild/node_modules/.pnpm/react-router-dom@6.30.6_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/react-router-dom/dist/umd/react-router-dom.development.js:807:9)
+    at div
+    at section
+    at div
+    at div
+    at div
+    at div
+    at HomePage (/Users/tunbee27/Documents/Tako-san-ui-rebuild/src/web/pages/HomePage.tsx:161:65)
+    at Router (/Users/tunbee27/Documents/Tako-san-ui-rebuild/node_modules/.pnpm/react-router@6.30.6_react@18.3.1/node_modules/react-router/dist/umd/react-router.development.js:1203:17)
+    at MemoryRouter (/Users/tunbee27/Documents/Tako-san-ui-rebuild/node_modules/.pnpm/react-router@6.30.6_react@18.3.1/node_modules/react-router/dist/umd/react-router.development.js:1097:7)
+    at QueryClientProvider (file:///Users/tunbee27/Documents/Tako-san-ui-rebuild/node_modules/.pnpm/@tanstack+react-query@5.102.8_react@18.3.1/node_modules/@tanstack/react-query/build/modern/QueryClientProvider.js:12:32)
+Warning: useLayoutEffect does nothing on the server, because its effect cannot be encoded into the server renderer's output format. This will lead to a mismatch between the initial, non-hydrated UI and the intended UI. To avoid this, useLayoutEffect should only be used in components that render exclusively on the client. See https://reactjs.org/link/uselayouteffect-ssr for common fixes.
+    at LinkWithRef (/Users/tunbee27/Documents/Tako-san-ui-rebuild/node_modules/.pnpm/react-router-dom@6.30.6_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/react-router-dom/dist/umd/react-router-dom.development.js:807:9)
+    at div
+    at section
+    at div
+    at div
+    at div
+    at div
+    at HomePage (/Users/tunbee27/Documents/Tako-san-ui-rebuild/src/web/pages/HomePage.tsx:161:65)
+    at Router (/Users/tunbee27/Documents/Tako-san-ui-rebuild/node_modules/.pnpm/react-router@6.30.6_react@18.3.1/node_modules/react-router/dist/umd/react-router.development.js:1203:17)
+    at MemoryRouter (/Users/tunbee27/Documents/Tako-san-ui-rebuild/node_modules/.pnpm/react-router@6.30.6_react@18.3.1/node_modules/react-router/dist/umd/react-router.development.js:1097:7)
+    at QueryClientProvider (file:///Users/tunbee27/Documents/Tako-san-ui-rebuild/node_modules/.pnpm/@tanstack+react-query@5.102.8_react@18.3.1/node_modules/@tanstack/react-query/build/modern/QueryClientProvider.js:12:32)
+Warning: useLayoutEffect does nothing on the server, because its effect cannot be encoded into the server renderer's output format. This will lead to a mismatch between the initial, non-hydrated UI and the intended UI. To avoid this, useLayoutEffect should only be used in components that render exclusively on the client. See https://reactjs.org/link/uselayouteffect-ssr for common fixes.
+    at LinkWithRef (/Users/tunbee27/Documents/Tako-san-ui-rebuild/node_modules/.pnpm/react-router-dom@6.30.6_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/react-router-dom/dist/umd/react-router-dom.development.js:807:9)
+    at div
+    at section
+    at div
+    at div
+    at div
+    at div
+    at HomePage (/Users/tunbee27/Documents/Tako-san-ui-rebuild/src/web/pages/HomePage.tsx:161:65)
+    at Router (/Users/tunbee27/Documents/Tako-san-ui-rebuild/node_modules/.pnpm/react-router@6.30.6_react@18.3.1/node_modules/react-router/dist/umd/react-router.development.js:1203:17)
+    at MemoryRouter (/Users/tunbee27/Documents/Tako-san-ui-rebuild/node_modules/.pnpm/react-router@6.30.6_react@18.3.1/node_modules/react-router/dist/umd/react-router.development.js:1097:7)
+    at QueryClientProvider (file:///Users/tunbee27/Documents/Tako-san-ui-rebuild/node_modules/.pnpm/@tanstack+react-query@5.102.8_react@18.3.1/node_modules/@tanstack/react-query/build/modern/QueryClientProvider.js:12:32)
+Warning: useLayoutEffect does nothing on the server, because its effect cannot be encoded into the server renderer's output format. This will lead to a mismatch between the initial, non-hydrated UI and the intended UI. To avoid this, useLayoutEffect should only be used in components that render exclusively on the client. See https://reactjs.org/link/uselayouteffect-ssr for common fixes.
+    at LinkWithRef (/Users/tunbee27/Documents/Tako-san-ui-rebuild/node_modules/.pnpm/react-router-dom@6.30.6_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/react-router-dom/dist/umd/react-router-dom.development.js:807:9)
+    at div
+    at section
+    at div
+    at div
+    at div
+    at HomePage (/Users/tunbee27/Documents/Tako-san-ui-rebuild/src/web/pages/HomePage.tsx:161:65)
+    at Router (/Users/tunbee27/Documents/Tako-san-ui-rebuild/node_modules/.pnpm/react-router@6.30.6_react@18.3.1/node_modules/react-router/dist/umd/react-router.development.js:1203:17)
+    at MemoryRouter (/Users/tunbee27/Documents/Tako-san-ui-rebuild/node_modules/.pnpm/react-router@6.30.6_react@18.3.1/node_modules/react-router/dist/umd/react-router.development.js:1097:7)
+    at QueryClientProvider (file:///Users/tunbee27/Documents/Tako-san-ui-rebuild/node_modules/.pnpm/@tanstack+react-query@5.102.8_react@18.3.1/node_modules/@tanstack/react-query/build/modern/QueryClientProvider.js:12:32)
+Warning: useLayoutEffect does nothing on the server, because its effect cannot be encoded into the server renderer's output format. This will lead to a mismatch between the initial, non-hydrated UI and the intended UI. To avoid this, useLayoutEffect should only be used in components that render exclusively on the client. See https://reactjs.org/link/uselayouteffect-ssr for common fixes.
+    at LinkWithRef (/Users/tunbee27/Documents/Tako-san-ui-rebuild/node_modules/.pnpm/react-router-dom@6.30.6_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/react-router-dom/dist/umd/react-router-dom.development.js:807:9)
+    at div
+    at section
+    at div
+    at div
+    at div
+    at HomePage (/Users/tunbee27/Documents/Tako-san-ui-rebuild/src/web/pages/HomePage.tsx:161:65)
+    at Router (/Users/tunbee27/Documents/Tako-san-ui-rebuild/node_modules/.pnpm/react-router@6.30.6_react@18.3.1/node_modules/react-router/dist/umd/react-router.development.js:1203:17)
+    at MemoryRouter (/Users/tunbee27/Documents/Tako-san-ui-rebuild/node_modules/.pnpm/react-router@6.30.6_react@18.3.1/node_modules/react-router/dist/umd/react-router.development.js:1097:7)
+    at QueryClientProvider (file:///Users/tunbee27/Documents/Tako-san-ui-rebuild/node_modules/.pnpm/@tanstack+react-query@5.102.8_react@18.3.1/node_modules/@tanstack/react-query/build/modern/QueryClientProvider.js:12:32)
+Warning: useLayoutEffect does nothing on the server, because its effect cannot be encoded into the server renderer's output format. This will lead to a mismatch between the initial, non-hydrated UI and the intended UI. To avoid this, useLayoutEffect should only be used in components that render exclusively on the client. See https://reactjs.org/link/uselayouteffect-ssr for common fixes.
+    at LinkWithRef (/Users/tunbee27/Documents/Tako-san-ui-rebuild/node_modules/.pnpm/react-router-dom@6.30.6_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/react-router-dom/dist/umd/react-router-dom.development.js:807:9)
+    at section
+    at div
+    at div
+    at div
+    at HomePage (/Users/tunbee27/Documents/Tako-san-ui-rebuild/src/web/pages/HomePage.tsx:161:65)
+    at Router (/Users/tunbee27/Documents/Tako-san-ui-rebuild/node_modules/.pnpm/react-router@6.30.6_react@18.3.1/node_modules/react-router/dist/umd/react-router.development.js:1203:17)
+    at MemoryRouter (/Users/tunbee27/Documents/Tako-san-ui-rebuild/node_modules/.pnpm/react-router@6.30.6_react@18.3.1/node_modules/react-router/dist/umd/react-router.development.js:1097:7)
+    at QueryClientProvider (file:///Users/tunbee27/Documents/Tako-san-ui-rebuild/node_modules/.pnpm/@tanstack+react-query@5.102.8_react@18.3.1/node_modules/@tanstack/react-query/build/modern/QueryClientProvider.js:12:32)
+
+stderr | tests/integration/frontend-ui-integration.test.tsx > real Home data rendered through the shared QueryClient > keeps successful widgets visible while a failed Home query offers retry
+Warning: useLayoutEffect does nothing on the server, because its effect cannot be encoded into the server renderer's output format. This will lead to a mismatch between the initial, non-hydrated UI and the intended UI. To avoid this, useLayoutEffect should only be used in components that render exclusively on the client. See https://reactjs.org/link/uselayouteffect-ssr for common fixes.
+    at MemoryRouter (/Users/tunbee27/Documents/Tako-san-ui-rebuild/node_modules/.pnpm/react-router@6.30.6_react@18.3.1/node_modules/react-router/dist/umd/react-router.development.js:1097:7)
+    at QueryClientProvider (file:///Users/tunbee27/Documents/Tako-san-ui-rebuild/node_modules/.pnpm/@tanstack+react-query@5.102.8_react@18.3.1/node_modules/@tanstack/react-query/build/modern/QueryClientProvider.js:12:32)
+Warning: useLayoutEffect does nothing on the server, because its effect cannot be encoded into the server renderer's output format. This will lead to a mismatch between the initial, non-hydrated UI and the intended UI. To avoid this, useLayoutEffect should only be used in components that render exclusively on the client. See https://reactjs.org/link/uselayouteffect-ssr for common fixes.
+    at LinkWithRef (/Users/tunbee27/Documents/Tako-san-ui-rebuild/node_modules/.pnpm/react-router-dom@6.30.6_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/react-router-dom/dist/umd/react-router-dom.development.js:807:9)
+    at div
+    at header
+    at KitchenHeader (/Users/tunbee27/Documents/Tako-san-ui-rebuild/src/web/components/common/KitchenHeader.tsx:9:3)
+    at TopBar (/Users/tunbee27/Documents/Tako-san-ui-rebuild/src/web/components/common/TopBar.tsx:9:3)
+    at div
+    at HomePage (/Users/tunbee27/Documents/Tako-san-ui-rebuild/src/web/pages/HomePage.tsx:161:65)
+    at Router (/Users/tunbee27/Documents/Tako-san-ui-rebuild/node_modules/.pnpm/react-router@6.30.6_react@18.3.1/node_modules/react-router/dist/umd/react-router.development.js:1203:17)
+    at MemoryRouter (/Users/tunbee27/Documents/Tako-san-ui-rebuild/node_modules/.pnpm/react-router@6.30.6_react@18.3.1/node_modules/react-router/dist/umd/react-router.development.js:1097:7)
+    at QueryClientProvider (file:///Users/tunbee27/Documents/Tako-san-ui-rebuild/node_modules/.pnpm/@tanstack+react-query@5.102.8_react@18.3.1/node_modules/@tanstack/react-query/build/modern/QueryClientProvider.js:12:32)
+Warning: useLayoutEffect does nothing on the server, because its effect cannot be encoded into the server renderer's output format. This will lead to a mismatch between the initial, non-hydrated UI and the intended UI. To avoid this, useLayoutEffect should only be used in components that render exclusively on the client. See https://reactjs.org/link/uselayouteffect-ssr for common fixes.
+    at LinkWithRef (/Users/tunbee27/Documents/Tako-san-ui-rebuild/node_modules/.pnpm/react-router-dom@6.30.6_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/react-router-dom/dist/umd/react-router-dom.development.js:807:9)
+    at div
+    at header
+    at KitchenHeader (/Users/tunbee27/Documents/Tako-san-ui-rebuild/src/web/components/common/KitchenHeader.tsx:9:3)
+    at TopBar (/Users/tunbee27/Documents/Tako-san-ui-rebuild/src/web/components/common/TopBar.tsx:9:3)
+    at div
+    at HomePage (/Users/tunbee27/Documents/Tako-san-ui-rebuild/src/web/pages/HomePage.tsx:161:65)
+    at Router (/Users/tunbee27/Documents/Tako-san-ui-rebuild/node_modules/.pnpm/react-router@6.30.6_react@18.3.1/node_modules/react-router/dist/umd/react-router.development.js:1203:17)
+    at MemoryRouter (/Users/tunbee27/Documents/Tako-san-ui-rebuild/node_modules/.pnpm/react-router@6.30.6_react@18.3.1/node_modules/react-router/dist/umd/react-router.development.js:1097:7)
+    at QueryClientProvider (file:///Users/tunbee27/Documents/Tako-san-ui-rebuild/node_modules/.pnpm/@tanstack+react-query@5.102.8_react@18.3.1/node_modules/@tanstack/react-query/build/modern/QueryClientProvider.js:12:32)
+Warning: useLayoutEffect does nothing on the server, because its effect cannot be encoded into the server renderer's output format. This will lead to a mismatch between the initial, non-hydrated UI and the intended UI. To avoid this, useLayoutEffect should only be used in components that render exclusively on the client. See https://reactjs.org/link/uselayouteffect-ssr for common fixes.
+    at LinkWithRef (/Users/tunbee27/Documents/Tako-san-ui-rebuild/node_modules/.pnpm/react-router-dom@6.30.6_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/react-router-dom/dist/umd/react-router-dom.development.js:807:9)
+    at div
+    at header
+    at KitchenHeader (/Users/tunbee27/Documents/Tako-san-ui-rebuild/src/web/components/common/KitchenHeader.tsx:9:3)
+    at TopBar (/Users/tunbee27/Documents/Tako-san-ui-rebuild/src/web/components/common/TopBar.tsx:9:3)
+    at div
+    at HomePage (/Users/tunbee27/Documents/Tako-san-ui-rebuild/src/web/pages/HomePage.tsx:161:65)
+    at Router (/Users/tunbee27/Documents/Tako-san-ui-rebuild/node_modules/.pnpm/react-router@6.30.6_react@18.3.1/node_modules/react-router/dist/umd/react-router.development.js:1203:17)
+    at MemoryRouter (/Users/tunbee27/Documents/Tako-san-ui-rebuild/node_modules/.pnpm/react-router@6.30.6_react@18.3.1/node_modules/react-router/dist/umd/react-router.development.js:1097:7)
+    at QueryClientProvider (file:///Users/tunbee27/Documents/Tako-san-ui-rebuild/node_modules/.pnpm/@tanstack+react-query@5.102.8_react@18.3.1/node_modules/@tanstack/react-query/build/modern/QueryClientProvider.js:12:32)
+Warning: useLayoutEffect does nothing on the server, because its effect cannot be encoded into the server renderer's output format. This will lead to a mismatch between the initial, non-hydrated UI and the intended UI. To avoid this, useLayoutEffect should only be used in components that render exclusively on the client. See https://reactjs.org/link/uselayouteffect-ssr for common fixes.
+    at LinkWithRef (/Users/tunbee27/Documents/Tako-san-ui-rebuild/node_modules/.pnpm/react-router-dom@6.30.6_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/react-router-dom/dist/umd/react-router-dom.development.js:807:9)
+    at div
+    at section
+    at div
+    at div
+    at div
+    at div
+    at HomePage (/Users/tunbee27/Documents/Tako-san-ui-rebuild/src/web/pages/HomePage.tsx:161:65)
+    at Router (/Users/tunbee27/Documents/Tako-san-ui-rebuild/node_modules/.pnpm/react-router@6.30.6_react@18.3.1/node_modules/react-router/dist/umd/react-router.development.js:1203:17)
+    at MemoryRouter (/Users/tunbee27/Documents/Tako-san-ui-rebuild/node_modules/.pnpm/react-router@6.30.6_react@18.3.1/node_modules/react-router/dist/umd/react-router.development.js:1097:7)
+    at QueryClientProvider (file:///Users/tunbee27/Documents/Tako-san-ui-rebuild/node_modules/.pnpm/@tanstack+react-query@5.102.8_react@18.3.1/node_modules/@tanstack/react-query/build/modern/QueryClientProvider.js:12:32)
+Warning: useLayoutEffect does nothing on the server, because its effect cannot be encoded into the server renderer's output format. This will lead to a mismatch between the initial, non-hydrated UI and the intended UI. To avoid this, useLayoutEffect should only be used in components that render exclusively on the client. See https://reactjs.org/link/uselayouteffect-ssr for common fixes.
+    at LinkWithRef (/Users/tunbee27/Documents/Tako-san-ui-rebuild/node_modules/.pnpm/react-router-dom@6.30.6_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/react-router-dom/dist/umd/react-router-dom.development.js:807:9)
+    at div
+    at section
+    at div
+    at div
+    at div
+    at div
+    at HomePage (/Users/tunbee27/Documents/Tako-san-ui-rebuild/src/web/pages/HomePage.tsx:161:65)
+    at Router (/Users/tunbee27/Documents/Tako-san-ui-rebuild/node_modules/.pnpm/react-router@6.30.6_react@18.3.1/node_modules/react-router/dist/umd/react-router.development.js:1203:17)
+    at MemoryRouter (/Users/tunbee27/Documents/Tako-san-ui-rebuild/node_modules/.pnpm/react-router@6.30.6_react@18.3.1/node_modules/react-router/dist/umd/react-router.development.js:1097:7)
+    at QueryClientProvider (file:///Users/tunbee27/Documents/Tako-san-ui-rebuild/node_modules/.pnpm/@tanstack+react-query@5.102.8_react@18.3.1/node_modules/@tanstack/react-query/build/modern/QueryClientProvider.js:12:32)
+Warning: useLayoutEffect does nothing on the server, because its effect cannot be encoded into the server renderer's output format. This will lead to a mismatch between the initial, non-hydrated UI and the intended UI. To avoid this, useLayoutEffect should only be used in components that render exclusively on the client. See https://reactjs.org/link/uselayouteffect-ssr for common fixes.
+    at LinkWithRef (/Users/tunbee27/Documents/Tako-san-ui-rebuild/node_modules/.pnpm/react-router-dom@6.30.6_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/react-router-dom/dist/umd/react-router-dom.development.js:807:9)
+    at div
+    at section
+    at div
+    at div
+    at div
+    at HomePage (/Users/tunbee27/Documents/Tako-san-ui-rebuild/src/web/pages/HomePage.tsx:161:65)
+    at Router (/Users/tunbee27/Documents/Tako-san-ui-rebuild/node_modules/.pnpm/react-router@6.30.6_react@18.3.1/node_modules/react-router/dist/umd/react-router.development.js:1203:17)
+    at MemoryRouter (/Users/tunbee27/Documents/Tako-san-ui-rebuild/node_modules/.pnpm/react-router@6.30.6_react@18.3.1/node_modules/react-router/dist/umd/react-router.development.js:1097:7)
+    at QueryClientProvider (file:///Users/tunbee27/Documents/Tako-san-ui-rebuild/node_modules/.pnpm/@tanstack+react-query@5.102.8_react@18.3.1/node_modules/@tanstack/react-query/build/modern/QueryClientProvider.js:12:32)
+Warning: useLayoutEffect does nothing on the server, because its effect cannot be encoded into the server renderer's output format. This will lead to a mismatch between the initial, non-hydrated UI and the intended UI. To avoid this, useLayoutEffect should only be used in components that render exclusively on the client. See https://reactjs.org/link/uselayouteffect-ssr for common fixes.
+    at LinkWithRef (/Users/tunbee27/Documents/Tako-san-ui-rebuild/node_modules/.pnpm/react-router-dom@6.30.6_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/react-router-dom/dist/umd/react-router-dom.development.js:807:9)
+    at div
+    at section
+    at div
+    at div
+    at div
+    at HomePage (/Users/tunbee27/Documents/Tako-san-ui-rebuild/src/web/pages/HomePage.tsx:161:65)
+    at Router (/Users/tunbee27/Documents/Tako-san-ui-rebuild/node_modules/.pnpm/react-router@6.30.6_react@18.3.1/node_modules/react-router/dist/umd/react-router.development.js:1203:17)
+    at MemoryRouter (/Users/tunbee27/Documents/Tako-san-ui-rebuild/node_modules/.pnpm/react-router@6.30.6_react@18.3.1/node_modules/react-router/dist/umd/react-router.development.js:1097:7)
+    at QueryClientProvider (file:///Users/tunbee27/Documents/Tako-san-ui-rebuild/node_modules/.pnpm/@tanstack+react-query@5.102.8_react@18.3.1/node_modules/@tanstack/react-query/build/modern/QueryClientProvider.js:12:32)
+Warning: useLayoutEffect does nothing on the server, because its effect cannot be encoded into the server renderer's output format. This will lead to a mismatch between the initial, non-hydrated UI and the intended UI. To avoid this, useLayoutEffect should only be used in components that render exclusively on the client. See https://reactjs.org/link/uselayouteffect-ssr for common fixes.
+    at LinkWithRef (/Users/tunbee27/Documents/Tako-san-ui-rebuild/node_modules/.pnpm/react-router-dom@6.30.6_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/react-router-dom/dist/umd/react-router-dom.development.js:807:9)
+    at section
+    at div
+    at div
+    at div
+    at HomePage (/Users/tunbee27/Documents/Tako-san-ui-rebuild/src/web/pages/HomePage.tsx:161:65)
+    at Router (/Users/tunbee27/Documents/Tako-san-ui-rebuild/node_modules/.pnpm/react-router@6.30.6_react@18.3.1/node_modules/react-router/dist/umd/react-router.development.js:1203:17)
+    at MemoryRouter (/Users/tunbee27/Documents/Tako-san-ui-rebuild/node_modules/.pnpm/react-router@6.30.6_react@18.3.1/node_modules/react-router/dist/umd/react-router.development.js:1097:7)
+    at QueryClientProvider (file:///Users/tunbee27/Documents/Tako-san-ui-rebuild/node_modules/.pnpm/@tanstack+react-query@5.102.8_react@18.3.1/node_modules/@tanstack/react-query/build/modern/QueryClientProvider.js:12:32)
+
+stderr | tests/integration/frontend-ui-integration.test.tsx > real Home data rendered through the shared QueryClient > renders recommendations from server-state data rather than a hardcoded featured recipe
+Warning: useLayoutEffect does nothing on the server, because its effect cannot be encoded into the server renderer's output format. This will lead to a mismatch between the initial, non-hydrated UI and the intended UI. To avoid this, useLayoutEffect should only be used in components that render exclusively on the client. See https://reactjs.org/link/uselayouteffect-ssr for common fixes.
+    at MemoryRouter (/Users/tunbee27/Documents/Tako-san-ui-rebuild/node_modules/.pnpm/react-router@6.30.6_react@18.3.1/node_modules/react-router/dist/umd/react-router.development.js:1097:7)
+    at QueryClientProvider (file:///Users/tunbee27/Documents/Tako-san-ui-rebuild/node_modules/.pnpm/@tanstack+react-query@5.102.8_react@18.3.1/node_modules/@tanstack/react-query/build/modern/QueryClientProvider.js:12:32)
+Warning: useLayoutEffect does nothing on the server, because its effect cannot be encoded into the server renderer's output format. This will lead to a mismatch between the initial, non-hydrated UI and the intended UI. To avoid this, useLayoutEffect should only be used in components that render exclusively on the client. See https://reactjs.org/link/uselayouteffect-ssr for common fixes.
+    at LinkWithRef (/Users/tunbee27/Documents/Tako-san-ui-rebuild/node_modules/.pnpm/react-router-dom@6.30.6_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/react-router-dom/dist/umd/react-router-dom.development.js:807:9)
+    at div
+    at header
+    at KitchenHeader (/Users/tunbee27/Documents/Tako-san-ui-rebuild/src/web/components/common/KitchenHeader.tsx:9:3)
+    at TopBar (/Users/tunbee27/Documents/Tako-san-ui-rebuild/src/web/components/common/TopBar.tsx:9:3)
+    at div
+    at HomePage (/Users/tunbee27/Documents/Tako-san-ui-rebuild/src/web/pages/HomePage.tsx:161:65)
+    at Router (/Users/tunbee27/Documents/Tako-san-ui-rebuild/node_modules/.pnpm/react-router@6.30.6_react@18.3.1/node_modules/react-router/dist/umd/react-router.development.js:1203:17)
+    at MemoryRouter (/Users/tunbee27/Documents/Tako-san-ui-rebuild/node_modules/.pnpm/react-router@6.30.6_react@18.3.1/node_modules/react-router/dist/umd/react-router.development.js:1097:7)
+    at QueryClientProvider (file:///Users/tunbee27/Documents/Tako-san-ui-rebuild/node_modules/.pnpm/@tanstack+react-query@5.102.8_react@18.3.1/node_modules/@tanstack/react-query/build/modern/QueryClientProvider.js:12:32)
+Warning: useLayoutEffect does nothing on the server, because its effect cannot be encoded into the server renderer's output format. This will lead to a mismatch between the initial, non-hydrated UI and the intended UI. To avoid this, useLayoutEffect should only be used in components that render exclusively on the client. See https://reactjs.org/link/uselayouteffect-ssr for common fixes.
+    at LinkWithRef (/Users/tunbee27/Documents/Tako-san-ui-rebuild/node_modules/.pnpm/react-router-dom@6.30.6_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/react-router-dom/dist/umd/react-router-dom.development.js:807:9)
+    at div
+    at header
+    at KitchenHeader (/Users/tunbee27/Documents/Tako-san-ui-rebuild/src/web/components/common/KitchenHeader.tsx:9:3)
+    at TopBar (/Users/tunbee27/Documents/Tako-san-ui-rebuild/src/web/components/common/TopBar.tsx:9:3)
+    at div
+    at HomePage (/Users/tunbee27/Documents/Tako-san-ui-rebuild/src/web/pages/HomePage.tsx:161:65)
+    at Router (/Users/tunbee27/Documents/Tako-san-ui-rebuild/node_modules/.pnpm/react-router@6.30.6_react@18.3.1/node_modules/react-router/dist/umd/react-router.development.js:1203:17)
+    at MemoryRouter (/Users/tunbee27/Documents/Tako-san-ui-rebuild/node_modules/.pnpm/react-router@6.30.6_react@18.3.1/node_modules/react-router/dist/umd/react-router.development.js:1097:7)
+    at QueryClientProvider (file:///Users/tunbee27/Documents/Tako-san-ui-rebuild/node_modules/.pnpm/@tanstack+react-query@5.102.8_react@18.3.1/node_modules/@tanstack/react-query/build/modern/QueryClientProvider.js:12:32)
+Warning: useLayoutEffect does nothing on the server, because its effect cannot be encoded into the server renderer's output format. This will lead to a mismatch between the initial, non-hydrated UI and the intended UI. To avoid this, useLayoutEffect should only be used in components that render exclusively on the client. See https://reactjs.org/link/uselayouteffect-ssr for common fixes.
+    at LinkWithRef (/Users/tunbee27/Documents/Tako-san-ui-rebuild/node_modules/.pnpm/react-router-dom@6.30.6_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/react-router-dom/dist/umd/react-router-dom.development.js:807:9)
+    at div
+    at header
+    at KitchenHeader (/Users/tunbee27/Documents/Tako-san-ui-rebuild/src/web/components/common/KitchenHeader.tsx:9:3)
+    at TopBar (/Users/tunbee27/Documents/Tako-san-ui-rebuild/src/web/components/common/TopBar.tsx:9:3)
+    at div
+    at HomePage (/Users/tunbee27/Documents/Tako-san-ui-rebuild/src/web/pages/HomePage.tsx:161:65)
+    at Router (/Users/tunbee27/Documents/Tako-san-ui-rebuild/node_modules/.pnpm/react-router@6.30.6_react@18.3.1/node_modules/react-router/dist/umd/react-router.development.js:1203:17)
+    at MemoryRouter (/Users/tunbee27/Documents/Tako-san-ui-rebuild/node_modules/.pnpm/react-router@6.30.6_react@18.3.1/node_modules/react-router/dist/umd/react-router.development.js:1097:7)
+    at QueryClientProvider (file:///Users/tunbee27/Documents/Tako-san-ui-rebuild/node_modules/.pnpm/@tanstack+react-query@5.102.8_react@18.3.1/node_modules/@tanstack/react-query/build/modern/QueryClientProvider.js:12:32)
+Warning: useLayoutEffect does nothing on the server, because its effect cannot be encoded into the server renderer's output format. This will lead to a mismatch between the initial, non-hydrated UI and the intended UI. To avoid this, useLayoutEffect should only be used in components that render exclusively on the client. See https://reactjs.org/link/uselayouteffect-ssr for common fixes.
+    at LinkWithRef (/Users/tunbee27/Documents/Tako-san-ui-rebuild/node_modules/.pnpm/react-router-dom@6.30.6_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/react-router-dom/dist/umd/react-router-dom.development.js:807:9)
+    at div
+    at section
+    at div
+    at div
+    at div
+    at div
+    at HomePage (/Users/tunbee27/Documents/Tako-san-ui-rebuild/src/web/pages/HomePage.tsx:161:65)
+    at Router (/Users/tunbee27/Documents/Tako-san-ui-rebuild/node_modules/.pnpm/react-router@6.30.6_react@18.3.1/node_modules/react-router/dist/umd/react-router.development.js:1203:17)
+    at MemoryRouter (/Users/tunbee27/Documents/Tako-san-ui-rebuild/node_modules/.pnpm/react-router@6.30.6_react@18.3.1/node_modules/react-router/dist/umd/react-router.development.js:1097:7)
+    at QueryClientProvider (file:///Users/tunbee27/Documents/Tako-san-ui-rebuild/node_modules/.pnpm/@tanstack+react-query@5.102.8_react@18.3.1/node_modules/@tanstack/react-query/build/modern/QueryClientProvider.js:12:32)
+Warning: useLayoutEffect does nothing on the server, because its effect cannot be encoded into the server renderer's output format. This will lead to a mismatch between the initial, non-hydrated UI and the intended UI. To avoid this, useLayoutEffect should only be used in components that render exclusively on the client. See https://reactjs.org/link/uselayouteffect-ssr for common fixes.
+    at LinkWithRef (/Users/tunbee27/Documents/Tako-san-ui-rebuild/node_modules/.pnpm/react-router-dom@6.30.6_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/react-router-dom/dist/umd/react-router-dom.development.js:807:9)
+    at div
+    at section
+    at div
+    at div
+    at div
+    at div
+    at HomePage (/Users/tunbee27/Documents/Tako-san-ui-rebuild/src/web/pages/HomePage.tsx:161:65)
+    at Router (/Users/tunbee27/Documents/Tako-san-ui-rebuild/node_modules/.pnpm/react-router@6.30.6_react@18.3.1/node_modules/react-router/dist/umd/react-router.development.js:1203:17)
+    at MemoryRouter (/Users/tunbee27/Documents/Tako-san-ui-rebuild/node_modules/.pnpm/react-router@6.30.6_react@18.3.1/node_modules/react-router/dist/umd/react-router.development.js:1097:7)
+    at QueryClientProvider (file:///Users/tunbee27/Documents/Tako-san-ui-rebuild/node_modules/.pnpm/@tanstack+react-query@5.102.8_react@18.3.1/node_modules/@tanstack/react-query/build/modern/QueryClientProvider.js:12:32)
+Warning: useLayoutEffect does nothing on the server, because its effect cannot be encoded into the server renderer's output format. This will lead to a mismatch between the initial, non-hydrated UI and the intended UI. To avoid this, useLayoutEffect should only be used in components that render exclusively on the client. See https://reactjs.org/link/uselayouteffect-ssr for common fixes.
+    at LinkWithRef (/Users/tunbee27/Documents/Tako-san-ui-rebuild/node_modules/.pnpm/react-router-dom@6.30.6_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/react-router-dom/dist/umd/react-router-dom.development.js:807:9)
+    at div
+    at section
+    at div
+    at div
+    at div
+    at div
+    at HomePage (/Users/tunbee27/Documents/Tako-san-ui-rebuild/src/web/pages/HomePage.tsx:161:65)
+    at Router (/Users/tunbee27/Documents/Tako-san-ui-rebuild/node_modules/.pnpm/react-router@6.30.6_react@18.3.1/node_modules/react-router/dist/umd/react-router.development.js:1203:17)
+    at MemoryRouter (/Users/tunbee27/Documents/Tako-san-ui-rebuild/node_modules/.pnpm/react-router@6.30.6_react@18.3.1/node_modules/react-router/dist/umd/react-router.development.js:1097:7)
+    at QueryClientProvider (file:///Users/tunbee27/Documents/Tako-san-ui-rebuild/node_modules/.pnpm/@tanstack+react-query@5.102.8_react@18.3.1/node_modules/@tanstack/react-query/build/modern/QueryClientProvider.js:12:32)
+Warning: useLayoutEffect does nothing on the server, because its effect cannot be encoded into the server renderer's output format. This will lead to a mismatch between the initial, non-hydrated UI and the intended UI. To avoid this, useLayoutEffect should only be used in components that render exclusively on the client. See https://reactjs.org/link/uselayouteffect-ssr for common fixes.
+    at LinkWithRef (/Users/tunbee27/Documents/Tako-san-ui-rebuild/node_modules/.pnpm/react-router-dom@6.30.6_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/react-router-dom/dist/umd/react-router-dom.development.js:807:9)
+    at div
+    at section
+    at div
+    at div
+    at div
+    at HomePage (/Users/tunbee27/Documents/Tako-san-ui-rebuild/src/web/pages/HomePage.tsx:161:65)
+    at Router (/Users/tunbee27/Documents/Tako-san-ui-rebuild/node_modules/.pnpm/react-router@6.30.6_react@18.3.1/node_modules/react-router/dist/umd/react-router.development.js:1203:17)
+    at MemoryRouter (/Users/tunbee27/Documents/Tako-san-ui-rebuild/node_modules/.pnpm/react-router@6.30.6_react@18.3.1/node_modules/react-router/dist/umd/react-router.development.js:1097:7)
+    at QueryClientProvider (file:///Users/tunbee27/Documents/Tako-san-ui-rebuild/node_modules/.pnpm/@tanstack+react-query@5.102.8_react@18.3.1/node_modules/@tanstack/react-query/build/modern/QueryClientProvider.js:12:32)
+Warning: useLayoutEffect does nothing on the server, because its effect cannot be encoded into the server renderer's output format. This will lead to a mismatch between the initial, non-hydrated UI and the intended UI. To avoid this, useLayoutEffect should only be used in components that render exclusively on the client. See https://reactjs.org/link/uselayouteffect-ssr for common fixes.
+    at LinkWithRef (/Users/tunbee27/Documents/Tako-san-ui-rebuild/node_modules/.pnpm/react-router-dom@6.30.6_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/react-router-dom/dist/umd/react-router-dom.development.js:807:9)
+    at section
+    at div
+    at div
+    at div
+    at HomePage (/Users/tunbee27/Documents/Tako-san-ui-rebuild/src/web/pages/HomePage.tsx:161:65)
+    at Router (/Users/tunbee27/Documents/Tako-san-ui-rebuild/node_modules/.pnpm/react-router@6.30.6_react@18.3.1/node_modules/react-router/dist/umd/react-router.development.js:1203:17)
+    at MemoryRouter (/Users/tunbee27/Documents/Tako-san-ui-rebuild/node_modules/.pnpm/react-router@6.30.6_react@18.3.1/node_modules/react-router/dist/umd/react-router.development.js:1097:7)
+    at QueryClientProvider (file:///Users/tunbee27/Documents/Tako-san-ui-rebuild/node_modules/.pnpm/@tanstack+react-query@5.102.8_react@18.3.1/node_modules/@tanstack/react-query/build/modern/QueryClientProvider.js:12:32)
+
+ ✓ tests/unit/ui10-week-presentation.test.tsx (18 tests) 465ms
+stderr | tests/integration/frontend-ui-integration.test.tsx > RecipeDetail loading, not-found, error, and success remain distinct > renders a real pending state before recipe data arrives
+Warning: useLayoutEffect does nothing on the server, because its effect cannot be encoded into the server renderer's output format. This will lead to a mismatch between the initial, non-hydrated UI and the intended UI. To avoid this, useLayoutEffect should only be used in components that render exclusively on the client. See https://reactjs.org/link/uselayouteffect-ssr for common fixes.
+    at MemoryRouter (/Users/tunbee27/Documents/Tako-san-ui-rebuild/node_modules/.pnpm/react-router@6.30.6_react@18.3.1/node_modules/react-router/dist/umd/react-router.development.js:1097:7)
+    at QueryClientProvider (file:///Users/tunbee27/Documents/Tako-san-ui-rebuild/node_modules/.pnpm/@tanstack+react-query@5.102.8_react@18.3.1/node_modules/@tanstack/react-query/build/modern/QueryClientProvider.js:12:32)
+Warning: useLayoutEffect does nothing on the server, because its effect cannot be encoded into the server renderer's output format. This will lead to a mismatch between the initial, non-hydrated UI and the intended UI. To avoid this, useLayoutEffect should only be used in components that render exclusively on the client. See https://reactjs.org/link/uselayouteffect-ssr for common fixes.
+    at LinkWithRef (/Users/tunbee27/Documents/Tako-san-ui-rebuild/node_modules/.pnpm/react-router-dom@6.30.6_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/react-router-dom/dist/umd/react-router-dom.development.js:807:9)
+    at div
+    at header
+    at KitchenHeader (/Users/tunbee27/Documents/Tako-san-ui-rebuild/src/web/components/common/KitchenHeader.tsx:9:3)
+    at TopBar (/Users/tunbee27/Documents/Tako-san-ui-rebuild/src/web/components/common/TopBar.tsx:9:3)
+    at div
+    at RecipeDetailPage (/Users/tunbee27/Documents/Tako-san-ui-rebuild/src/web/pages/RecipeDetailPage.tsx:51:63)
+    at Router (/Users/tunbee27/Documents/Tako-san-ui-rebuild/node_modules/.pnpm/react-router@6.30.6_react@18.3.1/node_modules/react-router/dist/umd/react-router.development.js:1203:17)
+    at MemoryRouter (/Users/tunbee27/Documents/Tako-san-ui-rebuild/node_modules/.pnpm/react-router@6.30.6_react@18.3.1/node_modules/react-router/dist/umd/react-router.development.js:1097:7)
+    at QueryClientProvider (file:///Users/tunbee27/Documents/Tako-san-ui-rebuild/node_modules/.pnpm/@tanstack+react-query@5.102.8_react@18.3.1/node_modules/@tanstack/react-query/build/modern/QueryClientProvider.js:12:32)
+Warning: useLayoutEffect does nothing on the server, because its effect cannot be encoded into the server renderer's output format. This will lead to a mismatch between the initial, non-hydrated UI and the intended UI. To avoid this, useLayoutEffect should only be used in components that render exclusively on the client. See https://reactjs.org/link/uselayouteffect-ssr for common fixes.
+    at LinkWithRef (/Users/tunbee27/Documents/Tako-san-ui-rebuild/node_modules/.pnpm/react-router-dom@6.30.6_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/react-router-dom/dist/umd/react-router-dom.development.js:807:9)
+    at div
+    at header
+    at KitchenHeader (/Users/tunbee27/Documents/Tako-san-ui-rebuild/src/web/components/common/KitchenHeader.tsx:9:3)
+    at TopBar (/Users/tunbee27/Documents/Tako-san-ui-rebuild/src/web/components/common/TopBar.tsx:9:3)
+    at div
+    at RecipeDetailPage (/Users/tunbee27/Documents/Tako-san-ui-rebuild/src/web/pages/RecipeDetailPage.tsx:51:63)
+    at Router (/Users/tunbee27/Documents/Tako-san-ui-rebuild/node_modules/.pnpm/react-router@6.30.6_react@18.3.1/node_modules/react-router/dist/umd/react-router.development.js:1203:17)
+    at MemoryRouter (/Users/tunbee27/Documents/Tako-san-ui-rebuild/node_modules/.pnpm/react-router@6.30.6_react@18.3.1/node_modules/react-router/dist/umd/react-router.development.js:1097:7)
+    at QueryClientProvider (file:///Users/tunbee27/Documents/Tako-san-ui-rebuild/node_modules/.pnpm/@tanstack+react-query@5.102.8_react@18.3.1/node_modules/@tanstack/react-query/build/modern/QueryClientProvider.js:12:32)
+Warning: useLayoutEffect does nothing on the server, because its effect cannot be encoded into the server renderer's output format. This will lead to a mismatch between the initial, non-hydrated UI and the intended UI. To avoid this, useLayoutEffect should only be used in components that render exclusively on the client. See https://reactjs.org/link/uselayouteffect-ssr for common fixes.
+    at LinkWithRef (/Users/tunbee27/Documents/Tako-san-ui-rebuild/node_modules/.pnpm/react-router-dom@6.30.6_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/react-router-dom/dist/umd/react-router-dom.development.js:807:9)
+    at div
+    at header
+    at KitchenHeader (/Users/tunbee27/Documents/Tako-san-ui-rebuild/src/web/components/common/KitchenHeader.tsx:9:3)
+    at TopBar (/Users/tunbee27/Documents/Tako-san-ui-rebuild/src/web/components/common/TopBar.tsx:9:3)
+    at div
+    at RecipeDetailPage (/Users/tunbee27/Documents/Tako-san-ui-rebuild/src/web/pages/RecipeDetailPage.tsx:51:63)
+    at Router (/Users/tunbee27/Documents/Tako-san-ui-rebuild/node_modules/.pnpm/react-router@6.30.6_react@18.3.1/node_modules/react-router/dist/umd/react-router.development.js:1203:17)
+    at MemoryRouter (/Users/tunbee27/Documents/Tako-san-ui-rebuild/node_modules/.pnpm/react-router@6.30.6_react@18.3.1/node_modules/react-router/dist/umd/react-router.development.js:1097:7)
+    at QueryClientProvider (file:///Users/tunbee27/Documents/Tako-san-ui-rebuild/node_modules/.pnpm/@tanstack+react-query@5.102.8_react@18.3.1/node_modules/@tanstack/react-query/build/modern/QueryClientProvider.js:12:32)
+Warning: useLayoutEffect does nothing on the server, because its effect cannot be encoded into the server renderer's output format. This will lead to a mismatch between the initial, non-hydrated UI and the intended UI. To avoid this, useLayoutEffect should only be used in components that render exclusively on the client. See https://reactjs.org/link/uselayouteffect-ssr for common fixes.
+    at LinkWithRef (/Users/tunbee27/Documents/Tako-san-ui-rebuild/node_modules/.pnpm/react-router-dom@6.30.6_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/react-router-dom/dist/umd/react-router-dom.development.js:807:9)
+    at div
+    at header
+    at KitchenHeader (/Users/tunbee27/Documents/Tako-san-ui-rebuild/src/web/components/common/KitchenHeader.tsx:9:3)
+    at TopBar (/Users/tunbee27/Documents/Tako-san-ui-rebuild/src/web/components/common/TopBar.tsx:9:3)
+    at div
+    at RecipeDetailPage (/Users/tunbee27/Documents/Tako-san-ui-rebuild/src/web/pages/RecipeDetailPage.tsx:51:63)
+    at Router (/Users/tunbee27/Documents/Tako-san-ui-rebuild/node_modules/.pnpm/react-router@6.30.6_react@18.3.1/node_modules/react-router/dist/umd/react-router.development.js:1203:17)
+    at MemoryRouter (/Users/tunbee27/Documents/Tako-san-ui-rebuild/node_modules/.pnpm/react-router@6.30.6_react@18.3.1/node_modules/react-router/dist/umd/react-router.development.js:1097:7)
+    at QueryClientProvider (file:///Users/tunbee27/Documents/Tako-san-ui-rebuild/node_modules/.pnpm/@tanstack+react-query@5.102.8_react@18.3.1/node_modules/@tanstack/react-query/build/modern/QueryClientProvider.js:12:32)
+
+stderr | tests/integration/frontend-ui-integration.test.tsx > RecipeDetail loading, not-found, error, and success remain distinct > does not spin forever when a successful response has no recipe
+Warning: useLayoutEffect does nothing on the server, because its effect cannot be encoded into the server renderer's output format. This will lead to a mismatch between the initial, non-hydrated UI and the intended UI. To avoid this, useLayoutEffect should only be used in components that render exclusively on the client. See https://reactjs.org/link/uselayouteffect-ssr for common fixes.
+    at MemoryRouter (/Users/tunbee27/Documents/Tako-san-ui-rebuild/node_modules/.pnpm/react-router@6.30.6_react@18.3.1/node_modules/react-router/dist/umd/react-router.development.js:1097:7)
+    at QueryClientProvider (file:///Users/tunbee27/Documents/Tako-san-ui-rebuild/node_modules/.pnpm/@tanstack+react-query@5.102.8_react@18.3.1/node_modules/@tanstack/react-query/build/modern/QueryClientProvider.js:12:32)
+Warning: useLayoutEffect does nothing on the server, because its effect cannot be encoded into the server renderer's output format. This will lead to a mismatch between the initial, non-hydrated UI and the intended UI. To avoid this, useLayoutEffect should only be used in components that render exclusively on the client. See https://reactjs.org/link/uselayouteffect-ssr for common fixes.
+    at LinkWithRef (/Users/tunbee27/Documents/Tako-san-ui-rebuild/node_modules/.pnpm/react-router-dom@6.30.6_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/react-router-dom/dist/umd/react-router-dom.development.js:807:9)
+    at div
+    at header
+    at KitchenHeader (/Users/tunbee27/Documents/Tako-san-ui-rebuild/src/web/components/common/KitchenHeader.tsx:9:3)
+    at TopBar (/Users/tunbee27/Documents/Tako-san-ui-rebuild/src/web/components/common/TopBar.tsx:9:3)
+    at div
+    at RecipeDetailPage (/Users/tunbee27/Documents/Tako-san-ui-rebuild/src/web/pages/RecipeDetailPage.tsx:51:63)
+    at Router (/Users/tunbee27/Documents/Tako-san-ui-rebuild/node_modules/.pnpm/react-router@6.30.6_react@18.3.1/node_modules/react-router/dist/umd/react-router.development.js:1203:17)
+    at MemoryRouter (/Users/tunbee27/Documents/Tako-san-ui-rebuild/node_modules/.pnpm/react-router@6.30.6_react@18.3.1/node_modules/react-router/dist/umd/react-router.development.js:1097:7)
+    at QueryClientProvider (file:///Users/tunbee27/Documents/Tako-san-ui-rebuild/node_modules/.pnpm/@tanstack+react-query@5.102.8_react@18.3.1/node_modules/@tanstack/react-query/build/modern/QueryClientProvider.js:12:32)
+Warning: useLayoutEffect does nothing on the server, because its effect cannot be encoded into the server renderer's output format. This will lead to a mismatch between the initial, non-hydrated UI and the intended UI. To avoid this, useLayoutEffect should only be used in components that render exclusively on the client. See https://reactjs.org/link/uselayouteffect-ssr for common fixes.
+    at LinkWithRef (/Users/tunbee27/Documents/Tako-san-ui-rebuild/node_modules/.pnpm/react-router-dom@6.30.6_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/react-router-dom/dist/umd/react-router-dom.development.js:807:9)
+    at div
+    at header
+    at KitchenHeader (/Users/tunbee27/Documents/Tako-san-ui-rebuild/src/web/components/common/KitchenHeader.tsx:9:3)
+    at TopBar (/Users/tunbee27/Documents/Tako-san-ui-rebuild/src/web/components/common/TopBar.tsx:9:3)
+    at div
+    at RecipeDetailPage (/Users/tunbee27/Documents/Tako-san-ui-rebuild/src/web/pages/RecipeDetailPage.tsx:51:63)
+    at Router (/Users/tunbee27/Documents/Tako-san-ui-rebuild/node_modules/.pnpm/react-router@6.30.6_react@18.3.1/node_modules/react-router/dist/umd/react-router.development.js:1203:17)
+    at MemoryRouter (/Users/tunbee27/Documents/Tako-san-ui-rebuild/node_modules/.pnpm/react-router@6.30.6_react@18.3.1/node_modules/react-router/dist/umd/react-router.development.js:1097:7)
+    at QueryClientProvider (file:///Users/tunbee27/Documents/Tako-san-ui-rebuild/node_modules/.pnpm/@tanstack+react-query@5.102.8_react@18.3.1/node_modules/@tanstack/react-query/build/modern/QueryClientProvider.js:12:32)
+Warning: useLayoutEffect does nothing on the server, because its effect cannot be encoded into the server renderer's output format. This will lead to a mismatch between the initial, non-hydrated UI and the intended UI. To avoid this, useLayoutEffect should only be used in components that render exclusively on the client. See https://reactjs.org/link/uselayouteffect-ssr for common fixes.
+    at LinkWithRef (/Users/tunbee27/Documents/Tako-san-ui-rebuild/node_modules/.pnpm/react-router-dom@6.30.6_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/react-router-dom/dist/umd/react-router-dom.development.js:807:9)
+    at div
+    at header
+    at KitchenHeader (/Users/tunbee27/Documents/Tako-san-ui-rebuild/src/web/components/common/KitchenHeader.tsx:9:3)
+    at TopBar (/Users/tunbee27/Documents/Tako-san-ui-rebuild/src/web/components/common/TopBar.tsx:9:3)
+    at div
+    at RecipeDetailPage (/Users/tunbee27/Documents/Tako-san-ui-rebuild/src/web/pages/RecipeDetailPage.tsx:51:63)
+    at Router (/Users/tunbee27/Documents/Tako-san-ui-rebuild/node_modules/.pnpm/react-router@6.30.6_react@18.3.1/node_modules/react-router/dist/umd/react-router.development.js:1203:17)
+    at MemoryRouter (/Users/tunbee27/Documents/Tako-san-ui-rebuild/node_modules/.pnpm/react-router@6.30.6_react@18.3.1/node_modules/react-router/dist/umd/react-router.development.js:1097:7)
+    at QueryClientProvider (file:///Users/tunbee27/Documents/Tako-san-ui-rebuild/node_modules/.pnpm/@tanstack+react-query@5.102.8_react@18.3.1/node_modules/@tanstack/react-query/build/modern/QueryClientProvider.js:12:32)
+Warning: useLayoutEffect does nothing on the server, because its effect cannot be encoded into the server renderer's output format. This will lead to a mismatch between the initial, non-hydrated UI and the intended UI. To avoid this, useLayoutEffect should only be used in components that render exclusively on the client. See https://reactjs.org/link/uselayouteffect-ssr for common fixes.
+    at LinkWithRef (/Users/tunbee27/Documents/Tako-san-ui-rebuild/node_modules/.pnpm/react-router-dom@6.30.6_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/react-router-dom/dist/umd/react-router-dom.development.js:807:9)
+    at div
+    at header
+    at KitchenHeader (/Users/tunbee27/Documents/Tako-san-ui-rebuild/src/web/components/common/KitchenHeader.tsx:9:3)
+    at TopBar (/Users/tunbee27/Documents/Tako-san-ui-rebuild/src/web/components/common/TopBar.tsx:9:3)
+    at div
+    at RecipeDetailPage (/Users/tunbee27/Documents/Tako-san-ui-rebuild/src/web/pages/RecipeDetailPage.tsx:51:63)
+    at Router (/Users/tunbee27/Documents/Tako-san-ui-rebuild/node_modules/.pnpm/react-router@6.30.6_react@18.3.1/node_modules/react-router/dist/umd/react-router.development.js:1203:17)
+    at MemoryRouter (/Users/tunbee27/Documents/Tako-san-ui-rebuild/node_modules/.pnpm/react-router@6.30.6_react@18.3.1/node_modules/react-router/dist/umd/react-router.development.js:1097:7)
+    at QueryClientProvider (file:///Users/tunbee27/Documents/Tako-san-ui-rebuild/node_modules/.pnpm/@tanstack+react-query@5.102.8_react@18.3.1/node_modules/@tanstack/react-query/build/modern/QueryClientProvider.js:12:32)
+
+stderr | tests/integration/frontend-ui-integration.test.tsx > RecipeDetail loading, not-found, error, and success remain distinct > renders a distinct 404 response instead of an infinite spinner
+Warning: useLayoutEffect does nothing on the server, because its effect cannot be encoded into the server renderer's output format. This will lead to a mismatch between the initial, non-hydrated UI and the intended UI. To avoid this, useLayoutEffect should only be used in components that render exclusively on the client. See https://reactjs.org/link/uselayouteffect-ssr for common fixes.
+    at MemoryRouter (/Users/tunbee27/Documents/Tako-san-ui-rebuild/node_modules/.pnpm/react-router@6.30.6_react@18.3.1/node_modules/react-router/dist/umd/react-router.development.js:1097:7)
+    at QueryClientProvider (file:///Users/tunbee27/Documents/Tako-san-ui-rebuild/node_modules/.pnpm/@tanstack+react-query@5.102.8_react@18.3.1/node_modules/@tanstack/react-query/build/modern/QueryClientProvider.js:12:32)
+Warning: useLayoutEffect does nothing on the server, because its effect cannot be encoded into the server renderer's output format. This will lead to a mismatch between the initial, non-hydrated UI and the intended UI. To avoid this, useLayoutEffect should only be used in components that render exclusively on the client. See https://reactjs.org/link/uselayouteffect-ssr for common fixes.
+    at LinkWithRef (/Users/tunbee27/Documents/Tako-san-ui-rebuild/node_modules/.pnpm/react-router-dom@6.30.6_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/react-router-dom/dist/umd/react-router-dom.development.js:807:9)
+    at div
+    at header
+    at KitchenHeader (/Users/tunbee27/Documents/Tako-san-ui-rebuild/src/web/components/common/KitchenHeader.tsx:9:3)
+    at TopBar (/Users/tunbee27/Documents/Tako-san-ui-rebuild/src/web/components/common/TopBar.tsx:9:3)
+    at div
+    at RecipeDetailPage (/Users/tunbee27/Documents/Tako-san-ui-rebuild/src/web/pages/RecipeDetailPage.tsx:51:63)
+    at Router (/Users/tunbee27/Documents/Tako-san-ui-rebuild/node_modules/.pnpm/react-router@6.30.6_react@18.3.1/node_modules/react-router/dist/umd/react-router.development.js:1203:17)
+    at MemoryRouter (/Users/tunbee27/Documents/Tako-san-ui-rebuild/node_modules/.pnpm/react-router@6.30.6_react@18.3.1/node_modules/react-router/dist/umd/react-router.development.js:1097:7)
+    at QueryClientProvider (file:///Users/tunbee27/Documents/Tako-san-ui-rebuild/node_modules/.pnpm/@tanstack+react-query@5.102.8_react@18.3.1/node_modules/@tanstack/react-query/build/modern/QueryClientProvider.js:12:32)
+Warning: useLayoutEffect does nothing on the server, because its effect cannot be encoded into the server renderer's output format. This will lead to a mismatch between the initial, non-hydrated UI and the intended UI. To avoid this, useLayoutEffect should only be used in components that render exclusively on the client. See https://reactjs.org/link/uselayouteffect-ssr for common fixes.
+    at LinkWithRef (/Users/tunbee27/Documents/Tako-san-ui-rebuild/node_modules/.pnpm/react-router-dom@6.30.6_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/react-router-dom/dist/umd/react-router-dom.development.js:807:9)
+    at div
+    at header
+    at KitchenHeader (/Users/tunbee27/Documents/Tako-san-ui-rebuild/src/web/components/common/KitchenHeader.tsx:9:3)
+    at TopBar (/Users/tunbee27/Documents/Tako-san-ui-rebuild/src/web/components/common/TopBar.tsx:9:3)
+    at div
+    at RecipeDetailPage (/Users/tunbee27/Documents/Tako-san-ui-rebuild/src/web/pages/RecipeDetailPage.tsx:51:63)
+    at Router (/Users/tunbee27/Documents/Tako-san-ui-rebuild/node_modules/.pnpm/react-router@6.30.6_react@18.3.1/node_modules/react-router/dist/umd/react-router.development.js:1203:17)
+    at MemoryRouter (/Users/tunbee27/Documents/Tako-san-ui-rebuild/node_modules/.pnpm/react-router@6.30.6_react@18.3.1/node_modules/react-router/dist/umd/react-router.development.js:1097:7)
+    at QueryClientProvider (file:///Users/tunbee27/Documents/Tako-san-ui-rebuild/node_modules/.pnpm/@tanstack+react-query@5.102.8_react@18.3.1/node_modules/@tanstack/react-query/build/modern/QueryClientProvider.js:12:32)
+Warning: useLayoutEffect does nothing on the server, because its effect cannot be encoded into the server renderer's output format. This will lead to a mismatch between the initial, non-hydrated UI and the intended UI. To avoid this, useLayoutEffect should only be used in components that render exclusively on the client. See https://reactjs.org/link/uselayouteffect-ssr for common fixes.
+    at LinkWithRef (/Users/tunbee27/Documents/Tako-san-ui-rebuild/node_modules/.pnpm/react-router-dom@6.30.6_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/react-router-dom/dist/umd/react-router-dom.development.js:807:9)
+    at div
+    at header
+    at KitchenHeader (/Users/tunbee27/Documents/Tako-san-ui-rebuild/src/web/components/common/KitchenHeader.tsx:9:3)
+    at TopBar (/Users/tunbee27/Documents/Tako-san-ui-rebuild/src/web/components/common/TopBar.tsx:9:3)
+    at div
+    at RecipeDetailPage (/Users/tunbee27/Documents/Tako-san-ui-rebuild/src/web/pages/RecipeDetailPage.tsx:51:63)
+    at Router (/Users/tunbee27/Documents/Tako-san-ui-rebuild/node_modules/.pnpm/react-router@6.30.6_react@18.3.1/node_modules/react-router/dist/umd/react-router.development.js:1203:17)
+    at MemoryRouter (/Users/tunbee27/Documents/Tako-san-ui-rebuild/node_modules/.pnpm/react-router@6.30.6_react@18.3.1/node_modules/react-router/dist/umd/react-router.development.js:1097:7)
+    at QueryClientProvider (file:///Users/tunbee27/Documents/Tako-san-ui-rebuild/node_modules/.pnpm/@tanstack+react-query@5.102.8_react@18.3.1/node_modules/@tanstack/react-query/build/modern/QueryClientProvider.js:12:32)
+Warning: useLayoutEffect does nothing on the server, because its effect cannot be encoded into the server renderer's output format. This will lead to a mismatch between the initial, non-hydrated UI and the intended UI. To avoid this, useLayoutEffect should only be used in components that render exclusively on the client. See https://reactjs.org/link/uselayouteffect-ssr for common fixes.
+    at LinkWithRef (/Users/tunbee27/Documents/Tako-san-ui-rebuild/node_modules/.pnpm/react-router-dom@6.30.6_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/react-router-dom/dist/umd/react-router-dom.development.js:807:9)
+    at div
+    at header
+    at KitchenHeader (/Users/tunbee27/Documents/Tako-san-ui-rebuild/src/web/components/common/KitchenHeader.tsx:9:3)
+    at TopBar (/Users/tunbee27/Documents/Tako-san-ui-rebuild/src/web/components/common/TopBar.tsx:9:3)
+    at div
+    at RecipeDetailPage (/Users/tunbee27/Documents/Tako-san-ui-rebuild/src/web/pages/RecipeDetailPage.tsx:51:63)
+    at Router (/Users/tunbee27/Documents/Tako-san-ui-rebuild/node_modules/.pnpm/react-router@6.30.6_react@18.3.1/node_modules/react-router/dist/umd/react-router.development.js:1203:17)
+    at MemoryRouter (/Users/tunbee27/Documents/Tako-san-ui-rebuild/node_modules/.pnpm/react-router@6.30.6_react@18.3.1/node_modules/react-router/dist/umd/react-router.development.js:1097:7)
+    at QueryClientProvider (file:///Users/tunbee27/Documents/Tako-san-ui-rebuild/node_modules/.pnpm/@tanstack+react-query@5.102.8_react@18.3.1/node_modules/@tanstack/react-query/build/modern/QueryClientProvider.js:12:32)
+
+stderr | tests/integration/frontend-ui-integration.test.tsx > RecipeDetail loading, not-found, error, and success remain distinct > renders a distinct 500 response instead of an infinite spinner
+Warning: useLayoutEffect does nothing on the server, because its effect cannot be encoded into the server renderer's output format. This will lead to a mismatch between the initial, non-hydrated UI and the intended UI. To avoid this, useLayoutEffect should only be used in components that render exclusively on the client. See https://reactjs.org/link/uselayouteffect-ssr for common fixes.
+    at MemoryRouter (/Users/tunbee27/Documents/Tako-san-ui-rebuild/node_modules/.pnpm/react-router@6.30.6_react@18.3.1/node_modules/react-router/dist/umd/react-router.development.js:1097:7)
+    at QueryClientProvider (file:///Users/tunbee27/Documents/Tako-san-ui-rebuild/node_modules/.pnpm/@tanstack+react-query@5.102.8_react@18.3.1/node_modules/@tanstack/react-query/build/modern/QueryClientProvider.js:12:32)
+Warning: useLayoutEffect does nothing on the server, because its effect cannot be encoded into the server renderer's output format. This will lead to a mismatch between the initial, non-hydrated UI and the intended UI. To avoid this, useLayoutEffect should only be used in components that render exclusively on the client. See https://reactjs.org/link/uselayouteffect-ssr for common fixes.
+    at LinkWithRef (/Users/tunbee27/Documents/Tako-san-ui-rebuild/node_modules/.pnpm/react-router-dom@6.30.6_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/react-router-dom/dist/umd/react-router-dom.development.js:807:9)
+    at div
+    at header
+    at KitchenHeader (/Users/tunbee27/Documents/Tako-san-ui-rebuild/src/web/components/common/KitchenHeader.tsx:9:3)
+    at TopBar (/Users/tunbee27/Documents/Tako-san-ui-rebuild/src/web/components/common/TopBar.tsx:9:3)
+    at div
+    at RecipeDetailPage (/Users/tunbee27/Documents/Tako-san-ui-rebuild/src/web/pages/RecipeDetailPage.tsx:51:63)
+    at Router (/Users/tunbee27/Documents/Tako-san-ui-rebuild/node_modules/.pnpm/react-router@6.30.6_react@18.3.1/node_modules/react-router/dist/umd/react-router.development.js:1203:17)
+    at MemoryRouter (/Users/tunbee27/Documents/Tako-san-ui-rebuild/node_modules/.pnpm/react-router@6.30.6_react@18.3.1/node_modules/react-router/dist/umd/react-router.development.js:1097:7)
+    at QueryClientProvider (file:///Users/tunbee27/Documents/Tako-san-ui-rebuild/node_modules/.pnpm/@tanstack+react-query@5.102.8_react@18.3.1/node_modules/@tanstack/react-query/build/modern/QueryClientProvider.js:12:32)
+Warning: useLayoutEffect does nothing on the server, because its effect cannot be encoded into the server renderer's output format. This will lead to a mismatch between the initial, non-hydrated UI and the intended UI. To avoid this, useLayoutEffect should only be used in components that render exclusively on the client. See https://reactjs.org/link/uselayouteffect-ssr for common fixes.
+    at LinkWithRef (/Users/tunbee27/Documents/Tako-san-ui-rebuild/node_modules/.pnpm/react-router-dom@6.30.6_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/react-router-dom/dist/umd/react-router-dom.development.js:807:9)
+    at div
+    at header
+    at KitchenHeader (/Users/tunbee27/Documents/Tako-san-ui-rebuild/src/web/components/common/KitchenHeader.tsx:9:3)
+    at TopBar (/Users/tunbee27/Documents/Tako-san-ui-rebuild/src/web/components/common/TopBar.tsx:9:3)
+    at div
+    at RecipeDetailPage (/Users/tunbee27/Documents/Tako-san-ui-rebuild/src/web/pages/RecipeDetailPage.tsx:51:63)
+    at Router (/Users/tunbee27/Documents/Tako-san-ui-rebuild/node_modules/.pnpm/react-router@6.30.6_react@18.3.1/node_modules/react-router/dist/umd/react-router.development.js:1203:17)
+    at MemoryRouter (/Users/tunbee27/Documents/Tako-san-ui-rebuild/node_modules/.pnpm/react-router@6.30.6_react@18.3.1/node_modules/react-router/dist/umd/react-router.development.js:1097:7)
+    at QueryClientProvider (file:///Users/tunbee27/Documents/Tako-san-ui-rebuild/node_modules/.pnpm/@tanstack+react-query@5.102.8_react@18.3.1/node_modules/@tanstack/react-query/build/modern/QueryClientProvider.js:12:32)
+Warning: useLayoutEffect does nothing on the server, because its effect cannot be encoded into the server renderer's output format. This will lead to a mismatch between the initial, non-hydrated UI and the intended UI. To avoid this, useLayoutEffect should only be used in components that render exclusively on the client. See https://reactjs.org/link/uselayouteffect-ssr for common fixes.
+    at LinkWithRef (/Users/tunbee27/Documents/Tako-san-ui-rebuild/node_modules/.pnpm/react-router-dom@6.30.6_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/react-router-dom/dist/umd/react-router-dom.development.js:807:9)
+    at div
+    at header
+    at KitchenHeader (/Users/tunbee27/Documents/Tako-san-ui-rebuild/src/web/components/common/KitchenHeader.tsx:9:3)
+    at TopBar (/Users/tunbee27/Documents/Tako-san-ui-rebuild/src/web/components/common/TopBar.tsx:9:3)
+    at div
+    at RecipeDetailPage (/Users/tunbee27/Documents/Tako-san-ui-rebuild/src/web/pages/RecipeDetailPage.tsx:51:63)
+    at Router (/Users/tunbee27/Documents/Tako-san-ui-rebuild/node_modules/.pnpm/react-router@6.30.6_react@18.3.1/node_modules/react-router/dist/umd/react-router.development.js:1203:17)
+    at MemoryRouter (/Users/tunbee27/Documents/Tako-san-ui-rebuild/node_modules/.pnpm/react-router@6.30.6_react@18.3.1/node_modules/react-router/dist/umd/react-router.development.js:1097:7)
+    at QueryClientProvider (file:///Users/tunbee27/Documents/Tako-san-ui-rebuild/node_modules/.pnpm/@tanstack+react-query@5.102.8_react@18.3.1/node_modules/@tanstack/react-query/build/modern/QueryClientProvider.js:12:32)
+Warning: useLayoutEffect does nothing on the server, because its effect cannot be encoded into the server renderer's output format. This will lead to a mismatch between the initial, non-hydrated UI and the intended UI. To avoid this, useLayoutEffect should only be used in components that render exclusively on the client. See https://reactjs.org/link/uselayouteffect-ssr for common fixes.
+    at LinkWithRef (/Users/tunbee27/Documents/Tako-san-ui-rebuild/node_modules/.pnpm/react-router-dom@6.30.6_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/react-router-dom/dist/umd/react-router-dom.development.js:807:9)
+    at div
+    at header
+    at KitchenHeader (/Users/tunbee27/Documents/Tako-san-ui-rebuild/src/web/components/common/KitchenHeader.tsx:9:3)
+    at TopBar (/Users/tunbee27/Documents/Tako-san-ui-rebuild/src/web/components/common/TopBar.tsx:9:3)
+    at div
+    at RecipeDetailPage (/Users/tunbee27/Documents/Tako-san-ui-rebuild/src/web/pages/RecipeDetailPage.tsx:51:63)
+    at Router (/Users/tunbee27/Documents/Tako-san-ui-rebuild/node_modules/.pnpm/react-router@6.30.6_react@18.3.1/node_modules/react-router/dist/umd/react-router.development.js:1203:17)
+    at MemoryRouter (/Users/tunbee27/Documents/Tako-san-ui-rebuild/node_modules/.pnpm/react-router@6.30.6_react@18.3.1/node_modules/react-router/dist/umd/react-router.development.js:1097:7)
+    at QueryClientProvider (file:///Users/tunbee27/Documents/Tako-san-ui-rebuild/node_modules/.pnpm/@tanstack+react-query@5.102.8_react@18.3.1/node_modules/@tanstack/react-query/build/modern/QueryClientProvider.js:12:32)
+
+stderr | tests/integration/frontend-ui-integration.test.tsx > RecipeDetail loading, not-found, error, and success remain distinct > renders the offline error honestly with retry
+Warning: useLayoutEffect does nothing on the server, because its effect cannot be encoded into the server renderer's output format. This will lead to a mismatch between the initial, non-hydrated UI and the intended UI. To avoid this, useLayoutEffect should only be used in components that render exclusively on the client. See https://reactjs.org/link/uselayouteffect-ssr for common fixes.
+    at MemoryRouter (/Users/tunbee27/Documents/Tako-san-ui-rebuild/node_modules/.pnpm/react-router@6.30.6_react@18.3.1/node_modules/react-router/dist/umd/react-router.development.js:1097:7)
+    at QueryClientProvider (file:///Users/tunbee27/Documents/Tako-san-ui-rebuild/node_modules/.pnpm/@tanstack+react-query@5.102.8_react@18.3.1/node_modules/@tanstack/react-query/build/modern/QueryClientProvider.js:12:32)
+Warning: useLayoutEffect does nothing on the server, because its effect cannot be encoded into the server renderer's output format. This will lead to a mismatch between the initial, non-hydrated UI and the intended UI. To avoid this, useLayoutEffect should only be used in components that render exclusively on the client. See https://reactjs.org/link/uselayouteffect-ssr for common fixes.
+    at LinkWithRef (/Users/tunbee27/Documents/Tako-san-ui-rebuild/node_modules/.pnpm/react-router-dom@6.30.6_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/react-router-dom/dist/umd/react-router-dom.development.js:807:9)
+    at div
+    at header
+    at KitchenHeader (/Users/tunbee27/Documents/Tako-san-ui-rebuild/src/web/components/common/KitchenHeader.tsx:9:3)
+    at TopBar (/Users/tunbee27/Documents/Tako-san-ui-rebuild/src/web/components/common/TopBar.tsx:9:3)
+    at div
+    at RecipeDetailPage (/Users/tunbee27/Documents/Tako-san-ui-rebuild/src/web/pages/RecipeDetailPage.tsx:51:63)
+    at Router (/Users/tunbee27/Documents/Tako-san-ui-rebuild/node_modules/.pnpm/react-router@6.30.6_react@18.3.1/node_modules/react-router/dist/umd/react-router.development.js:1203:17)
+    at MemoryRouter (/Users/tunbee27/Documents/Tako-san-ui-rebuild/node_modules/.pnpm/react-router@6.30.6_react@18.3.1/node_modules/react-router/dist/umd/react-router.development.js:1097:7)
+    at QueryClientProvider (file:///Users/tunbee27/Documents/Tako-san-ui-rebuild/node_modules/.pnpm/@tanstack+react-query@5.102.8_react@18.3.1/node_modules/@tanstack/react-query/build/modern/QueryClientProvider.js:12:32)
+Warning: useLayoutEffect does nothing on the server, because its effect cannot be encoded into the server renderer's output format. This will lead to a mismatch between the initial, non-hydrated UI and the intended UI. To avoid this, useLayoutEffect should only be used in components that render exclusively on the client. See https://reactjs.org/link/uselayouteffect-ssr for common fixes.
+    at LinkWithRef (/Users/tunbee27/Documents/Tako-san-ui-rebuild/node_modules/.pnpm/react-router-dom@6.30.6_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/react-router-dom/dist/umd/react-router-dom.development.js:807:9)
+    at div
+    at header
+    at KitchenHeader (/Users/tunbee27/Documents/Tako-san-ui-rebuild/src/web/components/common/KitchenHeader.tsx:9:3)
+    at TopBar (/Users/tunbee27/Documents/Tako-san-ui-rebuild/src/web/components/common/TopBar.tsx:9:3)
+    at div
+    at RecipeDetailPage (/Users/tunbee27/Documents/Tako-san-ui-rebuild/src/web/pages/RecipeDetailPage.tsx:51:63)
+    at Router (/Users/tunbee27/Documents/Tako-san-ui-rebuild/node_modules/.pnpm/react-router@6.30.6_react@18.3.1/node_modules/react-router/dist/umd/react-router.development.js:1203:17)
+    at MemoryRouter (/Users/tunbee27/Documents/Tako-san-ui-rebuild/node_modules/.pnpm/react-router@6.30.6_react@18.3.1/node_modules/react-router/dist/umd/react-router.development.js:1097:7)
+    at QueryClientProvider (file:///Users/tunbee27/Documents/Tako-san-ui-rebuild/node_modules/.pnpm/@tanstack+react-query@5.102.8_react@18.3.1/node_modules/@tanstack/react-query/build/modern/QueryClientProvider.js:12:32)
+Warning: useLayoutEffect does nothing on the server, because its effect cannot be encoded into the server renderer's output format. This will lead to a mismatch between the initial, non-hydrated UI and the intended UI. To avoid this, useLayoutEffect should only be used in components that render exclusively on the client. See https://reactjs.org/link/uselayouteffect-ssr for common fixes.
+    at LinkWithRef (/Users/tunbee27/Documents/Tako-san-ui-rebuild/node_modules/.pnpm/react-router-dom@6.30.6_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/react-router-dom/dist/umd/react-router-dom.development.js:807:9)
+    at div
+    at header
+    at KitchenHeader (/Users/tunbee27/Documents/Tako-san-ui-rebuild/src/web/components/common/KitchenHeader.tsx:9:3)
+    at TopBar (/Users/tunbee27/Documents/Tako-san-ui-rebuild/src/web/components/common/TopBar.tsx:9:3)
+    at div
+    at RecipeDetailPage (/Users/tunbee27/Documents/Tako-san-ui-rebuild/src/web/pages/RecipeDetailPage.tsx:51:63)
+    at Router (/Users/tunbee27/Documents/Tako-san-ui-rebuild/node_modules/.pnpm/react-router@6.30.6_react@18.3.1/node_modules/react-router/dist/umd/react-router.development.js:1203:17)
+    at MemoryRouter (/Users/tunbee27/Documents/Tako-san-ui-rebuild/node_modules/.pnpm/react-router@6.30.6_react@18.3.1/node_modules/react-router/dist/umd/react-router.development.js:1097:7)
+    at QueryClientProvider (file:///Users/tunbee27/Documents/Tako-san-ui-rebuild/node_modules/.pnpm/@tanstack+react-query@5.102.8_react@18.3.1/node_modules/@tanstack/react-query/build/modern/QueryClientProvider.js:12:32)
+Warning: useLayoutEffect does nothing on the server, because its effect cannot be encoded into the server renderer's output format. This will lead to a mismatch between the initial, non-hydrated UI and the intended UI. To avoid this, useLayoutEffect should only be used in components that render exclusively on the client. See https://reactjs.org/link/uselayouteffect-ssr for common fixes.
+    at LinkWithRef (/Users/tunbee27/Documents/Tako-san-ui-rebuild/node_modules/.pnpm/react-router-dom@6.30.6_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/react-router-dom/dist/umd/react-router-dom.development.js:807:9)
+    at div
+    at header
+    at KitchenHeader (/Users/tunbee27/Documents/Tako-san-ui-rebuild/src/web/components/common/KitchenHeader.tsx:9:3)
+    at TopBar (/Users/tunbee27/Documents/Tako-san-ui-rebuild/src/web/components/common/TopBar.tsx:9:3)
+    at div
+    at RecipeDetailPage (/Users/tunbee27/Documents/Tako-san-ui-rebuild/src/web/pages/RecipeDetailPage.tsx:51:63)
+    at Router (/Users/tunbee27/Documents/Tako-san-ui-rebuild/node_modules/.pnpm/react-router@6.30.6_react@18.3.1/node_modules/react-router/dist/umd/react-router.development.js:1203:17)
+    at MemoryRouter (/Users/tunbee27/Documents/Tako-san-ui-rebuild/node_modules/.pnpm/react-router@6.30.6_react@18.3.1/node_modules/react-router/dist/umd/react-router.development.js:1097:7)
+    at QueryClientProvider (file:///Users/tunbee27/Documents/Tako-san-ui-rebuild/node_modules/.pnpm/@tanstack+react-query@5.102.8_react@18.3.1/node_modules/@tanstack/react-query/build/modern/QueryClientProvider.js:12:32)
+
+stderr | tests/integration/frontend-ui-integration.test.tsx > RecipeDetail loading, not-found, error, and success remain distinct > renders a successfully loaded recipe from the secure query cache
+Warning: useLayoutEffect does nothing on the server, because its effect cannot be encoded into the server renderer's output format. This will lead to a mismatch between the initial, non-hydrated UI and the intended UI. To avoid this, useLayoutEffect should only be used in components that render exclusively on the client. See https://reactjs.org/link/uselayouteffect-ssr for common fixes.
+    at MemoryRouter (/Users/tunbee27/Documents/Tako-san-ui-rebuild/node_modules/.pnpm/react-router@6.30.6_react@18.3.1/node_modules/react-router/dist/umd/react-router.development.js:1097:7)
+    at QueryClientProvider (file:///Users/tunbee27/Documents/Tako-san-ui-rebuild/node_modules/.pnpm/@tanstack+react-query@5.102.8_react@18.3.1/node_modules/@tanstack/react-query/build/modern/QueryClientProvider.js:12:32)
+Warning: useLayoutEffect does nothing on the server, because its effect cannot be encoded into the server renderer's output format. This will lead to a mismatch between the initial, non-hydrated UI and the intended UI. To avoid this, useLayoutEffect should only be used in components that render exclusively on the client. See https://reactjs.org/link/uselayouteffect-ssr for common fixes.
+    at LinkWithRef (/Users/tunbee27/Documents/Tako-san-ui-rebuild/node_modules/.pnpm/react-router-dom@6.30.6_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/react-router-dom/dist/umd/react-router-dom.development.js:807:9)
+    at div
+    at header
+    at KitchenHeader (/Users/tunbee27/Documents/Tako-san-ui-rebuild/src/web/components/common/KitchenHeader.tsx:9:3)
+    at TopBar (/Users/tunbee27/Documents/Tako-san-ui-rebuild/src/web/components/common/TopBar.tsx:9:3)
+    at div
+    at RecipeDetailPage (/Users/tunbee27/Documents/Tako-san-ui-rebuild/src/web/pages/RecipeDetailPage.tsx:51:63)
+    at Router (/Users/tunbee27/Documents/Tako-san-ui-rebuild/node_modules/.pnpm/react-router@6.30.6_react@18.3.1/node_modules/react-router/dist/umd/react-router.development.js:1203:17)
+    at MemoryRouter (/Users/tunbee27/Documents/Tako-san-ui-rebuild/node_modules/.pnpm/react-router@6.30.6_react@18.3.1/node_modules/react-router/dist/umd/react-router.development.js:1097:7)
+    at QueryClientProvider (file:///Users/tunbee27/Documents/Tako-san-ui-rebuild/node_modules/.pnpm/@tanstack+react-query@5.102.8_react@18.3.1/node_modules/@tanstack/react-query/build/modern/QueryClientProvider.js:12:32)
+Warning: useLayoutEffect does nothing on the server, because its effect cannot be encoded into the server renderer's output format. This will lead to a mismatch between the initial, non-hydrated UI and the intended UI. To avoid this, useLayoutEffect should only be used in components that render exclusively on the client. See https://reactjs.org/link/uselayouteffect-ssr for common fixes.
+    at LinkWithRef (/Users/tunbee27/Documents/Tako-san-ui-rebuild/node_modules/.pnpm/react-router-dom@6.30.6_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/react-router-dom/dist/umd/react-router-dom.development.js:807:9)
+    at div
+    at header
+    at KitchenHeader (/Users/tunbee27/Documents/Tako-san-ui-rebuild/src/web/components/common/KitchenHeader.tsx:9:3)
+    at TopBar (/Users/tunbee27/Documents/Tako-san-ui-rebuild/src/web/components/common/TopBar.tsx:9:3)
+    at div
+    at RecipeDetailPage (/Users/tunbee27/Documents/Tako-san-ui-rebuild/src/web/pages/RecipeDetailPage.tsx:51:63)
+    at Router (/Users/tunbee27/Documents/Tako-san-ui-rebuild/node_modules/.pnpm/react-router@6.30.6_react@18.3.1/node_modules/react-router/dist/umd/react-router.development.js:1203:17)
+    at MemoryRouter (/Users/tunbee27/Documents/Tako-san-ui-rebuild/node_modules/.pnpm/react-router@6.30.6_react@18.3.1/node_modules/react-router/dist/umd/react-router.development.js:1097:7)
+    at QueryClientProvider (file:///Users/tunbee27/Documents/Tako-san-ui-rebuild/node_modules/.pnpm/@tanstack+react-query@5.102.8_react@18.3.1/node_modules/@tanstack/react-query/build/modern/QueryClientProvider.js:12:32)
+Warning: useLayoutEffect does nothing on the server, because its effect cannot be encoded into the server renderer's output format. This will lead to a mismatch between the initial, non-hydrated UI and the intended UI. To avoid this, useLayoutEffect should only be used in components that render exclusively on the client. See https://reactjs.org/link/uselayouteffect-ssr for common fixes.
+    at LinkWithRef (/Users/tunbee27/Documents/Tako-san-ui-rebuild/node_modules/.pnpm/react-router-dom@6.30.6_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/react-router-dom/dist/umd/react-router-dom.development.js:807:9)
+    at div
+    at header
+    at KitchenHeader (/Users/tunbee27/Documents/Tako-san-ui-rebuild/src/web/components/common/KitchenHeader.tsx:9:3)
+    at TopBar (/Users/tunbee27/Documents/Tako-san-ui-rebuild/src/web/components/common/TopBar.tsx:9:3)
+    at div
+    at RecipeDetailPage (/Users/tunbee27/Documents/Tako-san-ui-rebuild/src/web/pages/RecipeDetailPage.tsx:51:63)
+    at Router (/Users/tunbee27/Documents/Tako-san-ui-rebuild/node_modules/.pnpm/react-router@6.30.6_react@18.3.1/node_modules/react-router/dist/umd/react-router.development.js:1203:17)
+    at MemoryRouter (/Users/tunbee27/Documents/Tako-san-ui-rebuild/node_modules/.pnpm/react-router@6.30.6_react@18.3.1/node_modules/react-router/dist/umd/react-router.development.js:1097:7)
+    at QueryClientProvider (file:///Users/tunbee27/Documents/Tako-san-ui-rebuild/node_modules/.pnpm/@tanstack+react-query@5.102.8_react@18.3.1/node_modules/@tanstack/react-query/build/modern/QueryClientProvider.js:12:32)
+Warning: useLayoutEffect does nothing on the server, because its effect cannot be encoded into the server renderer's output format. This will lead to a mismatch between the initial, non-hydrated UI and the intended UI. To avoid this, useLayoutEffect should only be used in components that render exclusively on the client. See https://reactjs.org/link/uselayouteffect-ssr for common fixes.
+    at LinkWithRef (/Users/tunbee27/Documents/Tako-san-ui-rebuild/node_modules/.pnpm/react-router-dom@6.30.6_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/react-router-dom/dist/umd/react-router-dom.development.js:807:9)
+    at div
+    at header
+    at KitchenHeader (/Users/tunbee27/Documents/Tako-san-ui-rebuild/src/web/components/common/KitchenHeader.tsx:9:3)
+    at TopBar (/Users/tunbee27/Documents/Tako-san-ui-rebuild/src/web/components/common/TopBar.tsx:9:3)
+    at div
+    at RecipeDetailPage (/Users/tunbee27/Documents/Tako-san-ui-rebuild/src/web/pages/RecipeDetailPage.tsx:51:63)
+    at Router (/Users/tunbee27/Documents/Tako-san-ui-rebuild/node_modules/.pnpm/react-router@6.30.6_react@18.3.1/node_modules/react-router/dist/umd/react-router.development.js:1203:17)
+    at MemoryRouter (/Users/tunbee27/Documents/Tako-san-ui-rebuild/node_modules/.pnpm/react-router@6.30.6_react@18.3.1/node_modules/react-router/dist/umd/react-router.development.js:1097:7)
+    at QueryClientProvider (file:///Users/tunbee27/Documents/Tako-san-ui-rebuild/node_modules/.pnpm/@tanstack+react-query@5.102.8_react@18.3.1/node_modules/@tanstack/react-query/build/modern/QueryClientProvider.js:12:32)
+
+ ❯ tests/unit/ui10-week-routes.test.tsx (14 tests | 2 failed) 1527ms
+   ✓ planner on preserves /week → /planner 141ms
+   ✓ planner on preserves /week/setup → /planner/new 45ms
+   × planner on preserves /week/generating → /planner/new 50ms
+     → expected '/planner' to be '/planner/new' // Object.is equality
+   ✓ planner on preserves /week/plan-a → /planner/plan-a 25ms
+   ✓ planner on preserves /week/plan-a/meal/meal-a → /planner/plan-a/meal/meal-a 50ms
+   ✓ planner on preserves /week/plan-a/shopping → /planner/plan-a/shopping 18ms
+   × planner on preserves /week/plan-a/settings → /planner/new 1022ms
+     → expected 'Đến nội dung chínhTrang chủTủ lạnhCôn…' to contain 'Planner destination'
+   ✓ planner off keeps /week at its Week destination 26ms
+   ✓ planner off keeps /week/setup at its Week destination 32ms
+   ✓ planner off keeps /week/generating at its Week destination 34ms
+   ✓ planner off keeps /week/plan-a at its Week destination 16ms
+   ✓ planner off keeps /week/plan-a/meal/meal-a at its Week destination 20ms
+   ✓ planner off keeps /week/plan-a/shopping at its Week destination 23ms
+   ✓ planner off keeps /week/plan-a/settings at its Week destination 25ms
+stderr | tests/integration/frontend-ui-integration.test.tsx > notification honesty > renders no fabricated alerts or global unread dot when the server list is empty
+Warning: useLayoutEffect does nothing on the server, because its effect cannot be encoded into the server renderer's output format. This will lead to a mismatch between the initial, non-hydrated UI and the intended UI. To avoid this, useLayoutEffect should only be used in components that render exclusively on the client. See https://reactjs.org/link/uselayouteffect-ssr for common fixes.
+    at MemoryRouter (/Users/tunbee27/Documents/Tako-san-ui-rebuild/node_modules/.pnpm/react-router@6.30.6_react@18.3.1/node_modules/react-router/dist/umd/react-router.development.js:1097:7)
+    at QueryClientProvider (file:///Users/tunbee27/Documents/Tako-san-ui-rebuild/node_modules/.pnpm/@tanstack+react-query@5.102.8_react@18.3.1/node_modules/@tanstack/react-query/build/modern/QueryClientProvider.js:12:32)
+Warning: useLayoutEffect does nothing on the server, because its effect cannot be encoded into the server renderer's output format. This will lead to a mismatch between the initial, non-hydrated UI and the intended UI. To avoid this, useLayoutEffect should only be used in components that render exclusively on the client. See https://reactjs.org/link/uselayouteffect-ssr for common fixes.
+    at LinkWithRef (/Users/tunbee27/Documents/Tako-san-ui-rebuild/node_modules/.pnpm/react-router-dom@6.30.6_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/react-router-dom/dist/umd/react-router-dom.development.js:807:9)
+    at div
+    at header
+    at KitchenHeader (/Users/tunbee27/Documents/Tako-san-ui-rebuild/src/web/components/common/KitchenHeader.tsx:9:3)
+    at div
+    at AccountPage (/Users/tunbee27/Documents/Tako-san-ui-rebuild/src/web/components/common/AccountPage.tsx:5:3)
+    at NotificationsPage (/Users/tunbee27/Documents/Tako-san-ui-rebuild/src/web/pages/NotificationsPage.tsx:26:64)
+    at Router (/Users/tunbee27/Documents/Tako-san-ui-rebuild/node_modules/.pnpm/react-router@6.30.6_react@18.3.1/node_modules/react-router/dist/umd/react-router.development.js:1203:17)
+    at MemoryRouter (/Users/tunbee27/Documents/Tako-san-ui-rebuild/node_modules/.pnpm/react-router@6.30.6_react@18.3.1/node_modules/react-router/dist/umd/react-router.development.js:1097:7)
+    at QueryClientProvider (file:///Users/tunbee27/Documents/Tako-san-ui-rebuild/node_modules/.pnpm/@tanstack+react-query@5.102.8_react@18.3.1/node_modules/@tanstack/react-query/build/modern/QueryClientProvider.js:12:32)
+Warning: useLayoutEffect does nothing on the server, because its effect cannot be encoded into the server renderer's output format. This will lead to a mismatch between the initial, non-hydrated UI and the intended UI. To avoid this, useLayoutEffect should only be used in components that render exclusively on the client. See https://reactjs.org/link/uselayouteffect-ssr for common fixes.
+    at LinkWithRef (/Users/tunbee27/Documents/Tako-san-ui-rebuild/node_modules/.pnpm/react-router-dom@6.30.6_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/react-router-dom/dist/umd/react-router-dom.development.js:807:9)
+    at div
+    at header
+    at KitchenHeader (/Users/tunbee27/Documents/Tako-san-ui-rebuild/src/web/components/common/KitchenHeader.tsx:9:3)
+    at div
+    at AccountPage (/Users/tunbee27/Documents/Tako-san-ui-rebuild/src/web/components/common/AccountPage.tsx:5:3)
+    at NotificationsPage (/Users/tunbee27/Documents/Tako-san-ui-rebuild/src/web/pages/NotificationsPage.tsx:26:64)
+    at Router (/Users/tunbee27/Documents/Tako-san-ui-rebuild/node_modules/.pnpm/react-router@6.30.6_react@18.3.1/node_modules/react-router/dist/umd/react-router.development.js:1203:17)
+    at MemoryRouter (/Users/tunbee27/Documents/Tako-san-ui-rebuild/node_modules/.pnpm/react-router@6.30.6_react@18.3.1/node_modules/react-router/dist/umd/react-router.development.js:1097:7)
+    at QueryClientProvider (file:///Users/tunbee27/Documents/Tako-san-ui-rebuild/node_modules/.pnpm/@tanstack+react-query@5.102.8_react@18.3.1/node_modules/@tanstack/react-query/build/modern/QueryClientProvider.js:12:32)
+Warning: useLayoutEffect does nothing on the server, because its effect cannot be encoded into the server renderer's output format. This will lead to a mismatch between the initial, non-hydrated UI and the intended UI. To avoid this, useLayoutEffect should only be used in components that render exclusively on the client. See https://reactjs.org/link/uselayouteffect-ssr for common fixes.
+    at LinkWithRef (/Users/tunbee27/Documents/Tako-san-ui-rebuild/node_modules/.pnpm/react-router-dom@6.30.6_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/react-router-dom/dist/umd/react-router-dom.development.js:807:9)
+    at div
+    at header
+    at KitchenHeader (/Users/tunbee27/Documents/Tako-san-ui-rebuild/src/web/components/common/KitchenHeader.tsx:9:3)
+    at div
+    at AccountPage (/Users/tunbee27/Documents/Tako-san-ui-rebuild/src/web/components/common/AccountPage.tsx:5:3)
+    at NotificationsPage (/Users/tunbee27/Documents/Tako-san-ui-rebuild/src/web/pages/NotificationsPage.tsx:26:64)
+    at Router (/Users/tunbee27/Documents/Tako-san-ui-rebuild/node_modules/.pnpm/react-router@6.30.6_react@18.3.1/node_modules/react-router/dist/umd/react-router.development.js:1203:17)
+    at MemoryRouter (/Users/tunbee27/Documents/Tako-san-ui-rebuild/node_modules/.pnpm/react-router@6.30.6_react@18.3.1/node_modules/react-router/dist/umd/react-router.development.js:1097:7)
+    at QueryClientProvider (file:///Users/tunbee27/Documents/Tako-san-ui-rebuild/node_modules/.pnpm/@tanstack+react-query@5.102.8_react@18.3.1/node_modules/@tanstack/react-query/build/modern/QueryClientProvider.js:12:32)
+Warning: useLayoutEffect does nothing on the server, because its effect cannot be encoded into the server renderer's output format. This will lead to a mismatch between the initial, non-hydrated UI and the intended UI. To avoid this, useLayoutEffect should only be used in components that render exclusively on the client. See https://reactjs.org/link/uselayouteffect-ssr for common fixes.
+    at LinkWithRef (/Users/tunbee27/Documents/Tako-san-ui-rebuild/node_modules/.pnpm/react-router-dom@6.30.6_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/react-router-dom/dist/umd/react-router-dom.development.js:807:9)
+    at div
+    at header
+    at KitchenHeader (/Users/tunbee27/Documents/Tako-san-ui-rebuild/src/web/components/common/KitchenHeader.tsx:9:3)
+    at div
+    at AccountPage (/Users/tunbee27/Documents/Tako-san-ui-rebuild/src/web/components/common/AccountPage.tsx:5:3)
+    at NotificationsPage (/Users/tunbee27/Documents/Tako-san-ui-rebuild/src/web/pages/NotificationsPage.tsx:26:64)
+    at Router (/Users/tunbee27/Documents/Tako-san-ui-rebuild/node_modules/.pnpm/react-router@6.30.6_react@18.3.1/node_modules/react-router/dist/umd/react-router.development.js:1203:17)
+    at MemoryRouter (/Users/tunbee27/Documents/Tako-san-ui-rebuild/node_modules/.pnpm/react-router@6.30.6_react@18.3.1/node_modules/react-router/dist/umd/react-router.development.js:1097:7)
+    at QueryClientProvider (file:///Users/tunbee27/Documents/Tako-san-ui-rebuild/node_modules/.pnpm/@tanstack+react-query@5.102.8_react@18.3.1/node_modules/@tanstack/react-query/build/modern/QueryClientProvider.js:12:32)
+Warning: useLayoutEffect does nothing on the server, because its effect cannot be encoded into the server renderer's output format. This will lead to a mismatch between the initial, non-hydrated UI and the intended UI. To avoid this, useLayoutEffect should only be used in components that render exclusively on the client. See https://reactjs.org/link/uselayouteffect-ssr for common fixes.
+    at LinkWithRef (/Users/tunbee27/Documents/Tako-san-ui-rebuild/node_modules/.pnpm/react-router-dom@6.30.6_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/react-router-dom/dist/umd/react-router-dom.development.js:807:9)
+    at div
+    at div
+    at div
+    at div
+    at AccountPage (/Users/tunbee27/Documents/Tako-san-ui-rebuild/src/web/components/common/AccountPage.tsx:5:3)
+    at NotificationsPage (/Users/tunbee27/Documents/Tako-san-ui-rebuild/src/web/pages/NotificationsPage.tsx:26:64)
+    at Router (/Users/tunbee27/Documents/Tako-san-ui-rebuild/node_modules/.pnpm/react-router@6.30.6_react@18.3.1/node_modules/react-router/dist/umd/react-router.development.js:1203:17)
+    at MemoryRouter (/Users/tunbee27/Documents/Tako-san-ui-rebuild/node_modules/.pnpm/react-router@6.30.6_react@18.3.1/node_modules/react-router/dist/umd/react-router.development.js:1097:7)
+    at QueryClientProvider (file:///Users/tunbee27/Documents/Tako-san-ui-rebuild/node_modules/.pnpm/@tanstack+react-query@5.102.8_react@18.3.1/node_modules/@tanstack/react-query/build/modern/QueryClientProvider.js:12:32)
+
+stderr | tests/integration/frontend-ui-integration.test.tsx > notification honesty > renders notification content only when returned by the real query contract
+Warning: useLayoutEffect does nothing on the server, because its effect cannot be encoded into the server renderer's output format. This will lead to a mismatch between the initial, non-hydrated UI and the intended UI. To avoid this, useLayoutEffect should only be used in components that render exclusively on the client. See https://reactjs.org/link/uselayouteffect-ssr for common fixes.
+    at MemoryRouter (/Users/tunbee27/Documents/Tako-san-ui-rebuild/node_modules/.pnpm/react-router@6.30.6_react@18.3.1/node_modules/react-router/dist/umd/react-router.development.js:1097:7)
+    at QueryClientProvider (file:///Users/tunbee27/Documents/Tako-san-ui-rebuild/node_modules/.pnpm/@tanstack+react-query@5.102.8_react@18.3.1/node_modules/@tanstack/react-query/build/modern/QueryClientProvider.js:12:32)
+Warning: useLayoutEffect does nothing on the server, because its effect cannot be encoded into the server renderer's output format. This will lead to a mismatch between the initial, non-hydrated UI and the intended UI. To avoid this, useLayoutEffect should only be used in components that render exclusively on the client. See https://reactjs.org/link/uselayouteffect-ssr for common fixes.
+    at LinkWithRef (/Users/tunbee27/Documents/Tako-san-ui-rebuild/node_modules/.pnpm/react-router-dom@6.30.6_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/react-router-dom/dist/umd/react-router-dom.development.js:807:9)
+    at div
+    at header
+    at KitchenHeader (/Users/tunbee27/Documents/Tako-san-ui-rebuild/src/web/components/common/KitchenHeader.tsx:9:3)
+    at div
+    at AccountPage (/Users/tunbee27/Documents/Tako-san-ui-rebuild/src/web/components/common/AccountPage.tsx:5:3)
+    at NotificationsPage (/Users/tunbee27/Documents/Tako-san-ui-rebuild/src/web/pages/NotificationsPage.tsx:26:64)
+    at Router (/Users/tunbee27/Documents/Tako-san-ui-rebuild/node_modules/.pnpm/react-router@6.30.6_react@18.3.1/node_modules/react-router/dist/umd/react-router.development.js:1203:17)
+    at MemoryRouter (/Users/tunbee27/Documents/Tako-san-ui-rebuild/node_modules/.pnpm/react-router@6.30.6_react@18.3.1/node_modules/react-router/dist/umd/react-router.development.js:1097:7)
+    at QueryClientProvider (file:///Users/tunbee27/Documents/Tako-san-ui-rebuild/node_modules/.pnpm/@tanstack+react-query@5.102.8_react@18.3.1/node_modules/@tanstack/react-query/build/modern/QueryClientProvider.js:12:32)
+Warning: useLayoutEffect does nothing on the server, because its effect cannot be encoded into the server renderer's output format. This will lead to a mismatch between the initial, non-hydrated UI and the intended UI. To avoid this, useLayoutEffect should only be used in components that render exclusively on the client. See https://reactjs.org/link/uselayouteffect-ssr for common fixes.
+    at LinkWithRef (/Users/tunbee27/Documents/Tako-san-ui-rebuild/node_modules/.pnpm/react-router-dom@6.30.6_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/react-router-dom/dist/umd/react-router-dom.development.js:807:9)
+    at div
+    at header
+    at KitchenHeader (/Users/tunbee27/Documents/Tako-san-ui-rebuild/src/web/components/common/KitchenHeader.tsx:9:3)
+    at div
+    at AccountPage (/Users/tunbee27/Documents/Tako-san-ui-rebuild/src/web/components/common/AccountPage.tsx:5:3)
+    at NotificationsPage (/Users/tunbee27/Documents/Tako-san-ui-rebuild/src/web/pages/NotificationsPage.tsx:26:64)
+    at Router (/Users/tunbee27/Documents/Tako-san-ui-rebuild/node_modules/.pnpm/react-router@6.30.6_react@18.3.1/node_modules/react-router/dist/umd/react-router.development.js:1203:17)
+    at MemoryRouter (/Users/tunbee27/Documents/Tako-san-ui-rebuild/node_modules/.pnpm/react-router@6.30.6_react@18.3.1/node_modules/react-router/dist/umd/react-router.development.js:1097:7)
+    at QueryClientProvider (file:///Users/tunbee27/Documents/Tako-san-ui-rebuild/node_modules/.pnpm/@tanstack+react-query@5.102.8_react@18.3.1/node_modules/@tanstack/react-query/build/modern/QueryClientProvider.js:12:32)
+Warning: useLayoutEffect does nothing on the server, because its effect cannot be encoded into the server renderer's output format. This will lead to a mismatch between the initial, non-hydrated UI and the intended UI. To avoid this, useLayoutEffect should only be used in components that render exclusively on the client. See https://reactjs.org/link/uselayouteffect-ssr for common fixes.
+    at LinkWithRef (/Users/tunbee27/Documents/Tako-san-ui-rebuild/node_modules/.pnpm/react-router-dom@6.30.6_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/react-router-dom/dist/umd/react-router-dom.development.js:807:9)
+    at div
+    at header
+    at KitchenHeader (/Users/tunbee27/Documents/Tako-san-ui-rebuild/src/web/components/common/KitchenHeader.tsx:9:3)
+    at div
+    at AccountPage (/Users/tunbee27/Documents/Tako-san-ui-rebuild/src/web/components/common/AccountPage.tsx:5:3)
+    at NotificationsPage (/Users/tunbee27/Documents/Tako-san-ui-rebuild/src/web/pages/NotificationsPage.tsx:26:64)
+    at Router (/Users/tunbee27/Documents/Tako-san-ui-rebuild/node_modules/.pnpm/react-router@6.30.6_react@18.3.1/node_modules/react-router/dist/umd/react-router.development.js:1203:17)
+    at MemoryRouter (/Users/tunbee27/Documents/Tako-san-ui-rebuild/node_modules/.pnpm/react-router@6.30.6_react@18.3.1/node_modules/react-router/dist/umd/react-router.development.js:1097:7)
+    at QueryClientProvider (file:///Users/tunbee27/Documents/Tako-san-ui-rebuild/node_modules/.pnpm/@tanstack+react-query@5.102.8_react@18.3.1/node_modules/@tanstack/react-query/build/modern/QueryClientProvider.js:12:32)
+Warning: useLayoutEffect does nothing on the server, because its effect cannot be encoded into the server renderer's output format. This will lead to a mismatch between the initial, non-hydrated UI and the intended UI. To avoid this, useLayoutEffect should only be used in components that render exclusively on the client. See https://reactjs.org/link/uselayouteffect-ssr for common fixes.
+    at LinkWithRef (/Users/tunbee27/Documents/Tako-san-ui-rebuild/node_modules/.pnpm/react-router-dom@6.30.6_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/react-router-dom/dist/umd/react-router-dom.development.js:807:9)
+    at div
+    at header
+    at KitchenHeader (/Users/tunbee27/Documents/Tako-san-ui-rebuild/src/web/components/common/KitchenHeader.tsx:9:3)
+    at div
+    at AccountPage (/Users/tunbee27/Documents/Tako-san-ui-rebuild/src/web/components/common/AccountPage.tsx:5:3)
+    at NotificationsPage (/Users/tunbee27/Documents/Tako-san-ui-rebuild/src/web/pages/NotificationsPage.tsx:26:64)
+    at Router (/Users/tunbee27/Documents/Tako-san-ui-rebuild/node_modules/.pnpm/react-router@6.30.6_react@18.3.1/node_modules/react-router/dist/umd/react-router.development.js:1203:17)
+    at MemoryRouter (/Users/tunbee27/Documents/Tako-san-ui-rebuild/node_modules/.pnpm/react-router@6.30.6_react@18.3.1/node_modules/react-router/dist/umd/react-router.development.js:1097:7)
+    at QueryClientProvider (file:///Users/tunbee27/Documents/Tako-san-ui-rebuild/node_modules/.pnpm/@tanstack+react-query@5.102.8_react@18.3.1/node_modules/@tanstack/react-query/build/modern/QueryClientProvider.js:12:32)
+Warning: useLayoutEffect does nothing on the server, because its effect cannot be encoded into the server renderer's output format. This will lead to a mismatch between the initial, non-hydrated UI and the intended UI. To avoid this, useLayoutEffect should only be used in components that render exclusively on the client. See https://reactjs.org/link/uselayouteffect-ssr for common fixes.
+    at LinkWithRef (/Users/tunbee27/Documents/Tako-san-ui-rebuild/node_modules/.pnpm/react-router-dom@6.30.6_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/react-router-dom/dist/umd/react-router-dom.development.js:807:9)
+    at div
+    at div
+    at div
+    at div
+    at AccountPage (/Users/tunbee27/Documents/Tako-san-ui-rebuild/src/web/components/common/AccountPage.tsx:5:3)
+    at NotificationsPage (/Users/tunbee27/Documents/Tako-san-ui-rebuild/src/web/pages/NotificationsPage.tsx:26:64)
+    at Router (/Users/tunbee27/Documents/Tako-san-ui-rebuild/node_modules/.pnpm/react-router@6.30.6_react@18.3.1/node_modules/react-router/dist/umd/react-router.development.js:1203:17)
+    at MemoryRouter (/Users/tunbee27/Documents/Tako-san-ui-rebuild/node_modules/.pnpm/react-router@6.30.6_react@18.3.1/node_modules/react-router/dist/umd/react-router.development.js:1097:7)
+    at QueryClientProvider (file:///Users/tunbee27/Documents/Tako-san-ui-rebuild/node_modules/.pnpm/@tanstack+react-query@5.102.8_react@18.3.1/node_modules/@tanstack/react-query/build/modern/QueryClientProvider.js:12:32)
+
+stderr | tests/integration/frontend-ui-integration.test.tsx > notification honesty > surfaces notification errors rather than pretending the list is empty
+Warning: useLayoutEffect does nothing on the server, because its effect cannot be encoded into the server renderer's output format. This will lead to a mismatch between the initial, non-hydrated UI and the intended UI. To avoid this, useLayoutEffect should only be used in components that render exclusively on the client. See https://reactjs.org/link/uselayouteffect-ssr for common fixes.
+    at MemoryRouter (/Users/tunbee27/Documents/Tako-san-ui-rebuild/node_modules/.pnpm/react-router@6.30.6_react@18.3.1/node_modules/react-router/dist/umd/react-router.development.js:1097:7)
+    at QueryClientProvider (file:///Users/tunbee27/Documents/Tako-san-ui-rebuild/node_modules/.pnpm/@tanstack+react-query@5.102.8_react@18.3.1/node_modules/@tanstack/react-query/build/modern/QueryClientProvider.js:12:32)
+Warning: useLayoutEffect does nothing on the server, because its effect cannot be encoded into the server renderer's output format. This will lead to a mismatch between the initial, non-hydrated UI and the intended UI. To avoid this, useLayoutEffect should only be used in components that render exclusively on the client. See https://reactjs.org/link/uselayouteffect-ssr for common fixes.
+    at LinkWithRef (/Users/tunbee27/Documents/Tako-san-ui-rebuild/node_modules/.pnpm/react-router-dom@6.30.6_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/react-router-dom/dist/umd/react-router-dom.development.js:807:9)
+    at div
+    at header
+    at KitchenHeader (/Users/tunbee27/Documents/Tako-san-ui-rebuild/src/web/components/common/KitchenHeader.tsx:9:3)
+    at div
+    at AccountPage (/Users/tunbee27/Documents/Tako-san-ui-rebuild/src/web/components/common/AccountPage.tsx:5:3)
+    at NotificationsPage (/Users/tunbee27/Documents/Tako-san-ui-rebuild/src/web/pages/NotificationsPage.tsx:26:64)
+    at Router (/Users/tunbee27/Documents/Tako-san-ui-rebuild/node_modules/.pnpm/react-router@6.30.6_react@18.3.1/node_modules/react-router/dist/umd/react-router.development.js:1203:17)
+    at MemoryRouter (/Users/tunbee27/Documents/Tako-san-ui-rebuild/node_modules/.pnpm/react-router@6.30.6_react@18.3.1/node_modules/react-router/dist/umd/react-router.development.js:1097:7)
+    at QueryClientProvider (file:///Users/tunbee27/Documents/Tako-san-ui-rebuild/node_modules/.pnpm/@tanstack+react-query@5.102.8_react@18.3.1/node_modules/@tanstack/react-query/build/modern/QueryClientProvider.js:12:32)
+Warning: useLayoutEffect does nothing on the server, because its effect cannot be encoded into the server renderer's output format. This will lead to a mismatch between the initial, non-hydrated UI and the intended UI. To avoid this, useLayoutEffect should only be used in components that render exclusively on the client. See https://reactjs.org/link/uselayouteffect-ssr for common fixes.
+    at LinkWithRef (/Users/tunbee27/Documents/Tako-san-ui-rebuild/node_modules/.pnpm/react-router-dom@6.30.6_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/react-router-dom/dist/umd/react-router-dom.development.js:807:9)
+    at div
+    at header
+    at KitchenHeader (/Users/tunbee27/Documents/Tako-san-ui-rebuild/src/web/components/common/KitchenHeader.tsx:9:3)
+    at div
+    at AccountPage (/Users/tunbee27/Documents/Tako-san-ui-rebuild/src/web/components/common/AccountPage.tsx:5:3)
+    at NotificationsPage (/Users/tunbee27/Documents/Tako-san-ui-rebuild/src/web/pages/NotificationsPage.tsx:26:64)
+    at Router (/Users/tunbee27/Documents/Tako-san-ui-rebuild/node_modules/.pnpm/react-router@6.30.6_react@18.3.1/node_modules/react-router/dist/umd/react-router.development.js:1203:17)
+    at MemoryRouter (/Users/tunbee27/Documents/Tako-san-ui-rebuild/node_modules/.pnpm/react-router@6.30.6_react@18.3.1/node_modules/react-router/dist/umd/react-router.development.js:1097:7)
+    at QueryClientProvider (file:///Users/tunbee27/Documents/Tako-san-ui-rebuild/node_modules/.pnpm/@tanstack+react-query@5.102.8_react@18.3.1/node_modules/@tanstack/react-query/build/modern/QueryClientProvider.js:12:32)
+Warning: useLayoutEffect does nothing on the server, because its effect cannot be encoded into the server renderer's output format. This will lead to a mismatch between the initial, non-hydrated UI and the intended UI. To avoid this, useLayoutEffect should only be used in components that render exclusively on the client. See https://reactjs.org/link/uselayouteffect-ssr for common fixes.
+    at LinkWithRef (/Users/tunbee27/Documents/Tako-san-ui-rebuild/node_modules/.pnpm/react-router-dom@6.30.6_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/react-router-dom/dist/umd/react-router-dom.development.js:807:9)
+    at div
+    at header
+    at KitchenHeader (/Users/tunbee27/Documents/Tako-san-ui-rebuild/src/web/components/common/KitchenHeader.tsx:9:3)
+    at div
+    at AccountPage (/Users/tunbee27/Documents/Tako-san-ui-rebuild/src/web/components/common/AccountPage.tsx:5:3)
+    at NotificationsPage (/Users/tunbee27/Documents/Tako-san-ui-rebuild/src/web/pages/NotificationsPage.tsx:26:64)
+    at Router (/Users/tunbee27/Documents/Tako-san-ui-rebuild/node_modules/.pnpm/react-router@6.30.6_react@18.3.1/node_modules/react-router/dist/umd/react-router.development.js:1203:17)
+    at MemoryRouter (/Users/tunbee27/Documents/Tako-san-ui-rebuild/node_modules/.pnpm/react-router@6.30.6_react@18.3.1/node_modules/react-router/dist/umd/react-router.development.js:1097:7)
+    at QueryClientProvider (file:///Users/tunbee27/Documents/Tako-san-ui-rebuild/node_modules/.pnpm/@tanstack+react-query@5.102.8_react@18.3.1/node_modules/@tanstack/react-query/build/modern/QueryClientProvider.js:12:32)
+Warning: useLayoutEffect does nothing on the server, because its effect cannot be encoded into the server renderer's output format. This will lead to a mismatch between the initial, non-hydrated UI and the intended UI. To avoid this, useLayoutEffect should only be used in components that render exclusively on the client. See https://reactjs.org/link/uselayouteffect-ssr for common fixes.
+    at LinkWithRef (/Users/tunbee27/Documents/Tako-san-ui-rebuild/node_modules/.pnpm/react-router-dom@6.30.6_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/react-router-dom/dist/umd/react-router-dom.development.js:807:9)
+    at div
+    at header
+    at KitchenHeader (/Users/tunbee27/Documents/Tako-san-ui-rebuild/src/web/components/common/KitchenHeader.tsx:9:3)
+    at div
+    at AccountPage (/Users/tunbee27/Documents/Tako-san-ui-rebuild/src/web/components/common/AccountPage.tsx:5:3)
+    at NotificationsPage (/Users/tunbee27/Documents/Tako-san-ui-rebuild/src/web/pages/NotificationsPage.tsx:26:64)
+    at Router (/Users/tunbee27/Documents/Tako-san-ui-rebuild/node_modules/.pnpm/react-router@6.30.6_react@18.3.1/node_modules/react-router/dist/umd/react-router.development.js:1203:17)
+    at MemoryRouter (/Users/tunbee27/Documents/Tako-san-ui-rebuild/node_modules/.pnpm/react-router@6.30.6_react@18.3.1/node_modules/react-router/dist/umd/react-router.development.js:1097:7)
+    at QueryClientProvider (file:///Users/tunbee27/Documents/Tako-san-ui-rebuild/node_modules/.pnpm/@tanstack+react-query@5.102.8_react@18.3.1/node_modules/@tanstack/react-query/build/modern/QueryClientProvider.js:12:32)
+Warning: useLayoutEffect does nothing on the server, because its effect cannot be encoded into the server renderer's output format. This will lead to a mismatch between the initial, non-hydrated UI and the intended UI. To avoid this, useLayoutEffect should only be used in components that render exclusively on the client. See https://reactjs.org/link/uselayouteffect-ssr for common fixes.
+    at LinkWithRef (/Users/tunbee27/Documents/Tako-san-ui-rebuild/node_modules/.pnpm/react-router-dom@6.30.6_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/react-router-dom/dist/umd/react-router-dom.development.js:807:9)
+    at div
+    at div
+    at div
+    at div
+    at AccountPage (/Users/tunbee27/Documents/Tako-san-ui-rebuild/src/web/components/common/AccountPage.tsx:5:3)
+    at NotificationsPage (/Users/tunbee27/Documents/Tako-san-ui-rebuild/src/web/pages/NotificationsPage.tsx:26:64)
+    at Router (/Users/tunbee27/Documents/Tako-san-ui-rebuild/node_modules/.pnpm/react-router@6.30.6_react@18.3.1/node_modules/react-router/dist/umd/react-router.development.js:1203:17)
+    at MemoryRouter (/Users/tunbee27/Documents/Tako-san-ui-rebuild/node_modules/.pnpm/react-router@6.30.6_react@18.3.1/node_modules/react-router/dist/umd/react-router.development.js:1097:7)
+    at QueryClientProvider (file:///Users/tunbee27/Documents/Tako-san-ui-rebuild/node_modules/.pnpm/@tanstack+react-query@5.102.8_react@18.3.1/node_modules/@tanstack/react-query/build/modern/QueryClientProvider.js:12:32)
+
+stderr | tests/integration/frontend-ui-integration.test.tsx > Week shopping data honesty > uses the loaded plan estimate in its summary instead of a demo budget
+Warning: useLayoutEffect does nothing on the server, because its effect cannot be encoded into the server renderer's output format. This will lead to a mismatch between the initial, non-hydrated UI and the intended UI. To avoid this, useLayoutEffect should only be used in components that render exclusively on the client. See https://reactjs.org/link/uselayouteffect-ssr for common fixes.
+    at MemoryRouter (/Users/tunbee27/Documents/Tako-san-ui-rebuild/node_modules/.pnpm/react-router@6.30.6_react@18.3.1/node_modules/react-router/dist/umd/react-router.development.js:1097:7)
+    at QueryClientProvider (file:///Users/tunbee27/Documents/Tako-san-ui-rebuild/node_modules/.pnpm/@tanstack+react-query@5.102.8_react@18.3.1/node_modules/@tanstack/react-query/build/modern/QueryClientProvider.js:12:32)
+Warning: useLayoutEffect does nothing on the server, because its effect cannot be encoded into the server renderer's output format. This will lead to a mismatch between the initial, non-hydrated UI and the intended UI. To avoid this, useLayoutEffect should only be used in components that render exclusively on the client. See https://reactjs.org/link/uselayouteffect-ssr for common fixes.
+    at LinkWithRef (/Users/tunbee27/Documents/Tako-san-ui-rebuild/node_modules/.pnpm/react-router-dom@6.30.6_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/react-router-dom/dist/umd/react-router-dom.development.js:807:9)
+    at div
+    at header
+    at KitchenHeader (/Users/tunbee27/Documents/Tako-san-ui-rebuild/src/web/components/common/KitchenHeader.tsx:9:3)
+    at div
+    at WeekWorkspace (/Users/tunbee27/Documents/Tako-san-ui-rebuild/src/web/features/week/WeekWorkspace.tsx:8:3)
+    at WeekShoppingPage (/Users/tunbee27/Documents/Tako-san-ui-rebuild/src/web/pages/WeekShoppingPage.tsx:17:112)
+    at Router (/Users/tunbee27/Documents/Tako-san-ui-rebuild/node_modules/.pnpm/react-router@6.30.6_react@18.3.1/node_modules/react-router/dist/umd/react-router.development.js:1203:17)
+    at MemoryRouter (/Users/tunbee27/Documents/Tako-san-ui-rebuild/node_modules/.pnpm/react-router@6.30.6_react@18.3.1/node_modules/react-router/dist/umd/react-router.development.js:1097:7)
+    at QueryClientProvider (file:///Users/tunbee27/Documents/Tako-san-ui-rebuild/node_modules/.pnpm/@tanstack+react-query@5.102.8_react@18.3.1/node_modules/@tanstack/react-query/build/modern/QueryClientProvider.js:12:32)
+Warning: useLayoutEffect does nothing on the server, because its effect cannot be encoded into the server renderer's output format. This will lead to a mismatch between the initial, non-hydrated UI and the intended UI. To avoid this, useLayoutEffect should only be used in components that render exclusively on the client. See https://reactjs.org/link/uselayouteffect-ssr for common fixes.
+    at LinkWithRef (/Users/tunbee27/Documents/Tako-san-ui-rebuild/node_modules/.pnpm/react-router-dom@6.30.6_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/react-router-dom/dist/umd/react-router-dom.development.js:807:9)
+    at div
+    at header
+    at KitchenHeader (/Users/tunbee27/Documents/Tako-san-ui-rebuild/src/web/components/common/KitchenHeader.tsx:9:3)
+    at div
+    at WeekWorkspace (/Users/tunbee27/Documents/Tako-san-ui-rebuild/src/web/features/week/WeekWorkspace.tsx:8:3)
+    at WeekShoppingPage (/Users/tunbee27/Documents/Tako-san-ui-rebuild/src/web/pages/WeekShoppingPage.tsx:17:112)
+    at Router (/Users/tunbee27/Documents/Tako-san-ui-rebuild/node_modules/.pnpm/react-router@6.30.6_react@18.3.1/node_modules/react-router/dist/umd/react-router.development.js:1203:17)
+    at MemoryRouter (/Users/tunbee27/Documents/Tako-san-ui-rebuild/node_modules/.pnpm/react-router@6.30.6_react@18.3.1/node_modules/react-router/dist/umd/react-router.development.js:1097:7)
+    at QueryClientProvider (file:///Users/tunbee27/Documents/Tako-san-ui-rebuild/node_modules/.pnpm/@tanstack+react-query@5.102.8_react@18.3.1/node_modules/@tanstack/react-query/build/modern/QueryClientProvider.js:12:32)
+Warning: useLayoutEffect does nothing on the server, because its effect cannot be encoded into the server renderer's output format. This will lead to a mismatch between the initial, non-hydrated UI and the intended UI. To avoid this, useLayoutEffect should only be used in components that render exclusively on the client. See https://reactjs.org/link/uselayouteffect-ssr for common fixes.
+    at LinkWithRef (/Users/tunbee27/Documents/Tako-san-ui-rebuild/node_modules/.pnpm/react-router-dom@6.30.6_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/react-router-dom/dist/umd/react-router-dom.development.js:807:9)
+    at div
+    at header
+    at KitchenHeader (/Users/tunbee27/Documents/Tako-san-ui-rebuild/src/web/components/common/KitchenHeader.tsx:9:3)
+    at div
+    at WeekWorkspace (/Users/tunbee27/Documents/Tako-san-ui-rebuild/src/web/features/week/WeekWorkspace.tsx:8:3)
+    at WeekShoppingPage (/Users/tunbee27/Documents/Tako-san-ui-rebuild/src/web/pages/WeekShoppingPage.tsx:17:112)
+    at Router (/Users/tunbee27/Documents/Tako-san-ui-rebuild/node_modules/.pnpm/react-router@6.30.6_react@18.3.1/node_modules/react-router/dist/umd/react-router.development.js:1203:17)
+    at MemoryRouter (/Users/tunbee27/Documents/Tako-san-ui-rebuild/node_modules/.pnpm/react-router@6.30.6_react@18.3.1/node_modules/react-router/dist/umd/react-router.development.js:1097:7)
+    at QueryClientProvider (file:///Users/tunbee27/Documents/Tako-san-ui-rebuild/node_modules/.pnpm/@tanstack+react-query@5.102.8_react@18.3.1/node_modules/@tanstack/react-query/build/modern/QueryClientProvider.js:12:32)
+Warning: useLayoutEffect does nothing on the server, because its effect cannot be encoded into the server renderer's output format. This will lead to a mismatch between the initial, non-hydrated UI and the intended UI. To avoid this, useLayoutEffect should only be used in components that render exclusively on the client. See https://reactjs.org/link/uselayouteffect-ssr for common fixes.
+    at LinkWithRef (/Users/tunbee27/Documents/Tako-san-ui-rebuild/node_modules/.pnpm/react-router-dom@6.30.6_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/react-router-dom/dist/umd/react-router-dom.development.js:807:9)
+    at div
+    at header
+    at KitchenHeader (/Users/tunbee27/Documents/Tako-san-ui-rebuild/src/web/components/common/KitchenHeader.tsx:9:3)
+    at div
+    at WeekWorkspace (/Users/tunbee27/Documents/Tako-san-ui-rebuild/src/web/features/week/WeekWorkspace.tsx:8:3)
+    at WeekShoppingPage (/Users/tunbee27/Documents/Tako-san-ui-rebuild/src/web/pages/WeekShoppingPage.tsx:17:112)
+    at Router (/Users/tunbee27/Documents/Tako-san-ui-rebuild/node_modules/.pnpm/react-router@6.30.6_react@18.3.1/node_modules/react-router/dist/umd/react-router.development.js:1203:17)
+    at MemoryRouter (/Users/tunbee27/Documents/Tako-san-ui-rebuild/node_modules/.pnpm/react-router@6.30.6_react@18.3.1/node_modules/react-router/dist/umd/react-router.development.js:1097:7)
+    at QueryClientProvider (file:///Users/tunbee27/Documents/Tako-san-ui-rebuild/node_modules/.pnpm/@tanstack+react-query@5.102.8_react@18.3.1/node_modules/@tanstack/react-query/build/modern/QueryClientProvider.js:12:32)
+Warning: useLayoutEffect does nothing on the server, because its effect cannot be encoded into the server renderer's output format. This will lead to a mismatch between the initial, non-hydrated UI and the intended UI. To avoid this, useLayoutEffect should only be used in components that render exclusively on the client. See https://reactjs.org/link/uselayouteffect-ssr for common fixes.
+    at LinkWithRef (/Users/tunbee27/Documents/Tako-san-ui-rebuild/node_modules/.pnpm/react-router-dom@6.30.6_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/react-router-dom/dist/umd/react-router-dom.development.js:807:9)
+    at section
+    at div
+    at div
+    at WeekWorkspace (/Users/tunbee27/Documents/Tako-san-ui-rebuild/src/web/features/week/WeekWorkspace.tsx:8:3)
+    at WeekShoppingPage (/Users/tunbee27/Documents/Tako-san-ui-rebuild/src/web/pages/WeekShoppingPage.tsx:17:112)
+    at Router (/Users/tunbee27/Documents/Tako-san-ui-rebuild/node_modules/.pnpm/react-router@6.30.6_react@18.3.1/node_modules/react-router/dist/umd/react-router.development.js:1203:17)
+    at MemoryRouter (/Users/tunbee27/Documents/Tako-san-ui-rebuild/node_modules/.pnpm/react-router@6.30.6_react@18.3.1/node_modules/react-router/dist/umd/react-router.development.js:1097:7)
+    at QueryClientProvider (file:///Users/tunbee27/Documents/Tako-san-ui-rebuild/node_modules/.pnpm/@tanstack+react-query@5.102.8_react@18.3.1/node_modules/@tanstack/react-query/build/modern/QueryClientProvider.js:12:32)
+
+ ✓ tests/integration/frontend-ui-integration.test.tsx (34 tests) 4387ms
+   ✓ real Home data rendered through the shared QueryClient > renders honest empty states without fake meal, budget, expiry items, progress, or notification badges  1332ms
+   ✓ real Home data rendered through the shared QueryClient > derives the current meal, week progress, budget, and use-soon inventory from query data  709ms
+   ✓ real Home data rendered through the shared QueryClient > qualifies estimated expiry on Home and keeps KNOWN/ESTIMATED/UNKNOWN visually distinct  368ms
+ ✓ tests/unit/week-query-sync.test.ts (80 tests) 10358ms
+   ✓ Week Query-backed reads > loads the current plan through the shared Query client and mirrors its scoped ID key  2420ms
+   ✓ Week Query-backed reads > deduplicates concurrent store reads without bypassing API spies  308ms
+   ✓ Week Query-backed reads > keeps a null current plan as an honest empty result  365ms
+   ✓ Week Query-backed reads > updates the current key after a matching ID lookup  360ms
+   ✓ Week Query-backed reads > does not promote an ID lookup when current is different plan  474ms
+   ✓ Week Query-backed reads > does not promote an ID lookup when current is absent  407ms
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 2 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  tests/unit/ui10-week-routes.test.tsx > planner on preserves /week/generating → /planner/new
+AssertionError: expected '/planner' to be '/planner/new' // Object.is equality
+
+Expected: "/planner/new"
+Received: "/planner"
+
+ ❯ tests/unit/ui10-week-routes.test.tsx:73:36
+     71|     expect(host.textContent).toContain('Planner destination');
+     72|   });
+     73|   expect(window.location.pathname).toBe(destination);
+       |                                    ^
+     74| });
+     75| it.each(paths)(
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/2]⎯
+
+ FAIL  tests/unit/ui10-week-routes.test.tsx > planner on preserves /week/plan-a/settings → /planner/new
+AssertionError: expected 'Đến nội dung chínhTrang chủTủ lạnhCôn…' to contain 'Planner destination'
+
+Expected: "Planner destination"
+Received: "Đến nội dung chínhTrang chủTủ lạnhCông thứcThực đơnTôiQuétTrang chủTủ lạnhCông thứcThực đơnTôiQuét nguyên liệuĂn đủ. Mua đủ. Dùng hết.Bếp của bạnCài đặt lập thực đơnGiá trị mặc định cho các thực đơn kế tiếpĐây là cài đặt mặc định, không tạo thực đơn mới. Để tạo, mở mục Thực đơn.Không tải được cài đặt khi ngoại tuyếnCần kết nối mạng để đọc cài đặt lập thực đơn hiện tại từ máy chủ. Thử lại khi có mạng.Trang chủTủ lạnhQuétCông thứcThực đơnTôi"
+
+ ❯ tests/unit/ui10-week-routes.test.tsx:71:30
+     69|       await new Promise((resolve) => setTimeout(resolve, 5));
+     70|     });
+     71|     expect(host.textContent).toContain('Planner destination');
+       |                              ^
+     72|   });
+     73|   expect(window.location.pathname).toBe(destination);
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/2]⎯
+
+
+ Test Files  1 failed | 9 passed (10)
+      Tests  2 failed | 185 passed (187)
+   Start at  21:54:53
+   Duration  11.70s (transform 5.83s, setup 478ms, collect 16.40s, tests 18.49s, environment 2.95s, prepare 2.22s)

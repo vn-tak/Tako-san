@@ -2,90 +2,63 @@ import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useAuthStore } from '../stores/useAuthStore';
 import { Button } from '../components/common/Button';
-import { TAKOSAN_BRAND } from '../lib/takosan-brand';
-import { ArrowRight, LogIn } from 'lucide-react';
+import { TAKOSAN_KITCHEN } from '../lib/takosan-kitchen';
+import { ArrowRight, Camera, ClipboardCheck, CookingPot } from 'lucide-react';
+
+const STEPS = [
+  { title: 'Ghi lại đồ ăn đang có', description: 'Chụp ảnh nguyên liệu hoặc hóa đơn để bắt đầu.', icon: Camera },
+  { title: 'Kiểm tra trước khi thêm', description: 'Bạn xem lại tên, lượng và hạn dùng trước khi lưu vào tủ.', icon: ClipboardCheck },
+  { title: 'Chọn bữa ăn phù hợp', description: 'Xem món có thể nấu và nguyên liệu cần mua thêm.', icon: CookingPot },
+];
 
 export const LandingPage: React.FC = () => {
   const navigate = useNavigate();
   const setGuestSession = useAuthStore((s) => s.setGuestSession);
   const [guestError, setGuestError] = useState<string | null>(null);
   const [isStarting, setIsStarting] = useState(false);
-
   const startGuest = async (path: string) => {
     setGuestError(null);
     setIsStarting(true);
-    try {
-      await setGuestSession();
-      navigate(path);
-    } catch (error) {
-      setGuestError(error instanceof Error ? error.message : 'Không thể khởi tạo phiên khách. Vui lòng thử lại.');
-    } finally {
-      setIsStarting(false);
-    }
+    try { await setGuestSession(); navigate(path); }
+    catch (error) { setGuestError(error instanceof Error ? error.message : 'Không thể khởi tạo phiên khách. Vui lòng thử lại.'); }
+    finally { setIsStarting(false); }
   };
 
   return (
-    <main
-      data-testid="landing-page"
-      className="min-h-screen bg-takosan-cream flex flex-col justify-between px-6 py-10 relative overflow-hidden sm:grid sm:grid-cols-2 sm:content-center sm:gap-x-8 lg:gap-x-12 sm:gap-y-8 sm:px-[max(2rem,calc((100vw-1200px)/2))]"
-    >
-      {/* Brand Header */}
-      <div className="relative z-10 text-center pt-4 sm:col-start-1 sm:row-start-1 sm:text-left sm:pt-0">
-        <div className="flex justify-center mb-4 sm:justify-start">
-          <img
-            src={TAKOSAN_BRAND.logos.horizontal}
-            alt="Takosan"
-            className="h-14 w-auto object-contain"
-            data-testid="landing-logo"
-          />
-        </div>
-        {/* Single page heading (accessibility checklist). */}
-        <h1 className="font-heading font-extrabold text-xl sm:text-3xl lg:text-4xl text-takosan-navy mb-1">{TAKOSAN_BRAND.tagline}</h1>
-        <p className="text-sm text-semantic-text-secondary max-w-xs mx-auto leading-relaxed sm:mx-0 sm:max-w-lg sm:mt-4">
-          Trợ lý bếp thân thiện: quản lý thực phẩm, giảm lãng phí và gợi ý món ngon chuẩn xác cùng AI.
-        </p>
+    <main data-testid="landing-page" className="takosan-rebuild entry-page landing-page">
+      <header className="entry-brand-header">
+        <img src={TAKOSAN_KITCHEN.logo} alt="Takosan" translate="no" width={300} height={72} data-testid="landing-logo" />
+        <span>Bếp nhà, bớt lo.</span>
+      </header>
+      <div className="landing-intro">
+        <p className="kitchen-eyebrow">Từ đồ ăn trong tủ đến bữa cơm trên bàn</p>
+        <h1>Ăn đủ.<br />Mua đủ.<br /><span>Dùng hết.</span></h1>
+        <p className="landing-description">Bớt quên đồ trong tủ. Bớt băn khoăn hôm nay ăn gì. Takosan giúp bạn nhìn rõ nguyên liệu đang có và chuẩn bị bữa ăn tiếp theo.</p>
       </div>
-
-      {/* Hero: mascot with fridge */}
-      <div className="relative z-10 my-6 sm:my-0 sm:col-start-2 sm:row-start-1 sm:row-span-2 sm:self-center">
-        <div className="relative rounded-3xl overflow-hidden border border-takosan-cream-line bg-white p-6 text-center shadow-xs">
-          <div className="absolute inset-x-0 top-0 h-28 bg-takosan-mint/60 rounded-b-[48px]" aria-hidden="true" />
-          <div className="relative w-44 h-44 sm:w-48 sm:h-48 md:w-56 md:h-56 mx-auto mb-3 flex items-center justify-center">
-            <img
-              src={TAKOSAN_BRAND.mascot.fridge}
-              alt="Takosan cầm tủ lạnh"
-              className="w-full h-full object-contain"
-              width={176}
-              height={176}
-            />
-          </div>
-          <h2 className="font-heading font-bold text-base text-takosan-navy">Nhận diện nguyên liệu tức thì</h2>
-          <p className="text-sm text-semantic-text-muted mt-1 max-w-xs mx-auto">
-            Chỉ cần 1 bức ảnh chụp tủ lạnh, Takosan sẽ phân loại và tính toán món ăn tối ưu ngay cho bạn.
-          </p>
-        </div>
-      </div>
-
-      {/* Action Buttons */}
-      <div className="relative z-10 space-y-3 sm:col-start-1 sm:row-start-2">
-        {guestError && <p role="alert" className="text-sm text-semantic-danger-strong">{guestError}</p>}
-        <Button
-          fullWidth
-          size="lg"
-          onClick={() => startGuest('/onboarding')}
-          isLoading={isStarting}
-          className="flex items-center justify-center gap-2 rounded-2xl text-base"
-        >
-          <span>Dùng thử Takosan ngay</span>
-          <ArrowRight className="w-4 h-4 ml-1" />
+      <div className="landing-actions">
+        {guestError && <p role="alert" className="text-semantic-danger-strong">{guestError}</p>}
+        <Button fullWidth size="lg" onClick={() => startGuest('/onboarding')} isLoading={isStarting}>
+          Dùng thử Takosan ngay <ArrowRight size={20} aria-hidden="true" />
         </Button>
-
-        <Button fullWidth size="md" variant="secondary" onClick={() => navigate('/auth')} disabled={isStarting} className="flex items-center justify-center gap-2 rounded-2xl">
-          <LogIn className="h-4 w-4" />
-          <span>Đăng nhập hoặc tạo tài khoản</span>
+        <Button fullWidth size="lg" variant="outline" onClick={() => navigate('/auth')} disabled={isStarting}>
+          Đăng nhập hoặc tạo tài khoản
         </Button>
-        <p className="pt-1 text-center text-[11px] leading-relaxed text-semantic-text-muted">Dùng thử không cần tài khoản. Đăng nhập khi bạn muốn đồng bộ giữa các thiết bị.</p>
+        <p>Dùng thử không cần tạo tài khoản. Đăng nhập để đồng bộ giữa các thiết bị.</p>
       </div>
+      <section className="landing-flow" aria-label="Cách Takosan giúp bạn">
+        <h2>Bắt đầu từ chính căn bếp của bạn.</h2>
+        <ol>
+          {STEPS.map(({ title, description, icon: Icon }, index) => (
+            <li key={title}>
+              <span className="landing-step-number" aria-hidden="true">0{index + 1}</span>
+              <Icon size={24} aria-hidden="true" />
+              <div><h3>{title}</h3><p>{description}</p></div>
+            </li>
+          ))}
+        </ol>
+        <p className="landing-scan-note">AI hỗ trợ nhận diện; bạn quyết định thông tin được lưu. Kết quả có thể cần sửa.</p>
+      </section>
+      <footer className="entry-footer">Một căn bếp ngăn nắp hơn, từng bữa một.</footer>
     </main>
   );
 };

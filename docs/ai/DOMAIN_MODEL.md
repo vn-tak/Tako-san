@@ -1,3 +1,106 @@
+# UI10 Week view and completion semantics (ADR-053)
+
+Week setup contains meal preset, budget, one to three priorities and shopping
+frequency. Unsupported day-schedule inputs are removed because they never reached
+the existing generation command. Null means unlimited budget; only undefined uses
+the 750000 default. Setup and settings use the existing in-memory session draft;
+settings does not save preferences durably or modify the current plan. Document
+reload resets the draft. Stage, meal-tab and shopping-filter/mode state is ephemeral.
+
+Availability, utilization, budget and waste are plan projections, not evidence of
+stock consumption. Unknown recipe nutrition remains unknown. Generating, reading,
+swapping or checking shopping items must not import or consume inventory. Stock
+import remains an explicit selected-item command; cooking keeps /cook/:slug.
+
+Week completion pendingSync is an existing service signal passed through the store.
+Unlike the durable receipt validated for saved Shopping in UI06, this Week signal
+alone does not prove a matching command persisted in the outbox. UI10 conservatively
+says the server has not confirmed import; it does not promise durable offline
+completion or replay safety. The existing Week queueWrite receipt handling and
+repeated optimistic projection need a separate domain packet. UI10 introduces no
+new wire DTO, persistence, stock command or server authority.
+
+---
+
+# UI06 planner and shopping view semantics (ADR-049)
+
+A planner remains a projected household plan, not actual stock consumption.
+V1/V2 composition, explicit proposal acceptance, revisions, hard constraints and
+Week dual-write contracts remain authoritative. Recommendation checkboxes only
+mark temporary reminders on the current view; reload resets them. Unknown prices,
+partial/unplanned/stale and untracked demand remain explicit in presentation.
+
+Saved ShoppingInput supports existing fields and positive finite decimal amounts;
+the form preserves blank as invalid and offers the eight current wire units.
+ShoppingSnapshot is a web envelope `{items, source: server|device}`; existing API
+facade reads still return arrays. PendingSync proves a matching owned command
+persisted in the local outbox, not that the server has never committed. A queued
+POST/PATCH/DELETE overlays later reads in queue order; same client ID has one row,
+queued deletion cannot be resurrected by a stale read, and later edits follow
+earlier queued operations for that item. Checking bought does not add inventory.
+No DTO on the wire, schema or new stock/domain command is introduced. The form's
+uncertain add identity is memory-only; document-exit warning is browser-limited.
+
+---
+
+# UI05 actual-use and completion attempt semantics (ADR-048)
+
+Cooking editable quantities are strings: empty means incomplete,0means not used.
+Only finite nonnegative amounts<=100000 and strictly available compatible stock
+may confirm. Required-before-optional sequential reservation handles duplicate
+ingredient rows and mixed physical units; zero/blank rows peek without consuming.
+Projection/remaining values are labelled estimates from the captured stock, not
+new server facts. Refresh retains actual-use intent, does not silently clamp it.
+
+The first explicit confirmation captures immutable deduction payload and key.
+Sending/uncertain/rejected/restricted/blocked/saved/queued are distinct UI states.
+Uncertain retries keep key+payload; known data rejection requires successful
+server inventory read before editing/re-keying. Known safety rejection allows an
+explicit end-and-select action; auth/idempotency conflicts cannot auto-re-key.
+Saved means valid server response; queued means a real durable local outbox entry,
+not evidence that the server has never committed. Same/concurrent queued key does
+not project use twice. Draft/run ownership and session resets fence late results.
+No server/schema/persisted private-draft contract changes.
+
+---
+
+# UI04 review draft semantics (2026-10-10)
+
+Web editable review quantity is number or empty string; empty remains incomplete
+and cannot enter accepted confirmation. Positive finite quantity<=10000 and valid
+optional date are checked before submit. Rejected persisted lines submit ID and
+rejection only, letting existing server evidence hydration retain the original
+line. Raw extraction/confidence/price/purchase facts remain separate from edits.
+
+Expiry estimate flags survive synthetic offline commands/projection; unknown
+continues UNKNOWN. All-rejected synthetic imports create no operation and report
+pendingSync false. PendingSync proves an operation was queued locally, not that
+the server did or did not commit (a response can be lost after commit). Matching
+in-memory source previews require explicit scan ID binding and ready/confirmed
+review state; reset clears image and binding. No durable/schema/canonical mapping
+change. See ADR-047 and UI04 evidence; backend normalizer limitations remain.
+
+---
+
+# UI03 discovery presentation contract (ADR-046)
+
+Discovery summaries are read-only projections of the existing recipe authority and
+current household inventory. `DiscoveryItem` contains card recipe fields,
+matchPercentage (ingredient coverage), canCookWithoutBuying (quantity sufficiency)
+and missingRequiredIngredientCount. No ingredient demands, steps, nutrition,
+per-lot evidence or safety assurance is carried in list; detail remains authoritative
+for those views. Count0 agrees with quantity-based no-buy, never a stored recipe flag.
+
+`DiscoveryPage` includes total/page/pageSize/pages, source server|device, SHA256
+snapshot witness and previous/next cursors. Cursor is a current-input equality
+witness, not authorization or a retained historical snapshot. User/household,
+actual authority source/content fingerprint, stock/versions and filters/page size
+bind the witness; changed input409 requires restart. Media may change independently
+without changing ranking identity. Shared schema: `packages/recipes/src/discovery-contract.ts`.
+No new persistence or inventory/planner/cooking domain command is introduced.
+
+---
+
 # Domain Model — T01 foundation through T05 shopping optimization
 
 T05 introduces `ShoppingContext`, `PurchaseOption`, `PurchaseRequirement`, scoped

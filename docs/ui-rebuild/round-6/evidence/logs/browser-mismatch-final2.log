@@ -1,0 +1,10 @@
+mismatch/planner-empty-390: axe0 overflow0 broken0 fields16
+mismatch/planner-setup-320: axe0 overflow0 broken0 fields16
+mismatch/planner-board-320: axe0 overflow0 broken0 fields16
+mismatch/planner-meal-320: axe0 overflow0 broken0 fields16
+mismatch/planner-shopping-320: axe0 overflow0 broken0 fields16
+mismatch/planner-read-error-390: axe0 overflow0 broken0 fields16
+mismatch/saved-shopping-320: axe0 overflow0 broken0 fields16
+mismatch/shopping-delete-dialog-390: axe0 overflow0 broken0 fields16
+mismatch/shopping-offline-390: axe0 overflow0 broken0 fields16
+PASS mismatch: 9 axe/layout checks, 6 journey groups, no page errors

@@ -1,0 +1,193 @@
+{
+  "source": "src/web/App.tsx",
+  "routes": [
+    {
+      "path": "/landing",
+      "line": 162
+    },
+    {
+      "path": "/auth",
+      "line": 172
+    },
+    {
+      "path": "/auth/verify",
+      "line": 183
+    },
+    {
+      "path": "/onboarding/*",
+      "line": 194
+    },
+    {
+      "path": "/",
+      "line": 215
+    },
+    {
+      "path": "/fridge",
+      "line": 220
+    },
+    {
+      "path": "/inventory",
+      "line": 221
+    },
+    {
+      "path": "/fridge/:id",
+      "line": 222
+    },
+    {
+      "path": "/ingredients/:id",
+      "line": 223
+    },
+    {
+      "path": "/inventory/:id",
+      "line": 224
+    },
+    {
+      "path": "/inventory-reconciliation",
+      "line": 225
+    },
+    {
+      "path": "/scan",
+      "line": 228
+    },
+    {
+      "path": "/scan/:id/review",
+      "line": 229
+    },
+    {
+      "path": "/scan/receipt-review",
+      "line": 230
+    },
+    {
+      "path": "/scan/result",
+      "line": 231
+    },
+    {
+      "path": "/recipes",
+      "line": 234
+    },
+    {
+      "path": "/recipes/:slug",
+      "line": 235
+    },
+    {
+      "path": "/recipes/id/:id",
+      "line": 236
+    },
+    {
+      "path": "/cook/:slug",
+      "line": 237
+    },
+    {
+      "path": "/cooking/:id",
+      "line": 238
+    },
+    {
+      "path": "/cooking/complete",
+      "line": 239
+    },
+    {
+      "path": "/week",
+      "line": 245
+    },
+    {
+      "path": "/week/setup",
+      "line": 251
+    },
+    {
+      "path": "/week/generating",
+      "line": 255
+    },
+    {
+      "path": "/week/:planId",
+      "line": 265
+    },
+    {
+      "path": "/week/:planId/meal/:mealId",
+      "line": 271
+    },
+    {
+      "path": "/week/:planId/shopping",
+      "line": 275
+    },
+    {
+      "path": "/week/:planId/settings",
+      "line": 281
+    },
+    {
+      "path": "/planner",
+      "line": 291
+    },
+    {
+      "path": "/planner/new",
+      "line": 297
+    },
+    {
+      "path": "/planner/:planId",
+      "line": 303
+    },
+    {
+      "path": "/planner/:planId/meal/:slotId",
+      "line": 309
+    },
+    {
+      "path": "/planner/:planId/shopping",
+      "line": 315
+    },
+    {
+      "path": "/shopping",
+      "line": 322
+    },
+    {
+      "path": "/notifications",
+      "line": 323
+    },
+    {
+      "path": "/me",
+      "line": 324
+    },
+    {
+      "path": "/profile",
+      "line": 325
+    },
+    {
+      "path": "/me/preferences",
+      "line": 326
+    },
+    {
+      "path": "/family",
+      "line": 327
+    },
+    {
+      "path": "/me/household",
+      "line": 328
+    },
+    {
+      "path": "/settings",
+      "line": 329
+    },
+    {
+      "path": "/settings/app",
+      "line": 330
+    },
+    {
+      "path": "/settings/notifications",
+      "line": 332
+    },
+    {
+      "path": "/settings/planning",
+      "line": 335
+    },
+    {
+      "path": "/settings/privacy",
+      "line": 336
+    },
+    {
+      "path": "/plus",
+      "line": 337
+    },
+    {
+      "path": "*",
+      "line": 341
+    }
+  ]
+}

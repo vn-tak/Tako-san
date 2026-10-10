@@ -2,7 +2,8 @@ import React, { useEffect, useRef, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import type { MealPlan } from '@frigo/domain';
 import { useWeekStore } from '../stores/useWeekStore';
-import { TAKOSAN_BRAND } from '../lib/takosan-brand';
+import { TAKOSAN_KITCHEN } from '../lib/takosan-kitchen';
+import { WeekWorkspace } from '../features/week/WeekWorkspace';
 import { capturePrivateSession, currentPrivateScope } from '../lib/private-session';
 import { todayLocalIso } from '../lib/format';
 import { InlineError, InlineLoading } from '../components/common/AsyncState';
@@ -28,37 +29,45 @@ export const WeekGeneratingPage: React.FC = () => {
       startDate: todayLocalIso(),
       householdSize: setupDraft.householdSize || 2,
       mealSlotsPreset: setupDraft.mealSlotsPreset || 'dinner_only',
-      budgetTargetVnd: setupDraft.budgetTargetVnd ?? 750000,
+      budgetTargetVnd:
+        setupDraft.budgetTargetVnd !== undefined ? setupDraft.budgetTargetVnd : 750000,
       priorities: setupDraft.priorities || ['use_fridge'],
       shoppingFrequency: setupDraft.shoppingFrequency || 'once',
     });
-    void request.current.then((plan) => {
-      if (!cancelled && isCurrent()) navigate(`/week/${plan.id}`, { replace: true });
-    }).catch((err: unknown) => {
-      if (!cancelled && isCurrent()) setError(err);
-    });
-    return () => { cancelled = true; };
+    void request.current
+      .then((plan) => {
+        if (!cancelled && isCurrent()) navigate(`/week/${plan.id}`, { replace: true });
+      })
+      .catch((err: unknown) => {
+        if (!cancelled && isCurrent()) setError(err);
+      });
+    return () => {
+      cancelled = true;
+    };
   }, [generatePlan, navigate, setupDraft]);
 
   return (
-    <div className="min-h-screen bg-takosan-cream text-takosan-navy flex flex-col justify-center gap-8 p-6 mx-auto max-w-[45rem]">
-      <div className="text-center">
-        <img src={TAKOSAN_BRAND.mascot.calendar} alt="Takosan lên lịch" className="w-28 h-28 mx-auto mb-4" />
-        <h2 className="font-heading font-bold text-2xl text-semantic-text-primary">
-          {error ? 'Chưa tạo được thực đơn' : 'Takosan đang lên thực đơn tuần…'}
-        </h2>
-        <p className="text-xs text-semantic-text-muted mt-2">Ăn đủ • Mua đủ • Dùng hết</p>
-      </div>
-      <div className="bg-white rounded-2xl p-6 border border-semantic-border shadow-card">
+    <WeekWorkspace
+      title={error ? 'Chưa tạo được thực đơn.' : 'Đang lên thực đơn cho tuần của bạn…'}
+      narrow
+      description="Thực đơn là kế hoạch dự kiến. Nguyên liệu trong tủ chỉ thay đổi khi bạn xác nhận mua thêm hoặc nấu."
+    >
+      <div className="week-paper week-generating" aria-busy={!error}>
+        <img src={TAKOSAN_KITCHEN.symbol} alt="" width={80} height={80} />
         {error ? (
           <>
             <InlineError error={error} />
-            <Button className="w-full mt-4" onClick={() => navigate('/week/setup', { replace: true })}>
+            <Button className="mt-4" onClick={() => navigate('/week/setup', { replace: true })}>
               Quay lại thiết lập
             </Button>
           </>
-        ) : <InlineLoading label="Đang chờ thực đơn từ máy chủ. Bạn có thể quay lại sau." />}
+        ) : (
+          <InlineLoading label="Đang chờ kết quả tạo thực đơn…" />
+        )}
+        <p className="week-muted">
+          Bạn có thể quay lại thực đơn tuần. Yêu cầu đang gửi có thể vẫn hoàn tất.
+        </p>
       </div>
-    </div>
+    </WeekWorkspace>
   );
 };

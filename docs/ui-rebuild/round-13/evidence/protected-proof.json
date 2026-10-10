@@ -1,0 +1,29 @@
+{
+  "base": "5da802735c318c56505bed85a133b049728afb39",
+  "protectedPaths": [
+    "src/worker",
+    "packages",
+    "migrations",
+    "public",
+    "src/web/services",
+    "src/web/stores",
+    "src/web/App.tsx",
+    "src/web/lib/recipe-media.ts",
+    "src/web/lib/sync.ts",
+    "src/web/lib/private-session.ts",
+    "src/web/pages/PaymentPage.tsx",
+    "package.json",
+    "pnpm-lock.yaml",
+    "vite.config.ts",
+    "wrangler.jsonc",
+    "wrangler.staging.jsonc",
+    ".github",
+    "tailwind.config.js",
+    "postcss.config.js"
+  ],
+  "protectedDiffEmpty": true,
+  "entireSrcTreeDiffEmpty": true,
+  "publicOriginalsUnchanged": 257,
+  "previousFrozenSourcesUnchanged": 374,
+  "newReviewSourceArtifacts": 9
+}

@@ -10,7 +10,8 @@ vi.mock('react-router-dom', () => ({
   useSearchParams: () => [new URLSearchParams(history.search)],
   useLocation: () => ({ state: { receipt: history.receipt } }),
 }));
-vi.mock('../../src/web/components/common/TopBar', () => ({ TopBar: () => null }));
+// UI11 chrome is verified separately; keep this fixture focused on receipt authority.
+vi.mock('../../src/web/components/common/KitchenHeader', () => ({ KitchenHeader: () => null }));
 vi.mock('../../src/web/stores/useWeekStore', () => ({
   useWeekStore: (selector: (state: { currentPlan: null }) => unknown) => selector({ currentPlan: null }),
 }));

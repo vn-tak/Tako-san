@@ -1,0 +1,6 @@
+
+> frigo@0.1.0 typecheck /Users/tunbee27/Documents/Tako-san-ui-rebuild
+> tsc -p tsconfig.json --noEmit && tsc -p tsconfig.worker.json --noEmit
+
+tests/unit/ui08-route-scope.test.tsx(20,40): error TS2741: Property 'location' is missing in type '{ children: Element; }' but required in type 'StaticRouterProps'.
+ ELIFECYCLE  Command failed with exit code 2.

@@ -1,0 +1,15 @@
+
+ RUN  v3.2.7 /Users/tunbee27/Documents/Tako-san-ui-rebuild
+
+ ✓ tests/unit/ui08-route-scope.test.tsx (20 tests) 26ms
+ ✓ tests/unit/ui02-presentation.test.ts (47 tests) 25ms
+ ✓ tests/unit/ui09-route-scope.test.tsx (14 tests) 11ms
+ ✓ tests/unit/ui07-brand-shell.test.tsx (15 tests) 29ms
+ ✓ tests/unit/staging-d1-catchup-check.test.mjs (32 tests) 3175ms
+   ✓ ephemeral staging D1-only catch-up config > is readable by Wrangler locally and lists only the prefix through the target  1163ms
+   ✓ candidate SHA and hosted CI gates > requires the catch-up ref to equal current origin/main  903ms
+
+ Test Files  5 passed (5)
+      Tests  128 passed (128)
+   Start at  22:37:52
+   Duration  5.55s (transform 563ms, setup 48ms, collect 2.85s, tests 3.26s, environment 1ms, prepare 239ms)

@@ -11,6 +11,7 @@ vi.mock('../../src/web/stores/useAuthStore', () => ({
   },
 }));
 
+import { TAKOSAN_KITCHEN } from '../../src/web/lib/takosan-kitchen';
 import { TAKOSAN_BRAND } from '../../src/web/lib/takosan-brand';
 import { LandingPage } from '../../src/web/pages/LandingPage';
 import { Header } from '../../src/web/components/common/Header';
@@ -95,12 +96,12 @@ describe('Takosan brand contract', () => {
 });
 
 describe('PWA metadata', () => {
-  it('manifest is branded Takosan with kit theme colours and generated icons', () => {
+  it('manifest is branded Takosan with kitchen theme colours and generated icons', () => {
     const manifest = JSON.parse(readFileSync(resolve(root, 'public/manifest.json'), 'utf8'));
     expect(manifest.short_name).toBe('Takosan');
     expect(manifest.name).toMatch(/^Takosan/);
-    expect(manifest.theme_color).toBe('#2E7D5B');
-    expect(manifest.background_color).toBe('#FFF8F3');
+    expect(manifest.theme_color).toBe('#245D49');
+    expect(manifest.background_color).toBe('#F7F3EC');
     const sizes = manifest.icons.map((i: { sizes: string; purpose?: string }) => `${i.sizes}${i.purpose ? `:${i.purpose}` : ''}`);
     expect(sizes).toEqual(expect.arrayContaining(['192x192', '512x512', '512x512:maskable']));
     for (const icon of manifest.icons) {
@@ -112,11 +113,11 @@ describe('PWA metadata', () => {
   it('index.html title, favicon, theme colour and OpenGraph are Takosan while the domain is unchanged', () => {
     const html = readFileSync(resolve(root, 'index.html'), 'utf8');
     expect(html).toMatch(/<title>Takosan/);
-    expect(html).toContain('href="/takosan/app-icons/favicon.svg"');
-    expect(html).toContain('<meta name="theme-color" content="#2E7D5B" />');
+    expect(html).toContain('href="/takosan/rebuild/app-icons/favicon.svg"');
+    expect(html).toContain('<meta name="theme-color" content="#245D49" />');
     expect(html).toContain('property="og:title" content="Takosan');
     // og:image must be absolute for scrapers; the temporary domain stays until the maintainer picks one.
-    expect(html).toContain('property="og:image" content="https://frigo.tungjpstore.net/takosan/brand/takosan-og.png"');
+    expect(html).toContain('property="og:image" content="https://frigo.tungjpstore.net/takosan/rebuild/og.png"');
     expect(html).toContain('property="og:url" content="https://frigo.tungjpstore.net"');
     expect(html).not.toMatch(/og:image" content="\//);
     expect(html).not.toMatch(/\/frigo\/(brand|app-icons)\//);
@@ -128,7 +129,7 @@ describe('PWA metadata', () => {
     const iconHrefs = [...html.matchAll(/<link rel="(?:icon|apple-touch-icon)"[^>]*href="([^"]+)"/g)].map((m) => m[1]);
     expect(iconHrefs.length).toBeGreaterThanOrEqual(3);
     for (const href of iconHrefs) {
-      expect(href.startsWith('/takosan/app-icons/')).toBe(true);
+      expect(href.startsWith('/takosan/rebuild/app-icons/')).toBe(true);
       expect(existsSync(publicFile(href))).toBe(true);
     }
     expect(existsSync(publicFile(TAKOSAN_BRAND.og))).toBe(true);
@@ -172,11 +173,13 @@ describe('Primary shell renders Takosan, not Frigo', () => {
   const render = (ui: React.ReactElement, path = '/') =>
     renderToStaticMarkup(<StaticRouter location={path}>{ui}</StaticRouter>);
 
-  it('LandingPage shows the Takosan lockup and mascot with no Frigo copy or legacy logo', () => {
+  it('LandingPage shows the scoped identity and honest review flow with no Frigo copy', () => {
     const html = render(<LandingPage />, '/landing');
-    expect(html).toContain(`src="${TAKOSAN_BRAND.logos.horizontal}"`);
-    expect(html).toContain(`src="${TAKOSAN_BRAND.mascot.fridge}"`);
-    expect(html).toContain('Takosan sẽ phân loại');
+    expect(html).toContain(`src="${TAKOSAN_KITCHEN.logo}"`);
+    expect(html).toContain('width="300" height="72"');
+    expect(html).toContain('Kiểm tra trước khi thêm');
+    expect(html).toContain('Kết quả có thể cần sửa');
+    expect(html).not.toContain('Takosan sẽ phân loại');
     expect(html).not.toContain('Frigo');
     expect(html).not.toContain('/frigo/brand/');
   });
@@ -237,7 +240,11 @@ describe('Palette hardening (P2-BRAND-1)', () => {
     const takosan = theme.colors.takosan as Record<string, string | Record<string, string>>;
     const value = (c: string | Record<string, string>) => (typeof c === 'string' ? c : c.DEFAULT);
     for (const [name, hex] of Object.entries(TAKOSAN_BRAND.colors)) {
-      expect(value(takosan[name])).toBe(hex);
+      const actual = value(takosan[name]);
+      if (actual.startsWith('rgb(var(')) {
+        const rgb = [1, 3, 5].map(index => Number.parseInt(hex.slice(index, index + 2), 16)).join(' ');
+        expect(actual).toContain(`, ${rgb}) / <alpha-value>)`);
+      } else expect(actual).toBe(hex);
     }
     for (const name of ['float', 'glow']) {
       expect(theme.boxShadow[name]).toContain('rgba(46, 125, 91');

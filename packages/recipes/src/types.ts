@@ -1,3 +1,4 @@
+import type { RecipeIngredientAvailability } from './legacy-availability';
 import { StandardUnit } from '@frigo/domain';
 
 export type CuisineType = 'vietnamese' | 'korean' | 'japanese' | 'chinese' | 'thai' | 'italian';
@@ -56,10 +57,11 @@ export interface Recipe {
 
 export interface RecipeScoringContext {
   inventory: Array<{
+    id?: string;
     ingredientId: string;
     quantity: number;
     unit: StandardUnit;
-    freshness: 'fresh' | 'use_soon' | 'expiring' | 'out_of_stock';
+    freshness?: 'fresh' | 'use_soon' | 'expiring' | 'out_of_stock';
   }>;
   preferredCuisines?: CuisineType[];
   maxCookTimeMinutes?: number;
@@ -75,4 +77,5 @@ export interface RecipeMatchResult {
   missingRequiredIngredients: RecipeIngredient[];
   expiringIngredientsUsed: string[];
   canCookWithoutBuying: boolean;
+  ingredientAvailability?: RecipeIngredientAvailability[];
 }

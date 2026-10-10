@@ -1,3 +1,999 @@
+# UI14 - Hiệu năng frontend và motion Tako-san đã kiểm chứng local - 2026-10-11 JST
+
+**Task/status:** `UI14_LOCAL_VERIFIED_REVIEW_REQUIRED`, packet UI14, ADR-057.
+Một tối ưu delivery hoàn tất; toàn sản phẩm/brand/device/hosted chưa được chứng nhận.
+
+**Repository/source:** Canonical `vn-tak/Tako-san`, checkout
+`/Users/tunbee27/Documents/Tako-san-ui-rebuild`, branch `codex/ui-rebuild-foundation`.
+Base `f3a09f2a7beb548fbd4bc9ef8ae932a092dd3827`.
+Implementation: `7ee28bf48974e8faf52f78caa2b9a5b979953768`.
+396 source/test/script/config/generated/public records frozen và khớp sau full gates.
+App giữ nguyên bytes ngoài import provider; helpers cũ exact; protected diff rỗng.
+257 public originals nguyên; build256 exact + một SW build-ID transform có sẵn.
+Git-object receipt: `VERIFIED: 396 source / 139 evidence / 257 public records, 515 unique blobs; 41 log receipts / 6 raw gzip. Manifest 97427 bytes, SHA256 1b9065bead923ee54752980cd7553a5e1812a527adb0b7f7593cc1bd7d7b9870; round-14/GIT_VERIFICATION.md`. Documentation checkpoint theo sau chỉ ghi
+verified implementation, không ghi hash của chính nó.
+
+**Actual changes:** Tách MotionConfig provider, vẫn reducedMotion=user/re-export cũ;
+legacy indicator dynamic import chia sẻ promise, highlight tĩnh ngay và khi lỗi,
+fence khi unmount. Loaded layoutId/classes/transition0.14s exact. Kitchen markup,
+UI07 brand/font/assets, routes/guards/API/callback giữ. Production-build harness với
+real Worker/synthetic SQLite; fixture legacy riêng không vào payment/auth app routes.
+
+**Measured outcome:** Three cold/warm pairs per route, Chromium153/390×844/CPU4x/
+60ms/200KBps, hai flagsfalse/timestamp pin. Entry463601→336308 raw; gzip6
+129276→87619. Cold JS transfer240255→198605 Home,226429→184779 discovery,
+234569→192917 detail (17.3–18.4% reduction). Cold median ready3546→3330,
+2848→2625,4029→3813ms; warm gần như nguyên, JS0. SPA single sample không chứng
+minh nhanh hơn. Cumulative shift Home~0.01765 trước/sau. Inventory JSON bằng nhau,
+zero measured domain writes/external/pageerrors; bootstrap cookie/preferences tách rõ.
+Local gzip/cache/request serialization/external HTML exclusion khác hosted behavior;
+không gọi field CWV/INP. Fonts/assets/offline catalog vẫn bottleneck, protected.
+
+**Verification:** PASS exit0,288files/6742tests, Vitest370.67s; typecheck/full lint/
+local migration/Vite3.74s/WorkerTS PASS; remote schema/Week gates skipped.
+Focused3files/56tests/3.17s,5new cases; full reruns after test typing fix.
+Final browser50settled snapshots/5journeys: sevenwidths320..1440,textx2 at320/768,
+short390/768×420,combined320×420x2,3panels textx2,5representative families, native
+keyboard/filter/card/Back/reset; applicableaxe/overflow/brokenimages/navoverlap/
+recipeclipping/pageerrors0. Four actual legacy pending/failure×normal/reduced
+journeys,2baseline frameprobes; short supplemental3tabs focus above237.375px nav.
+Final targeted lint/Prettier/freeze/protected/public/ports PASS.41raw log/data
+receipts/6exact raw gzip archives (4entry/maps+2logs). Git receipt follows commit.
+
+**Failures/recovery:** APIRequestContext401→actual verified browser-cookie setup;
+wrong slug/selector/search corrected fromrepo; overwritten SPA timing separated;
+new test append overload→appendChild; legacy ambiguous selector corrected; zero-frame
+reduced assertion compared with pinned baseline (same first-frame projection).
+Axe mid-fadecontrast failure retained; stable screenshots wait Animation.finished.
+First commit8f486cd followed a failed raw-log whitespace check due shell masking;
+follow-up keeps exact raw gzip and normalized text, no amend/reset.
+Short focus first raced ResizeObserver; after measured height focusPASS. Lighthouse
+unavailable. GenericUX wholefolder167/41issues/1181warnings/90checks FAIL (artifact
+contamination), scopedweb108/23/734/54FAIL. Fresh dependency41advisories:
+4low/19moderate/16high/2critical, lockfile unchanged. No whole-repoUXPASS.
+
+**Database/operational state:** Only synthetic local/in-memory SQLite and local
+migration tests. Owned previews stopped,5216/5217/5218/5219closed. No backend/
+packages/schema/migrations/services/stores/public/dependency/payment/authprotocol/
+productionconfig/remoteDB/R2/media/push/PR/merge/deploy. UI13 photo rights/owner
+review still open; no promotion. Checkout Frigo cũ không được sửa.
+
+**Next action:** `docs/ai/tasks/UI15-short-viewport-motion-readability.md`, READY
+only. Measure/rebuild short-screen reading space and primary fade readability,
+ADR-058 before bounded presentation changes. UI15 runtime chưa bắt đầu. Large
+catalog delivery/hostedcache/device/Safari/nativezoom/screenreader/virtualkeyboard/
+usability/ownerbrand/licensed photos remain distinct. See round-14 reports/receipt.
+
+---
+
+# UI13 - Bộ duyệt ảnh Tako-san đã kiểm chứng local - 2026-10-11 JST
+
+**Task/status:** `UI13_LOCAL_VERIFIED_REVIEW_REQUIRED`, packet UI13, ADR-056.
+Bảng duyệt ảnh local hoàn tất; nguồn/quyền và quyết định thương hiệu còn cần bằng chứng.
+
+**Repository/source:** Canonical `vn-tak/Tako-san`, checkout
+`/Users/tunbee27/Documents/Tako-san-ui-rebuild`, branch `codex/ui-rebuild-foundation`.
+Base `5da802735c318c56505bed85a133b049728afb39`. Implementation: `021220bbcb883360ba79b8101ff9586a67ebc4ae`.
+383 source/test/script/config/public/generated records được frozen; 374 records
+UI12 giữ nguyên và chín records mới. Entire src/protected diff rỗng. 257 public
+originals giữ nguyên; build 256 exact copies + một expected SW build-ID transform.
+Git-object receipt: `VERIFIED: 383 source / 263 evidence / 257 public records, 494 unique blobs; 57 logs / 5 exact raw gzip. Manifest 53069 bytes, SHA256 b9e55a2eca7c2f61afefd0ec657703d460797c7660fac4313bcfb75ffdbd7f81; round-13/GIT_VERIFICATION.md`. Documentation checkpoint theo sau
+chỉ ghi verified implementation, không ghi hash của chính nó.
+
+**Actual changes:** Generator/check/validate và preview GET/HEAD allowlist bind
+127.0.0.1; standalone HTML UI07 logo/font/paper/pine/coral. 24 món ưu tiên, tám ảnh
+gốc, current/proposed tách riêng; CSS crop 4:3/16:9/original, không tạo variants.
+Search/filter/URL/native dialog/focus/error; memory-only draft, JSON export/import.
+Validator kiểm dataset/unique records/known assets/required evidence claims, ngày
+thật và field bounds. Notes text-only; imports atomic và late-import generation
+fence. Giới hạn nhập 3 MiB bảo đảm full valid draft roundtrip, kể cả JSON escaping.
+24 initial records pending, all asset rights unknown, promotionAuthorized=false.
+Owner-reviewed là claim của con người, không phải hệ thống xác minh hoặc quyền publish.
+
+**Verification:** PASS exit 0: 287 files / 6,737 tests, Vitest 357.58s; typecheck/full lint/local migration smoke/Vite 3.06s/Worker TypeScript PASS; remote gates skipped. Final focused
+PASS 3 files / 60 tests in 1.15s (35 new validator cases); lint/format/generated/draft
+PASS final targeted ESLint, Prettier, deterministic generation and initial draft validation. Browser final PASS 33 snapshots / 11 journey groups,
+supplemental PASS seven supplemental checks (four visual, two async races, one direct-file/export). Seven widths 320..1440, computed
+text x2 320/768, short 390x420/768x420 và combined 320x420x2; applicable axe/overflow/
+broken images/checked clipping/unexpected pageerrors zero. Filter/reset/deep link,
+Tab/Shift+Tab/Escape/focus-return, malformed/cross-dataset/path import atomicity,
+full notes export→reload→import, oversized file rejection, two async races và direct
+file/export tested. Browser writes/external requests zero; riêng POST405 probe là
+request thử bị từ chối. No new app-domain E2E/browser claim; UI12 evidence lịch sử.
+
+**Failures/recovery:** Option markup/Prettier failure và chained-command masking
+được sửa; text x2 Chawanmushi clipping và edit-marker failures retained; reverse
+Tab cần explicit cycling; late File.text fenced; final harness formatting repaired.
+Final review tìm valid exports vượt 256 KB cap → 3 MiB + maximum-length/oversized
+checks + full gates rerun. Generic UX FAIL: 159 files/31 issues/1,006 warnings/88
+passed checks. Dependency audit 41 advisories: 4 low/19 moderate/16 high/2 critical,
+lockfile unchanged. Không gọi whole-repo UX hoặc licensing PASS.
+
+**Database/operational state:** Local SQLite tests/migration smoke only; board
+không có domain APIs. Owned previews stopped, seven ports 5212/8912/5213/8913/
+5214/8914/5215 closed. No src/backend/packages/schema/migrations/services/stores/
+public/dependency/payment/auth/production-config/remote DB/R2/media/push/PR/merge/deploy.
+Fresh media audit khớp UI12: 500 canonical/71 static; 6 allowed/6 wrong-missing/
+429 generic/59 unreviewed photo; all 500 media rows pending. 24 priority recipes:
+4 current permitted photos/20 missing. Tám originals, không có license receipts.
+
+**Next action:** `docs/ai/tasks/UI14-frontend-performance-motion.md`:
+independent local cold/warm Home→discovery→detail bundle/font/image/motion audit,
+rank đo được, ADR-057 trước một bounded fix nếu có bằng chứng. UI14 READY only.
+Photo source/rights/subject/crop, owner brand approval và device/Safari/native zoom/
+screen reader/virtual keyboard/usability/CWV/hosted release còn mở. Chủ dự án có
+thể dùng `docs/ui-rebuild/round-13/media-review.html` và tải JSON để giữ lựa chọn.
+Local board/gates không chứng nhận toàn roadmap hoặc production release.
+
+---
+
+# UI12 - Luồng công thức responsive đã kiểm chứng local - 2026-10-11 JST
+
+**Task/status:** `UI12_LOCAL_VERIFIED_REVIEW_REQUIRED`, packet UI12, ADR-055.
+Home → discovery → detail/shared media hoàn tất trong phạm vi local.
+
+**Repository/source:** Canonical `vn-tak/Tako-san`; checkout
+`/Users/tunbee27/Documents/Tako-san-ui-rebuild`, branch `codex/ui-rebuild-foundation`,
+base `f7a27c16ef460b19322d3a463dc74dc09fa48ade`.
+Implementation: `03e16c78850b061784dc2e9a01323bd7e74b65f3`.
+374source/test/script/config/public records frozen và khớp sau full; baseline
+777Git blobs khớp.257publicbuild checks:256byte-identical,sw.js chỉ transform
+build-ID có sẵn.96normalized page declarations/handlers và legacycard JSX tail
+khớp base. Protected diff rỗng, gồm real Wrangler/.github/Tailwind/PostCSS config.
+Git-object receipt round-12/GIT_VERIFICATION.md: source374/evidence349/public257,
+724unique implementation blobs khớp;39log receipts và7raw gzip khớp. Manifest
+71599bytes/SHA256 `3c7ff61129ff0d14dd9e04c1053567b3e891d438821a7c118f3cb4716bb66e02`.
+Tree sạch ngay sau implementation,diff-checkPASS;documentation checkpoint theo
+sau ghi verified implementationhash,không ghi hash của chính nó.
+
+**Actual changes:** Kitchen RecipeCard opt-in Home/discovery, full title/description,
+labelled type coverage tách amount readiness,time/servings; default legacy giữ.
+RecipeMedia dùng resolver hiện có,identity-keyed load/photo/missing,fallback được
+phép một lần rồi HTML missing;lateevents cũ không sửa ảnh mới. Detail badges/facts/
+tabs/steps/ingredients/nutrition unitless lineheight/intrinsic controls/adaptive
+emgrids. Filters sticky theo UI11header/banner;shortview về flow. Missinghero216→82px
+ở320normal. UI07identity/UI11shell giữ,không đổi queries/commands/guards/services.
+
+**Verification:** Full exit0,286files/6702PASS352.41s;type/lint/localmigration/Vite2.92s/
+WorkerTS PASS,remote schema/Weekparity skipped. Focused7files/86PASS2.43s(17new),
+earlier4/37PASS3.99s;final frozen changed-files lintPASS. Browser167ON/17journeys,
+24OFF/1,13state/8,14supplemental=218structured cases;sevenwidths320..1440,textx2
+320/768,short390x420/768x420,combined320x420x2. Applicableaxe/overflow/brokenimages/
+unexpectedpageerrors/newrecipeclipping0. Threepanels,keyboard/back/pager/focus/
+error-retry/empty/404/long/unknown/fallback tested. InventoryJSONequal before/after
+andzerodomainwrites in readjourneys;synthetic onboardingPATCH tracked separately.
+10finalcomparison captures clipping0;10validbase captures. UI12didnotrun separate
+E2Erunner;UI11historical19E2E not counted. See round-12/VERIFICATION.md.
+
+**Failures/recovery:** Vite504 sharedoptimizer conflict→restart aftermediascan;
+wrongeditmarker→exactsource;wrongprimarynavselector→precisenav;transienth1→countwait.
+InitialbaselinePNGs overwritten→independentGitarchive. Tarfilter/migrations/CSSconfig
+harness failures retained;onlybase-configured accepted. Intermediateclipping fixed.
+Allpublicbyteassert firstfailedsw.js;existingbuildtransform verified,source/config
+unchanged. GenericUXFAIL157files/31issues/989warnings/86checks;dependency41advisories
+(4low/19moderate/16high/2critical),lock unchanged. No whole-repoUXPASS claim.
+
+**Database/operational state:** Syntheticlocal/in-memorySQLite only;ownedpreview
+40438 stopped and5212/8912/5213/8913/5214/8914 closed. No backend/packages/schema/
+migrations/services/stores/public/dependencies/payments/authprotocol/production
+config/remoteDB/R2/push/PR/merge/deploy. Mediaauditlocal500canonical/71static,
+6allowed/6wrongmissing/429generic/59unreviewedphoto,all500mediarowspending;
+21URLreusegroups,8localfiles,0duplicate localhashes. Notproduction/license approval.
+
+**Next action:** `docs/ai/tasks/UI13-media-provenance-review.md`: local review board
+for24observeddiscoveryrecipes/8assets,source/license/subject/crop/pendingapproval.
+NoUI13runtime inUI12. Brandowner/device/Safari/nativezoom/screenreader/virtualkeyboard/
+usability/CWV/hostedrelease and separate Weekoutbox/inventoryreceipt domain work
+remain open. Build/test success does not certify whole roadmap or final brand.
+
+---
+
+# UI11 - Điều hướng và shell responsive đã kiểm chứng local - 2026-10-11 JST
+
+**Task/status:** `UI11_LOCAL_VERIFIED_REVIEW_REQUIRED`, packet UI11, ADR-054.
+Phạm vi navigation/header/shell/action offsets hoàn tất local. Toàn hệ thống,
+nhận diện được chủ dự án duyệt, thiết bị thật và hosted release chưa hoàn tất.
+
+**Repository/source:** Canonical `vn-tak/Tako-san`; checkout
+`/Users/tunbee27/Documents/Tako-san-ui-rebuild`, branch `codex/ui-rebuild-foundation`,
+base `13cef9f8e6dc72549071426ad98df70e0d16f4a4`. 160 source hashes frozen và kiểm
+sau full; 99 public Takosan assets/fonts sau build byte-identical (mở rộng từ51rebuild/font). Protected diff rỗng;
+App routes/guards, scope/immersive và năm page/primitives sau khi bỏ presentation
+patch khớp base bytes. Implementation checkpoint:
+`74adf20db00f77c63ba47085362c621b56e050fc`.
+Đã đối chiếu Git objects/worktree: 160 source records, 271 evidence payloads và
+99 public asset records; 480 unique blobs khớp bytes/SHA256. Manifest: 55364 bytes,
+SHA256 `42892dfeaaa814df6203eb470ecd1f35850dbd6d3d7af69ec5a4976eec9c61bc`.
+56 archived log receipts khớp; protected base-to-implementation diff rỗng; tree
+sạch ngay sau commit, staged/implementation diff-check PASS. Receipt chi tiết:
+`docs/ui-rebuild/round-11/GIT_VERIFICATION.md`. Documentation checkpoint theo sau,
+không ghi hash của chính nó. Checkout Frigo cũ không được sửa.
+
+**Actual changes:** Kitchen mobile giữ năm roots,12px labels đầy đủ, em grid tự
+chuyển hai hàng khi chữ lớn; Scan nguyên liệu ở hàng riêng44px-min trên header.
+Tablet112px rail14px labels wrap/cuộn; desktop256px/16px roots. Brand thuộc header
+below640/sidebar above, review dùng chung header. Active state segment boundaries;
+shopping/review vẫn contextual. Legacy defaults giữ kit cũ, immersive giữ camera/
+cooking/onboarding/auth. ResizeObserver border-box, late chrome rebind/cleanup,
+nav/header/banner/action reserve/gap/rail CSS tokens và document scroll padding.
+Focus main controls tránh chrome; dialogs/toolbars giữ owner. Add/Cook/settings/
+scan/unused BottomCTA cùng offset; buttons intrinsic48px-min/1.4line-height.
+Short<=600px header/actions trở về luồng trang; rail vẫn cuộn.
+
+**Verification:** Final focused14files/255PASS6.34s (earlier10/172PASS7.43s); observer recovery2/32PASS1.25s;
+full-fixture recovery6/115PASS2.28s. Browser115checked snapshots/16journeys+1publicPNG,
+flag-off24/1,0unexpectedpageerror/applicableaxe/overflow/brokenasset/labeloverlap/
+navigation clipping.320/360/390/430/768/1024/1440,short390x420/768x420,computed textx2 320/768
+và combined320x420x2. Keyboard five roots/Scan/dialog Escape-return/detailcancel/
+Cook immersive/field focus; read-only inventory JSON nguyên và zero domain writes.
+Safe-area padding/banner events synthetic, không chứng nhận hardware/offline.
+Seven planner-on aliases PASS; E2E19PASS/5once-onlySKIP39.6s/sixprojects; boundary
+639/640/767/1024 chạy một lần. Type/lint và full details: exit0,285files/6685PASS,Vitest344.71s;type/lint/migration smoke/Vite2.97s/WorkerTS PASS.
+Remote schema/Week parity skip theo gate mặc định. Evidence/log receipts và Git verification trong round-11.
+
+**Failures/recovery:** Baseline6cells69px có3cặp labels chồng ở320x2; tablet10px
+truncate/short clip. First5cell break words, em-grid thay; fieldset StickyActions
+che Save ởtextx2 nên kitchen fixed reserve; ảnh bắt nút Cook/confirm ép chữ, sửa
+intrinsic height/line-height. Padding-only30px không báo với content-box observer,
+đổi border-box. Harness transient h1/selector/attribute-order/HMR/scan-loading lỗi
+được giữ log. Ba lượt full dừng130 (hai để sửa UI, một để chẩn đoán Wrangler). First completed full285files:
+6621PASS/53FAIL/6674collected+1suite không nạp,354.73s. Receipt/privacy mocksTopBar
+cũ sửa isolateKitchenHeader;7fridge confirmed asserts chọn đúng review-heading;
+giữ mọi domain assertion, không runtime/timeout edit. Full tiếp285/6684PASS/1FAIL,
+389.92s,Wrangler5000ms timeout; standalone31PASS/1timeout50.01s. Log khoanh46.44s
+chờ update-check trước localD1; CI/debug reproduction32PASS3.41s/case976ms. Giữ
+source/config/timeout; exact full-env recovery32PASS3.77s/case1206ms. Cache khác
+nhau theoTMPDIR,full cache hết hạn3600s; Wrangler tự cập nhật,không sửa thủ công.
+Network/cache startup vẫn là giới hạn. E2E public mascot assertion
+cũ thay bằng geometry/brand thật UI08. Final generic UX154/30/977/85STATUS FAIL
+(earlier980warnings),41dependencyadvisories (4low/19moderate/16high/2critical),lock
+nguyên. Không gọi toàn repo UX PASS.
+
+**Database/operational state:** Worker synthetic local/in-memorySQLite. Owned
+previews46149/28745 dừng;5206/8906/5207/8907 đóng. No backend/packages/schema/
+migrations/services/stores/public/dependencies/payments/auth protocol/production
+flags/config/remote DB/R2/provider credentials/push/PR/merge/deploy. Build chỉ local
+verification, chưa là release artifact. Recipe badge textx2/ảnhcatalog còn thiếu,
+legacy nav vẫn6cells; Week outbox/replay,inventory fallback/queued metadata receipts
+và export domain lịch sử còn riêng. Owner/device/Safari/nativezoom/screenreader/
+virtualkeyboard/usability/CWV/hosted/release chưa kiểm chứng.
+
+**Next action:** `docs/ai/tasks/UI12-route-visual-media.md`: read-only route/state/
+media audit sau shell, ưu tiên recipebadge clipping và ảnhthật/provenance; ADR-055
+trước bounded runtime slice. Giữ UI07 identity/UI11 contract và domain/protected
+boundaries; không bắt đầu runtime UI12 trong đợt UI11.
+
+---
+
+# UI10 - Thực đơn tuần đã kiểm chứng local - 2026-10-10 JST
+
+**Task/status:** `UI10_LOCAL_VERIFIED_REVIEW_REQUIRED`, packet UI10, ADR-053.
+Sáu trang Week, bốn component và workspace/choices/CSS chung hoàn tất trong phạm vi
+local. Toàn hệ thống, navigation, owner/devices và hosted release chưa hoàn tất.
+
+**Repository/source:** Canonical `vn-tak/Tako-san`; checkout
+`/Users/tunbee27/Documents/Tako-san-ui-rebuild`, branch `codex/ui-rebuild-foundation`,
+base `3c018d7778a780f5759d967e62d58440e4e08c2d`. 143 source hashes verified
+sau full; 51 public asset/font files sau build byte-identical. Protected-path diff
+rỗng; store chỉ hai replacement receipt. 40 logs có raw/archive SHA256 receipts.
+Implementation checkpoint:
+`89bddf821ea4f74d639f0779febd78606bdf617f`.
+Đã đối chiếu Git objects/worktree: 143 source hashes và 144 evidence payloads
+khớp bytes/SHA256. Manifest: 29760 bytes, SHA256
+`7ac94d4590e8c449ca4a1046e330871db4ce650bfda80329625595ac4d5618ab`.
+Protected-path diff từ base đến implementation rỗng; tree sạch ngay sau commit;
+`git diff --check` PASS. Documentation checkpoint theo sau, không ghi hash của chính nó.
+Checkout Frigo cũ không được sửa.
+
+**Actual changes:** WeekWorkspace dùng nhận diện UI07; board hai cột/stacked,
+thumbnail nhỏ, body 14px/nhãn chính 16px, controls 48px, một h1 và back link rõ.
+Setup bốn bước thực sự, 1-3 priorities, quay lại giữ chọn, review/generate tường
+minh; bỏ lịch từng ngày không vào payload. Settings chỉ sửa bản nháp lần tạo tiếp
+theo trong phiên, không hứa lưu bền vững hay thay plan hiện tại; bỏ timer.
+Dashboard đưa về setup để xem lại; generation giữ null unlimited/undefined default.
+Generation effect AST giữ ngoài mapping ngân sách; App.tsx byte-identical.
+Meal/summary ghi rõ projection, unknown và empty. Swap/export có native controls,
+focus trap/Escape/return, scroll/safe areas và reduced motion. Clipboard chờ kết
+quả thật, phản hồi an toàn, xử lý share cancel và bỏ receipt đã rời dialog; giữ
+hai export generator AST. Shopping check là lựa chọn, import explicit selected-only,
+khóa lúc gửi, giữ snapshot và route/session fence. Optional pendingSync hiện có
+đi từ store đến completion; copy thận trọng, chưa chứng minh durable outbox.
+
+**Verification:** 11 files / 192 focused tests PASS 7.18s (34 mới, 158 hiện có).
+Recovery route-scope: 5 files / 128 tests PASS 5.55s. Type/lint/script syntax PASS.
+Browser 61 snapshots / 11 nhóm hành trình, 0 unexpected pageerror, applicable axe,
+overflow và ảnh lỗi. 320/390/768/1024/1440px, short 390x420, computed text x2 tại
+320px, chuỗi dài synthetic, normal/reduced motion. Worker local flag-off tạo/đọc/
+swap giữ toàn inventory JSON; import một selected ingredient, đúng quantity/unit,
+giữ mọi field của năm row cũ và reload readback nhất quán. Synthetic faults/pending
+receipt ghi riêng, không claim offline durability. Planner-on bảy aliases thật,
+không Week write/pageerror; actual App unit tests kiểm cả hai flags. T18C keyboard
+sáu projects PASS 15.1s, config local riêng giữ timeout/projects của repo.
+Full command:
+`PATH=/opt/homebrew/opt/node@24/bin:$PATH CI=true TMPDIR=/private/tmp WRANGLER_SEND_METRICS=false VITEST_MAX_THREADS=2 VITEST_MIN_THREADS=1 VITEST_MAX_FORKS=2 VITEST_MIN_FORKS=1 pnpm check`
+Exit 0: 283 files / 6653 tests PASS, 0 FAIL; Vitest 393.63s; type/lint/migration
+smoke/Vite 3.12s + Worker TypeScript build PASS. Remote schema/Week parity không chạy.
+Round-10 FOUNDATION/VERIFICATION, final-validation và contact sheets lưu bằng chứng.
+
+**Failures/recovery:** Initial type/script errors, DOMException cancellation,
+alias expectations/mocks và T18C controls được sửa theo contract thật. Browser
+wait nhầm generating, lazy image chờ ngoài viewport, dl semantics và memory/pending
+fixtures được sửa; eager image chỉ trong screenshot harness. Visual text x2 dẫn
+đến sửa line-height, step label wrap và heading CTA. Preliminary full bị dừng vì
+finding cuối ở CSS. Lượt full kế tiếp exit 1: 283 files, 6642 PASS / 7 FAIL, 525.94s;
+sáu assertion cũ coi Week chưa migrate và một Wrangler timeout 5000ms. Reproduction
+riêng xác nhận sáu assertion; Wrangler nguyên trạng đạt. Bốn file test sửa đúng
+route mới, giữ negative coverage và thêm bốn positive cases; recovery 128 PASS.
+Không đổi timeout/config. Final generic UX: 151 files / 29 issues / 968 warnings /
+82 checks, STATUS FAIL (lượt trước 970 warnings). Dependency audit exit 1:
+41 advisories (4 low, 19 moderate, 16 high, 2 critical), lockfile nguyên.
+
+**Database/operational state:** Worker synthetic local/in-memory SQLite. Owned
+previews 68530/68905/11489 dừng; ports 5204/8904/5205/8905 đóng. No backend/packages/
+schema/migrations/services/public/payments/auth protocol/dependencies/production
+flags/config/remote DB/R2/provider credentials/push/PR/merge/deploy. Local build là
+verification, không phải release artifact. Week queueWrite durability/repeated
+projection và inventory fallback-any-error/queued metadata receipts còn riêng.
+Catalog còn thiếu ảnh/placeholder; export giữ domain lịch sử; global nav chật: UI11.
+Owner/device/Safari/native zoom/screen reader/usability/CWV/hosted chưa kiểm chứng.
+
+**Next action:** `docs/ai/tasks/UI11-navigation-responsive.md`: audit shared nav,
+header, shell và fixed offsets; đo overlap/focus occlusion; ADR-054 trước runtime.
+Giữ năm root destinations, Scan, flags, immersive và protected semantics. Kiểm
+browser local/meaningful tests/full gates và source/evidence/Git checkpoints.
+Domain offline, dependencies, media, owner/device và hosted follow-ups vẫn riêng.
+
+---
+
+# UI09 — Chi tiết tồn kho và trạng thái hệ thống đã kiểm chứng local — 2026-10-10 JST
+
+**Task/status:** `UI09_LOCAL_VERIFIED_REVIEW_REQUIRED`. Packet
+`docs/ai/tasks/UI09-stock-detail-states.md`, ADR-052. Phạm vi local detail/aliases,
+reconciliation và system-state presentation hoàn tất. Week audit/nextUI10 riêng;
+toàn hệ thống/navigation/owner/device/hosted/release chưa hoàn tất.
+
+**Repository/source:** Canonical `vn-tak/Tako-san`, ID1385308553; checkout
+`/Users/tunbee27/Documents/Tako-san-ui-rebuild`, branch `codex/ui-rebuild-foundation`,
+base `dbcabb7648e7f4ee9595f5ae430f0d7b50e80f0b`.125sourcehashes frozen,51builtpublic
+asset/font files byte-identical. Implementation checkpoint
+`251e42ad9efd5b84e87171c69f9fc1bfb3e9b463` đã đối chiếu Git objects/worktree:125sourcehashes và
+115evidencepayloads khớp bytes/SHA256. Manifest22931bytes/SHA256
+`014f5028428232f32d99eab7648813471636b71059f204131550c9daa2bca34f` khớp Git/workingtree. Protected-path diff
+rỗng từ base đến implementation, tree sạch sau implementation. Documentation
+checkpoint theo sau, không ghi hash của chính nó. Frigo cũ giữ nguyên;28logs có
+raw/archivehash receipts.
+
+**Actual changes:** KitchenDetailPage/sharedheader+h1, workspace880px; detail ưu
+tiên quantity/expiry uncertainty/storage/provenance rồi edit/related ingredient
+recipes, không claim đủ để nấu. Pendingfallback hiển thị loading; form16px/48px,
+fieldset khóa khi save, focus input/error/return, beforeunload dirty/pending only
+và inline discard note. Reconciliation article/h2/claim/verdict/reasons wrap,
+apply/dismiss giữ server intent. SystemStatusPage standalone UI07/aria-busy cho
+verification/logout/rendererror JSX. Exact aliases adopt; Appguards/sessioneffects,
+queries/mutation/draftbaseline/owner/submit/reconciliation callbacks giữ normalized
+tokens. Preview-only plannerfalse frontend/API,defaulttrue; Week runtime chưa sửa.
+
+**Verification:** Frozen11files/223tests PASS3.99s (27new/196existing). Browser
+49snapshots/49originalPNG/9journey groups,0unexpectedpageerror/applicableaxe/overflow/
+brokenassets,2expectedlazyimport faults riêng.320/390/768/1024/1440,textcomputed×2
+320,longsyntheticcontent,short390×420,normal/reduced. Real localcanonicaladopt,
+keyboard/cancel/beforeunload/save/errorretry/reload,reconciliationapply/dismiss,
+sessiontransportretry và Appboundaryreload. Logout chỉ syntheticpresentation.
+Readonly inventoryJSON nguyên; other-item facts nguyên khi save, shared household
+inventoryVersion tăng được kiểm riêng. Weekflagoff16screens/2journeys,planner404/
+MEAL_PLANNER_DISABLED; chọn firstdayeat_out không gửi schedule,returnedcooking;
+Weekgeneration/read giữ toàninventoryJSON. Full command:
+`PATH=/opt/homebrew/opt/node@24/bin:$PATH CI=true TMPDIR=/private/tmp WRANGLER_SEND_METRICS=false VITEST_MAX_THREADS=2 VITEST_MIN_THREADS=1 VITEST_MAX_FORKS=2 VITEST_MIN_FORKS=1 pnpm check`
+exit0:281files/6615tests PASS,0FAIL,Vitest370.01s;type/lint/migration-smoke/Vite3.27s+
+WorkerTS PASS. Onefullrun,no weakenedtimeout/config.125hashes giữ saufull;protected
+paths reviewed. Reports round-9 FOUNDATION/VERIFICATION và hai contact sheets.
+
+**Failures/recovery:** Initial focused131PASS;expanded209PASS/1suiteFAIL Node
+localStorage import,authstore mock corrected→223PASS. Browserdetailtext×2 overflow
+332/320 thenedit354/320 fixed gridminmax/min-width/wrap/line-height;fixture guessed
+name fixed byactualAPI;inventoryVersion20→22 sharedrevision comparison fixed by
+WorkerDTO proof,allotheritemfields retained. Fifth46PASS→expandedfrozen49PASS.
+Weekinitial endpointguess corrected/week/plans;16screenfrozen audit complete.
+Frozenfiltermistyped threefilepaths only159/8PASS,rerun223/11PASS. GenericUX146files/
+29issues/945warnings/80checks STATUSFAIL;nowhole-repoUXPASS. Dependencyauditexit1:
+41(4low/19moderate/16high/2critical),unchangedlock;separate remediation. Logs/checks
+and initialoverflowimages retained;ANSI/trailingspaces normalized,NULescaped.
+
+**Database/operational state:** Synthetic local Worker/in-memorySQLite only. Owned
+preview13063/13334 stopped before full;5202/8902/5203/8903 closed. No Worker/packages/
+migrations/services/stores/public/payment/authprotocol/productionflags/dependency/
+config/remoteDB/R2/providercredentials/push/PR/merge/deploy. Build beforecommit
+uses base releaseID,notreleaseartifact. Canonicalfallback-any-error and queued
+metadata receipt risks retained. Beforeunload does not guard SPA. Global navlabels
+overlap at doubledtext320; UI11. Owner/device/Safari/nativezoom/screenreader/
+usability/CWV/hosted/release unverified.
+
+**Next action:** Execute UI10 packet `docs/ai/tasks/UI10-week-compatibility.md`
+after ADR-053: sixWeekpages+fourcomponents, fourtruthfulsetupstages, sessiondraft
+settings, review-before-regenerate,nullbudgetmapping, asyncclipboardfeedback and
+existingpendingSync pass-through. Preserve services/commandlifecycles/Weekdualwrite;
+flagoffbrowser+flagonaliases+fullgates. UI11globalnav and separate inventory/Week
+offlineauthority/dependency/owner/device/hosted work remain.
+
+---
+
+# UI08 — Hồ sơ và luồng bắt đầu đã kiểm chứng local — 2026-10-10 JST
+
+**Task/status:** `UI08_LOCAL_VERIFIED_REVIEW_REQUIRED`. Packet
+`docs/ai/tasks/UI08-account-entry.md`, ADR-051. Hoàn tất phạm vi local account,
+settings/inbox và entry/onboarding; toàn hệ thống/owner/device/release chưa xong.
+
+**Repository/source:** Canonical `vn-tak/Tako-san`, ID1385308553; checkout
+`/Users/tunbee27/Documents/Tako-san-ui-rebuild`, branch `codex/ui-rebuild-foundation`,
+base `7f82edca63353a10b4f7b2919026c12b65d44963`. Implementation checkpoint
+`5ad78191295fabe4a8b2accd14e134452e203788` verified against Git objects: 95 source hashes and
+137 evidence payloads match the committed tree and worktree. Manifest SHA256
+`ed8d92de9d00fc901b76f338ab145f98365f1deed7754407344b6ad5b4b831b7` matches too.
+This documentation checkpoint follows the implementation; it does not contain
+its own commit hash. Checkout Frigo cũ giữ nguyên.
+
+**Actual changes:** AccountPage ghép kitchen header/heading vào một cột800px.
+Hồ sơ chia bữa ăn–gia đình/ứng dụng–dữ liệu; chữ wrap, descriptions14/actions16,
+controls48px, switch48×52; dialog max100dvh/scroll. Explicit8account routes adopt
+UI07 font/assets/tokens; mobile/tablet header và desktop sidebar giữ một lockup.
+Landing kể scan→review→inventory→meal, bỏ instant/accuracy guarantees và mascot
+fridge cũ; auth shell/field presentation, three onboarding steps và route fallback
+cùng identity. Reuse assets/fonts, không thêm pose/dependency. Copy unavailable
+family/export/delete và privacy ảnh nói đúng khả năng, không kể API nội bộ.
+Notification toggles là local saved intent chưa có consumer/delivery/filter;
+validate boolean, owner key giữ và storage failure được nói rõ. Inbox empty không
+khẳng định server rỗng khi offline. Cache clear có busy/success/error, không xóa
+outbox/local data. Preferences lock lúc lưu, focus lỗi, clear success khi edit;
+size7 hiển thị5+ nhưng payload giữ7. App completed-onboarding guard giữ primaryGoal
+week để không đè finish vềHome; /week/setup→/planner/new khi flagon, flagoff giữWeek.
+AuthPage/session/security/services/stores và mọi guard khác nguyên bytes.
+
+**Verification:** Focused10files/121tests PASS7.30s (37new/84existing), recovery
+130tests/4files PASS4.69s. Frozen browser106checks/107PNG/13journey groups,0axe/
+overflow/brokenassets/pageerrors;320/390/768/1024/1440,short390×420,textcomputed×2
+320,normal/reduced. OTP undelivered metadata và read/save/loading failures labelled
+synthetic; actual local Worker retry/save/reload/guest/onboarding/keyboard/dialogs
+checked. Inventory JSON before/after equal; guest profile enlarged and upgradehref
+retained.95frozen hashes, original92unchanged across recovery;51builtpublicfiles
+byte-identical. Full command:
+`PATH=/opt/homebrew/opt/node@24/bin:$PATH CI=true TMPDIR=/private/tmp WRANGLER_SEND_METRICS=false VITEST_MAX_THREADS=2 VITEST_MIN_THREADS=1 VITEST_MAX_FORKS=2 VITEST_MIN_FORKS=1 pnpm check`
+Final exit0:277files/6588tests PASS,0FAIL,Vitest381.00s;type/lint/migration-smoke/
+Vite3.40s +WorkerTS build PASS. Two full runs; no test timeout/config weakened.
+Full diff/protected allowlist checked; reports `docs/ui-rebuild/round-8/FOUNDATION.md`
+and `docs/ui-rebuild/round-8/VERIFICATION.md`, contact-sheet and hashed evidence.
+
+**Failures/recovery:** Initial focused114PASS/1FAIL attribute-order expectation;
+StaticRouter test missing location caught typecheck, fixed test. Browser transient
+JS motion opacity wait; sr-only controls exercised by keyboard; enlarged onboarding
+389px overflow fixed text min-width0; back selector matched actual arrow text.
+Fifth103checksPASS expanded with actual guest drill exposed runtime onboarding
+week intent overridden by guard; packet/ADR addendum then scoped App fix/sixguard
+regressions. Harness route assumption corrected /planner/setup→/planner/new.
+Full first4files/4testsFAIL,6584PASS/6588collected,395.82s:three stale legacy
+expectation suites and Wranglerlocal5s timeout(suite32.75s). Updated expected
+presentation with authority/no-fake checks retained; isolated originalenv130PASS,
+Wranglerlocal1453ms/suite3388ms; final full PASS. Startup cause not proven.
+Generic UXregex138files/29issues/907warnings/77checks STATUSFAIL; no whole-repo UX
+PASS. Dependency audit exit1:41vulnerabilities,4low/19moderate/16high/2critical,
+unchangedlockfile; separate remediation required. All failure/final logs archived
+with raw/archivehash receipts, NUL escaped and ANSI/trailing whitespace normalized.
+
+**Database/operational state:** Synthetic in-memorySQLite local Worker only;
+preview PID6439 stopped before full,5201/8901 closed. No Worker/schema/packages/
+services/stores/migrations/payment/PayOS/authprotocol/productionflag/dependency/
+config/remoteDB/R2/providercredentials/push/PR/merge/deploy. Existing Plus link
+JSX/target identical ignoringindentation; parent account typography changed, no
+pixel-identical payment CTA claim. Build from frozen tree before implementation
+commit uses base releaseID, not releaseartifact. Preview planneron; legacyWeek
+flagoff has App-unit destination coverage only. Final ownerbrand/device/Safari/
+OSinstall/realGoogleOTP/zoom/screenreader/usability/CWV/hosted/release remain.
+
+**Next action:** UI09 inventory+packet+ADR for ingredient detail/reconciliation,
+legacyWeek and global error/loading/unmigrated aliases. Add real flagoff preview
+path preserving default/commands/Weekcompatibility; inspect actual callers before
+presentation edits. Navigation density/unsaved draft warnings/mascot adoption,
+dependency advisories and owner/device/hosted release are distinct follow-ups.
+Detailed plan and before/after assessment in round-8 FOUNDATION.md.
+
+---
+
+# UI07 — Bộ nhận diện số đã kiểm chứng local — 2026-10-10 JST
+
+**Task/status:** `UI07_LOCAL_VERIFIED_REVIEW_REQUIRED`. Packet
+`docs/ai/tasks/UI07-brand-kit.md`, ADR-050. Local digital identity milestone hoàn
+thành; chủ dự án review, remaining surfaces/device/hosted/release vẫn mở.
+
+**Repository/source:** Canonical `vn-tak/Tako-san`, ID1385308553; checkout
+`/Users/tunbee27/Documents/Tako-san-ui-rebuild`, branch `codex/ui-rebuild-foundation`,
+base `3c593d941fb6ffa1fefffb7c4c5050c6be4e34b7`. Implementation checkpoint:
+`94b9ae3f889781e58999c3fe3a21a0f265d3a5cb`.71sourcehashes và66evidencepayloads+manifest
+đã đối chiếu Git objects và working tree; documentation checkpoint theo sau; Frigo cũ giữ nguyên.
+
+**Actual changes:** Hoàn thiện kitchen direction pine/coral/ink/canvas và Be
+Vietnam Pro: simple octopus/symbol, micro16/24, standard32+, outlined lowercase
+wordmark, horizontal/stacked, light/reverse/one-color. 5masters+36exports=41files,
+171543bytes. Regular16/24/32/48/64/128/180/192/256/512, opaque iOS/PWA/maskable512,
+OG1200×630 có chữ Việt đã outline. Default pnpm brand:icons đọc repo masters;
+explicit external-kit mode giữ branch cũ, chưa rerun original archive ngoài repo.
+Font/OFL hiện hữu nguyên bytes; extraction tool chỉ venv ignored, không dependency.
+Giữ spelling Takosan, project/repo Tako-san, technical IDs và hostname hiện hữu.
+
+Core contract/header/rail/cooking dùng bộ mới, dimensions đúng. Persistent desktop
+>=1024 chỉ sidebar horizontal lockup, header motto và hidden link không tab stop;
+mobile/tablet/immersive giữ brand. Metadata/manifest/precache dùng paths mới, cache
+lifecycle/fetch policy giữ. TAKOSAN_BRAND/supplied/legacy/mascot/UIicons giữ cho
+remaining routes;76files đối chiếu Git base nguyên bytes. Brand usage/inventory/
+voice/motion/clearspace/minsizes và UI08 plan ở round-7 FOUNDATION/preview.
+
+**Verification:** Frozen focused4files/82tests PASS1.18s (18new/64existing).
+Browser41checks/45PNG/6journey groups,0axe/overflow/brokenimages/pageerrors;320/390/
+768/1024/1440,390×420,doubledcomputedtext320,normal/reduced motion;light/dark/mono,
+optical sizes/crops;keyboardhome,immersive steps/review,metadata serving và legacy
+account sidebar. Inventory JSON unchanged. Maskable max185.3227px<safe204.8px,
+65371foregroundpixels/opaque;white/pine7.67,ink/canvas13.07,muted/canvas5.13,
+ink/coral4.90.71source/asset/test/script/preview/inventory/font/OFL hashes frozen.
+Full command:
+`PATH=/opt/homebrew/opt/node@24/bin:$PATH CI=true TMPDIR=/private/tmp WRANGLER_SEND_METRICS=false VITEST_MAX_THREADS=2 VITEST_MIN_THREADS=1 VITEST_MAX_FORKS=2 VITEST_MIN_FORKS=1 pnpm check`
+exit0:274files/6551tests PASS,0FAIL,Vitest334.66s;type/lint/migration-smoke/Vite+
+Worker TS build PASS. One full run; no timeout/config weakened. Export/dist bytes,
+SW token/precache and full diff/protected allowlist checked; evidence hashed.
+Reports `docs/ui-rebuild/round-7/{FOUNDATION,VERIFICATION}.md`.
+
+**Failures/recovery:** Initial focused81PASS/1FAIL guessed absent legacy SVG; fix
+expectation to real wordmark.png. SSR Node removes jsdom useLayoutEffect warnings.
+Python system/bundled lacked fontTools; ignored venv extraction succeeds. Three
+browser harness hangs waiting lazydecode; bounded complete/naturalWidth polling
+fix. Dark preview label contrast fixed. Short screenshot before route mount fixed
+by waiting actual header. Final visual increases maskable artwork scale4.5->6;
+focused/browser rerun before freeze/full. Generic ux_audit132files/29issues/
+878warnings/75checks STATUSFAIL despite exit0; regex includes tests/CSS/metadata,
+no whole-repo UX PASS claimed. Python browser helper unavailable; repo JS Playwright
+executed. Logs retained with normalization+raw/archive receipts, NUL escaped.
+
+**Database/operational state:** Synthetic local Worker/in-memory SQLite only;
+preview PID52186 stopped before full,ports5201/8901 closed. No Worker/schema/domain/
+migrations/payment/auth protocol/production flags/dependencies/config/infra/
+remoteDB/R2/provider/credentials/push/PR/merge/deploy. Build from frozen working
+tree before commit uses base release-ID; no claimed release artifact. Preview
+forces planner on, no flag-off Week browser QA. Final owner-approved identity,
+mascot-system/adoption,device/Safari/OSlauncher/keyboard/actualzoom/screen-reader/
+usability/CWV/hosted/socialscraper/release remain. Dark asset contexts not appdarkmode.
+
+**Next action:** UI08 inventory+packet+ADR for account/settings/notifications/
+family, landing/auth/onboarding/fallback and legacy Week flag-off. Transition
+presentation/font/brand within existing session/preferences/domain contracts;
+mascot only for useful tasks. Keep UI07 direction and payment boundary. Verify
+flag-off through real preview/build path; device/owner/usability/hosted release
+remain separate. Detailed execution sequence in round-7 FOUNDATION.md.
+
+---
+
+# UI06 — Thực đơn và danh sách mua sắm đã kiểm chứng local — 2026-10-10 JST
+
+**Task/status:** `UI06_LOCAL_VERIFIED_REVIEW_REQUIRED`. Packet
+`docs/ai/tasks/UI06-planner-shopping.md`, ADR-049. Hoàn tất phạm vi local planner,
+composer và shopping. Bộ nhận diện cuối và toàn hệ thống vẫn theo roadmap.
+
+**Repository/source:** Canonical `vn-tak/Tako-san`, ID1385308553; checkout
+`/Users/tunbee27/Documents/Tako-san-ui-rebuild`, branch `codex/ui-rebuild-foundation`,
+base `e584cf0bc8c5ab5c62b0896157c06f7bd511886b`. Implementation checkpoint:
+`c441e194b0fe861fc1e3f81747e6346c30266f09`. Hash đã đối chiếu với Git objects; documentation checkpoint theo sau. Checkout Frigo cũ giữ nguyên.
+
+**Actual changes:** Planner và saved shopping dùng KitchenHeader, pine/coral,
+warm canvas và Be Vietnam Pro. Board 1/2/3 cột theo container; setup có form và
+ngữ cảnh, shopping tách summary/nhu cầu. Controls >=48px, fields >=16px; amount/
+unit xuống một cột khi hẹp, header/action wrap, line-height và nút theo nội dung
+khi phóng chữ. Day reveal hỗ trợ reduced motion; dialog xóa có confirm và scroll
+limit. Picker hiện đủ tên/count/empty/reset, kết thúc pending khi search lỗi và
+hiện/focus mutation error trong modal.
+
+Planner workspace theo pathname chặn callback cũ nhận kết quả hoặc điều hướng;
+server/query cache giữ plan đã lưu. Giữ V1/V2/404 fallback, revision, proposal,
+hard constraints và Week contract. Saved form hỗ trợ lượng thập phân dương,
+blank invalid, tám đơn vị; uncertain retry giữ ID/payload, known400 cho sửa.
+Typed snapshot server/device dùng suffix riêng, giữ facade trả array. Overlay
+owned outbox POST/PATCH/DELETE theo thứ tự, dedupe ID, không làm sống lại dòng xóa;
+lệnh mới của cùng món đi sau lệnh queued. Kiểm tra persist trước khi báo pendingSync;
+toggle/delete trả receipt, service không GET bổ sung sau commit. Planner ticks
+chỉ view-local; planning/checks không sửa stock. Form/uncertain ID chỉ memory.
+
+**Verification:** Final command:
+`PATH=/opt/homebrew/opt/node@24/bin:$PATH CI=true TMPDIR=/private/tmp WRANGLER_SEND_METRICS=false VITEST_MAX_THREADS=2 VITEST_MIN_THREADS=1 VITEST_MAX_FORKS=2 VITEST_MIN_FORKS=1 pnpm check`
+exit0: 272 files/6533 tests PASS,0FAIL,Vitest331.63s;typecheck/lint/migration smoke/
+build PASS. Focused8files/151tests PASS7.06s; recovery6files/174tests PASS3.03s;
+unchanged-environment Wrangler isolated32tests PASS3.26s (local CLI test945ms).
+Browser V2:41checks/65PNG/9journeys; V1 và server-mismatch mỗi9checks/13PNG/6journeys.
+Tổng59checks/91PNG/21journey groups (có lặp giữa cấu hình),0axe/overflow/brokenimages/
+pageerrors. Matrix320/390/768/1024/1440,390×420,doubled text320,normal/reduced motion.
+Real Worker7meals,composition2/revision2 giữ qua reload,proposal dismiss không đổi;
+0.125kg saved/check/delete,outbox125.5g,SPA late result và inventory JSON unchanged.
+Week aliases giữ decoded IDs.21source/test/script hashes và107evidence payloads+
+manifest đối chiếu bytes/SHA256. Reports `docs/ui-rebuild/round-6/{FOUNDATION,VERIFICATION}.md`.
+
+**Failures/recovery:** Lifecycle append TS2345 sửa appendChild. Browser giả định
+copy/encodedcolon/controlled checkbox/unroute-reference/offline auto-replay được
+sửa theo hành vi thật; axe đợi animation.finished thay vì opacity giữa reveal.
+Visual review sửa amount hẹp,description chồng/action ép/nút fixed height khi
+phóng chữ; thêm assertions geometry. Picker lỗi ẩn được đưa vào modal.
+Full đầu:4filesFAIL,9testsFAIL/6458PASS/6467collected,333.85s; render suite chưa
+storage,jsdom thiếu scrollIntoView và UI02 negative /planner đã lỗi thời. Sửa
+setup test và route/footer expectations theo ADR, giữ authority/session/retry
+assertions. Recovery174PASS;17files từ freeze đầu nguyên vẹn,freeze thêm4tests.
+Full thứ hai:1FAIL/6532PASS372.14s; existing Wrangler local prefix test timeout5s.
+Isolated đầu31PASS/1FAIL23.23s,test20799ms; diagnosticIPv4 32PASS3.11s, sau đó
+môi trường gốc32PASS3.26s/test945ms. Chưa chứng minh nguyên nhân startup; CLI tự
+viết update cache, không sửa cache/config/dependency. Full cuối dùng command gốc.
+Không nới timeout, bỏ regression hoặc claim whole-repo UX/usability PASS.
+
+**Database/operational state:** Synthetic local Worker/in-memory SQLite only.
+Own previews PIDs92812/93730/93746 stopped before gate;5198–5200/8898–8900 closed.
+No Worker/schema/migrations/dependencies/config/production flags/payment/auth/infra/
+remoteDB/R2/provider/credentials/push/PR/merge/deploy. Preview ép planner bật;
+legacy Week flag-off presentation vẫn cũ và chưa browser QA. Beforeunload có giới
+hạn nền tảng; recipe source title có thể là ID. Chưa physical-device/Safari/OS
+keyboard/actualzoom/screen-reader/usability/CWV/hosted QA. Finalbrand/icon/PWA/OG/
+mascot chưa nghiệm thu; local PASS không phải production certification.
+
+**Next action:** UI07 ưu tiên bộ nhận diện số: đọc asset/alias/font/manifest thật,
+lập packet+ADR; vector wordmark/symbol/micro16/24/32, lockup sáng/tối/một màu,
+clearspace/min-size, icon/PWA/OG và brand usage. Kiểm chứng trên shell/core screens,
+xử lý wordmark lặp sidebar/header; giữ tên Tako-san và trục ăn/mua/dùng. Sau đó
+remaining account/settings/notifications/onboarding/auth presentation và legacy
+matrix; canonical remap/media/device/usability/hosted/release vẫn riêng. Không
+đưa payment/checkout hoặc auth protocol vào scope mặc định.
+
+---
+
+# UI05 — Bếp nấu và lượng thực dùng đã kiểm chứng local — 2026-10-10 JST
+
+**Task/status:** `UI05_LOCAL_VERIFIED_REVIEW_REQUIRED`. Packet
+`docs/ai/tasks/UI05-cooking.md`, ADR-048. Hoàn tất milestone local; brand kit cuối
+và toàn hệ thống vẫn theo roadmap.
+
+**Repository/source:** Canonical `vn-tak/Tako-san`, ID1385308553, checkout
+`/Users/tunbee27/Documents/Tako-san-ui-rebuild`, nhánh `codex/ui-rebuild-foundation`,
+base `edf2e9a7978c04fc62443e7b3e52d2ae2d895756`. Implementation checkpoint:
+`cef5acb5a21964fb58d4886fb58ffd098e54fe89`. Hash implementation được đối chiếu trong checkpoint tài liệu này; Frigo cũ giữ nguyên.
+
+**Actual changes:** Preparation UI01 giữ quantity/no-buy/shortfall; cooking/mobile-
+desktop dùng pine/coral/warm canvas, Be Vietnam Pro và prototype wordmark đúng bộ.
+Step/timer/manual+voice có responsive và reduced motion; shared CookingReview cho
+explicit actual-use confirm. Number16px/48px, fractional/blank/zero, strict shared
+stock reservation cho dòng trùng/mixed units; không đoán package mass. Container
+hẹp chuyển input/unit và +/- thành hai hàng để số không bị ép khi phóng chữ.
+
+Immutable payload/key từ confirm đầu, single flight, uncertain retry cùng yêu cầu;
+known rejection chỉ mở lại sau authoritative stock read, giữ lượng thực dùng để
+kiểm tra; safety rejection có explicit chọn món khác. Success/queued tách biệt,
+outbox persistence kiểm chứng, projection trước attempt và same/concurrent key
+không trừ local hai lần. Run/session/route/recognition fences; current-step voice,
+owned feedback timeout, late results không reset run mới/điều hướng màn đã đóng.
+Timer deadline/pause/resume,0runningfalse, một alert/generation, không live mỗigiây;
+expired button giữ focus/aria-disabled, reset announce lại. Empty/no-draft/missing
+recipe/pending prior run có recovery; mutation error focus đưa thông báo vào viewport.
+
+**Verification:** Final full command:
+`PATH=/opt/homebrew/opt/node@24/bin:$PATH CI=true TMPDIR=/private/tmp WRANGLER_SEND_METRICS=false VITEST_MAX_THREADS=2 VITEST_MIN_THREADS=1 VITEST_MAX_FORKS=2 VITEST_MIN_FORKS=1 pnpm check`
+exit0;270files/6514tests PASS,0FAIL,Vitest342.45s;
+lint/typecheck/migration smoke/build PASS.
+Focused7files/70tests PASS,6.36s. Browser32axe/layout checks tại320/390/768/1024/
+1440,55PNG,12journey groups,0axe/overflow/brokenimages/pageerrors. Local Worker
+125.5g against250g+0.5kg, remaining624.5g; same-key replay giữ mọi lot/version.
+Mock errors/voice, clock, SPA late response/route, empty/error/short viewport/
+enlarged text/motion; actual outbox queue.57evidence payloads+manifest bytes/SHA256
+verified;16runtime/test/script hashes frozen and verified after gate. Logs
+`.artifacts/ui05/{focused-final,browser-final,full-check-final}.log`; reports
+`docs/ui-rebuild/round-5/{FOUNDATION,VERIFICATION}.md`.
+
+**Failures/recovery:** Positive-only demand helper không nhận0: strict peek cho
+zero/blank, take cho positive; typed-message/import/script argument lỗi sửa theo
+contract, không đổi stock/conversion assertions. Browser selector giả định heading/
+role/case sửa đúng source; HMR dev bare import sinh khác store instance: own preview
+restart/frozen graph. Visual review thêm container rộng hơn cho input, rồi phát
+hiện error trên viewport khi confirm dưới cùng: error focus và browser assertions.
+Full đầu270files:6513PASS/1FAIL,340.29s vì existing Wrangler local list timeout5000ms;
+isolated32/32PASS3.22s/test955ms. Full thứ hai ngắt có chủ đích để sửa focus; full
+cuối chạy sau source/hash/browser/focused mới. Không nới timeout/config/assertion.
+Supplemental UX heuristic128files/28issues/846warnings/72checks printsFAIL(exit1),
+gồm legacy/test/CSS/protected surfaces; không claim whole static UX/usability pass.
+
+**Database/operational state:** Synthetic local Worker/SQLite only. Own previews
+PID44846/45917/40036 stopped before final gate. No migrations/schema/dependencies/
+config/production flags/Worker/payment/auth/infrastructure/remoteDB/R2/provider/
+credentials/push/PR/merge/deploy. In-memory draft/ambiguous key mất khi reload;
+beforeunload tùy browser. Numeric inputs giữ exact stock decimal tail thay vì tự
+làm tròn tăng. Chưa physical device/Safari/OS keyboard/actual zoom/screen-reader/
+usability/CWV/real speech/background alarm QA. Brand/media chưa final; local gates
+không chứng nhận production hoặc toàn bộ rebuild.
+
+**Next action:** UI06: đọc planner/composer/shopping/remaining route source, lập
+packet+ADR theo flags và Week contract; rebuild planning→shopping vertical slice,
+error/empty/partial states, responsive/browser/full gates. Canonical remap editor,
+brand final/PWA/OG/icon/mascot,media variants/content,device/usability/hosted review
+và release vẫn cần đợt riêng; operator chưa cho phép publish/deploy.
+
+---
+
+# UI04 — Luồng quét và review đã kiểm chứng local — 2026-10-10 JST
+
+**Task/status:** `UI04_LOCAL_VERIFIED_REVIEW_REQUIRED`. Tiếp tục rebuild Tako-san
+trong phạm vi packet `docs/ai/tasks/UI04-scan-review.md`, ADR-047. Milestone local
+hoàn tất; toàn bộ hệ thống và bộ nhận diện cuối vẫn còn các hạng mục trong roadmap.
+
+**Repository/source:** Canonical `vn-tak/Tako-san`, ID1385308553, base
+`cf607e4f402aecd0964b2f730bb2c9e1c6b17b0d`; checkout
+`/Users/tunbee27/Documents/Tako-san-ui-rebuild`, nhánh `codex/ui-rebuild-foundation`.
+Implementation đã kiểm chứng và commit `85b86442257ae9573701c2df6107cd5e509cdade`.
+Documentation checkpoint theo sau; checkout Frigo cũ giữ nguyên.
+
+**Actual changes:** Scan → review → sửa → explicit confirm → inventory dùng cùng
+ReviewHeading/Summary, ReviewFields, source preview gắn đúng scan ID và responsive
+kitchen-scan CSS. Pine/coral/warm canvas và Be Vietnam Pro giữ identity prototype;
+camera workspace riêng, review có navigation. Desktop hai cột, mobile một cột,
+input16px/48px, 8 đơn vị, short viewport dùng action trong document flow. Camera
+fallback thư viện, tips details và chọn ảnh khác sau lỗi. Không còn timer giả
+queue/AI/validation; upload đang gửi, pending/processing theo DTO. Reduced motion
+và status announcement không đọc elapsed mỗi giây.
+
+Accepted fields kiểm tra tên/lượng hữu hạn >0≤10000/ngày trước programmatic submit;
+blank không thành0/1. Dòng photo rejected disabled và gửi ID+rejected để server giữ
+evidence gốc. Offline synthetic import bỏ rejected, validate toàn bộ accepted
+quantity trước mutation, import0 không báo pendingSync, giữ expiryEstimated và
+UNKNOWN/KNOWN/ESTIMATED projection.
+Photo pendingSync có feedback, khóa sửa/confirm; rời review xóa queued ready draft
+trong đúng session/scan, quay lại hydrate trạng thái máy chủ. Camera effect dừng
+đúng stream và late response; đổi mode/new image hủy image read, reset input cho
+chọn lại cùng file. Source ảnh chỉ memory và bind đúng ID từ upload response;
+không tự nhận ảnh cũ khi hydrate. Receipt ingredient lookup đúng rawName/canonical.
+Raw AI/OCR, confidence0/unknown, giá/ngày mua, quota/retry, ownership/session,
+conflict/refetch, inventory revisions/idempotency và Week shortcut giữ contract.
+
+**Verification:** Final full command:
+`PATH=/opt/homebrew/opt/node@24/bin:$PATH CI=true TMPDIR=/private/tmp WRANGLER_SEND_METRICS=false VITEST_MAX_THREADS=2 VITEST_MIN_THREADS=1 VITEST_MAX_FORKS=2 VITEST_MIN_FORKS=1 pnpm check`
+exit0; 268files/6490tests PASS,0FAIL,Vitest 324.11s;
+lint/typecheck/migration smoke/build PASS. Focused13files/188tests PASS,3.48s.
+Final Chromium local29axe/layout checks tại320/390/768/1024/1440,51PNG,8journey
+groups;0axe/overflow/brokenimages/pageerrors. Worker local confirm/reopen kiểm tra
+fractional edit, rejection, expiry, OCR evidence; mocked pending/failed/mismatch/
+empty/lost response và SPA return tải server. Source images synthetic64px, gallery
+same-file reselection, sheet Escape/focus, reduced motion,390×420 và320px text
+phóng đôi.52evidence payloads/manifest SHA256+bytes verified;19runtime/test/script
+hashes unchanged after final full gate. Logs `.artifacts/ui04/focused-final.log`,
+`browser-final.log`, `full-check-final.log`; report
+`docs/ui-rebuild/round-4/VERIFICATION.md` và `FOUNDATION.md`.
+
+**Failures/recovery:** ReviewValues blank type/confirmed heading/empty-ready state
+và select accessible names sửa đúng UI contract; scripted JSX typo sửa. Synthetic
+200% inherited text test nhân font nhiều lần, đổi sang gấp đôi từng computed size;
+layout wrapping/height sửa và browser PASS. Native0validation dùng Number.MIN_VALUE.
+Full đầu TS18047 test nullable union sửa assertion; sau full6489PASS phát hiện
+mode image-read race và thêm regression, full6490PASS. Reread tiếp queued draft
+còn editable khi rời review, thêm session-fenced cleanup. SPA browser failure do
+quay lại sau URL change trước khi lazy inventory screen commit; harness chờ heading
+thực rồi vẫn assert fresh server read/read-only. Bỏ duplicate receipt error alert;
+import0 không có lệnh nhưng vẫn báo pendingSync sửa đúng false, bổ sung assertion
+ở regression all-rejected. Focused/browser/full cuối chạy sau tất cả source changes.
+Static UX skill audit
+126files/28issues/834warnings/68checks printsFAIL dù exit0; heuristic/legacy/tests
+và protected scope, không claim UX/usability pass. Không bỏ test, nới assertion,
+config hoặc timeout để qua gate; chi tiết failures trong VERIFICATION.
+
+**Database/operational state:** Chỉ synthetic local Worker/SQLite, confirm/inventory
+commands và migration replay local. Không schema/migrations/dependencies/config/
+production flags/Worker/payment/unrelated auth/infrastructure/remote D1/R2/provider/
+credential changes. Remote gates skipped; không push/PR/merge/deploy. Own preview
+PID92179 đã dừng trước full gate cuối; không còn preview do milestone này giữ.
+Canonical remap picker chưa xây: normalizer có thể giữ mapping scan cũ nếu tên mới
+không khớp, giới hạn này ghi rõ; source image chưa persist. Chưa physical camera,
+Safari/OS keyboard/actual zoom/screen-reader/usability/CWV/provider accuracy QA.
+Brand kit và media content chưa final; local gates không chứng nhận production.
+
+**Next action:** UI05: đọc cooking/preparation/complete source, lập packet+ADR và
+rebuild chuẩn bị → từng bước/timer → sửa lượng thực dùng → explicit complete →
+inventory. Giữ multi-compatible-lot allocation, revision/idempotency/session/offline
+và quantity arithmetic UI01, browser/contract/full gates trước checkpoint. Sau đó
+planner/composer/shopping/remaining routes, canonical remap editor, brand final/
+PWA/OG/icon/mascot, media variants/content và device/usability/release review.
+
+---
+
+# UI03 — Discovery API và media đã kiểm chứng local — 2026-10-10 JST
+
+**Task/status:** `UI03_LOCAL_VERIFIED_REVIEW_REQUIRED`. Người dùng yêu cầu tiếp tục
+một đợt rebuild Tako-san. UI03 hoàn tất phạm vi local; toàn hệ thống và brand final
+còn theo roadmap. Packet `docs/ai/tasks/UI03-discovery-api-media.md`, ADR-046.
+
+**Repository/source:** Canonical `vn-tak/Tako-san`, ID1385308553; UI02 base
+`87cfbdf1b2e1164f3cb9a122d8613ed52d140c3b`, canonical base
+`27d47b056455a57df811199cd7e9c32a84cbffe5`. Checkout
+`/Users/tunbee27/Documents/Tako-san-ui-rebuild`, nhánh `codex/ui-rebuild-foundation`.
+Implementation đã kiểm chứng và commit `dbba0535f66b585ff3bdedb27894ee72b57872d1`.
+Documentation checkpoint theo sau; checkout Frigo cũ giữ nguyên. Không push/PR/merge/deploy.
+
+**Actual changes:** Additive authenticated `/recipe-discovery`: strict household
+stock, một routed recipe authority, shared Zod card/page contract, search có/không
+dấu + ingredient/tag/description, hard cuisine/category/region/time/no-buy trước
+ranking/page. Stable ID tie-break;24catalog/3Home summaries, detail tải riêng.
+Cursor ràng page/filter/pageSize/user/household/catalog source+fingerprint/stock;
+changed409 có explicit restart giữ filter, invalid400 có recovery, unfenced URL
+clamp dữ liệu hiện tại. Scoped invalidation/session fence, labelled device/static71
+offline và source witness; HTTP503/contract failure không fallback. URL/history/
+detail-return/pager/resetfocus; pending/refetch không lộ rows cũ; debounce250ms.
+T14D static-reader audit bổ sung đúng offline client dưới ADR-046; guard unknown0
+và Worker authority constraints giữ nguyên. Architecture/domain docs đã cập nhật.
+
+Media presentation quarantine429generic “Delicious!”,59unreviewed Unsplash,
+6wrong-dish/missing paths;6matching local global mappings giữ compatibility.
+Rawcatalog/migrations/release fingerprints giữ nguyên, ready canonical hero ưu tiên,
+failure không trở về ảnh đã quarantine. Placeholder grid80px sau visual review,
+alt trung thực. Report500D1/71static/46URL/21reusegroups;8mapped local hashes/bytes/
+dimensions,13physical files contact-sheet review,500fresh hero rows pending. Không
+claim photo provenance/license hoặc production R2 coverage.3/6allowed files vượt
+60KiB và436px masters chưa cóvariants/DPR2quality; còn content media workstream.
+
+**Verification:** Final full command:
+`PATH=/opt/homebrew/opt/node@24/bin:$PATH CI=true TMPDIR=/private/tmp WRANGLER_SEND_METRICS=false VITEST_MAX_THREADS=2 VITEST_MIN_THREADS=1 VITEST_MAX_FORKS=2 VITEST_MIN_FORKS=1 pnpm check`
+exit0;266files/6468tests PASS,0FAIL,321.24s; lint/typecheck/migration-smoke/build PASS.
+Focused7files/163tests PASS; authority+client2files/20tests PASS. Final browser15axe/
+layout checks ở320/390/768/1024/1440,17PNG,0violations/overflow/brokenimages/pageerrors;
+12journeys, full21page/500unique cover. Evidence20files manifest hashes verified.
+Runtime/test/script23file SHA256 unchanged after final gate. Build main454.93kB/
+gzip126.63; Home11.74/4.28; Recipes9.72/3.84; không claim JS bundle reduction.
+Local same fixture legacy500full1.081.667bytes→24summary14.194bytes (-98,69%raw),
+gzip tính local130.990→3.010 (-97,70%); không phải latency/CWV/production transfer.
+Logs `.artifacts/ui03/full-check-first.log`, `full-check-final.log`, `focused-final.log`,
+`authority-focused.log`, `browser-final.log`; report `docs/ui-rebuild/round-3/VERIFICATION.md`.
+Preview ownPID34259 đã dừng trước full gate; không còn preview do task này giữ.
+
+**Failures/recovery:** Full đầu6467PASS/1FAIL do offline client mới chưa khai báo
+trong static-reader allowlist; thêm đúng reader + audit addendum, giữ unknown0
+assertion. Focused ban đầu25FAIL/25PASS do fixture secret ngắn22APIcases và3schema
+cases có no-buy/missing mâu thuẫn; sửa đúng fixture. Tiếp2FAIL vì test dùng sai bảng
+category và route mount; tiếp1FAIL vì nhầm coverage100% với đủ lượng (2of4eggs).
+Sửa expectation đúng contract, vẫn no-buyfalse/missing1 và quantity regressions.
+Typecheck nutrition legacy và fixture KV type sửa; browser selector Home gồm nav
+và PATCH version field sửa đúng existing contract. Không bỏ test/giảm assertion,
+nới timeout/config hoặc suppression để đạt gate. Chi tiết trong VERIFICATION.
+
+**Database/operational state:** Chỉ synthetic local Worker/SQLite, local inventory
+PATCH và fresh migration replay. Không schema/dependencies/payment/unrelated auth/
+infrastructure/production flags/remote D1/R2/credentials changes. Remote schema/Week
+gates skipped; UI03 không thay thế T20 certification/deployment status bên dưới.
+Server còn hydrate/evaluate fullcatalog; cursor không lưu historical snapshot;
+canonical media/catalog TTL giữ behavior hiện hành. Chưa hosted CI/device/Safari/
+screen-reader/usability QA; nhận diện hiện tại vẫn là prototype.
+
+**Next action:** Review verified branch/source và hosted CI theo quy trình repo.
+UI04: packet+ADR cho scan/review/editor vertical slice: upload→draft→sửa canonical
+mapping/quantity/unit/expiry/source→explicit confirm→inventory, giữ session/offline/
+revision/idempotency và dữ liệu uncertainty. Adopt shared controls/state/header/
+brand prototype; browser/test matrix trước completion. Sau đó cooking/planner/
+shopping/remaining routes, brand final/PWA/OG/avatar/icons/motion. Media batch ưu
+tiên30–50 món cần source/license/subject QA, thumbnails/hero variants và canonical
+promotion; không dùng illustration để giả photo coverage. Roadmap cụ thể tại
+`docs/ui-rebuild/round-3/FOUNDATION.md`. Không deploy trong continuation UI này.
+
+---
+
+# UI02 — Home và discovery đã kiểm chứng local — 2026-10-10 JST
+
+**Task/status:** `UI02_LOCAL_VERIFIED_REVIEW_REQUIRED`. Người dùng yêu cầu tiếp tục
+một đợt rebuild. UI02 hoàn tất phạm vi local; toàn hệ thống/brand final vẫn trong roadmap.
+
+**Repository/source:** Canonical `vn-tak/Tako-san`, ID1385308553; base UI01
+checkpoint `1533d98`, canonical base `27d47b056455a57df811199cd7e9c32a84cbffe5`.
+Checkout `/Users/tunbee27/Documents/Tako-san-ui-rebuild`, nhánh
+`codex/ui-rebuild-foundation`. Implementation đã kiểm chứng và commit
+`11080d8a7a05614b37e85cf12f6f888addd15df0`; documentation checkpoint theo sau.
+Không push/PR/merge/deploy; checkout Frigo cũ vẫn giữ nguyên.
+
+**Actual changes:** ADR-045 và packet `tasks/UI02-home-discovery.md`. Home chọn
+canonical current-plan khi Planner UI bật, Week khi tắt; cùng household query keys
+và clients đã validate. Ngày theo fixed UTC offset; today/tomorrow/past/no-plan/
+loading/error riêng. T20 component có thẩm quyền, gồm edited unplanned slot;
+pending/500/missing/revision mismatch không hiển thị title V1. UI-off/API404 giữ
+V1, explicit family V1 projection giữ anchor; empty V2 vẫn rỗng. Retry theo plan/
+revision mới. Home mở meal detail, không cook trực tiếp anchor hoặc khẳng định
+stock/safety/budget chưa biết. Expiry estimate/known/unknown giữ qualifier/tone.
+
+Shared kitchen header/heading, scoped shell/rail/logo/font/palette trên Home,
+inventory list, catalog/detail; navigation/Scan giữ mô hình hiện hữu, các route
+khác giữ kit mặc định. Catalog URL filters/page, native links, search toàn tập
+kết quả có/không dấu, client 24-item paging/clamp, reset/page focus, detail return
+về Home hoặc đúng filtered catalog. Mobile native filter panel thu gọn, desktop
+mở sẵn từ1280px. Search/select16px, card image dimensions, detail h1, skip link.
+
+**Verification:** Final full command:
+`PATH=/opt/homebrew/opt/node@24/bin:$PATH CI=true TMPDIR=/private/tmp WRANGLER_SEND_METRICS=false VITEST_MAX_THREADS=2 VITEST_MIN_THREADS=1 VITEST_MAX_FORKS=2 VITEST_MIN_FORKS=1 pnpm check`
+exit0;264files/6429tests PASS,0FAIL,326.64s; typecheck/lint/migration-smoke/build
+PASS. Focused6files/157tests PASS. Targeted Prettier18files và diffcheck PASS.
+Final browser21axe/layout checks ở320/390/768/1024/1440,23PNG,
+0violation/overflow/pageerror; Be Vietnam Pro, reduced-motion, native filters,
+skip/pager/resetfocus, reload/history/detail return, local Home↔Planner PASS.
+Evidence/manifest và commands tại `../ui-rebuild/round-2/VERIFICATION.md`.
+Log final `.artifacts/ui02/full-check-final.log`, `browser-final.log`.
+Preview local đã dừng trước full gate; không claim hosted/Safari/device/usability QA.
+
+**Failures/recovery:** Full đầu6417PASS/12FAIL:11static-render cases thiếu Router
+khi thêm Link,1fixture canonical ingredient ID sai. Thêm đúng Router, explicit
+Week flags và presentation/link expectations, giữ actual-data/budget/expiry/error/
+security assertions; sửa fixture theo validator. Focused157PASS rồi full final
+PASS. Các lỗi invocation, wait/href, fixture fields, heading closing tag và harness
+unroute đều ghi trong VERIFICATION; không xóa test, tăng timeout hoặc đổi config.
+
+**Database/operational state:** Chỉ synthetic local Worker/SQLite fixture và
+migration smoke. Không schema/migrations/dependencies/auth/payment/infrastructure/
+production flags hoặc remote D1/R2 writes. Remote schema/Week gates skipped.
+T20 deployment/certification status/authorization bên dưới không được UI02 thay thế.
+
+**Next action:** Review source cuối/hosted CI theo quy trình repo. UI03 packet+ADR
+cho lightweight recipe list DTO và server cursor/ranking/filter cùng catalog
+identity/household inventory; detail tải riêng, page24 có stable ordering và
+no-duplicate/reload/search tests. Audit recipe→image URL/hash/provenance; xử lý ảnh
+legacy dùng chung sai món trước media batch. Sau đó scan/review/editor/cooking/
+planner/shopping, brand export/motion; device/Safari/screen-reader/usability QA.
+Cụ thể tại `../ui-rebuild/round-2/FOUNDATION.md`; API vẫn tải fullrecommendation,
+logo prototype và fullbrand/remaining-screen migration chưa hoàn tất.
+
+---
+
+# UI01 — Handoff đợt đầu rebuild Tako-san — 2026-10-10 JST
+
+**Task/status:** `UI01_LOCAL_VERIFIED_REVIEW_REQUIRED`, người dùng đã yêu cầu bắt
+đầu ngày2026-10-09. Chỉ milestone đầu hoàn tất local; roadmap toàn hệ thống vẫn mở.
+
+**Repository/source:** `vn-tak/Tako-san`, ID1385308553; canonical base
+`27d47b056455a57df811199cd7e9c32a84cbffe5`. Thao tác tiếp trong
+`/Users/tunbee27/Documents/Tako-san-ui-rebuild`, nhánh `codex/ui-rebuild-foundation`.
+Implementation đã kiểm chứng/commit `716fa9aabfca9bb2bce77963b57ed80fef07153f`.
+Documentation checkpoint này theo sau; kiểm tra final HEAD trước review/CI.
+Không push/PR/merge/deploy; không lấy checkout Frigo cũ làm source implementation.
+
+**Actual changes:** ADR-044, packet `tasks/UI01-ui-rebuild-foundation.md`.
+Shared legacy quantity adapter tái dùng T02 index/session/exact arithmetic,
+required trước optional, IDs giữ duplicate detection, cộng lot tương thích và
+không quy đổi đoán pack/bunch/slice. No-buy dựa trên lượng; % vẫn coverage loại.
+Detail cho xem lượng thiếu, shopping chỉ gửi shortfall biết được; state/source
+của shopping không lẫn khi đổi route trước hoặc sau response. Cooking draft và
+pending offline cache trừ lượng qua lot một lần; server FEFO/session/revision
+commands giữ nguyên. Evidence chỉ quantity, không bảo đảm expiry/allergy.
+Filtered inventory có no-results/reset/focus; ảnh lỗi về SVG trung tính.
+Theme/font/logo prototype scoped ở inventory/detail; desktop recipe2cột,
+hướng dẫn16px, Be Vietnam Pro400/600/700 tự host,9subset/OFL/Vietnameseglyph.
+Palettecontrast, nguồn asset và14ảnh review tại `docs/ui-rebuild`.
+
+**Verification:** Node24.16.0/pnpm10.33.2, frozen lockfile. Full command:
+`PATH=/opt/homebrew/opt/node@24/bin:$PATH CI=true TMPDIR=/private/tmp WRANGLER_SEND_METRICS=false VITEST_MAX_THREADS=2 VITEST_MIN_THREADS=1 VITEST_MAX_FORKS=2 VITEST_MIN_FORKS=1 pnpm check`
+exit0,262files/6380tests,0FAIL,324.07s; lint/typecheck/migration-smoke/build PASS.
+Final harness lint PASS; surface7/7 PASS sau format-only; Prettier targeted PASS.
+Final browser command và preview env lưu trong `../ui-rebuild/VERIFICATION.md`:
+12selected axe checks tại320/390/768/1024/1440 ->0violation/overflow/pageerror;
+reduced-motion animation-none, keyboard/focus, shopping2eggs/HTTP201 PASS.
+Standalone board1100/390 ->0overflow/brokenimage,4fontfacesloaded.
+Log final `.artifacts/ui-rebuild/full-check-bounded.log`, `browser-final.log`.
+JSON/screenshots `docs/ui-rebuild/evidence`; preview session đã dừng.
+
+**Failures/recovery:** Full đầu6373PASS/5FAIL: contextual catalog fixture,3
+historical Git blobs thiếu do partial clone và localWrangler timeout.
+Assertion đổi đúng T02 contextual policy, thêm evidence cụ thể, giữ catalog/
+planner/cooking assertions. Historical objects phục hồi đúng hash từ caches cũ,
+không đổi test/source cũ;54/54PASS. Wrangler32/32PASS riêng với telemetryoff;
+full tiếp6377PASS/1timeout. Full final giới hạn2worker qua env PASS toàn bộ,
+không tăng timeout/thay config/giảm assertion. Chi tiết trong VERIFICATION.
+
+**Database/operational state:** Local synthetic SQLite/migration smoke; không
+sửa schema/migration/dependencies/auth/payment/infrastructure. Không credentials,
+remoteD1/R2 write, hosted run hoặc flag mutation. Remote schema/Week gates skipped.
+UI01 không thay thế T20 staging/production status và authorization bên dưới.
+
+**Next action:** Review source cuối/hosted CI. Tạo UI02 task+ADR nếu cần cho Home
+flag-aware canonical planner adapter và responsive shell/PageHeader, giữ Week.
+Tiếp theo URL filters, summary API nhỏ và stablepagination24. Sau đó scan/editor/
+cooking/planner/shopping, fullbrand/motionkit; device/Safari/screen-reader/
+recognition/usability QA. Chưa có chứng nhận independent/hosted/release.
+
+---
+
 # T20 fixture staging: sửa tương thích timestamp trước rollout — 2026-10-09 JST
 
 **Task/status:** `T20_STAGING_CERTIFICATION_REQUIRED` /

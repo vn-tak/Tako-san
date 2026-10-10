@@ -1,0 +1,20 @@
+{
+  "records": [
+    {
+      "rawPath": ".artifacts/ui14/baseline-build/client/assets/index-hOvLcnE8.js",
+      "archivePath": "docs/ui-rebuild/round-14/evidence/baseline-build/index-hOvLcnE8.js.gz",
+      "rawBytes": 463601,
+      "rawSha256": "6b47d91d0fdc562128a190fb0304b9584090f6482ffbf88631109a7e0cb982e3",
+      "archiveBytes": 128900,
+      "archiveSha256": "e53ff929274af1bbf28dbbb5045058c16c0de9d30566603f07d30f4c2528fe8c"
+    },
+    {
+      "rawPath": ".artifacts/ui14/baseline-build/client/assets/index-hOvLcnE8.js.map",
+      "archivePath": "docs/ui-rebuild/round-14/evidence/baseline-build/index-hOvLcnE8.js.map.gz",
+      "rawBytes": 1755775,
+      "rawSha256": "8524dae5d4f5c63c02c428ea9158c18145eaa892070de9fba71c1c07bbd31daa",
+      "archiveBytes": 410078,
+      "archiveSha256": "dddc612eff9e629e19a5e2650e4120a74984a1cf0cb6b71cfa716d19161a9366"
+    }
+  ]
+}

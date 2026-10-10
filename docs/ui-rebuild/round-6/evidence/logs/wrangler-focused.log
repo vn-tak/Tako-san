@@ -1,0 +1,60 @@
+
+ RUN  v3.2.7 /Users/tunbee27/Documents/Tako-san-ui-rebuild
+
+ ❯ tests/unit/staging-d1-catchup-check.test.mjs (32 tests | 1 failed) 22494ms
+   ✓ staging historical catch-up prefix isolation > copies 0001 through the requested target with matching SHA-256 and never includes 0039 16ms
+   ✓ staging historical catch-up prefix isolation > builds an 0038 prefix through auth onboarding and still excludes 0039 13ms
+   ✓ staging historical catch-up prefix isolation > rejects missing, duplicate, modified, future and 0039-leaking prefixes 26ms
+   ✓ ephemeral staging D1-only catch-up config > preserves staging D1 identity, points migrations_dir at the prefix, and copies no production resources 5ms
+   × ephemeral staging D1-only catch-up config > is readable by Wrangler locally and lists only the prefix through the target 20799ms
+     → Test timed out in 5000ms.
+If this is a long-running test, pass a timeout value as the last argument or configure it globally with "testTimeout".
+   ✓ ephemeral staging D1-only catch-up config > pins the committed staging config and rejects the production D1 ID 7ms
+   ✓ one-step transition model > allows only 0033→0034 … 0037→0038 and rejects skips and 0039 1ms
+   ✓ one-step transition model > rejects a 0033→0035 or 0034→0036 request at the ledger gate 2ms
+   ✓ staging identity and repository owner > accepts the pinned staging D1 and rejects production or changed IDs 0ms
+   ✓ staging identity and repository owner > rejects stale repository owners and the wrong GitHub repository id 0ms
+   ✓ fresh Time Travel bookmark > records the historical bookmark only as metadata and rejects reused or other-run bookmarks 1ms
+   ✓ 0033 baseline and historical certification > certifies the exact local 0033 recipe set and rejects count/ID/slug drift 125ms
+   ✓ 0033 baseline and historical certification > certifies 0034–0038 locally against the historical T14F catalog, one step at a time  336ms
+   ✓ 0033 baseline and historical certification > rejects pilot and scale ID/slug collisions before apply 1ms
+   ✓ catch-up plan and main-moved / ledger-changed gates > accepts exactly one pending historical migration and rejects 0039 leakage 1ms
+   ✓ catch-up plan and main-moved / ledger-changed gates > fails closed when main moved or the ledger changed between preflight and apply 17ms
+   ✓ candidate SHA and hosted CI gates > requires the catch-up ref to equal current origin/main  676ms
+   ✓ GitHub Actions catch-up workflow > is manual, staging-only, one migration per run, and never applies 0039 3ms
+   ✓ GitHub Actions catch-up workflow > does not weaken the existing 0039 staging migration workflow 1ms
+   ✓ recheck CI and ledger races > rejects unsuccessful exact-main CI and a ledger that changed after preflight 63ms
+   ✓ hostile pre-state checkpoint drift (stops before mutation) > K: exact 0034–0037 checkpoints pass the full pre-state contract 20ms
+   ✓ hostile pre-state checkpoint drift (stops before mutation) > A/B: 0034 with exact count and IDs but a runtime_order gap or missing runtime field 5ms
+   ✓ hostile pre-state checkpoint drift (stops before mutation) > C/D: 0035 with exact IDs but 70 pending media rows or a missing media index 9ms
+   ✓ hostile pre-state checkpoint drift (stops before mutation) > E/F: 0036 with exact IDs but runtime_order max=101, or tampered pilot batch provenance/marker 15ms
+   ✓ hostile pre-state checkpoint drift (stops before mutation) > G/H/I: 0037 with 500 exact IDs but 499 runtime fields, a ready media row, or a moved ordered ID 38ms
+   ✓ hostile pre-state checkpoint drift (stops before mutation) > checker refuses to make 0036 eligible when ledger=0035 and IDs are exact but the media seed drifted 5ms
+   ✓ hostile pre-state checkpoint drift (stops before mutation) > J: certify-only mode certifies the already-applied target exactly and rejects checkpoint drift 10ms
+   ✓ hostile pre-state checkpoint drift (stops before mutation) > requires onboarding evidence for an 0038 checkpoint and media evidence from 0035 on 13ms
+   ✓ apply gate immediately before mutation > passes only with a certified pre-state, rechecked ledger/plan and a bookmark captured after recheck 2ms
+   ✓ apply gate immediately before mutation > is wired into the apply step before any wrangler migrations apply 1ms
+   ✓ fail-closed run() commands > refuses gate when the dispatch is not main 1ms
+   ✓ fail-closed run() commands > refuses identity when the receipt database is production 1ms
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 1 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  tests/unit/staging-d1-catchup-check.test.mjs > ephemeral staging D1-only catch-up config > is readable by Wrangler locally and lists only the prefix through the target
+Error: Test timed out in 5000ms.
+If this is a long-running test, pass a timeout value as the last argument or configure it globally with "testTimeout".
+ ❯ tests/unit/staging-d1-catchup-check.test.mjs:169:5
+    167|   });
+    168| 
+    169|   it('is readable by Wrangler locally and lists only the prefix throug…
+       |     ^
+    170|     const dir = temporary();
+    171|     const migrationsDir = path.join(dir, 'migrations');
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/1]⎯
+
+
+ Test Files  1 failed (1)
+      Tests  1 failed | 31 passed (32)
+   Start at  19:07:27
+   Duration  23.23s (transform 66ms, setup 12ms, collect 318ms, tests 22.49s, environment 0ms, prepare 48ms)
+

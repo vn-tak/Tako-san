@@ -20,7 +20,8 @@ export function isKitchenSurface(pathname: string) {
     /^\/(fridge|inventory)\/?$/.test(pathname) ||
     /^\/scan(?:\/|$)/.test(pathname) ||
     /^\/recipes(?:\/|$)/.test(pathname) ||
-    /^\/(cook|cooking)(?:\/|$)/.test(pathname)
+    /^\/(cook|cooking)(?:\/|$)/.test(pathname) ||
+    /^\/(planner|shopping)(?:\/|$)/.test(pathname)
   );
 }
 

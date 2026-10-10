@@ -1,0 +1,47 @@
+
+ RUN  v3.2.7 /Users/tunbee27/Documents/Tako-san-ui-rebuild
+
+ ✓ tests/unit/meal-planning-client.test.ts (24 tests) 30ms
+ ✓ tests/unit/meal-shopping-dto.test.ts (3 tests) 61ms
+ ✓ tests/unit/ui06-shopping.test.ts (9 tests) 26ms
+stderr | tests/unit/ui06-planner-lifecycle.test.tsx > ignores late generation after a pathname change and allows the new workspace to operate
+⚠️ React Router Future Flag Warning: React Router will begin wrapping state updates in `React.startTransition` in v7. You can use the `v7_startTransition` future flag to opt-in early. For more information, see https://reactrouter.com/v6/upgrading/future#v7_starttransition.
+⚠️ React Router Future Flag Warning: Relative route resolution within Splat routes is changing in v7. You can use the `v7_relativeSplatPath` future flag to opt-in early. For more information, see https://reactrouter.com/v6/upgrading/future#v7_relativesplatpath.
+
+ ✓ tests/unit/ui06-planner-lifecycle.test.tsx (2 tests) 41ms
+stderr | tests/integration/shopping-command-race.test.ts > shopping first-claim races (real SQLite HTTP) > legacy Week compatibility > replays the completed winner when an expired prepared lease resumes
+{"level":"warn","limiter":"rl_week_w","reason":"kv-unbound","message":"Rate limiter degraded to isolate-local counters; enforcement is not globally reliable."}
+
+stderr | tests/unit/sync.test.ts > offline outbox and scan persistence contract > keeps guest outbox and scope unchanged when inventory transfer is deferred
+Backend verify OTP failed: ApiError: HTTP 409: {"error":"Inventory transfer deferred","code":"INVENTORY_TRANSFER_DEFERRED"}
+    at fetchJson (/Users/tunbee27/Documents/Tako-san-ui-rebuild/src/web/services/http.ts:125:11)
+    at Object.verifyOtp (/Users/tunbee27/Documents/Tako-san-ui-rebuild/src/web/services/auth.ts:159:22)
+    at /Users/tunbee27/Documents/Tako-san-ui-rebuild/tests/unit/sync.test.ts:300:5
+    at file:///Users/tunbee27/Documents/Tako-san-ui-rebuild/node_modules/.pnpm/@vitest+runner@3.2.7/node_modules/@vitest/runner/dist/chunk-hooks.js:752:20 {
+  kind: 'http',
+  status: 409,
+  retryable: undefined,
+  requestId: undefined,
+  payload: {
+    error: 'Inventory transfer deferred',
+    code: 'INVENTORY_TRANSFER_DEFERRED'
+  }
+}
+
+ ✓ tests/unit/sync.test.ts (20 tests) 121ms
+ ✓ tests/integration/shopping-command-race.test.ts (8 tests) 1363ms
+   ✓ shopping first-claim races (real SQLite HTTP) > dual Week compatibility > checks the durable fingerprint after losing the first claim (same payload: true)  338ms
+ ✓ tests/unit/week-query-sync.test.ts (78 tests) 5407ms
+   ✓ Week Query-backed reads > loads the current plan through the shared Query client and mirrors its scoped ID key  1028ms
+ ✓ tests/integration/t20-roles-picker-shopping.test.ts (7 tests) 4802ms
+   ✓ T20 role enrichment over the 500-recipe D1 release > persisted reviewed rows override rules for the D1 authority only (fenced to the visible universe)  401ms
+   ✓ T20 picker at 500 recipes > pages through a bounded, stable, role-filtered, authority-fenced summary list with bounded queries  1214ms
+   ✓ T20 picker at 500 recipes > cuisine filter uses catalog metadata, combines with role and search, excludes simple foods and is deterministic  802ms
+   ✓ T20 shopping on composed plans (HTTP) > adds every component demand across meals and subtracts inventory once through the existing T05 path  1276ms
+   ✓ T20 shopping on composed plans (HTTP) > with the V2 flag off, a composed plan falls back to the exact V1 shopping projection  806ms
+
+ Test Files  8 passed (8)
+      Tests  151 passed (151)
+   Start at  18:46:39
+   Duration  7.06s (transform 2.49s, setup 151ms, collect 5.22s, tests 11.85s, environment 961ms, prepare 868ms)
+

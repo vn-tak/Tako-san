@@ -189,7 +189,7 @@ describe('discovery URL and whole-result paging', () => {
     filters.cuisine = 'japanese';
     expect(filterDiscoveryResults(discoveryRecipes(), filters)).toEqual([]);
   });
-  it.each(['/plus', '/me', '/settings', '/auth/login', '/planner', '/recipes-old', '/inventory/x'])(
+  it.each(['/plus', '/me', '/settings', '/auth/login', '/planner-old', '/shopping-old', '/week', '/recipes-old', '/inventory/x'])(
     'does not scope the new shell onto %s',
     (route) => expect(isKitchenSurface(route)).toBe(false),
   );
@@ -202,6 +202,12 @@ describe('discovery URL and whole-result paging', () => {
     '/scan',
     '/scan/x/review',
     '/scan/receipt-review',
+    '/planner',
+    '/planner/new',
+    '/planner/plan-id',
+    '/planner/plan-id/meal/slot-id',
+    '/planner/plan-id/shopping',
+    '/shopping',
   ])('scopes the migrated route %s', (route) => expect(isKitchenSurface(route)).toBe(true));
 });
 

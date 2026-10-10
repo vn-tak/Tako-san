@@ -9,77 +9,303 @@ import { mealPlanningApi } from '../../services/meal-planning';
 import { plannerCopy, type PlannerLocale } from './copy';
 import { plannerStatusLabel, plannerConclusionLabel, reasonLabel } from './presentation';
 import type { usePlanner } from './usePlanner';
-import { compositionCopy, compositionUnavailable, componentTitle, isMealCompositionEnabled, roleLabel, usePlanCompositions } from './composition';
+import {
+  compositionCopy,
+  compositionUnavailable,
+  componentTitle,
+  isMealCompositionEnabled,
+  roleLabel,
+  usePlanCompositions,
+} from './composition';
 import type { MealCompositionDto } from '../../../../packages/domain/src/meal-composition-api';
 
 import { CompositionLoadState } from './CompositionLoadState';
 
-function CompositionList({ composition, locale }: { composition: MealCompositionDto; locale: PlannerLocale }) {
+function CompositionList({
+  composition,
+  locale,
+}: {
+  composition: MealCompositionDto;
+  locale: PlannerLocale;
+}) {
   const c = compositionCopy[locale];
   const shown = composition.components.slice(0, 4);
-  return <ul className="mt-2 space-y-1" aria-label={c.heading}>
-    {shown.map((item) => <li key={item.id} className="flex items-baseline justify-between gap-3 text-sm">
-      <span className="text-semantic-text-primary truncate">{componentTitle(item, locale)}{item.locked && <span className="sr-only"> · {c.locked}</span>}</span>
-      <span className="text-[10px] font-bold uppercase tracking-wide text-takosan-green-deep shrink-0">{roleLabel(item.role, locale)}</span></li>)}
-    {composition.components.length > shown.length && <li className="text-xs text-semantic-text-muted">{c.more(composition.components.length - shown.length)}</li>}
-    {composition.components.length === 0 && <li className="text-sm text-semantic-text-muted">{c.emptyMeal}</li>}
-  </ul>;
+  return (
+    <ul className="mt-2 space-y-1" aria-label={c.heading}>
+      {shown.map((item) => (
+        <li key={item.id} className="flex items-baseline justify-between gap-3 text-sm">
+          <span className="text-semantic-text-primary">
+            {componentTitle(item, locale)}
+            {item.locked && <span className="sr-only"> · {c.locked}</span>}
+          </span>
+          <span className="text-[10px] font-bold uppercase tracking-wide text-takosan-green-deep shrink-0">
+            {roleLabel(item.role, locale)}
+          </span>
+        </li>
+      ))}
+      {composition.components.length > shown.length && (
+        <li className="text-xs text-semantic-text-muted">
+          {c.more(composition.components.length - shown.length)}
+        </li>
+      )}
+      {composition.components.length === 0 && (
+        <li className="text-sm text-semantic-text-muted">{c.emptyMeal}</li>
+      )}
+    </ul>
+  );
 }
 
-export function PlannerWeek({ plan, model, locale }: { plan: MealPlanDto; model: ReturnType<typeof usePlanner>; locale: PlannerLocale }) {
+export function PlannerWeek({
+  plan,
+  model,
+  locale,
+}: {
+  plan: MealPlanDto;
+  model: ReturnType<typeof usePlanner>;
+  locale: PlannerLocale;
+}) {
   const t = plannerCopy[locale];
   const [confirm, setConfirm] = useState(false);
   const days = [...new Set(plan.intent.slots.map((slot) => slot.date))].sort();
   const past = plan.freshness.reasons.includes('planning_time_elapsed');
   const composing = isMealCompositionEnabled();
   const compositions = usePlanCompositions(plan, composing);
-  const compositionFor = (slotId: string) => compositions.data?.compositions.find((entry) => entry.slotId === slotId);
+  const compositionFor = (slotId: string) =>
+    compositions.data?.compositions.find((entry) => entry.slotId === slotId);
   const legacy = !composing || compositionUnavailable(compositions.error);
-  const missing = plan.intent.slots.some((slot) => !compositionFor(`${slot.date}:${slot.mealType}:${slot.sequence ?? 0}`));
+  const missing = plan.intent.slots.some(
+    (slot) => !compositionFor(`${slot.date}:${slot.mealType}:${slot.sequence ?? 0}`),
+  );
   const uncertain = !legacy && (!compositions.isSuccess || missing);
-  return <>
-    <div className="flex flex-wrap justify-between gap-3 items-center">
-      <div><p className="text-sm font-semibold text-takosan-green-deep">{plannerStatusLabel(plan.result.status, locale)}</p><p className="text-xs text-semantic-text-muted mt-1">{plan.result.meals.length} {t.meals} · {t.revision} <span data-testid="plan-revision">{plan.revision}</span></p></div>
-      <Link className="text-sm underline font-semibold min-h-11 flex items-center text-takosan-green-deep" to="/planner/new">{t.newPlan}</Link>
-    </div>
-    {plan.result.conclusion !== 'feasible' && <Card><p role="status" className="text-sm leading-relaxed">{plannerConclusionLabel(plan.result.conclusion, locale)}</p><Link to="/planner/new" className="inline-flex min-h-11 items-center text-takosan-green-deep underline text-sm">{t.settings}</Link></Card>}
-    {plan.result.search.truncated && <p className="text-sm rounded-xl bg-semantic-info-soft p-3 text-semantic-info">{t.limited}</p>}
-    {!legacy && <CompositionLoadState query={compositions} locale={locale} missing={missing} />}
-    {days.map((date) => <section key={date} className="space-y-3">
-      <h2 className="flex gap-2 items-center text-sm font-bold text-semantic-text-secondary"><CalendarDays size={16} />{new Intl.DateTimeFormat(locale, { weekday: 'long', day: 'numeric', month: 'short', timeZone: 'UTC' }).format(new Date(`${date}T12:00:00Z`))}</h2>
-      {plan.result.meals.filter((meal) => meal.date === date).map((meal) => <Card key={meal.slotId} className="!p-0 overflow-hidden" data-testid="planned-meal">
-        <Link to={`/planner/${plan.id}/meal/${encodeURIComponent(meal.slotId)}`} className="block p-4 sm:p-5 hover:bg-takosan-mint/30 transition-colors">
-          <div className="flex justify-between items-center mb-2"><span className="text-[11px] font-bold uppercase tracking-wide text-takosan-green-deep">{t[meal.mealType]} · {meal.time}</span><ChevronRight size={17} className="text-semantic-text-muted" /></div>
-          {(() => {
-            const composition = legacy ? undefined : compositionFor(meal.slotId);
-            if (!legacy && (!compositions.isSuccess || !composition)) return <p className="text-sm text-semantic-text-muted">{compositions.isPending ? compositionCopy[locale].loadingDishes : compositionCopy[locale].loadFailed}</p>;
-            if (!composition || composition.source === 'v1_projection') return <>
-              <h3 className="text-lg font-heading font-bold text-semantic-text-primary leading-snug">{meal.title}</h3>
-              <div className="flex flex-wrap gap-4 text-xs text-semantic-text-secondary mt-3"><span className="flex items-center gap-1"><Users size={14} />{meal.servings} {t.people}</span><span className="flex items-center gap-1"><Clock size={14} />{meal.cookTimeMinutes === null ? t.unknownTime : `${meal.cookTimeMinutes} ${t.minutes}`}</span></div>
-              <p className="text-xs mt-3 text-takosan-green-deep">{meal.requirements.some((item) => !item.optional && item.status === 'unresolved') ? t.quantityReview : meal.requirements.some((item) => !item.optional && item.status !== 'satisfied') ? t.needsShopping : t.available}</p>
-              {meal.reasons.length > 0 && <p className="text-xs text-semantic-text-muted mt-2">{reasonLabel(meal.reasons[0], locale)}</p>}
-            </>;
-            // A composed slot is described by its components, not by the V1 generation record.
-            const statuses = composition.components.map((item) => item.projection?.status);
-            return <>
-              <h3 className="sr-only">{t[meal.mealType]}</h3>
-              <CompositionList composition={composition} locale={locale} />
-              <div className="flex flex-wrap gap-4 text-xs text-semantic-text-secondary mt-3"><span className="flex items-center gap-1"><Users size={14} />{meal.servings} {t.people}</span></div>
-              <p className="text-xs mt-3 text-takosan-green-deep">{statuses.includes('unresolved') ? t.quantityReview : statuses.includes('needs_shopping') ? t.needsShopping : statuses.includes('not_tracked') ? compositionCopy[locale].notTracked : t.available}</p>
-            </>;
-          })()}
+  return (
+    <>
+      <div className="planning-board-summary">
+        <div>
+          <p className="text-sm font-semibold text-takosan-green-deep">
+            {plannerStatusLabel(plan.result.status, locale)}
+          </p>
+          <p className="text-xs text-semantic-text-muted mt-1">
+            {plan.result.meals.length} {t.meals} · {t.revision}{' '}
+            <span data-testid="plan-revision">{plan.revision}</span>
+          </p>
+        </div>
+        <Link
+          className="text-sm underline font-semibold min-h-11 flex items-center text-takosan-green-deep"
+          to="/planner/new"
+        >
+          {t.newPlan}
         </Link>
-      </Card>)}
-      {plan.result.unplannedSlots.filter((slot) => slot.date === date).map((slot) => <div className="rounded-2xl border border-dashed border-semantic-warning/50 p-4 bg-semantic-warning-soft/50" key={slot.slotId}><h3 className="text-sm font-semibold">{t[slot.mealType]} · {t.unplanned}</h3><ul className="text-xs text-semantic-text-secondary mt-2 space-y-1">{slot.reasons.map((code) => <li key={code}>{reasonLabel(code, locale)}</li>)}</ul>
-        {composing && compositions.isSuccess && (() => { const composition = compositionFor(slot.slotId); return <>{composition && composition.components.length > 0 && <CompositionList composition={composition} locale={locale} />}
-          <Link className="mt-2 inline-flex min-h-11 items-center text-sm font-semibold underline text-takosan-green-deep" to={`/planner/${plan.id}/meal/${encodeURIComponent(slot.slotId)}`}>{compositionCopy[locale].addDish}</Link></>; })()}</div>)}
-    </section>)}
-    <details className="text-sm text-semantic-text-secondary rounded-xl border border-semantic-border bg-white p-4"><summary className="cursor-pointer font-semibold min-h-6">{t.diagnostics}</summary><p className="mt-3 text-xs">{t.rejectionNote}</p><ul className="mt-3 space-y-2">{[...new Set([...plan.result.search.limitReasons, ...plan.result.search.incompleteReasons.map((item) => item.code), ...plan.result.search.rejections.map((item) => item.code)])].map((code) => <li key={code}>{reasonLabel(code, locale)}</li>)}</ul><p className="mt-3 text-xs">{t.safety}</p></details>
-    <Button variant="outline" fullWidth disabled={!!model.busy || past || uncertain} onClick={() => setConfirm(true)}><RefreshCw size={16} className="mr-2" />{t.regenerate}</Button>
-    {model.busy === 'regenerate' && <p role="status" className="text-sm text-takosan-green-deep">{t.generating}</p>}
-    <ConfirmDialog open={confirm} title={t.regenerateTitle} description={t.regenerateText} confirmText={t.confirm} cancelText={t.cancel} onCancel={() => setConfirm(false)} onConfirm={() => {
-      setConfirm(false);
-      void model.perform('regenerate', () => mealPlanningApi.regenerate(plan.id, { revision: plan.revision }), model.replacePlan);
-    }} />
-  </>;
+      </div>
+      {plan.result.conclusion !== 'feasible' && (
+        <Card>
+          <p role="status" className="text-sm leading-relaxed">
+            {plannerConclusionLabel(plan.result.conclusion, locale)}
+          </p>
+          <Link
+            to="/planner/new"
+            className="inline-flex min-h-11 items-center text-takosan-green-deep underline text-sm"
+          >
+            {t.settings}
+          </Link>
+        </Card>
+      )}
+      {plan.result.search.truncated && (
+        <p className="text-sm rounded-xl bg-semantic-info-soft p-3 text-semantic-info">
+          {t.limited}
+        </p>
+      )}
+      {!legacy && <CompositionLoadState query={compositions} locale={locale} missing={missing} />}
+      <div className="planning-day-board">
+        {days.map((date) => (
+          <section key={date} className="planning-day">
+            <h2 className="planning-day-heading">
+              <CalendarDays size={16} />
+              {new Intl.DateTimeFormat(locale, {
+                weekday: 'long',
+                day: 'numeric',
+                month: 'short',
+                timeZone: 'UTC',
+              }).format(new Date(`${date}T12:00:00Z`))}
+            </h2>
+            {plan.result.meals
+              .filter((meal) => meal.date === date)
+              .map((meal) => (
+                <Card
+                  key={meal.slotId}
+                  className="planning-meal-card !p-0"
+                  data-testid="planned-meal"
+                >
+                  <Link
+                    to={`/planner/${plan.id}/meal/${encodeURIComponent(meal.slotId)}`}
+                    className="planning-meal-link"
+                  >
+                    <div className="flex justify-between items-center mb-2">
+                      <span className="text-[11px] font-bold uppercase tracking-wide text-takosan-green-deep">
+                        {t[meal.mealType]} · {meal.time}
+                      </span>
+                      <ChevronRight size={17} className="text-semantic-text-muted" />
+                    </div>
+                    {(() => {
+                      const composition = legacy ? undefined : compositionFor(meal.slotId);
+                      if (!legacy && (!compositions.isSuccess || !composition))
+                        return (
+                          <p className="text-sm text-semantic-text-muted">
+                            {compositions.isPending
+                              ? compositionCopy[locale].loadingDishes
+                              : compositionCopy[locale].loadFailed}
+                          </p>
+                        );
+                      if (!composition || composition.source === 'v1_projection')
+                        return (
+                          <>
+                            <h3 className="text-lg font-heading font-bold text-semantic-text-primary leading-snug">
+                              {meal.title}
+                            </h3>
+                            <div className="flex flex-wrap gap-4 text-xs text-semantic-text-secondary mt-3">
+                              <span className="flex items-center gap-1">
+                                <Users size={14} />
+                                {meal.servings} {t.people}
+                              </span>
+                              <span className="flex items-center gap-1">
+                                <Clock size={14} />
+                                {meal.cookTimeMinutes === null
+                                  ? t.unknownTime
+                                  : `${meal.cookTimeMinutes} ${t.minutes}`}
+                              </span>
+                            </div>
+                            <p className="text-xs mt-3 text-takosan-green-deep">
+                              {meal.requirements.some(
+                                (item) => !item.optional && item.status === 'unresolved',
+                              )
+                                ? t.quantityReview
+                                : meal.requirements.some(
+                                      (item) => !item.optional && item.status !== 'satisfied',
+                                    )
+                                  ? t.needsShopping
+                                  : t.available}
+                            </p>
+                            {meal.reasons.length > 0 && (
+                              <p className="text-xs text-semantic-text-muted mt-2">
+                                {reasonLabel(meal.reasons[0], locale)}
+                              </p>
+                            )}
+                          </>
+                        );
+                      // A composed slot is described by its components, not by the V1 generation record.
+                      const statuses = composition.components.map(
+                        (item) => item.projection?.status,
+                      );
+                      return (
+                        <>
+                          <h3 className="sr-only">{t[meal.mealType]}</h3>
+                          <CompositionList composition={composition} locale={locale} />
+                          <div className="flex flex-wrap gap-4 text-xs text-semantic-text-secondary mt-3">
+                            <span className="flex items-center gap-1">
+                              <Users size={14} />
+                              {meal.servings} {t.people}
+                            </span>
+                          </div>
+                          <p className="text-xs mt-3 text-takosan-green-deep">
+                            {statuses.includes('unresolved')
+                              ? t.quantityReview
+                              : statuses.includes('needs_shopping')
+                                ? t.needsShopping
+                                : statuses.includes('not_tracked')
+                                  ? compositionCopy[locale].notTracked
+                                  : t.available}
+                          </p>
+                        </>
+                      );
+                    })()}
+                  </Link>
+                </Card>
+              ))}
+            {plan.result.unplannedSlots
+              .filter((slot) => slot.date === date)
+              .map((slot) => (
+                <div className="planning-unplanned" key={slot.slotId}>
+                  <h3 className="text-sm font-semibold">
+                    {t[slot.mealType]} · {t.unplanned}
+                  </h3>
+                  <ul className="text-xs text-semantic-text-secondary mt-2 space-y-1">
+                    {slot.reasons.map((code) => (
+                      <li key={code}>{reasonLabel(code, locale)}</li>
+                    ))}
+                  </ul>
+                  {composing &&
+                    compositions.isSuccess &&
+                    (() => {
+                      const composition = compositionFor(slot.slotId);
+                      return (
+                        <>
+                          {composition && composition.components.length > 0 && (
+                            <CompositionList composition={composition} locale={locale} />
+                          )}
+                          <Link
+                            className="mt-2 inline-flex min-h-11 items-center text-sm font-semibold underline text-takosan-green-deep"
+                            to={`/planner/${plan.id}/meal/${encodeURIComponent(slot.slotId)}`}
+                          >
+                            {compositionCopy[locale].addDish}
+                          </Link>
+                        </>
+                      );
+                    })()}
+                </div>
+              ))}
+          </section>
+        ))}
+      </div>
+      <details className="text-sm text-semantic-text-secondary rounded-xl border border-semantic-border bg-white p-4">
+        <summary className="cursor-pointer font-semibold min-h-6">{t.diagnostics}</summary>
+        <p className="mt-3 text-xs">{t.rejectionNote}</p>
+        <ul className="mt-3 space-y-2">
+          {[
+            ...new Set([
+              ...plan.result.search.limitReasons,
+              ...plan.result.search.incompleteReasons.map((item) => item.code),
+              ...plan.result.search.rejections.map((item) => item.code),
+            ]),
+          ].map((code) => (
+            <li key={code}>{reasonLabel(code, locale)}</li>
+          ))}
+        </ul>
+        <p className="mt-3 text-xs">{t.safety}</p>
+      </details>
+      <div className="planning-board-actions">
+        <Link to={`/planner/${plan.id}/shopping`} className="planning-primary-link">
+          {t.shopping}
+        </Link>
+        <Button
+          variant="outline"
+          fullWidth
+          disabled={!!model.busy || past || uncertain}
+          onClick={() => setConfirm(true)}
+        >
+          <RefreshCw size={16} className="mr-2" />
+          {t.regenerate}
+        </Button>
+      </div>
+      {model.busy === 'regenerate' && (
+        <p role="status" className="text-sm text-takosan-green-deep">
+          {t.generating}
+        </p>
+      )}
+      <ConfirmDialog
+        open={confirm}
+        title={t.regenerateTitle}
+        description={t.regenerateText}
+        confirmText={t.confirm}
+        cancelText={t.cancel}
+        onCancel={() => setConfirm(false)}
+        onConfirm={() => {
+          setConfirm(false);
+          void model.perform(
+            'regenerate',
+            () => mealPlanningApi.regenerate(plan.id, { revision: plan.revision }),
+            model.replacePlan,
+          );
+        }}
+      />
+    </>
+  );
 }

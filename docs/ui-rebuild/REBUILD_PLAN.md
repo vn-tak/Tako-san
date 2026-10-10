@@ -1,3 +1,31 @@
+# Checkpoint triển khai — UI06, 2026-10-10 JST
+
+Canonical `vn-tak/Tako-san`; nhánh local `codex/ui-rebuild-foundation`.
+Implementation UI06 `UI06_IMPLEMENTATION_PENDING` đã kiểm chứng local;
+hash được ghi trong documentation checkpoint sau implementation.
+
+- UI01–UI05 giữ các contract quantity,inventory,discovery,scan và cooking đã kiểm chứng.
+- UI06/B10–B11 trong phạm vi planner bật: setup/day board/meal/composer/picker/
+  shopping và saved list có một hệ thị giác; positive fractional quantity,dialogs,
+  errors/focus,responsive/reduced motion và truthful server/device/pendingSync.
+  Pathname lifecycle và ordered outbox projection giữ late callbacks,stable IDs,
+  revision,explicit proposal acceptance,hard constraints và Week aliases.
+- Full272files/6533tests PASS,focused151/recovery174;browser59checks/91PNG/
+  21journey groups quaV2/V1/mismatch,0axe/overflow/ảnhhỏng/pageerrors. Hai full
+  failures/setup recovery và Wrangler startup đều ghi trong báo cáo; không nới gate.
+- UI07/B06 ưu tiên tiếp theo: kiểm kê asset thật,vector wordmark/symbol/micro,
+  lockup/usage,icon/PWA/OG và shell consistency. Xem thứ tự/acceptance cụ thể tại
+  [UI06 FOUNDATION](round-6/FOUNDATION.md); [verification](round-6/VERIFICATION.md).
+  B10–B11 chưa có flag-off legacy Week presentation QA;preview ép planner bật.
+
+Brand vẫn prototype. Remaining account/settings/notifications/onboarding/auth
+presentation,legacy matrix,canonical remap/media/device/screen-reader/usability/
+CWV/hosted/release còn mở. Chưa push/PR/merge/deploy; local QA không hoàn tất toàn
+roadmap hay chứng nhận production. Giữ vùng payment/checkout/auth protocol được
+bảo vệ.21source hashes và107evidence payloads+manifest đã đối chiếu.
+
+---
+
 # Checkpoint triển khai — UI05, 2026-10-10 JST
 
 Canonical `vn-tak/Tako-san`; nhánh local `codex/ui-rebuild-foundation`.

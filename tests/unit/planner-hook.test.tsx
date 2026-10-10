@@ -112,6 +112,8 @@ function shoppingKey(revision = 1) {
 }
 
 beforeEach(() => {
+  // jsdom has no layout scrolling API; browser QA verifies visibility and focus.
+  Object.defineProperty(Element.prototype, 'scrollIntoView', { configurable: true, value: vi.fn() });
   vi.stubGlobal('IS_REACT_ACT_ENVIRONMENT', true);
   vi.stubGlobal('fetch', fetchMock);
   localStorage.clear(); sessionStorage.clear(); setOwner();

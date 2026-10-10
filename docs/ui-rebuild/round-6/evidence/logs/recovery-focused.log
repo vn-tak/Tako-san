@@ -1,0 +1,19 @@
+
+ RUN  v3.2.7 /Users/tunbee27/Documents/Tako-san-ui-rebuild
+
+ ✓ tests/unit/ui06-shopping.test.ts (9 tests) 18ms
+stderr | tests/unit/ui06-planner-lifecycle.test.tsx > ignores late generation after a pathname change and allows the new workspace to operate
+⚠️ React Router Future Flag Warning: React Router will begin wrapping state updates in `React.startTransition` in v7. You can use the `v7_startTransition` future flag to opt-in early. For more information, see https://reactrouter.com/v6/upgrading/future#v7_starttransition.
+⚠️ React Router Future Flag Warning: Relative route resolution within Splat routes is changing in v7. You can use the `v7_relativeSplatPath` future flag to opt-in early. For more information, see https://reactrouter.com/v6/upgrading/future#v7_relativesplatpath.
+
+ ✓ tests/unit/ui06-planner-lifecycle.test.tsx (2 tests) 33ms
+ ✓ tests/unit/ui02-presentation.test.ts (45 tests) 22ms
+ ✓ tests/unit/planner-ui.test.tsx (58 tests) 109ms
+ ✓ tests/unit/t07-planner-ui.test.tsx (12 tests) 370ms
+ ✓ tests/unit/planner-hook.test.tsx (48 tests) 1371ms
+
+ Test Files  6 passed (6)
+      Tests  174 passed (174)
+   Start at  18:59:48
+   Duration  3.03s (transform 1.22s, setup 69ms, collect 4.08s, tests 1.92s, environment 1.60s, prepare 424ms)
+

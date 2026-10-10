@@ -1,3 +1,38 @@
+# ADR-049 - Planner workspace and truthful shopping presentation (UI06)
+
+Status: accepted and locally verified for UI06, 2026-10-10 JST.
+Implementation `UI06_IMPLEMENTATION_PENDING`.
+Full272files/6533tests PASS;browser59checks/91PNG/21journey groups (repeated across
+V2/V1/mismatch). Independent/device/hosted/release review remains; evidence
+`../ui-rebuild/round-6/VERIFICATION.md`.
+Packet: `tasks/UI06-planner-shopping.md`; builds on ADR-044/046/048/031.
+
+Keep the canonical /planner and legacy /week flag routing, V1/V2 DTOs and all
+server commands intact. Present dates as a responsive day board, setup as a
+readable form with context, and shopping as a summary plus explicit demand list.
+Do not introduce recipe media or new arithmetic. Partial/unplanned/stale/unknown
+prices, untracked components and temporary recommendation checks stay explicit.
+Remove the looping legacy link in favor of a real /shopping saved-list destination.
+
+A pathname-keyed workspace owns async UI callbacks. Changing subroute unmounts
+the old workflow; existing private-session guards and query caches remain. A late
+server commit may exist and must be read on return, but cannot navigate/accept into
+an abandoned screen. Generation keys remain stable while retrying on that screen.
+
+Saved shopping exposes positive fractional quantity and the eight wire units,
+keeps blank invalid, confirms removal and labels verified queued writes. Its
+existing server/client item identity and durable outbox are retained. Return a
+pendingSync receipt for toggle/delete without changing HTTP payloads. Local cache
+projection must not re-read the server after a committed mutation or duplicate an
+already queued client ID. No inventory mutation is introduced by any check.
+
+No production flag/schema/dependency/Worker/payment/auth/infrastructure change.
+Full final brand kit, legacy detailed workflows, account/settings and release
+remain separate packets. Validate actual local V1/V2/mismatch/aliases and shopping
+flows, then full repository gates; local QA is not production certification.
+
+---
+
 # ADR-048 - One cooking review and immutable completion attempt (UI05)
 
 Status: accepted and locally verified for UI05, 2026-10-10 JST.

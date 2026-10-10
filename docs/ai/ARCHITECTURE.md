@@ -1,3 +1,27 @@
+# UI06 planner and saved shopping presentation (ADR-049, 2026-10-10)
+
+`PlannerPage` mounts `PlannerWorkspace` keyed by pathname. Existing usePlanner
+mounted/private-session checks discard abandoned screen callbacks; durable plans
+remain in server and private query cache. `/planner` family and `/shopping` use
+the scoped kitchen shell and `kitchen-planning.css`; Week flag routing/aliases,
+V1/V2/404 fallback, proposal accept/revision and inventory authority are unchanged.
+
+Planner setup/day board/meal/composer/shopping share responsive hierarchy and
+readable forms. Picker receives mutation errors inside its focus-trapped dialog;
+search error terminates pending feedback. Shopping budget error owns focus.
+
+Saved shopping uses typed `ShoppingSnapshot` under the existing query prefix plus
+`snapshot`; old facade readers retain the array contract. `shopping.ts` validates
+input/response, scopes cached reads and queued operations, overlays owned outbox
+POST/PATCH/DELETE in order, deduplicates client IDs and verifies durable queuing.
+Later same-item commands queue behind pending earlier commands. Mutation cache
+projection does not issue an extra GET. Form holds one in-memory add ID/payload
+through uncertain retry and warns on document exit; known400 allows edit. Checks
+and deletions return pendingSync receipts; no stock command or new persistence.
+See UI06 packet and round-6 FOUNDATION/VERIFICATION for evidence and limits.
+
+---
+
 # UI05 cooking presentation and lifecycle (ADR-048, 2026-10-10)
 
 RecipeDetailPage remains preparation. `/cook/:slug` and `/cooking/:id` use the

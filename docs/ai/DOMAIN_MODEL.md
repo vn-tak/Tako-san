@@ -1,3 +1,24 @@
+# UI06 planner and shopping view semantics (ADR-049)
+
+A planner remains a projected household plan, not actual stock consumption.
+V1/V2 composition, explicit proposal acceptance, revisions, hard constraints and
+Week dual-write contracts remain authoritative. Recommendation checkboxes only
+mark temporary reminders on the current view; reload resets them. Unknown prices,
+partial/unplanned/stale and untracked demand remain explicit in presentation.
+
+Saved ShoppingInput supports existing fields and positive finite decimal amounts;
+the form preserves blank as invalid and offers the eight current wire units.
+ShoppingSnapshot is a web envelope `{items, source: server|device}`; existing API
+facade reads still return arrays. PendingSync proves a matching owned command
+persisted in the local outbox, not that the server has never committed. A queued
+POST/PATCH/DELETE overlays later reads in queue order; same client ID has one row,
+queued deletion cannot be resurrected by a stale read, and later edits follow
+earlier queued operations for that item. Checking bought does not add inventory.
+No DTO on the wire, schema or new stock/domain command is introduced. The form's
+uncertain add identity is memory-only; document-exit warning is browser-limited.
+
+---
+
 # UI05 actual-use and completion attempt semantics (ADR-048)
 
 Cooking editable quantities are strings: empty means incomplete,0means not used.

@@ -1,3 +1,80 @@
+# UI06 — Thực đơn và danh sách mua sắm đã kiểm chứng local — 2026-10-10 JST
+
+**Task/status:** `UI06_LOCAL_VERIFIED_REVIEW_REQUIRED`. Packet
+`docs/ai/tasks/UI06-planner-shopping.md`, ADR-049. Hoàn tất phạm vi local planner,
+composer và shopping. Bộ nhận diện cuối và toàn hệ thống vẫn theo roadmap.
+
+**Repository/source:** Canonical `vn-tak/Tako-san`, ID1385308553; checkout
+`/Users/tunbee27/Documents/Tako-san-ui-rebuild`, branch `codex/ui-rebuild-foundation`,
+base `e584cf0bc8c5ab5c62b0896157c06f7bd511886b`. Implementation checkpoint:
+`UI06_IMPLEMENTATION_PENDING`. Hash được ghi và đối chiếu trong documentation
+checkpoint sau implementation. Checkout Frigo cũ giữ nguyên.
+
+**Actual changes:** Planner và saved shopping dùng KitchenHeader, pine/coral,
+warm canvas và Be Vietnam Pro. Board 1/2/3 cột theo container; setup có form và
+ngữ cảnh, shopping tách summary/nhu cầu. Controls >=48px, fields >=16px; amount/
+unit xuống một cột khi hẹp, header/action wrap, line-height và nút theo nội dung
+khi phóng chữ. Day reveal hỗ trợ reduced motion; dialog xóa có confirm và scroll
+limit. Picker hiện đủ tên/count/empty/reset, kết thúc pending khi search lỗi và
+hiện/focus mutation error trong modal.
+
+Planner workspace theo pathname chặn callback cũ nhận kết quả hoặc điều hướng;
+server/query cache giữ plan đã lưu. Giữ V1/V2/404 fallback, revision, proposal,
+hard constraints và Week contract. Saved form hỗ trợ lượng thập phân dương,
+blank invalid, tám đơn vị; uncertain retry giữ ID/payload, known400 cho sửa.
+Typed snapshot server/device dùng suffix riêng, giữ facade trả array. Overlay
+owned outbox POST/PATCH/DELETE theo thứ tự, dedupe ID, không làm sống lại dòng xóa;
+lệnh mới của cùng món đi sau lệnh queued. Kiểm tra persist trước khi báo pendingSync;
+toggle/delete trả receipt, service không GET bổ sung sau commit. Planner ticks
+chỉ view-local; planning/checks không sửa stock. Form/uncertain ID chỉ memory.
+
+**Verification:** Final command:
+`PATH=/opt/homebrew/opt/node@24/bin:$PATH CI=true TMPDIR=/private/tmp WRANGLER_SEND_METRICS=false VITEST_MAX_THREADS=2 VITEST_MIN_THREADS=1 VITEST_MAX_FORKS=2 VITEST_MIN_FORKS=1 pnpm check`
+exit0: 272 files/6533 tests PASS,0FAIL,Vitest331.63s;typecheck/lint/migration smoke/
+build PASS. Focused8files/151tests PASS7.06s; recovery6files/174tests PASS3.03s;
+unchanged-environment Wrangler isolated32tests PASS3.26s (local CLI test945ms).
+Browser V2:41checks/65PNG/9journeys; V1 và server-mismatch mỗi9checks/13PNG/6journeys.
+Tổng59checks/91PNG/21journey groups (có lặp giữa cấu hình),0axe/overflow/brokenimages/
+pageerrors. Matrix320/390/768/1024/1440,390×420,doubled text320,normal/reduced motion.
+Real Worker7meals,composition2/revision2 giữ qua reload,proposal dismiss không đổi;
+0.125kg saved/check/delete,outbox125.5g,SPA late result và inventory JSON unchanged.
+Week aliases giữ decoded IDs.21source/test/script hashes và107evidence payloads+
+manifest đối chiếu bytes/SHA256. Reports `docs/ui-rebuild/round-6/{FOUNDATION,VERIFICATION}.md`.
+
+**Failures/recovery:** Lifecycle append TS2345 sửa appendChild. Browser giả định
+copy/encodedcolon/controlled checkbox/unroute-reference/offline auto-replay được
+sửa theo hành vi thật; axe đợi animation.finished thay vì opacity giữa reveal.
+Visual review sửa amount hẹp,description chồng/action ép/nút fixed height khi
+phóng chữ; thêm assertions geometry. Picker lỗi ẩn được đưa vào modal.
+Full đầu:4filesFAIL,9testsFAIL/6458PASS/6467collected,333.85s; render suite chưa
+storage,jsdom thiếu scrollIntoView và UI02 negative /planner đã lỗi thời. Sửa
+setup test và route/footer expectations theo ADR, giữ authority/session/retry
+assertions. Recovery174PASS;17files từ freeze đầu nguyên vẹn,freeze thêm4tests.
+Full thứ hai:1FAIL/6532PASS372.14s; existing Wrangler local prefix test timeout5s.
+Isolated đầu31PASS/1FAIL23.23s,test20799ms; diagnosticIPv4 32PASS3.11s, sau đó
+môi trường gốc32PASS3.26s/test945ms. Chưa chứng minh nguyên nhân startup; CLI tự
+viết update cache, không sửa cache/config/dependency. Full cuối dùng command gốc.
+Không nới timeout, bỏ regression hoặc claim whole-repo UX/usability PASS.
+
+**Database/operational state:** Synthetic local Worker/in-memory SQLite only.
+Own previews PIDs92812/93730/93746 stopped before gate;5198–5200/8898–8900 closed.
+No Worker/schema/migrations/dependencies/config/production flags/payment/auth/infra/
+remoteDB/R2/provider/credentials/push/PR/merge/deploy. Preview ép planner bật;
+legacy Week flag-off presentation vẫn cũ và chưa browser QA. Beforeunload có giới
+hạn nền tảng; recipe source title có thể là ID. Chưa physical-device/Safari/OS
+keyboard/actualzoom/screen-reader/usability/CWV/hosted QA. Finalbrand/icon/PWA/OG/
+mascot chưa nghiệm thu; local PASS không phải production certification.
+
+**Next action:** UI07 ưu tiên bộ nhận diện số: đọc asset/alias/font/manifest thật,
+lập packet+ADR; vector wordmark/symbol/micro16/24/32, lockup sáng/tối/một màu,
+clearspace/min-size, icon/PWA/OG và brand usage. Kiểm chứng trên shell/core screens,
+xử lý wordmark lặp sidebar/header; giữ tên Tako-san và trục ăn/mua/dùng. Sau đó
+remaining account/settings/notifications/onboarding/auth presentation và legacy
+matrix; canonical remap/media/device/usability/hosted/release vẫn riêng. Không
+đưa payment/checkout hoặc auth protocol vào scope mặc định.
+
+---
+
 # UI05 — Bếp nấu và lượng thực dùng đã kiểm chứng local — 2026-10-10 JST
 
 **Task/status:** `UI05_LOCAL_VERIFIED_REVIEW_REQUIRED`. Packet

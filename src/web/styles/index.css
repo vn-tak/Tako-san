@@ -4,6 +4,7 @@
 @import "./kitchen-daily.css";
 @import "./kitchen-scan.css";
 @import "./kitchen-cooking.css";
+@import "./kitchen-planning.css";
 @tailwind base;
 @tailwind components;
 @tailwind utilities;

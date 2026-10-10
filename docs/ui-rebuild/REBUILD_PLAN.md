@@ -1,8 +1,8 @@
 # Checkpoint triển khai — UI06, 2026-10-10 JST
 
 Canonical `vn-tak/Tako-san`; nhánh local `codex/ui-rebuild-foundation`.
-Implementation UI06 `UI06_IMPLEMENTATION_PENDING` đã kiểm chứng local;
-hash được ghi trong documentation checkpoint sau implementation.
+Implementation UI06 `c441e194b0fe861fc1e3f81747e6346c30266f09` đã kiểm chứng local;
+Hash đã đối chiếu với source và evidence ở implementation checkpoint.
 
 - UI01–UI05 giữ các contract quantity,inventory,discovery,scan và cooking đã kiểm chứng.
 - UI06/B10–B11 trong phạm vi planner bật: setup/day board/meal/composer/picker/

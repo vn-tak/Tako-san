@@ -1,7 +1,7 @@
 # ADR-049 - Planner workspace and truthful shopping presentation (UI06)
 
 Status: accepted and locally verified for UI06, 2026-10-10 JST.
-Implementation `UI06_IMPLEMENTATION_PENDING`.
+Implementation `c441e194b0fe861fc1e3f81747e6346c30266f09`.
 Full272files/6533tests PASS;browser59checks/91PNG/21journey groups (repeated across
 V2/V1/mismatch). Independent/device/hosted/release review remains; evidence
 `../ui-rebuild/round-6/VERIFICATION.md`.

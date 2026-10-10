@@ -2,6 +2,7 @@
 
 Source chuẩn: `vn-tak/Tako-san`, checkout `/Users/tunbee27/Documents/Tako-san-ui-rebuild`,
 nhánh `codex/ui-rebuild-foundation`; base `e584cf0bc8c5ab5c62b0896157c06f7bd511886b`.
+Implementation `c441e194b0fe861fc1e3f81747e6346c30266f09` đã đối chiếu source/evidence.
 Packet `docs/ai/tasks/UI06-planner-shopping.md`, ADR-049. Đợt này xây lại phần
 trình bày của `/planner`, setup, board, meal, composer/picker và `/shopping` đã lưu.
 Trạng thái nghiệm thu và các lệnh thực thi nằm trong [VERIFICATION.md](VERIFICATION.md).

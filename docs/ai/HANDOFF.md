@@ -7,8 +7,7 @@ composer và shopping. Bộ nhận diện cuối và toàn hệ thống vẫn th
 **Repository/source:** Canonical `vn-tak/Tako-san`, ID1385308553; checkout
 `/Users/tunbee27/Documents/Tako-san-ui-rebuild`, branch `codex/ui-rebuild-foundation`,
 base `e584cf0bc8c5ab5c62b0896157c06f7bd511886b`. Implementation checkpoint:
-`UI06_IMPLEMENTATION_PENDING`. Hash được ghi và đối chiếu trong documentation
-checkpoint sau implementation. Checkout Frigo cũ giữ nguyên.
+`c441e194b0fe861fc1e3f81747e6346c30266f09`. Hash đã đối chiếu với Git objects; documentation checkpoint theo sau. Checkout Frigo cũ giữ nguyên.
 
 **Actual changes:** Planner và saved shopping dùng KitchenHeader, pine/coral,
 warm canvas và Be Vietnam Pro. Board 1/2/3 cột theo container; setup có form và

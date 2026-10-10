@@ -2,7 +2,7 @@
 
 Canonical `vn-tak/Tako-san`, branch `codex/ui-rebuild-foundation`, base
 `e584cf0bc8c5ab5c62b0896157c06f7bd511886b`. Packet UI06-planner-shopping.md,
-ADR-049. Implementation checkpoint: `UI06_IMPLEMENTATION_PENDING`.
+ADR-049. Implementation checkpoint: `c441e194b0fe861fc1e3f81747e6346c30266f09`.
 Status `UI06_LOCAL_VERIFIED_REVIEW_REQUIRED`. Final full gate exit0, sau hai lần
 FAIL được ghi riêng bên dưới; local review/device/hosted/release còn mở.
 
@@ -166,3 +166,20 @@ Existing Week/unit/integration regression giữ tương thích, không chứng n
 flag-off UX. Private form/uncertain ID và recommendation ticks chỉ memory;
 beforeunload không bảo đảm mọi navigation. SourceRecipeTitle có thể là recipe ID.
 Chưa device/Safari/OS keyboard/actual zoom/screen-reader/usability/CWV/hosted QA.
+
+## Diff và checkpoint
+
+Implementation `c441e194b0fe861fc1e3f81747e6346c30266f09` đã đối chiếu 21 source/
+test/script hashes và107 evidence payloads ở cả Git objects và working tree;
+manifest cũng giữ nguyên. Checkpoint theo sau chỉ sửa Markdown để ghi verified
+hash và kết quả review, không thay runtime/tests/evidence. Full normalized source
+diff và bốn recovery test patches đã đọc; allowlist giữ mọi protected path.
+
+`git diff --cached --check` ở implementation báo11 whitespace warnings trong
+raw captured logs (trailing spaces/new blank line at EOF); commit đã tạo trước
+khi tách kiểm tra này. Giữ nguyên bytes của logs để manifest chứng minh đúng
+output thực. Không claim toàn diff whitespace PASS. Command kiểm tra source/docs
+với ngoại lệ duy nhất cho raw logs:
+`git diff e584cf0bc8c5ab5c62b0896157c06f7bd511886b c441e194b0fe861fc1e3f81747e6346c30266f09 --check -- . ':(exclude)docs/ui-rebuild/round-6/evidence/logs'`
+exit0. Syntax `node --check scripts/ui06-browser-check.mjs` PASS. Hai lần full
+FAIL, isolated FAIL và full PASS vẫn có log riêng; không amend implementation.

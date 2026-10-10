@@ -4,8 +4,7 @@ Authorization: continue Tako-san UI rebuild, 2026-10-10 JST.
 Canonical vn-tak/Tako-san; branch codex/ui-rebuild-foundation.
 Base e584cf0bc8c5ab5c62b0896157c06f7bd511886b.
 Status: UI06_LOCAL_VERIFIED_REVIEW_REQUIRED. ADR-049.
-Implementation checkpoint: `UI06_IMPLEMENTATION_PENDING`; recorded after the
-implementation in a documentation checkpoint. Local scope complete; review,
+Implementation checkpoint: `c441e194b0fe861fc1e3f81747e6346c30266f09`; verified against Git objects and recorded in the subsequent documentation checkpoint. Local scope complete; review,
 final brand kit, remaining routes/device/hosted/release remain open.
 
 ## Outcome and scope

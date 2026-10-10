@@ -2410,8 +2410,8 @@
     },
     {
       "path": "docs/ui-rebuild/round-14/evidence/log-receipts.json",
-      "bytes": 20860,
-      "sha256": "cf97561ff9f0f2cb3b002a64c5f9223d0decc3e00b0116b8c1cb1037fede5a21"
+      "bytes": 21568,
+      "sha256": "a5646eb6c84169e0a4b2e9f5437b9b1a9bbe2534328d7f4fd7aceea787d31ea6"
     },
     {
       "path": "docs/ui-rebuild/round-14/evidence/logs/ui14-after-accepted.log",
@@ -2500,8 +2500,13 @@
     },
     {
       "path": "docs/ui-rebuild/round-14/evidence/logs/ui14-focused-first.log",
-      "bytes": 176812,
-      "sha256": "be2f2091dd047b97e13060764f60f6ec41a639bd9d2fd30d540d906432a616e6"
+      "bytes": 176811,
+      "sha256": "e2b4a6b717e1e2305aa8aaade1da7a244955f53ba786f3451049a2e033bfef34"
+    },
+    {
+      "path": "docs/ui-rebuild/round-14/evidence/logs/ui14-focused-first.log.raw.gz",
+      "bytes": 3032,
+      "sha256": "14dcc860056fe3e98462bf4803ed1332b8d03ee6f9f5705099f1a6b1d30323d3"
     },
     {
       "path": "docs/ui-rebuild/round-14/evidence/logs/ui14-format-final.log",
@@ -2510,8 +2515,13 @@
     },
     {
       "path": "docs/ui-rebuild/round-14/evidence/logs/ui14-full-check-recovered.log",
-      "bytes": 505056,
-      "sha256": "8fc8bf74ae5c6a05f5c077adbdbd93401a7a7f126d271e4381e305f5bfe738cf"
+      "bytes": 505055,
+      "sha256": "2693483ba0aca41e2383b2acd6f96adfe4e07806bf2917a3cd5d039f0c9b4355"
+    },
+    {
+      "path": "docs/ui-rebuild/round-14/evidence/logs/ui14-full-check-recovered.log.raw.gz",
+      "bytes": 52828,
+      "sha256": "6a4c2e79037ad846390e86f59a34e95851cce500622bcec1bc84c98ad63b8d5c"
     },
     {
       "path": "docs/ui-rebuild/round-14/evidence/logs/ui14-full-check.log",
@@ -2665,8 +2675,8 @@
     },
     {
       "path": "docs/ui-rebuild/round-14/evidence/verify-git-objects.py",
-      "bytes": 5670,
-      "sha256": "75aa487ccad6676c2f395c82a9ecfab7c88a04e88c406df3fab8a0c667b888ff"
+      "bytes": 6667,
+      "sha256": "521678a9da2358f5370ae288372d7d03243f8f735aff93b505419c4adf4a329c"
     }
   ],
   "excluded": "Mutable narrative documentation, EVIDENCE_INDEX, this manifest itself and later GIT_VERIFICATION receipts. Runtime/tooling source is frozen; every final immutable payload is included."

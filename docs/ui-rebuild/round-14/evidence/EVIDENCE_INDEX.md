@@ -14,8 +14,8 @@
   short-probe.mjs reproduces with owned5217preview running from repo root.
 - failed:partial failed structured receipts and mid-animation Home contrast image;
   baseline smoke retained with known overwritten SPA timing, not accepted timing.
-- logs:41exact raw outputs including full failure/success, fresh guideline/UX/audit/
-  React/Lighthouse result. log-receipts.json binds original and archived bytes.
+- logs:41raw outputs,39exact text/2normalized with exact raw gzip including full failure/success, fresh guideline/UX/audit/
+  React/Lighthouse result. log-receipts.json binds original/archived bytes and explicit normalization.
 - source-freeze/protected-proof/final-integrity:396frozen records, App/helper and
   protected byte proof,257publicbuild records, four owned portsclosed.
 - finalize-integrity.py:repeat local freeze/protected/public/port assertions.

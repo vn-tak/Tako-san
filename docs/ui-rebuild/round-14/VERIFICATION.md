@@ -109,3 +109,14 @@ and the implementation commit are checked by a single sequential git cat-file
 
 Device/Safari/nativezoom/keyboard/screenreader/usability/hostedCWV/real auth and
 owner brand/photo rights remain open. Test success is not deployment authorization.
+
+## Evidence whitespace recovery
+
+First local commit `8f486cd` was created after staged diff-check failed on two raw
+logs because the shell chain did not stop on that status. No code/gate failure.
+Keep this commit (no amend/reset); follow-up implementation normalizes two text
+archives and stores exact raw bytes in deterministic .raw.gz.39log text copies are
+exact;2normalized copies have explicit normalization/raw-container hashes.41raw
+receipts and6exact raw gzip archives are verified. Final base-to-implementation
+whitespace check must pass before the Git receipt; base is an ancestor rather than
+immediate parent. The documentation checkpoint names final verified implementation.

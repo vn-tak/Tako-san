@@ -158,9 +158,13 @@
       "archivePath": "docs/ui-rebuild/round-14/evidence/logs/ui14-focused-first.log",
       "rawBytes": 176812,
       "rawSha256": "be2f2091dd047b97e13060764f60f6ec41a639bd9d2fd30d540d906432a616e6",
-      "archiveBytes": 176812,
-      "archiveSha256": "be2f2091dd047b97e13060764f60f6ec41a639bd9d2fd30d540d906432a616e6",
-      "interpretation": "Exact recorded output; consult VERIFICATION for accepted versus failed/historical/helper result"
+      "archiveBytes": 176811,
+      "archiveSha256": "e2b4a6b717e1e2305aa8aaade1da7a244955f53ba786f3451049a2e033bfef34",
+      "interpretation": "Exact recorded output; consult VERIFICATION for accepted versus failed/historical/helper result",
+      "rawArchivePath": "docs/ui-rebuild/round-14/evidence/logs/ui14-focused-first.log.raw.gz",
+      "rawArchiveBytes": 3032,
+      "rawArchiveSha256": "14dcc860056fe3e98462bf4803ed1332b8d03ee6f9f5705099f1a6b1d30323d3",
+      "normalization": "Text removes line-end spaces and trailing blank lines; exact raw bytes remain in deterministic .raw.gz"
     },
     {
       "rawPath": "/private/tmp/ui14-format-final.log",
@@ -176,9 +180,13 @@
       "archivePath": "docs/ui-rebuild/round-14/evidence/logs/ui14-full-check-recovered.log",
       "rawBytes": 505056,
       "rawSha256": "8fc8bf74ae5c6a05f5c077adbdbd93401a7a7f126d271e4381e305f5bfe738cf",
-      "archiveBytes": 505056,
-      "archiveSha256": "8fc8bf74ae5c6a05f5c077adbdbd93401a7a7f126d271e4381e305f5bfe738cf",
-      "interpretation": "Exact recorded output; consult VERIFICATION for accepted versus failed/historical/helper result"
+      "archiveBytes": 505055,
+      "archiveSha256": "2693483ba0aca41e2383b2acd6f96adfe4e07806bf2917a3cd5d039f0c9b4355",
+      "interpretation": "Exact recorded output; consult VERIFICATION for accepted versus failed/historical/helper result",
+      "rawArchivePath": "docs/ui-rebuild/round-14/evidence/logs/ui14-full-check-recovered.log.raw.gz",
+      "rawArchiveBytes": 52828,
+      "rawArchiveSha256": "6a4c2e79037ad846390e86f59a34e95851cce500622bcec1bc84c98ad63b8d5c",
+      "normalization": "Text removes line-end spaces and trailing blank lines; exact raw bytes remain in deterministic .raw.gz"
     },
     {
       "rawPath": "/private/tmp/ui14-full-check.log",

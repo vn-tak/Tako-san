@@ -1551,7 +1551,7 @@ stdout | tests/integration/meal-planning-presentation-http.test.ts > catalog alt
 stdout | tests/integration/meal-planning-presentation-http.test.ts > catalog alternative presentation, not eligibility > rechecks membership after the catalog read
 {"level":"info","event":"meal_planning_result","status":"feasible","conclusion":"feasible","truncated":false,"states":3}
 
-stdout | tests/integration/meal-planning-presentation-http.test.ts > catalog alternative presentation, not eligibility > rejects malformed query 
+stdout | tests/integration/meal-planning-presentation-http.test.ts > catalog alternative presentation, not eligibility > rejects malformed query
 {"level":"info","event":"meal_planning_result","status":"feasible","conclusion":"feasible","truncated":false,"states":3}
 
 stdout | tests/integration/meal-planning-presentation-http.test.ts > catalog alternative presentation, not eligibility > rejects malformed query ?revision=0

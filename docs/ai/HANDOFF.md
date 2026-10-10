@@ -37,13 +37,15 @@ keyboard/filter/card/Back/reset; applicableaxe/overflow/brokenimages/navoverlap/
 recipeclipping/pageerrors0. Four actual legacy pending/failure×normal/reduced
 journeys,2baseline frameprobes; short supplemental3tabs focus above237.375px nav.
 Final targeted lint/Prettier/freeze/protected/public/ports PASS.41raw log/data
-receipts/4exact raw entry-map gzip archives. Git receipt follows commit.
+receipts/6exact raw gzip archives (4entry/maps+2logs). Git receipt follows commit.
 
 **Failures/recovery:** APIRequestContext401→actual verified browser-cookie setup;
 wrong slug/selector/search corrected fromrepo; overwritten SPA timing separated;
 new test append overload→appendChild; legacy ambiguous selector corrected; zero-frame
 reduced assertion compared with pinned baseline (same first-frame projection).
 Axe mid-fadecontrast failure retained; stable screenshots wait Animation.finished.
+First commit8f486cd followed a failed raw-log whitespace check due shell masking;
+follow-up keeps exact raw gzip and normalized text, no amend/reset.
 Short focus first raced ResizeObserver; after measured height focusPASS. Lighthouse
 unavailable. GenericUX wholefolder167/41issues/1181warnings/90checks FAIL (artifact
 contamination), scopedweb108/23/734/54FAIL. Fresh dependency41advisories:

@@ -1,3 +1,50 @@
+# ADR-048 - One cooking review and immutable completion attempt (UI05)
+
+Status: accepted and locally verified for UI05, 2026-10-10 JST.
+Implementation `IMPLEMENTATION_HASH_PENDING`. Full270files/6514tests PASS;
+focused70; browser32checks/55PNG/12journeys. Independent/hosted/device/release
+review remains; evidence `../ui-rebuild/round-5/VERIFICATION.md`.
+Packet: `tasks/UI05-cooking.md`; builds on ADR-044/045/047.
+
+## Problem and decision
+
+The two completion surfaces diverge in errors/session fences and hide pendingSync.
+Their coarse +/- controls cannot enter fractional actual use. Retrying generates
+another command ID. Voice callbacks capture the original step. The tick countdown
+loses background time and leaves running true at zero; empty steps can crash.
+
+Share one review component and an in-memory cooking-run command snapshot. Inputs
+preserve blank and zero; strict sequential availability checks prevent duplicate
+rows spending the same compatible stock. Freeze payload and key on first confirm.
+Unknown transport/response/5xx failures allow only same-key/same-payload retry.
+Known 400/409/422 rejections permit explicit fresh authoritative inventory fetch
+before unlocking edits with a new key. Idempotency-conflict and access errors do
+not auto-reset identity. Known safety rejection permits explicitly ending the
+rejected run to choose another recipe; it never resubmits that meal. Successful/
+queued results lock review and show their actual status until the user explicitly
+enters inventory. Cached offline reads cannot substantiate a fresh-stock claim. Worker remains sole mutation authority.
+
+Own lifecycle by run ID, recipe route and private session. Late results cannot
+reset another run or navigate an unmounted surface. Voice reads the current store
+step at callback time, stops on review/route/unmount, clears feedback timeouts.
+A deadline countdown accounts for elapsed wall time while open; pause stores
+remaining time, resume creates a new deadline, navigation resets it. Expiry alerts
+once per timer generation, not each render. Manual controls and existing live
+region/focus contracts remain. No claim of alarms when browser/OS suspends app.
+
+## Compatibility and limits
+
+No backend endpoint/schema/SQL/authority/migration change. Keep existing aliases,
+preparation availability, conversions, per-lot offline projection, session reset,
+Week invalidation and idempotency/outbox headers. Cooking-only service typing and
+response validation must preserve current callers. Offline projection uses stock
+from before the attempted mutation to avoid subtracting a lost-response commit
+again; an existing queued key must not project twice. Outbox persistence must be
+verified before claiming pendingSync. No new persistence of private drafts; warn
+on document exit while unsaved/uncertain. Prototype brand is not final brand kit.
+
+---
+
 # ADR-047 - Shared scan review presentation and truthful lifecycle (2026-10-10)
 
 Status: accepted and locally verified for UI04; independent/hosted review and

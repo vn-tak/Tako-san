@@ -1,548 +1,475 @@
 import React, { useEffect, useRef, useState } from 'react';
-import { useNavigate, useParams } from 'react-router-dom';
+import { Link, useNavigate, useParams } from 'react-router-dom';
 import { useQuery } from '@tanstack/react-query';
+import {
+  ArrowLeft,
+  ArrowRight,
+  Check,
+  Clock,
+  Mic,
+  MicOff,
+  Pause,
+  Play,
+  RotateCcw,
+  Volume2,
+  VolumeX,
+} from 'lucide-react';
 import { useCookingStore } from '../stores/useCookingStore';
-import { Slide } from '../design-system/motion';
 import { api } from '../services/api';
-import { Button } from '../components/common/Button';
-import { ConfirmDialog } from '../components/common/ConfirmDialog';
-import { InlineError, InlineLoading } from '../components/common/AsyncState';
 import { queryKeys } from '../lib/queryKeys';
-import { capturePrivateSession } from '../lib/private-session';
-import { invalidateWeekDependents } from '../lib/query-invalidation';
-import { FRIGO_ASSETS } from '../lib/frigo-assets';
-import { ArrowLeft, Play, Pause, RotateCcw, Clock, Volume2, VolumeX, Mic, MicOff, CheckCircle2, Refrigerator, ArrowRight } from 'lucide-react';
-import { clsx } from 'clsx';
+import { InlineError, InlineLoading } from '../components/common/AsyncState';
+import { ConfirmDialog } from '../components/common/ConfirmDialog';
+import { CookingReview } from '../components/cooking/CookingReview';
 import { audioEffects } from '../lib/audio-effects';
 import { voiceChef } from '../lib/voice-chef';
+import { capturePrivateSession } from '../lib/private-session';
+import { TAKOSAN_KITCHEN } from '../lib/takosan-kitchen';
 
 export const CookingModePage: React.FC = () => {
-  const navigate = useNavigate();
   const { slug, id } = useParams<{ slug?: string; id?: string }>();
   const recipeKey = slug || id || '';
+  return <CookingLoader key={recipeKey} recipeKey={recipeKey} />;
+};
 
-  const {
-    activeRecipe,
-    currentStepIndex,
-    timerSecondsRemaining,
-    isTimerRunning,
-    deductions,
-    nextStep,
-    prevStep,
-    setTimer,
-    tickTimer,
-    toggleTimer,
-    updateDeduction,
-    resetCooking,
-    startCooking,
-  } = useCookingStore();
-
-  const [isCompletedView, setIsCompletedView] = useState(false);
-  const [isDeducting, setIsDeducting] = useState(false);
-  const [isSpeaking, setIsSpeaking] = useState(false);
-  const [isListening, setIsListening] = useState(false);
-  const [heardText, setHeardText] = useState<string | null>(null);
-  const [confirmExit, setConfirmExit] = useState(false);
-  const [completionError, setCompletionError] = useState<string | null>(null);
-  const [timerAnnouncement, setTimerAnnouncement] = useState({ text: '', sequence: 0 });
-  const [listeningAnnouncement, setListeningAnnouncement] = useState('');
-  const timerToggleRef = useRef<HTMLButtonElement>(null);
-  const completionHeadingRef = useRef<HTMLHeadingElement>(null);
-  // Step direction for the cooking-step transition (motion/page-transitions.md).
-  const [stepDirection, setStepDirection] = useState<1 | -1>(1);
-
-  const recipeMatches = activeRecipe?.slug === recipeKey || activeRecipe?.id === recipeKey;
+function CookingLoader({ recipeKey }: { recipeKey: string }) {
+  const { activeRecipe, runId, startCooking, attempt } = useCookingStore();
+  const matches = Boolean(
+    activeRecipe && (activeRecipe.slug === recipeKey || activeRecipe.id === recipeKey),
+  );
+  const blockedRun = Boolean(attempt && !['saved', 'queued'].includes(attempt.status));
   const recipeQuery = useQuery({
     queryKey: queryKeys.recipe(recipeKey),
     queryFn: () => api.getRecipeById(recipeKey),
-    enabled: Boolean(recipeKey) && !recipeMatches,
+    enabled: Boolean(recipeKey) && !matches && !blockedRun,
   });
   const inventoryQuery = useQuery({
     queryKey: queryKeys.inventory(),
     queryFn: () => api.getInventory(),
-    enabled: Boolean(recipeKey) && !recipeMatches,
+    enabled: Boolean(recipeKey) && !matches && !blockedRun,
   });
-
   useEffect(() => {
-    if (!recipeMatches && recipeQuery.data?.recipe && inventoryQuery.data) {
+    if (!matches && !blockedRun && recipeQuery.data?.recipe && inventoryQuery.data)
       startCooking(recipeQuery.data.recipe, inventoryQuery.data);
-    }
-  }, [recipeMatches, recipeQuery.data, inventoryQuery.data, startCooking]);
-
-  // Timer interval & sound alert
-  useEffect(() => {
-    let interval: any = null;
-    if (isTimerRunning && timerSecondsRemaining !== null && timerSecondsRemaining > 0) {
-      interval = setInterval(() => {
-        tickTimer();
-      }, 1000);
-    } else if (timerSecondsRemaining === 0) {
-      setTimerAnnouncement((previous) => ({ text: 'Hẹn giờ đã kết thúc.', sequence: previous.sequence + 1 }));
-      audioEffects.playTimerAlertSound();
-      if (typeof navigator !== 'undefined' && navigator.vibrate) {
-        navigator.vibrate([200, 100, 200, 100, 400]);
-      }
-    }
-    return () => clearInterval(interval);
-  }, [isTimerRunning, timerSecondsRemaining, tickTimer]);
-
-  useEffect(() => { setTimerAnnouncement({ text: '', sequence: 0 }); }, [currentStepIndex]);
-
-  useEffect(() => {
-    if (isCompletedView) completionHeadingRef.current?.focus();
-  }, [isCompletedView]);
-
-  const startStepTimer = (seconds: number) => {
-    const starting = useCookingStore.getState().timerSecondsRemaining === null;
-    setTimer(seconds);
-    setTimerAnnouncement((previous) => ({
-      text: starting ? 'Đã bắt đầu hẹn giờ.' : 'Đã đặt lại hẹn giờ.',
-      sequence: previous.sequence + 1,
-    }));
-  };
-
-  const toggleStepTimer = () => {
-    if (useCookingStore.getState().timerSecondsRemaining === 0) return;
-    const pausing = useCookingStore.getState().isTimerRunning;
-    toggleTimer();
-    setTimerAnnouncement((previous) => ({
-      text: pausing ? 'Đã tạm dừng hẹn giờ.' : 'Đã tiếp tục hẹn giờ.',
-      sequence: previous.sequence + 1,
-    }));
-  };
-
-  // Clean up voice on unmount
-  useEffect(() => {
-    return () => {
-      voiceChef.stopSpeaking();
-      voiceChef.stopListening();
-    };
-  }, []);
-
-  const toggleSpeak = () => {
-    if (!activeRecipe) return;
-    const currentStep = activeRecipe.steps[currentStepIndex];
-    if (isSpeaking) {
-      voiceChef.stopSpeaking();
-      setIsSpeaking(false);
-    } else {
-      const ok = voiceChef.speakInstruction(currentStep.instruction, () => {
-        setIsSpeaking(false);
-      });
-      if (ok) setIsSpeaking(true);
-    }
-  };
-
-  const toggleListening = () => {
-    if (!activeRecipe) return;
-    if (isListening) {
-      voiceChef.stopListening();
-      setIsListening(false);
-      setListeningAnnouncement('Trợ lý rảnh tay đã tắt.');
-      setHeardText(null);
-    } else {
-      setIsListening(true);
-      setListeningAnnouncement('Trợ lý rảnh tay đã bật.');
-      voiceChef.startListening({
-        onNext: () => {
-          audioEffects.playStepClickSound();
-          if (currentStepIndex < activeRecipe.steps.length - 1) {
-            nextStep();
-          }
-        },
-        onPrev: () => {
-          audioEffects.playStepClickSound();
-          if (currentStepIndex > 0) {
-            prevStep();
-          }
-        },
-        onRepeat: () => {
-          const step = activeRecipe.steps[currentStepIndex];
-          voiceChef.speakInstruction(step.instruction);
-        },
-        onStartTimer: () => {
-          const step = activeRecipe.steps[currentStepIndex];
-          if (step.timerMinutes) {
-            startStepTimer(step.timerMinutes * 60);
-          }
-        },
-        onPauseTimer: () => {
-          toggleStepTimer();
-        },
-        onHeardCommand: (text) => {
-          setHeardText(text);
-          setTimeout(() => setHeardText(null), 3000);
-        },
-        onError: () => {
-          setIsListening(false);
-          setListeningAnnouncement('Trợ lý rảnh tay đã tắt. Không thể nghe khẩu lệnh; bạn vẫn có thể dùng các nút điều khiển.');
-        },
-      });
-    }
-  };
-
-  const handleNext = () => {
-    audioEffects.playStepClickSound();
-    setStepDirection(1);
-    nextStep();
-  };
-
-  const handlePrev = () => {
-    audioEffects.playStepClickSound();
-    setStepDirection(-1);
-    prevStep();
-  };
-
-  const handleComplete = () => {
-    audioEffects.playSuccessChime();
-    setIsCompletedView(true);
-  };
-
-  if (!activeRecipe || !recipeMatches) {
-    const loadingError = recipeQuery.error || inventoryQuery.error;
+  }, [matches, blockedRun, recipeQuery.data, inventoryQuery.data, startCooking]);
+  if (blockedRun && !matches)
     return (
-      <div className="min-h-screen bg-takosan-cream p-6 flex flex-col justify-center items-center text-center gap-4">
-        {loadingError ? (
-          <InlineError error={loadingError} onRetry={() => {
-            void recipeQuery.refetch();
-            void inventoryQuery.refetch();
-          }} />
+      <div className="cooking-empty">
+        <h1>Cần kiểm tra lần nấu trước</h1>
+        <p>
+          Bạn còn một yêu cầu hoàn tất cho {activeRecipe?.title}. Kiểm tra kết quả trước khi bắt đầu
+          món khác để tránh gửi thêm lần trừ nguyên liệu.
+        </p>
+        <Link className="cooking-primary" to="/cooking/complete">
+          Kiểm tra yêu cầu trước
+        </Link>
+      </div>
+    );
+  if (matches && attempt) return <CookingReview key={runId} />;
+  if (!matches || !runId) {
+    const error = recipeQuery.error || inventoryQuery.error;
+    return (
+      <div className="cooking-empty">
+        {error ? (
+          <InlineError
+            error={error}
+            onRetry={() => {
+              void recipeQuery.refetch();
+              void inventoryQuery.refetch();
+            }}
+          />
         ) : !recipeKey || (recipeQuery.isSuccess && !recipeQuery.data?.recipe) ? (
-          <p role="alert">Không tìm thấy công thức này.</p>
+          <h1>Không tìm thấy công thức này</h1>
         ) : (
           <InlineLoading label="Đang tải bước nấu…" />
         )}
-        <Button variant="outline" onClick={() => navigate('/recipes')}>Xem công thức</Button>
+        <Link className="cooking-control" to="/recipes">
+          Xem công thức
+        </Link>
       </div>
     );
   }
+  return <CookingSteps key={runId} />;
+}
 
-  const currentStep = activeRecipe.steps[currentStepIndex];
-  const isLastStep = currentStepIndex === activeRecipe.steps.length - 1;
-  const progressPercent = Math.round(((currentStepIndex + 1) / activeRecipe.steps.length) * 100);
+function CookingSteps() {
+  const state = useCookingStore();
+  const {
+    activeRecipe: recipe,
+    currentStepIndex: index,
+    timerSecondsRemaining: remaining,
+    isTimerRunning: running,
+    timerGeneration,
+    runId,
+  } = state;
+  const navigate = useNavigate();
+  const [confirmExit, setConfirmExit] = useState(false);
+  const [speaking, setSpeaking] = useState(false);
+  const [listening, setListening] = useState(false);
+  const [heard, setHeard] = useState('');
+  const [voiceStatus, setVoiceStatus] = useState('');
+  const [announcement, setAnnouncement] = useState({ text: '', sequence: 0 });
+  const [direction, setDirection] = useState(1);
+  const toggleRef = useRef<HTMLButtonElement>(null);
+  const mounted = useRef(false);
+  const voiceGeneration = useRef(0);
+  const heardTimeout = useRef<ReturnType<typeof setTimeout>>();
+  const alertedGeneration = useRef(-1);
+  const currentStep = recipe?.steps[index];
+  const announce = (text: string) =>
+    setAnnouncement((previous) => ({ text, sequence: previous.sequence + 1 }));
 
-  const formatTimer = (seconds: number) => {
-    const mins = Math.floor(seconds / 60);
-    const secs = seconds % 60;
-    return `${mins.toString().padStart(2, '0')}:${secs.toString().padStart(2, '0')}`;
+  useEffect(() => {
+    mounted.current = true;
+    const warn = (event: BeforeUnloadEvent) => {
+      event.preventDefault();
+      event.returnValue = '';
+    };
+    window.addEventListener('beforeunload', warn);
+    return () => {
+      mounted.current = false;
+      voiceGeneration.current++;
+      clearTimeout(heardTimeout.current);
+      voiceChef.stopSpeaking();
+      voiceChef.stopListening();
+      window.removeEventListener('beforeunload', warn);
+    };
+  }, []);
+  useEffect(() => {
+    if (!running) return;
+    const tick = () => state.tickTimer();
+    const interval = setInterval(tick, 250);
+    document.addEventListener('visibilitychange', tick);
+    return () => {
+      clearInterval(interval);
+      document.removeEventListener('visibilitychange', tick);
+    };
+  }, [running, state.tickTimer]);
+  useEffect(() => {
+    if (remaining !== 0 || alertedGeneration.current === timerGeneration) return;
+    alertedGeneration.current = timerGeneration;
+    announce('Hẹn giờ đã kết thúc.');
+    audioEffects.playTimerAlertSound();
+    navigator.vibrate?.([200, 100, 200]);
+  }, [remaining, timerGeneration]);
+  useEffect(() => {
+    voiceChef.stopSpeaking();
+    setSpeaking(false);
+    setAnnouncement({ text: '', sequence: 0 });
+  }, [index]);
+
+  const ownsRun = () => mounted.current && useCookingStore.getState().runId === runId;
+  const speakCurrent = () => {
+    const live = useCookingStore.getState();
+    const step = live.activeRecipe?.steps[live.currentStepIndex];
+    if (!ownsRun() || !step) return;
+    const speakingStep = live.currentStepIndex;
+    const ok = voiceChef.speakInstruction(step.instruction, () => {
+      if (ownsRun() && useCookingStore.getState().currentStepIndex === speakingStep)
+        setSpeaking(false);
+    });
+    setSpeaking(ok);
+    if (!ok)
+      setVoiceStatus(
+        'Không thể đọc giọng nói trên trình duyệt này. Bạn có thể đọc hướng dẫn và dùng các nút bên dưới.',
+      );
   };
-
-  const handleConfirmDeductions = async () => {
-    const isCurrent = capturePrivateSession();
-    setIsDeducting(true);
-    setCompletionError(null);
-    try {
-      await api.completeCooking(activeRecipe.id, deductions);
-      if (!isCurrent()) return;
-      void invalidateWeekDependents();
-      resetCooking();
-      navigate('/fridge');
-    } catch {
-      if (!isCurrent()) return;
-      setCompletionError('Chưa cập nhật được tủ lạnh. Vui lòng thử lại.');
-      setIsDeducting(false);
+  const startTimer = () => {
+    const live = useCookingStore.getState();
+    const minutes = live.activeRecipe?.steps[live.currentStepIndex]?.timerMinutes;
+    if (!ownsRun() || !minutes) return;
+    const starting = live.timerSecondsRemaining === null;
+    live.setTimer(minutes * 60);
+    announce(starting ? 'Đã bắt đầu hẹn giờ.' : 'Đã đặt lại hẹn giờ.');
+  };
+  const toggleTimer = () => {
+    const live = useCookingStore.getState();
+    live.tickTimer();
+    if (!ownsRun() || useCookingStore.getState().timerSecondsRemaining === 0) return;
+    const pausing = live.isTimerRunning;
+    live.toggleTimer();
+    announce(pausing ? 'Đã tạm dừng hẹn giờ.' : 'Đã tiếp tục hẹn giờ.');
+  };
+  const changeStep = (delta: number) => {
+    if (!ownsRun()) return;
+    setDirection(delta);
+    audioEffects.playStepClickSound();
+    const live = useCookingStore.getState();
+    if (delta > 0) live.nextStep();
+    else live.prevStep();
+  };
+  const toggleListening = () => {
+    if (listening) {
+      voiceGeneration.current++;
+      voiceChef.stopListening();
+      clearTimeout(heardTimeout.current);
+      setHeard('');
+      setListening(false);
+      setVoiceStatus('Trợ lý rảnh tay đã tắt.');
+      return;
     }
+    const generation = ++voiceGeneration.current;
+    const isCurrent = capturePrivateSession();
+    const valid = () => ownsRun() && isCurrent() && voiceGeneration.current === generation;
+    setListening(true);
+    setVoiceStatus('Trợ lý rảnh tay đã bật.');
+    voiceChef.startListening({
+      onNext: () => {
+        if (valid()) changeStep(1);
+      },
+      onPrev: () => {
+        if (valid()) changeStep(-1);
+      },
+      onRepeat: () => {
+        if (valid()) speakCurrent();
+      },
+      onStartTimer: () => {
+        if (valid()) startTimer();
+      },
+      onPauseTimer: () => {
+        if (valid() && useCookingStore.getState().isTimerRunning) toggleTimer();
+      },
+      onHeardCommand: (text) => {
+        if (!valid()) return;
+        setHeard(text);
+        clearTimeout(heardTimeout.current);
+        heardTimeout.current = setTimeout(() => {
+          if (valid()) setHeard('');
+        }, 3000);
+      },
+      onError: () => {
+        if (!valid()) return;
+        voiceGeneration.current++;
+        voiceChef.stopListening();
+        setListening(false);
+        setVoiceStatus(
+          'Trợ lý rảnh tay đã tắt. Không thể nghe khẩu lệnh; bạn vẫn có thể dùng các nút điều khiển.',
+        );
+      },
+    });
   };
-
-  // 1. Completion view (Deduction confirmation)
-  if (isCompletedView) {
+  const complete = () => {
+    state.clearTimer();
+    navigate('/cooking/complete');
+  };
+  if (!recipe) return null;
+  if (!currentStep)
     return (
-      <div className="min-h-screen bg-takosan-cream p-4 flex flex-col justify-between pb-10 mx-auto w-full max-w-[var(--content-compact)]">
-        <div className="space-y-4">
-          {completionError && <p role="alert" className="text-sm text-semantic-danger-strong">{completionError}</p>}
-          <div className="text-center pt-4">
-            <div className="w-28 h-28 mx-auto mb-2 overflow-hidden flex items-center justify-center">
-              <img
-                src={FRIGO_ASSETS.illustrations['delicious-meal']}
-                alt="Delicious meal"
-                className="w-full h-full object-contain"
-              />
-            </div>
-            <h1 ref={completionHeadingRef} tabIndex={-1} className="font-heading font-bold text-2xl text-semantic-text-primary">
-              Món ăn hoàn tất! 🎉
-            </h1>
-            <p className="text-xs text-semantic-text-muted mt-1 max-w-xs mx-auto">
-              Bạn đã nấu xong <span className="font-semibold text-semantic-text-primary">{activeRecipe.title}</span>.
-            </p>
-          </div>
-
-          <div className="space-y-2.5 pt-2">
-            <div className="flex items-center justify-between">
-              <h2 className="font-heading font-bold text-sm text-semantic-text-primary flex items-center gap-1.5">
-                <Refrigerator className="w-4 h-4 text-takosan-green" />
-                <span>Cập nhật số lượng trong tủ lạnh</span>
-              </h2>
-              <span className="text-xs text-semantic-text-muted font-medium">Tự động trừ đồ</span>
-            </div>
-
-            <p className="text-xs text-semantic-text-muted leading-relaxed">
-              Dưới đây là lượng nguyên liệu đã dùng. Bạn có thể chỉnh sửa trước khi xác nhận cập nhật tủ lạnh.
-            </p>
-
-            <div className="space-y-2">
-              {deductions.map((d) => (
-                <div
-                  key={d.ingredientId}
-                  className="bg-white rounded-xl p-3.5 flex items-center justify-between border border-semantic-border shadow-xs"
-                >
-                  <div>
-                    <h3 className="font-heading font-semibold text-sm text-semantic-text-primary">
-                      {d.name}
-                    </h3>
-                    <p className="text-xs text-semantic-text-muted mt-0.5">
-                      Ban đầu: {d.currentQuantity} {d.unit} &rarr; Còn: {d.remainingQuantity} {d.unit}
-                    </p>
-                  </div>
-
-                  <div className="flex items-center gap-2">
-                    <span className="text-xs font-bold text-semantic-danger">
-                      -{d.quantityDeducted} {d.unit}
-                    </span>
-
-                    <div className="flex items-center bg-semantic-background-subtle border border-semantic-border rounded-lg p-0.5 shadow-xs">
-                      <button
-                        onClick={() => updateDeduction(d.ingredientId, Math.max(0, d.quantityDeducted - (d.unit === 'g' ? 50 : 1)))}
-                        className="w-7 h-7 flex items-center justify-center font-bold text-semantic-text-secondary hover:bg-white rounded-md tap-target transition-colors"
-                        aria-label={`Giảm lượng ${d.name}`}
-                      >
-                        –
-                      </button>
-                      <button
-                        onClick={() => updateDeduction(d.ingredientId, Math.min(d.currentQuantity, d.quantityDeducted + (d.unit === 'g' ? 50 : 1)))}
-                        className="w-7 h-7 flex items-center justify-center font-bold text-semantic-text-secondary hover:bg-white rounded-md tap-target transition-colors"
-                        aria-label={`Tăng lượng ${d.name}`}
-                      >
-                        +
-                      </button>
-                    </div>
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
-        </div>
-
-        <div className="pt-4">
-          <Button
-            fullWidth
-            size="lg"
-            onClick={handleConfirmDeductions}
-            isLoading={isDeducting}
-            className="flex items-center justify-center gap-2"
-          >
-            <CheckCircle2 className="w-5 h-5" />
-            <span>Xác nhận & Cập nhật tủ lạnh</span>
-            <ArrowRight className="w-4 h-4 ml-1" />
-          </Button>
-        </div>
+      <div className="cooking-empty">
+        <h1>Công thức chưa có bước nấu</h1>
+        <p>Bạn có thể xem lại công thức hoặc kiểm tra lượng thực dùng nếu đã nấu món này.</p>
+        <Link className="cooking-control" to={`/recipes/${recipe.slug}`}>
+          Xem lại công thức
+        </Link>
+        <button className="cooking-primary" onClick={complete}>
+          Kiểm tra lượng thực dùng
+        </button>
       </div>
     );
-  }
-
-  // 2. Active step cooking mode
+  const last = index === recipe.steps.length - 1;
+  const countdown =
+    remaining === null
+      ? ''
+      : `${String(Math.floor(remaining / 60)).padStart(2, '0')}:${String(remaining % 60).padStart(2, '0')}`;
   return (
-    <div className="min-h-screen bg-takosan-cream flex flex-col justify-between p-5 mx-auto w-full max-w-[var(--content-compact)]">
-      <p role="status" aria-live="polite" aria-atomic="true" className="sr-only" data-testid="cooking-step-status">
-        {`Bước ${currentStepIndex + 1} trên ${activeRecipe.steps.length}. ${currentStep.instruction}`}
-      </p>
-      <p role="status" aria-live="polite" aria-atomic="true" className="sr-only" data-testid="cooking-timer-status">
-        <span key={timerAnnouncement.sequence}>{timerAnnouncement.text}</span>
-      </p>
-      <p role="status" aria-live="polite" aria-atomic="true" className="sr-only" data-testid="cooking-listening-status">
-        {listeningAnnouncement}
-      </p>
-      <p role="status" aria-live="polite" aria-atomic="true" className="sr-only" data-testid="cooking-heard-status">
-        {heardText ? `Đã nghe: ${heardText}` : ''}
-      </p>
-      <div>
-        <div className="flex items-center justify-between mb-3">
-          <button
-            onClick={() => setConfirmExit(true)}
-            className="w-10 h-10 rounded-xl hover:bg-semantic-border/60 active:scale-95 text-semantic-text-secondary flex items-center justify-center tap-target transition-colors"
-            aria-label="Thoát chế độ nấu"
-          >
-            <ArrowLeft className="w-5 h-5" />
-          </button>
-
-          <div className="text-center min-w-0 flex-1 px-2">
-            <h1 className="font-heading font-bold text-base text-semantic-text-primary truncate">
-              {activeRecipe.title}
-            </h1>
-            <p className="text-xs text-semantic-text-muted font-medium">
-              Bước {currentStepIndex + 1} / {activeRecipe.steps.length}
-            </p>
-          </div>
-
-          {/* Voice Sous Chef Controls */}
-          <div className="flex items-center gap-1.5">
-            <button
-              onClick={toggleListening}
-              className={clsx(
-                'w-10 h-10 rounded-xl flex items-center justify-center tap-target transition-tap active:scale-95 border',
-                isListening
-                  ? 'bg-semantic-danger border-semantic-danger text-white shadow-xs animate-pulse'
-                  : 'bg-takosan-mint border-takosan-mint-deep/60 text-takosan-green-deep hover:bg-takosan-mint-hover'
-              )}
-              title={isListening ? 'Đang nghe... Bấm để tắt' : 'Bật trợ lý rảnh tay'}
-              aria-label={isListening ? 'Tắt trợ lý rảnh tay' : 'Bật trợ lý rảnh tay'}
-            >
-              {isListening ? <Mic className="w-4 h-4" /> : <MicOff className="w-4 h-4 text-takosan-green" />}
-            </button>
-
-            <button
-              onClick={toggleSpeak}
-              className={clsx(
-                'w-10 h-10 rounded-xl flex items-center justify-center tap-target transition-tap active:scale-95 border',
-                isSpeaking
-                  ? 'bg-takosan-green border-takosan-green text-white shadow-xs'
-                  : 'bg-takosan-mint border-takosan-mint-deep/60 text-takosan-green-deep hover:bg-takosan-mint-hover'
-              )}
-              title={isSpeaking ? 'Dừng đọc' : 'Đọc to bước này'}
-              aria-label={isSpeaking ? 'Dừng đọc' : 'Đọc to bước này'}
-            >
-              {isSpeaking ? <VolumeX className="w-4 h-4" /> : <Volume2 className="w-4 h-4 text-takosan-green" />}
-            </button>
-          </div>
-        </div>
-
-        {/* Listening Status Banner */}
-        {isListening && (
-          <div className="mb-2.5 px-3 py-1.5 rounded-xl bg-takosan-mint border border-takosan-mint-deep/60 flex items-center justify-between gap-2 animate-fade-in">
-            <div className="flex items-center gap-1.5 text-xs text-takosan-green-deep font-medium">
-              <span className="w-2 h-2 rounded-full bg-takosan-green animate-ping" />
-              <span>{heardText ? `Đã nghe: "${heardText}"` : 'Trợ lý đang nghe khẩu lệnh: "tiếp", "lùi", "đọc lại"...'}</span>
-            </div>
-            <span className="text-[10px] font-semibold text-takosan-green uppercase">Rảnh tay</span>
-          </div>
-        )}
-
-        {/* Progress Bar */}
-        <div role="progressbar" aria-label="Tiến trình nấu ăn" aria-valuemin={1}
-          aria-valuemax={activeRecipe.steps.length} aria-valuenow={currentStepIndex + 1}
-          aria-valuetext={`Bước ${currentStepIndex + 1} trên ${activeRecipe.steps.length}`}
-          className="w-full h-1.5 bg-semantic-border/80 rounded-full overflow-hidden">
-          <div
-            className="h-full bg-takosan-green transition-tap duration-300 rounded-full"
-            style={{ width: `${progressPercent}%` }}
-          />
-        </div>
-      </div>
-
-      {/* Main Instruction Card */}
-      <div className="my-6 flex-1 flex flex-col justify-center">
-        {/* Directional step transition: +24px forward, reverse on Back;
-            timer logic never depends on animation frames. */}
-        <Slide key={currentStepIndex} direction={stepDirection} distance={24}>
-        <div className="bg-white rounded-2xl p-6 shadow-card border border-semantic-border text-center space-y-4">
-          <span className="w-10 h-10 rounded-xl bg-takosan-mint border border-takosan-mint-deep/60 flex items-center justify-center font-heading font-bold text-base text-takosan-green-deep mx-auto shadow-xs">
-            {currentStep.stepNumber}
-          </span>
-
-          <p className="font-heading font-bold text-xl sm:text-2xl text-semantic-text-primary leading-relaxed text-left">
-            {currentStep.instruction}
+    <div className="cooking-workspace">
+      <header className="cooking-header">
+        <button
+          className="cooking-control"
+          onClick={() => setConfirmExit(true)}
+          aria-label="Thoát chế độ nấu"
+        >
+          <ArrowLeft aria-hidden="true" size={20} />
+          <span>Thoát</span>
+        </button>
+        <img src={TAKOSAN_KITCHEN.logo} width="120" height="36" alt="Tako-san" />
+        <span className="cooking-eyebrow">Bếp nhà</span>
+      </header>
+      <div className="cooking-workspace-grid">
+        <aside className="cooking-context">
+          <span className="cooking-eyebrow">Đang nấu</span>
+          <h1>{recipe.title}</h1>
+          <p>
+            Bước {index + 1} / {recipe.steps.length} · {recipe.cookTimeMinutes} phút theo công thức
           </p>
-
-          {currentStep.tip && (
-            <div className="bg-semantic-warning-soft rounded-xl p-3 text-xs text-semantic-warning-strong text-left border border-semantic-warning/30 font-medium">
-              💡 <span className="font-bold">Mẹo:</span> {currentStep.tip}
-            </div>
+          <div
+            className="cooking-progress"
+            role="progressbar"
+            aria-label="Tiến trình nấu ăn"
+            aria-valuemin={1}
+            aria-valuemax={recipe.steps.length}
+            aria-valuenow={index + 1}
+            aria-valuetext={`Bước ${index + 1} trên ${recipe.steps.length}`}
+          >
+            <span style={{ transform: `scaleX(${(index + 1) / recipe.steps.length})` }} />
+          </div>
+          <details className="cooking-outline">
+            <summary>Các bước của món này</summary>
+            <ol>
+              {recipe.steps.map((step, stepIndex) => (
+                <li key={stepIndex} aria-current={index === stepIndex ? 'step' : undefined}>
+                  <span>{stepIndex + 1}</span>
+                  <p>{step.instruction}</p>
+                </li>
+              ))}
+            </ol>
+          </details>
+          <div className="cooking-voice-controls">
+            <button
+              className="cooking-control"
+              onClick={toggleListening}
+              aria-pressed={listening}
+              aria-label={listening ? 'Tắt trợ lý rảnh tay' : 'Bật trợ lý rảnh tay'}
+            >
+              {listening ? (
+                <Mic aria-hidden="true" size={18} />
+              ) : (
+                <MicOff aria-hidden="true" size={18} />
+              )}
+              {listening ? 'Tắt khẩu lệnh' : 'Bật khẩu lệnh'}
+            </button>
+            <button
+              className="cooking-control"
+              onClick={() => {
+                if (speaking) {
+                  voiceChef.stopSpeaking();
+                  setSpeaking(false);
+                } else speakCurrent();
+              }}
+              aria-label={speaking ? 'Dừng đọc' : 'Đọc to bước này'}
+            >
+              {speaking ? (
+                <VolumeX aria-hidden="true" size={18} />
+              ) : (
+                <Volume2 aria-hidden="true" size={18} />
+              )}
+              {speaking ? 'Dừng đọc' : 'Đọc bước này'}
+            </button>
+          </div>
+          <p role="status" data-testid="cooking-listening-status" className="cooking-feedback">
+            {voiceStatus}
+          </p>
+          {listening && (
+            <p className="cooking-voice-guide">
+              Nói “tiếp”, “lùi”, “đọc lại”, “hẹn giờ” hoặc “tạm dừng”. Khẩu lệnh không xác nhận trừ
+              nguyên liệu.
+            </p>
           )}
-
-          {/* Interactive Step Timer */}
-          {currentStep.timerMinutes && (
-            <div className="pt-2">
-              {timerSecondsRemaining === null ? (
+          <p role="status" data-testid="cooking-heard-status" className="cooking-feedback">
+            {heard ? `Đã nghe: ${heard}` : ''}
+          </p>
+        </aside>
+        <section className="cooking-stage" aria-label="Bước nấu hiện tại">
+          <p
+            role="status"
+            className="sr-only"
+            data-testid="cooking-step-status"
+          >{`Bước ${index + 1} trên ${recipe.steps.length}. ${currentStep.instruction}`}</p>
+          <p role="status" className="sr-only" data-testid="cooking-timer-status">
+            <span key={announcement.sequence}>{announcement.text}</span>
+          </p>
+          <div
+            className="cooking-step"
+            key={index}
+            style={{ '--step-direction': direction } as React.CSSProperties}
+          >
+            <span className="cooking-step-number" aria-hidden="true">
+              {String(index + 1).padStart(2, '0')}
+            </span>
+            <h2>Bước {index + 1}</h2>
+            <p className="cooking-instruction">{currentStep.instruction}</p>
+            {currentStep.tip && (
+              <p className="cooking-tip">
+                <strong>Mẹo trong công thức</strong>
+                <br />
+                {currentStep.tip}
+              </p>
+            )}
+          </div>
+          {Boolean(currentStep.timerMinutes) && (
+            <div className="cooking-timer-region">
+              <h3>
+                <Clock aria-hidden="true" size={18} /> Hẹn giờ cho bước này
+              </h3>
+              {remaining === null ? (
                 <button
+                  className="cooking-control"
                   onClick={() => {
-                    startStepTimer(currentStep.timerMinutes! * 60);
-                    requestAnimationFrame(() => timerToggleRef.current?.focus());
+                    startTimer();
+                    requestAnimationFrame(() => toggleRef.current?.focus());
                   }}
-                  className="px-4 py-2.5 rounded-xl bg-takosan-mint border border-takosan-mint-deep/60 text-takosan-green-deep font-heading font-semibold text-xs flex items-center justify-center gap-2 mx-auto hover:bg-takosan-mint-hover active:scale-95 transition-tap shadow-xs tap-target"
                 >
-                  <Clock className="w-4 h-4 text-takosan-green" />
-                  <span>Bật hẹn giờ ({currentStep.timerMinutes} phút)</span>
+                  Bật hẹn giờ ({currentStep.timerMinutes} phút)
                 </button>
               ) : (
-                <div className="bg-semantic-background-subtle rounded-xl p-3.5 border border-semantic-border flex items-center justify-between max-w-xs mx-auto shadow-xs">
-                  <div className="flex items-center gap-2">
-                    <Clock className="w-5 h-5 text-takosan-green animate-pulse" />
-                    <span className="font-heading font-bold text-2xl text-semantic-text-primary font-mono">
-                      {formatTimer(timerSecondsRemaining)}
-                    </span>
-                  </div>
-
-                  <div className="flex items-center gap-1.5">
+                <div className="cooking-timer">
+                  <span className="cooking-countdown" data-testid="cooking-countdown">
+                    {countdown}
+                  </span>
+                  <div className="cooking-timer-controls">
                     <button
-                      ref={timerToggleRef}
-                      onClick={toggleStepTimer}
-                      className="p-2 rounded-lg bg-white border border-semantic-border shadow-xs hover:bg-semantic-background-subtle text-semantic-text-secondary tap-target flex items-center justify-center transition-colors"
-                      aria-disabled={timerSecondsRemaining === 0}
-                      aria-label={timerSecondsRemaining === 0 ? 'Hẹn giờ đã kết thúc'
-                        : isTimerRunning ? 'Tạm dừng hẹn giờ' : 'Tiếp tục hẹn giờ'}
+                      ref={toggleRef}
+                      className="cooking-control"
+                      onClick={toggleTimer}
+                      aria-disabled={remaining === 0}
+                      aria-label={
+                        remaining === 0
+                          ? 'Hẹn giờ đã kết thúc'
+                          : running
+                            ? 'Tạm dừng hẹn giờ'
+                            : 'Tiếp tục hẹn giờ'
+                      }
                     >
-                      {isTimerRunning ? <Pause className="w-4 h-4" /> : <Play className="w-4 h-4" />}
+                      {running ? (
+                        <Pause aria-hidden="true" size={20} />
+                      ) : (
+                        <Play aria-hidden="true" size={20} />
+                      )}
                     </button>
                     <button
-                      onClick={() => startStepTimer(currentStep.timerMinutes! * 60)}
-                      className="p-2 rounded-lg bg-white border border-semantic-border shadow-xs hover:bg-semantic-background-subtle text-semantic-text-secondary tap-target flex items-center justify-center transition-colors"
+                      className="cooking-control"
                       aria-label="Đặt lại hẹn giờ"
+                      onClick={startTimer}
                     >
-                      <RotateCcw className="w-4 h-4" />
+                      <RotateCcw aria-hidden="true" size={20} />
                     </button>
                   </div>
                 </div>
               )}
+              <p>
+                {remaining === 0
+                  ? 'Đã hết giờ. Kiểm tra món trước khi chuyển bước.'
+                  : 'Chuyển bước sẽ đặt lại hẹn giờ. Âm báo phụ thuộc trình duyệt và thiết bị.'}
+              </p>
             </div>
           )}
-        </div>
-        </Slide>
+          <div className="cooking-step-actions">
+            <button
+              className="cooking-control"
+              disabled={index === 0}
+              onClick={() => changeStep(-1)}
+            >
+              <ArrowLeft aria-hidden="true" size={18} /> Bước trước
+            </button>
+            <button className="cooking-primary" onClick={last ? complete : () => changeStep(1)}>
+              {last ? <Check aria-hidden="true" size={20} /> : null}
+              {last ? 'Hoàn thành nấu' : 'Bước tiếp theo'}
+              <ArrowRight aria-hidden="true" size={18} />
+            </button>
+          </div>
+        </section>
       </div>
-
-      {/* Step Navigation Buttons */}
-      <div className="flex gap-3">
-        <Button
-          variant="outline"
-          size="lg"
-          onClick={handlePrev}
-          disabled={currentStepIndex === 0}
-          className="flex-1"
-        >
-          Bước trước
-        </Button>
-
-        {isLastStep ? (
-          <Button
-            size="lg"
-            onClick={handleComplete}
-            className="flex-1 bg-takosan-green hover:bg-takosan-green-hover flex items-center justify-center gap-2"
-          >
-            <CheckCircle2 className="w-5 h-5" />
-            <span>Hoàn thành nấu</span>
-          </Button>
-        ) : (
-          <Button
-            size="lg"
-            onClick={handleNext}
-            className="flex-1"
-          >
-            Bước tiếp theo
-          </Button>
-        )}
-      </div>
-
       <ConfirmDialog
         open={confirmExit}
         title="Thoát chế độ nấu?"
-        description="Tiến trình các bước nấu hiện tại sẽ không được lưu."
+        description="Tiến trình và hẹn giờ sẽ được đặt lại. Tủ lạnh chưa bị trừ nguyên liệu."
         confirmText="Thoát"
         destructive
-        onConfirm={() => {
-          setConfirmExit(false);
-          resetCooking();
-          navigate(-1);
-        }}
         onCancel={() => setConfirmExit(false)}
+        onConfirm={() => {
+          state.resetCooking();
+          navigate(`/recipes/${recipe.slug}`);
+        }}
       />
     </div>
   );
-};
+}

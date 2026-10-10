@@ -52,6 +52,7 @@ class VoiceSousChef {
 
       utterance.onerror = () => {
         this.isSpeaking = false;
+        onEnd?.();
       };
 
       window.speechSynthesis.speak(utterance);
@@ -99,6 +100,7 @@ class VoiceSousChef {
       recognition.interimResults = false;
 
       recognition.onresult = (event: any) => {
+        if (this.recognition !== recognition || !this.isListening) return;
         const lastResult = event.results[event.results.length - 1];
         if (!lastResult || !lastResult[0]) return;
 
@@ -147,6 +149,7 @@ class VoiceSousChef {
       };
 
       recognition.onerror = (event: any) => {
+        if (this.recognition !== recognition) return;
         if (event.error !== 'no-speech') {
           console.warn('Speech recognition event:', event.error);
           if (this.isListening) {
@@ -158,7 +161,7 @@ class VoiceSousChef {
 
       recognition.onend = () => {
         // Auto-restart if user kept listening active
-        if (this.isListening) {
+        if (this.isListening && this.recognition === recognition) {
           try {
             recognition.start();
           } catch {
@@ -167,11 +170,12 @@ class VoiceSousChef {
         }
       };
 
-      recognition.start();
       this.recognition = recognition;
       this.isListening = true;
+      recognition.start();
 
       return () => {
+        if (this.recognition !== recognition) return;
         this.isListening = false;
         if (this.recognition) {
           try {
@@ -183,6 +187,7 @@ class VoiceSousChef {
         }
       };
     } catch (err) {
+      this.stopListening();
       if (callbacks.onError) callbacks.onError(err);
       return () => {};
     }

@@ -1,3 +1,22 @@
+# UI05 cooking presentation and lifecycle (ADR-048, 2026-10-10)
+
+RecipeDetailPage remains preparation. `/cook/:slug` and `/cooking/:id` use the
+scoped cooking workspace; `/cooking/complete` and existing attempted cook aliases
+share CookingReview. `useCookingStore` owns in-memory run, quantity strings,
+strict availability validation, deadline timer and immutable command attempt.
+`lib/cooking-review.ts` handles typed actual-use/zero/blank/error presentation;
+`lib/cooking-completion.ts` completes only its current run/session and invalidates
+Week dependents, with no async navigation. Component refresh uses fetchJson
+without offline cache fallback; unmounted/run-changed responses cannot reopen it.
+
+Recipes service retains server/outbox authority: validate success shape, verify
+queued persistence, snapshot stock before command, preserve key/body/header and
+avoid duplicate same/concurrent-key offline projection. Worker allocation/commands,
+tenancy, revisions and Week dual-write remain unchanged. Voice/step callbacks read
+current state and stop across lifecycle. See UI05 packet and round-5 evidence.
+
+---
+
 # UI04 scan review presentation (ADR-047, 2026-10-10)
 
 `components/scan/{ReviewHeading,ReviewFields,ReviewSource}.tsx` share presentation

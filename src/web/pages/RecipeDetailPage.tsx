@@ -171,6 +171,11 @@ export const RecipeDetailPage: React.FC = () => {
   const image = resolveRecipeImage(recipe);
 
   const handleStartCook = () => {
+    const attempt = useCookingStore.getState().attempt;
+    if (attempt && !['saved', 'queued'].includes(attempt.status)) {
+      navigate('/cooking/complete');
+      return;
+    }
     startCooking(recipe, inventory);
     navigate(`/cook/${recipe.slug}`);
   };

@@ -1,3 +1,27 @@
+# Checkpoint triển khai — UI05, 2026-10-10 JST
+
+Canonical `vn-tak/Tako-san`; nhánh local `codex/ui-rebuild-foundation`.
+Implementation UI05 `IMPLEMENTATION_HASH_PENDING` đã kiểm chứng local.
+
+- UI01 quantity/detail/inventory/identity, UI02 Home/discovery/shell, UI03 summary
+  API/pagination/media audit và UI04 scan/review vẫn giữ acceptance đã kiểm chứng.
+- UI05/B09: preparation→steps/timer→actual-use review→explicit complete→inventory.
+  Shared review, fractional/blank/zero, stable retry, authoritative rejection
+  recovery,truthful pendingSync,run/session/voice/route fences,deadline timer.
+  Responsive320–1440/short viewport/enlarged text/reduced motion; errors nhận focus.
+- Full270files/6514tests PASS; focused70; browser32checks/55PNG/12journeys,
+  0axe/overflow/brokenimages/pageerrors. Báo cáo chi tiết giới hạn tại
+  [UI05](round-5/FOUNDATION.md), [verification](round-5/VERIFICATION.md).
+- UI06 tiếp theo: planner/composer/shopping/remaining routes theo flags và Week
+  compatibility. Canonical remap editor, brand final/PWA/OG/icon/mascot,media
+  variants/content,device/Safari/screen-reader/usability/CWV/hosted/release còn mở.
+
+Brand vẫn prototype; local milestone không hoàn tất toàn roadmap/chứng nhận
+production. Checkpoint local, chưa push/PR/merge/deploy. Numeric inputs giữ exact
+stock decimal tail, private draft/ambiguous key vẫn mất khi reload; xem limits.
+
+---
+
 # Checkpoint triển khai — UI04, 2026-10-10 JST
 
 Canonical `vn-tak/Tako-san`; nhánh local `codex/ui-rebuild-foundation`.

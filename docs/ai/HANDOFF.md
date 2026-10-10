@@ -1,3 +1,73 @@
+# UI05 — Bếp nấu và lượng thực dùng đã kiểm chứng local — 2026-10-10 JST
+
+**Task/status:** `UI05_LOCAL_VERIFIED_REVIEW_REQUIRED`. Packet
+`docs/ai/tasks/UI05-cooking.md`, ADR-048. Hoàn tất milestone local; brand kit cuối
+và toàn hệ thống vẫn theo roadmap.
+
+**Repository/source:** Canonical `vn-tak/Tako-san`, ID1385308553, checkout
+`/Users/tunbee27/Documents/Tako-san-ui-rebuild`, nhánh `codex/ui-rebuild-foundation`,
+base `edf2e9a7978c04fc62443e7b3e52d2ae2d895756`. Implementation checkpoint:
+`IMPLEMENTATION_HASH_PENDING`. Documentation checkpoint theo sau; Frigo cũ giữ nguyên.
+
+**Actual changes:** Preparation UI01 giữ quantity/no-buy/shortfall; cooking/mobile-
+desktop dùng pine/coral/warm canvas, Be Vietnam Pro và prototype wordmark đúng bộ.
+Step/timer/manual+voice có responsive và reduced motion; shared CookingReview cho
+explicit actual-use confirm. Number16px/48px, fractional/blank/zero, strict shared
+stock reservation cho dòng trùng/mixed units; không đoán package mass. Container
+hẹp chuyển input/unit và +/- thành hai hàng để số không bị ép khi phóng chữ.
+
+Immutable payload/key từ confirm đầu, single flight, uncertain retry cùng yêu cầu;
+known rejection chỉ mở lại sau authoritative stock read, giữ lượng thực dùng để
+kiểm tra; safety rejection có explicit chọn món khác. Success/queued tách biệt,
+outbox persistence kiểm chứng, projection trước attempt và same/concurrent key
+không trừ local hai lần. Run/session/route/recognition fences; current-step voice,
+owned feedback timeout, late results không reset run mới/điều hướng màn đã đóng.
+Timer deadline/pause/resume,0runningfalse, một alert/generation, không live mỗigiây;
+expired button giữ focus/aria-disabled, reset announce lại. Empty/no-draft/missing
+recipe/pending prior run có recovery; mutation error focus đưa thông báo vào viewport.
+
+**Verification:** Final full command:
+`PATH=/opt/homebrew/opt/node@24/bin:$PATH CI=true TMPDIR=/private/tmp WRANGLER_SEND_METRICS=false VITEST_MAX_THREADS=2 VITEST_MIN_THREADS=1 VITEST_MAX_FORKS=2 VITEST_MIN_FORKS=1 pnpm check`
+exit0;270files/6514tests PASS,0FAIL,Vitest342.45s;
+lint/typecheck/migration smoke/build PASS.
+Focused7files/70tests PASS,6.36s. Browser32axe/layout checks tại320/390/768/1024/
+1440,55PNG,12journey groups,0axe/overflow/brokenimages/pageerrors. Local Worker
+125.5g against250g+0.5kg, remaining624.5g; same-key replay giữ mọi lot/version.
+Mock errors/voice, clock, SPA late response/route, empty/error/short viewport/
+enlarged text/motion; actual outbox queue.57evidence payloads+manifest bytes/SHA256
+verified;16runtime/test/script hashes frozen and verified after gate. Logs
+`.artifacts/ui05/{focused-final,browser-final,full-check-final}.log`; reports
+`docs/ui-rebuild/round-5/{FOUNDATION,VERIFICATION}.md`.
+
+**Failures/recovery:** Positive-only demand helper không nhận0: strict peek cho
+zero/blank, take cho positive; typed-message/import/script argument lỗi sửa theo
+contract, không đổi stock/conversion assertions. Browser selector giả định heading/
+role/case sửa đúng source; HMR dev bare import sinh khác store instance: own preview
+restart/frozen graph. Visual review thêm container rộng hơn cho input, rồi phát
+hiện error trên viewport khi confirm dưới cùng: error focus và browser assertions.
+Full đầu270files:6513PASS/1FAIL,340.29s vì existing Wrangler local list timeout5000ms;
+isolated32/32PASS3.22s/test955ms. Full thứ hai ngắt có chủ đích để sửa focus; full
+cuối chạy sau source/hash/browser/focused mới. Không nới timeout/config/assertion.
+Supplemental UX heuristic128files/28issues/846warnings/72checks printsFAIL(exit1),
+gồm legacy/test/CSS/protected surfaces; không claim whole static UX/usability pass.
+
+**Database/operational state:** Synthetic local Worker/SQLite only. Own previews
+PID44846/45917/40036 stopped before final gate. No migrations/schema/dependencies/
+config/production flags/Worker/payment/auth/infrastructure/remoteDB/R2/provider/
+credentials/push/PR/merge/deploy. In-memory draft/ambiguous key mất khi reload;
+beforeunload tùy browser. Numeric inputs giữ exact stock decimal tail thay vì tự
+làm tròn tăng. Chưa physical device/Safari/OS keyboard/actual zoom/screen-reader/
+usability/CWV/real speech/background alarm QA. Brand/media chưa final; local gates
+không chứng nhận production hoặc toàn bộ rebuild.
+
+**Next action:** UI06: đọc planner/composer/shopping/remaining route source, lập
+packet+ADR theo flags và Week contract; rebuild planning→shopping vertical slice,
+error/empty/partial states, responsive/browser/full gates. Canonical remap editor,
+brand final/PWA/OG/icon/mascot,media variants/content,device/usability/hosted review
+và release vẫn cần đợt riêng; operator chưa cho phép publish/deploy.
+
+---
+
 # UI04 — Luồng quét và review đã kiểm chứng local — 2026-10-10 JST
 
 **Task/status:** `UI04_LOCAL_VERIFIED_REVIEW_REQUIRED`. Tiếp tục rebuild Tako-san

@@ -1,3 +1,24 @@
+# UI05 actual-use and completion attempt semantics (ADR-048)
+
+Cooking editable quantities are strings: empty means incomplete,0means not used.
+Only finite nonnegative amounts<=100000 and strictly available compatible stock
+may confirm. Required-before-optional sequential reservation handles duplicate
+ingredient rows and mixed physical units; zero/blank rows peek without consuming.
+Projection/remaining values are labelled estimates from the captured stock, not
+new server facts. Refresh retains actual-use intent, does not silently clamp it.
+
+The first explicit confirmation captures immutable deduction payload and key.
+Sending/uncertain/rejected/restricted/blocked/saved/queued are distinct UI states.
+Uncertain retries keep key+payload; known data rejection requires successful
+server inventory read before editing/re-keying. Known safety rejection allows an
+explicit end-and-select action; auth/idempotency conflicts cannot auto-re-key.
+Saved means valid server response; queued means a real durable local outbox entry,
+not evidence that the server has never committed. Same/concurrent queued key does
+not project use twice. Draft/run ownership and session resets fence late results.
+No server/schema/persisted private-draft contract changes.
+
+---
+
 # UI04 review draft semantics (2026-10-10)
 
 Web editable review quantity is number or empty string; empty remains incomplete

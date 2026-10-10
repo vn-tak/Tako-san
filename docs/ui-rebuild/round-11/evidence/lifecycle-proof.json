@@ -1,0 +1,51 @@
+{
+  "base": "13cef9f8e6dc72549071426ad98df70e0d16f4a4",
+  "records": [
+    {
+      "path": "src/web/pages/InventoryPage.tsx",
+      "restoredPresentationPatchMatchesBase": true,
+      "baseSHA256": "fc098f7852f7a0fbcbf6638cc823f9e6d83fa10b050d5eabad35d313b42ebdb7"
+    },
+    {
+      "path": "src/web/pages/RecipeDetailPage.tsx",
+      "restoredPresentationPatchMatchesBase": true,
+      "baseSHA256": "c588098534434e943003ba946a88ec831d0a7169784dfcf3be068f5f84bbee24"
+    },
+    {
+      "path": "src/web/pages/ScanResultPage.tsx",
+      "restoredPresentationPatchMatchesBase": true,
+      "baseSHA256": "6854c90f6833cb80f8ec21fad6f5ef01ee49b8216f8b136c24035e193a79108f"
+    },
+    {
+      "path": "src/web/pages/ReceiptReviewPage.tsx",
+      "restoredPresentationPatchMatchesBase": true,
+      "baseSHA256": "159c612909a266c9207f2d0a3f283ee0f090fdcf4eb862878197437654bb11ab"
+    },
+    {
+      "path": "src/web/design-system/primitives.tsx",
+      "restoredPresentationPatchMatchesBase": true,
+      "baseSHA256": "4574b71f28562d1f5166e9f566685a6253cea805627afc2fd225bafe9153f8eb"
+    },
+    {
+      "path": "src/web/components/layout/AppLayout.tsx",
+      "immersiveAndScopeByteIdentical": true
+    }
+  ],
+  "protectedPaths": [
+    "src/worker",
+    "packages",
+    "migrations",
+    "public",
+    "src/web/services",
+    "src/web/stores",
+    "src/web/App.tsx",
+    "src/web/lib/sync.ts",
+    "src/web/lib/private-session.ts",
+    "src/web/pages/PaymentPage.tsx",
+    "package.json",
+    "pnpm-lock.yaml",
+    "vite.config.ts",
+    "wrangler.toml"
+  ],
+  "protectedDiff": ""
+}

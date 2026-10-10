@@ -11,7 +11,8 @@ const mocks = vi.hoisted(() => ({
   search: '?scanId=receipt-1', currentPlan: null as { id: string } | null,
 }));
 vi.mock('../../src/web/services/api', () => ({ api: { getScan: mocks.getScan, confirmScan: mocks.confirmScan } }));
-vi.mock('../../src/web/components/common/TopBar', () => ({ TopBar: () => <h1>Chi tiết Hóa đơn</h1> }));
+// UI11 chrome is verified separately; keep this fixture focused on receipt authority.
+vi.mock('../../src/web/components/common/KitchenHeader', () => ({ KitchenHeader: () => null }));
 vi.mock('../../src/web/stores/useWeekStore', () => ({
   useWeekStore: (selector: (state: { currentPlan: { id: string } | null }) => unknown) => selector({ currentPlan: mocks.currentPlan }),
 }));

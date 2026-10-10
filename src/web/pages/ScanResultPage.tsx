@@ -1,3 +1,4 @@
+import { KitchenHeader } from '../components/common/KitchenHeader';
 import React, { useEffect, useRef, useState } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 import { useScanStore } from '../stores/useScanStore';
@@ -276,6 +277,8 @@ const ScanReview: React.FC<{ effectiveScanId: string }> = ({ effectiveScanId }) 
   };
 
   return (
+    <>
+    <KitchenHeader />
     <div className="review-workspace">
       <ReviewHeading confirmed={isConfirmed} />
       <div className="review-layout">
@@ -678,5 +681,6 @@ const ScanReview: React.FC<{ effectiveScanId: string }> = ({ effectiveScanId }) 
         </form>
       </BottomSheet>
     </div>
+    </>
   );
 };

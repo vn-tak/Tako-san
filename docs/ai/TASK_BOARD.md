@@ -1,3 +1,73 @@
+# UI11 - Điều hướng và shell responsive đã kiểm chứng local - 2026-10-10 JST
+
+**Task/status:** `UI11_LOCAL_VERIFIED_REVIEW_REQUIRED`, packet UI11, ADR-054.
+Phạm vi navigation/header/shell/action offsets hoàn tất local. Toàn hệ thống,
+nhận diện được chủ dự án duyệt, thiết bị thật và hosted release chưa hoàn tất.
+
+**Repository/source:** Canonical `vn-tak/Tako-san`; checkout
+`/Users/tunbee27/Documents/Tako-san-ui-rebuild`, branch `codex/ui-rebuild-foundation`,
+base `13cef9f8e6dc72549071426ad98df70e0d16f4a4`. 160 source hashes frozen và kiểm
+sau full; 99 public Takosan assets/fonts sau build byte-identical (mở rộng từ51rebuild/font). Protected diff rỗng;
+App routes/guards, scope/immersive và năm page/primitives sau khi bỏ presentation
+patch khớp base bytes. Implementation commit chờ tạo và đối chiếu Git objects;
+documentation checkpoint sẽ ghi hash đã kiểm, không ghi hash của chính nó.
+
+**Actual changes:** Kitchen mobile giữ năm roots,12px labels đầy đủ, em grid tự
+chuyển hai hàng khi chữ lớn; Scan nguyên liệu ở hàng riêng44px-min trên header.
+Tablet112px rail14px labels wrap/cuộn; desktop256px/16px roots. Brand thuộc header
+below640/sidebar above, review dùng chung header. Active state segment boundaries;
+shopping/review vẫn contextual. Legacy defaults giữ kit cũ, immersive giữ camera/
+cooking/onboarding/auth. ResizeObserver border-box, late chrome rebind/cleanup,
+nav/header/banner/action reserve/gap/rail CSS tokens và document scroll padding.
+Focus main controls tránh chrome; dialogs/toolbars giữ owner. Add/Cook/settings/
+scan/unused BottomCTA cùng offset; buttons intrinsic48px-min/1.4line-height.
+Short<=600px header/actions trở về luồng trang; rail vẫn cuộn.
+
+**Verification:** Final focused14files/255PASS6.34s (earlier10/172PASS7.43s); observer recovery2/32PASS1.25s;
+full-fixture recovery6/115PASS2.28s. Browser115checked snapshots/16journeys+1publicPNG,
+flag-off24/1,0unexpectedpageerror/applicableaxe/overflow/brokenasset/labeloverlap/
+navigation clipping.320/360/390/430/768/1024/1440,short390x420/768x420,computed textx2 320/768
+và combined320x420x2. Keyboard five roots/Scan/dialog Escape-return/detailcancel/
+Cook immersive/field focus; read-only inventory JSON nguyên và zero domain writes.
+Safe-area padding/banner events synthetic, không chứng nhận hardware/offline.
+Seven planner-on aliases PASS; E2E19PASS/5once-onlySKIP39.6s/sixprojects; boundary
+639/640/767/1024 chạy một lần. Type/lint và full details: exit0,285files/6685PASS,Vitest344.71s;type/lint/migration smoke/Vite2.97s/WorkerTS PASS.
+Remote schema/Week parity skip theo gate mặc định. Evidence/log receipts trong round-11..
+
+**Failures/recovery:** Baseline6cells69px có3cặp labels chồng ở320x2; tablet10px
+truncate/short clip. First5cell break words, em-grid thay; fieldset StickyActions
+che Save ởtextx2 nên kitchen fixed reserve; ảnh bắt nút Cook/confirm ép chữ, sửa
+intrinsic height/line-height. Padding-only30px không báo với content-box observer,
+đổi border-box. Harness transient h1/selector/attribute-order/HMR/scan-loading lỗi
+được giữ log. Ba lượt full dừng130 (hai để sửa UI, một để chẩn đoán Wrangler). First completed full285files:
+6621PASS/53FAIL/6674collected+1suite không nạp,354.73s. Receipt/privacy mocksTopBar
+cũ sửa isolateKitchenHeader;7fridge confirmed asserts chọn đúng review-heading;
+giữ mọi domain assertion, không runtime/timeout edit. Full tiếp285/6684PASS/1FAIL,
+389.92s,Wrangler5000ms timeout; standalone31PASS/1timeout50.01s. Log khoanh46.44s
+chờ update-check trước localD1; CI/debug reproduction32PASS3.41s/case976ms. Giữ
+source/config/timeout; exact full-env recovery32PASS3.77s/case1206ms. Cache khác
+nhau theoTMPDIR,full cache hết hạn3600s; Wrangler tự cập nhật,không sửa thủ công.
+Network/cache startup vẫn là giới hạn. E2E public mascot assertion
+cũ thay bằng geometry/brand thật UI08. Final generic UX154/30/977/85STATUS FAIL
+(earlier980warnings),41dependencyadvisories (4low/19moderate/16high/2critical),lock
+nguyên. Không gọi toàn repo UX PASS.
+
+**Database/operational state:** Worker synthetic local/in-memorySQLite. Owned
+previews46149/28745 dừng;5206/8906/5207/8907 đóng. No backend/packages/schema/
+migrations/services/stores/public/dependencies/payments/auth protocol/production
+flags/config/remote DB/R2/provider credentials/push/PR/merge/deploy. Build chỉ local
+verification, chưa là release artifact. Recipe badge textx2/ảnhcatalog còn thiếu,
+legacy nav vẫn6cells; Week outbox/replay,inventory fallback/queued metadata receipts
+và export domain lịch sử còn riêng. Owner/device/Safari/nativezoom/screenreader/
+virtualkeyboard/usability/CWV/hosted/release chưa kiểm chứng.
+
+**Next action:** `docs/ai/tasks/UI12-route-visual-media.md`: read-only route/state/
+media audit sau shell, ưu tiên recipebadge clipping và ảnhthật/provenance; ADR-055
+trước bounded runtime slice. Giữ UI07 identity/UI11 contract và domain/protected
+boundaries; không bắt đầu runtime UI12 trong đợt UI11.
+
+---
+
 # UI10 - Thực đơn tuần đã kiểm chứng local - 2026-10-10 JST
 
 **Task/status:** `UI10_LOCAL_VERIFIED_REVIEW_REQUIRED`, packet UI10, ADR-053.

@@ -2,6 +2,7 @@ import type { ReactNode } from 'react';
 import { Link } from 'react-router-dom';
 import { ArrowLeft, Bell, User } from 'lucide-react';
 import { useAuthStore } from '../../stores/useAuthStore';
+import { KitchenScanLink } from '../../design-system/navigation';
 import { TAKOSAN_KITCHEN } from '../../lib/takosan-kitchen';
 
 export function KitchenHeader({
@@ -43,6 +44,7 @@ export function KitchenHeader({
           )}
         </Link>
       </div>
+      <KitchenScanLink className="kitchen-header-scan" />
     </header>
   );
 }

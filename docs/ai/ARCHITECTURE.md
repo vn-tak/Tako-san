@@ -1,3 +1,22 @@
+# UI11 measured navigation and shell (ADR-054, 2026-10-10)
+
+Kitchen AppLayout selects explicit navigation variants; default navigation preserves
+legacy kit. Five mobile roots use an intrinsic/em grid, Scan belongs to a dedicated
+mobile KitchenHeader row,112px tablet rail and256px desktop sidebar scroll. Header
+owns brand below640px; sidebar owns it above. Review pages adopt KitchenHeader;
+route/guard and immersive definitions stay unchanged. Kitchen active states use
+segment boundaries; contextual shopping/review have no selected root.
+
+useKitchenShell observes border-box chrome and lazy child mount/unmount. CSS tokens
+own nav/header/banner/action reserve/gap/rail width; the actual document receives
+scroll padding and focused main controls clear chrome. Dialog/toolbar focus stays
+with existing owners. Inventory/recipe/settings/scan actions clear the same measured
+nav, with fixed main reserve and intrinsic action text. Short<=600px chrome/actions
+flow; rail scrolls. No domain authority/service/store/dependency/public change.
+Evidence and residuals in round-11; UI12 starts with inner-route/media audit only.
+
+---
+
 # UI10 Week compatibility presentation (ADR-053, 2026-10-10)
 
 The six existing Week pages and four meal/summary/swap/export components share

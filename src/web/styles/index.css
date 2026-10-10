@@ -9,6 +9,7 @@
 @import "./kitchen-entry.css";
 @import "./kitchen-stock-detail.css";
 @import "./kitchen-week.css";
+@import "./kitchen-shell.css";
 @tailwind base;
 @tailwind components;
 @tailwind utilities;

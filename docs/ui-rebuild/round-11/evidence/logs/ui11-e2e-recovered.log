@@ -1,0 +1,42 @@
+
+Running 24 tests using 1 worker
+
+(node:12340) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓   1 [mobile-360] › tests/e2e/t17-ui/t18c-gaps.e2e.ts:59:1 › RecipeCard links are titled, tabbable, and Enter navigates from Home and Recipes (2.1s)
+  ✓   2 [mobile-360] › tests/e2e/t17-ui/t18c-gaps.e2e.ts:119:1 › fresh onboarding household choices are native radios with their spoken names (810ms)
+  -   3 [mobile-360] › tests/e2e/t17-ui/t18c-gaps.e2e.ts:145:1 › AppShell honors the 640 breakpoint and exposes the active route
+  ✓   4 [mobile-360] › tests/e2e/t17-ui/t18c-gaps.e2e.ts:210:1 › inventory and scan review fixed actions clear the active navigation shell (2.0s)
+(node:12763) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓   5 [mobile-390] › tests/e2e/t17-ui/t18c-gaps.e2e.ts:59:1 › RecipeCard links are titled, tabbable, and Enter navigates from Home and Recipes (1.8s)
+  ✓   6 [mobile-390] › tests/e2e/t17-ui/t18c-gaps.e2e.ts:119:1 › fresh onboarding household choices are native radios with their spoken names (787ms)
+  ✓   7 [mobile-390] › tests/e2e/t17-ui/t18c-gaps.e2e.ts:145:1 › AppShell honors the 640 breakpoint and exposes the active route (6.5s)
+  ✓   8 [mobile-390] › tests/e2e/t17-ui/t18c-gaps.e2e.ts:210:1 › inventory and scan review fixed actions clear the active navigation shell (1.9s)
+(node:12828) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓   9 [mobile-430] › tests/e2e/t17-ui/t18c-gaps.e2e.ts:59:1 › RecipeCard links are titled, tabbable, and Enter navigates from Home and Recipes (1.9s)
+  ✓  10 [mobile-430] › tests/e2e/t17-ui/t18c-gaps.e2e.ts:119:1 › fresh onboarding household choices are native radios with their spoken names (848ms)
+  -  11 [mobile-430] › tests/e2e/t17-ui/t18c-gaps.e2e.ts:145:1 › AppShell honors the 640 breakpoint and exposes the active route
+  ✓  12 [mobile-430] › tests/e2e/t17-ui/t18c-gaps.e2e.ts:210:1 › inventory and scan review fixed actions clear the active navigation shell (2.0s)
+(node:12847) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓  13 [tablet-768] › tests/e2e/t17-ui/t18c-gaps.e2e.ts:59:1 › RecipeCard links are titled, tabbable, and Enter navigates from Home and Recipes (2.0s)
+  ✓  14 [tablet-768] › tests/e2e/t17-ui/t18c-gaps.e2e.ts:119:1 › fresh onboarding household choices are native radios with their spoken names (825ms)
+  -  15 [tablet-768] › tests/e2e/t17-ui/t18c-gaps.e2e.ts:145:1 › AppShell honors the 640 breakpoint and exposes the active route
+  ✓  16 [tablet-768] › tests/e2e/t17-ui/t18c-gaps.e2e.ts:210:1 › inventory and scan review fixed actions clear the active navigation shell (2.1s)
+(node:12866) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓  17 [desktop-1024] › tests/e2e/t17-ui/t18c-gaps.e2e.ts:59:1 › RecipeCard links are titled, tabbable, and Enter navigates from Home and Recipes (2.0s)
+  ✓  18 [desktop-1024] › tests/e2e/t17-ui/t18c-gaps.e2e.ts:119:1 › fresh onboarding household choices are native radios with their spoken names (829ms)
+  -  19 [desktop-1024] › tests/e2e/t17-ui/t18c-gaps.e2e.ts:145:1 › AppShell honors the 640 breakpoint and exposes the active route
+  ✓  20 [desktop-1024] › tests/e2e/t17-ui/t18c-gaps.e2e.ts:210:1 › inventory and scan review fixed actions clear the active navigation shell (2.0s)
+(node:12903) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓  21 [desktop-1440] › tests/e2e/t17-ui/t18c-gaps.e2e.ts:59:1 › RecipeCard links are titled, tabbable, and Enter navigates from Home and Recipes (2.1s)
+  ✓  22 [desktop-1440] › tests/e2e/t17-ui/t18c-gaps.e2e.ts:119:1 › fresh onboarding household choices are native radios with their spoken names (899ms)
+  -  23 [desktop-1440] › tests/e2e/t17-ui/t18c-gaps.e2e.ts:145:1 › AppShell honors the 640 breakpoint and exposes the active route
+  ✓  24 [desktop-1440] › tests/e2e/t17-ui/t18c-gaps.e2e.ts:210:1 › inventory and scan review fixed actions clear the active navigation shell (2.0s)
+
+  5 skipped
+  19 passed (39.6s)

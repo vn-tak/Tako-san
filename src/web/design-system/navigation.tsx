@@ -5,11 +5,12 @@ import { motion } from 'motion/react';
 import { isMealPlannerEnabled } from '../features/planner/feature';
 import { TakosanIcon, type TakosanIconName } from '../components/common/TakosanIcon';
 import { TAKOSAN_BRAND } from '../lib/takosan-brand';
+import { TAKOSAN_KITCHEN } from '../lib/takosan-kitchen';
 
 /**
  * One navigation model renders as mobile bottom bar, tablet rail, and desktop
- * sidebar (components/NAVIGATION.md). Real links with aria-current; Scan stays
- * a prominent contextual action, not a sixth IA root.
+ * sidebar. Kitchen variants reserve five roots and expose Scan in the header;
+ * legacy variants preserve the supplied kit.
  */
 
 interface NavItem {
@@ -77,7 +78,7 @@ const NavLinkContent: React.FC<{ item: NavItem; active: boolean; withLabel: bool
 );
 
 /** Mobile: bottom bar with prominent central scan action. */
-export const BottomNavigationBar: React.FC = () => {
+const LegacyBottomNavigationBar: React.FC = () => {
   return (
     <nav
       aria-label="Điều hướng chính"
@@ -123,7 +124,7 @@ const NavItemButton: React.FC<{ item: NavItem }> = ({ item }) => {
 };
 
 /** Tablet rail (80px) and desktop sidebar (256px) — same items, same truth. */
-export const RailSidebar: React.FC<{ brandLogo?: string; brandSymbol?: string; brandDimensions?: { width: number; height: number } }> = ({
+const LegacyRailSidebar: React.FC<{ brandLogo?: string; brandSymbol?: string; brandDimensions?: { width: number; height: number } }> = ({
   brandLogo = TAKOSAN_BRAND.logos.horizontal,
   brandSymbol = TAKOSAN_BRAND.symbol,
   brandDimensions = { width: 712, height: 218 },
@@ -216,3 +217,58 @@ export const RailSidebar: React.FC<{ brandLogo?: string; brandSymbol?: string; b
     </>
   );
 };
+
+
+const inFamily = (path: string, root: string) => path === root || path.startsWith(`${root}/`);
+
+export function isKitchenNavActive(item: NavItem, pathname: string) {
+  if (item.path === '/') return pathname === '/';
+  const families: Record<string, string[]> = {
+    fridge: ['/fridge', '/inventory', '/ingredients', '/inventory-reconciliation'],
+    recipe: ['/recipes', '/cook', '/cooking'],
+    mealPlan: ['/planner', '/week'],
+    profile: ['/me', '/profile', '/settings', '/notifications', '/plus'],
+  };
+  return (families[item.icon] ?? []).some((root) => inFamily(pathname, root));
+}
+
+function KitchenNavItems() {
+  const { pathname } = useLocation();
+  return <ul className="kitchen-nav-items">
+    {NAV_ITEMS.map((item) => <li key={item.path}>
+      <Link to={item.path} aria-current={isKitchenNavActive(item, pathname) ? 'page' : undefined}>
+        <TakosanIcon name={item.icon} className="kitchen-nav-icon" />
+        <span className="kitchen-nav-label">{item.label}</span>
+      </Link>
+    </li>)}
+  </ul>;
+}
+
+export function KitchenScanLink({ className = '' }: { className?: string }) {
+  const { pathname } = useLocation();
+  return <Link to={SCAN_PATH} className={`kitchen-scan-link ${className}`}
+    aria-current={inFamily(pathname, SCAN_PATH) ? 'page' : undefined}>
+    <TakosanIcon name="scan" className="kitchen-nav-icon" />
+    <span>Quét nguyên liệu</span>
+  </Link>;
+}
+
+export function BottomNavigationBar({ kitchen = false }: { kitchen?: boolean }) {
+  if (!kitchen) return <LegacyBottomNavigationBar />;
+  return <nav aria-label="Điều hướng chính" className="kitchen-bottom-nav">
+    <KitchenNavItems />
+  </nav>;
+}
+
+type SidebarProps = React.ComponentProps<typeof LegacyRailSidebar> & { kitchen?: boolean };
+export function RailSidebar({ kitchen = false, ...brand }: SidebarProps) {
+  if (!kitchen) return <LegacyRailSidebar {...brand} />;
+  return <nav aria-label="Điều hướng chính" className="kitchen-sidebar">
+    <Link to="/" aria-label="Takosan — Trang chủ" translate="no" className="kitchen-sidebar-brand">
+      <img src={brand.brandSymbol ?? TAKOSAN_KITCHEN.symbol} alt="" width={32} height={32} className="kitchen-sidebar-symbol" />
+      <img src={brand.brandLogo ?? TAKOSAN_KITCHEN.logo} alt="" width={300} height={72} className="kitchen-sidebar-logo" />
+    </Link>
+    <KitchenNavItems />
+    <KitchenScanLink />
+  </nav>;
+}

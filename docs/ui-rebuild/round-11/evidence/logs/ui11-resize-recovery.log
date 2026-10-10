@@ -1,0 +1,10 @@
+
+ RUN  v3.2.7 /Users/tunbee27/Documents/Tako-san-ui-rebuild
+
+ ✓ tests/unit/ui11-shell-measurement.test.tsx (3 tests) 314ms
+ ✓ tests/unit/ui11-navigation.test.tsx (29 tests) 27ms
+
+ Test Files  2 passed (2)
+      Tests  32 passed (32)
+   Start at  23:25:47
+   Duration  1.25s (transform 422ms, setup 19ms, collect 933ms, tests 341ms, environment 368ms, prepare 108ms)

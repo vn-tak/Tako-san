@@ -326,7 +326,7 @@ export const InventoryPage: React.FC = () => {
 
       {/* Floating CTA clears the bottom nav on mobile and starts after the
           rail/sidebar on sm/lg (same offsets as the scan review CTAs). */}
-      <div className="fixed bottom-[calc(68px+env(safe-area-inset-bottom,0px)+0.75rem)] sm:bottom-6 left-0 right-0 sm:left-20 lg:left-64 px-4 md:px-6 z-30 pointer-events-none">
+      <div data-kitchen-action="fixed" className="kitchen-stock-action fixed bottom-[calc(68px+env(safe-area-inset-bottom,0px)+0.75rem)] sm:bottom-6 left-0 right-0 sm:left-20 lg:left-64 px-4 md:px-6 z-30 pointer-events-none">
         <button
           onClick={() => setIsAddModalOpen(true)}
           className="w-full md:w-auto md:min-w-64 md:ml-auto py-4 px-4 md:px-6 rounded-2xl bg-takosan-green hover:bg-takosan-green-hover text-white font-heading font-bold text-[15px] shadow-float active:scale-98 transition-tap pointer-events-auto flex items-center justify-center gap-2 tap-target"

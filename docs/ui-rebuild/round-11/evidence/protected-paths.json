@@ -1,0 +1,21 @@
+{
+  "base": "13cef9f8e6dc72549071426ad98df70e0d16f4a4",
+  "paths": [
+    "src/worker",
+    "packages",
+    "migrations",
+    "public",
+    "src/web/services",
+    "src/web/stores",
+    "src/web/App.tsx",
+    "src/web/lib/sync.ts",
+    "src/web/lib/private-session.ts",
+    "src/web/pages/PaymentPage.tsx",
+    "package.json",
+    "pnpm-lock.yaml",
+    "vite.config.ts",
+    "wrangler.toml"
+  ],
+  "diff": "",
+  "storeAllowance": "none"
+}

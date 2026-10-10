@@ -1,3 +1,4 @@
+import { KitchenHeader } from '../components/common/KitchenHeader';
 import React, { useEffect, useRef, useState } from 'react';
 import { useNavigate, useSearchParams } from 'react-router-dom';
 import { ReviewHeading, ReviewSummary } from '../components/scan/ReviewHeading';
@@ -283,6 +284,8 @@ const ReceiptReview: React.FC<{ receiptScanId: string | null }> = ({ receiptScan
   };
 
   return (
+    <>
+    <KitchenHeader />
     <div className="review-workspace">
       <ReviewHeading receipt confirmed={isConfirmed} />
 
@@ -617,5 +620,6 @@ const ReceiptReview: React.FC<{ receiptScanId: string | null }> = ({ receiptScan
         </div>
       </div>
     </div>
+    </>
   );
 };

@@ -2160,3 +2160,78 @@ Protected diff empty and tree clean after implementation; documentation checkpoi
 follows. No timeout/config was weakened. Round-10 reports retain failed runs, generic UX
 FAIL151/29/968/82 and dependency41 advisories, and distinguish synthetic receipts
 from real Worker commands. UI11 navigation packet is ready; runtime not started.
+
+## ADR-054 - Measured kitchen navigation and shell offsets
+
+**Status:** Accepted 2026-10-10; locally verified; final full gate PASS, Git checkpoint pending.
+
+**Problem/evidence:** Local Chromium audit from 13cef9f captures ten states.
+At320px computed text x2 the six-cell69px mobile bar has three label-overlap
+pairs and text below the viewport. Tablet10px labels truncate at x2; short768x420
+shrinks icon rows and clips labels. Header with back/brand/notifications/account
+already uses312px at320, so adding Scan in that row is not viable.
+
+**Decision:** Kitchen-only mobile navigation contains the five existing roots,
+full12px wrapping labels, intrinsic height, static active surface and real links.
+An em-based grid reflows to two rows under enlarged text instead of breaking words
+to force five cells on one row; the measured bar reserves the resulting height.
+Scan remains an explicit labelled44px-minimum action in a second header row on
+mobile; scan review pages adopt the same KitchenHeader for persistent access. Tablet uses a112px scrolling rail with14px wrapping labels; desktop keeps
+256px and a labelled Scan action. Rail owns brand from640px, header owns it below.
+On short viewports the header and page actions flow normally so editing space
+is available; navigation itself remains reachable. No new root/drawer or asset.
+
+Kitchen active states use segment boundaries, including inventory-reconciliation
+under stock. Shopping and scan review remain contextual with no selected root;
+Scan link itself marks the scan family. Planner/Week destination still follows
+the existing build flag. Legacy default navigation/API retains its existing kit,
+six-cell layout and matchers; protected surfaces are not migrated.
+
+One kitchen shell measurement contract owns --kitchen-nav-height (actual visible
+mobile bar including safe area), --kitchen-header-height, --kitchen-banner-height,
+--kitchen-action-reserve and --kitchen-rail-width. ResizeObserver watches shell
+chrome; child-list changes rebind late route/header/actions; route cleanup restores
+root scrolling offsets. Main padding reserves nav and fixed page actions; scan review sticky
+actions occupy their existing flow and clear nav. Settings actions are fixed
+under kitchen scope: text x2 proved a fieldset-start clamp can hide sticky Save
+behind the bar before its parent reaches the visible viewport. Short-height
+settings actions remain in-flow. Focused main controls are kept
+between visible chrome; dialogs retain their own focus/scroll authority. Inventory
+Add, recipe Cook, settings StickyActions, scan review and unused BottomCTA all
+consume this contract under kitchen scope. Short<=600px actions become in-flow.
+
+**Compatibility/boundary:** App route/guard source, callbacks, commands, stores,
+services, backend/packages/schema/migrations/public/dependencies/auth/payment/
+production flags/config remain unchanged. Existing UI07 identity, immersive
+camera/cooking/onboarding/auth and protected/legacy shell remain. Synthetic text
+magnification and safe areas are explicit checks, not native zoom/device claims.
+
+**Plan/acceptance:** Implement variants and measured shell; meaningful contracts
+for five destinations, Scan, flag, active boundaries, immersive/legacy and observer
+cleanup. Browser seven widths320..1440, short390x420 and768x420, text x2, keyboard,
+dialog return, focus/offset/brand checks across all packet route families and both
+planner flags. Preserve inventory JSON for read/navigation journeys. Freeze source/
+evidence, focused/type/lint/full pnpm check, fresh guideline/UX/dependency review,
+local implementation commit and Git-object verification, then documentation
+checkpoint. No push/PR/deploy. Device/Safari/usability/CWV and separate offline/media/
+dependency risks remain. Runtime may be refined from measured failures and recorded.
+
+
+**UI11 verified adjustments:** em grid uses two rows at computed text x2;
+settings toolbar is fixed after observed fieldset clamping; action buttons use
+intrinsic heights/1.4 line-height; ResizeObserver explicitly observes border-box
+so padding-only safe-area changes update measured offsets. Browser115checks/
+16journeys, flag-off24/1, seven aliases and E2E19PASS/5once-onlySKIP39.6s. E2E
+public assertion was stale from pre-UI08 mascot and now covers actual stacked entry;
+no runtime/timeout change. Protected patches restore base bytes exactly. Generic
+UX154/30/977/85FAIL (earlier980warnings) and dependency41advisories remain; final full/Git verification
+and implementation hash recorded at completion.
+
+
+**Final UI11 gate:**285files/6685tests PASS,Vitest344.71s,type/lint/migration
+smoke/Vite2.97s/WorkerTS PASS. Final focused14files/255PASS6.34s. Four scan fixture
+suites recovered without runtime/authority changes; unchanged Wrangler startup
+then exposed expired update-check cache under full-gate TMPDIR. Logs isolate delay
+before local D1; exact-env recovery32PASS3.77s/case1206ms,full suite32PASS2711ms.
+No manual cache/dependency/timeout/config edit. Source160 and all99publicTakosan
+build assets verify after full; remote gates remain skipped. Git checkpoint follows.

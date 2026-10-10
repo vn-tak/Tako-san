@@ -11,7 +11,8 @@ vi.mock('react-router-dom', () => ({
   useSearchParams: () => [new URLSearchParams('scanId=receipt-poll-test')],
 }));
 vi.mock('../../src/web/services/api', () => ({ api: { getScan, confirmScan: vi.fn() } }));
-vi.mock('../../src/web/components/common/TopBar', () => ({ TopBar: () => <div /> }));
+// UI11 chrome is verified separately; keep this fixture focused on receipt authority.
+vi.mock('../../src/web/components/common/KitchenHeader', () => ({ KitchenHeader: () => null }));
 vi.mock('../../src/web/components/common/QuantityStepper', () => ({ QuantityStepper: () => <div /> }));
 vi.mock('../../src/web/components/common/Button', () => ({ Button: ({ children, fullWidth: _fullWidth, size: _size, variant: _variant, isLoading: _isLoading, className: _className, ...props }: any) => <button {...props}>{children}</button> }));
 vi.mock('../../src/web/stores/useWeekStore', () => ({

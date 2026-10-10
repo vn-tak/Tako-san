@@ -1,0 +1,34 @@
+
+ RUN  v3.2.7 /Users/tunbee27/Documents/Tako-san-ui-rebuild
+
+ ✓ tests/unit/t13b-receipt-review.test.tsx (43 tests) 493ms
+ ✓ tests/unit/t13b-fridge-hardening.test.tsx (26 tests) 407ms
+ ✓ tests/unit/ui11-shell-measurement.test.tsx (3 tests) 325ms
+ ✓ tests/unit/receipt-review-polling.test.tsx (3 tests) 131ms
+stderr | tests/unit/ui10-week-routes.test.tsx > planner on preserves /week → /planner
+⚠️ React Router Future Flag Warning: React Router will begin wrapping state updates in `React.startTransition` in v7. You can use the `v7_startTransition` future flag to opt-in early. For more information, see https://reactrouter.com/v6/upgrading/future#v7_starttransition.
+⚠️ React Router Future Flag Warning: Relative route resolution within Splat routes is changing in v7. You can use the `v7_relativeSplatPath` future flag to opt-in early. For more information, see https://reactrouter.com/v6/upgrading/future#v7_relativesplatpath.
+
+ ✓ tests/unit/ui10-week-routes.test.tsx (14 tests) 232ms
+stderr | tests/unit/ui08-onboarding-navigation.test.tsx > UI08 completion intent through actual App guards > today reaches its chosen destination after server confirmation
+⚠️ React Router Future Flag Warning: React Router will begin wrapping state updates in `React.startTransition` in v7. You can use the `v7_startTransition` future flag to opt-in early. For more information, see https://reactrouter.com/v6/upgrading/future#v7_starttransition.
+⚠️ React Router Future Flag Warning: Relative route resolution within Splat routes is changing in v7. You can use the `v7_relativeSplatPath` future flag to opt-in early. For more information, see https://reactrouter.com/v6/upgrading/future#v7_relativesplatpath.
+
+ ✓ tests/unit/ui08-onboarding-navigation.test.tsx (6 tests) 230ms
+stderr | tests/unit/t18c-keyboard-controls.test.tsx > Week PLANNED card exposes only actionable native controls
+⚠️ React Router Future Flag Warning: React Router will begin wrapping state updates in `React.startTransition` in v7. You can use the `v7_startTransition` future flag to opt-in early. For more information, see https://reactrouter.com/v6/upgrading/future#v7_starttransition.
+⚠️ React Router Future Flag Warning: Relative route resolution within Splat routes is changing in v7. You can use the `v7_relativeSplatPath` future flag to opt-in early. For more information, see https://reactrouter.com/v6/upgrading/future#v7_relativesplatpath.
+
+ ✓ tests/unit/t18c-keyboard-controls.test.tsx (5 tests) 77ms
+ ✓ tests/unit/takosan-brand.test.tsx (19 tests) 149ms
+ ✓ tests/unit/ui11-navigation.test.tsx (29 tests) 28ms
+ ✓ tests/unit/ui02-presentation.test.ts (47 tests) 23ms
+ ✓ tests/unit/scan-privacy.test.tsx (11 tests) 17ms
+ ✓ tests/unit/ui07-brand-shell.test.tsx (15 tests) 22ms
+ ✓ tests/unit/ui08-route-scope.test.tsx (20 tests) 20ms
+ ✓ tests/unit/ui09-route-scope.test.tsx (14 tests) 9ms
+
+ Test Files  14 passed (14)
+      Tests  255 passed (255)
+   Start at  23:43:47
+   Duration  6.34s (transform 1.31s, setup 109ms, collect 5.30s, tests 2.16s, environment 1.83s, prepare 589ms)

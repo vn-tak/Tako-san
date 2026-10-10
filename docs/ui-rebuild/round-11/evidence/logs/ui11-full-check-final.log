@@ -1,0 +1,1541 @@
+
+> frigo@0.1.0 check /Users/tunbee27/Documents/Tako-san-ui-rebuild
+> bash scripts/deploy-check.sh
+
+=== Frigo Pre-Deployment Verification ===
+1. Checking TypeScript Types...
+
+> frigo@0.1.0 typecheck /Users/tunbee27/Documents/Tako-san-ui-rebuild
+> tsc -p tsconfig.json --noEmit && tsc -p tsconfig.worker.json --noEmit
+
+2. Running ESLint...
+
+> frigo@0.1.0 lint /Users/tunbee27/Documents/Tako-san-ui-rebuild
+> eslint .
+
+3. Running Vitest Suite...
+
+> frigo@0.1.0 test /Users/tunbee27/Documents/Tako-san-ui-rebuild
+> vitest run
+
+
+ RUN  v3.2.7 /Users/tunbee27/Documents/Tako-san-ui-rebuild
+
+ ✓ tests/integration/inventory-lot-authority.test.ts (306 tests) 49611ms
+   ✓ T09D exhaustive validated intent fingerprints > conflicts on 'CREATE.lotId' without rewriting any stock or evidence  387ms
+   ✓ T09D exhaustive validated intent fingerprints > conflicts on 'CREATE.ingredientId' without rewriting any stock or evidence  300ms
+   ✓ T09D exhaustive validated intent fingerprints > conflicts on 'CREATE.rawName' without rewriting any stock or evidence  301ms
+   ✓ T09D exhaustive validated intent fingerprints > conflicts on 'CREATE.quantity' without rewriting any stock or evidence  320ms
+   ✓ T09D exhaustive validated intent fingerprints > conflicts on 'CREATE.unit.dimension' without rewriting any stock or evidence  339ms
+   ✓ T09D exhaustive validated intent fingerprints > conflicts on 'CREATE.purchasedAt' without rewriting any stock or evidence  359ms
+   ✓ T09D exhaustive validated intent fingerprints > conflicts on 'CREATE.purchasedAt.null' without rewriting any stock or evidence  394ms
+   ✓ T09D exhaustive validated intent fingerprints > conflicts on 'CREATE.openedAt' without rewriting any stock or evidence  628ms
+   ✓ T09D exhaustive validated intent fingerprints > conflicts on 'CREATE.purchasePrice.null' without rewriting any stock or evidence  551ms
+   ✓ T09D exhaustive validated intent fingerprints > conflicts on 'CREATE.purchasePrice.currency' without rewriting any stock or evidence  303ms
+   ✓ T09D exhaustive validated intent fingerprints > conflicts on 'CREATE.purchasePrice.amountMinor' without rewriting any stock or evidence  342ms
+   ✓ T09D exhaustive validated intent fingerprints > conflicts on 'CREATE.purchasePrice.minorDigits' without rewriting any stock or evidence  304ms
+   ✓ T09D exhaustive validated intent fingerprints > conflicts on 'CREATE.sourceType' without rewriting any stock or evidence  334ms
+   ✓ T09D exhaustive validated intent fingerprints > conflicts on 'CREATE.sourceId' without rewriting any stock or evidence  328ms
+   ✓ T09D exhaustive validated intent fingerprints > conflicts on 'USE.reason' without rewriting any stock or evidence  356ms
+   ✓ T09D exhaustive validated intent fingerprints > conflicts on 'DISCARD.quantity' without rewriting any stock or evidence  372ms
+   ✓ T09D exhaustive validated intent fingerprints > conflicts on 'DISCARD.unit' without rewriting any stock or evidence  307ms
+   ✓ T09D exhaustive validated intent fingerprints > conflicts on 'DISCARD.reason' without rewriting any stock or evidence  383ms
+   ✓ T09D exhaustive validated intent fingerprints > conflicts on 'DISCARD.reason.omitted' without rewriting any stock or evidence  310ms
+   ✓ T09D exhaustive validated intent fingerprints > conflicts on 'OPEN.openedAt' without rewriting any stock or evidence  362ms
+   ✓ T09D exhaustive validated intent fingerprints > conflicts on 'MOVE.storageLocationId' without rewriting any stock or evidence  372ms
+   ✓ T09D exhaustive validated intent fingerprints > conflicts on 'CORRECT.changes.quantity' without rewriting any stock or evidence  425ms
+   ✓ T09D exhaustive validated intent fingerprints > conflicts on 'CORRECT.changes.unit' without rewriting any stock or evidence  394ms
+   ✓ T09D exhaustive validated intent fingerprints > conflicts on 'CORRECT.changes.ingredientId' without rewriting any stock or evidence  391ms
+   ✓ T09D exhaustive validated intent fingerprints > conflicts on 'CORRECT.changes.ingredientId.null' without rewriting any stock or evidence  327ms
+   ✓ T09D exhaustive validated intent fingerprints > conflicts on 'CORRECT.changes.expiryAt' without rewriting any stock or evidence  406ms
+   ✓ T09D exhaustive validated intent fingerprints > conflicts on 'CORRECT.changes.expiryAt.null' without rewriting any stock or evidence  429ms
+   ✓ T09D exhaustive validated intent fingerprints > conflicts on 'CORRECT.changes.purchasedAt' without rewriting any stock or evidence  425ms
+   ✓ T09D exhaustive validated intent fingerprints > conflicts on 'CORRECT.lotId' without rewriting any stock or evidence  389ms
+ ✓ tests/unit/production-catalog-import-inspection.test.mjs (163 tests) 51911ms
+   ✓ fixed production import incident SELECT-only inspection > supports asynchronous query injection  343ms
+   ✓ fixed production import incident SELECT-only inspection > observes an exact applied marker and shape-safe archive/target/live counts without certifying a release  482ms
+   ✓ fixed production import incident SELECT-only inspection > keeps partial exact known objects blocked but reads only their validated aggregates  314ms
+   ✓ fixed production import incident SELECT-only inspection > rejects an extra recovery-prefix object despite the complete 58 known objects  578ms
+   ✓ fixed production import incident SELECT-only inspection > blocks case-variant original recovery object Catalog_Recovery_t21_v1_37384670328_guard instead of reporting no commit  339ms
+   ✓ fixed production import incident SELECT-only inspection > does not query a known name with the wrong object type  360ms
+   ✓ fixed production import incident SELECT-only inspection > rejects modified evidence-trigger SQL even with exact object names and types  587ms
+   ✓ fixed production import incident SELECT-only inspection > does not trust an applied status row with a different source identity  727ms
+   ✓ fixed production import incident SELECT-only inspection > does not infer a primary observation from metadata true  330ms
+   ✓ fixed production import incident SELECT-only inspection > does not infer a primary observation from metadata 1  358ms
+   ✓ fixed production import incident SELECT-only inspection > fails closed and emits sanitized inventory failure for extra row  355ms
+   ✓ fixed production import incident SELECT-only inspection > fails closed and emits sanitized inventory failure for private row  399ms
+   ✓ sealed latest V2 import incident SELECT-only inspection > queries only application FKs with the real SQLite authorizer rejecting reserved names  450ms
+   ✓ sealed latest V2 import incident SELECT-only inspection > still scans an unknown application table and reports its incoming uppercase catalog FK  425ms
+   ✓ sealed latest V2 import incident SELECT-only inspection > blocks unknown table before any schema PRAGMA  418ms
+   ✓ sealed latest V2 import incident SELECT-only inspection > blocks case-variant reserved view before any schema PRAGMA  412ms
+   ✓ sealed latest V2 import incident SELECT-only inspection > blocks malformed documented table before any schema PRAGMA  463ms
+   ✓ sealed latest V2 import incident SELECT-only inspection > blocks attached reserved index before any schema PRAGMA  410ms
+   ✓ sealed latest V2 import incident SELECT-only inspection > observes exact applied V2 evidence and target counts despite the expected old-catalog bound mismatch  419ms
+   ✓ sealed latest V2 import incident SELECT-only inspection > observes a real complete rollback with the optional canonical 59th guard object  630ms
+   ✓ sealed latest V2 import incident SELECT-only inspection > does not trust an applied marker with a changed repair ID or digest  423ms
+   ✓ sealed latest V2 import incident SELECT-only inspection > does not claim applied observation when live target counts drift  429ms
+   ✓ sealed latest V2 import incident SELECT-only inspection > rejects a compatible-shape rollback guard with different DDL  639ms
+   ✓ sealed latest V2 import incident SELECT-only inspection > rejects incomplete rollback guard rows despite an exact rolled-back marker  627ms
+   ✓ sealed latest V2 import incident SELECT-only inspection > keeps final observation blocked when namespace read is not primary  456ms
+   ✓ sealed latest V2 import incident SELECT-only inspection > keeps final observation blocked when schema read is not primary  422ms
+   ✓ sealed latest V2 import incident SELECT-only inspection > keeps final observation blocked when aggregate read is not primary  421ms
+   ✓ sealed latest V2 import incident SELECT-only inspection > keeps final observation blocked when status read is not primary  427ms
+   ✓ sealed latest V2 import incident SELECT-only inspection > sanitizes auth-scope errors from a latest aggregate and blocks final observation  427ms
+   ✓ sealed fixed V2 import incident 37536969564 SELECT-only inspection > observes complete applied evidence with a marker unique to this run  433ms
+   ✓ sealed fixed V2 import incident 37536969564 SELECT-only inspection > observes real rollback evidence and all canonical rollback guard rows  639ms
+   ✓ sealed fixed V2 import incident 37536969564 SELECT-only inspection > rejects substituted status identity even when all applied objects exist  422ms
+   ✓ sealed fixed V2 import incident 37536969564 SELECT-only inspection > blocks applied count drift  451ms
+   ✓ sealed fixed V2 import incident 37536969564 SELECT-only inspection > blocks incomplete rollback evidence  634ms
+   ✓ sealed fixed V2 import incident 37536969564 SELECT-only inspection > uses the approved reserved inventory before scanning application FK metadata  447ms
+   ✓ sealed fixed V2 import incident 37536969564 SELECT-only inspection > blocks unknown reserved table before any schema PRAGMA, as confirmed by a real authorizer  408ms
+   ✓ sealed fixed V2 import incident 37536969564 SELECT-only inspection > blocks case-variant reserved view before any schema PRAGMA, as confirmed by a real authorizer  421ms
+   ✓ sealed fixed V2 import incident 37536969564 SELECT-only inspection > blocks malformed reserved table before any schema PRAGMA, as confirmed by a real authorizer  451ms
+   ✓ sealed fixed V2 import incident 37536969564 SELECT-only inspection > blocks reserved index before any schema PRAGMA, as confirmed by a real authorizer  428ms
+   ✓ sealed fixed V2 import incident 37536969564 SELECT-only inspection > requires strict primary metadata for each namespace read  441ms
+   ✓ sealed fixed V2 import incident 37536969564 SELECT-only inspection > requires strict primary metadata for each schema read  427ms
+   ✓ sealed fixed V2 import incident 37536969564 SELECT-only inspection > requires strict primary metadata for each aggregate read  445ms
+   ✓ sealed fixed V2 import incident 37536969564 SELECT-only inspection > requires strict primary metadata for each status read  433ms
+   ✓ sealed fixed V2 import incident 37536969564 SELECT-only inspection > rejects substituted fingerprint before any query  390ms
+ ✓ tests/unit/production-catalog-preflight-diagnostics.test.mjs (45 tests) 33087ms
+   ✓ production catalog preflight diagnostics using the real 0038 catalog > proves both existing gates at 0038 without applying 0039 or changing database content  1018ms
+   ✓ production catalog preflight diagnostics using the real 0038 catalog > accepts 500 already-ready heroes while keeping the receipt aggregate-only  1029ms
+   ✓ production catalog preflight diagnostics using the real 0038 catalog > rejects missing operational aggregate media_total without fallback to the stale policy  961ms
+   ✓ production catalog preflight diagnostics using the real 0038 catalog > rejects missing operational aggregate recipes_without_active_hero without fallback to the stale policy  1047ms
+   ✓ production catalog preflight diagnostics using the real 0038 catalog > rejects missing operational aggregate media_orphan_rows without fallback to the stale policy  843ms
+   ✓ production catalog preflight diagnostics using the real 0038 catalog > rejects missing operational aggregate media_duplicate_ready_roles without fallback to the stale policy  856ms
+   ✓ production catalog preflight diagnostics using the real 0038 catalog > rejects missing operational aggregate media_invalid_metadata without fallback to the stale policy  867ms
+   ✓ production catalog preflight diagnostics using the real 0038 catalog > rejects missing operational aggregate media_invalid_ready_metadata without fallback to the stale policy  855ms
+   ✓ production catalog preflight diagnostics using the real 0038 catalog > rejects a missing pending hero even though all recipes hydrate and the runtime fingerprint matches  875ms
+   ✓ production catalog preflight diagnostics using the real 0038 catalog > rejects gapped recipe order despite complete hydration and an unchanged ordered runtime payload  854ms
+   ✓ production catalog preflight diagnostics using the real 0038 catalog > rejects semantic step drift that leaves ingredient lineage, counts and hydration valid  869ms
+   ✓ production catalog preflight diagnostics using the real 0038 catalog > rejects missing ingredient positions and never emits hydration row identifiers  772ms
+   ✓ production catalog preflight diagnostics using the real 0038 catalog > rejects changed aggregate and identity snapshots before certifying the catalog  816ms
+   ✓ production catalog preflight diagnostics using the real 0038 catalog > rejects changed runtime reads even if each read individually remains hydratable  840ms
+   ✓ production catalog preflight diagnostics using the real 0038 catalog > blocks ledger advancement and does not evaluate either catalog gate  868ms
+   ✓ production catalog preflight diagnostics using the real 0038 catalog > blocks missing historical migration and does not evaluate either catalog gate  813ms
+   ✓ production catalog preflight diagnostics using the real 0038 catalog > blocks duplicate migration and does not evaluate either catalog gate  800ms
+   ✓ production catalog preflight diagnostics using the real 0038 catalog > blocks unexpected migration and does not evaluate either catalog gate  767ms
+   ✓ production catalog preflight diagnostics using the real 0038 catalog > rejects an unchanged 0039 ledger because this diagnostic is scoped to the pre-migration 0038 state  806ms
+   ✓ production catalog preflight diagnostics using the real 0038 catalog > retains a sanitized blocked receipt for catalog missing  849ms
+   ✓ production catalog preflight diagnostics using the real 0038 catalog > retains a sanitized blocked receipt for catalog statement missing  857ms
+   ✓ production catalog preflight diagnostics using the real 0038 catalog > retains a sanitized blocked receipt for catalog failed statement  859ms
+   ✓ production catalog preflight diagnostics using the real 0038 catalog > retains a sanitized blocked receipt for multiple aggregate rows  859ms
+   ✓ production catalog preflight diagnostics using the real 0038 catalog > retains a sanitized blocked receipt for runtime missing  736ms
+   ✓ production catalog preflight diagnostics using the real 0038 catalog > retains a sanitized blocked receipt for runtime statement missing  782ms
+   ✓ production catalog preflight diagnostics using the real 0038 catalog > retains a sanitized blocked receipt for runtime failed statement  848ms
+   ✓ production catalog preflight diagnostics using the real 0038 catalog > rejects a malformed known aggregate value 0 without coercing it  856ms
+   ✓ production catalog preflight diagnostics using the real 0038 catalog > rejects a malformed known aggregate value 9007199254740992 without coercing it  834ms
+   ✓ production catalog preflight diagnostics using the real 0038 catalog > rejects a malformed known aggregate value NaN without coercing it  782ms
+   ✓ production catalog preflight diagnostics using the real 0038 catalog > rejects a malformed known aggregate value Infinity without coercing it  817ms
+   ✓ production catalog preflight diagnostics using the real 0038 catalog > retains null order extrema while rejecting an empty runtime order range  812ms
+   ✓ production catalog preflight diagnostics using the real 0038 catalog > retains negative order bounds as evidence while rejecting the invalid recipe order range  846ms
+   ✓ production catalog preflight diagnostics using the real 0038 catalog > rejects negative count fields instead of exposing an impossible aggregate  812ms
+   ✓ production catalog preflight diagnostics using the real 0038 catalog > rejects unreviewed migration tip before issuing a receipt  798ms
+   ✓ production catalog preflight diagnostics using the real 0038 catalog > rejects migration content hash drift before issuing a receipt  816ms
+   ✓ production catalog preflight diagnostics using the real 0038 catalog > drops unknown row, provider and manifest fields from a successful diagnostic receipt  835ms
+   ✓ production catalog preflight diagnostics using the real 0038 catalog > ignores provider timing metadata when comparing otherwise identical read snapshots  883ms
+   ✓ production catalog preflight diagnostics using the real 0038 catalog > keeps provider or pipeline exception messages out of blocked receipts  826ms
+ ✓ tests/unit/t21rc2-production-approval.test.mjs (148 tests) 36796ms
+   ✓ T21R-C2 reviewed execution closure (real Git objects) > allows the protected merge and later unrelated docs commit with its own exact-main CI  485ms
+   ✓ T21R-C2 reviewed execution closure (real Git objects) > rejects unreviewed changes to .github/workflows/production-d1-t21rc-row-reconciliation.yml despite ancestry and green exact-main CI  432ms
+   ✓ T21R-C2 reviewed execution closure (real Git objects) > rejects unreviewed changes to scripts/t21rc2-production-approval.mjs despite ancestry and green exact-main CI  481ms
+   ✓ T21R-C2 reviewed execution closure (real Git objects) > rejects unreviewed changes to scripts/t21rc2-production-capture.mjs despite ancestry and green exact-main CI  418ms
+   ✓ T21R-C2 reviewed execution closure (real Git objects) > rejects unreviewed changes to scripts/t21rc2-production-files.mjs despite ancestry and green exact-main CI  416ms
+   ✓ T21R-C2 reviewed execution closure (real Git objects) > rejects unreviewed changes to scripts/t21rc2-production-receipt.mjs despite ancestry and green exact-main CI  457ms
+   ✓ T21R-C2 reviewed execution closure (real Git objects) > rejects unreviewed changes to scripts/t21rc-row-reconciliation.mjs despite ancestry and green exact-main CI  435ms
+   ✓ T21R-C2 reviewed execution closure (real Git objects) > rejects unreviewed changes to scripts/t21r-v1-authority.mjs despite ancestry and green exact-main CI  469ms
+   ✓ T21R-C2 reviewed execution closure (real Git objects) > rejects unreviewed changes to scripts/release-check.mjs despite ancestry and green exact-main CI  419ms
+   ✓ T21R-C2 reviewed execution closure (real Git objects) > rejects unreviewed changes to scripts/d1-migration-check.mjs despite ancestry and green exact-main CI  425ms
+   ✓ T21R-C2 reviewed execution closure (real Git objects) > rejects unreviewed changes to docs/ai/recipe-catalog/T21RC_ROW_RECONCILIATION_SCHEMA.json despite ancestry and green exact-main CI  478ms
+   ✓ T21R-C2 reviewed execution closure (real Git objects) > rejects unreviewed changes to docs/ai/recipe-catalog/T21RA_RUNTIME_CANONICAL_TARGET.json despite ancestry and green exact-main CI  444ms
+   ✓ T21R-C2 reviewed execution closure (real Git objects) > rejects unreviewed changes to wrangler.jsonc despite ancestry and green exact-main CI  395ms
+   ✓ T21R-C2 reviewed execution closure (real Git objects) > rejects unreviewed changes to package.json despite ancestry and green exact-main CI  377ms
+   ✓ T21R-C2 reviewed execution closure (real Git objects) > rejects unreviewed changes to pnpm-lock.yaml despite ancestry and green exact-main CI  370ms
+   ✓ T21R-C2 reviewed execution closure (real Git objects) > rejects unreviewed changes to .github/workflows/ci.yml despite ancestry and green exact-main CI  400ms
+   ✓ T21R-C2 reviewed execution closure (real Git objects) > rejects unreviewed changes to scripts/t21rb-v1-semantic.mjs despite ancestry and green exact-main CI  383ms
+   ✓ T21R-C2 reviewed execution closure (real Git objects) > rejects unreviewed changes to vite.config.ts despite ancestry and green exact-main CI  373ms
+   ✓ T21R-C2 reviewed execution closure (real Git objects) > rejects unreviewed changes to tsconfig.json despite ancestry and green exact-main CI  387ms
+   ✓ T21R-C2 reviewed execution closure (real Git objects) > rejects unreviewed changes to data/recipe-import/approved-batches.json despite ancestry and green exact-main CI  387ms
+   ✓ T21R-C2 reviewed execution closure (real Git objects) > rejects unreviewed changes to data/recipe-import/t14f/pilot-30.jsonl despite ancestry and green exact-main CI  386ms
+   ✓ T21R-C2 reviewed execution closure (real Git objects) > rejects unreviewed changes to data/recipe-import/t14f/scale-399.jsonl despite ancestry and green exact-main CI  379ms
+   ✓ T21R-C2 reviewed execution closure (real Git objects) > rejects unreviewed changes to data/recipe-refresh/v2/ingredient-reconciliation.json despite ancestry and green exact-main CI  364ms
+   ✓ T21R-C2 reviewed execution closure (real Git objects) > rejects unreviewed changes to packages/recipes/src/import/catalog-release.current.json despite ancestry and green exact-main CI  371ms
+   ✓ T21R-C2 reviewed execution closure (real Git objects) > rejects unreviewed changes to migrations despite ancestry and green exact-main CI  352ms
+   ✓ T21R-C2 reviewed execution closure (real Git objects) > rejects unreviewed changes to packages/domain/src/availability.ts despite ancestry and green exact-main CI  366ms
+   ✓ T21R-C2 reviewed execution closure (real Git objects) > rejects unreviewed changes to packages/domain/src/foundation.ts despite ancestry and green exact-main CI  392ms
+   ✓ T21R-C2 reviewed execution closure (real Git objects) > rejects unreviewed changes to packages/domain/src/index.ts despite ancestry and green exact-main CI  364ms
+   ✓ T21R-C2 reviewed execution closure (real Git objects) > rejects unreviewed changes to packages/domain/src/inventory-read-authority.ts despite ancestry and green exact-main CI  352ms
+   ✓ T21R-C2 reviewed execution closure (real Git objects) > rejects unreviewed changes to packages/domain/src/inventory-truth.ts despite ancestry and green exact-main CI  352ms
+   ✓ T21R-C2 reviewed execution closure (real Git objects) > rejects unreviewed changes to packages/domain/src/meal-planning-api.ts despite ancestry and green exact-main CI  368ms
+   ✓ T21R-C2 reviewed execution closure (real Git objects) > rejects unreviewed changes to packages/domain/src/meal-shopping-api.ts despite ancestry and green exact-main CI  348ms
+   ✓ T21R-C2 reviewed execution closure (real Git objects) > rejects unreviewed changes to packages/domain/src/quantity.ts despite ancestry and green exact-main CI  370ms
+   ✓ T21R-C2 reviewed execution closure (real Git objects) > rejects unreviewed changes to packages/domain/src/units.ts despite ancestry and green exact-main CI  394ms
+   ✓ T21R-C2 reviewed execution closure (real Git objects) > rejects unreviewed changes to packages/domain/src/week/index.ts despite ancestry and green exact-main CI  391ms
+   ✓ T21R-C2 reviewed execution closure (real Git objects) > rejects unreviewed changes to packages/domain/src/week/leftover.ts despite ancestry and green exact-main CI  423ms
+   ✓ T21R-C2 reviewed execution closure (real Git objects) > rejects unreviewed changes to packages/domain/src/week/packages.ts despite ancestry and green exact-main CI  387ms
+   ✓ T21R-C2 reviewed execution closure (real Git objects) > rejects unreviewed changes to packages/domain/src/week/planner.ts despite ancestry and green exact-main CI  372ms
+   ✓ T21R-C2 reviewed execution closure (real Git objects) > rejects unreviewed changes to packages/domain/src/week/portion.ts despite ancestry and green exact-main CI  379ms
+   ✓ T21R-C2 reviewed execution closure (real Git objects) > rejects unreviewed changes to packages/domain/src/week/pricing.ts despite ancestry and green exact-main CI  386ms
+   ✓ T21R-C2 reviewed execution closure (real Git objects) > rejects unreviewed changes to packages/domain/src/week/score.ts despite ancestry and green exact-main CI  359ms
+   ✓ T21R-C2 reviewed execution closure (real Git objects) > rejects unreviewed changes to packages/domain/src/week/shopping.ts despite ancestry and green exact-main CI  351ms
+   ✓ T21R-C2 reviewed execution closure (real Git objects) > rejects unreviewed changes to packages/domain/src/week/types.ts despite ancestry and green exact-main CI  379ms
+   ✓ T21R-C2 reviewed execution closure (real Git objects) > rejects unreviewed changes to packages/domain/src/week/utilization.ts despite ancestry and green exact-main CI  369ms
+   ✓ T21R-C2 reviewed execution closure (real Git objects) > rejects unreviewed changes to packages/recipes/src/catalog-fingerprint.ts despite ancestry and green exact-main CI  377ms
+   ✓ T21R-C2 reviewed execution closure (real Git objects) > rejects unreviewed changes to packages/recipes/src/data.ts despite ancestry and green exact-main CI  366ms
+   ✓ T21R-C2 reviewed execution closure (real Git objects) > rejects unreviewed changes to packages/recipes/src/import/compiler.ts despite ancestry and green exact-main CI  381ms
+   ✓ T21R-C2 reviewed execution closure (real Git objects) > rejects unreviewed changes to packages/recipes/src/import/duplicates.ts despite ancestry and green exact-main CI  375ms
+   ✓ T21R-C2 reviewed execution closure (real Git objects) > rejects unreviewed changes to packages/recipes/src/import/identity.ts despite ancestry and green exact-main CI  384ms
+   ✓ T21R-C2 reviewed execution closure (real Git objects) > rejects unreviewed changes to packages/recipes/src/import/ingredients.ts despite ancestry and green exact-main CI  392ms
+   ✓ T21R-C2 reviewed execution closure (real Git objects) > rejects unreviewed changes to packages/recipes/src/import/index.ts despite ancestry and green exact-main CI  391ms
+   ✓ T21R-C2 reviewed execution closure (real Git objects) > rejects unreviewed changes to packages/recipes/src/import/normalize.ts despite ancestry and green exact-main CI  372ms
+   ✓ T21R-C2 reviewed execution closure (real Git objects) > rejects unreviewed changes to packages/recipes/src/import/parse.ts despite ancestry and green exact-main CI  420ms
+   ✓ T21R-C2 reviewed execution closure (real Git objects) > rejects unreviewed changes to packages/recipes/src/import/release-manifest.ts despite ancestry and green exact-main CI  370ms
+   ✓ T21R-C2 reviewed execution closure (real Git objects) > rejects unreviewed changes to packages/recipes/src/import/schema.ts despite ancestry and green exact-main CI  362ms
+   ✓ T21R-C2 reviewed execution closure (real Git objects) > rejects unreviewed changes to packages/recipes/src/import/sql-render.ts despite ancestry and green exact-main CI  343ms
+   ✓ T21R-C2 reviewed execution closure (real Git objects) > rejects unreviewed changes to packages/recipes/src/import/types.ts despite ancestry and green exact-main CI  350ms
+   ✓ T21R-C2 reviewed execution closure (real Git objects) > rejects unreviewed changes to packages/recipes/src/runtime-recipe.ts despite ancestry and green exact-main CI  355ms
+   ✓ T21R-C2 reviewed execution closure (real Git objects) > rejects unreviewed changes to packages/recipes/src/seed-render.ts despite ancestry and green exact-main CI  384ms
+   ✓ T21R-C2 reviewed execution closure (real Git objects) > rejects unreviewed changes to packages/recipes/src/vietnamese-bank.ts despite ancestry and green exact-main CI  411ms
+   ✓ T21R-C2 reviewed execution closure (real Git objects) > rejects unreviewed changes to packages/recipes/src/vietnamese-images.ts despite ancestry and green exact-main CI  403ms
+   ✓ T21R-C2 reviewed execution closure (real Git objects) > rejects unreviewed changes to .npmrc despite ancestry and green exact-main CI  377ms
+   ✓ T21R-C2 reviewed execution closure (real Git objects) > rejects unreviewed changes to .pnpmfile.cjs despite ancestry and green exact-main CI  384ms
+   ✓ T21R-C2 reviewed execution closure (real Git objects) > rejects unreviewed changes to pnpm-workspace.yaml despite ancestry and green exact-main CI  385ms
+   ✓ T21R-C2 reviewed execution closure (real Git objects) > rejects unreviewed changes to .gitattributes despite ancestry and green exact-main CI  377ms
+   ✓ T21R-C2 reviewed execution closure (real Git objects) > rejects unreviewed changes to vite.config.js despite ancestry and green exact-main CI  365ms
+   ✓ T21R-C2 reviewed execution closure (real Git objects) > rejects unreviewed changes to vite.config.mjs despite ancestry and green exact-main CI  334ms
+   ✓ T21R-C2 reviewed execution closure (real Git objects) > rejects unreviewed changes to vite.config.cjs despite ancestry and green exact-main CI  353ms
+   ✓ T21R-C2 reviewed execution closure (real Git objects) > rejects unreviewed changes to vite.config.mts despite ancestry and green exact-main CI  359ms
+   ✓ T21R-C2 reviewed execution closure (real Git objects) > rejects unreviewed changes to vite.config.cts despite ancestry and green exact-main CI  355ms
+   ✓ T21R-C2 reviewed execution closure (real Git objects) > rejects unreviewed changes to .env despite ancestry and green exact-main CI  355ms
+   ✓ T21R-C2 reviewed execution closure (real Git objects) > rejects unreviewed changes to .env.local despite ancestry and green exact-main CI  375ms
+   ✓ T21R-C2 reviewed execution closure (real Git objects) > rejects unreviewed changes to .env.development despite ancestry and green exact-main CI  361ms
+   ✓ T21R-C2 reviewed execution closure (real Git objects) > rejects unreviewed changes to .env.development.local despite ancestry and green exact-main CI  376ms
+   ✓ T21R-C2 reviewed execution closure (real Git objects) > allows an absent optional config but rejects introducing an unreviewed auto-loaded config  359ms
+   ✓ T21R-C2 reviewed execution closure (real Git objects) > blocks the gate before production approval and before emitting a candidate output  305ms
+   ✓ T21R-C2 reviewed execution closure (real Git objects) > blocks capture reauthorization before any Cloudflare subprocess when reviewed bytes changed  455ms
+   ✓ T21R-C2 reviewed execution closure (real Git objects) > rechecks byte binding again before producing final authorization for aggregate publication  451ms
+   ✓ runner-local approval CLI lifecycle > writes only candidate_sha for gate and keeps authorization private to approve/recheck  496ms
+   ✓ runner-local approval CLI lifecycle > blocks recheck if review history is skipped  346ms
+   ✓ runner-local approval CLI lifecycle > blocks recheck when environment reviewer policy changes  341ms
+   ✓ runner-local approval CLI lifecycle > detects admin-bypass availability changes through the policy digest  324ms
+ ✓ tests/integration/inventory-event-authority.test.ts (205 tests) 28575ms
+ ✓ tests/unit/production-catalog-recovery-runner.test.mjs (75 tests) 34594ms
+   ✓ bounded production recovery orchestration > pins static and captures a bookmark before one import, then certifies real V1 hydration  765ms
+   ✓ bounded production recovery orchestration > accepts the last integer below the 100 MiB bound  761ms
+   ✓ bounded production recovery orchestration > rejects D1 routing becoming active after the bookmark, before import  478ms
+   ✓ bounded production recovery orchestration > restores the catalog archive if independent verification fails and keeps static routing  897ms
+   ✓ bounded production recovery orchestration > records an unknown outcome when import committed but the provider response was lost  676ms
+   ✓ bounded production recovery orchestration > inspects the exact failed import twice between identical static pin and ledger proofs  402ms
+   ✓ bounded production recovery orchestration > executes the real compiler-derived helper through the readonly runner without changing catalog rows  464ms
+   ✓ bounded production recovery orchestration > loads the latest failed batch from its fixed historical source and repeats its inspection  344ms
+   ✓ bounded production recovery orchestration > loads the third incident from immutable a8fa and saves two stable SELECT-only observations  347ms
+   ✓ bounded production recovery orchestration > rejects stale main or approval at the final authorization check  402ms
+   ✓ bounded production recovery orchestration > rejects a changed final Worker pin after readonly inspection  400ms
+   ✓ bounded production recovery orchestration > stops new recovery when partial original objects  356ms
+   ✓ bounded production recovery orchestration > stops new recovery when observed original commit  325ms
+   ✓ bounded production recovery orchestration > stops new recovery when unproved primary availability  500ms
+   ✓ bounded production recovery orchestration > stops new recovery when old catalog no longer matches  349ms
+   ✓ bounded production recovery orchestration > stops a new recovery when inspection observes latest recovery objects  321ms
+   ✓ bounded production recovery orchestration > stops a new recovery when inspection observes latest applied marker  359ms
+   ✓ bounded production recovery orchestration > stops a new recovery when inspection observes latest unproved primary availability  314ms
+   ✓ bounded production recovery orchestration > stops a new recovery when latest incident observations change  384ms
+   ✓ bounded production recovery orchestration > blocks a new import before pin/bookmark when the third incident has objects  458ms
+   ✓ bounded production recovery orchestration > blocks a new import before pin/bookmark when the third incident has applied marker  442ms
+   ✓ bounded production recovery orchestration > blocks a new import before pin/bookmark when the third incident has rolled-back marker  384ms
+   ✓ bounded production recovery orchestration > blocks a new import before pin/bookmark when the third incident has primary unavailable  399ms
+   ✓ bounded production recovery orchestration > blocks a new import before pin/bookmark when the third incident has failed read  463ms
+   ✓ bounded production recovery orchestration > blocks a new import before pin/bookmark when the third incident has non-primary read  383ms
+   ✓ bounded production recovery orchestration > blocks a new import before pin/bookmark when the third incident has missing guard evidence  442ms
+   ✓ bounded production recovery orchestration > blocks a new import before pin/bookmark when the third incident has guard mismatch  502ms
+   ✓ bounded production recovery orchestration > blocks new recovery when third-incident captures drift and retains unknown terminal state  448ms
+   ✓ bounded production recovery orchestration > stops new recovery on changing original observations  351ms
+   ✓ bounded production recovery orchestration > sees uppercase original recovery objects and refuses a new import  352ms
+   ✓ bounded production recovery orchestration > protects populated child references with an uppercase SQLite target name  535ms
+   ✓ bounded production recovery orchestration > detects an added trigger attached to an uppercase catalog table name  569ms
+   ✓ bounded production recovery orchestration > rejects an unknown D1 internal object before any pin or import  398ms
+   ✓ bounded production recovery orchestration > retains detection of incoming recipe references from an unknown application table  678ms
+   ✓ bounded production recovery orchestration > rejects corrected preflight without strict primary metadata: false  656ms
+   ✓ bounded production recovery orchestration > rejects corrected preflight without strict primary metadata: undefined  582ms
+   ✓ bounded production recovery orchestration > rejects changing corrected preflights before any mutation  525ms
+   ✓ bounded production recovery orchestration > rechecks the original Worker immediately before pinning  473ms
+   ✓ bounded production recovery orchestration > rechecks main and normal approval after the corrected preflight  439ms
+   ✓ bounded production recovery orchestration > records only numeric provider codes and bounded exit status on file import failure  501ms
+   ✓ bounded production recovery orchestration > certifies a successful import despite pinned Wrangler cached progress on stdout  767ms
+   ✓ bounded production recovery orchestration > certifies a successful import despite pinned Wrangler uploaded progress on stdout  801ms
+   ✓ bounded production recovery orchestration > confirms guarded archive rollback with vendor progress after independent certification fails  1110ms
+   ✓ bounded production recovery orchestration > does not claim success or rollback on an unproved file response: malformed json  783ms
+   ✓ bounded production recovery orchestration > does not claim success or rollback on an unproved file response: []  844ms
+   ✓ bounded production recovery orchestration > does not claim success or rollback on an unproved file response: [{"success":false}]  757ms
+   ✓ bounded production recovery orchestration > keeps a timed-out import outcome unknown without inventing an exit status  538ms
+   ✓ bounded production recovery orchestration > rejects changing corrected preflight observations in read-only inspect mode  470ms
+ ✓ tests/integration/inventory-fefo.test.ts (34 tests) 23771ms
+   ✓ T09E multi-effect FEFO authority > enforces the 32-effect boundary before partial writes  674ms
+   ✓ T09E multi-effect FEFO authority > enforces the 33-effect boundary before partial writes  416ms
+   ✓ T09E multi-effect FEFO authority > permits a 1,000-lot FEFO snapshot and rejects the 1,001st lot before allocation  17752ms
+ ✓ tests/integration/t20-legacy-family-and-safety.test.ts (15 tests) 20471ms
+   ✓ T20 Manual enforces the same T03 hard contract as Auto > reviewed dietary tag required (safety unknown): Auto adds nothing and Manual cannot persist the dish  1434ms
+   ✓ T20 Manual enforces the same T03 hard contract as Auto > allergen requested (safety unknown): Auto adds nothing and Manual cannot persist the dish  1533ms
+   ✓ T20 Manual enforces the same T03 hard contract as Auto > hard nutrition target without reviewed nutrition: Auto adds nothing and Manual cannot persist the dish  1783ms
+   ✓ T20 Manual enforces the same T03 hard contract as Auto > rejects a substitution that becomes forbidden after an earlier component consumes direct stock  1159ms
+   ✓ T20 Manual enforces the same T03 hard contract as Auto > rejects a swap that makes an existing downstream dish fall back to forbidden shrimp  1164ms
+   ✓ T20 Manual enforces the same T03 hard contract as Auto > rejects an upstream-slot swap that makes a later slot use forbidden shrimp  1520ms
+   ✓ T20 Manual enforces the same T03 hard contract as Auto > does not rejudge a later dish when an earlier edit changes unrelated inventory  1424ms
+   ✓ T20 Manual enforces the same T03 hard contract as Auto > does not rejudge a later dish for stock quantity changes that leave its safety facts unchanged  1349ms
+   ✓ T20 Manual enforces the same T03 hard contract as Auto > PATCH reorder rejects an unsafe inventory-prefix change  1271ms
+   ✓ T20 Manual enforces the same T03 hard contract as Auto > PUT replace rejects an unsafe inventory-prefix change  1327ms
+   ✓ T20 Manual enforces the same T03 hard contract as Auto > allows a safe reorder of existing components after a stable inventory prefix  891ms
+   ✓ T20 Manual enforces the same T03 hard contract as Auto > does not rejudge a stable prefix when only later components move  928ms
+   ✓ T20 Manual enforces the same T03 hard contract as Auto > hard max time: a dish over (or without) a known total time is rejected; the existing V1 anchor may stay  639ms
+   ✓ T20 V1 family-variant meals > refuses a Manual swap that makes a later legacy-family variant substitute forbidden shrimp  1772ms
+   ✓ T20 V1 family-variant meals > keeps V1 swap, refuses composition, and stays in composed-plan shopping (single projection)  2273ms
+ ✓ tests/unit/recipe-catalog-recovery.test.mjs (48 tests) 19912ms
+   ✓ offline certified V1 recovery compiler > restores all 500 certified recipes from 6720 unreviewed lines and keeps a lossless immutable archive  585ms
+   ✓ offline certified V1 recovery compiler > preserves the approved internal table during complete restore and rollback: documented spelling  826ms
+   ✓ offline certified V1 recovery compiler > preserves the approved internal table during complete restore and rollback: ASCII whitespace and keyword case  800ms
+   ✓ offline certified V1 recovery compiler > preserves the approved internal table during complete restore and rollback: long whitespace runs  656ms
+   ✓ offline certified V1 recovery compiler > reproduces the original D1 authorization failure and visits every application table with the corrected restore and rollback  1178ms
+   ✓ offline certified V1 recovery compiler > keeps unknown application foreign keys to recipe_ingredients visible under the same D1 authorization policy  379ms
+   ✓ offline certified V1 recovery compiler > keeps unknown application foreign keys to RECIPE_INGREDIENTS visible under the same D1 authorization policy  441ms
+   ✓ offline certified V1 recovery compiler > rejects extra internal column before evaluating any foreign-key PRAGMA or changing catalog data  301ms
+   ✓ offline certified V1 recovery compiler > stops unknown protected objects before FK calls with the D1 authorizer enabled  385ms
+   ✓ offline certified V1 recovery compiler > clears versioned enrichment so shared ingredient profiles and stale versions cannot authorize nutrition  328ms
+   ✓ offline certified V1 recovery compiler > rolls every archive and catalog change back when a later statement fails  494ms
+   ✓ offline certified V1 recovery compiler > fails closed and leaves no partial archive when unknown child FK  305ms
+   ✓ offline certified V1 recovery compiler > rejects an ingredient that cannot be safely reinserted before touching the live catalog  306ms
+   ✓ offline certified V1 recovery compiler > rejects a different 500-recipe ID set despite the same row counts  315ms
+   ✓ offline certified V1 recovery compiler > restores the complete original archive atomically without changing shared profiles  851ms
+   ✓ offline certified V1 recovery compiler > refuses rollback after an unknown reserved object appears and keeps the applied catalog and archive intact  539ms
+   ✓ offline certified V1 recovery compiler > refuses rollback after a catalog edit and preserves that edit  598ms
+   ✓ offline certified V1 recovery compiler > handles a live slug permutation through temporary unique slugs and reverses it exactly  753ms
+   ✓ offline certified V1 recovery compiler > refuses a repeat restore and keeps the first successful archive intact  504ms
+ ✓ tests/integration/inventory-lot-commands.test.ts (146 tests) 17608ms
+ ✓ tests/integration/t20-meal-composition-flows.test.ts (16 tests) 15700ms
+   ✓ T20 assisted composition > "complete" proposes without mutating, retains every existing component, and applies only on explicit accept  1297ms
+   ✓ T20 assisted composition > a forged or stale proposal ID is rejected and nothing changes  895ms
+   ✓ T20 auto composition > keeps locked components identical, replaces only unlocked ones, is deterministic and explainable  1330ms
+   ✓ T20 auto composition > respects household hard restrictions in Auto and rejects them in Manual  870ms
+   ✓ T20 optimistic concurrency and idempotency > competing add/add and swap/swap: exactly one wins, the stale one is a typed conflict  1145ms
+   ✓ T20 optimistic concurrency and idempotency > competing add/remove: either winner is valid and the final composition reflects only the winner  971ms
+   ✓ T20 optimistic concurrency and idempotency > competing lock/regenerate on a composed slot: the loser is a typed conflict and is not applied  1373ms
+   ✓ T20 optimistic concurrency and idempotency > competing manual-save/auto-apply: the final composition is exactly the winner's  1316ms
+   ✓ T20 optimistic concurrency and idempotency > a retried add (same revision) never duplicates a component  1165ms
+   ✓ T20 security > cross-household plan/component access fails without leaking existence or writing  506ms
+   ✓ T20 security > clients cannot inject authority, household, provenance, role source, confidence, inventory, prices, weights or lock bypass  1019ms
+   ✓ T20 × T19 recipe authority > d1: a D1-only recipe added to a meal resolves in Recipe API detail, cooking and shopping  816ms
+   ✓ T20 × T19 recipe authority > static: a D1-only recipe is TARGET_NOT_FOUND exactly as the Recipe API 404s it, and Auto proposes only static recipes  337ms
+   ✓ T20 × T19 recipe authority > an invisible D1-only edit does not stale a static plan (historical T19 stale-plan regression)  407ms
+   ✓ T20 × T19 recipe authority > an authority source change is a typed revalidation for composition edits and generation  675ms
+   ✓ T20 V1 operations on composed plans > V1 swap on a composed slot is a typed 409; regenerate preserves locked components and replaces unlocked ones  1579ms
+ ✓ tests/unit/recipe-import-output-policy.test.mjs (25 tests) 18363ms
+   ✓ recipe-import CLI (real script, git-ignored artifact directory) > validate / compile / verify / check succeed on the fixture and never touch migrations/ or recipe source  11545ms
+   ✓ recipe-import CLI (real script, git-ignored artifact directory) > a failing batch exits non-zero, writes diagnostics only (no migration.sql); traversal and symlink outputs are refused before any write  6808ms
+stderr | tests/integration/t20-meal-composition-stale-read.test.ts > T20 torn-read revision classification > stale PATCH on a concurrently added slot is a revision conflict
+{"level":"warn","limiter":"planner-compute","reason":"kv-unbound","message":"Rate limiter degraded to isolate-local counters; enforcement is not globally reliable."}
+{"level":"warn","limiter":"meal-planning-expensive","reason":"kv-unbound","message":"Rate limiter degraded to isolate-local counters; enforcement is not globally reliable."}
+
+stderr | tests/integration/t20-meal-composition-stale-read.test.ts > T20 torn-read revision classification > stale PATCH on a concurrently added slot is a revision conflict
+{"level":"warn","limiter":"meal-composition-write","reason":"kv-unbound","message":"Rate limiter degraded to isolate-local counters; enforcement is not globally reliable."}
+
+stderr | tests/integration/t20-meal-composition-stale-read.test.ts > T20 torn-read revision classification > stale PATCH on a concurrently added slot is a revision conflict
+{"level":"warn","limiter":"meal-planning-read","reason":"kv-unbound","message":"Rate limiter degraded to isolate-local counters; enforcement is not globally reliable."}
+
+ ✓ tests/integration/t19-recipe-authority-split.test.ts (11 tests) 13361ms
+   ✓ T19 — planner universe must equal Recipe API universe under every authority mode > static: generated plan, alternatives and swap only expose recipes the Recipe API and cooking resolve  784ms
+   ✓ T19 — planner universe must equal Recipe API universe under every authority mode > shadow: generated plan, alternatives and swap only expose recipes the Recipe API and cooking resolve  819ms
+   ✓ T19 — planner universe must equal Recipe API universe under every authority mode > canary (outside cohort): generated plan, alternatives and swap only expose recipes the Recipe API and cooking resolve  773ms
+   ✓ T19 — planner universe must equal Recipe API universe under every authority mode > canary (inside cohort): generated plan, alternatives and swap only expose recipes the Recipe API and cooking resolve  2887ms
+   ✓ T19 — planner universe must equal Recipe API universe under every authority mode > d1: generated plan, alternatives and swap only expose recipes the Recipe API and cooking resolve  2906ms
+   ✓ T19 — planner universe must equal Recipe API universe under every authority mode > static: the planned universe is exactly the legacy 71 and a static plan is not staled by an invisible D1-only change  562ms
+   ✓ T19 — planner universe must equal Recipe API universe under every authority mode > d1 readiness failure: Recipe API and Planner fall back to static TOGETHER (no split authority)  1888ms
+   ✓ T19 — planner universe must equal Recipe API universe under every authority mode > d1 catalog read failure: Recipe API and Planner both serve the static fallback without a 500  547ms
+   ✓ T19 — planner universe must equal Recipe API universe under every authority mode > security: no request parameter, header or body field can choose the recipe authority  570ms
+   ✓ T19 — planner universe must equal Recipe API universe under every authority mode > d1: shopping and cooking accept a D1-only recipe the planner chose  1522ms
+ ✓ tests/integration/t20-meal-composition-stale-read.test.ts (9 tests) 12559ms
+   ✓ T20 torn-read revision classification > stale PATCH on a concurrently added slot is a revision conflict  1802ms
+   ✓ T20 torn-read revision classification > stale AUTO on a concurrently added slot is a revision conflict  1514ms
+   ✓ T20 torn-read revision classification > stale PATCH after regenerate returns 409 even when the edited component was replaced  1763ms
+   ✓ T20 torn-read revision classification > stale DELETE after a concurrent DELETE does not erase the winner  1580ms
+   ✓ T20 torn-read revision classification > stale swap after a concurrent removal returns a revision conflict, not component missing  1230ms
+   ✓ T20 torn-read revision classification > stale replace/save cannot overwrite the winning mutation  1350ms
+   ✓ T20 torn-read revision classification > stale Auto apply returns a revision conflict before checking its option ID  1327ms
+   ✓ T20 torn-read revision classification > a genuinely absent component at the current revision stays 404; an absent slot stays SLOT_NOT_FOUND  761ms
+   ✓ T20 torn-read revision classification > a nonexistent slot wins over stale revision without weakening existing-slot revision checks  1231ms
+stderr | tests/integration/auth-hardening.test.ts > cookie authentication and production CSRF > issues a production HttpOnly opaque cookie, persists only its hash, and authenticates against D1
+{"level":"warn","limiter":"rl_auth","reason":"kv-unbound","message":"Rate limiter degraded to isolate-local counters; enforcement is not globally reliable."}
+
+stderr | tests/integration/auth-hardening.test.ts > expected-owner fencing across cookie changes > rejects an A replay when /me authenticates A but another tab installs B cookie before the mutation, retaining the owned outbox
+{"level":"warn","limiter":"rl_inv_w","reason":"kv-unbound","message":"Rate limiter degraded to isolate-local counters; enforcement is not globally reliable."}
+
+stderr | tests/integration/auth-hardening.test.ts > D1-authoritative OTP verification > fails registration honestly and invalidates the challenge when no provider accepts the OTP
+{"event":"otp_delivery_failed","provider":"workers-email","category":"sender_not_verified","purpose":"register","environment":"production"}
+
+stderr | tests/integration/auth-hardening.test.ts > D1-authoritative OTP verification > recovers from initial registration delivery failure through a secured resend
+{"event":"otp_delivery_failed","provider":"workers-email","category":"provider_unavailable","purpose":"register","environment":"production"}
+
+stderr | tests/integration/auth-hardening.test.ts > D1-authoritative OTP verification > fails resend honestly and leaves the newly generated challenge unusable
+{"event":"otp_delivery_failed","provider":"workers-email","category":"provider_unavailable","purpose":"register","environment":"production"}
+
+stderr | tests/integration/auth-hardening.test.ts > D1-authoritative OTP verification > keeps resend available when the optional KV cooldown store is unavailable
+{"level":"warn","limiter":"rl_auth","reason":"kv-error","message":"Rate limiter degraded to isolate-local counters; enforcement is not globally reliable."}
+
+ ✓ tests/integration/inventory-fefo-schema.test.ts (78 tests) 8728ms
+   ✓ T09E SQLite FEFO authority guards > accepts a captured synthetic FEFO batch only with authoritative adoption evidence  316ms
+ ✓ tests/integration/auth-hardening.test.ts (92 tests) 9594ms
+stderr | tests/integration/inventory-adoption-operator.test.ts > AC13 actual operator CLI → authenticated Hono → SQLite adoption > adopts one legacy household, preserves all stock and safely replays through the executable
+{"level":"warn","limiter":"rl_inv_w","reason":"kv-unbound","message":"Rate limiter degraded to isolate-local counters; enforcement is not globally reliable."}
+
+stderr | tests/integration/t13-receipt-vision-truth.test.ts > T13B-A receipt lot truth and authoritative correction evidence > preserves the entire manual lot, creates a receipt purchase lot, and reads total 5 through T11
+{"level":"warn","limiter":"rl_inv_w","reason":"kv-unbound","message":"Rate limiter degraded to isolate-local counters; enforcement is not globally reliable."}
+
+stderr | tests/integration/t13-receipt-vision-truth.test.ts > T13B-A receipt lot truth and authoritative correction evidence > receipt atomic failure recovery > rolls back the entire confirmation when a later stock statement fails
+Adopted scan confirmation failed: Error: T13B-A injected late stock failure
+    at SqliteD1.execute (/Users/tunbee27/Documents/Tako-san-ui-rebuild/tests/helpers/sqlite-d1.ts:119:33)
+    at /Users/tunbee27/Documents/Tako-san-ui-rebuild/tests/helpers/sqlite-d1.ts:97:50
+    at Array.map (<anonymous>)
+    at SqliteD1.batch (/Users/tunbee27/Documents/Tako-san-ui-rebuild/tests/helpers/sqlite-d1.ts:97:26)
+    at confirmAdoptedScan (/Users/tunbee27/Documents/Tako-san-ui-rebuild/src/worker/routes/scans.ts:194:21)
+    at dispatch (file:///Users/tunbee27/Documents/Tako-san-ui-rebuild/node_modules/.pnpm/hono@4.13.7/node_modules/hono/dist/compose.js:22:17)
+    at tenancyGuard (/Users/tunbee27/Documents/Tako-san-ui-rebuild/src/worker/middleware/tenancy.ts:69:3)
+    at dispatch (file:///Users/tunbee27/Documents/Tako-san-ui-rebuild/node_modules/.pnpm/hono@4.13.7/node_modules/hono/dist/compose.js:22:17)
+    at authMiddleware (/Users/tunbee27/Documents/Tako-san-ui-rebuild/src/worker/middleware/auth.ts:150:12)
+    at dispatch (file:///Users/tunbee27/Documents/Tako-san-ui-rebuild/node_modules/.pnpm/hono@4.13.7/node_modules/hono/dist/compose.js:22:17) {
+  code: 'ERR_SQLITE_ERROR',
+  errcode: 1811,
+  errstr: 'constraint failed'
+}
+
+stderr | tests/integration/t13-receipt-vision-truth.test.ts > T13B-A receipt lot truth and authoritative correction evidence > receipt atomic failure recovery > rolls back the entire confirmation when a later observation statement fails
+Adopted scan confirmation failed: Error: T13B-A injected late observation failure
+    at SqliteD1.execute (/Users/tunbee27/Documents/Tako-san-ui-rebuild/tests/helpers/sqlite-d1.ts:130:30)
+    at /Users/tunbee27/Documents/Tako-san-ui-rebuild/tests/helpers/sqlite-d1.ts:97:50
+    at Array.map (<anonymous>)
+    at SqliteD1.batch (/Users/tunbee27/Documents/Tako-san-ui-rebuild/tests/helpers/sqlite-d1.ts:97:26)
+    at confirmAdoptedScan (/Users/tunbee27/Documents/Tako-san-ui-rebuild/src/worker/routes/scans.ts:194:21)
+    at dispatch (file:///Users/tunbee27/Documents/Tako-san-ui-rebuild/node_modules/.pnpm/hono@4.13.7/node_modules/hono/dist/compose.js:22:17)
+    at tenancyGuard (/Users/tunbee27/Documents/Tako-san-ui-rebuild/src/worker/middleware/tenancy.ts:69:3)
+    at dispatch (file:///Users/tunbee27/Documents/Tako-san-ui-rebuild/node_modules/.pnpm/hono@4.13.7/node_modules/hono/dist/compose.js:22:17)
+    at authMiddleware (/Users/tunbee27/Documents/Tako-san-ui-rebuild/src/worker/middleware/auth.ts:150:12)
+    at dispatch (file:///Users/tunbee27/Documents/Tako-san-ui-rebuild/node_modules/.pnpm/hono@4.13.7/node_modules/hono/dist/compose.js:22:17) {
+  code: 'ERR_SQLITE_ERROR',
+  errcode: 1811,
+  errstr: 'constraint failed'
+}
+
+stderr | tests/integration/t13-receipt-vision-truth.test.ts > T13B-A receipt lot truth and authoritative correction evidence > receipt atomic failure recovery > rolls back the entire confirmation when a later status statement fails
+Adopted scan confirmation failed: Error: T13B-A injected late status failure
+    at SqliteD1.execute (/Users/tunbee27/Documents/Tako-san-ui-rebuild/tests/helpers/sqlite-d1.ts:130:30)
+    at /Users/tunbee27/Documents/Tako-san-ui-rebuild/tests/helpers/sqlite-d1.ts:97:50
+    at Array.map (<anonymous>)
+    at SqliteD1.batch (/Users/tunbee27/Documents/Tako-san-ui-rebuild/tests/helpers/sqlite-d1.ts:97:26)
+    at confirmAdoptedScan (/Users/tunbee27/Documents/Tako-san-ui-rebuild/src/worker/routes/scans.ts:194:21)
+    at dispatch (file:///Users/tunbee27/Documents/Tako-san-ui-rebuild/node_modules/.pnpm/hono@4.13.7/node_modules/hono/dist/compose.js:22:17)
+    at tenancyGuard (/Users/tunbee27/Documents/Tako-san-ui-rebuild/src/worker/middleware/tenancy.ts:69:3)
+    at dispatch (file:///Users/tunbee27/Documents/Tako-san-ui-rebuild/node_modules/.pnpm/hono@4.13.7/node_modules/hono/dist/compose.js:22:17)
+    at authMiddleware (/Users/tunbee27/Documents/Tako-san-ui-rebuild/src/worker/middleware/auth.ts:150:12)
+    at dispatch (file:///Users/tunbee27/Documents/Tako-san-ui-rebuild/node_modules/.pnpm/hono@4.13.7/node_modules/hono/dist/compose.js:22:17) {
+  code: 'ERR_SQLITE_ERROR',
+  errcode: 1811,
+  errstr: 'constraint failed'
+}
+
+stderr | tests/integration/t13-receipt-vision-truth.test.ts > T13B-A receipt lot truth and authoritative correction evidence > fridge atomic failure recovery > rolls back the entire confirmation when a later stock statement fails
+Adopted scan confirmation failed: Error: T13B-A injected late stock failure
+    at SqliteD1.execute (/Users/tunbee27/Documents/Tako-san-ui-rebuild/tests/helpers/sqlite-d1.ts:119:33)
+    at /Users/tunbee27/Documents/Tako-san-ui-rebuild/tests/helpers/sqlite-d1.ts:97:50
+    at Array.map (<anonymous>)
+    at SqliteD1.batch (/Users/tunbee27/Documents/Tako-san-ui-rebuild/tests/helpers/sqlite-d1.ts:97:26)
+    at confirmAdoptedScan (/Users/tunbee27/Documents/Tako-san-ui-rebuild/src/worker/routes/scans.ts:194:21)
+    at dispatch (file:///Users/tunbee27/Documents/Tako-san-ui-rebuild/node_modules/.pnpm/hono@4.13.7/node_modules/hono/dist/compose.js:22:17)
+    at tenancyGuard (/Users/tunbee27/Documents/Tako-san-ui-rebuild/src/worker/middleware/tenancy.ts:69:3)
+    at dispatch (file:///Users/tunbee27/Documents/Tako-san-ui-rebuild/node_modules/.pnpm/hono@4.13.7/node_modules/hono/dist/compose.js:22:17)
+    at authMiddleware (/Users/tunbee27/Documents/Tako-san-ui-rebuild/src/worker/middleware/auth.ts:150:12)
+    at dispatch (file:///Users/tunbee27/Documents/Tako-san-ui-rebuild/node_modules/.pnpm/hono@4.13.7/node_modules/hono/dist/compose.js:22:17) {
+  code: 'ERR_SQLITE_ERROR',
+  errcode: 1811,
+  errstr: 'constraint failed'
+}
+
+stderr | tests/integration/t13-receipt-vision-truth.test.ts > T13B-A receipt lot truth and authoritative correction evidence > fridge atomic failure recovery > rolls back the entire confirmation when a later observation statement fails
+Adopted scan confirmation failed: Error: T13B-A injected late observation failure
+    at SqliteD1.execute (/Users/tunbee27/Documents/Tako-san-ui-rebuild/tests/helpers/sqlite-d1.ts:130:30)
+    at /Users/tunbee27/Documents/Tako-san-ui-rebuild/tests/helpers/sqlite-d1.ts:97:50
+    at Array.map (<anonymous>)
+    at SqliteD1.batch (/Users/tunbee27/Documents/Tako-san-ui-rebuild/tests/helpers/sqlite-d1.ts:97:26)
+    at confirmAdoptedScan (/Users/tunbee27/Documents/Tako-san-ui-rebuild/src/worker/routes/scans.ts:194:21)
+    at dispatch (file:///Users/tunbee27/Documents/Tako-san-ui-rebuild/node_modules/.pnpm/hono@4.13.7/node_modules/hono/dist/compose.js:22:17)
+    at tenancyGuard (/Users/tunbee27/Documents/Tako-san-ui-rebuild/src/worker/middleware/tenancy.ts:69:3)
+    at dispatch (file:///Users/tunbee27/Documents/Tako-san-ui-rebuild/node_modules/.pnpm/hono@4.13.7/node_modules/hono/dist/compose.js:22:17)
+    at authMiddleware (/Users/tunbee27/Documents/Tako-san-ui-rebuild/src/worker/middleware/auth.ts:150:12)
+    at dispatch (file:///Users/tunbee27/Documents/Tako-san-ui-rebuild/node_modules/.pnpm/hono@4.13.7/node_modules/hono/dist/compose.js:22:17) {
+  code: 'ERR_SQLITE_ERROR',
+  errcode: 1811,
+  errstr: 'constraint failed'
+}
+
+stderr | tests/integration/t13-receipt-vision-truth.test.ts > T13B-A receipt lot truth and authoritative correction evidence > fridge atomic failure recovery > rolls back the entire confirmation when a later status statement fails
+Adopted scan confirmation failed: Error: T13B-A injected late status failure
+    at SqliteD1.execute (/Users/tunbee27/Documents/Tako-san-ui-rebuild/tests/helpers/sqlite-d1.ts:130:30)
+    at /Users/tunbee27/Documents/Tako-san-ui-rebuild/tests/helpers/sqlite-d1.ts:97:50
+    at Array.map (<anonymous>)
+    at SqliteD1.batch (/Users/tunbee27/Documents/Tako-san-ui-rebuild/tests/helpers/sqlite-d1.ts:97:26)
+    at confirmAdoptedScan (/Users/tunbee27/Documents/Tako-san-ui-rebuild/src/worker/routes/scans.ts:194:21)
+    at dispatch (file:///Users/tunbee27/Documents/Tako-san-ui-rebuild/node_modules/.pnpm/hono@4.13.7/node_modules/hono/dist/compose.js:22:17)
+    at tenancyGuard (/Users/tunbee27/Documents/Tako-san-ui-rebuild/src/worker/middleware/tenancy.ts:69:3)
+    at dispatch (file:///Users/tunbee27/Documents/Tako-san-ui-rebuild/node_modules/.pnpm/hono@4.13.7/node_modules/hono/dist/compose.js:22:17)
+    at authMiddleware (/Users/tunbee27/Documents/Tako-san-ui-rebuild/src/worker/middleware/auth.ts:150:12)
+    at dispatch (file:///Users/tunbee27/Documents/Tako-san-ui-rebuild/node_modules/.pnpm/hono@4.13.7/node_modules/hono/dist/compose.js:22:17) {
+  code: 'ERR_SQLITE_ERROR',
+  errcode: 1811,
+  errstr: 'constraint failed'
+}
+
+stderr | tests/integration/t13-receipt-vision-truth.test.ts > T13 Inventory UX V2 read routes and tenancy > AC8: household B cannot read household A lots, evidence or reconciliation
+{"level":"warn","limiter":"rl_inv_truth","reason":"kv-unbound","message":"Rate limiter degraded to isolate-local counters; enforcement is not globally reliable."}
+
+ ✓ tests/integration/inventory-adoption-operator.test.ts (26 tests) 6335ms
+   ✓ AC13 actual operator CLI → authenticated Hono → SQLite adoption > adopts one legacy household, preserves all stock and safely replays through the executable  433ms
+   ✓ AC13 actual operator CLI → authenticated Hono → SQLite adoption > reports missing terminal evidence, accepts explicit facts, and rejects changed replay intent  724ms
+   ✓ AC13 actual operator CLI → authenticated Hono → SQLite adoption > recovers from a lost committed response only by explicitly rerunning the same tool intent  373ms
+ ✓ tests/integration/t13-receipt-vision-truth.test.ts (57 tests) 6283ms
+ ✓ tests/integration/t20-performance.test.ts (1 test) 6239ms
+   ✓ 500-recipe Worker generation/picker stay bounded in SQL, payload and search; generation never writes  6238ms
+ ✓ tests/unit/t21rc2t-production-approval.test.mjs (42 tests) 5995ms
+   ✓ T21R-C2T independent reviewed-byte closure > rejects changes to C2T-bound bytes and introduction of absent config or generator paths  2107ms
+   ✓ T21R-C2T fresh reauthorization and output privacy > rechecks current main, CI and the same approval after Environment approval  336ms
+   ✓ T21R-C2T fresh reauthorization and output privacy > rejects changed approval, moved main and changed exact-main CI on recheck  1157ms
+stderr | tests/integration/t07-security.test.ts > T07 H1 planner tenancy and trust boundary > keeps every plan action creator-private across household and same-household member sessions
+{"level":"warn","limiter":"planner-compute","reason":"kv-unbound","message":"Rate limiter degraded to isolate-local counters; enforcement is not globally reliable."}
+{"level":"warn","limiter":"meal-planning-expensive","reason":"kv-unbound","message":"Rate limiter degraded to isolate-local counters; enforcement is not globally reliable."}
+
+stdout | tests/integration/t07-security.test.ts > T07 H1 planner tenancy and trust boundary > keeps every plan action creator-private across household and same-household member sessions
+{"level":"info","event":"meal_planning_result","status":"feasible","conclusion":"feasible","truncated":false,"states":3}
+
+stderr | tests/integration/t07-security.test.ts > T07 H1 planner tenancy and trust boundary > keeps every plan action creator-private across household and same-household member sessions
+{"level":"warn","limiter":"meal-planning-read","reason":"kv-unbound","message":"Rate limiter degraded to isolate-local counters; enforcement is not globally reliable."}
+
+stderr | tests/integration/t07-security.test.ts > T07 H1 planner tenancy and trust boundary > keeps every plan action creator-private across household and same-household member sessions
+{"level":"warn","limiter":"meal-planning-feedback","reason":"kv-unbound","message":"Rate limiter degraded to isolate-local counters; enforcement is not globally reliable."}
+
+stdout | tests/integration/t07-security.test.ts > T07 H1 planner tenancy and trust boundary > denies every planner boundary after current membership is revoked
+{"level":"info","event":"meal_planning_result","status":"feasible","conclusion":"feasible","truncated":false,"states":3}
+
+stdout | tests/integration/t07-security.test.ts > T07 H1 planner tenancy and trust boundary > requires a cookie session, trusted mutation origin, and exact optional owner fence
+{"level":"info","event":"meal_planning_result","status":"feasible","conclusion":"feasible","truncated":false,"states":3}
+
+stdout | tests/integration/t07-security.test.ts > T07 H1 planner tenancy and trust boundary > uses only the authenticated member personal ranking state while retaining household hard policy
+{"level":"info","event":"meal_planning_result","status":"feasible","conclusion":"feasible","truncated":false,"states":2}
+
+stdout | tests/integration/t07-security.test.ts > T07 H1 planner tenancy and trust boundary > uses only the authenticated member personal ranking state while retaining household hard policy
+{"level":"info","event":"meal_planning_result","status":"feasible","conclusion":"feasible","truncated":false,"states":3}
+
+stdout | tests/integration/t07-security.test.ts > T07 H1 planner tenancy and trust boundary > preserves persisted hard restrictions when regenerate omits any client policy and rejects policy injection
+{"level":"info","event":"meal_planning_result","status":"infeasible","conclusion":"proven_infeasible","truncated":false,"states":1}
+
+stdout | tests/integration/t07-security.test.ts > T07 H1 planner tenancy and trust boundary > preserves persisted hard restrictions when regenerate omits any client policy and rejects policy injection
+{"level":"info","event":"meal_planning_result","status":"infeasible","conclusion":"proven_infeasible","truncated":false,"states":1}
+
+stdout | tests/integration/payment-authority.test.ts > server payment authority > returns only the server price catalog to authenticated non-guests
+[req] GET /api/v1/billing/plans 200 0ms 90329f4a-b8ab-4da7-a253-8c0e57c0fb3d
+
+stdout | tests/integration/payment-authority.test.ts > server payment authority > rejects guests and unauthenticated callers for plans
+[req] GET /api/v1/billing/plans 401 0ms a5bfca9e-8ed6-4ca2-842e-37befb416277
+
+stdout | tests/integration/payment-authority.test.ts > server payment authority > rejects guests and unauthenticated callers for plans
+[req] GET /api/v1/billing/plans 401 0ms 6062d7cf-738d-4548-b2ba-458e073ef058
+
+stderr | tests/integration/payment-authority.test.ts > server payment authority > rejects malformed plan { plan: 'weekly' } without creating an intent
+{"level":"warn","limiter":"rl_payment_create","reason":"kv-unbound","message":"Rate limiter degraded to isolate-local counters; enforcement is not globally reliable."}
+
+stdout | tests/integration/payment-authority.test.ts > server payment authority > rejects malformed plan { plan: 'weekly' } without creating an intent
+[req] POST /api/v1/billing/payment-intents 400 0ms 7614af7e-5da1-4261-a1e6-77993ff4267b
+
+stdout | tests/integration/payment-authority.test.ts > server payment authority > rejects malformed plan { plan: '' } without creating an intent
+[req] POST /api/v1/billing/payment-intents 400 0ms dc73ffdb-a4da-4e13-a585-fad5431ff047
+
+stdout | tests/integration/payment-authority.test.ts > server payment authority > rejects malformed plan {} without creating an intent
+[req] POST /api/v1/billing/payment-intents 400 0ms f9b131b4-8998-42c4-9d34-09cf4f34fb87
+
+stdout | tests/integration/payment-authority.test.ts > server payment authority > ignores legacy client amount fields while using the authoritative monthly amount
+[req] POST /api/v1/billing/payment-intents 201 0ms c95d07d4-b92c-4cac-8f35-34578deb5f30
+
+stdout | tests/integration/payment-authority.test.ts > server payment authority > creates annual intent data and signs the exact provider request fields
+[req] POST /api/v1/billing/payment-intents 201 0ms 3c335cad-f543-4d0e-816a-78d344907d20
+
+stdout | tests/integration/payment-authority.test.ts > server payment authority > issued payment intent keeps its server-approved amount after catalog price changes: monthly
+[req] POST /api/v1/billing/payment-intents 201 0ms 40792a6f-82b3-4d1e-a6a6-73ecc45307e7
+
+stdout | tests/integration/payment-authority.test.ts > server payment authority > issued payment intent keeps its server-approved amount after catalog price changes: monthly
+[req] GET /api/v1/billing/plans 200 0ms 6845c253-5a05-4cef-a875-b380cf792ad8
+
+stdout | tests/integration/payment-authority.test.ts > server payment authority > issued payment intent keeps its server-approved amount after catalog price changes: monthly
+[req] GET /api/v1/billing/payment-intents/pay_df4dff23-0820-40bf-a0fd-1720ec4bf36e 200 0ms 862aa944-f63a-4ce8-826c-d001b0b215d4
+
+stdout | tests/integration/payment-authority.test.ts > server payment authority > issued payment intent keeps its server-approved amount after catalog price changes: monthly
+[req] POST /api/v1/billing/payos/webhook 409 0ms 21c04c0c-de48-4cf6-a12b-c08e126433fa
+
+stdout | tests/integration/payment-authority.test.ts > server payment authority > issued payment intent keeps its server-approved amount after catalog price changes: monthly
+[req] POST /api/v1/billing/payos/webhook 200 0ms a36de747-ed70-4768-9554-bdf1b70e3694
+
+stdout | tests/integration/payment-authority.test.ts > server payment authority > issued payment intent keeps its server-approved amount after catalog price changes: monthly
+[req] POST /api/v1/billing/payos/webhook 200 0ms c6cf69be-1654-45d9-b6db-20ddc97ee690
+
+stdout | tests/integration/payment-authority.test.ts > server payment authority > issued payment intent keeps its server-approved amount after catalog price changes: monthly
+[req] GET /api/v1/billing/payment-intents/pay_df4dff23-0820-40bf-a0fd-1720ec4bf36e 200 0ms 555cc862-c607-4374-950b-e19610f1e57e
+
+stdout | tests/integration/payment-authority.test.ts > server payment authority > issued payment intent keeps its server-approved amount after catalog price changes: monthly
+[req] POST /api/v1/billing/payos/webhook 409 0ms eb5027d2-1678-4b5e-99c6-e79852715977
+
+stdout | tests/integration/payment-authority.test.ts > server payment authority > issued payment intent keeps its server-approved amount after catalog price changes: monthly
+[req] POST /api/v1/billing/payment-intents 201 0ms 75746038-3402-4723-86ea-d8404e7f89df
+
+stdout | tests/integration/payment-authority.test.ts > server payment authority > issued payment intent keeps its server-approved amount after catalog price changes: monthly
+[req] POST /api/v1/billing/payos/webhook 409 0ms ece24947-30bc-44ff-a11d-6f9c65c94169
+
+stdout | tests/integration/payment-authority.test.ts > server payment authority > issued payment intent keeps its server-approved amount after catalog price changes: monthly
+[req] POST /api/v1/billing/payos/webhook 200 0ms 2a0bfc4a-b6c1-4c57-8e69-3d7230284735
+
+stdout | tests/integration/payment-authority.test.ts > server payment authority > issued payment intent keeps its server-approved amount after catalog price changes: monthly
+[req] POST /api/v1/billing/payos/webhook 409 0ms a0a53104-6f09-430a-87ef-141cdecd9b2a
+
+stdout | tests/integration/payment-authority.test.ts > server payment authority > issued payment intent keeps its server-approved amount after catalog price changes: annual
+[req] POST /api/v1/billing/payment-intents 201 0ms cb94586a-c8e1-46b9-856d-b0fbda226206
+
+stdout | tests/integration/payment-authority.test.ts > server payment authority > issued payment intent keeps its server-approved amount after catalog price changes: annual
+[req] GET /api/v1/billing/plans 200 0ms cb1eaaf0-e00f-409c-91e6-93a03344c630
+
+stdout | tests/integration/payment-authority.test.ts > server payment authority > issued payment intent keeps its server-approved amount after catalog price changes: annual
+[req] GET /api/v1/billing/payment-intents/pay_3318e89e-6fab-4e55-9b63-cbb53327d6e0 200 0ms 6bbb2dc7-7f45-4ab9-ae60-482c18931785
+
+stdout | tests/integration/payment-authority.test.ts > server payment authority > issued payment intent keeps its server-approved amount after catalog price changes: annual
+[req] POST /api/v1/billing/payos/webhook 409 0ms c0f7ce95-4fb8-42d0-8f86-5ea774ae32f2
+
+stdout | tests/integration/payment-authority.test.ts > server payment authority > issued payment intent keeps its server-approved amount after catalog price changes: annual
+[req] POST /api/v1/billing/payos/webhook 200 0ms d886f8f9-f563-48a3-9c3a-5ee1c62e410e
+
+stdout | tests/integration/payment-authority.test.ts > server payment authority > issued payment intent keeps its server-approved amount after catalog price changes: annual
+[req] POST /api/v1/billing/payos/webhook 200 0ms 84d416d0-728a-4340-953f-7f08d32f6d0e
+
+stdout | tests/integration/payment-authority.test.ts > server payment authority > issued payment intent keeps its server-approved amount after catalog price changes: annual
+[req] GET /api/v1/billing/payment-intents/pay_3318e89e-6fab-4e55-9b63-cbb53327d6e0 200 0ms c91d695e-e4f8-4301-b587-3914c568301f
+
+stdout | tests/integration/payment-authority.test.ts > server payment authority > issued payment intent keeps its server-approved amount after catalog price changes: annual
+[req] POST /api/v1/billing/payos/webhook 409 0ms 0d698258-ff1d-4f38-bd14-7e2b5721e665
+
+stdout | tests/integration/payment-authority.test.ts > server payment authority > issued payment intent keeps its server-approved amount after catalog price changes: annual
+[req] POST /api/v1/billing/payment-intents 201 0ms a6e188b4-4f66-492d-8e75-85679a0ff7c7
+
+stdout | tests/integration/payment-authority.test.ts > server payment authority > issued payment intent keeps its server-approved amount after catalog price changes: annual
+[req] POST /api/v1/billing/payos/webhook 409 0ms 921e5d27-f97d-45d0-ba59-8eec1031394b
+
+stdout | tests/integration/payment-authority.test.ts > server payment authority > issued payment intent keeps its server-approved amount after catalog price changes: annual
+[req] POST /api/v1/billing/payos/webhook 200 0ms 3f71bb2d-eea8-4f8b-babc-ad47f445ed74
+
+stdout | tests/integration/payment-authority.test.ts > server payment authority > issued payment intent keeps its server-approved amount after catalog price changes: annual
+[req] POST /api/v1/billing/payos/webhook 409 0ms 0379d56a-f76b-4977-a9c1-d2584b4971cd
+
+stdout | tests/integration/payment-authority.test.ts > server payment authority > rejects the first payment of an expired old-price intent after a catalog change
+[req] POST /api/v1/billing/payment-intents 201 0ms f21da60e-7010-4827-8e6d-a4e459506b86
+
+stdout | tests/integration/payment-authority.test.ts > server payment authority > rejects the first payment of an expired old-price intent after a catalog change
+[req] GET /api/v1/billing/payment-intents/pay_964706bb-52eb-448c-9928-4dac7e8fb35c 200 0ms e962c7cc-b5f6-41d0-a2fc-13b6181c7251
+
+stdout | tests/integration/payment-authority.test.ts > server payment authority > rejects the first payment of an expired old-price intent after a catalog change
+[req] POST /api/v1/billing/payos/webhook 409 0ms f378c086-46e9-455c-b0f1-4e6c0c3e78e3
+
+stdout | tests/integration/payment-authority.test.ts > server payment authority > rejects a new payment of a consumed failed old-price intent after a catalog change
+[req] POST /api/v1/billing/payment-intents 201 0ms d4e3224a-5959-49bb-8988-d6177d16c68f
+
+stdout | tests/integration/payment-authority.test.ts > server payment authority > rejects a new payment of a consumed failed old-price intent after a catalog change
+[req] GET /api/v1/billing/payment-intents/pay_e0930077-9892-4f8f-b187-5abc767e3734 200 0ms d838f48d-ab9f-4a81-bf50-37b0d339cbf5
+
+stdout | tests/integration/payment-authority.test.ts > server payment authority > rejects a new payment of a consumed failed old-price intent after a catalog change
+[req] POST /api/v1/billing/payos/webhook 409 0ms 2237621d-b7ff-4f88-ac58-b400848fd55a
+
+stdout | tests/integration/payment-authority.test.ts > server payment authority > rejects a new payment of a consumed refunded old-price intent after a catalog change
+[req] POST /api/v1/billing/payment-intents 201 0ms f23d979a-9676-4de0-b294-0830d16bcf4a
+
+stdout | tests/integration/payment-authority.test.ts > server payment authority > rejects a new payment of a consumed refunded old-price intent after a catalog change
+[req] GET /api/v1/billing/payment-intents/pay_52288e2c-77fd-4e4f-aa6b-db6e6ec69f02 200 0ms 4a6a366a-9732-47fc-a9e7-2ec102aed6dd
+
+stdout | tests/integration/payment-authority.test.ts > server payment authority > rejects a new payment of a consumed refunded old-price intent after a catalog change
+[req] POST /api/v1/billing/payos/webhook 409 0ms eec90764-c2c2-4f57-993c-0d50a582b990
+
+stdout | tests/integration/payment-authority.test.ts > server payment authority > rejects a new payment of a consumed expired old-price intent after a catalog change
+[req] POST /api/v1/billing/payment-intents 201 0ms da9a1602-de6c-4e87-94e1-462a6136d51d
+
+stdout | tests/integration/payment-authority.test.ts > server payment authority > rejects a new payment of a consumed expired old-price intent after a catalog change
+[req] GET /api/v1/billing/payment-intents/pay_72b185b6-081f-4278-922d-743acf6dcaf2 200 0ms 9383aa49-aa10-4791-80f2-820e0e1c9835
+
+stdout | tests/integration/payment-authority.test.ts > server payment authority > rejects a new payment of a consumed expired old-price intent after a catalog change
+[req] POST /api/v1/billing/payos/webhook 409 0ms 1e968f0e-af98-41e3-aa44-ac3f0fa2fee2
+
+stdout | tests/integration/payment-authority.test.ts > server payment authority > rejects a new payment of a consumed paid old-price intent after a catalog change
+[req] POST /api/v1/billing/payment-intents 201 0ms c040a6d5-0c69-4dbd-b1b6-cccb4cf3919a
+
+stdout | tests/integration/payment-authority.test.ts > server payment authority > rejects a new payment of a consumed paid old-price intent after a catalog change
+[req] GET /api/v1/billing/payment-intents/pay_61c5d1c5-0c2f-45e6-9693-5dddc1445a85 200 0ms 90e7f481-9a5c-4cdc-a181-13f89a8601e0
+
+stdout | tests/integration/payment-authority.test.ts > server payment authority > rejects a new payment of a consumed paid old-price intent after a catalog change
+[req] POST /api/v1/billing/payos/webhook 409 0ms 84ea0022-3829-4621-bacb-e5a1a8abccd8
+
+stdout | tests/integration/payment-authority.test.ts > server payment authority > rejects structurally invalid persisted plan = forged on reads and callbacks
+[req] POST /api/v1/billing/payment-intents 201 0ms 1840ed92-8089-45b1-850e-0e73e886db98
+
+stdout | tests/integration/payment-authority.test.ts > server payment authority > rejects structurally invalid persisted plan = forged on reads and callbacks
+[req] GET /api/v1/billing/payment-intents/pay_74a42f47-d85e-489a-8d07-0368afcdb09d 409 0ms af77e598-ad12-4c47-9df2-b6b4908422ff
+
+stdout | tests/integration/payment-authority.test.ts > server payment authority > rejects structurally invalid persisted plan = forged on reads and callbacks
+[req] POST /api/v1/billing/payos/webhook 409 0ms 5bde3076-384e-4e7d-8d19-b3f742a3eaab
+
+stdout | tests/integration/payment-authority.test.ts > server payment authority > rejects structurally invalid persisted amount_vnd = 0 on reads and callbacks
+[req] POST /api/v1/billing/payment-intents 201 0ms 5b03579c-24d6-49d1-bc98-2fa6709a73b2
+
+stdout | tests/integration/payment-authority.test.ts > server payment authority > rejects structurally invalid persisted amount_vnd = 0 on reads and callbacks
+[req] GET /api/v1/billing/payment-intents/pay_04541d3a-1e77-491a-9962-8f05fa56ed30 409 0ms f301b255-f962-4d6c-b88c-4dca81ef9249
+
+stdout | tests/integration/payment-authority.test.ts > server payment authority > rejects structurally invalid persisted amount_vnd = 0 on reads and callbacks
+[req] POST /api/v1/billing/payos/webhook 409 0ms 71864e2d-cb54-44f8-8035-cacc66fcaf2b
+
+stdout | tests/integration/t07-security.test.ts > T07 H1 hostile planner bodies > rejects regenerate missing authority or malformed body
+{"level":"info","event":"meal_planning_result","status":"feasible","conclusion":"feasible","truncated":false,"states":3}
+
+stdout | tests/integration/payment-authority.test.ts > server payment authority > rejects structurally invalid persisted amount_vnd = -1 on reads and callbacks
+[req] POST /api/v1/billing/payment-intents 201 0ms e06e801e-b951-41ea-bee7-cec3bbdafa93
+
+stdout | tests/integration/payment-authority.test.ts > server payment authority > rejects structurally invalid persisted amount_vnd = -1 on reads and callbacks
+[req] GET /api/v1/billing/payment-intents/pay_82be4fd5-ce6a-43a6-9059-d2efd68dedb1 409 0ms 891af1ca-21c1-4b35-8ac7-dfd899b364a6
+
+stdout | tests/integration/payment-authority.test.ts > server payment authority > rejects structurally invalid persisted amount_vnd = -1 on reads and callbacks
+[req] POST /api/v1/billing/payos/webhook 409 0ms 659bad8f-e3eb-4cfe-adb4-85b27e569f1c
+
+stdout | tests/integration/t07-security.test.ts > T07 H1 hostile planner bodies > rejects regenerate null revision authority or malformed body
+{"level":"info","event":"meal_planning_result","status":"feasible","conclusion":"feasible","truncated":false,"states":3}
+
+stdout | tests/integration/payment-authority.test.ts > server payment authority > rejects structurally invalid persisted amount_vnd = 49000.5 on reads and callbacks
+[req] POST /api/v1/billing/payment-intents 201 0ms e8f2078f-5191-4c34-8d03-1334ed4f4d0e
+
+stdout | tests/integration/payment-authority.test.ts > server payment authority > rejects structurally invalid persisted amount_vnd = 49000.5 on reads and callbacks
+[req] GET /api/v1/billing/payment-intents/pay_500e0e4c-6004-41b6-8a82-17fe36412138 409 0ms 85b34c76-f5c8-4ee2-88d6-33952c9bf328
+
+stdout | tests/integration/payment-authority.test.ts > server payment authority > rejects structurally invalid persisted amount_vnd = 49000.5 on reads and callbacks
+[req] POST /api/v1/billing/payos/webhook 409 0ms edaccb44-f1da-4d15-840c-05b599955a12
+
+stdout | tests/integration/t07-security.test.ts > T07 H1 hostile planner bodies > rejects regenerate null intent authority or malformed body
+{"level":"info","event":"meal_planning_result","status":"feasible","conclusion":"feasible","truncated":false,"states":3}
+
+stdout | tests/integration/payment-authority.test.ts > server payment authority > rejects structurally invalid persisted amount_vnd = 1.7976931348623157e+308 on reads and callbacks
+[req] POST /api/v1/billing/payment-intents 201 0ms f5471d10-d139-4b33-abe8-a98888c80fd3
+
+stdout | tests/integration/payment-authority.test.ts > server payment authority > rejects structurally invalid persisted amount_vnd = 1.7976931348623157e+308 on reads and callbacks
+[req] GET /api/v1/billing/payment-intents/pay_b41507d1-89c1-4078-be5b-b01b35915f97 409 0ms 0ea4dd79-d107-42eb-ad4f-fa9df704539c
+
+stdout | tests/integration/payment-authority.test.ts > server payment authority > rejects structurally invalid persisted amount_vnd = 1.7976931348623157e+308 on reads and callbacks
+[req] POST /api/v1/billing/payos/webhook 409 0ms 10ebb8be-d12e-4f3e-9715-29ee422d861d
+
+stdout | tests/integration/t07-security.test.ts > T07 H1 hostile planner bodies > rejects regenerate empty slots authority or malformed body
+{"level":"info","event":"meal_planning_result","status":"feasible","conclusion":"feasible","truncated":false,"states":3}
+
+stdout | tests/integration/payment-authority.test.ts > server payment authority > rejects structurally invalid persisted amount_vnd = invalid on reads and callbacks
+[req] POST /api/v1/billing/payment-intents 201 0ms 04c3008f-83f9-4258-91e0-c58f758a3834
+
+stdout | tests/integration/payment-authority.test.ts > server payment authority > rejects structurally invalid persisted amount_vnd = invalid on reads and callbacks
+[req] GET /api/v1/billing/payment-intents/pay_cfbe37b2-8027-44a8-baff-c509fcbdf863 409 0ms 4e0103c3-80af-4967-9d30-bfb2e51153d1
+
+stdout | tests/integration/payment-authority.test.ts > server payment authority > rejects structurally invalid persisted amount_vnd = invalid on reads and callbacks
+[req] POST /api/v1/billing/payos/webhook 409 0ms fdfb4165-192a-43b3-9c65-19ed3295ff82
+
+stdout | tests/integration/payment-authority.test.ts > server payment authority > rejects structurally invalid persisted currency = USD on reads and callbacks
+[req] POST /api/v1/billing/payment-intents 201 0ms c5b8d54a-acec-4c70-ad90-de136537e452
+
+stdout | tests/integration/payment-authority.test.ts > server payment authority > rejects structurally invalid persisted currency = USD on reads and callbacks
+[req] GET /api/v1/billing/payment-intents/pay_e79755a7-61ea-4235-9867-472e95fcb266 409 0ms 5deac432-3d2b-4ec7-9c25-b87ae0b4afa9
+
+stdout | tests/integration/payment-authority.test.ts > server payment authority > rejects structurally invalid persisted currency = USD on reads and callbacks
+[req] POST /api/v1/billing/payos/webhook 409 0ms 90001037-7ad4-42a2-b861-b3e539e620c0
+
+stdout | tests/integration/t07-security.test.ts > T07 H1 hostile planner bodies > rejects regenerate nested trusted snapshot authority or malformed body
+{"level":"info","event":"meal_planning_result","status":"feasible","conclusion":"feasible","truncated":false,"states":3}
+
+stdout | tests/integration/payment-authority.test.ts > server payment authority > rejects structurally invalid persisted order_code = 0 on reads and callbacks
+[req] POST /api/v1/billing/payment-intents 201 0ms 5fd77566-17d5-4b51-a4bd-b616617e956d
+
+stdout | tests/integration/payment-authority.test.ts > server payment authority > rejects structurally invalid persisted order_code = 0 on reads and callbacks
+[req] GET /api/v1/billing/payment-intents/pay_a4bd4ca2-2896-4c7c-9994-617db82ef90f 409 0ms 9dd58156-3535-4162-b3ee-5edb17ee209b
+
+stdout | tests/integration/payment-authority.test.ts > server payment authority > rejects structurally invalid persisted order_code = 0 on reads and callbacks
+[req] POST /api/v1/billing/payos/webhook 409 0ms adb7c076-a621-40b1-9472-044ba44ba13b
+
+stdout | tests/integration/t07-security.test.ts > T07 H1 hostile planner bodies > rejects regenerate nested ranking context authority or malformed body
+{"level":"info","event":"meal_planning_result","status":"feasible","conclusion":"feasible","truncated":false,"states":3}
+
+stdout | tests/integration/payment-authority.test.ts > server payment authority > rejects structurally invalid persisted order_code = -1 on reads and callbacks
+[req] POST /api/v1/billing/payment-intents 201 0ms d0e0035d-6c33-433f-8680-25c8fb3c18c6
+
+stdout | tests/integration/payment-authority.test.ts > server payment authority > rejects structurally invalid persisted order_code = -1 on reads and callbacks
+[req] GET /api/v1/billing/payment-intents/pay_211820b1-73e1-4288-988d-e39c769905f5 409 0ms de76efe0-a98f-4956-9142-24adb3500ace
+
+stdout | tests/integration/payment-authority.test.ts > server payment authority > rejects structurally invalid persisted order_code = -1 on reads and callbacks
+[req] POST /api/v1/billing/payos/webhook 409 0ms 54af7c91-9ba0-4700-b3bd-c11b7b687fae
+
+stdout | tests/integration/t07-security.test.ts > T07 H1 hostile planner bodies > rejects regenerate outer catalog authority or malformed body
+{"level":"info","event":"meal_planning_result","status":"feasible","conclusion":"feasible","truncated":false,"states":3}
+
+stdout | tests/integration/payment-authority.test.ts > server payment authority > rejects structurally invalid persisted order_code = 001 on reads and callbacks
+[req] POST /api/v1/billing/payment-intents 201 0ms 8a51c0b1-34e0-4432-a790-1d8ea49d4334
+
+stdout | tests/integration/payment-authority.test.ts > server payment authority > rejects structurally invalid persisted order_code = 001 on reads and callbacks
+[req] GET /api/v1/billing/payment-intents/pay_bd44e7c9-0d84-4e0c-ad10-44ee3f7cc599 409 0ms 0c6980be-6f82-4dce-85e5-f2f2220fd318
+
+stdout | tests/integration/payment-authority.test.ts > server payment authority > rejects structurally invalid persisted order_code = 001 on reads and callbacks
+[req] POST /api/v1/billing/payos/webhook 409 0ms 4daa124c-5330-45f8-98bb-8516f441658e
+
+stdout | tests/integration/t07-security.test.ts > T07 H1 hostile planner bodies > rejects regenerate outer price authority or malformed body
+{"level":"info","event":"meal_planning_result","status":"feasible","conclusion":"feasible","truncated":false,"states":3}
+
+stdout | tests/integration/payment-authority.test.ts > server payment authority > rejects structurally invalid persisted order_code = 1.5 on reads and callbacks
+[req] POST /api/v1/billing/payment-intents 201 0ms 8f90e65c-6911-408a-b804-e2060f8f4cbe
+
+stdout | tests/integration/payment-authority.test.ts > server payment authority > rejects structurally invalid persisted order_code = 1.5 on reads and callbacks
+[req] GET /api/v1/billing/payment-intents/pay_aa7bc150-659f-4758-9357-9cddbfa35d65 409 0ms bbcfbf2e-a210-473f-b3e5-693ec5e32d9d
+
+stdout | tests/integration/payment-authority.test.ts > server payment authority > rejects structurally invalid persisted order_code = 1.5 on reads and callbacks
+[req] POST /api/v1/billing/payos/webhook 409 0ms a849f497-1a3f-4d21-a74e-73f316de770e
+
+stdout | tests/integration/payment-authority.test.ts > server payment authority > rejects structurally invalid persisted order_code = 1e3 on reads and callbacks
+[req] POST /api/v1/billing/payment-intents 201 0ms ca6d8139-6044-4b7b-acc4-951f31ad67c2
+
+stdout | tests/integration/payment-authority.test.ts > server payment authority > rejects structurally invalid persisted order_code = 1e3 on reads and callbacks
+[req] GET /api/v1/billing/payment-intents/pay_b245bfba-976c-4383-9012-d7bbe053e348 409 0ms 6f412797-973e-42be-baa0-646ea7ff3d0f
+
+stdout | tests/integration/payment-authority.test.ts > server payment authority > rejects structurally invalid persisted order_code = 1e3 on reads and callbacks
+[req] POST /api/v1/billing/payos/webhook 409 0ms cdc18f8b-c240-42f0-8686-0e2977281602
+
+stdout | tests/integration/t07-security.test.ts > T07 H1 hostile planner bodies > rejects regenerate outer substitution approval authority or malformed body
+{"level":"info","event":"meal_planning_result","status":"feasible","conclusion":"feasible","truncated":false,"states":3}
+
+stdout | tests/integration/payment-authority.test.ts > server payment authority > rejects structurally invalid persisted order_code = 9007199254740992 on reads and callbacks
+[req] POST /api/v1/billing/payment-intents 201 0ms d849ef96-6406-4ee1-9ae5-0bf15ee37cb3
+
+stdout | tests/integration/payment-authority.test.ts > server payment authority > rejects structurally invalid persisted order_code = 9007199254740992 on reads and callbacks
+[req] GET /api/v1/billing/payment-intents/pay_fb561a30-f604-44c5-b75e-c01fa03a81d0 409 0ms fd919bf4-d006-4139-867e-0a595fc201ea
+
+stdout | tests/integration/payment-authority.test.ts > server payment authority > rejects structurally invalid persisted order_code = 9007199254740992 on reads and callbacks
+[req] POST /api/v1/billing/payos/webhook 409 0ms 73814e57-d5f6-4dd4-8697-ed8d06318811
+
+stdout | tests/integration/t07-security.test.ts > T07 H1 hostile planner bodies > rejects swap missing replacement without advancing the plan
+{"level":"info","event":"meal_planning_result","status":"feasible","conclusion":"feasible","truncated":false,"states":3}
+
+stdout | tests/integration/payment-authority.test.ts > server payment authority > rejects structurally invalid persisted expires_at = invalid on reads and callbacks
+[req] POST /api/v1/billing/payment-intents 201 0ms eb1f8f00-224c-4a37-86f7-cac64a743d39
+
+stdout | tests/integration/payment-authority.test.ts > server payment authority > rejects structurally invalid persisted expires_at = invalid on reads and callbacks
+[req] GET /api/v1/billing/payment-intents/pay_78643618-6ca8-4b28-956c-fed036baa225 409 0ms 71281863-3418-4f1f-bc97-3b5afa47beb6
+
+stdout | tests/integration/payment-authority.test.ts > server payment authority > rejects structurally invalid persisted expires_at = invalid on reads and callbacks
+[req] POST /api/v1/billing/payos/webhook 409 0ms c8fea3d8-9bcc-435b-952e-7904d0b03f23
+
+stdout | tests/integration/t07-security.test.ts > T07 H1 hostile planner bodies > rejects swap null replacement without advancing the plan
+{"level":"info","event":"meal_planning_result","status":"feasible","conclusion":"feasible","truncated":false,"states":3}
+
+stdout | tests/integration/payment-authority.test.ts > server payment authority > rejects structurally invalid persisted expires_at =  on reads and callbacks
+[req] POST /api/v1/billing/payment-intents 201 0ms 46fc98bd-8e52-4b6f-810d-814f27600691
+
+stdout | tests/integration/payment-authority.test.ts > server payment authority > rejects structurally invalid persisted expires_at =  on reads and callbacks
+[req] GET /api/v1/billing/payment-intents/pay_c3efb9bc-9367-4247-a855-acbd7920ecf1 409 0ms 1eca0237-0591-4167-9e49-57e225f3e475
+
+stdout | tests/integration/payment-authority.test.ts > server payment authority > rejects structurally invalid persisted expires_at =  on reads and callbacks
+[req] POST /api/v1/billing/payos/webhook 409 0ms 7bac03b5-1c89-44c0-b194-515d480a6735
+
+stdout | tests/integration/t07-security.test.ts > T07 H1 hostile planner bodies > rejects swap empty replacement without advancing the plan
+{"level":"info","event":"meal_planning_result","status":"feasible","conclusion":"feasible","truncated":false,"states":3}
+
+stdout | tests/integration/payment-authority.test.ts > server payment authority > rejects structurally invalid persisted expires_at = 0 on reads and callbacks
+[req] POST /api/v1/billing/payment-intents 201 0ms de208b29-08a1-48b4-9572-64e6b2aff0a3
+
+stdout | tests/integration/payment-authority.test.ts > server payment authority > rejects structurally invalid persisted expires_at = 0 on reads and callbacks
+[req] GET /api/v1/billing/payment-intents/pay_30bd5b14-d55b-455f-82d5-374e74c87750 409 0ms 85b0a763-9343-4ba9-bbdf-4c8e4e1f785b
+
+stdout | tests/integration/payment-authority.test.ts > server payment authority > rejects structurally invalid persisted expires_at = 0 on reads and callbacks
+[req] POST /api/v1/billing/payos/webhook 409 0ms c809b897-fddc-4b04-8313-b0717d0ef6df
+
+stdout | tests/integration/t07-security.test.ts > T07 H1 hostile planner bodies > rejects swap empty recipe ID without advancing the plan
+{"level":"info","event":"meal_planning_result","status":"feasible","conclusion":"feasible","truncated":false,"states":3}
+
+stdout | tests/integration/payment-authority.test.ts > server payment authority > rejects structurally invalid persisted expires_at = 1 on reads and callbacks
+[req] POST /api/v1/billing/payment-intents 201 0ms 385dce60-8159-4c37-a19c-8cf3a6fe0b48
+
+stdout | tests/integration/payment-authority.test.ts > server payment authority > rejects structurally invalid persisted expires_at = 1 on reads and callbacks
+[req] GET /api/v1/billing/payment-intents/pay_137951bc-4028-43f3-a398-dda3c5a80709 409 0ms 69d2e3a3-4346-4d36-89ce-1f1fbd8a7a29
+
+stdout | tests/integration/payment-authority.test.ts > server payment authority > rejects structurally invalid persisted expires_at = 1 on reads and callbacks
+[req] POST /api/v1/billing/payos/webhook 409 0ms 66707cd9-6d00-4a79-bc61-5be3cb7a3f4a
+
+stdout | tests/integration/payment-authority.test.ts > server payment authority > rejects structurally invalid persisted expires_at = 2025 on reads and callbacks
+[req] POST /api/v1/billing/payment-intents 201 0ms e54a7a30-c9b7-4a28-b022-40cb490f9b9a
+
+stdout | tests/integration/payment-authority.test.ts > server payment authority > rejects structurally invalid persisted expires_at = 2025 on reads and callbacks
+[req] GET /api/v1/billing/payment-intents/pay_7140cce2-9ba4-40c6-bf5e-9d52cb38a50d 409 0ms e87c4d9d-c59e-4025-b8aa-de25d3d75d56
+
+stdout | tests/integration/payment-authority.test.ts > server payment authority > rejects structurally invalid persisted expires_at = 2025 on reads and callbacks
+[req] POST /api/v1/billing/payos/webhook 409 0ms e3fa2811-7615-4443-b365-1e8ce3db13a6
+
+stdout | tests/integration/t07-security.test.ts > T07 H1 hostile planner bodies > rejects swap fabricated recipe version without advancing the plan
+{"level":"info","event":"meal_planning_result","status":"feasible","conclusion":"feasible","truncated":false,"states":3}
+
+stdout | tests/integration/payment-authority.test.ts > server payment authority > rejects structurally invalid persisted expires_at = 2025-01-01 on reads and callbacks
+[req] POST /api/v1/billing/payment-intents 201 0ms 5dcff052-f9e3-49c1-a3bc-5fbe6d8dbae7
+
+stdout | tests/integration/payment-authority.test.ts > server payment authority > rejects structurally invalid persisted expires_at = 2025-01-01 on reads and callbacks
+[req] GET /api/v1/billing/payment-intents/pay_733fdfb0-4cd8-45cf-8291-00afeef21f69 409 0ms 43c39292-1841-4ef8-b5a4-666900db741c
+
+stdout | tests/integration/payment-authority.test.ts > server payment authority > rejects structurally invalid persisted expires_at = 2025-01-01 on reads and callbacks
+[req] POST /api/v1/billing/payos/webhook 409 0ms 7750c2b2-6372-43e8-9ef4-7bc6a10ef086
+
+stdout | tests/integration/t07-security.test.ts > T07 H1 hostile planner bodies > rejects swap fabricated safety review without advancing the plan
+{"level":"info","event":"meal_planning_result","status":"feasible","conclusion":"feasible","truncated":false,"states":3}
+
+stdout | tests/integration/payment-authority.test.ts > server payment authority > rejects structurally invalid persisted expires_at = 2099-02-30T00:00:00.000Z on reads and callbacks
+[req] POST /api/v1/billing/payment-intents 201 0ms b234eced-50b4-4a8d-a44c-0d50144b9cbe
+
+stdout | tests/integration/payment-authority.test.ts > server payment authority > rejects structurally invalid persisted expires_at = 2099-02-30T00:00:00.000Z on reads and callbacks
+[req] GET /api/v1/billing/payment-intents/pay_fc77b126-c259-436e-a942-8f85524d8bb7 409 0ms 53243176-68de-4d87-8072-7d6091af3316
+
+stdout | tests/integration/payment-authority.test.ts > server payment authority > rejects structurally invalid persisted expires_at = 2099-02-30T00:00:00.000Z on reads and callbacks
+[req] POST /api/v1/billing/payos/webhook 409 0ms 6e553187-af49-4e4f-9d2e-268f9903065a
+
+stdout | tests/integration/t07-security.test.ts > T07 H1 hostile planner bodies > rejects swap fabricated substitution approval without advancing the plan
+{"level":"info","event":"meal_planning_result","status":"feasible","conclusion":"feasible","truncated":false,"states":3}
+
+stdout | tests/integration/payment-authority.test.ts > server payment authority > rejects structurally invalid persisted status = forged on reads and callbacks
+[req] POST /api/v1/billing/payment-intents 201 0ms d8926f1e-78c9-4c8b-bdd4-5a360da138c4
+
+stdout | tests/integration/payment-authority.test.ts > server payment authority > rejects structurally invalid persisted status = forged on reads and callbacks
+[req] GET /api/v1/billing/payment-intents/pay_6660a318-7d0c-43f3-97d2-54792ee09c4d 409 0ms da33fd66-8e4e-4e5e-9700-30052f77ae83
+
+stdout | tests/integration/payment-authority.test.ts > server payment authority > rejects structurally invalid persisted status = forged on reads and callbacks
+[req] POST /api/v1/billing/payos/webhook 409 0ms d24e5e31-d394-41b0-8ed7-b603a73e9033
+
+stdout | tests/integration/t07-security.test.ts > T07 H1 hostile planner bodies > rejects swap recipe variant elevation without advancing the plan
+{"level":"info","event":"meal_planning_result","status":"feasible","conclusion":"feasible","truncated":false,"states":3}
+
+stdout | tests/integration/payment-authority.test.ts > server payment authority > rejects a signed amount that no longer matches the persisted intent
+[req] POST /api/v1/billing/payment-intents 201 0ms f33ee013-5d21-4e10-b148-679188713945
+
+stdout | tests/integration/payment-authority.test.ts > server payment authority > rejects a signed amount that no longer matches the persisted intent
+[req] POST /api/v1/billing/payos/webhook 409 0ms f3d8f90f-91ae-4293-8e2c-4e6cdc668838
+
+stdout | tests/integration/payment-authority.test.ts > server payment authority > enforces the safe-integer boundary on stored amounts without consulting catalog prices
+[req] POST /api/v1/billing/payment-intents 201 0ms a89e898b-e1dd-4c95-83d0-6d0023550591
+
+stdout | tests/integration/t07-security.test.ts > T07 H1 hostile planner bodies > rejects shopping top-level prices rather than accepting trusted commercial state
+{"level":"info","event":"meal_planning_result","status":"feasible","conclusion":"feasible","truncated":false,"states":3}
+
+stdout | tests/integration/payment-authority.test.ts > server payment authority > fails closed before DB/provider work when PayOS configuration is incomplete
+[req] POST /api/v1/billing/payment-intents 503 0ms 2c46d42f-7470-4f4a-aff0-0057e16829d7
+
+stdout | tests/integration/t07-security.test.ts > T07 H1 hostile planner bodies > rejects shopping top-level shortages rather than accepting trusted commercial state
+{"level":"info","event":"meal_planning_result","status":"feasible","conclusion":"feasible","truncated":false,"states":3}
+
+stdout | tests/integration/payment-authority.test.ts > server payment authority > rejects a provider response whose signed amount does not match the local intent
+[req] POST /api/v1/billing/payment-intents 502 0ms 294683cd-7b1a-40b0-ae5a-c672504013f5
+
+stdout | tests/integration/t07-security.test.ts > T07 H1 hostile planner bodies > rejects shopping top-level catalog rather than accepting trusted commercial state
+{"level":"info","event":"meal_planning_result","status":"feasible","conclusion":"feasible","truncated":false,"states":3}
+
+stdout | tests/integration/payment-authority.test.ts > server payment authority > marks an intent failed after a provider timeout and rejects a later signed callback
+[req] POST /api/v1/billing/payment-intents 502 0ms d789c5b0-d9d1-4414-acf7-1a2929b56d03
+
+stdout | tests/integration/payment-authority.test.ts > server payment authority > marks an intent failed after a provider timeout and rejects a later signed callback
+[req] POST /api/v1/billing/payos/webhook 409 0ms f369f597-1680-4168-9811-ef373dc4db31
+
+stdout | tests/integration/t07-security.test.ts > T07 H1 hostile planner bodies > rejects shopping top-level inventory rather than accepting trusted commercial state
+{"level":"info","event":"meal_planning_result","status":"feasible","conclusion":"feasible","truncated":false,"states":3}
+
+stdout | tests/integration/payment-authority.test.ts > server payment authority > accepts a signed provider description prefix and uses that exact description in QR addInfo
+[req] POST /api/v1/billing/payment-intents 201 0ms 9ffb03f2-6a63-4dc7-bdc3-8495fc578394
+
+stdout | tests/integration/payment-authority.test.ts > server payment authority > rejects a provider response with an invalid signature and fails the local intent
+[req] POST /api/v1/billing/payment-intents 502 0ms fac3d873-52f6-4afa-92f3-72b19300ff60
+
+stdout | tests/integration/t07-security.test.ts > T07 H1 hostile planner bodies > rejects shopping top-level creator rather than accepting trusted commercial state
+{"level":"info","event":"meal_planning_result","status":"feasible","conclusion":"feasible","truncated":false,"states":3}
+
+stdout | tests/integration/payment-authority.test.ts > server payment authority > rejects provider order, currency, and expiry mismatches
+[req] POST /api/v1/billing/payment-intents 502 0ms 2d33db02-6791-465c-9796-df6b8e85ca4d
+
+stdout | tests/integration/payment-authority.test.ts > server payment authority > rejects provider order, currency, and expiry mismatches
+[req] POST /api/v1/billing/payment-intents 502 0ms 7032df32-2886-4d64-8a70-2423cd993353
+
+stdout | tests/integration/payment-authority.test.ts > server payment authority > rejects provider order, currency, and expiry mismatches
+[req] POST /api/v1/billing/payment-intents 502 0ms 8aae76a1-5734-4fe7-9f08-e8bc1a154b16
+
+stdout | tests/integration/t07-security.test.ts > T07 H1 hostile planner bodies > rejects shopping null budget rather than accepting trusted commercial state
+{"level":"info","event":"meal_planning_result","status":"feasible","conclusion":"feasible","truncated":false,"states":3}
+
+stdout | tests/integration/payment-authority.test.ts > owned payment intent status > returns DB status without exposing provider payment instructions
+[req] POST /api/v1/billing/payment-intents 201 0ms 7a5ebe50-beba-4b2c-9342-472780b1470c
+
+stdout | tests/integration/payment-authority.test.ts > owned payment intent status > returns DB status without exposing provider payment instructions
+[req] GET /api/v1/billing/payment-intents/pay_3b7245b1-0321-43ec-bfcb-da85db12f3ab 200 0ms 24a4f98f-c80b-4deb-b8f0-018fe272f156
+
+stdout | tests/integration/t07-security.test.ts > T07 H1 hostile planner bodies > rejects shopping nested price claim rather than accepting trusted commercial state
+{"level":"info","event":"meal_planning_result","status":"feasible","conclusion":"feasible","truncated":false,"states":3}
+
+stdout | tests/integration/payment-authority.test.ts > owned payment intent status > does not disclose another user’s intent
+[req] POST /api/v1/billing/payment-intents 201 0ms afef0e19-bb06-499e-a5c2-110d374f97a7
+
+stdout | tests/integration/payment-authority.test.ts > owned payment intent status > does not disclose another user’s intent
+[req] GET /api/v1/billing/payment-intents/pay_ed8b29e8-a561-4aaa-9e12-bdcc2503c6d8 404 0ms d5342bc8-ee96-4cfe-be23-68095e6ec70e
+
+stdout | tests/integration/t07-security.test.ts > T07 H1 hostile planner bodies > rejects feedback client target identity before writing user state
+{"level":"info","event":"meal_planning_result","status":"feasible","conclusion":"feasible","truncated":false,"states":3}
+
+stdout | tests/integration/payment-authority.test.ts > owned payment intent status > derives expired status from the server clock without mutating the pending row
+[req] POST /api/v1/billing/payment-intents 201 0ms 92b12c4e-d56a-4b41-be2d-eb3785ee668c
+
+stdout | tests/integration/payment-authority.test.ts > owned payment intent status > derives expired status from the server clock without mutating the pending row
+[req] GET /api/v1/billing/payment-intents/pay_b2ec861c-1f69-4124-864c-d2ada35b5562 200 0ms 6849e304-f7c7-4999-83a7-dfe08ebd0cf8
+
+stdout | tests/integration/payment-authority.test.ts > owned payment intent status > requires CSRF origin protection for cookie-authenticated intent creation
+[req] POST /api/v1/billing/payment-intents 403 0ms 20a4c504-79fe-44ae-9954-4a7be6da3ed4
+
+stdout | tests/integration/t07-security.test.ts > T07 H1 hostile planner bodies > rejects feedback client occurred time before writing user state
+{"level":"info","event":"meal_planning_result","status":"feasible","conclusion":"feasible","truncated":false,"states":3}
+
+stdout | tests/integration/payment-authority.test.ts > owned payment intent status > rejects a request whose expected account headers do not match the cookie session
+[req] GET /api/v1/billing/plans 403 0ms 7f2395a5-b935-4887-b951-30c197b9b794
+
+stdout | tests/integration/t07-security.test.ts > T07 H1 hostile planner bodies > rejects feedback client creator before writing user state
+{"level":"info","event":"meal_planning_result","status":"feasible","conclusion":"feasible","truncated":false,"states":3}
+
+stdout | tests/integration/payment-authority.test.ts > verified webhook reconciliation and entitlement grants > rejects bad signatures before touching the intent
+[req] POST /api/v1/billing/payment-intents 201 0ms cff7f022-fc28-4e74-a59d-e5d461d5d071
+
+stdout | tests/integration/payment-authority.test.ts > verified webhook reconciliation and entitlement grants > rejects bad signatures before touching the intent
+[req] POST /api/v1/billing/payos/webhook 401 0ms 366b3e1e-a89e-442d-8d42-b096419fef28
+
+stdout | tests/integration/t07-security.test.ts > T07 H1 hostile planner bodies > rejects feedback client history before writing user state
+{"level":"info","event":"meal_planning_result","status":"feasible","conclusion":"feasible","truncated":false,"states":3}
+
+stdout | tests/integration/payment-authority.test.ts > verified webhook reconciliation and entitlement grants > uses signed data.code rather than the unsigned envelope code
+[req] POST /api/v1/billing/payment-intents 201 0ms 6f276e2a-bf1a-4482-bc56-9e72ab08153c
+
+stdout | tests/integration/payment-authority.test.ts > verified webhook reconciliation and entitlement grants > uses signed data.code rather than the unsigned envelope code
+[req] POST /api/v1/billing/payos/webhook 200 0ms 8b6e67bc-06d0-4305-ba2e-a8e40f0c67c3
+
+stdout | tests/integration/t07-security.test.ts > T07 H1 hostile planner bodies > rejects feedback client revision string before writing user state
+{"level":"info","event":"meal_planning_result","status":"feasible","conclusion":"feasible","truncated":false,"states":3}
+
+stdout | tests/integration/payment-authority.test.ts > verified webhook reconciliation and entitlement grants > requires a signed reference and validates amount and currency
+[req] POST /api/v1/billing/payment-intents 201 0ms d91c5709-609d-474a-8bcd-1230110c26d9
+
+stdout | tests/integration/payment-authority.test.ts > verified webhook reconciliation and entitlement grants > requires a signed reference and validates amount and currency
+[req] POST /api/v1/billing/payos/webhook 400 0ms 1d951713-8d05-4b6a-ace2-a40d18a3c4a2
+
+stdout | tests/integration/payment-authority.test.ts > verified webhook reconciliation and entitlement grants > requires a signed reference and validates amount and currency
+[req] POST /api/v1/billing/payment-intents 201 0ms 2f7baeac-5a47-4d12-827a-c8a27e57b9d6
+
+stdout | tests/integration/payment-authority.test.ts > verified webhook reconciliation and entitlement grants > requires a signed reference and validates amount and currency
+[req] POST /api/v1/billing/payos/webhook 409 0ms 4a0d6758-69d0-4b1f-a8ae-c9f3b88e6be0
+
+stdout | tests/integration/payment-authority.test.ts > verified webhook reconciliation and entitlement grants > requires a signed reference and validates amount and currency
+[req] POST /api/v1/billing/payment-intents 201 0ms 030595f8-89d4-4be3-adef-4748c90aba67
+
+stdout | tests/integration/payment-authority.test.ts > verified webhook reconciliation and entitlement grants > requires a signed reference and validates amount and currency
+[req] POST /api/v1/billing/payos/webhook 409 0ms 6ab57807-3290-4366-b132-fe3e37f94e95
+
+stdout | tests/integration/t07-security.test.ts > T07 H1 hostile planner bodies > rejects explanation reason code injection without invoking a caller-selected fact set
+{"level":"info","event":"meal_planning_result","status":"feasible","conclusion":"feasible","truncated":false,"states":3}
+
+stdout | tests/integration/payment-authority.test.ts > verified webhook reconciliation and entitlement grants > does not allow a failed terminal intent to become paid
+[req] POST /api/v1/billing/payment-intents 201 0ms 96b1ae46-71d1-4274-84c7-292e792ff0be
+
+stdout | tests/integration/payment-authority.test.ts > verified webhook reconciliation and entitlement grants > does not allow a failed terminal intent to become paid
+[req] POST /api/v1/billing/payos/webhook 200 0ms b014edd0-1bda-4b6a-abee-8ce62b81958a
+
+stdout | tests/integration/payment-authority.test.ts > verified webhook reconciliation and entitlement grants > does not allow a failed terminal intent to become paid
+[req] POST /api/v1/billing/payos/webhook 409 0ms 05ff4f52-122b-44a4-93b6-028f248f7a9b
+
+stdout | tests/integration/t07-security.test.ts > T07 H1 hostile planner bodies > rejects explanation trusted plan injection without invoking a caller-selected fact set
+{"level":"info","event":"meal_planning_result","status":"feasible","conclusion":"feasible","truncated":false,"states":3}
+
+stdout | tests/integration/payment-authority.test.ts > verified webhook reconciliation and entitlement grants > rejects paid callbacks for invalid stored plans
+[req] POST /api/v1/billing/payment-intents 201 0ms 16707b8f-8bfd-47f6-b8cb-4d917d8bc5d2
+
+stdout | tests/integration/payment-authority.test.ts > verified webhook reconciliation and entitlement grants > rejects paid callbacks for invalid stored plans
+[req] POST /api/v1/billing/payos/webhook 409 0ms 861fe06a-b1ca-4ebe-95b0-f25c3f92aaa3
+
+stdout | tests/integration/payment-authority.test.ts > verified webhook reconciliation and entitlement grants > rejects a paid callback for terminal failed intents
+[req] POST /api/v1/billing/payment-intents 201 0ms 8bdc0cd9-d24d-45b9-83e1-5d9e8fab8647
+
+stdout | tests/integration/payment-authority.test.ts > verified webhook reconciliation and entitlement grants > rejects a paid callback for terminal failed intents
+[req] POST /api/v1/billing/payos/webhook 409 0ms 678bd1f8-d381-4611-9b50-aa67b42e5b1c
+
+stdout | tests/integration/t07-security.test.ts > T07 H1 hostile planner bodies > rejects explanation catalog injection without invoking a caller-selected fact set
+{"level":"info","event":"meal_planning_result","status":"feasible","conclusion":"feasible","truncated":false,"states":3}
+
+stdout | tests/integration/payment-authority.test.ts > verified webhook reconciliation and entitlement grants > rejects a paid callback for terminal refunded intents
+[req] POST /api/v1/billing/payment-intents 201 0ms d1318a31-2493-4f11-83e1-1b635b3eeaf5
+
+stdout | tests/integration/payment-authority.test.ts > verified webhook reconciliation and entitlement grants > rejects a paid callback for terminal refunded intents
+[req] POST /api/v1/billing/payos/webhook 409 0ms 20e12108-e6c0-4ec9-8b43-309d7b3f058d
+
+stdout | tests/integration/t07-security.test.ts > T07 H1 hostile planner bodies > rejects explanation malformed locale without invoking a caller-selected fact set
+{"level":"info","event":"meal_planning_result","status":"feasible","conclusion":"feasible","truncated":false,"states":3}
+
+stdout | tests/integration/payment-authority.test.ts > verified webhook reconciliation and entitlement grants > rejects a paid callback for terminal expired intents
+[req] POST /api/v1/billing/payment-intents 201 0ms 79c754db-567c-45db-ae2b-cd88969966b9
+
+stdout | tests/integration/payment-authority.test.ts > verified webhook reconciliation and entitlement grants > rejects a paid callback for terminal expired intents
+[req] POST /api/v1/billing/payos/webhook 409 0ms ab0ba932-c589-48fa-b716-1289584e7f35
+
+stdout | tests/integration/t07-security.test.ts > T07 H1 hostile planner bodies > rejects unknown and duplicate alternatives query values rather than treating a client revision as trusted
+{"level":"info","event":"meal_planning_result","status":"feasible","conclusion":"feasible","truncated":false,"states":3}
+
+ ✓ tests/integration/t07-security.test.ts (51 tests) 6118ms
+stdout | tests/integration/payment-authority.test.ts > verified webhook reconciliation and entitlement grants > ACKs duplicate paid callbacks without extending the same entitlement
+[req] POST /api/v1/billing/payment-intents 201 0ms 98f0e1ca-811f-4f7b-ae7b-95d79a057aa7
+
+stdout | tests/integration/payment-authority.test.ts > verified webhook reconciliation and entitlement grants > ACKs duplicate paid callbacks without extending the same entitlement
+[req] POST /api/v1/billing/payos/webhook 200 0ms 8afbe39c-55f0-4001-8253-19427a31ecf6
+
+stdout | tests/integration/payment-authority.test.ts > verified webhook reconciliation and entitlement grants > ACKs duplicate paid callbacks without extending the same entitlement
+[req] POST /api/v1/billing/payos/webhook 200 0ms 5602d6f2-11ec-4f2d-84f8-b1d52f3b23b4
+
+stdout | tests/integration/payment-authority.test.ts > verified webhook reconciliation and entitlement grants > serializes concurrent callbacks for one intent and stacks distinct paid orders
+[req] POST /api/v1/billing/payment-intents 201 0ms 57ca387f-b145-4f4b-9246-26a866cbf683
+
+stdout | tests/integration/payment-authority.test.ts > verified webhook reconciliation and entitlement grants > serializes concurrent callbacks for one intent and stacks distinct paid orders
+[req] POST /api/v1/billing/payos/webhook 200 0ms 1545d547-9f70-4b8d-9a8b-cf5b85f17266
+
+stdout | tests/integration/payment-authority.test.ts > verified webhook reconciliation and entitlement grants > serializes concurrent callbacks for one intent and stacks distinct paid orders
+[req] POST /api/v1/billing/payos/webhook 200 0ms 3557fe65-5da1-48c0-82cd-6073cbc2b3aa
+
+stdout | tests/integration/payment-authority.test.ts > verified webhook reconciliation and entitlement grants > serializes concurrent callbacks for one intent and stacks distinct paid orders
+[req] POST /api/v1/billing/payment-intents 201 0ms 0ea38667-12ab-4fcf-99dc-d2971fc93037
+
+stdout | tests/integration/payment-authority.test.ts > verified webhook reconciliation and entitlement grants > serializes concurrent callbacks for one intent and stacks distinct paid orders
+[req] POST /api/v1/billing/payos/webhook 200 0ms 6841df1d-0fe1-4691-b5ef-4864a033afe5
+
+stdout | tests/integration/payment-authority.test.ts > verified webhook reconciliation and entitlement grants > stacks two distinct paid orders when their signed callbacks arrive concurrently
+[req] POST /api/v1/billing/payment-intents 201 0ms 258d10e0-1f12-4f8a-bdf0-b206a8cdc30e
+
+stdout | tests/integration/payment-authority.test.ts > verified webhook reconciliation and entitlement grants > stacks two distinct paid orders when their signed callbacks arrive concurrently
+[req] POST /api/v1/billing/payment-intents 201 0ms e28a1092-2c47-4340-b2d5-7ebde8444a3c
+
+stdout | tests/integration/payment-authority.test.ts > verified webhook reconciliation and entitlement grants > stacks two distinct paid orders when their signed callbacks arrive concurrently
+[req] POST /api/v1/billing/payos/webhook 200 0ms 195e8e5b-2a42-4394-b1dc-76f1238d13f8
+
+stdout | tests/integration/payment-authority.test.ts > verified webhook reconciliation and entitlement grants > stacks two distinct paid orders when their signed callbacks arrive concurrently
+[req] POST /api/v1/billing/payos/webhook 200 0ms 60d1b012-00b5-4f1a-9ada-e235f0f7a9fc
+
+stdout | tests/integration/payment-authority.test.ts > verified webhook reconciliation and entitlement grants > rolls back a second order when its provider reference is already used by another order
+[req] POST /api/v1/billing/payment-intents 201 0ms 7926ebb7-3444-41fc-93b4-2501ded918dc
+
+stdout | tests/integration/payment-authority.test.ts > verified webhook reconciliation and entitlement grants > rolls back a second order when its provider reference is already used by another order
+[req] POST /api/v1/billing/payment-intents 201 0ms 9828f5fc-90ed-41ee-bf59-e3d15028c81b
+
+stdout | tests/integration/payment-authority.test.ts > verified webhook reconciliation and entitlement grants > rolls back a second order when its provider reference is already used by another order
+[req] POST /api/v1/billing/payos/webhook 200 0ms ce13309d-4885-4c29-8d5f-c808ee102d94
+
+stdout | tests/integration/payment-authority.test.ts > verified webhook reconciliation and entitlement grants > rolls back a second order when its provider reference is already used by another order
+[req] POST /api/v1/billing/payos/webhook 409 0ms 2168eff4-7c02-48a1-b911-8e3f9d4e3dfc
+
+stdout | tests/integration/payment-authority.test.ts > verified webhook reconciliation and entitlement grants > ACKs a paid replay after the intent expiry time without mutating entitlement
+[req] POST /api/v1/billing/payment-intents 201 0ms cba7be6a-3a8b-43d7-80ab-ab931cd43e6d
+
+stdout | tests/integration/payment-authority.test.ts > verified webhook reconciliation and entitlement grants > ACKs a paid replay after the intent expiry time without mutating entitlement
+[req] POST /api/v1/billing/payos/webhook 200 0ms 0183b98b-70df-49da-8701-a7a6393dbeef
+
+stdout | tests/integration/payment-authority.test.ts > verified webhook reconciliation and entitlement grants > ACKs a paid replay after the intent expiry time without mutating entitlement
+[req] POST /api/v1/billing/payos/webhook 200 0ms 41985429-24bf-4705-8e9b-982601f060d0
+
+stdout | tests/integration/payment-authority.test.ts > verified webhook reconciliation and entitlement grants > rejects a first paid callback that crosses the pending intent expiry
+[req] POST /api/v1/billing/payment-intents 201 0ms ba7ac94f-f149-43d2-8323-3a255bbbda43
+
+stdout | tests/integration/payment-authority.test.ts > verified webhook reconciliation and entitlement grants > rejects a first paid callback that crosses the pending intent expiry
+[req] POST /api/v1/billing/payos/webhook 409 0ms 57f5fbb2-b7f5-492b-b23d-0ffd90d924d1
+
+stderr | tests/integration/payment-authority.test.ts > legacy activation retirement > returns compatibility pending state but never writes a grant
+{"level":"warn","limiter":"rl_auth","reason":"kv-unbound","message":"Rate limiter degraded to isolate-local counters; enforcement is not globally reliable."}
+
+stdout | tests/integration/payment-authority.test.ts > legacy activation retirement > returns compatibility pending state but never writes a grant
+[req] POST /api/v1/auth/plus/activate 200 0ms 4718bda0-c203-444e-a5f3-b3c1a884b183
+
+stdout | tests/integration/payment-authority.test.ts > legacy activation retirement > rejects browser-supplied legacy grant codes without writing entitlement
+[req] POST /api/v1/auth/plus/activate 410 0ms 9a3932d0-b6f2-42de-8c2d-7bd7db028618
+
+ ✓ tests/integration/payment-authority.test.ts (65 tests) 6385ms
+stdout | tests/e2e/planner-preview.test.mjs > isolated planner preview using real registered Worker sessions and T02–T05 > replays all migrations and seeds idempotently without retaining a plaintext session
+[req] GET /api/v1/me 200 4ms 4eddc919-db0b-47cb-b2a9-a283e0109a6e
+
+stdout | tests/e2e/planner-preview.test.mjs > isolated planner preview using real registered Worker sessions and T02–T05 > generates a real seven-meal plan, restores it, shops with unknown prices, swaps and records cooked without consuming inventory
+[req] GET /api/v1/meal-planning/plans/current 200 2ms 7bbbd80c-481e-40ed-9d4a-b944967a667e
+
+stdout | tests/e2e/planner-preview.test.mjs > isolated planner preview using real registered Worker sessions and T02–T05 > generates a real seven-meal plan, restores it, shops with unknown prices, swaps and records cooked without consuming inventory
+{"level":"info","event":"meal_planning_result","status":"feasible","conclusion":"feasible","truncated":true,"states":297}
+
+stdout | tests/e2e/planner-preview.test.mjs > isolated planner preview using real registered Worker sessions and T02–T05 > generates a real seven-meal plan, restores it, shops with unknown prices, swaps and records cooked without consuming inventory
+[req] POST /api/v1/meal-planning/plans 200 517ms 64d3d6cd-24db-4019-b220-1cf0244f64ce
+
+stdout | tests/e2e/planner-preview.test.mjs > isolated planner preview using real registered Worker sessions and T02–T05 > generates a real seven-meal plan, restores it, shops with unknown prices, swaps and records cooked without consuming inventory
+[req] GET /api/v1/meal-planning/plans/45268f97-a8d0-47ef-8e4b-3cd0835ffb2d 200 24ms 2bb5d53d-657d-4ab2-b32a-9852ab587d6f
+
+stdout | tests/e2e/planner-preview.test.mjs > isolated planner preview using real registered Worker sessions and T02–T05 > generates a real seven-meal plan, restores it, shops with unknown prices, swaps and records cooked without consuming inventory
+{"level":"info","event":"meal_shopping_result","catalogStatus":"reviewed_catalog_unavailable"}
+
+stdout | tests/e2e/planner-preview.test.mjs > isolated planner preview using real registered Worker sessions and T02–T05 > generates a real seven-meal plan, restores it, shops with unknown prices, swaps and records cooked without consuming inventory
+[req] POST /api/v1/meal-planning/plans/45268f97-a8d0-47ef-8e4b-3cd0835ffb2d/shopping 200 17ms 71f03e98-a84e-488d-869f-503c2965a5e9
+
+stdout | tests/e2e/planner-preview.test.mjs > isolated planner preview using real registered Worker sessions and T02–T05 > generates a real seven-meal plan, restores it, shops with unknown prices, swaps and records cooked without consuming inventory
+[req] GET /api/v1/meal-planning/plans/45268f97-a8d0-47ef-8e4b-3cd0835ffb2d/alternatives 200 7ms 4547faf6-75b2-4bfa-99f2-8dbc0f45c80a
+
+stdout | tests/e2e/planner-preview.test.mjs > isolated planner preview using real registered Worker sessions and T02–T05 > generates a real seven-meal plan, restores it, shops with unknown prices, swaps and records cooked without consuming inventory
+{"level":"info","event":"meal_planning_result","status":"feasible","conclusion":"feasible","truncated":true,"states":250}
+
+stdout | tests/e2e/planner-preview.test.mjs > isolated planner preview using real registered Worker sessions and T02–T05 > generates a real seven-meal plan, restores it, shops with unknown prices, swaps and records cooked without consuming inventory
+[req] POST /api/v1/meal-planning/plans/45268f97-a8d0-47ef-8e4b-3cd0835ffb2d/swap 200 392ms 99bca0ee-30e3-4261-9ddb-98ff7d953cb6
+
+stdout | tests/e2e/planner-preview.test.mjs > isolated planner preview using real registered Worker sessions and T02–T05 > generates a real seven-meal plan, restores it, shops with unknown prices, swaps and records cooked without consuming inventory
+[req] POST /api/v1/meal-planning/plans/45268f97-a8d0-47ef-8e4b-3cd0835ffb2d/explanation 200 2ms 7850e664-a42e-4f7b-949a-4a1e83f49b8a
+
+stdout | tests/e2e/planner-preview.test.mjs > isolated planner preview using real registered Worker sessions and T02–T05 > generates a real seven-meal plan, restores it, shops with unknown prices, swaps and records cooked without consuming inventory
+[req] POST /api/v1/meal-planning/plans/45268f97-a8d0-47ef-8e4b-3cd0835ffb2d/feedback 200 2ms 2f17bc73-e02f-4cec-abfe-92da9959d9d9
+
+stdout | tests/e2e/planner-preview.test.mjs > isolated planner preview using real registered Worker sessions and T02–T05 > generates a real seven-meal plan, restores it, shops with unknown prices, swaps and records cooked without consuming inventory
+[req] POST /api/v1/meal-planning/plans/45268f97-a8d0-47ef-8e4b-3cd0835ffb2d/feedback 200 2ms 1c6faf0d-3f30-4ae8-8887-bd1f36f47d5b
+
+stdout | tests/e2e/planner-preview.test.mjs > isolated planner preview using real registered Worker sessions and T02–T05 > generates a real seven-meal plan, restores it, shops with unknown prices, swaps and records cooked without consuming inventory
+[req] GET /api/v1/meal-planning/plans/current 200 7ms a04add48-0a3f-439c-845b-ac8e01640583
+
+stdout | tests/e2e/planner-preview.test.mjs > isolated planner preview using real registered Worker sessions and T02–T05 > does not hide stale source state and recovers through regeneration
+{"level":"info","event":"meal_planning_result","status":"feasible","conclusion":"feasible","truncated":true,"states":297}
+
+stdout | tests/e2e/planner-preview.test.mjs > isolated planner preview using real registered Worker sessions and T02–T05 > does not hide stale source state and recovers through regeneration
+[req] POST /api/v1/meal-planning/plans 200 395ms 04f97890-06c3-4b60-828d-45a6f539a5e5
+
+stdout | tests/e2e/planner-preview.test.mjs > isolated planner preview using real registered Worker sessions and T02–T05 > does not hide stale source state and recovers through regeneration
+[req] POST /api/v1/meal-planning/plans/1b0a168d-3554-4252-929f-08d0fd3789c2/shopping 409 13ms 997ae4e0-c631-4619-aa40-5365c291f906
+
+stdout | tests/e2e/planner-preview.test.mjs > isolated planner preview using real registered Worker sessions and T02–T05 > does not hide stale source state and recovers through regeneration
+{"level":"info","event":"meal_planning_result","status":"feasible","conclusion":"feasible","truncated":true,"states":297}
+
+stdout | tests/e2e/planner-preview.test.mjs > isolated planner preview using real registered Worker sessions and T02–T05 > does not hide stale source state and recovers through regeneration
+[req] POST /api/v1/meal-planning/plans/1b0a168d-3554-4252-929f-08d0fd3789c2/regenerate 200 393ms 24e9586b-3007-4f6f-860f-d6c7d574f298
+
+stdout | tests/e2e/planner-preview.test.mjs > isolated planner preview using real registered Worker sessions and T02–T05 > does not hide stale source state and recovers through regeneration
+[req] POST /api/v1/meal-planning/plans/1b0a168d-3554-4252-929f-08d0fd3789c2/shopping 409 1ms a413017f-13da-4eba-b83a-60bc52e84e62
+
+stdout | tests/e2e/planner-preview.test.mjs > isolated planner preview using real registered Worker sessions and T02–T05 > does not hide stale source state and recovers through regeneration
+{"level":"info","event":"meal_shopping_result","catalogStatus":"reviewed_catalog_unavailable"}
+
+stdout | tests/e2e/planner-preview.test.mjs > isolated planner preview using real registered Worker sessions and T02–T05 > does not hide stale source state and recovers through regeneration
+[req] POST /api/v1/meal-planning/plans/1b0a168d-3554-4252-929f-08d0fd3789c2/shopping 200 8ms befd71a3-812a-4d7d-a0c6-c2762a1c3f60
+
+stdout | tests/e2e/planner-preview.test.mjs > isolated planner preview using real registered Worker sessions and T02–T05 > persists liked feedback once without inventory or cooking side effects
+{"level":"info","event":"meal_planning_result","status":"feasible","conclusion":"feasible","truncated":true,"states":297}
+
+stdout | tests/e2e/planner-preview.test.mjs > isolated planner preview using real registered Worker sessions and T02–T05 > persists liked feedback once without inventory or cooking side effects
+[req] POST /api/v1/meal-planning/plans 200 381ms d0b8b7be-7815-4958-9b38-4f46b1b7436f
+
+stdout | tests/e2e/planner-preview.test.mjs > isolated planner preview using real registered Worker sessions and T02–T05 > persists liked feedback once without inventory or cooking side effects
+[req] POST /api/v1/meal-planning/plans/78b38cc4-e0b0-4dff-8c1d-e6ac0a3c2adc/feedback 200 3ms 766b991d-e648-48ae-afd4-d66b1f672b22
+
+stdout | tests/e2e/planner-preview.test.mjs > isolated planner preview using real registered Worker sessions and T02–T05 > persists liked feedback once without inventory or cooking side effects
+[req] POST /api/v1/meal-planning/plans/78b38cc4-e0b0-4dff-8c1d-e6ac0a3c2adc/feedback 200 7ms d6717953-fb54-4d56-ae65-7152f88d51b8
+
+stdout | tests/e2e/planner-preview.test.mjs > isolated planner preview using real registered Worker sessions and T02–T05 > persists disliked feedback once without inventory or cooking side effects
+{"level":"info","event":"meal_planning_result","status":"feasible","conclusion":"feasible","truncated":true,"states":297}
+
+stdout | tests/e2e/planner-preview.test.mjs > isolated planner preview using real registered Worker sessions and T02–T05 > persists disliked feedback once without inventory or cooking side effects
+[req] POST /api/v1/meal-planning/plans 200 384ms 39af0791-412c-44d1-b671-3fd71b66a5d2
+
+stdout | tests/e2e/planner-preview.test.mjs > isolated planner preview using real registered Worker sessions and T02–T05 > persists disliked feedback once without inventory or cooking side effects
+[req] POST /api/v1/meal-planning/plans/0ca0abcb-0e98-405b-9608-8e41ec51303a/feedback 200 2ms ea658b42-b851-46ff-bde9-b2552fd19777
+
+stdout | tests/e2e/planner-preview.test.mjs > isolated planner preview using real registered Worker sessions and T02–T05 > persists disliked feedback once without inventory or cooking side effects
+[req] POST /api/v1/meal-planning/plans/0ca0abcb-0e98-405b-9608-8e41ec51303a/feedback 200 1ms 572615dc-4338-43b4-9b2d-6f621abc1555
+
+stdout | tests/e2e/planner-preview.test.mjs > isolated planner preview using real registered Worker sessions and T02–T05 > persists skipped feedback once without inventory or cooking side effects
+{"level":"info","event":"meal_planning_result","status":"feasible","conclusion":"feasible","truncated":true,"states":297}
+
+stdout | tests/e2e/planner-preview.test.mjs > isolated planner preview using real registered Worker sessions and T02–T05 > persists skipped feedback once without inventory or cooking side effects
+[req] POST /api/v1/meal-planning/plans 200 393ms b7788861-599d-438a-9ec5-c1e1f17d9ff1
+
+stdout | tests/e2e/planner-preview.test.mjs > isolated planner preview using real registered Worker sessions and T02–T05 > persists skipped feedback once without inventory or cooking side effects
+[req] POST /api/v1/meal-planning/plans/2d6a49a1-11cb-4513-ac69-a1a8a06e57a2/feedback 200 12ms f3a64b25-9dba-4a5a-a69a-67e20495641f
+
+stdout | tests/e2e/planner-preview.test.mjs > isolated planner preview using real registered Worker sessions and T02–T05 > persists skipped feedback once without inventory or cooking side effects
+[req] POST /api/v1/meal-planning/plans/2d6a49a1-11cb-4513-ac69-a1a8a06e57a2/feedback 200 2ms 2f6e2e79-e1e6-47a7-be9d-4f0d8dfb2ef8
+
+stdout | tests/e2e/planner-preview.test.mjs > isolated planner preview using real registered Worker sessions and T02–T05 > reports an infeasible cook-now plan instead of manufacturing missing stock
+{"level":"info","event":"meal_planning_result","status":"infeasible","conclusion":"proven_infeasible","truncated":false,"states":1}
+
+stdout | tests/e2e/planner-preview.test.mjs > isolated planner preview using real registered Worker sessions and T02–T05 > reports an infeasible cook-now plan instead of manufacturing missing stock
+[req] POST /api/v1/meal-planning/plans 200 28ms 02e6ad05-3210-4e12-841f-c12a496dd5f9
+
+stdout | tests/e2e/planner-preview.test.mjs > isolated planner preview using real registered Worker sessions and T02–T05 > keeps actual Worker authorization, CSRF and feature-off gates intact
+[req] POST /api/v1/meal-planning/plans 401 0ms e2575906-6e0d-4056-9eeb-57b8a573a429
+
+stdout | tests/e2e/planner-preview.test.mjs > isolated planner preview using real registered Worker sessions and T02–T05 > keeps actual Worker authorization, CSRF and feature-off gates intact
+[req] POST /api/v1/meal-planning/plans 403 0ms 56f4ebc0-def4-4874-be35-ddae11990f3b
+
+stdout | tests/e2e/planner-preview.test.mjs > isolated planner preview using real registered Worker sessions and T02–T05 > keeps actual Worker authorization, CSRF and feature-off gates intact
+[req] POST /api/v1/meal-planning/plans 403 0ms c611b6df-5d21-4ff8-9437-9b86f06798e7
+
+stdout | tests/e2e/planner-preview.test.mjs > isolated planner preview using real registered Worker sessions and T02–T05 > keeps actual Worker authorization, CSRF and feature-off gates intact
+[req] POST /api/v1/meal-planning/plans 404 0ms c77a303f-cd11-40d0-84ad-dca25c2f4476
+
+stdout | tests/e2e/planner-preview.test.mjs > isolated planner preview using real registered Worker sessions and T02–T05 > resets the entire in-memory namespace repeatably and revokes prior sessions
+{"level":"info","event":"meal_planning_result","status":"feasible","conclusion":"feasible","truncated":true,"states":297}
+
+stdout | tests/e2e/planner-preview.test.mjs > isolated planner preview using real registered Worker sessions and T02–T05 > resets the entire in-memory namespace repeatably and revokes prior sessions
+[req] POST /api/v1/meal-planning/plans 200 398ms 151337f5-116a-4cfc-956b-86eebc0171f5
+
+stdout | tests/e2e/planner-preview.test.mjs > isolated planner preview using real registered Worker sessions and T02–T05 > resets the entire in-memory namespace repeatably and revokes prior sessions
+[req] GET /api/v1/me 401 1ms 0f0423f2-27c7-48fc-8907-90c97bfe1e42
+
+stdout | tests/e2e/planner-preview.test.mjs > isolated planner preview using real registered Worker sessions and T02–T05 > resets the entire in-memory namespace repeatably and revokes prior sessions
+[req] GET /api/v1/me 200 0ms d86f507f-0457-4b41-b221-bfb53b792cab
+
+stdout | tests/e2e/planner-preview.test.mjs > isolated planner preview using real registered Worker sessions and T02–T05 > resets preview rate-limit state without bypassing the real Worker limiter
+[req] POST /api/v1/meal-planning/plans 422 0ms 11231b0a-1e30-4f1a-bb12-3eaf14ee4011
+
+stdout | tests/e2e/planner-preview.test.mjs > isolated planner preview using real registered Worker sessions and T02–T05 > resets preview rate-limit state without bypassing the real Worker limiter
+[req] POST /api/v1/meal-planning/plans 422 1ms d77635a9-e55c-4e41-9ea9-a6753cd2d964
+
+stdout | tests/e2e/planner-preview.test.mjs > isolated planner preview using real registered Worker sessions and T02–T05 > resets preview rate-limit state without bypassing the real Worker limiter
+[req] POST /api/v1/meal-planning/plans 422 0ms f412727f-ed8a-4f08-b1b7-3b3af8dbf8b0
+
+stdout | tests/e2e/planner-preview.test.mjs > isolated planner preview using real registered Worker sessions and T02–T05 > resets preview rate-limit state without bypassing the real Worker limiter
+[req] POST /api/v1/meal-planning/plans 422 0ms ee71ee9d-b385-4c2c-afbf-72c91611a86b
+
+stdout | tests/e2e/planner-preview.test.mjs > isolated planner preview using real registered Worker sessions and T02–T05 > resets preview rate-limit state without bypassing the real Worker limiter
+[req] POST /api/v1/meal-planning/plans 422 0ms 6004be70-872c-4df3-8eda-cca6a8fd4051
+
+stdout | tests/e2e/planner-preview.test.mjs > isolated planner preview using real registered Worker sessions and T02–T05 > resets preview rate-limit state without bypassing the real Worker limiter
+[req] POST /api/v1/meal-planning/plans 422 0ms 97198746-c104-4dd5-a09e-cc2f237cb9a5
+
+stdout | tests/e2e/planner-preview.test.mjs > isolated planner preview using real registered Worker sessions and T02–T05 > resets preview rate-limit state without bypassing the real Worker limiter
+[req] POST /api/v1/meal-planning/plans 422 1ms e76e3a7b-f021-4295-a6a0-9832dedad22b
+
+stdout | tests/e2e/planner-preview.test.mjs > isolated planner preview using real registered Worker sessions and T02–T05 > resets preview rate-limit state without bypassing the real Worker limiter
+[req] POST /api/v1/meal-planning/plans 422 0ms c3f852d8-d346-42eb-9726-ac9871915951
+
+stdout | tests/e2e/planner-preview.test.mjs > isolated planner preview using real registered Worker sessions and T02–T05 > resets preview rate-limit state without bypassing the real Worker limiter
+[req] POST /api/v1/meal-planning/plans 422 0ms abc551e0-9643-4c27-992b-9b048291750e
+
+stdout | tests/e2e/planner-preview.test.mjs > isolated planner preview using real registered Worker sessions and T02–T05 > resets preview rate-limit state without bypassing the real Worker limiter
+[req] POST /api/v1/meal-planning/plans 422 1ms c17c62e1-3ad7-40b3-973e-cd863b40f38f
+
+stdout | tests/e2e/planner-preview.test.mjs > isolated planner preview using real registered Worker sessions and T02–T05 > resets preview rate-limit state without bypassing the real Worker limiter
+[req] POST /api/v1/meal-planning/plans 429 0ms bc64a61e-229e-4bbb-ab17-9f1b9530850c
+
+stdout | tests/e2e/planner-preview.test.mjs > isolated planner preview using real registered Worker sessions and T02–T05 > resets preview rate-limit state without bypassing the real Worker limiter
+[req] POST /api/v1/meal-planning/plans 422 0ms 454f8859-8472-413f-b39f-b3a3a3bd2fcc
+
+stdout | tests/e2e/planner-preview.test.mjs > isolated planner preview using real registered Worker sessions and T02–T05 > does not register local controls on the production Worker
+[req] POST /__preview/login 404 0ms f86a081e-0039-4413-81c2-0b4dd3621998
+
+ ✓ tests/e2e/planner-preview.test.mjs (17 tests) 5316ms
+   ✓ isolated planner preview using real registered Worker sessions and T02–T05 > generates a real seven-meal plan, restores it, shops with unknown prices, swaps and records cooked without consuming inventory  1076ms
+   ✓ isolated planner preview using real registered Worker sessions and T02–T05 > does not hide stale source state and recovers through regeneration  911ms
+   ✓ isolated planner preview using real registered Worker sessions and T02–T05 > persists liked feedback once without inventory or cooking side effects  485ms
+   ✓ isolated planner preview using real registered Worker sessions and T02–T05 > persists disliked feedback once without inventory or cooking side effects  481ms
+   ✓ isolated planner preview using real registered Worker sessions and T02–T05 > persists skipped feedback once without inventory or cooking side effects  500ms
+   ✓ isolated planner preview using real registered Worker sessions and T02–T05 > resets the entire in-memory namespace repeatably and revokes prior sessions  672ms
+ ✓ tests/unit/production-certify-workflow.test.mjs (48 tests) 6101ms
+   ✓ production certification workflow safety > rejects absent or malformed schema proof, not just reported schema issues  468ms
+   ✓ production certification workflow safety > does not certify missing, contradictory or partial evidence  624ms
+   ✓ production certification workflow safety > allows current generated catalog, runtime and SELECT-only schema CTE queries  655ms
+stderr | tests/integration/meal-planning-http.test.ts > T06A real authenticated Worker/API boundary > generates and retrieves a safe DTO through the actual Worker without stock, AI or payment calls
+{"level":"warn","limiter":"planner-compute","reason":"kv-unbound","message":"Rate limiter degraded to isolate-local counters; enforcement is not globally reliable."}
+{"level":"warn","limiter":"meal-planning-expensive","reason":"kv-unbound","message":"Rate limiter degraded to isolate-local counters; enforcement is not globally reliable."}
+
+stdout | tests/integration/meal-planning-http.test.ts > T06A real authenticated Worker/API boundary > generates and retrieves a safe DTO through the actual Worker without stock, AI or payment calls
+{"level":"info","event":"meal_planning_result","status":"feasible","conclusion":"feasible","truncated":true,"states":57}
+
+stdout | tests/integration/meal-planning-http.test.ts > T06A real authenticated Worker/API boundary > generates and retrieves a safe DTO through the actual Worker without stock, AI or payment calls
+[req] POST /api/v1/meal-planning/plans 200 131ms b8b1235f-fdcf-4811-8cf4-19bd1bc693c4
+
+stderr | tests/integration/meal-planning-http.test.ts > T06A real authenticated Worker/API boundary > generates and retrieves a safe DTO through the actual Worker without stock, AI or payment calls
+{"level":"warn","limiter":"meal-planning-read","reason":"kv-unbound","message":"Rate limiter degraded to isolate-local counters; enforcement is not globally reliable."}
+
+stdout | tests/integration/meal-planning-http.test.ts > T06A real authenticated Worker/API boundary > generates and retrieves a safe DTO through the actual Worker without stock, AI or payment calls
+[req] GET /api/v1/meal-planning/plans/b9314d1a-7845-4d0a-9a81-405f5d4d9f55 200 6ms acbb1628-42c1-4937-b8bd-4033ec598ecb
+
+stdout | tests/integration/meal-planning-http.test.ts > T06A real authenticated Worker/API boundary > rejects unauthenticated generation and reads
+[req] POST /api/v1/meal-planning/plans 401 0ms ef52f7f1-e47a-4ad5-a395-c784e9cd50a7
+
+stdout | tests/integration/meal-planning-http.test.ts > T06A real authenticated Worker/API boundary > rejects unauthenticated generation and reads
+[req] GET /api/v1/meal-planning/plans/a422a610-06a0-48a5-9eb1-8706b14b2425 401 1ms 9569d73d-03d3-410b-bcef-7101b398a856
+
+stdout | tests/integration/meal-planning-http.test.ts > T06A real authenticated Worker/API boundary > protects CSRF, session owner fencing, membership and private creator plans
+{"level":"info","event":"meal_planning_result","status":"feasible","conclusion":"feasible","truncated":false,"states":7}
+
+stderr | tests/integration/meal-planning-http.test.ts > T06A real authenticated Worker/API boundary > protects CSRF, session owner fencing, membership and private creator plans
+{"level":"warn","limiter":"meal-planning-feedback","reason":"kv-unbound","message":"Rate limiter degraded to isolate-local counters; enforcement is not globally reliable."}
+
+stdout | tests/integration/meal-planning-http.test.ts > T06A real authenticated Worker/API boundary > enforces server household hard restrictions despite perfect personal soft preference and omission
+{"level":"info","event":"meal_planning_result","status":"infeasible","conclusion":"proven_infeasible","truncated":false,"states":1}
+
+stdout | tests/integration/meal-planning-http.test.ts > T06A real authenticated Worker/API boundary > deduplicates creation before running T04 again, and rejects different intent under a reused key
+{"level":"info","event":"meal_planning_result","status":"feasible","conclusion":"feasible","truncated":false,"states":7}
+
+stdout | tests/integration/meal-planning-http.test.ts > T06A real authenticated Worker/API boundary > replans all sequential stock after an early swap and protects newer revisions
+{"level":"info","event":"meal_planning_result","status":"feasible","conclusion":"feasible","truncated":false,"states":7}
+
+stdout | tests/integration/meal-planning-http.test.ts > T06A real authenticated Worker/API boundary > replans all sequential stock after an early swap and protects newer revisions
+{"level":"info","event":"meal_planning_result","status":"feasible","conclusion":"feasible","truncated":false,"states":4}
+
+stdout | tests/integration/meal-planning-http.test.ts > T06A real authenticated Worker/API boundary > rejects a newly forbidden replacement without changing the persisted plan
+{"level":"info","event":"meal_planning_result","status":"feasible","conclusion":"feasible","truncated":false,"states":7}
+
+stdout | tests/integration/meal-planning-http.test.ts > T06A real authenticated Worker/API boundary > rejects a newly forbidden replacement without changing the persisted plan
+{"level":"info","event":"meal_planning_result","status":"infeasible","conclusion":"proven_infeasible","truncated":false,"states":1}
+
+stdout | tests/integration/meal-planning-http.test.ts > T06A real authenticated Worker/API boundary > detects inventory/catalog/preference changes and regenerates using current data
+{"level":"info","event":"meal_planning_result","status":"feasible","conclusion":"feasible","truncated":false,"states":7}
+
+stdout | tests/integration/meal-planning-http.test.ts > T06A real authenticated Worker/API boundary > detects inventory/catalog/preference changes and regenerates using current data
+{"level":"info","event":"meal_planning_result","status":"feasible","conclusion":"feasible","truncated":false,"states":7}
+
+stdout | tests/integration/meal-planning-http.test.ts > T06A real authenticated Worker/API boundary > revalidates history at the current time so later feedback makes a stored plan stale
+{"level":"info","event":"meal_planning_result","status":"feasible","conclusion":"feasible","truncated":false,"states":7}
+
+stdout | tests/integration/meal-planning-http.test.ts > T06A real authenticated Worker/API boundary > keeps missing reviewed prices unknown and never converts them into free shopping
+{"level":"info","event":"meal_planning_result","status":"feasible","conclusion":"feasible","truncated":true,"states":57}
+
+stdout | tests/integration/meal-planning-http.test.ts > T06A real authenticated Worker/API boundary > keeps missing reviewed prices unknown and never converts them into free shopping
+[req] POST /api/v1/meal-planning/plans 200 89ms f227f207-9121-4162-9fe1-0d74ad9ca77a
+
+stdout | tests/integration/meal-planning-http.test.ts > T06A real authenticated Worker/API boundary > keeps missing reviewed prices unknown and never converts them into free shopping
+{"level":"info","event":"meal_shopping_result","catalogStatus":"reviewed_catalog_unavailable"}
+
+stdout | tests/integration/meal-planning-http.test.ts > T06A real authenticated Worker/API boundary > keeps missing reviewed prices unknown and never converts them into free shopping
+[req] POST /api/v1/meal-planning/plans/e61e4d4a-2d5c-4acd-bf4d-63c52e9f9949/shopping 200 8ms cc3064a5-0ed8-4f4b-8915-ed0a1bd7eaf0
+
+stdout | tests/integration/meal-planning-http.test.ts > T06A real authenticated Worker/API boundary > rejects shopping mealPlan spoofing and uses unchanged trusted exact prices
+{"level":"info","event":"meal_planning_result","status":"feasible","conclusion":"feasible","truncated":false,"states":7}
+
+stdout | tests/integration/meal-planning-http.test.ts > T06A real authenticated Worker/API boundary > rejects shopping mealPlan spoofing and uses unchanged trusted exact prices
+{"level":"info","event":"meal_shopping_result","catalogStatus":"available"}
+
+stdout | tests/integration/meal-planning-http.test.ts > T06A real authenticated Worker/API boundary > rejects shopping shortages spoofing and uses unchanged trusted exact prices
+{"level":"info","event":"meal_planning_result","status":"feasible","conclusion":"feasible","truncated":false,"states":7}
+
+stdout | tests/integration/meal-planning-http.test.ts > T06A real authenticated Worker/API boundary > rejects shopping shortages spoofing and uses unchanged trusted exact prices
+{"level":"info","event":"meal_shopping_result","catalogStatus":"available"}
+
+stdout | tests/integration/meal-planning-http.test.ts > T06A real authenticated Worker/API boundary > rejects shopping prices spoofing and uses unchanged trusted exact prices
+{"level":"info","event":"meal_planning_result","status":"feasible","conclusion":"feasible","truncated":false,"states":7}
+
+stdout | tests/integration/meal-planning-http.test.ts > T06A real authenticated Worker/API boundary > rejects shopping prices spoofing and uses unchanged trusted exact prices
+{"level":"info","event":"meal_shopping_result","catalogStatus":"available"}
+
+stdout | tests/integration/meal-planning-http.test.ts > T06A real authenticated Worker/API boundary > rejects shopping catalog spoofing and uses unchanged trusted exact prices
+{"level":"info","event":"meal_planning_result","status":"feasible","conclusion":"feasible","truncated":false,"states":7}
+
+stdout | tests/integration/meal-planning-http.test.ts > T06A real authenticated Worker/API boundary > rejects shopping catalog spoofing and uses unchanged trusted exact prices
+{"level":"info","event":"meal_shopping_result","catalogStatus":"available"}
+
+stdout | tests/integration/meal-planning-http.test.ts > T06A real authenticated Worker/API boundary > rejects shopping shoppingContext spoofing and uses unchanged trusted exact prices
+{"level":"info","event":"meal_planning_result","status":"feasible","conclusion":"feasible","truncated":false,"states":7}
+
+stdout | tests/integration/meal-planning-http.test.ts > T06A real authenticated Worker/API boundary > rejects shopping shoppingContext spoofing and uses unchanged trusted exact prices
+{"level":"info","event":"meal_shopping_result","catalogStatus":"available"}
+
+stdout | tests/integration/meal-planning-http.test.ts > T06A real authenticated Worker/API boundary > records household/user scoped retry-safe tastes and cooked annotation without real cooking
+{"level":"info","event":"meal_planning_result","status":"feasible","conclusion":"feasible","truncated":false,"states":7}
+
+stdout | tests/integration/meal-planning-http.test.ts > T06A real authenticated Worker/API boundary > does not let a client claim a swap that never happened
+{"level":"info","event":"meal_planning_result","status":"feasible","conclusion":"feasible","truncated":false,"states":7}
+
+stdout | tests/integration/meal-planning-http.test.ts > T06A real authenticated Worker/API boundary > rejects feedback if regeneration advances the revision before the event write
+{"level":"info","event":"meal_planning_result","status":"feasible","conclusion":"feasible","truncated":false,"states":7}
+
+stdout | tests/integration/meal-planning-http.test.ts > T06A real authenticated Worker/API boundary > rejects feedback if regeneration advances the revision before the event write
+{"level":"info","event":"meal_planning_result","status":"feasible","conclusion":"feasible","truncated":false,"states":7}
+
+stdout | tests/integration/meal-planning-http.test.ts > T06A real authenticated Worker/API boundary > deduplicates concurrent feedback retries with one server event timestamp
+{"level":"info","event":"meal_planning_result","status":"feasible","conclusion":"feasible","truncated":false,"states":7}
+
+stdout | tests/integration/meal-planning-http.test.ts > T06A real authenticated Worker/API boundary > records skipped/disliked and a server-established swapped identity without inventing likes
+{"level":"info","event":"meal_planning_result","status":"feasible","conclusion":"feasible","truncated":false,"states":7}
+
+stdout | tests/integration/meal-planning-http.test.ts > T06A real authenticated Worker/API boundary > records skipped/disliked and a server-established swapped identity without inventing likes
+{"level":"info","event":"meal_planning_result","status":"feasible","conclusion":"feasible","truncated":false,"states":4}
+
+stdout | tests/integration/meal-planning-http.test.ts > T06A real authenticated Worker/API boundary > returns a partial plan as a valid application response
+{"level":"info","event":"meal_planning_result","status":"partial","conclusion":"proven_infeasible","truncated":false,"states":2}
+
+stdout | tests/integration/meal-planning-http.test.ts > T06A real authenticated Worker/API boundary > preserves incomplete numeric evaluation without claiming proven infeasibility or a server failure
+{"level":"info","event":"meal_planning_result","status":"incomplete","conclusion":"no_plan_found_without_proof","truncated":false,"states":1}
+
+stdout | tests/integration/meal-planning-http.test.ts > T06A real authenticated Worker/API boundary > preserves search truncation while returning a feasible best-found plan
+{"level":"info","event":"meal_planning_result","status":"feasible","conclusion":"feasible","truncated":true,"states":9}
+
+stdout | tests/integration/meal-planning-http.test.ts > T06A real authenticated Worker/API boundary > validates malformed JSON, dates, money, revisions and oversized bodies
+{"level":"info","event":"meal_planning_result","status":"feasible","conclusion":"feasible","truncated":false,"states":7}
+
+stdout | tests/integration/meal-planning-http.test.ts > T06A real authenticated Worker/API boundary > rejects malformed minor-unit string not-money without a server error
+{"level":"info","event":"meal_planning_result","status":"feasible","conclusion":"feasible","truncated":false,"states":7}
+
+stdout | tests/integration/meal-planning-http.test.ts > T06A real authenticated Worker/API boundary > rejects malformed minor-unit string 1.5 without a server error
+{"level":"info","event":"meal_planning_result","status":"feasible","conclusion":"feasible","truncated":false,"states":7}
+
+stdout | tests/integration/meal-planning-http.test.ts > T06A real authenticated Worker/API boundary > rejects malformed minor-unit string -1 without a server error
+{"level":"info","event":"meal_planning_result","status":"feasible","conclusion":"feasible","truncated":false,"states":7}
+
+stdout | tests/integration/meal-planning-http.test.ts > T06A real authenticated Worker/API boundary > rejects malformed minor-unit string 01 without a server error
+{"level":"info","event":"meal_planning_result","status":"feasible","conclusion":"feasible","truncated":false,"states":7}
+
+ ✓ tests/integration/inventory-truth.test.ts (54 tests) 5007ms
+stdout | tests/integration/meal-planning-http.test.ts > T06A real authenticated Worker/API boundary > rejects malformed minor-unit string Infinity without a server error
+{"level":"info","event":"meal_planning_result","status":"feasible","conclusion":"feasible","truncated":false,"states":7}
+
+stderr | tests/integration/meal-planning-http.test.ts > T06A real authenticated Worker/API boundary > sanitizes unexpected service errors even outside production
+{"level":"error","event":"meal_planning_failure","code":"MEAL_PLANNING_UNAVAILABLE"}
+
+stdout | tests/integration/meal-planning-http.test.ts > T06A real authenticated Worker/API boundary > sanitizes unexpected service errors even outside production
+[req] POST /api/v1/meal-planning/plans 500 0ms f1831082-b7fc-41bc-a0bc-64146a83171e
+
+ ✓ tests/integration/meal-planning-http.test.ts (42 tests) 5038ms
+stderr | tests/integration/inventory-backfilled-patch.test.ts > T09 legitimate adopted backfilled PATCH > updates category through actual adoption (existing T08 snapshot: false)
+{"level":"warn","limiter":"rl_inv_w","reason":"kv-unbound","message":"Rate limiter degraded to isolate-local counters; enforcement is not globally reliable."}
+
+ ✓ tests/integration/t19-planner-authority-persistence.test.ts (18 tests) 4568ms
+   ✓ stored plan authority identity > an authority change is a typed revalidation: freshness names it, swap and shopping refuse, regenerate recovers  658ms
+   ✓ stored plan authority identity > a lock on a recipe that is no longer visible is dropped on regenerate, never silently substituted in place  509ms
+   ✓ stored plan authority identity > regenerate drops family locks whose planner provenance version is stale  630ms
+   ✓ stored plan authority identity > plans persisted before T19 (no authority identity) still decode and revalidate through the catalog fingerprint  345ms
+ ✓ tests/integration/inventory-backfilled-patch.test.ts (43 tests) 4635ms
+ ✓ tests/integration/t20-roles-picker-shopping.test.ts (7 tests) 3793ms
+   ✓ T20 picker at 500 recipes > pages through a bounded, stable, role-filtered, authority-fenced summary list with bounded queries  1018ms
+   ✓ T20 picker at 500 recipes > cuisine filter uses catalog metadata, combines with role and search, excludes simple foods and is deterministic  662ms
+   ✓ T20 shopping on composed plans (HTTP) > adds every component demand across meals and subtracts inventory once through the existing T05 path  969ms
+   ✓ T20 shopping on composed plans (HTTP) > with the V2 flag off, a composed plan falls back to the exact V1 shopping projection  722ms
+ ✓ tests/unit/d1-migration-check.test.mjs (114 tests) 4127ms
+   ✓ production D1 migration candidate gate (local Git only) > rejects a mismatched expected_pre_tip and malformed migration names  322ms
+   ✓ operational recipe media at complete 0038 and 0039 catalogs > loads the actual domain media mapper and validator through the runtime pipeline  350ms
+stdout | tests/unit/recipe-import-scale.test.ts > T14E — 500-recipe synthetic compile > is deterministic (byte-identical across compiles and JSON/JSONL), publishes 500 recipes and a stable 571-recipe manifest
+T14E scale 500: recipes=500 ingredient_lines=2000 steps=1750 nutrition_profiles=250 sql_bytes=829131
+
+stdout | tests/unit/recipe-import-scale.test.ts > T14E — 5,000-recipe synthetic compile > completes, stays publishable, and keeps duplicate/composition structures bounded (no N² scan)
+T14E scale 5000: recipes=5000 ingredient_lines=20000 steps=17500 nutrition_profiles=2500 sql_bytes=8358628
+
+stdout | tests/unit/recipe-import-scale.test.ts > T14E — 5,000-recipe synthetic compile > the duplicate detector compares by bucket, not pairwise: a batch with N recipes performs O(N) index operations
+T14E scale 2000: recipes=2000 ingredient_lines=8000 steps=7000 nutrition_profiles=1000 sql_bytes=3339756
+
+ ✓ tests/unit/recipe-import-scale.test.ts (4 tests) 2948ms
+   ✓ T14E — 500-recipe synthetic compile > is deterministic (byte-identical across compiles and JSON/JSONL), publishes 500 recipes and a stable 571-recipe manifest  475ms
+   ✓ T14E — 500-recipe synthetic compile > reversing the physical row order changes nothing but the input hash  303ms
+   ✓ T14E — 5,000-recipe synthetic compile > completes, stays publishable, and keeps duplicate/composition structures bounded (no N² scan)  1631ms
+   ✓ T14E — 5,000-recipe synthetic compile > the duplicate detector compares by bucket, not pairwise: a batch with N recipes performs O(N) index operations  538ms
+ ✓ tests/integration/inventory-lot-d1.test.mjs (44 tests) 2963ms
+   ✓ T09E actual local D1 multi-effect authority > executes the maximum 32 effects as one real D1 command  377ms
+ ✓ tests/unit/t21rc2-schema-boundary.test.mjs (9 tests) 2495ms
+   ✓ T21RC2 offline reconciliation schema boundary > covers 500 synthetic captured recipes and production counts at, above, and 3x the 2702 target size  889ms
+   ✓ T21RC2 offline reconciliation schema boundary > validates a mixed synthetic production corpus at 3x the 2702 target size  1362ms
+ ELIFECYCLE  Test failed. See above for more details.
+ ELIFECYCLE  Command failed.

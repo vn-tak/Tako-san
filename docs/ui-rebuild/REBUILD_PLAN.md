@@ -1,3 +1,17 @@
+# Checkpoint triển khai - UI11, 2026-10-10 JST
+
+Canonical vn-tak/Tako-san, branch codex/ui-rebuild-foundation. UI07 nhận diện được
+áp dụng xuyên các route đã migrate; UI08 account/entry,UI09 detail/system,UI10 Week
+và UI11 navigation/shell đều có checkpoint local. Chủ dự án/thiết bị/release chưa
+duyệt. UI11 giữ năm roots,Scan riêng,readable rail/offset/focus và legacy/protected.
+Full285files/6685PASS;focused255;browser115/16+flag-off24/1,aliases7,E2E19PASS/5SKIP.
+Xem round-11 FOUNDATION/VERIFICATION và UI12-route-visual-media packet: audit
+inner-page typography/states/media,đặc biệt recipe badges và catalog thiếu ảnh.
+GenericUXFAIL154/30/977/85,41dependencyadvisories và separate offline/domain limits
+còn mở. Không push/PR/merge/deploy; checkpoint hash sẽ ghi sau Git verification.
+
+---
+
 # Checkpoint triển khai — UI06, 2026-10-10 JST
 
 Canonical `vn-tak/Tako-san`; nhánh local `codex/ui-rebuild-foundation`.

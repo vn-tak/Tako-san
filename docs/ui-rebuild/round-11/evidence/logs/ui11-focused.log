@@ -1,0 +1,89 @@
+
+ RUN  v3.2.7 /Users/tunbee27/Documents/Tako-san-ui-rebuild
+
+ ✓ tests/unit/takosan-brand.test.tsx (19 tests) 199ms
+ ✓ tests/unit/ui11-shell-measurement.test.tsx (3 tests) 327ms
+stderr | tests/unit/ui08-onboarding-navigation.test.tsx > UI08 completion intent through actual App guards > today reaches its chosen destination after server confirmation
+⚠️ React Router Future Flag Warning: React Router will begin wrapping state updates in `React.startTransition` in v7. You can use the `v7_startTransition` future flag to opt-in early. For more information, see https://reactrouter.com/v6/upgrading/future#v7_starttransition.
+⚠️ React Router Future Flag Warning: Relative route resolution within Splat routes is changing in v7. You can use the `v7_relativeSplatPath` future flag to opt-in early. For more information, see https://reactrouter.com/v6/upgrading/future#v7_relativesplatpath.
+
+ ✓ tests/unit/ui08-onboarding-navigation.test.tsx (6 tests) 216ms
+ ✓ tests/unit/ui07-brand-shell.test.tsx (15 tests) 24ms
+ ❯ tests/unit/ui11-navigation.test.tsx (29 tests | 2 failed) 35ms
+   × UI11 destination and compatibility contracts > exposes all five labelled root links and current page without a sixth action cell 9ms
+     → expected '<nav aria-label="Điều hướng chính" cl…' to match /href="\/r…/recipes" aria-current="page"
+   × UI11 destination and compatibility contracts > provides an explicit Scan link from the header 2ms
+     → expected '<header class="kitchen-header"><div c…' to match /href="\/…/scan"[^>]*aria-current="page"
+   ✓ UI11 destination and compatibility contracts > keeps the legacy default six-link Scan contract 3ms
+   ✓ UI11 destination and compatibility contracts > /inventory-reconciliation selects exactly its route family 0ms
+   ✓ UI11 destination and compatibility contracts > /ingredients/lot selects exactly its route family 0ms
+   ✓ UI11 destination and compatibility contracts > /inventory/lot selects exactly its route family 0ms
+   ✓ UI11 destination and compatibility contracts > /cook/soup selects exactly its route family 0ms
+   ✓ UI11 destination and compatibility contracts > /cooking/run selects exactly its route family 0ms
+   ✓ UI11 destination and compatibility contracts > /week/plan/shopping selects exactly its route family 0ms
+   ✓ UI11 destination and compatibility contracts > /planner/new selects exactly its route family 0ms
+   ✓ UI11 destination and compatibility contracts > /settings/planning selects exactly its route family 0ms
+   ✓ UI11 destination and compatibility contracts > /notifications selects exactly its route family 0ms
+   ✓ UI11 destination and compatibility contracts > /mealtime does not accidentally select a root 0ms
+   ✓ UI11 destination and compatibility contracts > /recipes-old does not accidentally select a root 0ms
+   ✓ UI11 destination and compatibility contracts > /week-old does not accidentally select a root 0ms
+   ✓ UI11 destination and compatibility contracts > /inventory-old does not accidentally select a root 0ms
+   ✓ UI11 destination and compatibility contracts > /scan/item/review does not accidentally select a root 0ms
+   ✓ UI11 destination and compatibility contracts > /shopping does not accidentally select a root 0ms
+   ✓ UI11 destination and compatibility contracts > /scan keeps immersive workflows free of shell navigation 1ms
+   ✓ UI11 destination and compatibility contracts > /cook/soup keeps immersive workflows free of shell navigation 0ms
+   ✓ UI11 destination and compatibility contracts > /cooking/run keeps immersive workflows free of shell navigation 0ms
+   ✓ UI11 destination and compatibility contracts > /onboarding/goals keeps immersive workflows free of shell navigation 0ms
+   ✓ UI11 destination and compatibility contracts > /auth/login keeps immersive workflows free of shell navigation 1ms
+   ✓ UI11 destination and compatibility contracts > supplies a header and Scan access to review routes that do not own one 2ms
+   ✓ UI11 destination and compatibility contracts > /plus retains legacy shell and identity 2ms
+   ✓ UI11 destination and compatibility contracts > /checkout retains legacy shell and identity 2ms
+   ✓ UI11 destination and compatibility contracts > /settings/billing retains legacy shell and identity 2ms
+   ✓ UI11 destination and compatibility contracts > preserves the true build flag destination 5ms
+   ✓ UI11 destination and compatibility contracts > preserves the false build flag destination 3ms
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 2 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  tests/unit/ui11-navigation.test.tsx > UI11 destination and compatibility contracts > exposes all five labelled root links and current page without a sixth action cell
+AssertionError: expected '<nav aria-label="Điều hướng chính" cl…' to match /href="\/r…/recipes" aria-current="page"
+
+- Expected:
+/href="\/recipes" aria-current="page"/
+
++ Received:
+"<nav aria-label=\"Điều hướng chính\" class=\"kitchen-bottom-nav\"><ul class=\"kitchen-nav-items\"><li><a href=\"/\"><svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" width=\"24\" height=\"24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.8\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\" class=\"kitchen-nav-icon\" data-takosan-icon=\"home\"><path d=\"M2 11 L12 2 L22 11 M5 9 V22 H19 V9 M10 22 V15 H14 V22\"></path></svg><span class=\"kitchen-nav-label\">Trang chủ</span></a></li><li><a href=\"/fridge\"><svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" width=\"24\" height=\"24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.8\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\" class=\"kitchen-nav-icon\" data-takosan-icon=\"fridge\"><path d=\"M6 3 H18 V21 H6Z M6 10 H18 M9 6 V8 M9 13 V17\"></path></svg><span class=\"kitchen-nav-label\">Tủ lạnh</span></a></li><li><a aria-current=\"page\" href=\"/recipes\"><svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" width=\"24\" height=\"24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.8\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\" class=\"kitchen-nav-icon\" data-takosan-icon=\"recipe\"><path d=\"M3 5 Q7 2 12 5 Q17 2 21 5 V20 Q17 17 12 20 Q7 17 3 20Z M12 5 V20 M6 9 H9 M15 9 H18\"></path></svg><span class=\"kitchen-nav-label\">Công thức</span></a></li><li><a href=\"/week\"><svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" width=\"24\" height=\"24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.8\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\" class=\"kitchen-nav-icon\" data-takosan-icon=\"mealPlan\"><path d=\"M4 5 H20 V21 H4Z M8 3 V7 M16 3 V7 M4 10 H20 M8 16 L11 19 L17 13\"></path></svg><span class=\"kitchen-nav-label\">Thực đơn</span></a></li><li><a href=\"/me\"><svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" width=\"24\" height=\"24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.8\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\" class=\"kitchen-nav-icon\" data-takosan-icon=\"profile\"><path d=\"M16 7 A4 4 0 1 1 8 7 A4 4 0 1 1 16 7 M4 22 V19 C4 10 20 10 20 19 V22\"></path></svg><span class=\"kitchen-nav-label\">Tôi</span></a></li></ul></nav>"
+
+ ❯ tests/unit/ui11-navigation.test.tsx:15:18
+     13|     expect(html.match(/<a /g)).toHaveLength(5);
+     14|     for (const item of NAV_ITEMS) expect(html).toContain(item.label);
+     15|     expect(html).toMatch(/href="\/recipes" aria-current="page"/);
+       |                  ^
+     16|     expect(html.match(/aria-current="page"/g)).toHaveLength(1);
+     17|     expect(html).not.toContain('href="/scan"');
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/2]⎯
+
+ FAIL  tests/unit/ui11-navigation.test.tsx > UI11 destination and compatibility contracts > provides an explicit Scan link from the header
+AssertionError: expected '<header class="kitchen-header"><div c…' to match /href="\/…/scan"[^>]*aria-current="page"
+
+- Expected:
+/href="\/scan"[^>]*aria-current="page"/
+
++ Received:
+"<header class=\"kitchen-header\"><div class=\"flex min-w-0 items-center gap-2\"><a aria-label=\"Quay lại\" class=\"kitchen-icon-link\" href=\"/fridge\"><svg xmlns=\"http://www.w3.org/2000/svg\" width=\"20\" height=\"20\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" class=\"lucide lucide-arrow-left\" aria-hidden=\"true\"><path d=\"m12 19-7-7 7-7\"></path><path d=\"M19 12H5\"></path></svg></a><a aria-label=\"Takosan — Trang chủ\" translate=\"no\" class=\"kitchen-brand-link\" href=\"/\"><img src=\"/takosan/rebuild/lockup.svg\" alt=\"\" width=\"300\" height=\"72\"/></a><span class=\"kitchen-brand-motto\" aria-hidden=\"true\">Ăn đủ. Mua đủ. Dùng hết.</span></div><div class=\"flex shrink-0 items-center gap-2\"><a aria-label=\"Thông báo\" class=\"kitchen-icon-link\" href=\"/notifications\"><svg xmlns=\"http://www.w3.org/2000/svg\" width=\"20\" height=\"20\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" class=\"lucide lucide-bell\" aria-hidden=\"true\"><path d=\"M10.268 21a2 2 0 0 0 3.464 0\"></path><path d=\"M3.262 15.326A1 1 0 0 0 4 17h16a1 1 0 0 0 .74-1.673C19.41 13.956 18 12.499 18 8A6 6 0 0 0 6 8c0 4.499-1.411 5.956-2.738 7.326\"></path></svg></a><a aria-label=\"Tài khoản cá nhân\" class=\"kitchen-icon-link\" href=\"/me\"><svg xmlns=\"http://www.w3.org/2000/svg\" width=\"20\" height=\"20\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" class=\"lucide lucide-user\" aria-hidden=\"true\"><path d=\"M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2\"></path><circle cx=\"12\" cy=\"7\" r=\"4\"></circle></svg></a></div><a class=\"kitchen-scan-link kitchen-header-scan\" aria-current=\"page\" href=\"/scan\"><svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" width=\"24\" height=\"24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.8\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\" class=\"kitchen-nav-icon\" data-takosan-icon=\"scan\"><path d=\"M3 8 V3 H8 M16 3 H21 V8 M21 16 V21 H16 M8 21 H3 V16 M2 12 H22 M8 7 H16 M8 17 H16\"></path></svg><span>Quét nguyên liệu</span></a></header>"
+
+ ❯ tests/unit/ui11-navigation.test.tsx:22:18
+     20|     const html = render(<KitchenHeader backTo="/fridge" />, '/scan/ite…
+     21|     expect(html).toContain('Quét nguyên liệu');
+     22|     expect(html).toMatch(/href="\/scan"[^>]*aria-current="page"/);
+       |                  ^
+     23|     expect(html).toContain('aria-label="Quay lại"');
+     24|   });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/2]⎯
+
+
+ Test Files  1 failed | 4 passed (5)
+      Tests  2 failed | 70 passed (72)
+   Start at  23:08:07
+   Duration  1.59s (transform 837ms, setup 89ms, collect 3.14s, tests 801ms, environment 931ms, prepare 528ms)

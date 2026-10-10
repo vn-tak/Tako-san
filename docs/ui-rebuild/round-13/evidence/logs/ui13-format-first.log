@@ -1,0 +1,11 @@
+scripts/ui13-media-review.mjs 57ms
+scripts/ui13/review-contract.mjs 13ms
+scripts/ui13/board-client.mjs 27ms
+[error] scripts/ui13/board.html: SyntaxError: Unexpected character "v" (27:145)
+[error]   25 | <div class="toolbar">
+[error]   26 | <div class="field search"><label for="search">Tìm món hoặc mã món</label><input type="search" id="search" name="q" autocomplete="off" maxlength="160" placeholder="Ví dụ: kim chi, thịt kho, gl-05…"></div>
+[error] > 27 | <div class="field filter"><label for="policy">Ảnh đang hiển thị</label><select id="policy" name="policy"><option value="all">Tất cả món</option value="photo">Có ảnh local</option value="missing">Chưa có ảnh</option value="wrong">Sai món hoặc thiếu file</option></select></div>
+[error]      |                                                                                                                                                 ^
+[error]   28 | <div class="field filter"><label for="decision-filter">Quyết định trong bản nháp</label><select id="decision-filter" name="decision"><option value="all">Tất cả quyết định</option><option value="pending">Chờ duyệt</option><option value="candidate">Cân nhắc ảnh</option><option value="rejected">Loại khỏi vòng chọn</option><option value="owner_reviewed">Có biên bản của chủ dự án</option></select></div>
+[error]   29 | <div class="actions"><button id="reset-filters" type="button">Xóa bộ lọc</button><button id="export-draft" class="primary" type="button">Tải bản nháp JSON</button><label class="file-label">Nhập bản nháp<input id="import-file" type="file" accept=".json,application/json" aria-label="Nhập bản nháp JSON"></label></div>
+[error]   30 | </div>

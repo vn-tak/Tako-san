@@ -1,3 +1,29 @@
+# UI13 - Media review local checkpoint - 2026-10-11 JST
+
+Status: `UI13_LOCAL_VERIFIED_REVIEW_REQUIRED`. ADR-056; base `5da802735c318c56505bed85a133b049728afb39`.
+Implementation: `UI13_IMPLEMENTATION_PENDING_VERIFICATION`.
+
+| Work item | Outcome / evidence |
+| --- | --- |
+| Fresh mapping / static resolver / originals | DONE; UI12 mapping matches, 24 recipes / 8 original hashes |
+| Review board / crops / UI07 identity | DONE; current vs candidate, 4:3 / 16:9 / original CSS previews |
+| Draft contract / import-export | DONE; 24 unique records, claims stay claims, atomic imports, generation fence, 3 MiB roundtrip |
+| Browser interactions and geometry | `PASS 33 snapshots / 11 journey groups`; `PASS seven supplemental checks (four visual, two async races, one direct-file/export)` |
+| Focused and configured gates | `PASS 3 files / 60 tests in 1.15s (35 new validator cases)`; `PASS exit 0: 287 files / 6,737 tests, Vitest 357.58s; typecheck/full lint/local migration smoke/Vite 3.06s/Worker TypeScript PASS; remote gates skipped` |
+| Formatting / lint / generated / draft | `PASS final targeted ESLint, Prettier, deterministic generation and initial draft validation` |
+| Source / public / protected | 383 frozen; src/protected unchanged; 256 exact builds + 1 expected SW transform |
+| Logs / guidelines / audit evidence | Archived successes and failures; UX FAIL / 41 advisories retained |
+| Implementation Git checkpoint | `UI13_GIT_RECEIPT_PENDING` |
+| Photo rights / owner / device / hosted | OPEN; all eight rights unknown, no promotion or release claimed |
+| UI14 performance and motion | READY_FOR_LOCAL_AUDIT; no UI14 runtime implemented |
+
+Template/clipping/focus/async/import-cap defects recovered; details in round-13
+VERIFICATION and CURRENT_STATE/HANDOFF. Preview stopped, seven task ports closed.
+Next packet UI14-frontend-performance-motion.md. Photo approval remains independent
+from frontend work. No protected/domain/public/remote change.
+
+---
+
 # UI12 - Recipe journey local gate checkpoint - 2026-10-11 JST
 
 Status: `UI12_LOCAL_VERIFIED_REVIEW_REQUIRED`. ADR-055; base

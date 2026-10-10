@@ -1,0 +1,355 @@
+{
+  "checks": [
+    {
+      "name": "board-320",
+      "synthetic": false,
+      "width": 320,
+      "height": 844,
+      "scrollWidth": 320,
+      "broken": [],
+      "clipped": [],
+      "violations": []
+    },
+    {
+      "name": "assets-320",
+      "synthetic": false,
+      "width": 320,
+      "height": 844,
+      "scrollWidth": 320,
+      "broken": [],
+      "clipped": [],
+      "violations": []
+    },
+    {
+      "name": "dialog-320",
+      "synthetic": false,
+      "width": 320,
+      "height": 844,
+      "scrollWidth": 320,
+      "broken": [],
+      "clipped": [],
+      "violations": []
+    },
+    {
+      "name": "board-360",
+      "synthetic": false,
+      "width": 360,
+      "height": 844,
+      "scrollWidth": 360,
+      "broken": [],
+      "clipped": [],
+      "violations": []
+    },
+    {
+      "name": "assets-360",
+      "synthetic": false,
+      "width": 360,
+      "height": 844,
+      "scrollWidth": 360,
+      "broken": [],
+      "clipped": [],
+      "violations": []
+    },
+    {
+      "name": "dialog-360",
+      "synthetic": false,
+      "width": 360,
+      "height": 844,
+      "scrollWidth": 360,
+      "broken": [],
+      "clipped": [],
+      "violations": []
+    },
+    {
+      "name": "board-390",
+      "synthetic": false,
+      "width": 390,
+      "height": 844,
+      "scrollWidth": 390,
+      "broken": [],
+      "clipped": [],
+      "violations": []
+    },
+    {
+      "name": "assets-390",
+      "synthetic": false,
+      "width": 390,
+      "height": 844,
+      "scrollWidth": 390,
+      "broken": [],
+      "clipped": [],
+      "violations": []
+    },
+    {
+      "name": "dialog-390",
+      "synthetic": false,
+      "width": 390,
+      "height": 844,
+      "scrollWidth": 390,
+      "broken": [],
+      "clipped": [],
+      "violations": []
+    },
+    {
+      "name": "board-430",
+      "synthetic": false,
+      "width": 430,
+      "height": 844,
+      "scrollWidth": 430,
+      "broken": [],
+      "clipped": [],
+      "violations": []
+    },
+    {
+      "name": "assets-430",
+      "synthetic": false,
+      "width": 430,
+      "height": 844,
+      "scrollWidth": 430,
+      "broken": [],
+      "clipped": [],
+      "violations": []
+    },
+    {
+      "name": "dialog-430",
+      "synthetic": false,
+      "width": 430,
+      "height": 844,
+      "scrollWidth": 430,
+      "broken": [],
+      "clipped": [],
+      "violations": []
+    },
+    {
+      "name": "board-768",
+      "synthetic": false,
+      "width": 768,
+      "height": 844,
+      "scrollWidth": 768,
+      "broken": [],
+      "clipped": [],
+      "violations": []
+    },
+    {
+      "name": "assets-768",
+      "synthetic": false,
+      "width": 768,
+      "height": 844,
+      "scrollWidth": 768,
+      "broken": [],
+      "clipped": [],
+      "violations": []
+    },
+    {
+      "name": "dialog-768",
+      "synthetic": false,
+      "width": 768,
+      "height": 844,
+      "scrollWidth": 768,
+      "broken": [],
+      "clipped": [],
+      "violations": []
+    },
+    {
+      "name": "board-1024",
+      "synthetic": false,
+      "width": 1024,
+      "height": 844,
+      "scrollWidth": 1024,
+      "broken": [],
+      "clipped": [],
+      "violations": []
+    },
+    {
+      "name": "assets-1024",
+      "synthetic": false,
+      "width": 1024,
+      "height": 844,
+      "scrollWidth": 1024,
+      "broken": [],
+      "clipped": [],
+      "violations": []
+    },
+    {
+      "name": "dialog-1024",
+      "synthetic": false,
+      "width": 1024,
+      "height": 844,
+      "scrollWidth": 1024,
+      "broken": [],
+      "clipped": [],
+      "violations": []
+    },
+    {
+      "name": "board-1440",
+      "synthetic": false,
+      "width": 1440,
+      "height": 844,
+      "scrollWidth": 1440,
+      "broken": [],
+      "clipped": [],
+      "violations": []
+    },
+    {
+      "name": "assets-1440",
+      "synthetic": false,
+      "width": 1440,
+      "height": 844,
+      "scrollWidth": 1440,
+      "broken": [],
+      "clipped": [],
+      "violations": []
+    },
+    {
+      "name": "dialog-1440",
+      "synthetic": false,
+      "width": 1440,
+      "height": 844,
+      "scrollWidth": 1440,
+      "broken": [],
+      "clipped": [],
+      "violations": []
+    },
+    {
+      "name": "board-320-text2",
+      "synthetic": true,
+      "width": 320,
+      "height": 844,
+      "scrollWidth": 320,
+      "broken": [],
+      "clipped": [],
+      "violations": []
+    },
+    {
+      "name": "dialog-320-text2",
+      "synthetic": true,
+      "width": 320,
+      "height": 844,
+      "scrollWidth": 320,
+      "broken": [],
+      "clipped": [],
+      "violations": []
+    },
+    {
+      "name": "board-768-text2",
+      "synthetic": true,
+      "width": 768,
+      "height": 844,
+      "scrollWidth": 768,
+      "broken": [],
+      "clipped": [],
+      "violations": []
+    },
+    {
+      "name": "dialog-768-text2",
+      "synthetic": true,
+      "width": 768,
+      "height": 844,
+      "scrollWidth": 768,
+      "broken": [],
+      "clipped": [],
+      "violations": []
+    },
+    {
+      "name": "board-390-420",
+      "synthetic": false,
+      "width": 390,
+      "height": 420,
+      "scrollWidth": 390,
+      "broken": [],
+      "clipped": [],
+      "violations": []
+    },
+    {
+      "name": "dialog-390-420",
+      "synthetic": false,
+      "width": 390,
+      "height": 420,
+      "scrollWidth": 390,
+      "broken": [],
+      "clipped": [],
+      "violations": []
+    },
+    {
+      "name": "board-768-420",
+      "synthetic": false,
+      "width": 768,
+      "height": 420,
+      "scrollWidth": 768,
+      "broken": [],
+      "clipped": [],
+      "violations": []
+    },
+    {
+      "name": "dialog-768-420",
+      "synthetic": false,
+      "width": 768,
+      "height": 420,
+      "scrollWidth": 768,
+      "broken": [],
+      "clipped": [],
+      "violations": []
+    },
+    {
+      "name": "board-320-420-text2",
+      "synthetic": true,
+      "width": 320,
+      "height": 420,
+      "scrollWidth": 320,
+      "broken": [],
+      "clipped": [],
+      "violations": []
+    },
+    {
+      "name": "dialog-320-420-text2",
+      "synthetic": true,
+      "width": 320,
+      "height": 420,
+      "scrollWidth": 320,
+      "broken": [],
+      "clipped": [],
+      "violations": []
+    },
+    {
+      "name": "synthetic-human-claim",
+      "synthetic": true,
+      "width": 390,
+      "height": 844,
+      "scrollWidth": 390,
+      "broken": [],
+      "clipped": [],
+      "violations": []
+    },
+    {
+      "name": "board-normal-motion",
+      "synthetic": false,
+      "width": 390,
+      "height": 844,
+      "scrollWidth": 390,
+      "broken": [],
+      "clipped": [],
+      "violations": []
+    }
+  ],
+  "journeys": [
+    "search-no-diacritics-filter-empty-reset-URL",
+    "native-dialog-Tab-trap-Escape-focus-return",
+    "recipe-deep-link-keeps-policy",
+    "incomplete-human-claim-does-not-save",
+    "candidate-save-export-native-download-full-notes-no-promotion",
+    "invalid-JSON-cross-dataset-path-import-atomic",
+    "memory-only-reload-import-roundtrip-inert-markup",
+    "maximum-length-draft-roundtrip-oversized-import-atomic",
+    "complete-human-claim-structural-only-no-promotion",
+    "server-allowlist-read-only-no-domain-route",
+    "normal-and-reduced-motion"
+  ],
+  "errors": [],
+  "writes": [],
+  "external": [],
+  "limits": [
+    "synthetic local browser data and human-claim fixture; no catalog promotion or licensing approval",
+    "computed font enlargement is not native zoom/device certification",
+    "server POST405 probe is an intentional rejected test request, separately from browser writes"
+  ]
+}

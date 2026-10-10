@@ -1,3 +1,29 @@
+# UI13 standalone local media review (ADR-056, 2026-10-11)
+
+A deterministic Node/Vite SSR read-only generator pins three UI12 inputs with
+SHA256, rechecks actual static recipe identity/resolver output, and verifies eight
+public originals. Generated 24-record dataset, all-pending draft and standalone
+HTML live under round-13. No application route/module or media authority changes.
+
+Shared pure contract runs in Node and is embedded in the browser: full unique
+recipe set, fixed dataset, known original references, decision/date/text bounds,
+evidence fields for human owner-reviewed claims. promotionAuthorized stays false;
+structural validation does not prove source/license or grant catalog authority.
+3 MiB import bound covers every allowed field including JSON escape expansion.
+
+Browser draft is memory-only with explicit JSON download/import, atomic rejection,
+text-only notes and generation fencing against late file reads/new saved reviews.
+Native modal plus boundary Tab cycling/Escape/return focus; HTTP URL filters and
+recipe deep link. Direct-file History is best effort. Crop is CSS only. Preview
+binds 127.0.0.1, serves a GET/HEAD allowlist and exact-script-hash CSP; no domain API
+or credential/network writer. Original public bytes and entire src are unchanged.
+
+Implementation `UI13_IMPLEMENTATION_PENDING_VERIFICATION`; receipt round-13/GIT_VERIFICATION.md.
+UI14 performance/motion packet is ready; no UI14 runtime. Owner image/brand/device/
+hosted approval remains separate from local artifact/gate completion.
+
+---
+
 # UI12 recipe presentation and media lifecycle (ADR-055, 2026-10-11)
 
 RecipeCard has an explicit kitchen presentation opt-in for Home/discovery; its

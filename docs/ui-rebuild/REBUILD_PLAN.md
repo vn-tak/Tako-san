@@ -1,3 +1,30 @@
+# Checkpoint triển khai - UI13, 2026-10-11 JST
+
+Đã tạo bộ duyệt nội dung ảnh cho 24 món ưu tiên / tám originals của Tako-san.
+UI07 identity được dùng trong standalone board; resolver/app runtime UI12 giữ nguyên.
+Current photos và đề xuất tách rõ, CSS crop, source/rights/subject/crop records,
+JSON roundtrip và keyboard/responsive/error handling đã được kiểm local.
+Implementation: `UI13_IMPLEMENTATION_PENDING_VERIFICATION`.
+
+`PASS exit 0: 287 files / 6,737 tests, Vitest 357.58s; typecheck/full lint/local migration smoke/Vite 3.06s/Worker TypeScript PASS; remote gates skipped`. Browser `PASS 33 snapshots / 11 journey groups`, supplemental
+`PASS seven supplemental checks (four visual, two async races, one direct-file/export)`. Source frozen 383 records, entire src/protected
+unchanged. Reports: [UI13 foundation](round-13/FOUNDATION.md),
+[verification](round-13/VERIFICATION.md), [asset assessment](round-13/ASSET_REVIEW.md),
+[review board](round-13/media-review.html), [Git receipt](round-13/GIT_VERIFICATION.md).
+
+Nhận xét thẳng: bảy ảnh món chỉ rộng 432–436px và thường có viền đóng vào bitmap;
+20/24 món ưu tiên vẫn thiếu ảnh được resolver cho phép. Cả tám ảnh chưa có chứng
+cứ nguồn/quyền; công cụ không tự gán ảnh hoặc xác nhận license. Bộ thương hiệu cần
+nội dung ảnh đúng món và đủ chất lượng cùng với hệ thống layout đã xây dựng.
+
+Đợt tiếp theo UI14-frontend-performance-motion: đo local cold/warm delivery,
+Home→discovery→detail, font/image/request/layout shift/long tasks và reduced motion.
+Chỉ chọn một fix có số đo, ghi ADR-057 trước implementation. UI14 chưa bắt đầu.
+Owner/photo/device/Safari/native zoom/screen reader/usability/CWV/hosted release
+vẫn là các phần chưa kiểm chứng; local success không hoàn tất toàn roadmap.
+
+---
+
 # Checkpoint triển khai - UI12, 2026-10-11 JST
 
 Canonical `vn-tak/Tako-san`, local `codex/ui-rebuild-foundation`.

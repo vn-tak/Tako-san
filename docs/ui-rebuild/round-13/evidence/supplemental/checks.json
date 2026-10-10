@@ -1,0 +1,69 @@
+{
+  "checks": [
+    {
+      "name": "mixed-photo-review-1440",
+      "width": 1440,
+      "scrollWidth": 1440,
+      "broken": [],
+      "violations": []
+    },
+    {
+      "name": "crop-original-1440",
+      "width": 1440,
+      "scrollWidth": 1440,
+      "broken": [],
+      "violations": []
+    },
+    {
+      "name": "late-import-cannot-overwrite-newer-file",
+      "synthetic": true,
+      "passed": true
+    },
+    {
+      "name": "late-import-cannot-overwrite-new-review",
+      "synthetic": true,
+      "passed": true
+    },
+    {
+      "name": "mixed-photo-review-390",
+      "width": 390,
+      "scrollWidth": 390,
+      "broken": [],
+      "violations": []
+    },
+    {
+      "name": "file-direct-assets-390",
+      "width": 390,
+      "scrollWidth": 390,
+      "broken": [],
+      "violations": []
+    },
+    {
+      "name": "direct-file-no-server-export-works",
+      "passed": true
+    }
+  ],
+  "errors": [],
+  "network": [
+    "http://127.0.0.1:5215/",
+    "http://127.0.0.1:5215/public/takosan/rebuild/lockup.svg",
+    "http://127.0.0.1:5215/public/takosan/fonts/be-vietnam-pro-latin-400-normal.woff2",
+    "http://127.0.0.1:5215/public/takosan/fonts/be-vietnam-pro-latin-600-normal.woff2",
+    "http://127.0.0.1:5215/public/takosan/fonts/be-vietnam-pro-latin-ext-700-normal.woff2",
+    "http://127.0.0.1:5215/public/takosan/fonts/be-vietnam-pro-latin-700-normal.woff2",
+    "http://127.0.0.1:5215/public/takosan/fonts/be-vietnam-pro-latin-ext-400-normal.woff2",
+    "http://127.0.0.1:5215/public/takosan/fonts/be-vietnam-pro-vietnamese-400-normal.woff2",
+    "http://127.0.0.1:5215/public/takosan/fonts/be-vietnam-pro-vietnamese-600-normal.woff2",
+    "http://127.0.0.1:5215/public/takosan/fonts/be-vietnam-pro-vietnamese-700-normal.woff2",
+    "http://127.0.0.1:5215/public/takosan/fonts/be-vietnam-pro-latin-ext-600-normal.woff2",
+    "http://127.0.0.1:5215/public/frigo/recipes/global/kimchi-fried-rice.webp",
+    "http://127.0.0.1:5215/public/frigo/recipes/global/tomato-egg-stir-fry.webp",
+    "http://127.0.0.1:5215/public/frigo/recipes/global/pad-krapow.webp",
+    "http://127.0.0.1:5215/public/frigo/recipes/global/oyakodon.webp",
+    "http://127.0.0.1:5215/public/frigo/illustrations/delicious-meal.png",
+    "http://127.0.0.1:5215/public/frigo/recipes/global/mapo-tofu.webp",
+    "http://127.0.0.1:5215/public/frigo/recipes/global/pasta-pomodoro.webp",
+    "http://127.0.0.1:5215/public/frigo/recipes/vietnam/dau-phu-sot-ca-chua.webp"
+  ],
+  "syntheticDraftsNotOwnerApproval": true
+}

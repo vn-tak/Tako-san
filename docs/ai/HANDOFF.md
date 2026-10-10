@@ -1,3 +1,64 @@
+# UI13 - Bộ duyệt ảnh Tako-san đã kiểm chứng local - 2026-10-11 JST
+
+**Task/status:** `UI13_LOCAL_VERIFIED_REVIEW_REQUIRED`, packet UI13, ADR-056.
+Bảng duyệt ảnh local hoàn tất; nguồn/quyền và quyết định thương hiệu còn cần bằng chứng.
+
+**Repository/source:** Canonical `vn-tak/Tako-san`, checkout
+`/Users/tunbee27/Documents/Tako-san-ui-rebuild`, branch `codex/ui-rebuild-foundation`.
+Base `5da802735c318c56505bed85a133b049728afb39`. Implementation: `UI13_IMPLEMENTATION_PENDING_VERIFICATION`.
+383 source/test/script/config/public/generated records được frozen; 374 records
+UI12 giữ nguyên và chín records mới. Entire src/protected diff rỗng. 257 public
+originals giữ nguyên; build 256 exact copies + một expected SW build-ID transform.
+Git-object receipt: `UI13_GIT_RECEIPT_PENDING`. Documentation checkpoint theo sau
+chỉ ghi verified implementation, không ghi hash của chính nó.
+
+**Actual changes:** Generator/check/validate và preview GET/HEAD allowlist bind
+127.0.0.1; standalone HTML UI07 logo/font/paper/pine/coral. 24 món ưu tiên, tám ảnh
+gốc, current/proposed tách riêng; CSS crop 4:3/16:9/original, không tạo variants.
+Search/filter/URL/native dialog/focus/error; memory-only draft, JSON export/import.
+Validator kiểm dataset/unique records/known assets/required evidence claims, ngày
+thật và field bounds. Notes text-only; imports atomic và late-import generation
+fence. Giới hạn nhập 3 MiB bảo đảm full valid draft roundtrip, kể cả JSON escaping.
+24 initial records pending, all asset rights unknown, promotionAuthorized=false.
+Owner-reviewed là claim của con người, không phải hệ thống xác minh hoặc quyền publish.
+
+**Verification:** `PASS exit 0: 287 files / 6,737 tests, Vitest 357.58s; typecheck/full lint/local migration smoke/Vite 3.06s/Worker TypeScript PASS; remote gates skipped`. Final focused
+`PASS 3 files / 60 tests in 1.15s (35 new validator cases)`; lint/format/generated/draft
+`PASS final targeted ESLint, Prettier, deterministic generation and initial draft validation`. Browser final `PASS 33 snapshots / 11 journey groups`,
+supplemental `PASS seven supplemental checks (four visual, two async races, one direct-file/export)`. Seven widths 320..1440, computed
+text x2 320/768, short 390x420/768x420 và combined 320x420x2; applicable axe/overflow/
+broken images/checked clipping/unexpected pageerrors zero. Filter/reset/deep link,
+Tab/Shift+Tab/Escape/focus-return, malformed/cross-dataset/path import atomicity,
+full notes export→reload→import, oversized file rejection, two async races và direct
+file/export tested. Browser writes/external requests zero; riêng POST405 probe là
+request thử bị từ chối. No new app-domain E2E/browser claim; UI12 evidence lịch sử.
+
+**Failures/recovery:** Option markup/Prettier failure và chained-command masking
+được sửa; text x2 Chawanmushi clipping và edit-marker failures retained; reverse
+Tab cần explicit cycling; late File.text fenced; final harness formatting repaired.
+Final review tìm valid exports vượt 256 KB cap → 3 MiB + maximum-length/oversized
+checks + full gates rerun. Generic UX FAIL: 159 files/31 issues/1,006 warnings/88
+passed checks. Dependency audit 41 advisories: 4 low/19 moderate/16 high/2 critical,
+lockfile unchanged. Không gọi whole-repo UX hoặc licensing PASS.
+
+**Database/operational state:** Local SQLite tests/migration smoke only; board
+không có domain APIs. Owned previews stopped, seven ports 5212/8912/5213/8913/
+5214/8914/5215 closed. No src/backend/packages/schema/migrations/services/stores/
+public/dependency/payment/auth/production-config/remote DB/R2/media/push/PR/merge/deploy.
+Fresh media audit khớp UI12: 500 canonical/71 static; 6 allowed/6 wrong-missing/
+429 generic/59 unreviewed photo; all 500 media rows pending. 24 priority recipes:
+4 current permitted photos/20 missing. Tám originals, không có license receipts.
+
+**Next action:** `docs/ai/tasks/UI14-frontend-performance-motion.md`:
+independent local cold/warm Home→discovery→detail bundle/font/image/motion audit,
+rank đo được, ADR-057 trước một bounded fix nếu có bằng chứng. UI14 READY only.
+Photo source/rights/subject/crop, owner brand approval và device/Safari/native zoom/
+screen reader/virtual keyboard/usability/CWV/hosted release còn mở. Chủ dự án có
+thể dùng `docs/ui-rebuild/round-13/media-review.html` và tải JSON để giữ lựa chọn.
+Local board/gates không chứng nhận toàn roadmap hoặc production release.
+
+---
+
 # UI12 - Luồng công thức responsive đã kiểm chứng local - 2026-10-11 JST
 
 **Task/status:** `UI12_LOCAL_VERIFIED_REVIEW_REQUIRED`, packet UI12, ADR-055.

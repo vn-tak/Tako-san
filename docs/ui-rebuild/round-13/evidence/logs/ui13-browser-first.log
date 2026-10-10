@@ -1,0 +1,58 @@
+board-320 PASS
+assets-320 PASS
+dialog-320 PASS
+board-360 PASS
+assets-360 PASS
+dialog-360 PASS
+board-390 PASS
+assets-390 PASS
+dialog-390 PASS
+board-430 PASS
+assets-430 PASS
+dialog-430 PASS
+board-768 PASS
+assets-768 PASS
+dialog-768 PASS
+board-1024 PASS
+assets-1024 PASS
+dialog-1024 PASS
+board-1440 PASS
+assets-1440 PASS
+dialog-1440 PASS
+node:internal/modules/run_main:107
+    triggerUncaughtException(
+    ^
+
+AssertionError [ERR_ASSERTION]: board-320-text2
++ actual - expected
+
++ [
++   {
++     height: 162,
++     scrollHeight: 162,
++     scrollWidth: 282,
++     text: 'Trứng hấp Chawanmushi Nhật Bản',
++     width: 246
++   }
++ ]
+- []
+
+    at shot (file:///Users/tunbee27/Documents/Tako-san-ui-rebuild/scripts/ui13-browser-check.mjs:85:10)
+    at async file:///Users/tunbee27/Documents/Tako-san-ui-rebuild/scripts/ui13-browser-check.mjs:126:5 {
+  generatedMessage: false,
+  code: 'ERR_ASSERTION',
+  actual: [
+    {
+      text: 'Trứng hấp Chawanmushi Nhật Bản',
+      width: 246,
+      scrollWidth: 282,
+      height: 162,
+      scrollHeight: 162
+    }
+  ],
+  expected: [],
+  operator: 'deepStrictEqual',
+  diff: 'simple'
+}
+
+Node.js v24.16.0

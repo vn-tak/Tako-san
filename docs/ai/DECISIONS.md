@@ -2308,3 +2308,48 @@ match. Manifest71599bytes/SHA256
 3c7ff61129ff0d14dd9e04c1053567b3e891d438821a7c118f3cb4716bb66e02.
 Documentation checkpoint follows,does not name itself. UI13-local-media-review
 only next,not started.
+
+## ADR-056 - Local recipe media review board (UI13)
+
+**Status:** Accepted before implementation, 2026-10-11 JST.
+Base `5da802735c318c56505bed85a133b049728afb39`; exact base is recorded in round-13/PLAN.md before coding.
+
+**Problem/evidence:** UI12 confirms500local canonical media rows pending. The24
+observed discovery recipes contain4permitted local photo mappings and20missing
+presentations. Eight local assets have hashes but no established per-image rights
+receipt. Matching recipe-source metadata, a renderable URL or a hash does not
+prove image provenance, subject approval or permission to promote media.
+
+**Decision:** Build a standalone local review board from pinned UI12 demand plus
+fresh read-only mapping verification. Preserve current resolver output separately
+from proposed local candidates. Show eight original local assets and CSS card/hero
+crop previews; do not create raster derivatives or fetch remote photos. Reuse UI07
+vector/font/palette. Native search/filter/links/dialog, labelled notes, meaningful
+unknown states, memory-only draft, explicit JSON export/import and keyboard focus.
+
+A shared validator checks dataset identity, unique complete recipe records,
+allowlisted local asset references, decision enums and required evidence fields for
+an owner-reviewed claim. Human claims remain claims: structural validation never
+grants catalog promotion or verifies licensing. Reject unknown/missing records and
+unsafe local paths; imported notes are rendered as text. No backend/auth/store/
+resolver/catalog/public-master/dependency/config edit. No push/PR/deploy/media write.
+
+**Acceptance:** 24records/8asset hashes trace to pinned sources; fresh mapping and
+current resolver match receipts. Board works at320..1440,textx2,shortscreens,keyboard
+and accessible dialog; imported invalid drafts leave current draft intact. Export
+roundtrip retains all notes/choices; no network/domain write or remote image load.
+Meaningful validator tests, actual browser interactions, deterministic generation
+check and local configured gates. Update state/board/handoff; implementation commit,
+Git-object verification and following documentation checkpoint. Owner/photo/device/
+production approval remains separate.
+
+**UI13 local result:** Review board/generator/validator/readonly preview complete,
+24 pending records/eight byte-verified originals, four permitted current photos.
+Rights remain unknown, human evidence claims never authorize promotion. Resolved
+text clipping, reverse Tab, late import races and 256 KB versus valid-export size
+mismatch (3 MiB bound + full-size/oversize tests). `PASS exit 0: 287 files / 6,737 tests, Vitest 357.58s; typecheck/full lint/local migration smoke/Vite 3.06s/Worker TypeScript PASS; remote gates skipped`.
+Final focused/browser/supplemental and integrity receipts in round-13. Generic UX
+FAIL31 issues/1,006 warnings and 41 dependency advisories retained. Entire src/
+protected/public source unchanged; no remote operation. Implementation:
+`UI13_IMPLEMENTATION_PENDING_VERIFICATION`. Git-object receipt follows; docs
+checkpoint names verified implementation, not itself. UI14 ready only.

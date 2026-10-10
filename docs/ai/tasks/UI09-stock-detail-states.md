@@ -92,3 +92,8 @@ Owned preview13063/13334 stopped,5202/8902/5203/8903 closed before full. No remo
 payment/service/store/backend/schema/dependency/config/push/deploy changes.
 Evidence: round-9 FOUNDATION/VERIFICATION; owner/device/Safari/screenreader/
 nativezoom/usability/CWV/hosted/release remain. Next UI10-week-compatibility.
+
+Implementation checkpoint `251e42ad9efd5b84e87171c69f9fc1bfb3e9b463` verified against Git objects/
+worktree125sourcehashes/115manifestedpayloads; manifestSHA256
+`014f5028428232f32d99eab7648813471636b71059f204131550c9daa2bca34f`. Protectedpaths unchanged, treeclean
+after implementation; documentation checkpoint follows.

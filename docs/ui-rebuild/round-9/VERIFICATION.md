@@ -2,9 +2,9 @@
 
 Canonical `vn-tak/Tako-san`, branch `codex/ui-rebuild-foundation`, base
 `dbcabb7648e7f4ee9595f5ae430f0d7b50e80f0b`. Packet UI09-stock-detail-states,
-ADR-052. Status: UI09_LOCAL_VERIFIED_REVIEW_REQUIRED. Local implementation checkpoint
-được ghi ở documentation checkpoint kế tiếp sau kiểm Git objects; tài liệu không
-ghi hash của chính nó.
+ADR-052. Status: UI09_LOCAL_VERIFIED_REVIEW_REQUIRED. Implementation checkpoint
+`251e42ad9efd5b84e87171c69f9fc1bfb3e9b463` đã đối chiếu Git objects/worktree. Tài liệu ghi hash
+implementation đã kiểm chứng, không ghi hash của chính documentation checkpoint.
 
 ## Tests tập trung
 
@@ -149,7 +149,10 @@ callbacks equivalent sau chuẩn hóa formatter. Chỉ imports/JSX system presen
 được đổi; preview-only plannerfalse switch giữ defaulttrue. Sourcefreeze/protected
 receipt được lưu;125frozenhashes giữ nguyên sau full,51builtpublicasset/font files
 byte-identical.115evidencepayloads+manifest và28raw/archive log receipts được lưu.
-Git objects sẽ được kiểm sau implementation commit. Build trước commit dùng base
+Git objects tại `251e42ad9efd5b84e87171c69f9fc1bfb3e9b463` khớp125sourcehashes và
+115evidencepayloads cả bytes/SHA256; source-freeze và manifest cũng khớp Git/worktree.
+Manifest22931bytes/SHA256 `014f5028428232f32d99eab7648813471636b71059f204131550c9daa2bca34f`. Protected-path
+diff từ base đến implementation rỗng; staged diff-check PASS; tree sạch sau commit. Build trước commit dùng base
 releaseID; không phải artifact release hoặc hosted verification.
 
 Owner brand/device/Safari/OS/nativezoom/screen-reader/usability/CWV/hosted/release

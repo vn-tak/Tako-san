@@ -3,7 +3,8 @@
 Status: UI10_READY_FOR_IMPLEMENTATION_PACKET; runtime not implemented.
 Authorization: continued Tako-san UI rebuild. Canonical vn-tak/Tako-san,
 checkout /Users/tunbee27/Documents/Tako-san-ui-rebuild,
-branch codex/ui-rebuild-foundation. Start from the verified UI09 checkpoint.
+branch codex/ui-rebuild-foundation. UI09 implementation `251e42ad9efd5b84e87171c69f9fc1bfb3e9b463` is verified;
+start from the current branch tip including its documentation checkpoint.
 Add ADR-053 with the decisions below before runtime edits; do not infer a new
 backend contract from the old Week UI. Evidence: round-9 Week flag-off audit.
 

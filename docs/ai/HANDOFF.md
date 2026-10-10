@@ -8,9 +8,13 @@ toàn hệ thống/navigation/owner/device/hosted/release chưa hoàn tất.
 **Repository/source:** Canonical `vn-tak/Tako-san`, ID1385308553; checkout
 `/Users/tunbee27/Documents/Tako-san-ui-rebuild`, branch `codex/ui-rebuild-foundation`,
 base `dbcabb7648e7f4ee9595f5ae430f0d7b50e80f0b`.125sourcehashes frozen,51builtpublic
-asset/font files byte-identical. Implementation checkpoint được ghi sau khi commit
-và kiểm Git objects; không ghi hash của chính documentation checkpoint. Frigo cũ
-giữ nguyên.115evidencepayloads+manifest,28logs có raw/archivehash receipts.
+asset/font files byte-identical. Implementation checkpoint
+`251e42ad9efd5b84e87171c69f9fc1bfb3e9b463` đã đối chiếu Git objects/worktree:125sourcehashes và
+115evidencepayloads khớp bytes/SHA256. Manifest22931bytes/SHA256
+`014f5028428232f32d99eab7648813471636b71059f204131550c9daa2bca34f` khớp Git/workingtree. Protected-path diff
+rỗng từ base đến implementation, tree sạch sau implementation. Documentation
+checkpoint theo sau, không ghi hash của chính nó. Frigo cũ giữ nguyên;28logs có
+raw/archivehash receipts.
 
 **Actual changes:** KitchenDetailPage/sharedheader+h1, workspace880px; detail ưu
 tiên quantity/expiry uncertainty/storage/provenance rồi edit/related ingredient

@@ -4,6 +4,8 @@ Status: accepted and locally verified for UI09, 2026-10-10 JST.
 Full281files/6615tests PASS;focused223;browser49snapshots/9journeys;Weekflagoff
 audit16screens/2journeys. Evidence: ../ui-rebuild/round-9/VERIFICATION.md.
 Owner/device/navigation/Weekimplementation/hosted/release remain.
+Implementation `251e42ad9efd5b84e87171c69f9fc1bfb3e9b463` verified against125sourcehashes/
+115evidencepayloads and manifest Git objects/worktree; protectedpaths unchanged.
 Packet: `tasks/UI09-stock-detail-states.md`; extends ADR-044 through ADR-051.
 
 Detail aliases and reconciliation still use the supplied shell, tiny copy and

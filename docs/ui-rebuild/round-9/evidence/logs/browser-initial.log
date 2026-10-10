@@ -1,0 +1,34 @@
+legacy-detail-390: axe0 / overflow0 / assets0
+canonical-detail-320: axe0 / overflow0 / assets0
+canonical-edit-320: axe0 / overflow0 / assets0
+reconciliation-empty-320: axe0 / overflow0 / assets0
+canonical-detail-390: axe0 / overflow0 / assets0
+canonical-edit-390: axe0 / overflow0 / assets0
+reconciliation-empty-390: axe0 / overflow0 / assets0
+canonical-detail-768: axe0 / overflow0 / assets0
+canonical-edit-768: axe0 / overflow0 / assets0
+reconciliation-empty-768: axe0 / overflow0 / assets0
+canonical-detail-1024: axe0 / overflow0 / assets0
+canonical-edit-1024: axe0 / overflow0 / assets0
+reconciliation-empty-1024: axe0 / overflow0 / assets0
+canonical-detail-1440: axe0 / overflow0 / assets0
+canonical-edit-1440: axe0 / overflow0 / assets0
+reconciliation-empty-1440: axe0 / overflow0 / assets0
+detail-alias-ingredients: axe0 / overflow0 / assets0
+detail-alias-inventory: axe0 / overflow0 / assets0
+node:internal/modules/run_main:107
+    triggerUncaughtException(
+    ^
+
+AssertionError [ERR_ASSERTION]: detail-enlarged-320: overflow {"width":320,"scrollWidth":332,"font":"\"Be Vietnam Pro\", sans-serif","h1Count":1,"logoCount":1,"inputs":[],"reduced":true}
+    at snapshot (file:///Users/tunbee27/Documents/Tako-san-ui-rebuild/scripts/ui09-browser-check.mjs:37:3)
+    at async file:///Users/tunbee27/Documents/Tako-san-ui-rebuild/scripts/ui09-browser-check.mjs:72:83 {
+  generatedMessage: false,
+  code: 'ERR_ASSERTION',
+  actual: false,
+  expected: true,
+  operator: '==',
+  diff: 'simple'
+}
+
+Node.js v24.16.0

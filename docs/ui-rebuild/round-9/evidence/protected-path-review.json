@@ -1,0 +1,69 @@
+{
+  "base": "dbcabb7648e7f4ee9595f5ae430f0d7b50e80f0b",
+  "protectedScopes": [
+    "src/worker",
+    "packages",
+    "migrations",
+    "public",
+    "src/web/services",
+    "src/web/stores",
+    "src/web/features/auth",
+    "src/web/components/payment",
+    "src/web/pages/PlusPage.tsx",
+    "src/shared/payment.ts",
+    "package.json",
+    "pnpm-lock.yaml",
+    "wrangler.jsonc",
+    "vite.config.ts",
+    "vitest.config.ts",
+    "playwright.config.ts",
+    "src/web/pages/AuthPage.tsx",
+    "src/web/components/common/ConfirmDialog.tsx",
+    "src/web/components/common/LogoutDialog.tsx"
+  ],
+  "protectedDiff": [],
+  "untrackedProtectedPaths": [],
+  "changedPaths": [
+    "TASK_BOARD.md",
+    "docs/ai/ARCHITECTURE.md",
+    "docs/ai/CURRENT_STATE.md",
+    "docs/ai/DECISIONS.md",
+    "docs/ai/HANDOFF.md",
+    "docs/ai/TASK_BOARD.md",
+    "scripts/security-preview.mjs",
+    "src/web/App.tsx",
+    "src/web/components/common/SessionBoundary.tsx",
+    "src/web/components/layout/AppLayout.tsx",
+    "src/web/pages/IngredientDetailPage.tsx",
+    "src/web/pages/ReconciliationPage.tsx",
+    "src/web/styles/index.css",
+    "tests/unit/ui02-presentation.test.ts",
+    "tests/unit/ui08-route-scope.test.tsx"
+  ],
+  "addedPaths": [
+    "docs/ai/tasks/UI09-stock-detail-states.md",
+    "docs/ai/tasks/UI10-week-compatibility.md",
+    "scripts/ui09-browser-check.mjs",
+    "scripts/ui09-week-audit.mjs",
+    "src/web/components/common/KitchenDetailPage.tsx",
+    "src/web/components/common/SystemStatusPage.tsx",
+    "src/web/styles/kitchen-stock-detail.css",
+    "tests/unit/ui09-reconciliation.test.tsx",
+    "tests/unit/ui09-route-scope.test.tsx",
+    "tests/unit/ui09-stock-detail.test.tsx",
+    "tests/unit/ui09-system-states.test.tsx"
+  ],
+  "normalizedTokenChecks": {
+    "appRoutesAndGuards": "unchanged",
+    "sessionVerificationEffects": "unchanged",
+    "detailQueriesAndMutationCallbacks": "unchanged",
+    "detailDraftBaselineOwnershipAndSubmit": "unchanged",
+    "reconciliationQueriesAndDecisionCallbacks": "unchanged"
+  },
+  "exceptions": [
+    "SessionBoundary import and JSX presentation only",
+    "AppErrorBoundary import and JSX presentation only",
+    "security-preview local planner switch; production config unchanged"
+  ],
+  "finalAllowlistReview": "PASS; source changes exactly the UI09 presentation/test/preview allowlist; no protected or unrelated added paths"
+}

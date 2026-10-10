@@ -1,0 +1,8 @@
+src/web/components/common/KitchenDetailPage.tsx 34ms (unchanged)
+src/web/components/common/SystemStatusPage.tsx 6ms (unchanged)
+src/web/pages/IngredientDetailPage.tsx 63ms
+src/web/pages/ReconciliationPage.tsx 17ms
+tests/unit/ui09-stock-detail.test.tsx 20ms
+tests/unit/ui09-reconciliation.test.tsx 10ms
+tests/unit/ui09-system-states.test.tsx 7ms
+tests/unit/ui09-route-scope.test.tsx 3ms

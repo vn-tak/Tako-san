@@ -4,6 +4,7 @@ import { QueryClientProvider } from '@tanstack/react-query';
 import { queryClient } from './lib/query-client';
 import { SessionBoundary } from './components/common/SessionBoundary';
 import { RouteFallback } from './components/common/RouteFallback';
+import { SystemStatusPage } from './components/common/SystemStatusPage';
 import { useAuthStore } from './stores/useAuthStore';
 import { AppLayout } from './components/layout/AppLayout';
 import { isMealPlannerEnabled } from './features/planner/feature';
@@ -113,18 +114,15 @@ class AppErrorBoundary extends React.Component<{ children: React.ReactNode }, { 
   render() {
     if (this.state.failed)
       return (
-        <main className="min-h-screen p-6 space-y-4 text-center">
-          <h1 className="text-xl font-bold" role="alert">
-            Không thể mở trang này
-          </h1>
-          <p>Vui lòng tải lại ứng dụng để thử lại.</p>
+        <SystemStatusPage title="Không thể mở trang này">
+          <p role="alert">Vui lòng tải lại ứng dụng để thử lại.</p>
           <button
             className="rounded-xl bg-takosan-green px-4 py-3 text-white"
             onClick={() => window.location.reload()}
           >
             Tải lại
           </button>
-        </main>
+        </SystemStatusPage>
       );
     return this.props.children;
   }

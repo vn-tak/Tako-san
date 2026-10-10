@@ -7,6 +7,7 @@
 @import "./kitchen-planning.css";
 @import "./kitchen-account.css";
 @import "./kitchen-entry.css";
+@import "./kitchen-stock-detail.css";
 @tailwind base;
 @tailwind components;
 @tailwind utilities;

@@ -13,7 +13,7 @@ describe('UI08 adoption boundary', () => {
     expect(html).toContain('/takosan/rebuild/lockup.svg');
     expect(html).toContain('id="kitchen-main"');
   });
-  it.each(['/plus', '/checkout', '/week', '/week/setup', '/settings', '/me/unrelated', '/settings/billing', '/fridge/item', '/inventory-reconciliation'])('keeps unmigrated/protected %s outside the new route scope', (route) => {
+  it.each(['/plus', '/checkout', '/week', '/week/setup', '/settings', '/me/unrelated', '/settings/billing', '/fridge/item/other', '/inventory-reconciliation/other'])('keeps unmigrated/protected %s outside the new route scope', (route) => {
     expect(isKitchenSurface(route)).toBe(false);
   });
   it('uses one page heading, explicit account return and existing header actions', () => {

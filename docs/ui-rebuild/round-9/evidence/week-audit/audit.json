@@ -1,0 +1,190 @@
+{
+  "base": "http://127.0.0.1:5203",
+  "checks": [
+    {
+      "name": "week-home-320",
+      "path": "/week",
+      "width": 320,
+      "scrollWidth": 320,
+      "h1Count": 1,
+      "font": "Nunito, system-ui, sans-serif, sans-serif",
+      "brokenImages": [],
+      "violations": []
+    },
+    {
+      "name": "week-setup-320",
+      "path": "/week/setup",
+      "width": 320,
+      "scrollWidth": 320,
+      "h1Count": 1,
+      "font": "Nunito, system-ui, sans-serif, sans-serif",
+      "brokenImages": [],
+      "violations": []
+    },
+    {
+      "name": "week-home-390",
+      "path": "/week",
+      "width": 390,
+      "scrollWidth": 390,
+      "h1Count": 1,
+      "font": "Nunito, system-ui, sans-serif, sans-serif",
+      "brokenImages": [],
+      "violations": []
+    },
+    {
+      "name": "week-setup-390",
+      "path": "/week/setup",
+      "width": 390,
+      "scrollWidth": 390,
+      "h1Count": 1,
+      "font": "Nunito, system-ui, sans-serif, sans-serif",
+      "brokenImages": [],
+      "violations": []
+    },
+    {
+      "name": "week-home-768",
+      "path": "/week",
+      "width": 768,
+      "scrollWidth": 768,
+      "h1Count": 1,
+      "font": "Nunito, system-ui, sans-serif, sans-serif",
+      "brokenImages": [],
+      "violations": []
+    },
+    {
+      "name": "week-setup-768",
+      "path": "/week/setup",
+      "width": 768,
+      "scrollWidth": 768,
+      "h1Count": 1,
+      "font": "Nunito, system-ui, sans-serif, sans-serif",
+      "brokenImages": [],
+      "violations": []
+    },
+    {
+      "name": "week-home-1440",
+      "path": "/week",
+      "width": 1440,
+      "scrollWidth": 1440,
+      "h1Count": 1,
+      "font": "Nunito, system-ui, sans-serif, sans-serif",
+      "brokenImages": [],
+      "violations": []
+    },
+    {
+      "name": "week-setup-1440",
+      "path": "/week/setup",
+      "width": 1440,
+      "scrollWidth": 1440,
+      "h1Count": 1,
+      "font": "Nunito, system-ui, sans-serif, sans-serif",
+      "brokenImages": [],
+      "violations": []
+    },
+    {
+      "name": "week-budget-320",
+      "path": "/week/setup",
+      "width": 320,
+      "scrollWidth": 320,
+      "h1Count": 1,
+      "font": "Nunito, system-ui, sans-serif, sans-serif",
+      "brokenImages": [],
+      "violations": []
+    },
+    {
+      "name": "week-schedule-320",
+      "path": "/week/setup",
+      "width": 320,
+      "scrollWidth": 320,
+      "h1Count": 1,
+      "font": "Nunito, system-ui, sans-serif, sans-serif",
+      "brokenImages": [],
+      "violations": []
+    },
+    {
+      "name": "week-priorities-320",
+      "path": "/week/setup",
+      "width": 320,
+      "scrollWidth": 320,
+      "h1Count": 1,
+      "font": "Nunito, system-ui, sans-serif, sans-serif",
+      "brokenImages": [],
+      "violations": []
+    },
+    {
+      "name": "week-frequency-320",
+      "path": "/week/setup",
+      "width": 320,
+      "scrollWidth": 320,
+      "h1Count": 1,
+      "font": "Nunito, system-ui, sans-serif, sans-serif",
+      "brokenImages": [],
+      "violations": []
+    },
+    {
+      "name": "week-generated-board-320",
+      "path": "/week/plan_week_plan_1791635011028_oc90or",
+      "width": 320,
+      "scrollWidth": 320,
+      "h1Count": 1,
+      "font": "Nunito, system-ui, sans-serif, sans-serif",
+      "brokenImages": [],
+      "violations": []
+    },
+    {
+      "name": "week-shopping-320",
+      "path": "/week/plan_week_plan_1791635011028_oc90or/shopping",
+      "width": 320,
+      "scrollWidth": 320,
+      "h1Count": 1,
+      "font": "Nunito, system-ui, sans-serif, sans-serif",
+      "brokenImages": [],
+      "violations": []
+    },
+    {
+      "name": "week-settings-320",
+      "path": "/week/plan_week_plan_1791635011028_oc90or/settings",
+      "width": 320,
+      "scrollWidth": 320,
+      "h1Count": 1,
+      "font": "Nunito, system-ui, sans-serif, sans-serif",
+      "brokenImages": [],
+      "violations": []
+    },
+    {
+      "name": "week-setup-enlarged-320",
+      "path": "/week/setup",
+      "width": 320,
+      "scrollWidth": 320,
+      "h1Count": 1,
+      "font": "Nunito, system-ui, sans-serif, sans-serif",
+      "brokenImages": [],
+      "violations": []
+    }
+  ],
+  "journeys": [
+    {
+      "kind": "server-and-browser-planner-disabled",
+      "status": 404,
+      "code": "MEAL_PLANNER_DISABLED"
+    },
+    {
+      "kind": "real-flag-off-week-generation-ignores-unsent-schedule",
+      "payloadKeys": [
+        "householdId",
+        "startDate",
+        "householdSize",
+        "mealSlotsPreset",
+        "budgetTargetVnd",
+        "priorities",
+        "shoppingFrequency",
+        "planId",
+        "commandId"
+      ],
+      "scheduleSelected": "first day eat_out",
+      "returnedFirstDayType": "cooking",
+      "stockUnchanged": true
+    }
+  ],
+  "errors": []
+}

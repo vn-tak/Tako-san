@@ -1,3 +1,71 @@
+# UI09 — Chi tiết tồn kho và trạng thái hệ thống đã kiểm chứng local — 2026-10-10 JST
+
+**Task/status:** `UI09_LOCAL_VERIFIED_REVIEW_REQUIRED`. Packet
+`docs/ai/tasks/UI09-stock-detail-states.md`, ADR-052. Phạm vi local detail/aliases,
+reconciliation và system-state presentation hoàn tất. Week audit/nextUI10 riêng;
+toàn hệ thống/navigation/owner/device/hosted/release chưa hoàn tất.
+
+**Repository/source:** Canonical `vn-tak/Tako-san`, ID1385308553; checkout
+`/Users/tunbee27/Documents/Tako-san-ui-rebuild`, branch `codex/ui-rebuild-foundation`,
+base `dbcabb7648e7f4ee9595f5ae430f0d7b50e80f0b`.125sourcehashes frozen,51builtpublic
+asset/font files byte-identical. Implementation checkpoint được ghi sau khi commit
+và kiểm Git objects; không ghi hash của chính documentation checkpoint. Frigo cũ
+giữ nguyên.115evidencepayloads+manifest,28logs có raw/archivehash receipts.
+
+**Actual changes:** KitchenDetailPage/sharedheader+h1, workspace880px; detail ưu
+tiên quantity/expiry uncertainty/storage/provenance rồi edit/related ingredient
+recipes, không claim đủ để nấu. Pendingfallback hiển thị loading; form16px/48px,
+fieldset khóa khi save, focus input/error/return, beforeunload dirty/pending only
+và inline discard note. Reconciliation article/h2/claim/verdict/reasons wrap,
+apply/dismiss giữ server intent. SystemStatusPage standalone UI07/aria-busy cho
+verification/logout/rendererror JSX. Exact aliases adopt; Appguards/sessioneffects,
+queries/mutation/draftbaseline/owner/submit/reconciliation callbacks giữ normalized
+tokens. Preview-only plannerfalse frontend/API,defaulttrue; Week runtime chưa sửa.
+
+**Verification:** Frozen11files/223tests PASS3.99s (27new/196existing). Browser
+49snapshots/49originalPNG/9journey groups,0unexpectedpageerror/applicableaxe/overflow/
+brokenassets,2expectedlazyimport faults riêng.320/390/768/1024/1440,textcomputed×2
+320,longsyntheticcontent,short390×420,normal/reduced. Real localcanonicaladopt,
+keyboard/cancel/beforeunload/save/errorretry/reload,reconciliationapply/dismiss,
+sessiontransportretry và Appboundaryreload. Logout chỉ syntheticpresentation.
+Readonly inventoryJSON nguyên; other-item facts nguyên khi save, shared household
+inventoryVersion tăng được kiểm riêng. Weekflagoff16screens/2journeys,planner404/
+MEAL_PLANNER_DISABLED; chọn firstdayeat_out không gửi schedule,returnedcooking;
+Weekgeneration/read giữ toàninventoryJSON. Full command:
+`PATH=/opt/homebrew/opt/node@24/bin:$PATH CI=true TMPDIR=/private/tmp WRANGLER_SEND_METRICS=false VITEST_MAX_THREADS=2 VITEST_MIN_THREADS=1 VITEST_MAX_FORKS=2 VITEST_MIN_FORKS=1 pnpm check`
+exit0:281files/6615tests PASS,0FAIL,Vitest370.01s;type/lint/migration-smoke/Vite3.27s+
+WorkerTS PASS. Onefullrun,no weakenedtimeout/config.125hashes giữ saufull;protected
+paths reviewed. Reports round-9 FOUNDATION/VERIFICATION và hai contact sheets.
+
+**Failures/recovery:** Initial focused131PASS;expanded209PASS/1suiteFAIL Node
+localStorage import,authstore mock corrected→223PASS. Browserdetailtext×2 overflow
+332/320 thenedit354/320 fixed gridminmax/min-width/wrap/line-height;fixture guessed
+name fixed byactualAPI;inventoryVersion20→22 sharedrevision comparison fixed by
+WorkerDTO proof,allotheritemfields retained. Fifth46PASS→expandedfrozen49PASS.
+Weekinitial endpointguess corrected/week/plans;16screenfrozen audit complete.
+Frozenfiltermistyped threefilepaths only159/8PASS,rerun223/11PASS. GenericUX146files/
+29issues/945warnings/80checks STATUSFAIL;nowhole-repoUXPASS. Dependencyauditexit1:
+41(4low/19moderate/16high/2critical),unchangedlock;separate remediation. Logs/checks
+and initialoverflowimages retained;ANSI/trailingspaces normalized,NULescaped.
+
+**Database/operational state:** Synthetic local Worker/in-memorySQLite only. Owned
+preview13063/13334 stopped before full;5202/8902/5203/8903 closed. No Worker/packages/
+migrations/services/stores/public/payment/authprotocol/productionflags/dependency/
+config/remoteDB/R2/providercredentials/push/PR/merge/deploy. Build beforecommit
+uses base releaseID,notreleaseartifact. Canonicalfallback-any-error and queued
+metadata receipt risks retained. Beforeunload does not guard SPA. Global navlabels
+overlap at doubledtext320; UI11. Owner/device/Safari/nativezoom/screenreader/
+usability/CWV/hosted/release unverified.
+
+**Next action:** Execute UI10 packet `docs/ai/tasks/UI10-week-compatibility.md`
+after ADR-053: sixWeekpages+fourcomponents, fourtruthfulsetupstages, sessiondraft
+settings, review-before-regenerate,nullbudgetmapping, asyncclipboardfeedback and
+existingpendingSync pass-through. Preserve services/commandlifecycles/Weekdualwrite;
+flagoffbrowser+flagonaliases+fullgates. UI11globalnav and separate inventory/Week
+offlineauthority/dependency/owner/device/hosted work remain.
+
+---
+
 # UI08 — Hồ sơ và luồng bắt đầu đã kiểm chứng local — 2026-10-10 JST
 
 **Task/status:** `UI08_LOCAL_VERIFIED_REVIEW_REQUIRED`. Packet

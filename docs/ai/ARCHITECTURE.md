@@ -1,3 +1,23 @@
+# UI09 stock detail and system presentation (ADR-052, 2026-10-10)
+
+KitchenDetailPage reuses KitchenHeader/heading for exact detail aliases and
+/inventory-reconciliation. kitchen-stock-detail.css scopes readable facts/forms/
+records, wrapping,48px controls,16px inputs and reduced motion. AppLayout explicit
+scope preserves unrelated/protected routes. SystemStatusPage owns standalone
+main/brand/h1/aria-busy for SessionBoundary and AppErrorBoundary JSX. Session
+verification effects, App routes/guards, queries/mutation/draft submit and server
+reconciliation intent match the base after formatting normalization. No services/
+stores/backend/schema/public assets/payment/auth protocol change.
+
+security-preview opt-in PREVIEW_MEAL_PLANNER_ENABLED=false sets local frontend
+and API together; default true. Actual Week flag-off audit reveals unsent day
+schedule, memory-only settings and misleading regenerate priority. UI10 packet
+defines bounded corrections; no Week runtime edit here. Shared nav enlarged-label
+density and inventory/Week offline authority are distinct follow-ups. Source and
+limits: UI09 packet and round-9 FOUNDATION/VERIFICATION.
+
+---
+
 # UI08 account and entry presentation (ADR-051, 2026-10-10)
 
 AccountPage reuses KitchenHeader/heading and existing primitives for explicit

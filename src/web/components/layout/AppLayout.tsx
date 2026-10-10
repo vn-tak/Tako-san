@@ -18,6 +18,8 @@ export function isKitchenSurface(pathname: string) {
   return (
     pathname === '/' ||
     /^\/(fridge|inventory)\/?$/.test(pathname) ||
+    /^\/(fridge|inventory|ingredients)\/[^/]+\/?$/.test(pathname) ||
+    pathname === '/inventory-reconciliation' ||
     /^\/scan(?:\/|$)/.test(pathname) ||
     /^\/recipes(?:\/|$)/.test(pathname) ||
     /^\/(cook|cooking)(?:\/|$)/.test(pathname) ||

@@ -1,0 +1,293 @@
+legacy-detail-390: axe0 / overflow0 / assets0
+canonical-detail-320: axe0 / overflow0 / assets0
+canonical-edit-320: axe0 / overflow0 / assets0
+reconciliation-empty-320: axe0 / overflow0 / assets0
+canonical-detail-390: axe0 / overflow0 / assets0
+canonical-edit-390: axe0 / overflow0 / assets0
+reconciliation-empty-390: axe0 / overflow0 / assets0
+canonical-detail-768: axe0 / overflow0 / assets0
+canonical-edit-768: axe0 / overflow0 / assets0
+reconciliation-empty-768: axe0 / overflow0 / assets0
+canonical-detail-1024: axe0 / overflow0 / assets0
+canonical-edit-1024: axe0 / overflow0 / assets0
+reconciliation-empty-1024: axe0 / overflow0 / assets0
+canonical-detail-1440: axe0 / overflow0 / assets0
+canonical-edit-1440: axe0 / overflow0 / assets0
+reconciliation-empty-1440: axe0 / overflow0 / assets0
+detail-alias-ingredients: axe0 / overflow0 / assets0
+detail-alias-inventory: axe0 / overflow0 / assets0
+detail-enlarged-320: axe0 / overflow0 / assets0
+edit-enlarged-320: axe0 / overflow0 / assets0
+detail-not-found: axe0 / overflow0 / assets0
+detail-loading: axe0 / overflow0 / assets0
+metadata-saving: axe0 / overflow0 / assets0
+node:internal/modules/run_main:107
+    triggerUncaughtException(
+    ^
+
+AssertionError [ERR_ASSERTION]: Expected values to be strictly deep-equal:
++ actual - expected
+... Skipped lines
+
+  [
+    {
+      addedDate: '2026-10-10 12:13:40',
+      canonicalUnit: 'g',
+      category: 'dairy',
+...
+      ingredientId: 'CHEDDAR_CHEESE',
++     inventoryVersion: 22,
+-     inventoryVersion: 20,
+      legacyItemId: 'preview-stock-cheese',
+      lotId: 't08-legacy:preview-stock-cheese',
+      lotVersion: 2,
+      name: 'Phô mai',
+      normalizationStatus: 'matched',
+...
+      ingredientId: 'CHICKEN_BREAST',
++     inventoryVersion: 22,
+-     inventoryVersion: 20,
+      legacyItemId: 'preview-stock-chicken',
+      lotId: 't08-legacy:preview-stock-chicken',
+      lotVersion: 2,
+      name: 'Ức gà',
+      normalizationStatus: 'matched',
+...
+      ingredientId: 'WATER_SPINACH',
++     inventoryVersion: 22,
+-     inventoryVersion: 20,
+      legacyItemId: 'preview-stock-spinach',
+      lotId: 't08-legacy:preview-stock-spinach',
+      lotVersion: 2,
+      name: 'Rau muống',
+      normalizationStatus: 'matched',
+...
+      ingredientId: 'TOFU',
++     inventoryVersion: 22,
+-     inventoryVersion: 20,
+      legacyItemId: 'preview-stock-tofu',
+      lotId: 't08-legacy:preview-stock-tofu',
+      lotVersion: 2,
+      name: 'Đậu phụ',
+      normalizationStatus: 'matched',
+
+    at file:///Users/tunbee27/Documents/Tako-san-ui-rebuild/scripts/ui09-browser-check.mjs:95:10 {
+  generatedMessage: true,
+  code: 'ERR_ASSERTION',
+  actual: [
+    {
+      id: 'preview-stock-cheese',
+      lotId: 't08-legacy:preview-stock-cheese',
+      legacyItemId: 'preview-stock-cheese',
+      householdId: 'planner-preview-household',
+      ingredientId: 'CHEDDAR_CHEESE',
+      normalizationStatus: 'matched',
+      name: 'Phô mai',
+      quantity: 200,
+      unit: 'g',
+      category: 'dairy',
+      storage: 'fridge',
+      expiryDate: null,
+      estimatedExpiryDate: null,
+      expiryKind: 'UNKNOWN',
+      state: 'ACTIVE',
+      addedDate: '2026-10-10 12:13:40',
+      freshness: 'fresh',
+      dataSource: 'manual',
+      version: 1,
+      lotVersion: 2,
+      quantityMilli: 200000,
+      canonicalUnit: 'g',
+      inventoryVersion: 22,
+      updatedAt: '2026-10-10T12:13:43.052Z'
+    },
+    {
+      id: 'preview-stock-chicken',
+      lotId: 't08-legacy:preview-stock-chicken',
+      legacyItemId: 'preview-stock-chicken',
+      householdId: 'planner-preview-household',
+      ingredientId: 'CHICKEN_BREAST',
+      normalizationStatus: 'matched',
+      name: 'Ức gà',
+      quantity: 300,
+      unit: 'g',
+      category: 'meat',
+      storage: 'fridge',
+      expiryDate: null,
+      estimatedExpiryDate: null,
+      expiryKind: 'UNKNOWN',
+      state: 'ACTIVE',
+      addedDate: '2026-10-10 12:13:40',
+      freshness: 'fresh',
+      dataSource: 'manual',
+      version: 1,
+      lotVersion: 2,
+      quantityMilli: 300000,
+      canonicalUnit: 'g',
+      inventoryVersion: 22,
+      updatedAt: '2026-10-10T12:13:43.052Z'
+    },
+    {
+      id: 'preview-stock-spinach',
+      lotId: 't08-legacy:preview-stock-spinach',
+      legacyItemId: 'preview-stock-spinach',
+      householdId: 'planner-preview-household',
+      ingredientId: 'WATER_SPINACH',
+      normalizationStatus: 'matched',
+      name: 'Rau muống',
+      quantity: 1,
+      unit: 'bunch',
+      category: 'vegetable',
+      storage: 'fridge',
+      expiryDate: '2026-10-12',
+      estimatedExpiryDate: '2026-10-12',
+      expiryKind: 'ESTIMATED',
+      state: 'ACTIVE',
+      addedDate: '2026-10-10 12:13:40',
+      freshness: 'use_soon',
+      dataSource: 'manual',
+      version: 1,
+      lotVersion: 2,
+      quantityMilli: 1000,
+      canonicalUnit: 'bunch',
+      inventoryVersion: 22,
+      updatedAt: '2026-10-10T12:13:43.052Z'
+    },
+    {
+      id: 'preview-stock-tofu',
+      lotId: 't08-legacy:preview-stock-tofu',
+      legacyItemId: 'preview-stock-tofu',
+      householdId: 'planner-preview-household',
+      ingredientId: 'TOFU',
+      normalizationStatus: 'matched',
+      name: 'Đậu phụ',
+      quantity: 200,
+      unit: 'g',
+      category: 'vegetable',
+      storage: 'fridge',
+      expiryDate: null,
+      estimatedExpiryDate: null,
+      expiryKind: 'UNKNOWN',
+      state: 'ACTIVE',
+      addedDate: '2026-10-10 12:13:40',
+      freshness: 'fresh',
+      dataSource: 'manual',
+      version: 1,
+      lotVersion: 2,
+      quantityMilli: 200000,
+      canonicalUnit: 'g',
+      inventoryVersion: 22,
+      updatedAt: '2026-10-10T12:13:43.052Z'
+    }
+  ],
+  expected: [
+    {
+      id: 'preview-stock-cheese',
+      lotId: 't08-legacy:preview-stock-cheese',
+      legacyItemId: 'preview-stock-cheese',
+      householdId: 'planner-preview-household',
+      ingredientId: 'CHEDDAR_CHEESE',
+      normalizationStatus: 'matched',
+      name: 'Phô mai',
+      quantity: 200,
+      unit: 'g',
+      category: 'dairy',
+      storage: 'fridge',
+      expiryDate: null,
+      estimatedExpiryDate: null,
+      expiryKind: 'UNKNOWN',
+      state: 'ACTIVE',
+      addedDate: '2026-10-10 12:13:40',
+      freshness: 'fresh',
+      dataSource: 'manual',
+      version: 1,
+      lotVersion: 2,
+      quantityMilli: 200000,
+      canonicalUnit: 'g',
+      inventoryVersion: 20,
+      updatedAt: '2026-10-10T12:13:43.052Z'
+    },
+    {
+      id: 'preview-stock-chicken',
+      lotId: 't08-legacy:preview-stock-chicken',
+      legacyItemId: 'preview-stock-chicken',
+      householdId: 'planner-preview-household',
+      ingredientId: 'CHICKEN_BREAST',
+      normalizationStatus: 'matched',
+      name: 'Ức gà',
+      quantity: 300,
+      unit: 'g',
+      category: 'meat',
+      storage: 'fridge',
+      expiryDate: null,
+      estimatedExpiryDate: null,
+      expiryKind: 'UNKNOWN',
+      state: 'ACTIVE',
+      addedDate: '2026-10-10 12:13:40',
+      freshness: 'fresh',
+      dataSource: 'manual',
+      version: 1,
+      lotVersion: 2,
+      quantityMilli: 300000,
+      canonicalUnit: 'g',
+      inventoryVersion: 20,
+      updatedAt: '2026-10-10T12:13:43.052Z'
+    },
+    {
+      id: 'preview-stock-spinach',
+      lotId: 't08-legacy:preview-stock-spinach',
+      legacyItemId: 'preview-stock-spinach',
+      householdId: 'planner-preview-household',
+      ingredientId: 'WATER_SPINACH',
+      normalizationStatus: 'matched',
+      name: 'Rau muống',
+      quantity: 1,
+      unit: 'bunch',
+      category: 'vegetable',
+      storage: 'fridge',
+      expiryDate: '2026-10-12',
+      estimatedExpiryDate: '2026-10-12',
+      expiryKind: 'ESTIMATED',
+      state: 'ACTIVE',
+      addedDate: '2026-10-10 12:13:40',
+      freshness: 'use_soon',
+      dataSource: 'manual',
+      version: 1,
+      lotVersion: 2,
+      quantityMilli: 1000,
+      canonicalUnit: 'bunch',
+      inventoryVersion: 20,
+      updatedAt: '2026-10-10T12:13:43.052Z'
+    },
+    {
+      id: 'preview-stock-tofu',
+      lotId: 't08-legacy:preview-stock-tofu',
+      legacyItemId: 'preview-stock-tofu',
+      householdId: 'planner-preview-household',
+      ingredientId: 'TOFU',
+      normalizationStatus: 'matched',
+      name: 'Đậu phụ',
+      quantity: 200,
+      unit: 'g',
+      category: 'vegetable',
+      storage: 'fridge',
+      expiryDate: null,
+      estimatedExpiryDate: null,
+      expiryKind: 'UNKNOWN',
+      state: 'ACTIVE',
+      addedDate: '2026-10-10 12:13:40',
+      freshness: 'fresh',
+      dataSource: 'manual',
+      version: 1,
+      lotVersion: 2,
+      quantityMilli: 200000,
+      canonicalUnit: 'g',
+      inventoryVersion: 20,
+      updatedAt: '2026-10-10T12:13:43.052Z'
+    }
+  ],
+  operator: 'deepStrictEqual',
+  diff: 'simple'
+}
+
+Node.js v24.16.0

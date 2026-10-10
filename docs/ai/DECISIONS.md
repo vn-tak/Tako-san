@@ -1,3 +1,35 @@
+# ADR-052 - Scoped stock detail and system-state presentation (UI09)
+
+Status: accepted and locally verified for UI09, 2026-10-10 JST.
+Full281files/6615tests PASS;focused223;browser49snapshots/9journeys;Weekflagoff
+audit16screens/2journeys. Evidence: ../ui-rebuild/round-9/VERIFICATION.md.
+Owner/device/navigation/Weekimplementation/hosted/release remain.
+Packet: `tasks/UI09-stock-detail-states.md`; extends ADR-044 through ADR-051.
+
+Detail aliases and reconciliation still use the supplied shell, tiny copy and
+truncated evidence. Adopt existing digital tokens/assets through explicit routes,
+shared kitchen header/heading and a readable single-column detail workspace.
+Quantity/expiry/provenance precede editing; related recipes indicate ingredient
+relevance only. Preserve canonical queries/fallback, dirty-only versioned PATCH,
+lot-bound drafts, conflict reload truth and server reconciliation intent/proposals.
+Pending fallback must show loading rather than a premature not-found message.
+Metadata controls lock during save; input/error/return focus and explicit cancel
+warnings improve interaction without adding persistence or stock commands.
+
+SystemStatusPage owns standalone identity for AppErrorBoundary and SessionBoundary
+markup. Keep verification effects, session/Plus/onboarding/logout logic and all
+App guards unchanged. No auth protocol or payment surface redesign.
+
+Week has an unsent per-day schedule and a separate command/sheet lifecycle.
+Audit real flag-off local preview in this packet and plan UI10 for that workflow.
+PREVIEW_MEAL_PLANNER_ENABLED opt-in false sets both preview frontend/server flags;
+default remains true. No production flag, router, Week/store/service change.
+No backend/schema/dependency/config/asset/font/pose/remote/push/deploy changes.
+Local new-surface QA and full gates are required; Week audit and synthetic faults
+are not device/owner/hosted/release approval or whole-system UX certification.
+
+---
+
 # ADR-051 - Account and entry adopt the scoped digital identity (UI08)
 
 Status: accepted and locally verified for UI08, 2026-10-10 JST.

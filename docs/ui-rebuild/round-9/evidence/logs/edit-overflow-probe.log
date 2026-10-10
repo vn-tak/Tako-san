@@ -1,0 +1,182 @@
+[
+  {
+    "tag": "P",
+    "cls": "text-semantic-text-secondary",
+    "text": "Thay đổi chỉ được lưu khi bạn chọn “Lưu thay đổi”. Rời trang hoặc chọn “Hủy” sẽ bỏ bản chỉ",
+    "right": 354,
+    "width": 321,
+    "font": "28px",
+    "whiteSpace": "normal"
+  },
+  {
+    "tag": "DIV",
+    "cls": "",
+    "text": "Tên nguyên liệu",
+    "right": 354,
+    "width": 321,
+    "font": "32px",
+    "whiteSpace": "normal"
+  },
+  {
+    "tag": "LABEL",
+    "cls": "block text-xs font-semibold text-semantic-text-secondary mb-1",
+    "text": "Tên nguyên liệu",
+    "right": 354,
+    "width": 321,
+    "font": "28px",
+    "whiteSpace": "normal"
+  },
+  {
+    "tag": "INPUT",
+    "cls": "w-full h-11 px-3 rounded-xl border border-semantic-border text-sm font-medium text-semantic-text-primary bg-white focus:outline-none focus:ring-2 focus:ring-takosan-green/20 focus:border-takosan-green",
+    "text": "",
+    "right": 354,
+    "width": 321,
+    "font": "32px",
+    "whiteSpace": "normal"
+  },
+  {
+    "tag": "DIV",
+    "cls": "stock-editor-grid",
+    "text": "Đơn vịgam (g)kgquả / củ / bìa / miếngbógói / hộplátmllítDanh mụcRau củThịtTrứngHải sảnSữa ",
+    "right": 354,
+    "width": 321,
+    "font": "32px",
+    "whiteSpace": "normal"
+  },
+  {
+    "tag": "DIV",
+    "cls": "",
+    "text": "Đơn vịgam (g)kgquả / củ / bìa / miếngbógói / hộplátmllít",
+    "right": 354,
+    "width": 321,
+    "font": "32px",
+    "whiteSpace": "normal"
+  },
+  {
+    "tag": "LABEL",
+    "cls": "block text-xs font-semibold text-semantic-text-secondary mb-1",
+    "text": "Đơn vị",
+    "right": 354,
+    "width": 321,
+    "font": "28px",
+    "whiteSpace": "normal"
+  },
+  {
+    "tag": "SELECT",
+    "cls": "w-full h-11 px-3 rounded-xl border border-semantic-border text-sm font-medium text-semantic-text-primary bg-white focus:outline-none focus:ring-2 focus:ring-takosan-green/20 focus:border-takosan-green",
+    "text": "gam (g)kgquả / củ / bìa / miếngbógói / hộplátmllít",
+    "right": 354,
+    "width": 321,
+    "font": "32px",
+    "whiteSpace": "pre"
+  },
+  {
+    "tag": "DIV",
+    "cls": "",
+    "text": "Danh mụcRau củThịtTrứngHải sảnSữa / BơGia vịGạo / MìKhác",
+    "right": 354,
+    "width": 321,
+    "font": "32px",
+    "whiteSpace": "normal"
+  },
+  {
+    "tag": "LABEL",
+    "cls": "block text-xs font-semibold text-semantic-text-secondary mb-1",
+    "text": "Danh mục",
+    "right": 354,
+    "width": 321,
+    "font": "28px",
+    "whiteSpace": "normal"
+  },
+  {
+    "tag": "SELECT",
+    "cls": "w-full h-11 px-3 rounded-xl border border-semantic-border text-sm font-medium text-semantic-text-primary bg-white focus:outline-none focus:ring-2 focus:ring-takosan-green/20 focus:border-takosan-green",
+    "text": "Rau củThịtTrứngHải sảnSữa / BơGia vịGạo / MìKhác",
+    "right": 354,
+    "width": 321,
+    "font": "32px",
+    "whiteSpace": "pre"
+  },
+  {
+    "tag": "DIV",
+    "cls": "",
+    "text": "Hạn sử dụng chính xácNgày bạn chọn được lưu là hạn dùng đã biết chắc chắn.",
+    "right": 354,
+    "width": 321,
+    "font": "32px",
+    "whiteSpace": "normal"
+  },
+  {
+    "tag": "LABEL",
+    "cls": "block text-xs font-semibold text-semantic-text-secondary mb-1",
+    "text": "Hạn sử dụng chính xác",
+    "right": 354,
+    "width": 321,
+    "font": "28px",
+    "whiteSpace": "normal"
+  },
+  {
+    "tag": "INPUT",
+    "cls": "w-full h-11 px-3 rounded-xl border border-semantic-border text-sm font-medium text-semantic-text-primary bg-white focus:outline-none focus:ring-2 focus:ring-takosan-green/20 focus:border-takosan-green",
+    "text": "",
+    "right": 354,
+    "width": 321,
+    "font": "32px",
+    "whiteSpace": "normal"
+  },
+  {
+    "tag": "P",
+    "cls": "text-[11px] text-semantic-text-muted mt-1",
+    "text": "Ngày bạn chọn được lưu là hạn dùng đã biết chắc chắn.",
+    "right": 354,
+    "width": 321,
+    "font": "28px",
+    "whiteSpace": "normal"
+  },
+  {
+    "tag": "DIV",
+    "cls": "",
+    "text": "Chuyển vị trí bảo quảnNgăn mátNgăn đôngTủ đồ khô",
+    "right": 354,
+    "width": 321,
+    "font": "32px",
+    "whiteSpace": "normal"
+  },
+  {
+    "tag": "LABEL",
+    "cls": "block text-xs font-semibold text-semantic-text-secondary mb-1",
+    "text": "Chuyển vị trí bảo quản",
+    "right": 354,
+    "width": 321,
+    "font": "28px",
+    "whiteSpace": "normal"
+  },
+  {
+    "tag": "SELECT",
+    "cls": "w-full h-11 px-3 rounded-xl border border-semantic-border text-sm font-medium text-semantic-text-primary bg-white focus:outline-none focus:ring-2 focus:ring-takosan-green/20 focus:border-takosan-green",
+    "text": "Ngăn mátNgăn đôngTủ đồ khô",
+    "right": 354,
+    "width": 321,
+    "font": "32px",
+    "whiteSpace": "pre"
+  },
+  {
+    "tag": "DIV",
+    "cls": "flex gap-2",
+    "text": "Lưu thay đổiHủy",
+    "right": 354,
+    "width": 321,
+    "font": "32px",
+    "whiteSpace": "normal"
+  },
+  {
+    "tag": "BUTTON",
+    "cls": "inline-flex items-center justify-center font-heading font-semibold tracking-tight transition-tap duration-150 active:scale-[0.98] tap-target disabled:opacity-50 disabled:pointer-events-none cursor-pointer select-none border border-semantic-border text-semantic-text-primary bg-white hover:bg-semantic-background-subtle hover:border-semantic-border-strong active:bg-semantic-border/60 h-11 px-5 text-sm rounded-xl",
+    "text": "Hủy",
+    "right": 354,
+    "width": 82.03125,
+    "font": "32px",
+    "whiteSpace": "normal"
+  }
+]

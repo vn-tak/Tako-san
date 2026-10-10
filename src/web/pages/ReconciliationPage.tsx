@@ -1,9 +1,9 @@
-import React, { useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useMutation, useQuery } from '@tanstack/react-query';
-import { TopBar } from '../components/common/TopBar';
+import { KitchenDetailPage } from '../components/common/KitchenDetailPage';
+import { TAKOSAN_KITCHEN } from '../lib/takosan-kitchen';
 import { Button } from '../components/common/Button';
-import { EmptyState } from '../components/common/EmptyState';
 import { InlineLoading, InlineError } from '../components/common/AsyncState';
 import { api, ApiError } from '../services/api';
 import { queryKeys } from '../lib/queryKeys';
@@ -44,16 +44,30 @@ function claimSummary(observation: InventoryObservationView): string {
   if (claim.quantity !== null && claim.quantity !== undefined) {
     parts.push(`${claim.quantity} ${claim.unit ?? ''}`.trim());
   }
-  if (claim.storage) parts.push(String(claim.storage));
+  if (claim.storage)
+    parts.push(
+      ({ fridge: 'Ngăn mát', freezer: 'Ngăn đông', pantry: 'Tủ đồ khô' } as Record<string, string>)[
+        String(claim.storage)
+      ] ?? String(claim.storage),
+    );
   if (claim.expiryDate) {
-    parts.push(claim.expiryKind === 'ESTIMATED' ? `hạn ước tính ${claim.expiryDate}` : `hạn ${claim.expiryDate}`);
+    parts.push(
+      claim.expiryKind === 'ESTIMATED'
+        ? `hạn ước tính ${claim.expiryDate}`
+        : `hạn ${claim.expiryDate}`,
+    );
   }
   return parts.length > 0 ? parts.join(' · ') : 'Không có số liệu cụ thể';
 }
 
 export const ReconciliationPage: React.FC = () => {
   const navigate = useNavigate();
+  const errorRef = useRef<HTMLParagraphElement>(null);
   const [actionError, setActionError] = useState<string | null>(null);
+
+  useEffect(() => {
+    if (actionError) errorRef.current?.focus();
+  }, [actionError]);
 
   const observationsQuery = useQuery({
     queryKey: queryKeys.inventoryObservations(),
@@ -88,7 +102,10 @@ export const ReconciliationPage: React.FC = () => {
     },
     onError: async (error: unknown) => {
       const code = error instanceof ApiError ? error.code : null;
-      const presentation = presentDomainError(code, 'Chưa xử lý được mục đối chiếu. Vui lòng thử lại.');
+      const presentation = presentDomainError(
+        code,
+        'Chưa xử lý được mục đối chiếu. Vui lòng thử lại.',
+      );
       setActionError(presentation.message);
       // Stale or already-decided evidence only makes sense after a reload.
       if (presentation.refetch) await observationsQuery.refetch();
@@ -98,101 +115,112 @@ export const ReconciliationPage: React.FC = () => {
   const observations = observationsQuery.data ?? [];
 
   return (
-    <div className="min-h-screen bg-takosan-cream pb-28">
-      <TopBar showBack title="Đối chiếu tủ lạnh" subtitle="Bằng chứng từ hóa đơn & ảnh quét" />
+    <KitchenDetailPage
+      title="Đối chiếu tủ lạnh"
+      description="Kiểm tra ghi nhận từ hóa đơn và ảnh quét. Bạn quyết định áp dụng hay bỏ qua từng đề xuất."
+    >
+      {actionError && (
+        <p
+          ref={errorRef}
+          tabIndex={-1}
+          className="text-xs text-semantic-danger-strong bg-semantic-danger-soft border border-semantic-danger/30 rounded-xl px-3 py-2 font-medium"
+          role="alert"
+        >
+          {actionError}
+        </p>
+      )}
 
-      <div className="px-4 pt-3 space-y-3">
-        {actionError && (
-          <p className="text-xs text-semantic-danger-strong bg-semantic-danger-soft border border-semantic-danger/30 rounded-xl px-3 py-2 font-medium" role="alert">
-            {actionError}
-          </p>
-        )}
-
-        {observationsQuery.isPending ? (
-          <InlineLoading label="Đang tải mục cần đối chiếu…" />
-        ) : observationsQuery.isError ? (
-          <InlineError
-            error={observationsQuery.error}
-            onRetry={() => void observationsQuery.refetch()}
-          />
-        ) : observations.length === 0 ? (
-          <EmptyState
-            title="Không có mục nào cần đối chiếu"
-            description="Khi bạn quét hóa đơn hoặc ảnh tủ lạnh, các khác biệt sẽ xuất hiện ở đây."
-            actionText="Về tủ lạnh"
-            onAction={() => navigate('/fridge')}
-          />
-        ) : (
-          observations.map((observation) => {
-            const actionable = observation.proposals.length > 0;
-            return (
-              <div
-                key={observation.observationId}
-                data-testid="reconciliation-item"
-                className="bg-white rounded-xl p-3.5 border border-semantic-border shadow-xs space-y-2"
-              >
-                <div className="flex items-center justify-between gap-2">
-                  <div className="flex items-center gap-2 min-w-0">
-                    <ScanLine className="w-4 h-4 text-takosan-green shrink-0" />
-                    <h4 className="font-heading font-semibold text-sm text-semantic-text-primary truncate">
-                      {observation.rawName ?? observation.ingredientId ?? 'Nguyên liệu'}
-                    </h4>
-                  </div>
-                  <span className="text-[10px] px-1.5 py-0.5 rounded bg-semantic-border/60 text-semantic-text-secondary font-medium shrink-0">
-                    {provenanceLabel(observation.dataSource)}
-                  </span>
+      {observationsQuery.isPending ? (
+        <InlineLoading label="Đang tải mục cần đối chiếu…" />
+      ) : observationsQuery.isError ? (
+        <InlineError
+          error={observationsQuery.error}
+          onRetry={() => void observationsQuery.refetch()}
+        />
+      ) : observations.length === 0 ? (
+        <section className="bg-white rounded-xl border border-semantic-border p-6 space-y-4">
+          <img src={TAKOSAN_KITCHEN.symbol} alt="" width={64} height={64} />
+          <h2>Không có mục nào cần đối chiếu</h2>
+          <p>Khi bạn quét hóa đơn hoặc ảnh tủ lạnh, các khác biệt sẽ xuất hiện ở đây.</p>
+          <Button variant="outline" onClick={() => navigate('/fridge')}>
+            Về tủ lạnh
+          </Button>
+        </section>
+      ) : (
+        observations.map((observation) => {
+          const actionable = observation.proposals.length > 0;
+          return (
+            <article
+              key={observation.observationId}
+              data-testid="reconciliation-item"
+              className="reconciliation-record bg-white rounded-xl border border-semantic-border space-y-2"
+            >
+              <header>
+                <div className="flex items-center gap-2 min-w-0">
+                  <ScanLine aria-hidden="true" className="w-4 h-4 text-takosan-green shrink-0" />
+                  <h2 className="font-heading font-semibold text-semantic-text-primary">
+                    {observation.rawName ?? observation.ingredientId ?? 'Nguyên liệu'}
+                  </h2>
                 </div>
+                <span className="text-[10px] px-1.5 py-0.5 rounded bg-semantic-border/60 text-semantic-text-secondary font-medium shrink-0">
+                  {provenanceLabel(observation.dataSource)}
+                </span>
+              </header>
 
-                <dl className="text-xs space-y-1">
+              <dl className="text-xs space-y-1">
+                <div className="flex justify-between gap-3">
+                  <dt className="text-semantic-text-muted shrink-0">Ghi nhận</dt>
+                  <dd className="text-semantic-text-primary font-medium text-right">
+                    {claimSummary(observation)}
+                  </dd>
+                </div>
+                <div className="flex justify-between gap-3">
+                  <dt className="text-semantic-text-muted shrink-0">Kết luận</dt>
+                  <dd className="text-semantic-text-primary font-medium text-right">
+                    {VERDICT_LABEL[observation.verdict ?? ''] ?? 'Đang chờ xử lý'}
+                  </dd>
+                </div>
+                {observation.reasons.length > 0 && (
                   <div className="flex justify-between gap-3">
-                    <dt className="text-semantic-text-muted shrink-0">Ghi nhận</dt>
-                    <dd className="text-semantic-text-primary font-medium text-right">{claimSummary(observation)}</dd>
-                  </div>
-                  <div className="flex justify-between gap-3">
-                    <dt className="text-semantic-text-muted shrink-0">Kết luận</dt>
-                    <dd className="text-semantic-text-primary font-medium text-right">
-                      {VERDICT_LABEL[observation.verdict ?? ''] ?? 'Đang chờ xử lý'}
+                    <dt className="text-semantic-text-muted shrink-0">Khác biệt</dt>
+                    <dd className="text-semantic-text-secondary text-right">
+                      {observation.reasons
+                        .map((reason) => REASON_LABEL[reason] ?? reason)
+                        .join('; ')}
                     </dd>
                   </div>
-                  {observation.reasons.length > 0 && (
-                    <div className="flex justify-between gap-3">
-                      <dt className="text-semantic-text-muted shrink-0">Khác biệt</dt>
-                      <dd className="text-semantic-text-secondary text-right">
-                        {observation.reasons.map((reason) => REASON_LABEL[reason] ?? reason).join('; ')}
-                      </dd>
-                    </div>
-                  )}
-                </dl>
-
-                <div className="flex gap-2 pt-1">
-                  <Button
-                    fullWidth
-                    size="sm"
-                    disabled={!actionable || decide.isPending}
-                    onClick={() => decide.mutate({ observation, accept: true })}
-                  >
-                    Áp dụng
-                  </Button>
-                  <Button
-                    fullWidth
-                    size="sm"
-                    variant="outline"
-                    disabled={decide.isPending}
-                    onClick={() => decide.mutate({ observation, accept: false })}
-                  >
-                    Bỏ qua
-                  </Button>
-                </div>
-                {!actionable && (
-                  <p className="text-[11px] text-semantic-text-muted">
-                    Mục này không có thao tác tự động an toàn; bạn có thể bỏ qua hoặc sửa trực tiếp trong tủ lạnh.
-                  </p>
                 )}
+              </dl>
+
+              <div className="reconciliation-actions">
+                <Button
+                  fullWidth
+                  size="sm"
+                  disabled={!actionable || decide.isPending}
+                  onClick={() => decide.mutate({ observation, accept: true })}
+                >
+                  Áp dụng
+                </Button>
+                <Button
+                  fullWidth
+                  size="sm"
+                  variant="outline"
+                  disabled={decide.isPending}
+                  onClick={() => decide.mutate({ observation, accept: false })}
+                >
+                  Bỏ qua
+                </Button>
               </div>
-            );
-          })
-        )}
-      </div>
-    </div>
+              {!actionable && (
+                <p className="text-[11px] text-semantic-text-muted">
+                  Mục này không có thao tác tự động an toàn; bạn có thể bỏ qua hoặc sửa trực tiếp
+                  trong tủ lạnh.
+                </p>
+              )}
+            </article>
+          );
+        })
+      )}
+    </KitchenDetailPage>
   );
 };

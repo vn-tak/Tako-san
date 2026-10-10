@@ -259,8 +259,8 @@ describe('notification honesty', () => {
     const { NotificationsPage } = await import('../../src/web/pages/NotificationsPage');
     ui.queryClient.setQueryData(ui.queryKeys.notifications(), []);
     const html = ui.render(<NotificationsPage />);
-    expect(html).toContain('Chưa có thông báo mới');
-    const bell = html.match(/<button[^>]*aria-label="Thông báo"[^>]*>([\s\S]*?)<\/button>/)?.[1];
+    expect(html).toContain('Không có thông báo để hiển thị');
+    const bell = html.match(/<a[^>]*aria-label="Thông báo"[^>]*href="\/notifications"[^>]*>([\s\S]*?)<\/a>/)?.[1];
     expect(bell).toBeTruthy();
     expect(bell).not.toMatch(/<span|bg-rose|bg-red/);
   });
@@ -274,7 +274,7 @@ describe('notification honesty', () => {
     const html = ui.render(<NotificationsPage />);
     expect(html).toContain('REAL_NOTIFICATION');
     expect(html).toContain('REAL_MESSAGE');
-    expect(html).not.toContain('Chưa có thông báo mới');
+    expect(html).not.toContain('Không có thông báo để hiển thị');
   });
 
   it('surfaces notification errors rather than pretending the list is empty', async () => {
@@ -284,7 +284,7 @@ describe('notification honesty', () => {
     const html = ui.render(<NotificationsPage />);
     expect(html).toContain('role="alert"');
     expect(html).toContain('Thử lại');
-    expect(html).not.toContain('Chưa có thông báo mới');
+    expect(html).not.toContain('Không có thông báo để hiển thị');
   });
 });
 

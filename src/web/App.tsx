@@ -148,7 +148,7 @@ const WeekShoppingRedirect: React.FC = () => {
 };
 
 export const App: React.FC = () => {
-  const { isGuest, isOnboarded, userId, householdId } = useAuthStore();
+  const { isGuest, isOnboarded, userId, householdId, primaryGoal } = useAuthStore();
 
   return (
     <QueryClientProvider client={queryClient}>
@@ -197,7 +197,7 @@ export const App: React.FC = () => {
                     element={
                       userId && householdId ? (
                         isOnboarded ? (
-                          <Navigate to="/" replace />
+                          <Navigate to={primaryGoal === 'week' ? '/week/setup' : '/'} replace />
                         ) : (
                           <OnboardingPage />
                         )

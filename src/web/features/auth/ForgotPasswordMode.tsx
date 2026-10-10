@@ -52,6 +52,8 @@ export const ForgotPasswordMode: React.FC<ForgotPasswordModeProps> = ({
             <Mail className="w-4 h-4 absolute left-3.5 top-3.5 text-semantic-text-muted" aria-hidden="true" />
             <input
               id={emailId}
+              name="email"
+              spellCheck={false}
               type="email"
               required
               value={email}
@@ -80,6 +82,8 @@ export const ForgotPasswordMode: React.FC<ForgotPasswordModeProps> = ({
                 ref={(el) => (otpInputsRef.current[idx] = el)}
                 type="text"
                 inputMode="numeric"
+                name={`otp-${idx + 1}`}
+                spellCheck={false}
                 autoComplete="one-time-code"
                 aria-label={`Chữ số ${idx + 1} của 6`}
                 maxLength={1}
@@ -98,6 +102,7 @@ export const ForgotPasswordMode: React.FC<ForgotPasswordModeProps> = ({
             <KeyRound className="w-4 h-4 absolute left-3.5 top-3.5 text-semantic-text-muted" aria-hidden="true" />
             <input
               id={newPasswordId}
+              name="newPassword"
               type={showPassword ? 'text' : 'password'}
               required
               value={newPassword}
@@ -113,7 +118,7 @@ export const ForgotPasswordMode: React.FC<ForgotPasswordModeProps> = ({
               aria-pressed={showPassword}
               className="absolute right-3 top-3 text-semantic-text-muted hover:text-semantic-text-secondary p-1 tap-target"
             >
-              {showPassword ? <EyeOff className="w-4 h-4" /> : <Eye className="w-4 h-4" />}
+              {showPassword ? <EyeOff className="w-4 h-4" aria-hidden="true" /> : <Eye className="w-4 h-4" aria-hidden="true" />}
             </button>
           </div>
         </div>

@@ -1,3 +1,80 @@
+# UI08 — Hồ sơ và luồng bắt đầu đã kiểm chứng local — 2026-10-10 JST
+
+**Task/status:** `UI08_LOCAL_VERIFIED_REVIEW_REQUIRED`. Packet
+`docs/ai/tasks/UI08-account-entry.md`, ADR-051. Hoàn tất phạm vi local account,
+settings/inbox và entry/onboarding; toàn hệ thống/owner/device/release chưa xong.
+
+**Repository/source:** Canonical `vn-tak/Tako-san`, ID1385308553; checkout
+`/Users/tunbee27/Documents/Tako-san-ui-rebuild`, branch `codex/ui-rebuild-foundation`,
+base `7f82edca63353a10b4f7b2919026c12b65d44963`. Implementation checkpoint pending
+Git-object verification in the subsequent documentation checkpoint. Checkout
+Frigo cũ giữ nguyên.
+
+**Actual changes:** AccountPage ghép kitchen header/heading vào một cột800px.
+Hồ sơ chia bữa ăn–gia đình/ứng dụng–dữ liệu; chữ wrap, descriptions14/actions16,
+controls48px, switch48×52; dialog max100dvh/scroll. Explicit8account routes adopt
+UI07 font/assets/tokens; mobile/tablet header và desktop sidebar giữ một lockup.
+Landing kể scan→review→inventory→meal, bỏ instant/accuracy guarantees và mascot
+fridge cũ; auth shell/field presentation, three onboarding steps và route fallback
+cùng identity. Reuse assets/fonts, không thêm pose/dependency. Copy unavailable
+family/export/delete và privacy ảnh nói đúng khả năng, không kể API nội bộ.
+Notification toggles là local saved intent chưa có consumer/delivery/filter;
+validate boolean, owner key giữ và storage failure được nói rõ. Inbox empty không
+khẳng định server rỗng khi offline. Cache clear có busy/success/error, không xóa
+outbox/local data. Preferences lock lúc lưu, focus lỗi, clear success khi edit;
+size7 hiển thị5+ nhưng payload giữ7. App completed-onboarding guard giữ primaryGoal
+week để không đè finish vềHome; /week/setup→/planner/new khi flagon, flagoff giữWeek.
+AuthPage/session/security/services/stores và mọi guard khác nguyên bytes.
+
+**Verification:** Focused10files/121tests PASS7.30s (37new/84existing), recovery
+130tests/4files PASS4.69s. Frozen browser106checks/107PNG/13journey groups,0axe/
+overflow/brokenassets/pageerrors;320/390/768/1024/1440,short390×420,textcomputed×2
+320,normal/reduced. OTP undelivered metadata và read/save/loading failures labelled
+synthetic; actual local Worker retry/save/reload/guest/onboarding/keyboard/dialogs
+checked. Inventory JSON before/after equal; guest profile enlarged and upgradehref
+retained.95frozen hashes, original92unchanged across recovery;51builtpublicfiles
+byte-identical. Full command:
+`PATH=/opt/homebrew/opt/node@24/bin:$PATH CI=true TMPDIR=/private/tmp WRANGLER_SEND_METRICS=false VITEST_MAX_THREADS=2 VITEST_MIN_THREADS=1 VITEST_MAX_FORKS=2 VITEST_MIN_FORKS=1 pnpm check`
+Final exit0:277files/6588tests PASS,0FAIL,Vitest381.00s;type/lint/migration-smoke/
+Vite3.40s +WorkerTS build PASS. Two full runs; no test timeout/config weakened.
+Full diff/protected allowlist checked; reports `docs/ui-rebuild/round-8/FOUNDATION.md`
+and `docs/ui-rebuild/round-8/VERIFICATION.md`, contact-sheet and hashed evidence.
+
+**Failures/recovery:** Initial focused114PASS/1FAIL attribute-order expectation;
+StaticRouter test missing location caught typecheck, fixed test. Browser transient
+JS motion opacity wait; sr-only controls exercised by keyboard; enlarged onboarding
+389px overflow fixed text min-width0; back selector matched actual arrow text.
+Fifth103checksPASS expanded with actual guest drill exposed runtime onboarding
+week intent overridden by guard; packet/ADR addendum then scoped App fix/sixguard
+regressions. Harness route assumption corrected /planner/setup→/planner/new.
+Full first4files/4testsFAIL,6584PASS/6588collected,395.82s:three stale legacy
+expectation suites and Wranglerlocal5s timeout(suite32.75s). Updated expected
+presentation with authority/no-fake checks retained; isolated originalenv130PASS,
+Wranglerlocal1453ms/suite3388ms; final full PASS. Startup cause not proven.
+Generic UXregex138files/29issues/907warnings/77checks STATUSFAIL; no whole-repo UX
+PASS. Dependency audit exit1:41vulnerabilities,4low/19moderate/16high/2critical,
+unchangedlockfile; separate remediation required. All failure/final logs archived
+with raw/archivehash receipts, NUL escaped and ANSI/trailing whitespace normalized.
+
+**Database/operational state:** Synthetic in-memorySQLite local Worker only;
+preview PID6439 stopped before full,5201/8901 closed. No Worker/schema/packages/
+services/stores/migrations/payment/PayOS/authprotocol/productionflag/dependency/
+config/remoteDB/R2/providercredentials/push/PR/merge/deploy. Existing Plus link
+JSX/target identical ignoringindentation; parent account typography changed, no
+pixel-identical payment CTA claim. Build from frozen tree before implementation
+commit uses base releaseID, not releaseartifact. Preview planneron; legacyWeek
+flagoff has App-unit destination coverage only. Final ownerbrand/device/Safari/
+OSinstall/realGoogleOTP/zoom/screenreader/usability/CWV/hosted/release remain.
+
+**Next action:** UI09 inventory+packet+ADR for ingredient detail/reconciliation,
+legacyWeek and global error/loading/unmigrated aliases. Add real flagoff preview
+path preserving default/commands/Weekcompatibility; inspect actual callers before
+presentation edits. Navigation density/unsaved draft warnings/mascot adoption,
+dependency advisories and owner/device/hosted release are distinct follow-ups.
+Detailed plan and before/after assessment in round-8 FOUNDATION.md.
+
+---
+
 # UI07 — Bộ nhận diện số đã kiểm chứng local — 2026-10-10 JST
 
 **Task/status:** `UI07_LOCAL_VERIFIED_REVIEW_REQUIRED`. Packet

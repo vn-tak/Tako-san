@@ -3,7 +3,7 @@ import { Navigate, useLocation, useNavigate } from 'react-router-dom';
 import { ArrowRight, Calendar, Check, Flame, Sparkles, Users, Utensils } from 'lucide-react';
 import { clsx } from 'clsx';
 import { Button } from '../components/common/Button';
-import { TAKOSAN_BRAND } from '../lib/takosan-brand';
+import { TAKOSAN_KITCHEN } from '../lib/takosan-kitchen';
 import { isOfflineGuestSession } from '../lib/private-session';
 import { api } from '../services/api';
 import { useAuthStore } from '../stores/useAuthStore';
@@ -152,10 +152,10 @@ export const OnboardingPage: React.FC = () => {
   };
 
   return (
-    <main className="min-h-screen bg-takosan-cream px-5 py-7 text-takosan-navy">
-      <div className="mx-auto flex min-h-[calc(100vh-3.5rem)] max-w-md flex-col">
+    <main className="takosan-rebuild entry-page onboarding-page">
+      <div className="onboarding-workspace">
         <header className="mb-7 flex items-center justify-between">
-          <img src={TAKOSAN_BRAND.logos.horizontal} alt="Takosan" className="h-10 w-auto" />
+          <img src={TAKOSAN_KITCHEN.logo} alt="Takosan" translate="no" width={300} height={72} className="entry-logo" />
           <span className="rounded-full border border-takosan-mint-deep bg-white px-3 py-1 text-xs font-bold text-takosan-green">
             {step} / 3
           </span>
@@ -206,7 +206,7 @@ export const OnboardingPage: React.FC = () => {
               <legend className="px-1 text-xs font-bold uppercase tracking-wider text-semantic-text-secondary">
                 Số người thường ăn
               </legend>
-              <div className="mt-3 flex gap-2">
+              <div className="onboarding-household-choices">
                 {HOUSEHOLD_CHOICES.map((number) => {
                   const selected =
                     number === HOUSEHOLD_PLUS_CHOICE

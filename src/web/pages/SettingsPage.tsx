@@ -1,135 +1,92 @@
 import React, { useState, useEffect } from 'react';
-import { TopBar } from '../components/common/TopBar';
+import { Link } from 'react-router-dom';
+import { AccountPage } from '../components/common/AccountPage';
 import { Card } from '../components/common/Card';
 import { Button } from '../components/common/Button';
 import { ConfirmDialog } from '../components/common/ConfirmDialog';
-import { Globe, Smartphone, Trash2, Info, Wifi } from 'lucide-react';
+import { Globe, Smartphone, Trash2, Wifi } from 'lucide-react';
+
+interface InstallPrompt extends Event {
+  prompt(): Promise<void>;
+  userChoice: Promise<{ outcome: 'accepted' | 'dismissed' }>;
+}
 
 export const SettingsPage: React.FC = () => {
-  const [deferredPrompt, setDeferredPrompt] = useState<any>(null);
+  const [deferredPrompt, setDeferredPrompt] = useState<InstallPrompt | null>(null);
   const [isStandalone, setIsStandalone] = useState(false);
   const [cacheCleared, setCacheCleared] = useState(false);
+  const [clearing, setClearing] = useState(false);
+  const [actionError, setActionError] = useState<string | null>(null);
   const [showInstallHelp, setShowInstallHelp] = useState(false);
 
   useEffect(() => {
-    // Check if app is running in standalone mode (installed PWA)
-    const isPwa = window.matchMedia('(display-mode: standalone)').matches || (window.navigator as any).standalone === true;
-    setIsStandalone(isPwa);
-
-    const handleBeforeInstallPrompt = (e: Event) => {
-      e.preventDefault();
-      setDeferredPrompt(e);
+    setIsStandalone(window.matchMedia('(display-mode: standalone)').matches ||
+      (window.navigator as Navigator & { standalone?: boolean }).standalone === true);
+    const handleBeforeInstallPrompt = (event: Event) => {
+      event.preventDefault();
+      setDeferredPrompt(event as InstallPrompt);
     };
-
     window.addEventListener('beforeinstallprompt', handleBeforeInstallPrompt);
     return () => window.removeEventListener('beforeinstallprompt', handleBeforeInstallPrompt);
   }, []);
 
   const handleInstallPwa = async () => {
-    if (deferredPrompt) {
-      deferredPrompt.prompt();
-      const choiceResult = await deferredPrompt.userChoice;
-      if (choiceResult.outcome === 'accepted') {
-        setDeferredPrompt(null);
-      }
-    } else {
-      setShowInstallHelp(true);
+    setActionError(null);
+    if (!deferredPrompt) { setShowInstallHelp(true); return; }
+    try {
+      await deferredPrompt.prompt();
+      await deferredPrompt.userChoice;
+      setDeferredPrompt(null);
+    } catch {
+      setActionError('Chưa mở được cửa sổ cài đặt. Hãy thử hướng dẫn cài thủ công.');
+      setDeferredPrompt(null);
     }
   };
 
   const handleClearCache = async () => {
-    if ('caches' in window) {
+    setActionError(null);
+    setCacheCleared(false);
+    setClearing(true);
+    try {
+      if (!('caches' in window)) throw new Error('Cache storage unavailable');
       const keys = await caches.keys();
-      await Promise.all(keys.map((k) => caches.delete(k)));
-    }
-    setCacheCleared(true);
-    setTimeout(() => setCacheCleared(false), 3000);
+      await Promise.all(keys.map((key) => caches.delete(key)));
+      setCacheCleared(true);
+    } catch {
+      setActionError('Chưa xóa được bộ nhớ đệm. Hãy kiểm tra quyền lưu trữ của trình duyệt rồi thử lại.');
+    } finally { setClearing(false); }
   };
 
   return (
-    <div className="min-h-screen bg-takosan-cream pb-12 text-semantic-text-primary">
-      <TopBar showBack title="Cài đặt ứng dụng" />
-
-      <div className="px-4 pt-3 space-y-4">
-        {/* PWA / App Installation */}
-        <Card className="p-4 space-y-3">
-          <div className="flex items-center gap-2">
-            <Smartphone className="w-4 h-4 text-takosan-green" />
-            <h2 className="font-heading font-bold text-sm text-semantic-text-primary">Ứng dụng Takosan trên điện thoại</h2>
-          </div>
-          <p className="text-xs text-semantic-text-secondary leading-relaxed">
-            {isStandalone
-              ? '✅ Ứng dụng đã được cài đặt và đang chạy ở chế độ Độc lập (Standalone PWA).'
-              : 'Cài đặt Takosan lên màn hình chính để mở nhanh không qua trình duyệt và sử dụng ngoại tuyến mọi lúc mọi nơi.'}
-          </p>
-          {!isStandalone && (
-            <Button
-              variant="outline"
-              size="sm"
-              onClick={handleInstallPwa}
-              className="w-full flex items-center justify-center gap-2 text-xs text-semantic-text-primary"
-            >
-              <Smartphone className="w-3.5 h-3.5 text-takosan-green" />
-              <span>Cài đặt lên Màn hình chính (PWA)</span>
-            </Button>
-          )}
-        </Card>
-
-        {/* Offline & Cache Management */}
-        <Card className="p-4 space-y-3">
-          <div className="flex items-center gap-2">
-            <Wifi className="w-4 h-4 text-takosan-green" />
-            <h2 className="font-heading font-bold text-sm text-semantic-text-primary">Bộ nhớ đệm ứng dụng</h2>
-          </div>
-          <p className="text-xs text-semantic-text-secondary leading-relaxed">
-            Xóa tài nguyên PWA đã lưu trên trình duyệt. Thao tác này không xóa dữ liệu ngoại tuyến hoặc thay đổi chưa đồng bộ của bạn.
-          </p>
-          <Button
-            variant="outline"
-            size="sm"
-            onClick={handleClearCache}
-            className="w-full flex items-center justify-center gap-2 text-xs text-semantic-text-primary"
-          >
-            <Trash2 className="w-3.5 h-3.5 text-semantic-danger" />
-            <span>{cacheCleared ? '✓ Đã xóa bộ nhớ đệm ứng dụng' : 'Xóa bộ nhớ đệm ứng dụng'}</span>
-          </Button>
-        </Card>
-
-        {/* Language */}
-        <Card className="p-4 space-y-2.5">
-          <div className="flex items-center gap-2">
-            <Globe className="w-4 h-4 text-takosan-green" />
-            <h2 className="font-heading font-bold text-sm text-semantic-text-primary">Ngôn ngữ hiển thị</h2>
-          </div>
-          <p className="text-xs text-semantic-text-secondary leading-relaxed">
-            Tiếng Việt (hiện tại). Tiếng Anh sẽ được bổ sung khi bản dịch đầy đủ sẵn sàng.
-          </p>
-        </Card>
-
-        <p className="text-xs text-semantic-text-muted leading-relaxed">
-          Nội dung quyền riêng tư, dữ liệu và AI đã chuyển sang trang Quyền riêng tư &amp; dữ liệu
-          trong Hồ sơ.
-        </p>
-
-        {/* App Version Info */}
-        <div className="text-center py-2 space-y-1">
-          <div className="flex items-center justify-center gap-1 text-xs text-semantic-text-muted">
-            <Info className="w-3.5 h-3.5" />
-            <span>Takosan v{import.meta.env.VITE_APP_VERSION} • Build {import.meta.env.VITE_GIT_COMMIT || 'local'} • {import.meta.env.VITE_BUILD_TIMESTAMP || 'local build'}</span>
-          </div>
-          <p className="text-[11px] text-semantic-text-muted">Ăn đủ. Mua đủ. Dùng hết.</p>
-        </div>
-
-      </div>
-      <ConfirmDialog
-        open={showInstallHelp}
-        title="Cài đặt Takosan lên màn hình chính"
+    <AccountPage title="Cài đặt ứng dụng" description="Mở bếp nhanh hơn, quản lý tài nguyên trên thiết bị.">
+      <Card className="p-5 space-y-3">
+        <h2 className="flex items-center gap-2"><Smartphone size={20} aria-hidden="true" /> Takosan trên điện thoại</h2>
+        <p>{isStandalone
+          ? 'Bạn đang mở Takosan từ ứng dụng đã cài trên màn hình chính.'
+          : 'Thêm Takosan vào màn hình chính để mở nhanh. Một số dữ liệu đã lưu có thể xem khi mất mạng; tính năng cần máy chủ vẫn cần kết nối.'}</p>
+        {!isStandalone && <Button variant="outline" fullWidth onClick={handleInstallPwa}>Cài đặt lên màn hình chính</Button>}
+      </Card>
+      <Card className="p-5 space-y-3">
+        <h2 className="flex items-center gap-2"><Wifi size={20} aria-hidden="true" /> Bộ nhớ đệm ứng dụng</h2>
+        <p>Xóa tài nguyên ứng dụng đã lưu trên trình duyệt. Thao tác này không xóa dữ liệu ngoại tuyến hoặc thay đổi chưa đồng bộ của bạn.</p>
+        <Button variant="outline" fullWidth onClick={handleClearCache} isLoading={clearing}>
+          <Trash2 size={18} aria-hidden="true" /> Xóa bộ nhớ đệm ứng dụng
+        </Button>
+        {cacheCleared && <p role="status">Đã xóa bộ nhớ đệm ứng dụng.</p>}
+      </Card>
+      {actionError && <p role="alert" className="text-semantic-danger-strong">{actionError}</p>}
+      <Card className="p-5 space-y-3">
+        <h2 className="flex items-center gap-2"><Globe size={20} aria-hidden="true" /> Ngôn ngữ hiển thị</h2>
+        <p>Tiếng Việt. Tiếng Anh sẽ được bổ sung khi bản dịch đầy đủ sẵn sàng.</p>
+      </Card>
+      <Link to="/settings/privacy" className="account-text-link">Xem quyền riêng tư & dữ liệu</Link>
+      <details className="account-build-info">
+        <summary>Thông tin phiên bản</summary>
+        <p>Takosan v{import.meta.env.VITE_APP_VERSION} · Build {import.meta.env.VITE_GIT_COMMIT || 'local'} · {import.meta.env.VITE_BUILD_TIMESTAMP || 'local build'}</p>
+      </details>
+      <ConfirmDialog open={showInstallHelp} title="Cài đặt Takosan lên màn hình chính"
         description={'Trên iPhone (Safari): nhấn nút Chia sẻ rồi chọn "Thêm vào MH chính". Trên Android (Chrome): nhấn menu ba chấm rồi chọn "Cài đặt ứng dụng".'}
-        confirmText="Đã hiểu"
-        cancelText="Đóng"
-        onConfirm={() => setShowInstallHelp(false)}
-        onCancel={() => setShowInstallHelp(false)}
-      />
-    </div>
+        confirmText="Đã hiểu" cancelText="Đóng" onConfirm={() => setShowInstallHelp(false)} onCancel={() => setShowInstallHelp(false)} />
+    </AccountPage>
   );
 };

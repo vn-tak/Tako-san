@@ -21,7 +21,10 @@ export function isKitchenSurface(pathname: string) {
     /^\/scan(?:\/|$)/.test(pathname) ||
     /^\/recipes(?:\/|$)/.test(pathname) ||
     /^\/(cook|cooking)(?:\/|$)/.test(pathname) ||
-    /^\/(planner|shopping)(?:\/|$)/.test(pathname)
+    /^\/(planner|shopping)(?:\/|$)/.test(pathname) ||
+    /^\/(me|profile|notifications)\/?$/.test(pathname) ||
+    /^\/me\/(preferences|household)\/?$/.test(pathname) ||
+    /^\/settings\/(app|planning|notifications|privacy)\/?$/.test(pathname)
   );
 }
 

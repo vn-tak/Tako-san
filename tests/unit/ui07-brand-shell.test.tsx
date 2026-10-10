@@ -27,7 +27,7 @@ describe('UI07 shell ownership and accessible brand', () => {
     expect(html).not.toContain('data-kitchen-navigation="persistent"');
     expect(html).not.toContain('<nav');
   });
-  it.each(['/me', '/settings', '/week'])('legacy %s retains the supplied shell contract', (route) => {
+  it.each(['/plus', '/settings', '/week'])('legacy %s retains the supplied shell contract', (route) => {
     const html = render(<AppLayout />, route);
     expect(html).not.toContain('data-kitchen-navigation="persistent"');
     expect(html).toContain('/takosan/brand/takosan-logo-horizontal-primary.svg');

@@ -1,0 +1,76 @@
+.entry-page { min-height: 100dvh; padding: 28px 20px 32px; }
+.entry-page p { line-height: 1.65; }
+.entry-page :is(button, a) { min-height: 48px; height: auto; font-size: 16px; line-height: 1.5; white-space: normal; }
+.entry-page button { padding-block: 12px; }
+.entry-page :is(input, label) { font-size: 16px; }
+.entry-page input { min-width: 0; }
+.entry-page :is(.text-xs, .text-\[10px\]) { font-size: 14px; line-height: 1.65; }
+.entry-page :is(h1, h2, h3, p, strong, span) { overflow-wrap: anywhere; }
+.entry-brand-header { display: flex; justify-content: space-between; flex-wrap: wrap; align-items: center; gap: 16px; }
+.entry-brand-header img { width: 150px; height: auto; }
+.entry-brand-header > span { font-size: 14px; color: var(--kitchen-pine); }
+.entry-logo { width: 150px; height: auto; object-fit: contain; }
+.entry-footer { margin-top: 32px; padding-block: 20px; border-top: 1px solid rgb(var(--semantic-border-rgb)); font-size: 14px; color: rgb(var(--semantic-text-muted-rgb)); }
+.landing-page { max-width: 1400px; margin-inline: auto; }
+.landing-intro { padding-block: 48px 28px; }
+.landing-intro h1 { font-size: clamp(48px, 8vw, 100px); line-height: 1.15; font-weight: 700; letter-spacing: -.055em; margin-block: 16px 24px; }
+.landing-intro h1 span { color: var(--kitchen-pine); }
+.landing-description { font-size: 16px; color: rgb(var(--semantic-text-secondary-rgb)); max-width: 44ch; }
+.landing-actions { max-width: 440px; display: grid; gap: 12px; }
+.landing-actions button { display: flex; justify-content: center; align-items: center; gap: 12px; }
+.landing-actions p { font-size: 14px; color: rgb(var(--semantic-text-muted-rgb)); }
+.landing-flow { margin-top: 40px; padding: 24px 20px; border-top: 3px solid var(--kitchen-coral); background: #fffdfa; border-radius: 4px 4px 16px 16px; }
+.landing-flow h2 { font-size: 24px; line-height: 1.4; max-width: 20ch; margin-bottom: 28px; }
+.landing-flow li { display: grid; grid-template-columns: 26px minmax(0, 1fr); gap: 12px; padding-block: 20px; border-top: 1px solid rgb(var(--semantic-border-rgb)); }
+.landing-flow li > svg { color: var(--kitchen-pine); grid-row: 2; }
+.landing-flow li > div { grid-column: 2; grid-row: 2; }
+.landing-step-number { font-size: 14px; color: rgb(var(--semantic-text-muted-rgb)); grid-column: 2; }
+.landing-flow h3 { font-size: 16px; font-weight: 600; }
+.landing-flow li p { font-size: 14px; color: rgb(var(--semantic-text-secondary-rgb)); margin-top: 6px; }
+.landing-scan-note { font-size: 14px; padding-top: 20px; color: rgb(var(--semantic-text-muted-rgb)); border-top: 1px solid rgb(var(--semantic-border-rgb)); }
+.auth-page { display: flex; flex-direction: column; align-items: center; }
+.auth-workspace { width: 100%; max-width: 480px; }
+.auth-page > .entry-footer { width: 100%; max-width: 480px; }
+.auth-intro { margin-top: 28px; }
+.auth-heading { font-size: 28px; line-height: 1.35; margin-top: 28px; }
+.auth-description { font-size: 16px; color: rgb(var(--semantic-text-secondary-rgb)); margin-top: 12px; }
+.auth-mode-selector { display: flex; gap: 8px; border-bottom: 1px solid rgb(var(--semantic-border-rgb)); padding-block: 8px; margin-top: 24px; }
+.auth-mode-selector button { padding-inline: 12px; }
+.auth-page input:not([inputmode='numeric']) { height: 52px; padding-block: 12px; }
+.auth-page input + button[aria-pressed] { top: 0; right: 0; min-width: 48px; height: 52px; padding: 0; display: grid; place-items: center; }
+.auth-page :is(input[type='password'], input[autocomplete='new-password'], input[autocomplete='current-password']) { padding-right: 52px; }
+.auth-page [role='group']:has(input[inputmode='numeric']) { display: grid; grid-template-columns: repeat(6, minmax(0, 1fr)); gap: 6px; }
+.auth-page input[inputmode='numeric'] { width: 100%; min-width: 0; height: 56px; padding-inline: 0; font-size: 20px; }
+.auth-page form > .flex { flex-wrap: wrap; gap: 12px; }
+.onboarding-workspace { margin-inline: auto; max-width: 640px; min-height: calc(100dvh - 60px); display: flex; flex-direction: column; }
+.onboarding-workspace header { gap: 16px; flex-wrap: wrap; }
+.onboarding-workspace h1 { font-size: 30px; line-height: 1.4; font-weight: 700; }
+.onboarding-workspace fieldset { min-width: 0; }
+.onboarding-household-choices { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 16px; }
+.onboarding-household-choices label { flex: 1 1 60px; min-width: 0; }
+.onboarding-page label > span { height: auto; min-height: 48px; padding-block: 12px; }
+.onboarding-page label > span svg { flex-shrink: 0; }
+.onboarding-page [data-testid='onboarding-preference-review'] > div { align-items: flex-start; }
+.onboarding-page [data-testid='onboarding-preference-review'] > div > span { flex-shrink: 0; }
+@media (min-width: 1024px) {
+  .landing-page { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, .75fr); gap: 0 64px; padding: 40px 64px; }
+  .entry-brand-header { grid-column: 1 / -1; }
+  .landing-intro { grid-column: 1; }
+  .landing-actions { grid-column: 1; }
+  .landing-flow { grid-column: 2; grid-row: 2 / 4; align-self: center; padding: 32px; margin-top: 0; }
+  .landing-page .entry-footer { grid-column: 1 / -1; }
+  .auth-page { padding-top: 40px; background: radial-gradient(ellipse at 20% 10%, #e9f1ea, transparent 45%), var(--kitchen-canvas); }
+  .auth-workspace { padding: 32px; max-width: 544px; background: white; border: 1px solid rgb(var(--semantic-border-rgb)); border-top: 3px solid var(--kitchen-coral); border-radius: 4px 4px 16px 16px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .entry-page .animate-fade-in { animation: none; }
+  .entry-page .animate-spin { animation: none; }
+}
+.entry-page :is(button, a), .account-body :is(button, a, summary) { touch-action: manipulation; }
+.entry-page h1, .account-workspace h1 { text-wrap: balance; }
+@media (max-width: 380px) { .auth-page [role='group']:has(input[inputmode='numeric']) { gap: 3px; } }
+.onboarding-page [data-testid='onboarding-preference-review'] > div > span:last-child,
+.onboarding-page [data-testid='onboarding-goal-group'] label > span > span.flex-1 { min-width: 0; flex: 1; }
+.onboarding-page [data-testid='onboarding-goal-group'] label > span { align-items: flex-start; }
+.entry-page { padding-top: max(28px, env(safe-area-inset-top, 0px)); padding-bottom: max(32px, env(safe-area-inset-bottom, 0px)); padding-left: max(20px, env(safe-area-inset-left, 0px)); padding-right: max(20px, env(safe-area-inset-right, 0px)); }
+@media (min-width: 1024px) { .landing-page { max-width: none; padding: 40px max(64px, calc((100vw - 1272px) / 2)); } }

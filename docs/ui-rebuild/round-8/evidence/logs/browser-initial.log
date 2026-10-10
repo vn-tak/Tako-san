@@ -1,0 +1,28 @@
+landing-320: axe0 / overflow0 / assets0
+login-320: axe0 / overflow0 / assets0
+register-320: axe0 / overflow0 / assets0
+verify-missing-320: axe0 / overflow0 / assets0
+forgot-320: axe0 / overflow0 / assets0
+landing-390: axe0 / overflow0 / assets0
+login-390: axe0 / overflow0 / assets0
+register-390: axe0 / overflow0 / assets0
+verify-missing-390: axe0 / overflow0 / assets0
+node:internal/modules/run_main:107
+    triggerUncaughtException(
+    ^
+
+AssertionError [ERR_ASSERTION]: forgot-390: [{"id":"color-contrast","impact":"serious","nodes":[{"target":["label"],"summary":"Fix any of the following:\n  Element has insufficient color contrast of 1.76 (foreground color: #b9bab3, background color: #f7f3ec, font size: 10.5pt (14px), font weight: normal). Expected contrast ratio of 4.5:1"},{"target":["#\\:r7\\:"],"summary":"Fix any of the following:\n  Element has insufficient color contrast of 2.17 (foreground color: #a9aba5, background color: #faf7f3, font size: 12.0pt (16px), font weight: normal). Expected contrast ratio of 4.5:1"},{"target":[".inline-flex"],"summary":"Fix any of the following:\n  Element has insufficient color contrast of 1.85 (foreground color: #faf7f3, background color: #aabdb1, font size: 12.0pt (16px), font weight: bold). Expected contrast ratio of 4.5:1"},{"target":[".hover\\:text-semantic-text-primary"],"summary":"Fix any of the following:\n  Element has insufficient color contrast of 1.63 (foreground color: #c0c1ba, background color: #f7f3ec, font size: 10.5pt (14px), font weight: normal). Expected contrast ratio of 4.5:1"}]}]
+
+1 !== 0
+
+    at snapshot (file:///Users/tunbee27/Documents/Tako-san-ui-rebuild/scripts/ui08-browser-check.mjs:43:10)
+    at async file:///Users/tunbee27/Documents/Tako-san-ui-rebuild/scripts/ui08-browser-check.mjs:63:5 {
+  generatedMessage: false,
+  code: 'ERR_ASSERTION',
+  actual: 1,
+  expected: 0,
+  operator: 'strictEqual',
+  diff: 'simple'
+}
+
+Node.js v24.16.0

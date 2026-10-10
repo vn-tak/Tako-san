@@ -11,6 +11,7 @@ vi.mock('../../src/web/stores/useAuthStore', () => ({
   },
 }));
 
+import { TAKOSAN_KITCHEN } from '../../src/web/lib/takosan-kitchen';
 import { TAKOSAN_BRAND } from '../../src/web/lib/takosan-brand';
 import { LandingPage } from '../../src/web/pages/LandingPage';
 import { Header } from '../../src/web/components/common/Header';
@@ -172,11 +173,13 @@ describe('Primary shell renders Takosan, not Frigo', () => {
   const render = (ui: React.ReactElement, path = '/') =>
     renderToStaticMarkup(<StaticRouter location={path}>{ui}</StaticRouter>);
 
-  it('LandingPage shows the Takosan lockup and mascot with no Frigo copy or legacy logo', () => {
+  it('LandingPage shows the scoped identity and honest review flow with no Frigo copy', () => {
     const html = render(<LandingPage />, '/landing');
-    expect(html).toContain(`src="${TAKOSAN_BRAND.logos.horizontal}"`);
-    expect(html).toContain(`src="${TAKOSAN_BRAND.mascot.fridge}"`);
-    expect(html).toContain('Takosan sẽ phân loại');
+    expect(html).toContain(`src="${TAKOSAN_KITCHEN.logo}"`);
+    expect(html).toContain('width="300" height="72"');
+    expect(html).toContain('Kiểm tra trước khi thêm');
+    expect(html).toContain('Kết quả có thể cần sửa');
+    expect(html).not.toContain('Takosan sẽ phân loại');
     expect(html).not.toContain('Frigo');
     expect(html).not.toContain('/frigo/brand/');
   });

@@ -1,3 +1,17 @@
+# UI08 account and entry presentation (ADR-051, 2026-10-10)
+
+AccountPage reuses KitchenHeader/heading and existing primitives for explicit
+/me and settings/inbox routes; kitchen-account.css is route scoped. Public entry
+pages own their kitchen scope and kitchen-entry.css. Assets remain UI07; legacy
+and protected routes retain the old contracts. AuthShell/field presentation changes
+but AuthPage/services/session/security stay unchanged. App's completed-onboarding
+guard matches the existing client primaryGoal so it cannot override week setup
+with Home; all other guards remain. Preference requests/keys/authority remain;
+local notification toggles express saved intent only, not delivery/filter behavior.
+See UI08 packet and round-8 reports for exact evidence and remaining scope.
+
+---
+
 # UI07 scoped digital identity (ADR-050, 2026-10-10)
 
 `TAKOSAN_KITCHEN` reads /takosan/rebuild assets; supplied TAKOSAN_BRAND remains

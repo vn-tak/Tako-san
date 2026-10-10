@@ -1,3 +1,39 @@
+# ADR-051 - Account and entry adopt the scoped digital identity (UI08)
+
+Status: accepted and locally verified for UI08, 2026-10-10 JST.
+Full277files/6588tests PASS;focused121;recovery130;browser106checks/107PNG/13journeys.
+Evidence: `../ui-rebuild/round-8/VERIFICATION.md`; owner/device/remaining/hosted
+release remain. Implementation hash recorded after Git-object verification.
+Packet: `tasks/UI08-account-entry.md`; extends ADR-044 through ADR-050.
+
+Remaining account and entry screens mix the supplied kit, very small copy and
+unsupported AI/notification promises. Adopt UI07 assets, font and tokens through
+explicit account routes and page-owned public entry scopes. Shared account chrome
+uses the existing KitchenHeader, heading and primitives; preserve form authority.
+Group profile navigation by task and present unavailable sharing/data capabilities
+in plain language. Notification preferences store local intent only; no scheduled
+or delivered-reminder claim. Scan imagery may contain personal content, so privacy
+copy must not promise otherwise.
+
+AuthPage/security/services and unrelated guards stay byte-identical. AuthShell and fields may
+change visual layout/geometry; OTP paste/expiry, resend, Turnstile/GSI, transfer,
+returnTo and session fencing remain. Onboarding drafts/request/completion and
+navigation remain. Preserve Plus link JSX/target and existing logout authority;
+no payment UI or backend/config/dependency/production edits. Legacy Week needs
+separate flag-off evidence and is not included in this presentation packet.
+
+Actual guest QA exposed the existing onboarded /onboarding guard racing finish's
+week navigation with a Home redirect. Match that guard to the existing in-memory
+primaryGoal intent; preserve /week/setup alias and server-authoritative completion.
+No other guard or authentication protocol changes. Verify all goals through App
+and actual browser retry; direct alias resolves /planner/new when flag is enabled.
+
+Validate actual local interaction and responsive/enlarged/reduced-motion states,
+focused behavior tests and full gates. Synthetic provider results are not real
+email receipt/Google credential/device install/production or final brand approval.
+
+---
+
 # ADR-050 - Scoped digital identity from the kitchen direction (UI07)
 
 Status: accepted and locally verified for UI07, 2026-10-10 JST.

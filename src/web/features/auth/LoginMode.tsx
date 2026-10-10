@@ -76,6 +76,7 @@ export const LoginMode: React.FC<LoginModeProps> = ({
           <Lock className="w-4 h-4 absolute left-3.5 top-3.5 text-semantic-text-muted" aria-hidden="true" />
           <input
             id={passwordId}
+            name="password"
             type={showPassword ? 'text' : 'password'}
             required
             value={password}
@@ -91,7 +92,7 @@ export const LoginMode: React.FC<LoginModeProps> = ({
             aria-pressed={showPassword}
             className="absolute right-3 top-3 text-semantic-text-muted hover:text-semantic-text-secondary p-1 tap-target"
           >
-            {showPassword ? <EyeOff className="w-4 h-4" /> : <Eye className="w-4 h-4" />}
+            {showPassword ? <EyeOff className="w-4 h-4" aria-hidden="true" /> : <Eye className="w-4 h-4" aria-hidden="true" />}
           </button>
         </div>
       </div>

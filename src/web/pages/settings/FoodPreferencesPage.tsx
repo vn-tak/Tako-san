@@ -1,5 +1,5 @@
-import React, { useEffect, useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { AccountPage } from '../../components/common/AccountPage';
+import React, { useEffect, useRef, useState } from 'react';
 import { useQuery, useQueryClient } from '@tanstack/react-query';
 import { Flame, Heart, Utensils, Users } from 'lucide-react';
 import { authApi } from '../../services/auth';
@@ -8,7 +8,7 @@ import { isOfflineGuestSession } from '../../lib/private-session';
 import { useAuthStore } from '../../stores/useAuthStore';
 import { InlineError, InlineLoading } from '../../components/common/AsyncState';
 import { Button } from '../../components/common/Button';
-import { Page, PageHeader, StickyActions } from '../../design-system/primitives';
+import { StickyActions } from '../../design-system/primitives';
 
 const CUISINE_TAGS = [
   { id: 'vietnamese', label: 'Việt Nam' },
@@ -57,7 +57,6 @@ const asSpicyLevel = (v: unknown, fallback: SpicyLevel = 'medium'): SpicyLevel =
  * representation without lossy conversion; no client-side fake truth.
  */
 export const FoodPreferencesPage: React.FC = () => {
-  const navigate = useNavigate();
   const queryClient = useQueryClient();
   const auth = useAuthStore();
   const isGuestOffline = isOfflineGuestSession();
@@ -65,6 +64,8 @@ export const FoodPreferencesPage: React.FC = () => {
   const [saving, setSaving] = useState(false);
   const [savedAt, setSavedAt] = useState<number | null>(null);
   const [error, setError] = useState<string | null>(null);
+  const errorRef = useRef<HTMLParagraphElement>(null);
+  useEffect(() => { if (error) errorRef.current?.focus(); }, [error]);
 
   const prefsQuery = useQuery({
     queryKey: queryKeys.foodPreferences(),
@@ -99,6 +100,8 @@ export const FoodPreferencesPage: React.FC = () => {
       return { ...prev, [list]: values.includes(id) ? values.filter((v) => v !== id) : [...values, id] };
     });
 
+  useEffect(() => { setSavedAt(null); }, [draft]);
+
   const save = async () => {
     if (!draft) return;
     setError(null);
@@ -130,12 +133,7 @@ export const FoodPreferencesPage: React.FC = () => {
     }`;
 
   return (
-    <Page width="compact">
-      <PageHeader
-        title="Sở thích & hạn chế"
-        subtitle="Gu món ăn giúp Takosan gợi ý món sát hơn"
-        onBack={() => navigate('/me')}
-      />
+    <AccountPage title="Sở thích & hạn chế" description="Gu món ăn giúp Takosan gợi ý món sát hơn">
 
       {isGuestOffline && (
         <p className="text-xs text-semantic-text-muted mb-3">
@@ -149,7 +147,8 @@ export const FoodPreferencesPage: React.FC = () => {
       )}
 
       {draft && (
-        <div className="space-y-4 pb-8">
+        <fieldset disabled={saving} className="account-editor space-y-4 pb-8">
+          <legend className="sr-only">Chọn cài đặt</legend>
           <fieldset>
             <legend className="text-type-label text-semantic-text-primary flex items-center gap-2 mb-2">
               <Users className="w-4 h-4 text-semantic-action-primary" aria-hidden="true" /> Số người thường ăn
@@ -159,10 +158,10 @@ export const FoodPreferencesPage: React.FC = () => {
                 <button
                   key={n}
                   type="button"
-                  aria-pressed={draft.householdSize === n}
+                  aria-pressed={n === 5 ? draft.householdSize >= 5 : draft.householdSize === n}
                   onClick={() => setDraft({ ...draft, householdSize: n })}
                   className={`h-11 min-w-11 px-4 rounded-pill text-sm font-semibold border transition-colors focus-visible:outline-none focus-visible:shadow-t17-focus ${
-                    draft.householdSize === n
+                    (n === 5 ? draft.householdSize >= 5 : draft.householdSize === n)
                       ? 'bg-semantic-action-primary text-semantic-text-inverse border-transparent'
                       : 'bg-semantic-surface text-semantic-text-secondary border-semantic-border hover:border-semantic-border-strong'
                   }`}
@@ -234,7 +233,7 @@ export const FoodPreferencesPage: React.FC = () => {
           </fieldset>
 
           {error && (
-            <p role="alert" className="text-sm text-semantic-danger">
+            <p ref={errorRef} tabIndex={-1} role="alert" className="text-sm text-semantic-danger">
               {error}
             </p>
           )}
@@ -249,8 +248,8 @@ export const FoodPreferencesPage: React.FC = () => {
               Lưu sở thích
             </Button>
           </StickyActions>
-        </div>
+        </fieldset>
       )}
-    </Page>
+    </AccountPage>
   );
 };

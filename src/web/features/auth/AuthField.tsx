@@ -34,6 +34,8 @@ export const AuthField: React.FC<AuthFieldProps> = ({
         <Icon className="w-4 h-4 absolute left-3.5 top-3.5 text-semantic-text-muted" aria-hidden="true" />
         <input
           id={id}
+          name={type === 'email' ? 'email' : type === 'password' ? 'password' : 'displayName'}
+          spellCheck={type === 'email' ? false : undefined}
           type={reveal?.show ? 'text' : type}
           required={required}
           value={value}
@@ -50,7 +52,7 @@ export const AuthField: React.FC<AuthFieldProps> = ({
             aria-pressed={reveal.show}
             className="absolute right-3 top-3 text-semantic-text-muted hover:text-semantic-text-secondary p-1 tap-target"
           >
-            {reveal.show ? <EyeOff className="w-4 h-4" /> : <Eye className="w-4 h-4" />}
+            {reveal.show ? <EyeOff className="w-4 h-4" aria-hidden="true" /> : <Eye className="w-4 h-4" aria-hidden="true" />}
           </button>
         )}
       </div>

@@ -1,0 +1,233 @@
+brand-sheet-320: wait fonts
+brand-sheet-320: wait animations
+brand-sheet-320: wait lazy images
+brand-sheet-320: measure
+brand-sheet-320: axe
+brand-sheet-320: axe0 / overflow0 / assets0
+brand-sheet-390: wait fonts
+brand-sheet-390: wait animations
+brand-sheet-390: wait lazy images
+brand-sheet-390: measure
+brand-sheet-390: axe
+brand-sheet-390: axe0 / overflow0 / assets0
+brand-sheet-768: wait fonts
+brand-sheet-768: wait animations
+brand-sheet-768: wait lazy images
+brand-sheet-768: measure
+brand-sheet-768: axe
+brand-sheet-768: axe0 / overflow0 / assets0
+brand-sheet-1440: wait fonts
+brand-sheet-1440: wait animations
+brand-sheet-1440: wait lazy images
+brand-sheet-1440: measure
+brand-sheet-1440: axe
+brand-sheet-1440: axe0 / overflow0 / assets0
+home-320: wait fonts
+home-320: wait animations
+home-320: wait lazy images
+home-320: measure
+home-320: axe
+home-320: axe0 / overflow0 / assets0
+fridge-320: wait fonts
+fridge-320: wait animations
+fridge-320: wait lazy images
+fridge-320: measure
+fridge-320: axe
+fridge-320: axe0 / overflow0 / assets0
+recipes-320: wait fonts
+recipes-320: wait animations
+recipes-320: wait lazy images
+recipes-320: measure
+recipes-320: axe
+recipes-320: axe0 / overflow0 / assets0
+planner-320: wait fonts
+planner-320: wait animations
+planner-320: wait lazy images
+planner-320: measure
+planner-320: axe
+planner-320: axe0 / overflow0 / assets0
+shopping-320: wait fonts
+shopping-320: wait animations
+shopping-320: wait lazy images
+shopping-320: measure
+shopping-320: axe
+shopping-320: axe0 / overflow0 / assets0
+recipe-320: wait fonts
+recipe-320: wait animations
+recipe-320: wait lazy images
+recipe-320: measure
+recipe-320: axe
+recipe-320: axe0 / overflow0 / assets0
+home-390: wait fonts
+home-390: wait animations
+home-390: wait lazy images
+home-390: measure
+home-390: axe
+home-390: axe0 / overflow0 / assets0
+fridge-390: wait fonts
+fridge-390: wait animations
+fridge-390: wait lazy images
+fridge-390: measure
+fridge-390: axe
+fridge-390: axe0 / overflow0 / assets0
+recipes-390: wait fonts
+recipes-390: wait animations
+recipes-390: wait lazy images
+recipes-390: measure
+recipes-390: axe
+recipes-390: axe0 / overflow0 / assets0
+planner-390: wait fonts
+planner-390: wait animations
+planner-390: wait lazy images
+planner-390: measure
+planner-390: axe
+planner-390: axe0 / overflow0 / assets0
+shopping-390: wait fonts
+shopping-390: wait animations
+shopping-390: wait lazy images
+shopping-390: measure
+shopping-390: axe
+shopping-390: axe0 / overflow0 / assets0
+recipe-390: wait fonts
+recipe-390: wait animations
+recipe-390: wait lazy images
+recipe-390: measure
+recipe-390: axe
+recipe-390: axe0 / overflow0 / assets0
+home-768: wait fonts
+home-768: wait animations
+home-768: wait lazy images
+home-768: measure
+home-768: axe
+home-768: axe0 / overflow0 / assets0
+fridge-768: wait fonts
+fridge-768: wait animations
+fridge-768: wait lazy images
+fridge-768: measure
+fridge-768: axe
+fridge-768: axe0 / overflow0 / assets0
+recipes-768: wait fonts
+recipes-768: wait animations
+recipes-768: wait lazy images
+recipes-768: measure
+recipes-768: axe
+recipes-768: axe0 / overflow0 / assets0
+planner-768: wait fonts
+planner-768: wait animations
+planner-768: wait lazy images
+planner-768: measure
+planner-768: axe
+planner-768: axe0 / overflow0 / assets0
+shopping-768: wait fonts
+shopping-768: wait animations
+shopping-768: wait lazy images
+shopping-768: measure
+shopping-768: axe
+shopping-768: axe0 / overflow0 / assets0
+recipe-768: wait fonts
+recipe-768: wait animations
+recipe-768: wait lazy images
+recipe-768: measure
+recipe-768: axe
+recipe-768: axe0 / overflow0 / assets0
+home-1024: wait fonts
+home-1024: wait animations
+home-1024: wait lazy images
+home-1024: measure
+home-1024: axe
+home-1024: axe0 / overflow0 / assets0
+fridge-1024: wait fonts
+fridge-1024: wait animations
+fridge-1024: wait lazy images
+fridge-1024: measure
+fridge-1024: axe
+fridge-1024: axe0 / overflow0 / assets0
+recipes-1024: wait fonts
+recipes-1024: wait animations
+recipes-1024: wait lazy images
+recipes-1024: measure
+recipes-1024: axe
+recipes-1024: axe0 / overflow0 / assets0
+planner-1024: wait fonts
+planner-1024: wait animations
+planner-1024: wait lazy images
+planner-1024: measure
+planner-1024: axe
+planner-1024: axe0 / overflow0 / assets0
+shopping-1024: wait fonts
+shopping-1024: wait animations
+shopping-1024: wait lazy images
+shopping-1024: measure
+shopping-1024: axe
+shopping-1024: axe0 / overflow0 / assets0
+recipe-1024: wait fonts
+recipe-1024: wait animations
+recipe-1024: wait lazy images
+recipe-1024: measure
+recipe-1024: axe
+recipe-1024: axe0 / overflow0 / assets0
+home-1440: wait fonts
+home-1440: wait animations
+home-1440: wait lazy images
+home-1440: measure
+home-1440: axe
+home-1440: axe0 / overflow0 / assets0
+fridge-1440: wait fonts
+fridge-1440: wait animations
+fridge-1440: wait lazy images
+fridge-1440: measure
+fridge-1440: axe
+fridge-1440: axe0 / overflow0 / assets0
+recipes-1440: wait fonts
+recipes-1440: wait animations
+recipes-1440: wait lazy images
+recipes-1440: measure
+recipes-1440: axe
+recipes-1440: axe0 / overflow0 / assets0
+planner-1440: wait fonts
+planner-1440: wait animations
+planner-1440: wait lazy images
+planner-1440: measure
+planner-1440: axe
+planner-1440: axe0 / overflow0 / assets0
+shopping-1440: wait fonts
+shopping-1440: wait animations
+shopping-1440: wait lazy images
+shopping-1440: measure
+shopping-1440: axe
+shopping-1440: axe0 / overflow0 / assets0
+recipe-1440: wait fonts
+recipe-1440: wait animations
+recipe-1440: wait lazy images
+recipe-1440: measure
+recipe-1440: axe
+recipe-1440: axe0 / overflow0 / assets0
+shopping-enlarged-text-320: wait fonts
+shopping-enlarged-text-320: wait animations
+shopping-enlarged-text-320: wait lazy images
+shopping-enlarged-text-320: measure
+shopping-enlarged-text-320: axe
+shopping-enlarged-text-320: axe0 / overflow0 / assets0
+shopping-short-390: wait fonts
+shopping-short-390: wait animations
+shopping-short-390: wait lazy images
+shopping-short-390: measure
+node:internal/modules/run_main:107
+    triggerUncaughtException(
+    ^
+
+AssertionError [ERR_ASSERTION]: shopping-short-390: visible lockups {"width":390,"scrollWidth":390,"logoCount":0,"brandWidths":[],"hiddenHeaderLink":null,"actions":[],"broken":[],"font":"Nunito, system-ui, sans-serif, sans-serif","reduced":true}
+
+0 !== 1
+
+    at snapshot (file:///Users/tunbee27/Documents/Tako-san-ui-rebuild/scripts/ui07-browser-check.mjs:40:12)
+    at async file:///Users/tunbee27/Documents/Tako-san-ui-rebuild/scripts/ui07-browser-check.mjs:104:3 {
+  generatedMessage: false,
+  code: 'ERR_ASSERTION',
+  actual: 0,
+  expected: 1,
+  operator: 'strictEqual',
+  diff: 'simple'
+}
+
+Node.js v24.16.0

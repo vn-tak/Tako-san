@@ -17,8 +17,23 @@
   min-height: 44px;
 }
 .kitchen-brand-link img {
-  width: 112px;
+  width: 128px;
   height: auto;
+}
+.kitchen-brand-motto {
+  display: none;
+}
+@media (min-width: 1024px) {
+  [data-kitchen-navigation='persistent'] .kitchen-brand-link {
+    display: none;
+  }
+  [data-kitchen-navigation='persistent'] .kitchen-brand-motto {
+    display: block;
+    color: var(--kitchen-pine);
+    font-size: 14px;
+    font-weight: 600;
+    line-height: 1.5;
+  }
 }
 .kitchen-icon-link {
   display: inline-flex;

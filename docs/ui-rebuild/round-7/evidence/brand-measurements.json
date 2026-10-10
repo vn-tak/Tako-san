@@ -1,0 +1,17 @@
+{
+  "contrast": {
+    "white_on_pine": 7.672741479625202,
+    "ink_on_canvas": 13.073004078748351,
+    "muted_on_canvas": 5.133984058314505,
+    "ink_on_coral": 4.898842166601461,
+    "canvas_on_pine": 6.936996443538351
+  },
+  "maskable": {
+    "width": 512,
+    "height": 512,
+    "channels": 3,
+    "foregroundPixels": 65371,
+    "maxRadius": 185.3226915409983,
+    "safeRadius": 204.8
+  }
+}

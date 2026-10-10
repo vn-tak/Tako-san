@@ -1,3 +1,16 @@
+# UI07 scoped digital identity (ADR-050, 2026-10-10)
+
+`TAKOSAN_KITCHEN` reads /takosan/rebuild assets; supplied TAKOSAN_BRAND remains
+compatibility contract. Five vector masters feed generate-takosan-brand.mjs and
+default brand:icons; explicit-kit generator mode retains legacy exports. Outline
+masters use existing Be Vietnam Pro WOFF2/OFL; ordinary exports need pinned sharp
+only. Header/sidebar/cooking dimensions and AppLayout persistent mode prevent
+repeated desktop lockups without hiding immersive identity. Metadata/manifest/SW
+static precache adopt new paths; lifecycle/fetch policy remains. No domain/backend/
+auth/payment/dependency/flag/config change. Evidence/limits: round-7 reports.
+
+---
+
 # UI06 planner and saved shopping presentation (ADR-049, 2026-10-10)
 
 `PlannerPage` mounts `PlannerWorkspace` keyed by pathname. Existing usePlanner

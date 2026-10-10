@@ -4,22 +4,22 @@
   "description": "Mở tủ lạnh. Biết ngay hôm nay ăn gì.",
   "start_url": "/",
   "display": "standalone",
-  "background_color": "#FFF8F3",
-  "theme_color": "#2E7D5B",
+  "background_color": "#F7F3EC",
+  "theme_color": "#245D49",
   "orientation": "portrait",
   "icons": [
     {
-      "src": "/takosan/app-icons/icon-192.png",
+      "src": "/takosan/rebuild/app-icons/icon-192.png",
       "sizes": "192x192",
       "type": "image/png"
     },
     {
-      "src": "/takosan/app-icons/icon-512.png",
+      "src": "/takosan/rebuild/app-icons/icon-512.png",
       "sizes": "512x512",
       "type": "image/png"
     },
     {
-      "src": "/takosan/app-icons/icon-maskable-512.png",
+      "src": "/takosan/rebuild/app-icons/icon-maskable-512.png",
       "sizes": "512x512",
       "type": "image/png",
       "purpose": "maskable"

@@ -1,0 +1,12 @@
+
+ RUN  v3.2.7 /Users/tunbee27/Documents/Tako-san-ui-rebuild
+
+ ✓ tests/unit/ui07-brand-exports.test.mjs (5 tests) 299ms
+ ✓ tests/unit/takosan-brand.test.tsx (19 tests) 146ms
+ ✓ tests/unit/ui07-brand-shell.test.tsx (13 tests) 21ms
+ ✓ tests/unit/ui02-presentation.test.ts (45 tests) 22ms
+
+ Test Files  4 passed (4)
+      Tests  82 passed (82)
+   Start at  19:45:48
+   Duration  1.18s (transform 534ms, setup 50ms, collect 2.05s, tests 487ms, environment 0ms, prepare 224ms)

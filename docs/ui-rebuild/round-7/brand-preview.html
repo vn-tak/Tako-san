@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#F7F3EC">
+<title>Takosan — Bộ nhận diện số / UI07</title>
+<link rel="stylesheet" href="/src/web/styles/kitchen-fonts.css">
+<style>
+:root{--canvas:#f7f3ec;--pine:#245d49;--coral:#ee705e;--ink:#202c28;--muted:#4b564f;--line:#dddcd3;color-scheme:light}
+*{box-sizing:border-box}body{margin:0;background:var(--canvas);color:var(--ink);font:16px/1.6 'Be Vietnam Pro',sans-serif}
+main{max-width:1200px;margin:auto;padding:40px 32px 80px}a{color:var(--pine);text-underline-offset:4px}a:hover{text-decoration-thickness:2px}a:focus-visible{outline:2px solid var(--pine);outline-offset:4px}
+.skip{position:absolute;left:16px;top:-100px;background:white;padding:12px}.skip:focus{top:12px;z-index:2}
+header{display:flex;flex-wrap:wrap;gap:16px;justify-content:space-between;align-items:center;border-bottom:1px solid var(--line);padding-bottom:24px}header img{width:200px;height:48px}small,.label{font-size:12px;color:var(--muted)}
+h1{font-size:clamp(40px,7vw,80px);line-height:1.1;letter-spacing:-.045em;margin:48px 0 24px;max-width:900px;text-wrap:balance}h2{font-size:28px;line-height:1.3;margin:0 0 24px;text-wrap:balance}p{max-width:700px;color:var(--muted)}section{padding-top:40px;margin-top:40px;border-top:1px solid var(--line);scroll-margin-top:24px}
+.lead{font-size:18px}.contexts{display:grid;grid-template-columns:1fr 1fr;gap:16px}.stage{min-height:220px;display:flex;align-items:center;justify-content:center;padding:32px;background:white;border:1px solid var(--line);position:relative;min-width:0}.stage img{max-width:100%;height:auto}.stage .label{position:absolute;left:16px;bottom:12px}.dark{background:var(--pine);border-color:var(--pine)}.dark .label{color:var(--canvas)}.mono{background:#eee9df}.ink{background:var(--ink);border-color:var(--ink)}.ink .label{color:var(--canvas)}
+.sizes,.icons{display:flex;flex-wrap:wrap;align-items:center;gap:24px}.sample{text-align:center}.sample img{display:block;margin:0 auto 12px}.sample small{display:block}.enlarge{image-rendering:pixelated}
+.palette{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}.swatch{height:80px;margin-bottom:8px;border:1px solid var(--line)}.canvas{background:var(--canvas)}.pine{background:var(--pine)}.coral{background:var(--coral)}.black{background:var(--ink)}
+.rules{display:grid;grid-template-columns:1fr 1fr;gap:32px}.rule{border-left:3px solid var(--pine);padding-left:20px}.wrong{border-color:var(--coral)}.rule h3{font-size:18px;margin:0 0 12px}.rule p{margin:0}.crop{width:160px;height:160px;object-fit:cover}.round{border-radius:50%}.squircle{border-radius:32%}.safe{width:160px;height:160px;position:relative}.safe img{width:160px;height:160px}.safe::after{content:'';position:absolute;inset:10%;border:1px dashed var(--pine);border-radius:50%;pointer-events:none}
+.og{display:block;width:100%;height:auto;border:1px solid var(--line)}.spacing{padding:24px;border:1px dashed var(--pine);display:inline-block;max-width:100%;background:white}.spacing img{display:block;max-width:100%;height:auto}.note{padding:20px;background:#e9f1ea;border-left:3px solid var(--pine)}footer{margin-top:40px;padding-top:24px;border-top:1px solid var(--line)}
+@media(max-width:600px){main{padding:24px 16px 48px}.contexts,.rules{grid-template-columns:1fr}.palette{grid-template-columns:1fr 1fr}.stage{padding:24px;min-height:180px}h1{margin-top:32px}.lead{font-size:16px}}
+</style>
+</head>
+<body>
+<a class="skip" href="#main">Đến nội dung chính</a>
+<main id="main" tabindex="-1">
+<header><img src="/takosan/rebuild/lockup.svg" alt="Takosan" width="300" height="72" translate="no"><small>NHẬN DIỆN SỐ / UI07 · CHỜ REVIEW</small></header>
+<h1>Ăn đủ.<br>Mua đủ. Dùng hết.</h1>
+<p class="lead">Một người bạn trong bếp. Giữ tinh thần bạch tuộc của Tako-san, giảm chi tiết để nhận ra nhanh hơn, và dành chỗ cho điều bạn cần làm.</p>
+<p class="note">Đây là hướng nhận diện đã đưa vào các màn cốt lõi. Cần chủ dự án review trước khi gọi là bộ thương hiệu cuối cùng. Tên hiển thị giữ “Takosan”; dự án và repo vẫn là Tako-san.</p>
+<section aria-labelledby="lockups"><h2 id="lockups">Một dấu hiệu, nhiều ngữ cảnh</h2><div class="contexts">
+<div class="stage"><img src="/takosan/rebuild/lockup.svg" alt="Logo ngang màu trên nền sáng" width="300" height="72"><span class="label">Sáng · coral + ink</span></div>
+<div class="stage dark"><img src="/takosan/rebuild/lockup-reverse.svg" alt="Logo ngang màu trên nền pine" width="300" height="72"><span class="label">Tối · coral + canvas</span></div>
+<div class="stage mono"><img src="/takosan/rebuild/lockup-mono.svg" alt="Logo ngang một màu pine" width="300" height="72"><span class="label">Một màu · pine</span></div>
+<div class="stage ink"><img src="/takosan/rebuild/lockup-mono-reverse.svg" alt="Logo ngang một màu canvas" width="300" height="72"><span class="label">Một màu đảo · canvas</span></div>
+<div class="stage"><img src="/takosan/rebuild/stacked.svg" alt="Logo dọc" width="180" height="132"><span class="label">Dọc · dành cho không gian rộng</span></div>
+<div class="stage"><img src="/takosan/rebuild/wordmark.svg" alt="Chữ Takosan" width="208" height="48" translate="no"><span class="label">Wordmark · bản nét vector</span></div>
+</div></section>
+<section aria-labelledby="optical"><h2 id="optical">Nhìn ở kích thước thật</h2><p>16–24 px dùng micro: mắt lớn hơn, bỏ nụ cười và đường cuộn tay. Từ 32 px dùng symbol đầy đủ. Không thu cả lockup thành favicon.</p><div class="sizes">
+<div class="sample"><img src="/takosan/rebuild/symbol-micro.svg" alt="Micro 16 pixel" width="16" height="16"><small>16 px / micro</small></div>
+<div class="sample"><img src="/takosan/rebuild/symbol-micro.svg" alt="Micro 24 pixel" width="24" height="24"><small>24 px / micro</small></div>
+<div class="sample"><img src="/takosan/rebuild/symbol.svg" alt="Symbol 32 pixel" width="32" height="32"><small>32 px / symbol</small></div>
+<div class="sample"><img src="/takosan/rebuild/symbol.svg" alt="Symbol 64 pixel" width="64" height="64"><small>64 px / symbol</small></div>
+<div class="sample"><img src="/takosan/rebuild/app-icons/icon-16.png" class="enlarge" alt="Bản raster 16 pixel phóng 8 lần để kiểm tra" width="128" height="128"><small>Raster 16 px × 8</small></div>
+</div></section>
+<section aria-labelledby="apps"><h2 id="apps">Tab, màn hình chính và launcher</h2><div class="icons">
+<div class="sample"><img src="/takosan/rebuild/app-icons/icon-32.png" alt="Icon tab" width="32" height="32"><small>Tab / 32 px</small></div>
+<div class="sample"><img src="/takosan/rebuild/app-icons/icon-180.png" alt="Icon Apple Touch" width="120" height="120"><small>Apple Touch / nền đặc</small></div>
+<div class="sample"><img src="/takosan/rebuild/app-icons/icon-maskable-512.png" class="crop round" alt="Maskable với mặt nạ tròn" width="160" height="160"><small>Mask tròn</small></div>
+<div class="sample"><img src="/takosan/rebuild/app-icons/icon-maskable-512.png" class="crop squircle" alt="Maskable với mặt nạ vuông bo góc" width="160" height="160"><small>Mask vuông bo góc</small></div>
+<div class="sample"><div class="safe"><img src="/takosan/rebuild/app-icons/icon-maskable-512.png" alt="Maskable và vùng an toàn trung tâm" width="160" height="160"></div><small>Vòng an toàn Ø 80%</small></div>
+</div><p>Mặt nạ ở đây mô phỏng crop trong browser. Chưa thay thế kiểm tra cài PWA trên thiết bị thật.</p></section>
+<section aria-labelledby="colors"><h2 id="colors">Màu ấm, chữ rõ</h2><div class="palette">
+<div><div class="swatch coral"></div>Coral <small>#EE705E</small></div><div><div class="swatch pine"></div>Pine <small>#245D49</small></div><div><div class="swatch black"></div>Ink <small>#202C28</small></div><div><div class="swatch canvas"></div>Canvas <small>#F7F3EC</small></div>
+</div><p>Ink cho nội dung. Pine cho thao tác chính. Coral dành cho dấu hiệu và điểm nhấn; không dùng chữ trắng nhỏ trên coral. Nền canvas giữ nhịp đọc bình tĩnh.</p></section>
+<section aria-labelledby="usage"><h2 id="usage">Cách dùng</h2><div class="spacing"><img src="/takosan/rebuild/lockup.svg" alt="Khoảng trống xung quanh logo" width="300" height="72"></div><p>Khoảng trống tối thiểu: ¼ chiều cao symbol (16 đơn vị ở master 64). Logo ngang tối thiểu 128 px; wordmark riêng 112 px; bản dọc 144 px; symbol đầy đủ 32 px. Giữ đúng tỷ lệ, không thêm bóng hoặc phụ kiện.</p><div class="rules">
+<div class="rule"><h3>Nên</h3><p>Dùng một logo ngang trên mỗi vùng shell. Chọn bản đảo trên nền tối, micro trong vùng nhỏ. Tên trong liên kết có nhãn rõ, hình trang trí có alt rỗng.</p></div>
+<div class="rule wrong"><h3>Tránh</h3><p>Ép ngang/dọc, thêm viền phát sáng, dùng chữ màu coral làm nội dung nhỏ, hay lặp logo cạnh logo. Không dùng mascot thay thông báo lỗi hoặc tiến độ thật.</p></div>
+</div></section>
+<section aria-labelledby="voice"><h2 id="voice">Chữ, giọng nói và chuyển động</h2><p>Be Vietnam Pro 400 / 600 / 700, tự lưu trong repo. Chữ có dấu là phần cốt lõi. Wordmark và nội dung ảnh chia sẻ đã chuyển thành vector; xuất ảnh không phụ thuộc font của máy.</p><div class="rules">
+<div class="rule"><h3>Rõ việc cần làm</h3><p>“Cần thêm 2 quả trứng. Trong tủ có 2 quả.”<br>“Đã lưu trên thiết bị. Đang chờ đồng bộ.”</p></div>
+<div class="rule wrong"><h3>Không hứa quá dữ liệu</h3><p>Tránh “AI bảo đảm món ăn phù hợp” hoặc “đã lưu” khi chỉ mới gửi yêu cầu. Giữ giá, lượng và tình trạng đồng bộ theo bằng chứng.</p></div>
+</div><p>Logo giữ tĩnh. Chuyển động thuộc tác vụ: reveal ngắn ở màn có trình tự, dừng theo reduced motion. Không thêm mascot lặp vô hạn hoặc chuyển động giả cho trạng thái xử lý.</p></section>
+<section aria-labelledby="social"><h2 id="social">Ảnh chia sẻ 1200 × 630</h2><img class="og" src="/takosan/rebuild/og.png" alt="Takosan. Ăn đủ. Mua đủ. Dùng hết. Mở tủ lạnh. Biết ngay hôm nay ăn gì." width="1200" height="630" loading="lazy"></section>
+<footer><p>SVG do repo tạo. Chữ từ Be Vietnam Pro, giấy phép <a href="/takosan/fonts/OFL.txt">SIL Open Font License 1.1</a>. Bộ chef-hat/leaf, mascot và asset cũ giữ cho các màn chưa chuyển. Chưa nghiệm thu thương hiệu cuối, nghiên cứu người dùng hoặc phát hành production.</p></footer>
+</main>
+</body>
+</html>

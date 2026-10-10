@@ -1,3 +1,33 @@
+# ADR-050 - Scoped digital identity from the kitchen direction (UI07)
+
+Status: accepted and locally verified for UI07, 2026-10-10 JST.
+Full274files/6551tests PASS;focused82;browser41checks/45PNG/6journeys. Owner/device/
+remaining routes/hosted/release remain; evidence `../ui-rebuild/round-7/VERIFICATION.md`.
+Packet: `tasks/UI07-brand-kit.md`; builds on ADR-044 through ADR-049.
+
+The supplied chef-hat/leaf uppercase kit and the UI01 kitchen prototype diverge;
+public icons/OG still identify the older kit. Finish the existing kitchen direction
+as a reviewable digital system: simple octopus, lowercase licensed outlined
+wordmark, optical micro, horizontal/stacked and reversed/one-color variants.
+Preserve the displayed Takosan spelling and all technical IDs/domain/commands.
+
+Keep new masters/exports under /takosan/rebuild and retain every supplied/legacy
+path and TAKOSAN_BRAND for remaining surfaces. Update browser metadata and add new
+assets to the existing release-aware precache. No cache policy, auth/payment UI,
+Worker, schema, migration, production flag or dependency change. Default generator
+uses repository vector masters; explicit supplied-kit invocation remains supported.
+
+Persistent desktop sidebar owns the lockup; header shows the existing motto.
+Mobile/tablet and immersive workflows keep accessible header identity. Layout mode
+comes from AppLayout, not route duplication inside Header. Verify actual render,
+small-size readability, pixel safe zones, export determinism and full gates.
+
+Local verification is a digital direction checkpoint, not final owner approval,
+trademark/recognition/usability research, physical install or production release.
+Remaining route and mascot adoption needs its own scoped inventory/packet.
+
+---
+
 # ADR-049 - Planner workspace and truthful shopping presentation (UI06)
 
 Status: accepted and locally verified for UI06, 2026-10-10 JST.

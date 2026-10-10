@@ -1,0 +1,336 @@
+{
+  "base": "3c593d941fb6ffa1fefffb7c4c5050c6be4e34b7",
+  "payloads": 66,
+  "files": [
+    {
+      "path": "brand-measurements.json",
+      "bytes": 394,
+      "sha256": "ab3fb796b098fd3f7288feddc4d16b0a0856b6d2b611637ca27d1ec1a11bf39d"
+    },
+    {
+      "path": "brand-sheet-1440-full.png",
+      "bytes": 480875,
+      "sha256": "a86f3eab3b8f35b0c33139ce998d23f32d6bd044fe2a40d16508433858c4bc92"
+    },
+    {
+      "path": "brand-sheet-1440.png",
+      "bytes": 90991,
+      "sha256": "f3919cfd369d6c1592f79c8b85de44fe53235a9f8fe73533a3c85c0ce9ee51ef"
+    },
+    {
+      "path": "brand-sheet-320-full.png",
+      "bytes": 397767,
+      "sha256": "8443ad1ea48705985626c4033c37aa1aa101764145b3e3f5265430f86cb41050"
+    },
+    {
+      "path": "brand-sheet-320.png",
+      "bytes": 65018,
+      "sha256": "8798b8a5368f6f0df1db90f0dc104f57475f407103a81b751034a0efe81094c9"
+    },
+    {
+      "path": "brand-sheet-390-full.png",
+      "bytes": 398554,
+      "sha256": "9bdd57748a196cc1871194128596040652b19663b578bedb7100895ac1611df7"
+    },
+    {
+      "path": "brand-sheet-390.png",
+      "bytes": 65787,
+      "sha256": "5202e5ad1e5b2e855184441f7b83872c890a51d69e8d268b0b29f886f0ece6e2"
+    },
+    {
+      "path": "brand-sheet-768-full.png",
+      "bytes": 425264,
+      "sha256": "39715de61915bcc7ba428cbca5cdfa47454a6f4f84e4a538e6c0d94c8333385d"
+    },
+    {
+      "path": "brand-sheet-768.png",
+      "bytes": 88897,
+      "sha256": "f133848488422e3953a9e4f12a847749ba4340f9e2bc943ceb6708906ef27b6a"
+    },
+    {
+      "path": "contact-final.png",
+      "bytes": 83247,
+      "sha256": "5b618d107f5ba7e8d690c026c9f3c5a3822fd82666e7aabcb2021014c4905575"
+    },
+    {
+      "path": "cooking-immersive-1440.png",
+      "bytes": 155520,
+      "sha256": "9f2ce30d01e5baca0c064be1dc974678983e574a2c122795d04a279f82a288ff"
+    },
+    {
+      "path": "cooking-immersive-320.png",
+      "bytes": 91993,
+      "sha256": "f7de23bfbb4fcacf56d8de3626645af989c913853d8697b31666d120d03174e7"
+    },
+    {
+      "path": "cooking-review-1440.png",
+      "bytes": 188050,
+      "sha256": "4de8efb80ec66720bbaeaa850441602af53df789851038b3a6295803613c5cb5"
+    },
+    {
+      "path": "cooking-review-320.png",
+      "bytes": 132246,
+      "sha256": "ab393fb4ef190ebca43e003a1a73d8fda133a005babaef881e0d4c636ecad539"
+    },
+    {
+      "path": "fridge-1024.png",
+      "bytes": 118820,
+      "sha256": "ade2cd9b131030677b3f14cddb3b9ab7521c29af40bce07f4d7891764ad2b01a"
+    },
+    {
+      "path": "fridge-1440.png",
+      "bytes": 122406,
+      "sha256": "eb9d205c2592b9694068ec0c3f3e008314d5d06d3fc075388a5d54aa0388f79b"
+    },
+    {
+      "path": "fridge-320.png",
+      "bytes": 68019,
+      "sha256": "ce79178f6dd2c76374502125c0af633a036bd629a9e894f28e009b2cec050f3f"
+    },
+    {
+      "path": "fridge-390.png",
+      "bytes": 69871,
+      "sha256": "0ea9cd3515aa8b45c3ada920d1a38438f335cb0beebb4cce797995ed517b234a"
+    },
+    {
+      "path": "fridge-768.png",
+      "bytes": 106526,
+      "sha256": "1fe74d0a95009906caad7bbad915d7e218f530fbbd28116fdd2bedd373b410a9"
+    },
+    {
+      "path": "home-1024.png",
+      "bytes": 171291,
+      "sha256": "81e604aa91808374fcd52127041583ce5b32304156a631462c30a81e4265a5f7"
+    },
+    {
+      "path": "home-1440.png",
+      "bytes": 179306,
+      "sha256": "cefa0c3025525c021835387fe992971258b9065c66936fafd92b75f8a91223f0"
+    },
+    {
+      "path": "home-320.png",
+      "bytes": 66511,
+      "sha256": "260a09bd72f22090cb0a6497924211c75213c9b1483aefaf120caa08bc19ec26"
+    },
+    {
+      "path": "home-390.png",
+      "bytes": 72087,
+      "sha256": "5e8769628627eec9f6e920cda3008c576f2372f80c5cf621c1da7dbd05694f15"
+    },
+    {
+      "path": "home-768.png",
+      "bytes": 115042,
+      "sha256": "dbb0d5cd5581b7902469c34d9c0298a2d52b9e10a963f5526399726321f8d670"
+    },
+    {
+      "path": "log-receipts.json",
+      "bytes": 4631,
+      "sha256": "630d631bc635a0e659c5bfdcf00410f694fd387da3c381bc0e64d2f24738dec5"
+    },
+    {
+      "path": "logs/browser-fifth.log",
+      "bytes": 6596,
+      "sha256": "9943684e2fc91a9eded1d2e910f5879bd5508528e509b0f4b4b4088fe302ce09"
+    },
+    {
+      "path": "logs/browser-final.log",
+      "bytes": 1765,
+      "sha256": "bc6878da00589cff4e777abeb5b2105141bcb10e89220af5d8c1d9684f6443b0"
+    },
+    {
+      "path": "logs/browser-first-diagnostic.txt",
+      "bytes": 327,
+      "sha256": "a7327c69baef554d98e3e87e66792a50abf2f5192aed570abea711c371c35d01"
+    },
+    {
+      "path": "logs/browser-first.log",
+      "bytes": 370,
+      "sha256": "3d807af82c711f980cf78899762af7ddf7f1ae5847d8ef01cb35cb3322174b78"
+    },
+    {
+      "path": "logs/browser-fourth.log",
+      "bytes": 701,
+      "sha256": "d710fb317ee488720a3d0f5339024a655f931baba48197d789daa3f030ed3ea3"
+    },
+    {
+      "path": "logs/browser-frozen.log",
+      "bytes": 1765,
+      "sha256": "bc6878da00589cff4e777abeb5b2105141bcb10e89220af5d8c1d9684f6443b0"
+    },
+    {
+      "path": "logs/browser-second.log",
+      "bytes": 370,
+      "sha256": "6b73fe98c9918028468610d2471ef744c107c1e828a3f26d13093d3f7b7e42a8"
+    },
+    {
+      "path": "logs/browser-sixth.log",
+      "bytes": 6719,
+      "sha256": "8b9a100eb8625f955cd8747c51939c6d5cb0ac4e8d904baa443302ef3c963ca5"
+    },
+    {
+      "path": "logs/browser-third.log",
+      "bytes": 465,
+      "sha256": "fc215d5d36085ef28d6c80f2ee86c64358eb0d260c8c7ccdf7a66ea0beab8838"
+    },
+    {
+      "path": "logs/focused-final.log",
+      "bytes": 479,
+      "sha256": "b4c1ea2ab4a86b15b4b4138dd596e7220b5e95915119de84f321d838ea91605b"
+    },
+    {
+      "path": "logs/focused-first.log",
+      "bytes": 25774,
+      "sha256": "cb28bc7b980eff39fb62502d22abda4588ea2c0ab9ba8f94b414081c2314e65a"
+    },
+    {
+      "path": "logs/focused-frozen.log",
+      "bytes": 479,
+      "sha256": "5b9945e6e44a056ce2997160a39b6a2e1c24a2c72da6d86ff91e51e24167d9f9"
+    },
+    {
+      "path": "logs/full-check-final.log",
+      "bytes": 442115,
+      "sha256": "839a8594f9f39edda47f40f9c2fd14aeeee26c63c2083c9082b1aa93584d17da"
+    },
+    {
+      "path": "logs/preview.log",
+      "bytes": 27736,
+      "sha256": "a134c088c382d3081a109eb287df3870ad38bb81966819acf6b51547914e92e3"
+    },
+    {
+      "path": "logs/ux-audit.log",
+      "bytes": 2981,
+      "sha256": "e453cda84c0deb4a42098caf758d877a8a927c2d83bcb7e4f1b61db540776914"
+    },
+    {
+      "path": "logs/web-interface-guidelines.md",
+      "bytes": 8055,
+      "sha256": "d246b026f4f29b5823a9cc857f9edf3d2507002e055e32040cadeaf3b38e0234"
+    },
+    {
+      "path": "observations.json",
+      "bytes": 25198,
+      "sha256": "17c64c2f47c238dea06c43754e2dfbcf3339e7d18080056ec7f055770c279dbd"
+    },
+    {
+      "path": "planner-1024.png",
+      "bytes": 132444,
+      "sha256": "06e01f6f07a87422eeadc5c46ad11c95b9951fc6c2174a6338607774a1f97591"
+    },
+    {
+      "path": "planner-1440.png",
+      "bytes": 163738,
+      "sha256": "ff81f9820db4fd3778e0a17edfce8db6167eff2575a7cd3a3deb0ef1b186964d"
+    },
+    {
+      "path": "planner-320.png",
+      "bytes": 86088,
+      "sha256": "59e38500746edb2409aca9b4430f41b8cb4baefde579567c5ea51b7297d5892c"
+    },
+    {
+      "path": "planner-390.png",
+      "bytes": 91972,
+      "sha256": "e70765a51f27743f6439f703b1da60d950e244d0f09392adf4ab21e3fa1f14b3"
+    },
+    {
+      "path": "planner-768.png",
+      "bytes": 114133,
+      "sha256": "08639daf8c20650c9223ebacef37bfb9e73bf4ed9ff272289368b8a93bcf5532"
+    },
+    {
+      "path": "planner-normal-motion-390.png",
+      "bytes": 64095,
+      "sha256": "067ddcb0c7313cd2af27bc3727cf18f18670e360ea387fb078f6be301d832949"
+    },
+    {
+      "path": "recipe-1024.png",
+      "bytes": 97874,
+      "sha256": "49921929df9a6bb12d1fa123090a1f4b83f6fe7025fd9fc9d1f9b88530d11074"
+    },
+    {
+      "path": "recipe-1440.png",
+      "bytes": 163126,
+      "sha256": "1a07d076460d0f23fa3ed7075cebf4e1d2fd7a91d21b786d1062523b1d45855e"
+    },
+    {
+      "path": "recipe-320.png",
+      "bytes": 68322,
+      "sha256": "9fe00a434dd91026a8f085aeaf0b79176e171f064c2a97b8b1e1e11910ff9415"
+    },
+    {
+      "path": "recipe-390.png",
+      "bytes": 71929,
+      "sha256": "43c25b73f6a020a2e248dc07f2500649230df1f28cf092542c1fcfa8d94e90b9"
+    },
+    {
+      "path": "recipe-768.png",
+      "bytes": 87050,
+      "sha256": "a638e74c51f9dd7eff50f14fbbbfa2f5eb03e403e3fcad1c7264ba75301269b6"
+    },
+    {
+      "path": "recipes-1024.png",
+      "bytes": 434488,
+      "sha256": "58b2c6ed62c2ea21c4cdabe597fe82516f585bfbb7dab66cff1c45108c619201"
+    },
+    {
+      "path": "recipes-1440.png",
+      "bytes": 646942,
+      "sha256": "e8b4c1f197138c54cba57437c435d29189cf5df1b604b267e7b75f5c6273df2b"
+    },
+    {
+      "path": "recipes-320.png",
+      "bytes": 70863,
+      "sha256": "a4865458e6bf0106a83bf55695bf6c908d7f6c80b98886b1e4deb51608f1fd3c"
+    },
+    {
+      "path": "recipes-390.png",
+      "bytes": 74449,
+      "sha256": "9003b5ac0672343cbf9a1aa5e2f73aec67004a6562d5474d5f88ea269e62c7a1"
+    },
+    {
+      "path": "recipes-768.png",
+      "bytes": 391772,
+      "sha256": "6e805eb8f315ec17de3438166d8b9b45c5311528502dfc3863e3091d82633792"
+    },
+    {
+      "path": "shopping-1024.png",
+      "bytes": 141991,
+      "sha256": "714fbbc53276072bbf7c497e26d6af0a667b3dd6ac0fd84ea92075308c0fa655"
+    },
+    {
+      "path": "shopping-1440.png",
+      "bytes": 185975,
+      "sha256": "37959c44c361cef993ab2c174ce6324a3315fa03e619d7a1199dc06c4475e399"
+    },
+    {
+      "path": "shopping-320.png",
+      "bytes": 80295,
+      "sha256": "d99006934dcda6232ed21843effc91a1c12c4f0b64aaf427f5f0e5f840f4de4b"
+    },
+    {
+      "path": "shopping-390.png",
+      "bytes": 106356,
+      "sha256": "23681caafbc7978da736c1dde26298830258ae15cf98b581342d9f88d98c7ef5"
+    },
+    {
+      "path": "shopping-768.png",
+      "bytes": 123895,
+      "sha256": "9bf19e0eebddfc969c432514eb26010a6f9dbe7bf92ab690a7b8a0f9fcf9c203"
+    },
+    {
+      "path": "shopping-enlarged-text-320.png",
+      "bytes": 145967,
+      "sha256": "7ec22cea9a4579212653cff566f89c31e554670343575e9cd714c3271be085e3"
+    },
+    {
+      "path": "shopping-short-390.png",
+      "bytes": 77330,
+      "sha256": "575da54d9e95a6a135f966511645f3cad5daf979b5c3891650430143c69715ef"
+    },
+    {
+      "path": "source-freeze.json",
+      "bytes": 12632,
+      "sha256": "b9f3617aa7211d45832e3c27de397f44547709c1eba8d13b5562ce7388d2da6c"
+    }
+  ]
+}

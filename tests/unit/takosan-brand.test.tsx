@@ -95,12 +95,12 @@ describe('Takosan brand contract', () => {
 });
 
 describe('PWA metadata', () => {
-  it('manifest is branded Takosan with kit theme colours and generated icons', () => {
+  it('manifest is branded Takosan with kitchen theme colours and generated icons', () => {
     const manifest = JSON.parse(readFileSync(resolve(root, 'public/manifest.json'), 'utf8'));
     expect(manifest.short_name).toBe('Takosan');
     expect(manifest.name).toMatch(/^Takosan/);
-    expect(manifest.theme_color).toBe('#2E7D5B');
-    expect(manifest.background_color).toBe('#FFF8F3');
+    expect(manifest.theme_color).toBe('#245D49');
+    expect(manifest.background_color).toBe('#F7F3EC');
     const sizes = manifest.icons.map((i: { sizes: string; purpose?: string }) => `${i.sizes}${i.purpose ? `:${i.purpose}` : ''}`);
     expect(sizes).toEqual(expect.arrayContaining(['192x192', '512x512', '512x512:maskable']));
     for (const icon of manifest.icons) {
@@ -112,11 +112,11 @@ describe('PWA metadata', () => {
   it('index.html title, favicon, theme colour and OpenGraph are Takosan while the domain is unchanged', () => {
     const html = readFileSync(resolve(root, 'index.html'), 'utf8');
     expect(html).toMatch(/<title>Takosan/);
-    expect(html).toContain('href="/takosan/app-icons/favicon.svg"');
-    expect(html).toContain('<meta name="theme-color" content="#2E7D5B" />');
+    expect(html).toContain('href="/takosan/rebuild/app-icons/favicon.svg"');
+    expect(html).toContain('<meta name="theme-color" content="#245D49" />');
     expect(html).toContain('property="og:title" content="Takosan');
     // og:image must be absolute for scrapers; the temporary domain stays until the maintainer picks one.
-    expect(html).toContain('property="og:image" content="https://frigo.tungjpstore.net/takosan/brand/takosan-og.png"');
+    expect(html).toContain('property="og:image" content="https://frigo.tungjpstore.net/takosan/rebuild/og.png"');
     expect(html).toContain('property="og:url" content="https://frigo.tungjpstore.net"');
     expect(html).not.toMatch(/og:image" content="\//);
     expect(html).not.toMatch(/\/frigo\/(brand|app-icons)\//);
@@ -128,7 +128,7 @@ describe('PWA metadata', () => {
     const iconHrefs = [...html.matchAll(/<link rel="(?:icon|apple-touch-icon)"[^>]*href="([^"]+)"/g)].map((m) => m[1]);
     expect(iconHrefs.length).toBeGreaterThanOrEqual(3);
     for (const href of iconHrefs) {
-      expect(href.startsWith('/takosan/app-icons/')).toBe(true);
+      expect(href.startsWith('/takosan/rebuild/app-icons/')).toBe(true);
       expect(existsSync(publicFile(href))).toBe(true);
     }
     expect(existsSync(publicFile(TAKOSAN_BRAND.og))).toBe(true);

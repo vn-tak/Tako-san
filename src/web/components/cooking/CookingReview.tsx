@@ -101,7 +101,7 @@ export function CookingReview() {
             <ArrowLeft aria-hidden="true" size={18} /> Quay lại bước nấu
           </Link>
         )}
-        <img src={TAKOSAN_KITCHEN.logo} width="120" height="36" alt="Tako-san" />
+        <img src={TAKOSAN_KITCHEN.logo} width={300} height={72} className="cooking-brand" alt="Takosan" translate="no" />
       </header>
       <form onSubmit={submit} noValidate className="cooking-review-grid">
         <div className="cooking-review-intro">

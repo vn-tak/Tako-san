@@ -1,0 +1,4 @@
+First browser harness stalled before first snapshot: decode() awaited below-fold
+loading=lazy OG. Separate local page probe confirmed HTTP200, fonts loaded, eager
+assets resolved, no animation. Stopped owned harness PID52569; fixed harness to
+scroll lazy images into view before decoding, then reset scroll. No runtime change.

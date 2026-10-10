@@ -1,0 +1,360 @@
+{
+  "base": "3c593d941fb6ffa1fefffb7c4c5050c6be4e34b7",
+  "files": [
+    {
+      "path": "docs/ui-rebuild/round-7/asset-inventory.json",
+      "bytes": 26002,
+      "sha256": "34301f93f0a39defb612003eff548a2981c28ef6f48bc4431f9e764a16f6dc22"
+    },
+    {
+      "path": "docs/ui-rebuild/round-7/brand-preview.html",
+      "bytes": 10968,
+      "sha256": "03e88d77777d9b2c30d67c8f9d0d82ce993b17b68a2ad3fc723067162b5c5933"
+    },
+    {
+      "path": "index.html",
+      "bytes": 2600,
+      "sha256": "022b3dbf1f37d98d15fe1ff63330330ecae90bd6857954727912adbcbbb3bacc"
+    },
+    {
+      "path": "public/manifest.json",
+      "bytes": 719,
+      "sha256": "c705c3bf71f8e72185486d536d9381273eb548946df13a7919982c541502e47c"
+    },
+    {
+      "path": "public/sw.js",
+      "bytes": 4069,
+      "sha256": "b7613458f313de8da654284fdc923f5c93344f2f3856787ae8b8c52e2c298fd4"
+    },
+    {
+      "path": "public/takosan/fonts/OFL.txt",
+      "bytes": 4397,
+      "sha256": "6b7f8f73609a25ea78c891e34cf37b06f8a676b7ea986e941e43b009110f2a85"
+    },
+    {
+      "path": "public/takosan/fonts/be-vietnam-pro-latin-400-normal.woff2",
+      "bytes": 21276,
+      "sha256": "cefd95a324be2eaf3e23aff008a33cb029872f266d785204fd2f2eaac2abb0d3"
+    },
+    {
+      "path": "public/takosan/fonts/be-vietnam-pro-latin-600-normal.woff2",
+      "bytes": 22052,
+      "sha256": "136998431df364d059b40ec4ed821fd193437096011f88c8676b5a27274a34ed"
+    },
+    {
+      "path": "public/takosan/fonts/be-vietnam-pro-latin-700-normal.woff2",
+      "bytes": 22216,
+      "sha256": "6ed20761ae0472f8f1ce186f64739c41787db04c881d5ba0530027dc4eddf4b6"
+    },
+    {
+      "path": "public/takosan/fonts/be-vietnam-pro-latin-ext-400-normal.woff2",
+      "bytes": 12928,
+      "sha256": "c481d1798fd5d657632f9e32c5489b729653d141f33570e4bbc2cfcb7c4cf5ea"
+    },
+    {
+      "path": "public/takosan/fonts/be-vietnam-pro-latin-ext-600-normal.woff2",
+      "bytes": 13612,
+      "sha256": "1d37ca4a523cdd1e35b14adbaa0b0d238dc6a057ac3c4aa77ecb9ce534bae475"
+    },
+    {
+      "path": "public/takosan/fonts/be-vietnam-pro-latin-ext-700-normal.woff2",
+      "bytes": 13776,
+      "sha256": "2a11d0d40a69fb7d3865463ad254fa393840b7d25c8207d60af3dc61f2235304"
+    },
+    {
+      "path": "public/takosan/fonts/be-vietnam-pro-vietnamese-400-normal.woff2",
+      "bytes": 11484,
+      "sha256": "a1a7de622e4266ff7d5fdef40712c3aa9fa0a7b1213219b4b172b41c62e9fd5a"
+    },
+    {
+      "path": "public/takosan/fonts/be-vietnam-pro-vietnamese-600-normal.woff2",
+      "bytes": 12160,
+      "sha256": "86dbbb4b20a5ae31c479f1aff09532034340c87239ac2bb183b152c697755227"
+    },
+    {
+      "path": "public/takosan/fonts/be-vietnam-pro-vietnamese-700-normal.woff2",
+      "bytes": 12428,
+      "sha256": "390d020c9aa37584d7b389dde664d6d8e202013d0d5b13ba6d2297d6f1865f6b"
+    },
+    {
+      "path": "public/takosan/rebuild/app-icons/favicon.svg",
+      "bytes": 452,
+      "sha256": "a511e345a4c64dbb2ab051ee396c8f791662874338e39d71dd027bca11c4931c"
+    },
+    {
+      "path": "public/takosan/rebuild/app-icons/icon-128.png",
+      "bytes": 2330,
+      "sha256": "d8989eb4a45bfa106460114cf056530102420280b0fffa91993e0cc6e17d6ad3"
+    },
+    {
+      "path": "public/takosan/rebuild/app-icons/icon-16.png",
+      "bytes": 313,
+      "sha256": "c68e5926a770d805402b63c5d601437582ea467a324ad5b578484d356f87bb5b"
+    },
+    {
+      "path": "public/takosan/rebuild/app-icons/icon-180.png",
+      "bytes": 3392,
+      "sha256": "2922faef7b791863350d41738cf247a8965ca01c4f62609e4f2517e3a4823ec3"
+    },
+    {
+      "path": "public/takosan/rebuild/app-icons/icon-192.png",
+      "bytes": 3639,
+      "sha256": "11b008b59538de18a979a10893a1dbe5e1f3231615777d627939dd83d81fea3d"
+    },
+    {
+      "path": "public/takosan/rebuild/app-icons/icon-24.png",
+      "bytes": 443,
+      "sha256": "d058502945ba029a4156f64b519e5ffbe47f2d2fd8c4e1de547bbfe970fcd6a8"
+    },
+    {
+      "path": "public/takosan/rebuild/app-icons/icon-256.png",
+      "bytes": 5028,
+      "sha256": "912d2132737d01ec8e690eebc02accb754c1b1d4222b4b111b6d512cb96e0d34"
+    },
+    {
+      "path": "public/takosan/rebuild/app-icons/icon-32.png",
+      "bytes": 612,
+      "sha256": "8947392a309e994bdbc3b6625e0fdc4793208e80f8f47754b404fdca9b1bfdc3"
+    },
+    {
+      "path": "public/takosan/rebuild/app-icons/icon-48.png",
+      "bytes": 889,
+      "sha256": "07525fc54e472c3746660e9b01b23b8d3ada40c28b5baef548a1efb3b92d2c55"
+    },
+    {
+      "path": "public/takosan/rebuild/app-icons/icon-512.png",
+      "bytes": 10717,
+      "sha256": "88c971380b59199ef4f8ec5825d254a34403b638668d4f2c3167b1faf7dc0cdd"
+    },
+    {
+      "path": "public/takosan/rebuild/app-icons/icon-64.png",
+      "bytes": 1185,
+      "sha256": "96bc767559d3e7e67ef7aa56d5a4cdb5e009d65a47b6a6e06f0ac0559e5ca0b0"
+    },
+    {
+      "path": "public/takosan/rebuild/app-icons/icon-maskable-512.png",
+      "bytes": 9882,
+      "sha256": "c06c65c876b5f48322dcae5cb65b85902d278e18080499e3d6ea0bdc1f19e1f0"
+    },
+    {
+      "path": "public/takosan/rebuild/app-icons/icon-master.svg",
+      "bytes": 763,
+      "sha256": "e070158527d5a745428246c6cbb9d6840e0c2c45db9c321ab0d9dd94b2e58f09"
+    },
+    {
+      "path": "public/takosan/rebuild/app-icons/maskable-master.svg",
+      "bytes": 761,
+      "sha256": "a675c913fbd94c3aeaa13d28b6de5aaf226fee801c9853c5bb254b1af87a3f1e"
+    },
+    {
+      "path": "public/takosan/rebuild/lockup-mono-reverse.svg",
+      "bytes": 3663,
+      "sha256": "2c9c0983c25416cb91636cedc6a13b745af75c344031b91570509882ab930378"
+    },
+    {
+      "path": "public/takosan/rebuild/lockup-mono.svg",
+      "bytes": 3663,
+      "sha256": "ebfb0effffb04894e7f26267b1278b6533e5462191607c751888111844db7e94"
+    },
+    {
+      "path": "public/takosan/rebuild/lockup-reverse.svg",
+      "bytes": 3814,
+      "sha256": "72ff05076bea48bfa721c47494405ac4ed5b4cf8a91d182d83f91faf3b5a29b9"
+    },
+    {
+      "path": "public/takosan/rebuild/lockup.svg",
+      "bytes": 3814,
+      "sha256": "069d6444f3d6a1da6a9fb6461f829ca5c7559ec74b8d8fed32f46315a986ee4c"
+    },
+    {
+      "path": "public/takosan/rebuild/masters/motto.svg",
+      "bytes": 7889,
+      "sha256": "cbb0e306c687a6daa108e13673f1c9f75203befd3e2e6b0c9955e1cd8b109564"
+    },
+    {
+      "path": "public/takosan/rebuild/masters/symbol-micro.svg",
+      "bytes": 452,
+      "sha256": "a511e345a4c64dbb2ab051ee396c8f791662874338e39d71dd027bca11c4931c"
+    },
+    {
+      "path": "public/takosan/rebuild/masters/symbol.svg",
+      "bytes": 665,
+      "sha256": "3542fde9816dbf6626005f784318d3df3e24703fc5336d7ca316e1f47ef1125a"
+    },
+    {
+      "path": "public/takosan/rebuild/masters/tagline.svg",
+      "bytes": 11716,
+      "sha256": "0c8560142f284327b99eda9a8a0dd5d83e704d86cfe2843ccc457b86d1af8da9"
+    },
+    {
+      "path": "public/takosan/rebuild/masters/wordmark.svg",
+      "bytes": 3177,
+      "sha256": "03258dae13d75e15ea3a1cfae192e9e798009343b231fc4f12abe6985b33c35f"
+    },
+    {
+      "path": "public/takosan/rebuild/og.png",
+      "bytes": 36373,
+      "sha256": "45a1ab4c033ec2a730c551736fda2d3bb369a52aac31acde42b2429aab8f7701"
+    },
+    {
+      "path": "public/takosan/rebuild/og.svg",
+      "bytes": 24123,
+      "sha256": "6e91eaa8fd3230923f913541b897cba841e5f4baa84028974aeab6cadb802215"
+    },
+    {
+      "path": "public/takosan/rebuild/stacked-mono-reverse.svg",
+      "bytes": 3679,
+      "sha256": "30a67293fe3ac3b340dc3e11ffc66f6caa74f2fc0e1d51532a7625eaae3470ba"
+    },
+    {
+      "path": "public/takosan/rebuild/stacked-mono.svg",
+      "bytes": 3679,
+      "sha256": "03305ee2d78e687ab2a988a3cfc862edfd10ecd449e56c105cbb9f533a87a6c0"
+    },
+    {
+      "path": "public/takosan/rebuild/stacked-reverse.svg",
+      "bytes": 3830,
+      "sha256": "ed17ee5b5a66a536d09bdb61739293f5cef7e28c830458e5f78343f2d9c16940"
+    },
+    {
+      "path": "public/takosan/rebuild/stacked.svg",
+      "bytes": 3830,
+      "sha256": "7dd9da977a3eaaf30103240c0aadd13143aa24a512c83ed1e02c5e8f09cc0f76"
+    },
+    {
+      "path": "public/takosan/rebuild/symbol-micro-mono-reverse.svg",
+      "bytes": 416,
+      "sha256": "570ecd1fa95ccb4c0de23fe63cfb35e701c664ecc4a114c80241e8928b0cdf3c"
+    },
+    {
+      "path": "public/takosan/rebuild/symbol-micro-mono.svg",
+      "bytes": 416,
+      "sha256": "739a81adc5152447f3cf5b07235c7bf001799c76238c6d57b1c7967a334645fc"
+    },
+    {
+      "path": "public/takosan/rebuild/symbol-micro-reverse.svg",
+      "bytes": 452,
+      "sha256": "a511e345a4c64dbb2ab051ee396c8f791662874338e39d71dd027bca11c4931c"
+    },
+    {
+      "path": "public/takosan/rebuild/symbol-micro.svg",
+      "bytes": 452,
+      "sha256": "a511e345a4c64dbb2ab051ee396c8f791662874338e39d71dd027bca11c4931c"
+    },
+    {
+      "path": "public/takosan/rebuild/symbol-mono-reverse.svg",
+      "bytes": 514,
+      "sha256": "17cd1cd70607d7f469abbccb5556f828a5557e11afac3751b3d75039695eb276"
+    },
+    {
+      "path": "public/takosan/rebuild/symbol-mono.svg",
+      "bytes": 514,
+      "sha256": "86284d4edd0eedd12844ed014cfe6597e8ebeb149adf05f28c3a6fa8422467cc"
+    },
+    {
+      "path": "public/takosan/rebuild/symbol-reverse.svg",
+      "bytes": 665,
+      "sha256": "3542fde9816dbf6626005f784318d3df3e24703fc5336d7ca316e1f47ef1125a"
+    },
+    {
+      "path": "public/takosan/rebuild/symbol.svg",
+      "bytes": 665,
+      "sha256": "3542fde9816dbf6626005f784318d3df3e24703fc5336d7ca316e1f47ef1125a"
+    },
+    {
+      "path": "public/takosan/rebuild/wordmark-mono-reverse.svg",
+      "bytes": 3169,
+      "sha256": "71f550bbbcf2987e765693839489933df17878ee3d054bcddff0bf8375b1b2e8"
+    },
+    {
+      "path": "public/takosan/rebuild/wordmark-mono.svg",
+      "bytes": 3169,
+      "sha256": "be3e553dc8887a6f64b0a6590578c9b1827e6974d51af6127cf605a9b315a2d0"
+    },
+    {
+      "path": "public/takosan/rebuild/wordmark-reverse.svg",
+      "bytes": 3169,
+      "sha256": "71f550bbbcf2987e765693839489933df17878ee3d054bcddff0bf8375b1b2e8"
+    },
+    {
+      "path": "public/takosan/rebuild/wordmark.svg",
+      "bytes": 3169,
+      "sha256": "12231a5d9abc4b336f3f06e34a93766d282aeb3769ac64b744726946da2eb732"
+    },
+    {
+      "path": "scripts/generate-takosan-brand.mjs",
+      "bytes": 4853,
+      "sha256": "fa05c2ccdbfd0c2fecbf056f1221965c480acaed3e45ab89d5eae57085f45aac"
+    },
+    {
+      "path": "scripts/generate-takosan-icons.mjs",
+      "bytes": 3137,
+      "sha256": "89e3c6773a3e17122c0fe441a1ca70ce8cf74bb78d47109ab69daea3fe2609a4"
+    },
+    {
+      "path": "scripts/ui07-browser-check.mjs",
+      "bytes": 10365,
+      "sha256": "94e15c063fa02ff8b175fc13892c2b9913a525bf0409bf2c24e2b19ca2f75495"
+    },
+    {
+      "path": "scripts/ui07-outline-masters.py",
+      "bytes": 1937,
+      "sha256": "b1d1f244d495e1f9d6e4139b6458389c8bec4395d6bf7a90042c341a8add6349"
+    },
+    {
+      "path": "src/web/components/common/KitchenHeader.tsx",
+      "bytes": 2185,
+      "sha256": "c9b2977456f84cf24c6783259e65b1760471aab9c9bbdb17286c43b6b70c1247"
+    },
+    {
+      "path": "src/web/components/cooking/CookingReview.tsx",
+      "bytes": 10817,
+      "sha256": "ffa710da135b22bd739d1edc2fe0960a8f5b4bef60a26d1a6c08bdacb949e4dd"
+    },
+    {
+      "path": "src/web/components/layout/AppLayout.tsx",
+      "bytes": 2437,
+      "sha256": "ebd463feeb53f4986d492a1e6baf09b74d4235006058852d9629599712907379"
+    },
+    {
+      "path": "src/web/design-system/navigation.tsx",
+      "bytes": 9522,
+      "sha256": "3ea74f93959b770b7ef90631811cd646f57504f21d9d4a56b95b2a7a15be1b1d"
+    },
+    {
+      "path": "src/web/lib/takosan-kitchen.ts",
+      "bytes": 906,
+      "sha256": "3ab069e060a51d2185835bd916683732c68b2900b9a8c012f1e989f07dec20ae"
+    },
+    {
+      "path": "src/web/pages/CookingModePage.tsx",
+      "bytes": 18040,
+      "sha256": "10fca9955147adc912ad94141ed3ecbf7ef352619aba0e8911e9799365f175f6"
+    },
+    {
+      "path": "src/web/styles/kitchen-cooking.css",
+      "bytes": 10434,
+      "sha256": "1073f9fa21618b97a8494f5472eab9fb1a7ebcddf47ca238eeb4ca0078be709f"
+    },
+    {
+      "path": "src/web/styles/kitchen-daily.css",
+      "bytes": 7844,
+      "sha256": "493ecd14f9a300b8cd4bddc3d9af5a50e3c96c5ce0920eae74636f876ba96fbf"
+    },
+    {
+      "path": "tests/unit/takosan-brand.test.tsx",
+      "bytes": 15758,
+      "sha256": "68548d252ec18cf8a52670340d37b34c658dd338a54f1efcae0f23937cc3ee9c"
+    },
+    {
+      "path": "tests/unit/ui07-brand-exports.test.mjs",
+      "bytes": 4886,
+      "sha256": "ca0cc6a96a7822ae72636296574517fc9656037ac24ed3fd66c50b50ebef8a95"
+    },
+    {
+      "path": "tests/unit/ui07-brand-shell.test.tsx",
+      "bytes": 2182,
+      "sha256": "a89ca1e6dc6e28efcfcccf2069095be7430e89a83ac5df6f99b9d0a0790f0504"
+    }
+  ]
+}

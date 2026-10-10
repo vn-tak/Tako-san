@@ -13,7 +13,7 @@ const IMMERSIVE_PATTERNS = [
   /^\/onboarding(\/.*)?$/,
 ];
 
-/** Scope the prototype shell to migrated screens; other routes retain the current kit. */
+/** Scope the kitchen shell to migrated screens; other routes retain the current kit. */
 export function isKitchenSurface(pathname: string) {
   return (
     pathname === '/' ||
@@ -31,6 +31,7 @@ export const AppLayout: React.FC = () => {
   const kitchen = isKitchenSurface(pathname);
   return (
     <div
+      data-kitchen-navigation={kitchen && !immersive ? 'persistent' : undefined}
       className={`${kitchen ? 'takosan-rebuild ' : ''}min-h-dvh bg-semantic-background text-semantic-text-primary antialiased selection:bg-takosan-mint`}
     >
       {kitchen && (
@@ -42,6 +43,7 @@ export const AppLayout: React.FC = () => {
         <RailSidebar
           brandLogo={kitchen ? TAKOSAN_KITCHEN.logo : undefined}
           brandSymbol={kitchen ? TAKOSAN_KITCHEN.symbol : undefined}
+          brandDimensions={kitchen ? { width: 300, height: 72 } : undefined}
         />
       )}
       {/* The shell owns rail/sidebar offsets and the maximum content width. */}

@@ -1,3 +1,73 @@
+# UI07 — Bộ nhận diện số đã kiểm chứng local — 2026-10-10 JST
+
+**Task/status:** `UI07_LOCAL_VERIFIED_REVIEW_REQUIRED`. Packet
+`docs/ai/tasks/UI07-brand-kit.md`, ADR-050. Local digital identity milestone hoàn
+thành; chủ dự án review, remaining surfaces/device/hosted/release vẫn mở.
+
+**Repository/source:** Canonical `vn-tak/Tako-san`, ID1385308553; checkout
+`/Users/tunbee27/Documents/Tako-san-ui-rebuild`, branch `codex/ui-rebuild-foundation`,
+base `3c593d941fb6ffa1fefffb7c4c5050c6be4e34b7`. Implementation checkpoint sẽ được
+đối chiếu và ghi trong documentation checkpoint theo sau; Frigo cũ giữ nguyên.
+
+**Actual changes:** Hoàn thiện kitchen direction pine/coral/ink/canvas và Be
+Vietnam Pro: simple octopus/symbol, micro16/24, standard32+, outlined lowercase
+wordmark, horizontal/stacked, light/reverse/one-color. 5masters+36exports=41files,
+171543bytes. Regular16/24/32/48/64/128/180/192/256/512, opaque iOS/PWA/maskable512,
+OG1200×630 có chữ Việt đã outline. Default pnpm brand:icons đọc repo masters;
+explicit external-kit mode giữ branch cũ, chưa rerun original archive ngoài repo.
+Font/OFL hiện hữu nguyên bytes; extraction tool chỉ venv ignored, không dependency.
+Giữ spelling Takosan, project/repo Tako-san, technical IDs và hostname hiện hữu.
+
+Core contract/header/rail/cooking dùng bộ mới, dimensions đúng. Persistent desktop
+>=1024 chỉ sidebar horizontal lockup, header motto và hidden link không tab stop;
+mobile/tablet/immersive giữ brand. Metadata/manifest/precache dùng paths mới, cache
+lifecycle/fetch policy giữ. TAKOSAN_BRAND/supplied/legacy/mascot/UIicons giữ cho
+remaining routes;76files đối chiếu Git base nguyên bytes. Brand usage/inventory/
+voice/motion/clearspace/minsizes và UI08 plan ở round-7 FOUNDATION/preview.
+
+**Verification:** Frozen focused4files/82tests PASS1.18s (18new/64existing).
+Browser41checks/45PNG/6journey groups,0axe/overflow/brokenimages/pageerrors;320/390/
+768/1024/1440,390×420,doubledcomputedtext320,normal/reduced motion;light/dark/mono,
+optical sizes/crops;keyboardhome,immersive steps/review,metadata serving và legacy
+account sidebar. Inventory JSON unchanged. Maskable max185.3227px<safe204.8px,
+65371foregroundpixels/opaque;white/pine7.67,ink/canvas13.07,muted/canvas5.13,
+ink/coral4.90.71source/asset/test/script/preview/inventory/font/OFL hashes frozen.
+Full command:
+`PATH=/opt/homebrew/opt/node@24/bin:$PATH CI=true TMPDIR=/private/tmp WRANGLER_SEND_METRICS=false VITEST_MAX_THREADS=2 VITEST_MIN_THREADS=1 VITEST_MAX_FORKS=2 VITEST_MIN_FORKS=1 pnpm check`
+exit0:274files/6551tests PASS,0FAIL,Vitest334.66s;type/lint/migration-smoke/Vite+
+Worker TS build PASS. One full run; no timeout/config weakened. Export/dist bytes,
+SW token/precache and full diff/protected allowlist checked; evidence hashed.
+Reports `docs/ui-rebuild/round-7/{FOUNDATION,VERIFICATION}.md`.
+
+**Failures/recovery:** Initial focused81PASS/1FAIL guessed absent legacy SVG; fix
+expectation to real wordmark.png. SSR Node removes jsdom useLayoutEffect warnings.
+Python system/bundled lacked fontTools; ignored venv extraction succeeds. Three
+browser harness hangs waiting lazydecode; bounded complete/naturalWidth polling
+fix. Dark preview label contrast fixed. Short screenshot before route mount fixed
+by waiting actual header. Final visual increases maskable artwork scale4.5->6;
+focused/browser rerun before freeze/full. Generic ux_audit132files/29issues/
+878warnings/75checks STATUSFAIL despite exit0; regex includes tests/CSS/metadata,
+no whole-repo UX PASS claimed. Python browser helper unavailable; repo JS Playwright
+executed. Logs retained with normalization+raw/archive receipts, NUL escaped.
+
+**Database/operational state:** Synthetic local Worker/in-memory SQLite only;
+preview PID52186 stopped before full,ports5201/8901 closed. No Worker/schema/domain/
+migrations/payment/auth protocol/production flags/dependencies/config/infra/
+remoteDB/R2/provider/credentials/push/PR/merge/deploy. Build from frozen working
+tree before commit uses base release-ID; no claimed release artifact. Preview
+forces planner on, no flag-off Week browser QA. Final owner-approved identity,
+mascot-system/adoption,device/Safari/OSlauncher/keyboard/actualzoom/screen-reader/
+usability/CWV/hosted/socialscraper/release remain. Dark asset contexts not appdarkmode.
+
+**Next action:** UI08 inventory+packet+ADR for account/settings/notifications/
+family, landing/auth/onboarding/fallback and legacy Week flag-off. Transition
+presentation/font/brand within existing session/preferences/domain contracts;
+mascot only for useful tasks. Keep UI07 direction and payment boundary. Verify
+flag-off through real preview/build path; device/owner/usability/hosted release
+remain separate. Detailed execution sequence in round-7 FOUNDATION.md.
+
+---
+
 # UI06 — Thực đơn và danh sách mua sắm đã kiểm chứng local — 2026-10-10 JST
 
 **Task/status:** `UI06_LOCAL_VERIFIED_REVIEW_REQUIRED`. Packet

@@ -1,0 +1,238 @@
+
+ RUN  v3.2.7 /Users/tunbee27/Documents/Tako-san-ui-rebuild
+
+ ❯ tests/unit/ui07-brand-exports.test.mjs (5 tests | 1 failed) 340ms
+   ✓ UI07 reproducible digital brand > regenerates every committed export byte-identically without external kit/fonts  303ms
+   ✓ UI07 reproducible digital brand > exports expected opaque PNG dimensions, including separate optical micro 14ms
+   ✓ UI07 reproducible digital brand > keeps every foreground pixel inside the maskable 80% safe circle, with an opaque full-bleed background 13ms
+   ✓ UI07 reproducible digital brand > has no external/font/script SVG dependencies; monochrome variants use knockout eyes 4ms
+   × UI07 reproducible digital brand > manifest, browser links and precache resolve while keeping legacy compatibility assets 6ms
+     → ENOENT: no such file or directory, open '/Users/tunbee27/Documents/Tako-san-ui-rebuild/public/frigo/brand/frigo-wordmark.svg'
+ ✓ tests/unit/takosan-brand.test.tsx (19 tests) 166ms
+ ✓ tests/unit/ui02-presentation.test.ts (45 tests) 23ms
+stderr | tests/unit/ui07-brand-shell.test.tsx > UI07 shell ownership and accessible brand > persistent / owns the desktop brand
+Warning: useLayoutEffect does nothing on the server, because its effect cannot be encoded into the server renderer's output format. This will lead to a mismatch between the initial, non-hydrated UI and the intended UI. To avoid this, useLayoutEffect should only be used in components that render exclusively on the client. See https://reactjs.org/link/uselayouteffect-ssr for common fixes.
+    at MotionDOMComponent (file:///Users/tunbee27/Documents/Tako-san-ui-rebuild/node_modules/.pnpm/framer-motion@13.4.0_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/framer-motion/dist/es/motion/index.mjs:45:16)
+    at span
+    at NavLinkContent (/Users/tunbee27/Documents/Tako-san-ui-rebuild/src/web/design-system/navigation.tsx:26:3)
+    at a
+    at LinkWithRef (/Users/tunbee27/Documents/Tako-san-ui-rebuild/node_modules/.pnpm/react-router-dom@6.30.6_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/react-router-dom/dist/umd/react-router-dom.development.js:807:9)
+    at nav
+    at RailSidebar (/Users/tunbee27/Documents/Tako-san-ui-rebuild/src/web/design-system/navigation.tsx:195:3)
+    at div
+    at AppLayout (/Users/tunbee27/Documents/Tako-san-ui-rebuild/src/web/components/layout/AppLayout.tsx:19:61)
+    at Router (/Users/tunbee27/Documents/Tako-san-ui-rebuild/node_modules/.pnpm/react-router@6.30.6_react@18.3.1/node_modules/react-router/dist/umd/react-router.development.js:1203:17)
+    at StaticRouter (file:///Users/tunbee27/Documents/Tako-san-ui-rebuild/node_modules/.pnpm/react-router-dom@6.30.6_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/react-router-dom/server.mjs:11:3)
+Warning: useLayoutEffect does nothing on the server, because its effect cannot be encoded into the server renderer's output format. This will lead to a mismatch between the initial, non-hydrated UI and the intended UI. To avoid this, useLayoutEffect should only be used in components that render exclusively on the client. See https://reactjs.org/link/uselayouteffect-ssr for common fixes.
+    at MotionDOMComponent (file:///Users/tunbee27/Documents/Tako-san-ui-rebuild/node_modules/.pnpm/framer-motion@13.4.0_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/framer-motion/dist/es/motion/index.mjs:45:16)
+    at span
+    at NavLinkContent (/Users/tunbee27/Documents/Tako-san-ui-rebuild/src/web/design-system/navigation.tsx:26:3)
+    at a
+    at LinkWithRef (/Users/tunbee27/Documents/Tako-san-ui-rebuild/node_modules/.pnpm/react-router-dom@6.30.6_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/react-router-dom/dist/umd/react-router-dom.development.js:807:9)
+    at li
+    at NavItemButton (/Users/tunbee27/Documents/Tako-san-ui-rebuild/src/web/design-system/navigation.tsx:166:26)
+    at ul
+    at nav
+    at BottomNavigationBar
+    at div
+    at div
+    at AppLayout (/Users/tunbee27/Documents/Tako-san-ui-rebuild/src/web/components/layout/AppLayout.tsx:19:61)
+    at Router (/Users/tunbee27/Documents/Tako-san-ui-rebuild/node_modules/.pnpm/react-router@6.30.6_react@18.3.1/node_modules/react-router/dist/umd/react-router.development.js:1203:17)
+    at StaticRouter (file:///Users/tunbee27/Documents/Tako-san-ui-rebuild/node_modules/.pnpm/react-router-dom@6.30.6_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/react-router-dom/server.mjs:11:3)
+
+stderr | tests/unit/ui07-brand-shell.test.tsx > UI07 shell ownership and accessible brand > persistent /recipes owns the desktop brand
+Warning: useLayoutEffect does nothing on the server, because its effect cannot be encoded into the server renderer's output format. This will lead to a mismatch between the initial, non-hydrated UI and the intended UI. To avoid this, useLayoutEffect should only be used in components that render exclusively on the client. See https://reactjs.org/link/uselayouteffect-ssr for common fixes.
+    at MotionDOMComponent (file:///Users/tunbee27/Documents/Tako-san-ui-rebuild/node_modules/.pnpm/framer-motion@13.4.0_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/framer-motion/dist/es/motion/index.mjs:45:16)
+    at span
+    at NavLinkContent (/Users/tunbee27/Documents/Tako-san-ui-rebuild/src/web/design-system/navigation.tsx:26:3)
+    at a
+    at LinkWithRef (/Users/tunbee27/Documents/Tako-san-ui-rebuild/node_modules/.pnpm/react-router-dom@6.30.6_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/react-router-dom/dist/umd/react-router-dom.development.js:807:9)
+    at nav
+    at RailSidebar (/Users/tunbee27/Documents/Tako-san-ui-rebuild/src/web/design-system/navigation.tsx:195:3)
+    at div
+    at AppLayout (/Users/tunbee27/Documents/Tako-san-ui-rebuild/src/web/components/layout/AppLayout.tsx:19:61)
+    at Router (/Users/tunbee27/Documents/Tako-san-ui-rebuild/node_modules/.pnpm/react-router@6.30.6_react@18.3.1/node_modules/react-router/dist/umd/react-router.development.js:1203:17)
+    at StaticRouter (file:///Users/tunbee27/Documents/Tako-san-ui-rebuild/node_modules/.pnpm/react-router-dom@6.30.6_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/react-router-dom/server.mjs:11:3)
+Warning: useLayoutEffect does nothing on the server, because its effect cannot be encoded into the server renderer's output format. This will lead to a mismatch between the initial, non-hydrated UI and the intended UI. To avoid this, useLayoutEffect should only be used in components that render exclusively on the client. See https://reactjs.org/link/uselayouteffect-ssr for common fixes.
+    at MotionDOMComponent (file:///Users/tunbee27/Documents/Tako-san-ui-rebuild/node_modules/.pnpm/framer-motion@13.4.0_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/framer-motion/dist/es/motion/index.mjs:45:16)
+    at span
+    at NavLinkContent (/Users/tunbee27/Documents/Tako-san-ui-rebuild/src/web/design-system/navigation.tsx:26:3)
+    at a
+    at LinkWithRef (/Users/tunbee27/Documents/Tako-san-ui-rebuild/node_modules/.pnpm/react-router-dom@6.30.6_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/react-router-dom/dist/umd/react-router-dom.development.js:807:9)
+    at li
+    at NavItemButton (/Users/tunbee27/Documents/Tako-san-ui-rebuild/src/web/design-system/navigation.tsx:166:26)
+    at ul
+    at nav
+    at BottomNavigationBar
+    at div
+    at div
+    at AppLayout (/Users/tunbee27/Documents/Tako-san-ui-rebuild/src/web/components/layout/AppLayout.tsx:19:61)
+    at Router (/Users/tunbee27/Documents/Tako-san-ui-rebuild/node_modules/.pnpm/react-router@6.30.6_react@18.3.1/node_modules/react-router/dist/umd/react-router.development.js:1203:17)
+    at StaticRouter (file:///Users/tunbee27/Documents/Tako-san-ui-rebuild/node_modules/.pnpm/react-router-dom@6.30.6_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/react-router-dom/server.mjs:11:3)
+
+stderr | tests/unit/ui07-brand-shell.test.tsx > UI07 shell ownership and accessible brand > persistent /fridge owns the desktop brand
+Warning: useLayoutEffect does nothing on the server, because its effect cannot be encoded into the server renderer's output format. This will lead to a mismatch between the initial, non-hydrated UI and the intended UI. To avoid this, useLayoutEffect should only be used in components that render exclusively on the client. See https://reactjs.org/link/uselayouteffect-ssr for common fixes.
+    at MotionDOMComponent (file:///Users/tunbee27/Documents/Tako-san-ui-rebuild/node_modules/.pnpm/framer-motion@13.4.0_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/framer-motion/dist/es/motion/index.mjs:45:16)
+    at span
+    at NavLinkContent (/Users/tunbee27/Documents/Tako-san-ui-rebuild/src/web/design-system/navigation.tsx:26:3)
+    at a
+    at LinkWithRef (/Users/tunbee27/Documents/Tako-san-ui-rebuild/node_modules/.pnpm/react-router-dom@6.30.6_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/react-router-dom/dist/umd/react-router-dom.development.js:807:9)
+    at nav
+    at RailSidebar (/Users/tunbee27/Documents/Tako-san-ui-rebuild/src/web/design-system/navigation.tsx:195:3)
+    at div
+    at AppLayout (/Users/tunbee27/Documents/Tako-san-ui-rebuild/src/web/components/layout/AppLayout.tsx:19:61)
+    at Router (/Users/tunbee27/Documents/Tako-san-ui-rebuild/node_modules/.pnpm/react-router@6.30.6_react@18.3.1/node_modules/react-router/dist/umd/react-router.development.js:1203:17)
+    at StaticRouter (file:///Users/tunbee27/Documents/Tako-san-ui-rebuild/node_modules/.pnpm/react-router-dom@6.30.6_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/react-router-dom/server.mjs:11:3)
+Warning: useLayoutEffect does nothing on the server, because its effect cannot be encoded into the server renderer's output format. This will lead to a mismatch between the initial, non-hydrated UI and the intended UI. To avoid this, useLayoutEffect should only be used in components that render exclusively on the client. See https://reactjs.org/link/uselayouteffect-ssr for common fixes.
+    at MotionDOMComponent (file:///Users/tunbee27/Documents/Tako-san-ui-rebuild/node_modules/.pnpm/framer-motion@13.4.0_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/framer-motion/dist/es/motion/index.mjs:45:16)
+    at span
+    at NavLinkContent (/Users/tunbee27/Documents/Tako-san-ui-rebuild/src/web/design-system/navigation.tsx:26:3)
+    at a
+    at LinkWithRef (/Users/tunbee27/Documents/Tako-san-ui-rebuild/node_modules/.pnpm/react-router-dom@6.30.6_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/react-router-dom/dist/umd/react-router-dom.development.js:807:9)
+    at li
+    at NavItemButton (/Users/tunbee27/Documents/Tako-san-ui-rebuild/src/web/design-system/navigation.tsx:166:26)
+    at ul
+    at nav
+    at BottomNavigationBar
+    at div
+    at div
+    at AppLayout (/Users/tunbee27/Documents/Tako-san-ui-rebuild/src/web/components/layout/AppLayout.tsx:19:61)
+    at Router (/Users/tunbee27/Documents/Tako-san-ui-rebuild/node_modules/.pnpm/react-router@6.30.6_react@18.3.1/node_modules/react-router/dist/umd/react-router.development.js:1203:17)
+    at StaticRouter (file:///Users/tunbee27/Documents/Tako-san-ui-rebuild/node_modules/.pnpm/react-router-dom@6.30.6_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/react-router-dom/server.mjs:11:3)
+
+stderr | tests/unit/ui07-brand-shell.test.tsx > UI07 shell ownership and accessible brand > persistent /planner owns the desktop brand
+Warning: useLayoutEffect does nothing on the server, because its effect cannot be encoded into the server renderer's output format. This will lead to a mismatch between the initial, non-hydrated UI and the intended UI. To avoid this, useLayoutEffect should only be used in components that render exclusively on the client. See https://reactjs.org/link/uselayouteffect-ssr for common fixes.
+    at MotionDOMComponent (file:///Users/tunbee27/Documents/Tako-san-ui-rebuild/node_modules/.pnpm/framer-motion@13.4.0_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/framer-motion/dist/es/motion/index.mjs:45:16)
+    at span
+    at NavLinkContent (/Users/tunbee27/Documents/Tako-san-ui-rebuild/src/web/design-system/navigation.tsx:26:3)
+    at a
+    at LinkWithRef (/Users/tunbee27/Documents/Tako-san-ui-rebuild/node_modules/.pnpm/react-router-dom@6.30.6_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/react-router-dom/dist/umd/react-router-dom.development.js:807:9)
+    at nav
+    at RailSidebar (/Users/tunbee27/Documents/Tako-san-ui-rebuild/src/web/design-system/navigation.tsx:195:3)
+    at div
+    at AppLayout (/Users/tunbee27/Documents/Tako-san-ui-rebuild/src/web/components/layout/AppLayout.tsx:19:61)
+    at Router (/Users/tunbee27/Documents/Tako-san-ui-rebuild/node_modules/.pnpm/react-router@6.30.6_react@18.3.1/node_modules/react-router/dist/umd/react-router.development.js:1203:17)
+    at StaticRouter (file:///Users/tunbee27/Documents/Tako-san-ui-rebuild/node_modules/.pnpm/react-router-dom@6.30.6_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/react-router-dom/server.mjs:11:3)
+Warning: useLayoutEffect does nothing on the server, because its effect cannot be encoded into the server renderer's output format. This will lead to a mismatch between the initial, non-hydrated UI and the intended UI. To avoid this, useLayoutEffect should only be used in components that render exclusively on the client. See https://reactjs.org/link/uselayouteffect-ssr for common fixes.
+    at MotionDOMComponent (file:///Users/tunbee27/Documents/Tako-san-ui-rebuild/node_modules/.pnpm/framer-motion@13.4.0_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/framer-motion/dist/es/motion/index.mjs:45:16)
+    at span
+    at NavLinkContent (/Users/tunbee27/Documents/Tako-san-ui-rebuild/src/web/design-system/navigation.tsx:26:3)
+    at a
+    at LinkWithRef (/Users/tunbee27/Documents/Tako-san-ui-rebuild/node_modules/.pnpm/react-router-dom@6.30.6_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/react-router-dom/dist/umd/react-router-dom.development.js:807:9)
+    at li
+    at NavItemButton (/Users/tunbee27/Documents/Tako-san-ui-rebuild/src/web/design-system/navigation.tsx:166:26)
+    at ul
+    at nav
+    at BottomNavigationBar
+    at div
+    at div
+    at AppLayout (/Users/tunbee27/Documents/Tako-san-ui-rebuild/src/web/components/layout/AppLayout.tsx:19:61)
+    at Router (/Users/tunbee27/Documents/Tako-san-ui-rebuild/node_modules/.pnpm/react-router@6.30.6_react@18.3.1/node_modules/react-router/dist/umd/react-router.development.js:1203:17)
+    at StaticRouter (file:///Users/tunbee27/Documents/Tako-san-ui-rebuild/node_modules/.pnpm/react-router-dom@6.30.6_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/react-router-dom/server.mjs:11:3)
+
+stderr | tests/unit/ui07-brand-shell.test.tsx > UI07 shell ownership and accessible brand > legacy /me retains the supplied shell contract
+Warning: useLayoutEffect does nothing on the server, because its effect cannot be encoded into the server renderer's output format. This will lead to a mismatch between the initial, non-hydrated UI and the intended UI. To avoid this, useLayoutEffect should only be used in components that render exclusively on the client. See https://reactjs.org/link/uselayouteffect-ssr for common fixes.
+    at MotionDOMComponent (file:///Users/tunbee27/Documents/Tako-san-ui-rebuild/node_modules/.pnpm/framer-motion@13.4.0_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/framer-motion/dist/es/motion/index.mjs:45:16)
+    at span
+    at NavLinkContent (/Users/tunbee27/Documents/Tako-san-ui-rebuild/src/web/design-system/navigation.tsx:26:3)
+    at a
+    at LinkWithRef (/Users/tunbee27/Documents/Tako-san-ui-rebuild/node_modules/.pnpm/react-router-dom@6.30.6_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/react-router-dom/dist/umd/react-router-dom.development.js:807:9)
+    at nav
+    at RailSidebar (/Users/tunbee27/Documents/Tako-san-ui-rebuild/src/web/design-system/navigation.tsx:195:3)
+    at div
+    at AppLayout (/Users/tunbee27/Documents/Tako-san-ui-rebuild/src/web/components/layout/AppLayout.tsx:19:61)
+    at Router (/Users/tunbee27/Documents/Tako-san-ui-rebuild/node_modules/.pnpm/react-router@6.30.6_react@18.3.1/node_modules/react-router/dist/umd/react-router.development.js:1203:17)
+    at StaticRouter (file:///Users/tunbee27/Documents/Tako-san-ui-rebuild/node_modules/.pnpm/react-router-dom@6.30.6_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/react-router-dom/server.mjs:11:3)
+Warning: useLayoutEffect does nothing on the server, because its effect cannot be encoded into the server renderer's output format. This will lead to a mismatch between the initial, non-hydrated UI and the intended UI. To avoid this, useLayoutEffect should only be used in components that render exclusively on the client. See https://reactjs.org/link/uselayouteffect-ssr for common fixes.
+    at MotionDOMComponent (file:///Users/tunbee27/Documents/Tako-san-ui-rebuild/node_modules/.pnpm/framer-motion@13.4.0_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/framer-motion/dist/es/motion/index.mjs:45:16)
+    at span
+    at NavLinkContent (/Users/tunbee27/Documents/Tako-san-ui-rebuild/src/web/design-system/navigation.tsx:26:3)
+    at a
+    at LinkWithRef (/Users/tunbee27/Documents/Tako-san-ui-rebuild/node_modules/.pnpm/react-router-dom@6.30.6_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/react-router-dom/dist/umd/react-router-dom.development.js:807:9)
+    at li
+    at NavItemButton (/Users/tunbee27/Documents/Tako-san-ui-rebuild/src/web/design-system/navigation.tsx:166:26)
+    at ul
+    at nav
+    at BottomNavigationBar
+    at div
+    at div
+    at AppLayout (/Users/tunbee27/Documents/Tako-san-ui-rebuild/src/web/components/layout/AppLayout.tsx:19:61)
+    at Router (/Users/tunbee27/Documents/Tako-san-ui-rebuild/node_modules/.pnpm/react-router@6.30.6_react@18.3.1/node_modules/react-router/dist/umd/react-router.development.js:1203:17)
+    at StaticRouter (file:///Users/tunbee27/Documents/Tako-san-ui-rebuild/node_modules/.pnpm/react-router-dom@6.30.6_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/react-router-dom/server.mjs:11:3)
+
+stderr | tests/unit/ui07-brand-shell.test.tsx > UI07 shell ownership and accessible brand > legacy /settings retains the supplied shell contract
+Warning: useLayoutEffect does nothing on the server, because its effect cannot be encoded into the server renderer's output format. This will lead to a mismatch between the initial, non-hydrated UI and the intended UI. To avoid this, useLayoutEffect should only be used in components that render exclusively on the client. See https://reactjs.org/link/uselayouteffect-ssr for common fixes.
+    at MotionDOMComponent (file:///Users/tunbee27/Documents/Tako-san-ui-rebuild/node_modules/.pnpm/framer-motion@13.4.0_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/framer-motion/dist/es/motion/index.mjs:45:16)
+    at span
+    at NavLinkContent (/Users/tunbee27/Documents/Tako-san-ui-rebuild/src/web/design-system/navigation.tsx:26:3)
+    at a
+    at LinkWithRef (/Users/tunbee27/Documents/Tako-san-ui-rebuild/node_modules/.pnpm/react-router-dom@6.30.6_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/react-router-dom/dist/umd/react-router-dom.development.js:807:9)
+    at nav
+    at RailSidebar (/Users/tunbee27/Documents/Tako-san-ui-rebuild/src/web/design-system/navigation.tsx:195:3)
+    at div
+    at AppLayout (/Users/tunbee27/Documents/Tako-san-ui-rebuild/src/web/components/layout/AppLayout.tsx:19:61)
+    at Router (/Users/tunbee27/Documents/Tako-san-ui-rebuild/node_modules/.pnpm/react-router@6.30.6_react@18.3.1/node_modules/react-router/dist/umd/react-router.development.js:1203:17)
+    at StaticRouter (file:///Users/tunbee27/Documents/Tako-san-ui-rebuild/node_modules/.pnpm/react-router-dom@6.30.6_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/react-router-dom/server.mjs:11:3)
+Warning: useLayoutEffect does nothing on the server, because its effect cannot be encoded into the server renderer's output format. This will lead to a mismatch between the initial, non-hydrated UI and the intended UI. To avoid this, useLayoutEffect should only be used in components that render exclusively on the client. See https://reactjs.org/link/uselayouteffect-ssr for common fixes.
+    at MotionDOMComponent (file:///Users/tunbee27/Documents/Tako-san-ui-rebuild/node_modules/.pnpm/framer-motion@13.4.0_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/framer-motion/dist/es/motion/index.mjs:45:16)
+    at span
+    at NavLinkContent (/Users/tunbee27/Documents/Tako-san-ui-rebuild/src/web/design-system/navigation.tsx:26:3)
+    at a
+    at LinkWithRef (/Users/tunbee27/Documents/Tako-san-ui-rebuild/node_modules/.pnpm/react-router-dom@6.30.6_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/react-router-dom/dist/umd/react-router-dom.development.js:807:9)
+    at li
+    at NavItemButton (/Users/tunbee27/Documents/Tako-san-ui-rebuild/src/web/design-system/navigation.tsx:166:26)
+    at ul
+    at nav
+    at BottomNavigationBar
+    at div
+    at div
+    at AppLayout (/Users/tunbee27/Documents/Tako-san-ui-rebuild/src/web/components/layout/AppLayout.tsx:19:61)
+    at Router (/Users/tunbee27/Documents/Tako-san-ui-rebuild/node_modules/.pnpm/react-router@6.30.6_react@18.3.1/node_modules/react-router/dist/umd/react-router.development.js:1203:17)
+    at StaticRouter (file:///Users/tunbee27/Documents/Tako-san-ui-rebuild/node_modules/.pnpm/react-router-dom@6.30.6_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/react-router-dom/server.mjs:11:3)
+
+stderr | tests/unit/ui07-brand-shell.test.tsx > UI07 shell ownership and accessible brand > legacy /week retains the supplied shell contract
+Warning: useLayoutEffect does nothing on the server, because its effect cannot be encoded into the server renderer's output format. This will lead to a mismatch between the initial, non-hydrated UI and the intended UI. To avoid this, useLayoutEffect should only be used in components that render exclusively on the client. See https://reactjs.org/link/uselayouteffect-ssr for common fixes.
+    at MotionDOMComponent (file:///Users/tunbee27/Documents/Tako-san-ui-rebuild/node_modules/.pnpm/framer-motion@13.4.0_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/framer-motion/dist/es/motion/index.mjs:45:16)
+    at span
+    at NavLinkContent (/Users/tunbee27/Documents/Tako-san-ui-rebuild/src/web/design-system/navigation.tsx:26:3)
+    at a
+    at LinkWithRef (/Users/tunbee27/Documents/Tako-san-ui-rebuild/node_modules/.pnpm/react-router-dom@6.30.6_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/react-router-dom/dist/umd/react-router-dom.development.js:807:9)
+    at nav
+    at RailSidebar (/Users/tunbee27/Documents/Tako-san-ui-rebuild/src/web/design-system/navigation.tsx:195:3)
+    at div
+    at AppLayout (/Users/tunbee27/Documents/Tako-san-ui-rebuild/src/web/components/layout/AppLayout.tsx:19:61)
+    at Router (/Users/tunbee27/Documents/Tako-san-ui-rebuild/node_modules/.pnpm/react-router@6.30.6_react@18.3.1/node_modules/react-router/dist/umd/react-router.development.js:1203:17)
+    at StaticRouter (file:///Users/tunbee27/Documents/Tako-san-ui-rebuild/node_modules/.pnpm/react-router-dom@6.30.6_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/react-router-dom/server.mjs:11:3)
+Warning: useLayoutEffect does nothing on the server, because its effect cannot be encoded into the server renderer's output format. This will lead to a mismatch between the initial, non-hydrated UI and the intended UI. To avoid this, useLayoutEffect should only be used in components that render exclusively on the client. See https://reactjs.org/link/uselayouteffect-ssr for common fixes.
+    at MotionDOMComponent (file:///Users/tunbee27/Documents/Tako-san-ui-rebuild/node_modules/.pnpm/framer-motion@13.4.0_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/framer-motion/dist/es/motion/index.mjs:45:16)
+    at span
+    at NavLinkContent (/Users/tunbee27/Documents/Tako-san-ui-rebuild/src/web/design-system/navigation.tsx:26:3)
+    at a
+    at LinkWithRef (/Users/tunbee27/Documents/Tako-san-ui-rebuild/node_modules/.pnpm/react-router-dom@6.30.6_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/react-router-dom/dist/umd/react-router-dom.development.js:807:9)
+    at li
+    at NavItemButton (/Users/tunbee27/Documents/Tako-san-ui-rebuild/src/web/design-system/navigation.tsx:166:26)
+    at ul
+    at nav
+    at BottomNavigationBar
+    at div
+    at div
+    at AppLayout (/Users/tunbee27/Documents/Tako-san-ui-rebuild/src/web/components/layout/AppLayout.tsx:19:61)
+    at Router (/Users/tunbee27/Documents/Tako-san-ui-rebuild/node_modules/.pnpm/react-router@6.30.6_react@18.3.1/node_modules/react-router/dist/umd/react-router.development.js:1203:17)
+    at StaticRouter (file:///Users/tunbee27/Documents/Tako-san-ui-rebuild/node_modules/.pnpm/react-router-dom@6.30.6_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/react-router-dom/server.mjs:11:3)
+
+ ✓ tests/unit/ui07-brand-shell.test.tsx (13 tests) 31ms
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 1 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  tests/unit/ui07-brand-exports.test.mjs > UI07 reproducible digital brand > manifest, browser links and precache resolve while keeping legacy compatibility assets
+Error: ENOENT: no such file or directory, open '/Users/tunbee27/Documents/Tako-san-ui-rebuild/public/frigo/brand/frigo-wordmark.svg'
+ ❯ tests/unit/ui07-brand-exports.test.mjs:84:15
+
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/1]⎯
+
+
+ Test Files  1 failed | 3 passed (4)
+      Tests  1 failed | 81 passed (82)
+   Start at  19:34:40
+   Duration  1.58s (transform 942ms, setup 54ms, collect 2.31s, tests 559ms, environment 418ms, prepare 232ms)

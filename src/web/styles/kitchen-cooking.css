@@ -446,3 +446,8 @@
     grid-row: 2;
   }
 }
+
+.takosan-rebuild .cooking-brand {
+  width: 128px;
+  height: auto;
+}

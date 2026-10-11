@@ -1,0 +1,125 @@
+{
+  "schemaVersion": 1,
+  "records": [
+    {
+      "path": "docs/ui-rebuild/google-auth-320-2026-10-11/evidence/auth-320.png",
+      "size": 50026,
+      "sha256": "be4a4dfa12b20d892625334cb8a4744a15899ad5c49aa7434d720c87002b78f5"
+    },
+    {
+      "path": "docs/ui-rebuild/google-auth-320-2026-10-11/evidence/browser-debug.log.gz",
+      "size": 521,
+      "sha256": "8b4dc5db0afcd31c2c6fea57b5fd0afdf1612a4e87268026db4d39478b6c5a79"
+    },
+    {
+      "path": "docs/ui-rebuild/google-auth-320-2026-10-11/evidence/browser-final.log.gz",
+      "size": 289,
+      "sha256": "041333e04e946d94452686450de6a55cb533cb71782acbaf25a4122dd159d446"
+    },
+    {
+      "path": "docs/ui-rebuild/google-auth-320-2026-10-11/evidence/browser-fixed.log.gz",
+      "size": 471,
+      "sha256": "fafe15716519153bef59303f5a9cb3e444d1b5325f930ce7da005238d381c60f"
+    },
+    {
+      "path": "docs/ui-rebuild/google-auth-320-2026-10-11/evidence/browser-release-final.log.gz",
+      "size": 289,
+      "sha256": "041333e04e946d94452686450de6a55cb533cb71782acbaf25a4122dd159d446"
+    },
+    {
+      "path": "docs/ui-rebuild/google-auth-320-2026-10-11/evidence/browser-verified.log.gz",
+      "size": 460,
+      "sha256": "17dbb80b3a72b09952277922acace635edd9412ba41151b021c0b964ac0e3546"
+    },
+    {
+      "path": "docs/ui-rebuild/google-auth-320-2026-10-11/evidence/browser.log.gz",
+      "size": 521,
+      "sha256": "8b4dc5db0afcd31c2c6fea57b5fd0afdf1612a4e87268026db4d39478b6c5a79"
+    },
+    {
+      "path": "docs/ui-rebuild/google-auth-320-2026-10-11/evidence/checks.json",
+      "size": 17661,
+      "sha256": "9994d347889bcf682f885890ef8bb6536c8b5c5feeabaf3480e153f4b18a967b"
+    },
+    {
+      "path": "docs/ui-rebuild/google-auth-320-2026-10-11/evidence/failures/forgot-return-selector.json",
+      "size": 13005,
+      "sha256": "dbf49b7d1c543c4846909dc49dd72c30a0c71c0792999a55444c42766cb6dbc9"
+    },
+    {
+      "path": "docs/ui-rebuild/google-auth-320-2026-10-11/evidence/failures/provider-label-normalization.json",
+      "size": 3314,
+      "sha256": "a03d0c22c50d9c2d27f623221c53df99eba199523fc51b922055a0835dec65f1"
+    },
+    {
+      "path": "docs/ui-rebuild/google-auth-320-2026-10-11/evidence/failures/resize-frame-detached.json",
+      "size": 8522,
+      "sha256": "42a20e96cc476f24d20c37516c4c6e7e24feb08583881683dce2a4da78bbe8f2"
+    },
+    {
+      "path": "docs/ui-rebuild/google-auth-320-2026-10-11/evidence/full-tests-canonical.log.gz",
+      "size": 61320,
+      "sha256": "4a33cfc1d0050417f95cf35f13d556f786c1b4ae3124f2cfecf4eb8ade5f0d39"
+    },
+    {
+      "path": "docs/ui-rebuild/google-auth-320-2026-10-11/evidence/full-tests.log.gz",
+      "size": 67569,
+      "sha256": "5b8c48b7d4eaa71973ee0057c94a3ef531d7ae31cba371187692f096903d975f"
+    },
+    {
+      "path": "docs/ui-rebuild/google-auth-320-2026-10-11/evidence/google-keyboard-focus-320.png",
+      "size": 50929,
+      "sha256": "6aec40d23b74ac6e7c313a570ba0e692502c8655a4899ff5a867ab04e9d21023"
+    },
+    {
+      "path": "docs/ui-rebuild/google-auth-320-2026-10-11/evidence/google-load-failed-320.png",
+      "size": 57408,
+      "sha256": "2a8fa2246b7f6e91e0ef26b0989d53c8669de40a9401824b6c46742789f716f9"
+    },
+    {
+      "path": "docs/ui-rebuild/google-auth-320-2026-10-11/evidence/google-retry-320.png",
+      "size": 50025,
+      "sha256": "359937571902e04d55febfa94b1703af09ef0ab43c305675c72a562585d81780"
+    },
+    {
+      "path": "docs/ui-rebuild/google-auth-320-2026-10-11/evidence/migrations.log.gz",
+      "size": 130,
+      "sha256": "6dec8c49c77e69f18a837fbdd4ef9551a9de701fa8e58a6a3e8f82a258f4e86b"
+    },
+    {
+      "path": "docs/ui-rebuild/google-auth-320-2026-10-11/evidence/path-tests.log.gz",
+      "size": 442,
+      "sha256": "4cc109215e3bc42fa5f9afb97996af8a79bf64e5e5b74f6d3a031273fc58581e"
+    },
+    {
+      "path": "docs/ui-rebuild/google-auth-320-2026-10-11/evidence/production-baseline-ready.json",
+      "size": 608,
+      "sha256": "7d4b30b716df0c3b41a664584bdbaee6e07d6a700508b1645f8bf4c2ac7058a3"
+    },
+    {
+      "path": "docs/ui-rebuild/google-auth-320-2026-10-11/evidence/provider-probe.json",
+      "size": 2904,
+      "sha256": "3ffc4124487edda68939621c03397f0585a86c054f555e48526c07a052a1e414"
+    },
+    {
+      "path": "docs/ui-rebuild/google-auth-320-2026-10-11/evidence/scope-proof.json",
+      "size": 596,
+      "sha256": "52a05f682245a3942eb9f215e0566f7ecf25d6b7705f26d9ded6ccb4e8a4fd75"
+    },
+    {
+      "path": "docs/ui-rebuild/google-auth-320-2026-10-11/evidence/text2-short-320-widget.png",
+      "size": 4448,
+      "sha256": "6a9566b87301b0e323cb8b430e1664a53a14a8ae5bb0fe9b326de39375bfc6e9"
+    },
+    {
+      "path": "docs/ui-rebuild/google-auth-320-2026-10-11/evidence/text2-short-320.png",
+      "size": 94673,
+      "sha256": "02c31fd56bd631633b05f467a8f8ecff0d026bdd4c5a4c4c617952a147c74618"
+    },
+    {
+      "path": "docs/ui-rebuild/google-auth-320-2026-10-11/evidence/text2-short-768-widget.png",
+      "size": 4542,
+      "sha256": "8f5613ef1daf5fdf6c569785449755b103b1631bb73290ad295b0baa6b8a6ad4"
+    }
+  ]
+}

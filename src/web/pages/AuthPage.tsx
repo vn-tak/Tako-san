@@ -191,6 +191,8 @@ export const AuthPage: React.FC = () => {
     }
     let active = true;
     let timer: number | undefined;
+    let resizeObserver: ResizeObserver | undefined;
+    let renderGoogleButton: (() => void) | undefined;
     let attempts = 0;
     const handleGoogleResponse = async (response: any) => {
       if (!active) return;
@@ -247,20 +249,35 @@ export const AuthPage: React.FC = () => {
           auto_select: false,
         });
 
-        if (googleBtnRef.current && active) {
-          googleBtnRef.current.replaceChildren();
-          const measuredWidth = Math.floor(googleBtnRef.current.getBoundingClientRect().width);
-          const buttonWidth = Math.min(400, Math.max(200, measuredWidth || 320));
-          googleId.renderButton(googleBtnRef.current, {
-            theme: 'outline',
-            size: 'large',
-            width: buttonWidth,
-            text: 'continue_with',
-            shape: 'pill',
-            locale: 'vi',
-          });
+        const googleHost = googleBtnRef.current;
+        if (googleHost && active) {
+          let renderedWidth = 0;
+          renderGoogleButton = () => {
+            if (!active) return;
+            const measuredWidth = Math.floor(googleHost.getBoundingClientRect().width);
+            const buttonWidth = Math.min(400, Math.max(200, measuredWidth || 320));
+            if (buttonWidth === renderedWidth) return;
+            googleHost.replaceChildren();
+            googleId.renderButton(googleHost, {
+              theme: 'outline',
+              size: 'large',
+              width: buttonWidth,
+              // The longer Vietnamese continue label forces a 330px iframe at 320px.
+              text: 'signin_with',
+              shape: 'pill',
+              locale: 'vi',
+            });
+            renderedWidth = buttonWidth;
+          };
+          renderGoogleButton();
+          // GIS fixes its width at render time; update it when the host changes size.
+          if (typeof ResizeObserver !== 'undefined') {
+            resizeObserver = new ResizeObserver(renderGoogleButton);
+            resizeObserver.observe(googleHost);
+          }
+          window.addEventListener('resize', renderGoogleButton);
           if (requestedProvider === 'google') {
-            googleBtnRef.current.scrollIntoView({ block: 'center', behavior: 'smooth' });
+            googleHost.scrollIntoView({ block: 'center', behavior: 'smooth' });
           }
         }
       } catch (e) {
@@ -274,6 +291,8 @@ export const AuthPage: React.FC = () => {
     return () => {
       active = false;
       if (timer !== undefined) window.clearTimeout(timer);
+      resizeObserver?.disconnect();
+      if (renderGoogleButton) window.removeEventListener('resize', renderGoogleButton);
     };
   }, [mode, googleRetry, googleClientId, navigate, requestedProvider, setAuthSession]);
 

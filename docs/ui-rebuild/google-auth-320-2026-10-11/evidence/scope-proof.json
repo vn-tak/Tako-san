@@ -1,0 +1,21 @@
+{
+  "base": "13f8c9eb2190e0520bdde5edb9889b64fda5b691",
+  "signedCredentialCallbackByteIdentical": true,
+  "callbackSha256": "ce7caf2ceeb11c93913ecca9e26820b5baecec239814d8377251460f8b9e18d8",
+  "protectedPathsUnchanged": [
+    "src/worker",
+    "src/web/services",
+    "src/web/stores",
+    "src/web/features/auth",
+    "src/shared",
+    "packages",
+    "migrations",
+    "public",
+    ".github/workflows",
+    "wrangler.jsonc",
+    "wrangler.staging.jsonc",
+    "package.json",
+    "pnpm-lock.yaml"
+  ],
+  "appSourceSha256": "8aa2d31fd88979d414b75b197a57bc10ff85aaa42767fe36d8304a58d5295b5a"
+}

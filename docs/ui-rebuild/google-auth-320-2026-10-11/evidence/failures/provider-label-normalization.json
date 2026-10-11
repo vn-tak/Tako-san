@@ -1,0 +1,49 @@
+{
+  "status": "FAIL",
+  "scope": "Local build overlaid on production origin in an isolated browser, hosted bytes unchanged",
+  "origin": "https://frigo.tungjpstore.net",
+  "local": "http://127.0.0.1:5232",
+  "hosted": false,
+  "observations": [
+    {
+      "name": "failure-provider",
+      "label": [
+        "Đăng nhập bằng GoogleĐăng nhập bằng GoogleMở trong thẻ mới"
+      ]
+    }
+  ],
+  "errors": [],
+  "blockedWrites": 0,
+  "configReads": 1,
+  "overlayAssets": {
+    "/auth": "2853e0ef1a73ed8ed01f9f337f1037d8e951b8f7a867049ebbed0749a5bd3c80",
+    "/assets/vendor-icons-RWMnI8W3.js": "82345109356767c15da49aa3c17159177bd04a9fd4ee0c8306f9abe3de3e60db",
+    "/assets/vendor-query-D03hXVOl.js": "73420718dfa3fcdb47671b26d25b919496308eea8de78c035419a702b41ebea8",
+    "/assets/index-CshmM-GV.css": "7c400d1db844a12629f4d9dbd290b6732d12359bf29993e111ba84c196112d61",
+    "/assets/vendor-react-B6oo3S7f.js": "3039bd59cc20eedc838a162d192fe24d6baf35b902b257b49f8bf0ded1bebbad",
+    "/assets/index-o_Mm_lRJ.js": "69addc809f4847ca000edfe5a4b8a87b1d2e4982a2ca1d606549b459c1c5421f",
+    "/assets/motion-D1CmBm7P.js": "a9a8944021e4e6f311927304a3e2aee84be22ecc9fc0a449927d26bdf74e37f1",
+    "/takosan/rebuild/symbol.svg": "3542fde9816dbf6626005f784318d3df3e24703fc5336d7ca316e1f47ef1125a",
+    "/assets/AuthPage-DYLFADfb.js": "ba1a0ede13370e7fc7621a3b567f2c45f1fb158dd638f5ff8899db4be681b46c",
+    "/assets/Button-dlgN0kCK.js": "6c84224a62a0501949a01348a51f5207da644ff7b2dc88c3dda295107a042257",
+    "/assets/react-B51rbmP9.js": "70e9501e0539afccdf0b0535a9f1c156d27eb6aa79f6f2fb054ce3a6f01c3854",
+    "/takosan/fonts/be-vietnam-pro-latin-400-normal.woff2": "cefd95a324be2eaf3e23aff008a33cb029872f266d785204fd2f2eaac2abb0d3",
+    "/takosan/fonts/be-vietnam-pro-latin-ext-400-normal.woff2": "c481d1798fd5d657632f9e32c5489b729653d141f33570e4bbc2cfcb7c4cf5ea",
+    "/takosan/fonts/be-vietnam-pro-vietnamese-400-normal.woff2": "a1a7de622e4266ff7d5fdef40712c3aa9fa0a7b1213219b4b172b41c62e9fd5a",
+    "/takosan/rebuild/lockup.svg": "069d6444f3d6a1da6a9fb6461f829ca5c7559ec74b8d8fed32f46315a986ee4c",
+    "/takosan/fonts/be-vietnam-pro-latin-600-normal.woff2": "136998431df364d059b40ec4ed821fd193437096011f88c8676b5a27274a34ed",
+    "/takosan/fonts/be-vietnam-pro-latin-ext-700-normal.woff2": "2a11d0d40a69fb7d3865463ad254fa393840b7d25c8207d60af3dc61f2235304",
+    "/takosan/fonts/be-vietnam-pro-vietnamese-600-normal.woff2": "86dbbb4b20a5ae31c479f1aff09532034340c87239ac2bb183b152c697755227",
+    "/takosan/fonts/be-vietnam-pro-vietnamese-700-normal.woff2": "390d020c9aa37584d7b389dde664d6d8e202013d0d5b13ba6d2297d6f1865f6b",
+    "/takosan/fonts/be-vietnam-pro-latin-700-normal.woff2": "6ed20761ae0472f8f1ce186f64739c41787db04c881d5ba0530027dc4eddf4b6",
+    "/takosan/fonts/be-vietnam-pro-latin-ext-600-normal.woff2": "1d37ca4a523cdd1e35b14adbaa0b0d238dc6a057ac3c4aa77ecb9ce534bae475"
+  },
+  "sourceHash": "8aa2d31fd88979d414b75b197a57bc10ff85aaa42767fe36d8304a58d5295b5a",
+  "failure": "Error: expect(received).toBe(expected) // Object.is equality\n\nExpected: true\nReceived: false\n\nCall Log:\n- Timeout 20000ms exceeded while waiting on the predicate",
+  "exclusions": [
+    "real sign-in/OTP delivery",
+    "real devices/Safari",
+    "provider text zoom",
+    "authenticated household journeys"
+  ]
+}

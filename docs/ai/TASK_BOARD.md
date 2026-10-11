@@ -1,3 +1,31 @@
+# Google Sign-In responsive follow-up - 2026-10-11 JST
+
+**Status:** `GOOGLE_AUTH_320_IMPLEMENTED_VALIDATION_PENDING`; not merged or deployed.
+Canonical repository `vn-tak/Tako-san`, branch `codex/auth-google-responsive`,
+checkout `/Users/tunbee27/Documents/Tako-san-google-responsive`, base
+`13f8c9eb2190e0520bdde5edb9889b64fda5b691`.
+
+**Actual change:** Provider signin_with label and width-change-only re-render via
+ResizeObserver/window-resize, with cleanup on mode/retry/unmount. Signed credential
+callback byte-identical; backend/auth protocol/payments/migrations/catalog/flags/
+dependencies/assets/release policy unchanged. Existing UI01-UI14 production remains
+D1/500 with Planner/T20 on (successful run38095649957).
+
+**Executed:** 5 auth files/53tests, types, full lint, paired-flags build and local
+migration smoke PASS. Actual-provider isolated build overlay final18checksPASS, including visible
+keyboard focus/provider capture under application textx2. Initial full suite failed11 existing
+macOS /var-vs-/private/var path assertions across2files; canonical TMPDIR focused
+rerun93/93PASS. Canonical full suite then hit1existing staging Wrangler5second timeout
+(287files/6743testsPASS); full rerun with2workers is running. No timeout waiver.
+No real login/OTP/device/Safari/provider-text-enlargement certification.
+
+**Next:** Finish full gates and review, protected PR merge/exact-main CI, staged
+same-SHA shadow/1/2/5/25/D1, then normally approved production sequence. Per existing
+policy a new SHA temporarily serves71static before500; no gate bypass.
+Evidence and exact commands: `docs/ui-rebuild/google-auth-320-2026-10-11/RESULT.md`.
+
+---
+
 # UI14 - Frontend delivery and motion local checkpoint - 2026-10-11 JST
 
 Status: `UI14_LOCAL_VERIFIED_REVIEW_REQUIRED`. ADR-057; base

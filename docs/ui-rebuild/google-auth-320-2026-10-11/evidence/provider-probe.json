@@ -1,0 +1,137 @@
+{
+  "scope": "Actual production provider with DOM-only label experiment; no hosted-source change or sign-in submission",
+  "records": [
+    {
+      "width": 320,
+      "before": {
+        "viewport": 320,
+        "scrollWidth": 325,
+        "frame": {
+          "x": -5,
+          "y": 437.5625,
+          "width": 330,
+          "height": 44,
+          "top": 437.5625,
+          "right": 325,
+          "bottom": 481.5625,
+          "left": -5
+        }
+      },
+      "after": {
+        "viewport": 320,
+        "scrollWidth": 320,
+        "frame": {
+          "x": 10,
+          "y": 437.5625,
+          "width": 300,
+          "height": 44,
+          "top": 437.5625,
+          "right": 310,
+          "bottom": 481.5625,
+          "left": 10
+        }
+      }
+    },
+    {
+      "width": 390,
+      "before": {
+        "viewport": 390,
+        "scrollWidth": 390,
+        "frame": {
+          "x": 10,
+          "y": 377.578125,
+          "width": 370,
+          "height": 44,
+          "top": 377.578125,
+          "right": 380,
+          "bottom": 421.578125,
+          "left": 10
+        }
+      },
+      "after": {
+        "viewport": 390,
+        "scrollWidth": 390,
+        "frame": {
+          "x": 10,
+          "y": 377.578125,
+          "width": 370,
+          "height": 44,
+          "top": 377.578125,
+          "right": 380,
+          "bottom": 421.578125,
+          "left": 10
+        }
+      }
+    },
+    {
+      "width": 768,
+      "before": {
+        "viewport": 768,
+        "scrollWidth": 768,
+        "frame": {
+          "x": 174,
+          "y": 377.578125,
+          "width": 420,
+          "height": 44,
+          "top": 377.578125,
+          "right": 594,
+          "bottom": 421.578125,
+          "left": 174
+        }
+      },
+      "after": {
+        "viewport": 768,
+        "scrollWidth": 768,
+        "frame": {
+          "x": 174,
+          "y": 377.578125,
+          "width": 420,
+          "height": 44,
+          "top": 377.578125,
+          "right": 594,
+          "bottom": 421.578125,
+          "left": 174
+        }
+      }
+    },
+    {
+      "width": 1440,
+      "before": {
+        "viewport": 1440,
+        "scrollWidth": 1440,
+        "frame": {
+          "x": 510,
+          "y": 412.578125,
+          "width": 420,
+          "height": 44,
+          "top": 412.578125,
+          "right": 930,
+          "bottom": 456.578125,
+          "left": 510
+        }
+      },
+      "after": {
+        "viewport": 1440,
+        "scrollWidth": 1440,
+        "frame": {
+          "x": 510,
+          "y": 412.578125,
+          "width": 420,
+          "height": 44,
+          "top": 412.578125,
+          "right": 930,
+          "bottom": 456.578125,
+          "left": 510
+        }
+      }
+    },
+    {
+      "scenario": "resize1440to320-without-rerender",
+      "after": {
+        "viewport": 320,
+        "scrollWidth": 370
+      }
+    }
+  ],
+  "blockedWrites": 0
+}
